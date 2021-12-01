@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
+    <title>The First Blog</title>
     <url>/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<p>欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！此博客基于<a href="https://hexo.io/">Hexo</a>打造，主题使用的是<a href="https://github.com/zhwangart/hexo-theme-ocean">Oceon</a>. 当你在阅读的时候有任何的问题,欢迎与我联系.</p>
+<span id="more"></span>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h2 id="About-willkyu"><a href="#About-willkyu" class="headerlink" title="About willkyu"></a>About willkyu</h2><p>一只谜拟Q,平时会捣鼓捣鼓代码啥的(是菜比).<br>联系方式请见<a href="https://github.com/willkyu">我的GitHub主页</a></p>
+<h2 id="About-this-blog"><a href="#About-this-blog" class="headerlink" title="About this blog"></a>About this blog</h2><p>这个博客应该会用来记录一些平时研究或是感兴趣的东西/分享生活这样.<br>最近在专注于宝可梦系列的乱数研究(但还是喜欢手刷~).</p>
+<h2 id="To-do-list"><a href="#To-do-list" class="headerlink" title="To-do list"></a>To-do list</h2><p>下面是一些之后的计划,用小标题表示,具体的进度会随时更新在下面.</p>
+<h3 id="整理一下宝可梦各时代的乱数方法"><a href="#整理一下宝可梦各时代的乱数方法" class="headerlink" title="整理一下宝可梦各时代的乱数方法"></a>整理一下宝可梦各时代的乱数方法</h3><p>–第三世代(RSE)<br>–第四世代(DPPt HgSs)<br>–第五世代(BW BW2)<br>–第六世代(XY OrAs)<br>–第七世代(SM UsUm)</p>
+<h3 id="总结一下搭建博客的方法"><a href="#总结一下搭建博客的方法" class="headerlink" title="总结一下搭建博客的方法"></a>总结一下搭建博客的方法</h3><p>可能接下来就开始搞这个,不然很容易忘记了.</p>
+<h3 id="给博客加上评论等功能"><a href="#给博客加上评论等功能" class="headerlink" title="给博客加上评论等功能"></a>给博客加上评论等功能</h3><p>弄完上一个就搞.</p>
+<h3 id="完善博客相册"><a href="#完善博客相册" class="headerlink" title="完善博客相册"></a>完善博客相册</h3><p>No Hurry.</p>
+<h3 id="个性化博客-现在主要还是直接套用的模板"><a href="#个性化博客-现在主要还是直接套用的模板" class="headerlink" title="个性化博客(现在主要还是直接套用的模板)"></a>个性化博客(现在主要还是直接套用的模板)</h3><p>No Hurry.</p>
 ]]></content>
+      <tags>
+        <tag>Life</tag>
+      </tags>
   </entry>
 </search>
