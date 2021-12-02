@@ -83,19 +83,19 @@
 <p>图中因为我已经创建过了，所以会报错.</p>
 </blockquote>
 <p>创建后默认自动启用 HTTPS，博客地址为：<a target="_blank" rel="noopener" href="https://username.github.io/">https://username.github.io</a>. 其中 <em>username</em> 是你的 GitHub 账号名. （不过可能进去没啥东西）</p>
-<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>Hexo 基于 Node.js，搭建过程中还需要使用 <code>npm</code>（Node.js 已带） 和 <code>git</code>，因此先搭建本地操作环境，安装 Node.js 和 Git。</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>Hexo 基于 Node.js，搭建过程中还需要使用 <code>npm</code>（Node.js 已带） 和 <code>git</code>，因此先搭建本地操作环境，安装 Node.js 和 Git.</p>
 <blockquote>
 <p>这里我全部按默认配置完成安装</p>
 </blockquote>
 <h3 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h3><p>访问 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js 官方网站</a>下载并安装Node.js . 这里我选择的是LTS版本（16.13.1），当前 <a href="ttps://hexo.io/zh-cn/docs/">Hexo 官方文档</a>建议 Node.js 版本高于12.0.0，可随时确认.</p>
 <blockquote>
 <p>此外，使用 Node.js 官方安装程序时，请确保勾选 <em>Add to PATH</em> 选项（默认已勾选）</p>
-<p>安装完成后，组合键<kbd>Win</kbd>+<kbd>R</kbd> 输入 <code>cmd</code> 并打开，依次输入 <code>node -v</code>、<code>npm -v</code>并回车，如下图出现程序版本号即安装成功。</p>
+<p>安装完成后，组合键<kbd>Win</kbd>+<kbd>R</kbd> 输入 <code>cmd</code> 并打开，依次输入 <code>node -v</code>、<code>npm -v</code>并回车，如下图出现程序版本号即安装成功.</p>
 </blockquote>
 <p><img src="../images/body/Build-Your-Own-Blog-Like-This-One/Figure2.png" alt="Figure2"></p>
 <h3 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h3><p>访问 <a target="_blank" rel="noopener" href="https://git-scm.com/download/win">Git 官方下载地址</a>下载并安装 Git.</p>
 <blockquote>
-<p>安装完成后，组合键 <kbd>Win</kbd>+<kbd>R</kbd> 输入 <code>cmd</code> 并打开，输入 <code>git --version</code>、并回车，如下图出现程序版本号即安装成功。</p>
+<p>安装完成后，组合键 <kbd>Win</kbd>+<kbd>R</kbd> 输入 <code>cmd</code> 并打开，输入 <code>git --version</code>、并回车，如下图出现程序版本号即安装成功.</p>
 </blockquote>
 <p><img src="../images/body/Build-Your-Own-Blog-Like-This-One/Figure3.png" alt="Figure3"></p>
 <h2 id="连接-GitHub"><a href="#连接-GitHub" class="headerlink" title="连接 GitHub"></a>连接 GitHub</h2><p>打开 <em>Git Bash</em> ，输入以下代码设置用户名和邮箱：</p>
@@ -106,7 +106,7 @@
 <h3 id="创建-SSH-密钥"><a href="#创建-SSH-密钥" class="headerlink" title="创建 SSH 密钥"></a>创建 SSH 密钥</h3><p>继续输入代码<code>ssh-keygen -t rsa -C &quot;GitHub 邮箱&quot;</code> 然后一路回车.</p>
 <h3 id="添加密匙"><a href="#添加密匙" class="headerlink" title="添加密匙"></a>添加密匙</h3><p>进入 &lt;C:\Users\用户名.ssh&gt; 目录（可能需要勾选显示“隐藏的项目”），用记事本打开公钥 <em>id_rsa.pub</em> 文件并复制里面的内容.</p>
 <p>登陆 GitHub ，进入个人 <em>Settings</em> 页面，选择左边栏的 <em>SSH and GPG keys</em> ，点击 <em>New SSH key</em>.</p>
-<p>Title 随便填写一个名字，将 <em>id_rsa.pub</em> 内容复制粘贴到 Key 中，点击 <em>Add SSH key</em> 完成添加。.<br><img src="../images/body/Build-Your-Own-Blog-Like-This-One/Figure4.png" alt="Figure4"></p>
+<p>Title 随便填写一个名字，将 <em>id_rsa.pub</em> 内容复制粘贴到 Key 中，点击 <em>Add SSH key</em> 完成添加.<br><img src="../images/body/Build-Your-Own-Blog-Like-This-One/Figure4.png" alt="Figure4"></p>
 <h3 id="验证连接"><a href="#验证连接" class="headerlink" title="验证连接"></a>验证连接</h3><p>打开 <em>Git Bash</em>，输入 <code>ssh -T git@github.com</code> 出现 <em><strong>“Are you sure……”</strong></em> 字样时，输入 <em>yes</em> 并回车确认.</p>
 <p>显示 <em><strong>“Hi xxx! You’ve successfully……”</strong></em> 即连接成功.</p>
 <h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><p>在喜欢的位置创建一个空文件夹，打开 <em>Git Bash</em> 利用 <code>cd</code> 命令移动至此文件夹.</p>
@@ -120,7 +120,7 @@
 <blockquote>
 <p>使用组合键 <kbd>Ctrl</kbd>+<kbd>C</kbd> 来关闭本地预览服务.</p>
 <p>若组合键 <kbd>Ctrl</kbd>+<kbd>C</kbd> 没有效果，可打开 <em>cmd</em> 运行 <code>taskkill /f /t /im node.exe</code> 来关闭服务.</p>
-<p>如果出现页面加载不出来，可能是端口被占用了。Ctrl+C 关闭服务器，运行 <code>hexo server -p 5000</code> 更改端口号为5000后重试.</p>
+<p>如果出现页面加载不出来，可能是端口被占用了. 组合键 <kbd>Ctrl</kbd>+<kbd>C</kbd> 关闭服务器，运行 <code>hexo server -p 5000</code> 更改端口号为5000后重试.</p>
 </blockquote>
 <p>Hexo 博客文件夹目录结构如下：(图源水印)<br><img src="../images/body/Build-Your-Own-Blog-Like-This-One/Figure5.jpg" alt="Figure5"></p>
 <h2 id="部署-Hexo-到-GitHub-Pages"><a href="#部署-Hexo-到-GitHub-Pages" class="headerlink" title="部署 Hexo 到 GitHub Pages"></a>部署 Hexo 到 GitHub Pages</h2><p>在 <em>Git Bash</em> 中运行 <code>npm install hexo-deployer-git --save</code>.</p>
