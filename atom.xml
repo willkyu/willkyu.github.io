@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-02T12:31:39.034Z</updated>
+  <updated>2021-12-02T16:03:22.125Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://willkyu.github.io/Build-Your-Own-Blog-Like-This-One/"/>
     <id>http://willkyu.github.io/Build-Your-Own-Blog-Like-This-One/</id>
     <published>2021-12-02T01:06:31.000Z</published>
-    <updated>2021-12-02T12:31:39.034Z</updated>
+    <updated>2021-12-02T16:03:22.125Z</updated>
     
     
     <summary type="html">&lt;p&gt;想要搭建自己的博客？跟着这篇文章做下去，谜拟Q都能搭出私人博客！&lt;/p&gt;
@@ -31,6 +31,12 @@
     
     
     <category term="Practical Tips" scheme="http://willkyu.github.io/tags/Practical-Tips/"/>
+    
+    <category term="GitHub" scheme="http://willkyu.github.io/tags/GitHub/"/>
+    
+    <category term="Hexo" scheme="http://willkyu.github.io/tags/Hexo/"/>
+    
+    <category term="Ocean" scheme="http://willkyu.github.io/tags/Ocean/"/>
     
   </entry>
   
