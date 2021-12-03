@@ -92,20 +92,16 @@
 <h3 id="游戏机制与乱数目标"><a href="#游戏机制与乱数目标" class="headerlink" title="游戏机制与乱数目标"></a>游戏机制与乱数目标</h3><p>由于宝可梦绿宝石与没有电的红蓝宝石（以下简称 <em><strong>E</strong></em> 与 <em><strong>RS</strong></em> ）的初始seed相同（<em><strong>E</strong></em> : <code>0x 0</code>，<em><strong>RS</strong></em> : <code>0x 5A0</code>），而当进入游戏后，会以每秒约60帧的速度过帧（根据运行机器不同会有极小差别）.当游戏判断需要生成一只宝可梦的时候便会使用当前帧的数据来生成，我称之为 <em>生成帧</em> . <em>3genSearch</em> 与 <em>RNGReporter</em> 都可以用来获取一个seed下产生的帧的信息.<br>我们的目标就是在某一seed下准确击中想要的帧数，即控制 <em>生成帧</em>.</p>
 <h2 id="确定乱数目标"><a href="#确定乱数目标" class="headerlink" title="确定乱数目标"></a>确定乱数目标</h2><p><em><strong>如果选择了野外相遇的宝可梦，请在队伍中准备一只习得了<a href="https://wiki.52poke.com/wiki/%E7%94%9C%E7%94%9C%E9%A6%99%E6%B0%94%EF%BC%88%E6%8B%9B%E5%BC%8F%EF%BC%89#.E5.8F.AF.E4.BB.A5.E5.AD.A6.E4.BC.9A.E8.AF.A5.E6.8B.9B.E5.BC.8F.E7.9A.84.E5.AE.9D.E5.8F.AF.E6.A2.A6">甜甜香气</a>的宝可梦.</strong></em><br>确定乱数目标后，选择相应的 <em>Method</em>.如果是乱数蛋，请看<a href="">这里</a>.</p>
 <h4 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a><em>Method 1</em></h4><ul>
-<li>草丛/海草/深沙/洞穴/水上/可以遇到宝可梦的建筑中通过移动/转向/甜甜香气遭遇的宝可梦（除了游走宝可梦）</li>
-<li>钓鱼钓上来的宝可梦</li>
-<li>通过碎岩遇到的宝可梦</li>
-</ul>
-<h4 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a><em>Method 2</em></h4><ul>
 <li>御三家（一周目与<em><strong>E</strong></em>二周目）</li>
 <li>定点宝可梦</li>
 <li>釜炎镇 NPC 赠送的小果然的蛋</li>
 </ul>
-<p>如果是 <em>Method 1</em>，在进入战斗前最后一次点击作为生成帧.</p>
-<blockquote>
-<p>实际生成帧可能会更往后，如甜甜香气，但这段时间是固定的，可以通过多次尝试来更新.</p>
-</blockquote>
-<p>如果是 <em>Method 2</em>，点击下面的谜拟Q来查看保存游戏的位置与生成帧的所在时机（ <em><strong>E</strong></em> 与 <em><strong>RS</strong></em> 有些会有区别）：</p>
+<h4 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a><em>Method 2</em></h4><ul>
+<li>草丛/海草/深沙/洞穴/水上/可以遇到宝可梦的建筑中通过移动/转向/甜甜香气遭遇的宝可梦（除了游走宝可梦）</li>
+<li>钓鱼钓上来的宝可梦</li>
+<li>通过碎岩遇到的宝可梦</li>
+</ul>
+<p>如果是 <em>Method 1</em>，点击下面的谜拟Q来查看保存游戏的位置与生成帧的所在时机（ <em><strong>E</strong></em> 与 <em><strong>RS</strong></em> 有些会有区别）：</p>
 <details>
     <summary><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part1/mimikyu.png" alt="Method 2 请点击丘丘" align=left></summary>
     
@@ -127,6 +123,10 @@
   </details>
 <br><br>
 
+<p>如果是 <em>Method 2</em>，在进入战斗前最后一次点击作为生成帧.</p>
+<blockquote>
+<p>实际生成帧可能会更往后，如甜甜香气，但这段时间是固定的，可以通过多次尝试来更新.</p>
+</blockquote>
 <h1 id="开始乱数"><a href="#开始乱数" class="headerlink" title="开始乱数"></a>开始乱数</h1><h2 id="搜索目标宝可梦"><a href="#搜索目标宝可梦" class="headerlink" title="搜索目标宝可梦"></a>搜索目标宝可梦</h2><p>打开乱数工具，选择/填入图中红框中内容：<br><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part1/Figure1.png" alt="Figure1"></p>
 <ol>
 <li>根据乱数目标选择<em>固定</em>或<em>野生</em>.</li>
