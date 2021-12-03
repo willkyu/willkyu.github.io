@@ -74,7 +74,7 @@
 <p>封面 [ID:57789285]. </p>
 <span id="more"></span>
 
-<p><strong>注意，本教程仅支持：</strong><br>| Support     |   红蓝宝石  |   绿宝石     |<br>| :———: | :———: | :———: |<br>| 电池没电     |      ✔     |     ✔       |<br>| 电池有电     |      ✘     |     ✔       |</p>
+<p><strong>注意，本教程仅支持：</strong><br><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part1/Support.png" alt="Support"></p>
 <p>如果你在找有电的红蓝宝石实机乱数教程，请点击<a href="">这里</a>.</p>
 <blockquote>
 <p>暂时还没写这一块，等我写了会加上.</p>
@@ -108,18 +108,41 @@
 <p>真正意义上的随机数（或者随机事件）在某次产生过程中是按照实验过程中表现的分布概率随机产生的，其结果是不可预测的，是不可见的。而计算机中的随机函数是按照一定算法模拟产生的，其结果是确定的，是可见的。我们可以这样认为这个可预见的结果其出现的概率是100%。所以用计算机随机函数所产生的“随机数”并不随机，是伪随机数。</p>
 </blockquote>
 <h3 id="游戏机制与乱数目标"><a href="#游戏机制与乱数目标" class="headerlink" title="游戏机制与乱数目标"></a>游戏机制与乱数目标</h3><p>由于宝可梦绿宝石与没有电的红蓝宝石（以下简称 <em><strong>E</strong></em> 与 <em><strong>RS</strong></em>）的初始seed相同（<em><strong>E</strong></em>: <code>0x 0</code>，<em><strong>RS</strong></em>: <code>0x 5A0</code>），而当进入游戏后，会以每秒约60帧的速度过帧（根据运行机器不同会有极小差别）.当游戏判断需要生成一只宝可梦的时候便会使用当前帧的数据来生成，我称之为 <em>生成帧</em> . <em>3genSearch</em> 与 <em>RNGReporter</em> 都可以用来获取一个seed下产生的帧的信息.<br>我们的目标就是在某一seed下准确击中想要的帧数，即控制 <em>生成帧</em>.</p>
-<h2 id="确定乱数目标"><a href="#确定乱数目标" class="headerlink" title="确定乱数目标"></a>确定乱数目标</h2><p><em><strong>如果选择了野外相遇的宝可梦，请在队伍中准备一只习得了<a target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/%E7%94%9C%E7%94%9C%E9%A6%99%E6%B0%94%EF%BC%88%E6%8B%9B%E5%BC%8F%EF%BC%89#.E5.8F.AF.E4.BB.A5.E5.AD.A6.E4.BC.9A.E8.AF.A5.E6.8B.9B.E5.BC.8F.E7.9A.84.E5.AE.9D.E5.8F.AF.E6.A2.A6">甜甜香气</a>的宝可梦.</strong></em><br>确定乱数目标后，选择相应的 <em>Method</em>.<br>| Method Type |   Includes  |<br>| :———: | :——– |<br>| <em>Method 1</em>  |- 草丛/海草/深沙/洞穴/水上/可以遇到宝可梦的建筑中通过移动/转向/甜甜香气遭遇的宝可梦（除了游走宝可梦）<br>- 钓鱼钓上来的宝可梦<br>- 通过碎岩遇到的宝可梦|<br>| <em>Method 2</em>  |- 初始宝可梦<br>- 定点宝可梦<br>- 釜炎镇 NPC 赠送的小果然的蛋 |<br>如果是 <em>Method 2</em>，点击下面的谜拟Q来查看保存游戏的位置与生成帧的所在时机：</p>
+<h2 id="确定乱数目标"><a href="#确定乱数目标" class="headerlink" title="确定乱数目标"></a>确定乱数目标</h2><p><em><strong>如果选择了野外相遇的宝可梦，请在队伍中准备一只习得了<a target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/%E7%94%9C%E7%94%9C%E9%A6%99%E6%B0%94%EF%BC%88%E6%8B%9B%E5%BC%8F%EF%BC%89#.E5.8F.AF.E4.BB.A5.E5.AD.A6.E4.BC.9A.E8.AF.A5.E6.8B.9B.E5.BC.8F.E7.9A.84.E5.AE.9D.E5.8F.AF.E6.A2.A6">甜甜香气</a>的宝可梦.</strong></em><br>确定乱数目标后，选择相应的 <em>Method</em>.如果是乱数蛋，请看<a href="">这里</a>.</p>
+<h4 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a><em>Method 1</em></h4><ul>
+<li>草丛/海草/深沙/洞穴/水上/可以遇到宝可梦的建筑中通过移动/转向/甜甜香气遭遇的宝可梦（除了游走宝可梦）</li>
+<li>钓鱼钓上来的宝可梦</li>
+<li>通过碎岩遇到的宝可梦</li>
+</ul>
+<h4 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a><em>Method 2</em></h4><ul>
+<li>御三家（一周目与绿宝石二周目）</li>
+<li>定点宝可梦</li>
+<li>釜炎镇 NPC 赠送的小果然的蛋</li>
+</ul>
+<p>如果是 <em>Method 1</em>，在进入战斗前最后一次点击作为生成帧.</p>
+<blockquote>
+<p>实际生成帧可能会更往后，如甜甜香气，但这段时间是固定的，可以通过多次尝试来更新.<br>如果是 <em>Method 2</em>，点击下面的谜拟Q来查看保存游戏的位置与生成帧的所在时机（<em><strong>E</strong></em>，与<em><strong>RS</strong></em>可能会有区别）：</p>
+</blockquote>
 <details>
     <summary><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part1/mimikyu.png" alt="Method 2 请点击丘丘" align=left></summary>
     
-<pre><code>-- gba不锁区&lt;br&gt;
--- 3ds玩3ds卡必锁区&lt;br&gt;
--- 主机（不包括ns）全部锁区（n64不清楚 有待考证）
+<pre><code>-- 御三家：在博士的包前保存，在问你“Do you choose this POKéMON?”时等待生成帧
+-- 飘浮泡泡：在反派干部前保存，在研究员说“It might be an odd way of thanking you, but take this POKéMON.”时等待生成帧
+-- 游走水都：击败冠军后在出自己的房间门前存档，在让你选择红蓝时等待生成帧
+-- 复活化石：在研究员前保存，在他说“The fossil was an ancient POKéMON. [LILEEP/ANORITH], it was!”时等待生成帧
+-- 小果然的蛋：在 NPC 前存档，在她说“Good! I hope you&#39;ll walk plenty with this here EGG!”时等待生成帧
+-- 变隐龙：在隐形的变隐龙前存档，在提示“The startled POKéMON attacked!”时等待生成帧
+-- 大吾的铁哑铃：在精灵球前存档，在选择是否拿走时等待生成帧
+-- 胡说树：在其面前存档，在提示“The weird tree attacked!”时等待生成帧
+-- 盖欧卡与固拉多：在距离剧情触发前一步存档，在进入战斗前最后一段时等待生成帧
+-- 凤王：Save on the first space of the peak of the cliff. Last input is pressing up on the directional pad to place yourself on the second space of the cliff.
+-- 梦幻：Save in the area it appears in. Last input is a press of the A button to &quot;tag&quot; it.
+-- 其他：在宝可梦/触发物前保存，在进入战斗前最后一段时等待生成帧
 </code></pre>
   </details>
-<br>
+<br><br>
 
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference*"></a>Reference*</h1><ul>
+<h1 id="开始乱数"><a href="#开始乱数" class="headerlink" title="开始乱数"></a>开始乱数</h1><h2 id="搜索目标宝可梦"><a href="#搜索目标宝可梦" class="headerlink" title="搜索目标宝可梦"></a>搜索目标宝可梦</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference*"></a>Reference*</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://taiyaki3gen.hatenablog.com/entry/2020/05/30/162400">3genSearch 作者博客</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.smogon.com/ingame/rng/">Smogon RNG 教程</a></li>
 </ul>
