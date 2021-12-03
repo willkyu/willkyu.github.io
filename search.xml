@@ -1,33 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>解决访问GithHub速度慢的问题</title>
-    <url>/Accessing-GitHub-Slowly-Solution/</url>
-    <content><![CDATA[<p>今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN 域名遭到了 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢.</p>
-<p>可以通过修改本地 <code>hosts</code> 文件来绕过 DNS 解析来加速.</p>
-<span id="more"></span>
-<ul>
-<li>首先打开<a href="http://tool.chinaz.com/dns/">站长工具</a></li>
-<li>填入 &lt;Github.com&gt;<br><img src="../images/body/Accessing-GitHub-Slowly-Solution/Figure1.png" alt="Figure1" title="在 请输入域名 栏填写"></li>
-<li>将检测列表里的 TTL 值最小的 IP 记为 <em>a.b.c.d</em>.</li>
-<li>使用记事本打开 <code>hosts</code> 文件，位于 &lt;C:\Windows\System32\drivers\etc&gt;.</li>
-<li>将以下内容加在 <code>host</code> 文件末尾：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a.b.c.d www.github.com</span><br><span class="line">a.b.c.d github.global.ssl.fastly.net</span><br><span class="line">a.b.c.d nodeload.github.com</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>其中 <em>a.b.c.d</em> 是上述步骤中记录的 IP 地址.<br>如果没有修改权限可以将 <code>host</code> 文件移出该文件夹，修改完成后再移回去.<br>系统会确认你授权管理员权限.<br><img src="../images/body/Accessing-GitHub-Slowly-Solution/Figure2.png" alt="Figure2" title="系统向确认你授权管理员权限"></p>
-</blockquote>
-</li>
-<li>Done！试试访问GitHub吧！</li>
-</ul>
-<p>我发现还是有时候不太行———— 希望有更好办法的能分享一下.</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://blog.csdn.net/CS13477062349/article/details/88020283?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.no_search_link&spm=1001.2101.3001.4242.1">完美解决打开github速度慢的问题</a></p>
-<h2 id="Something-else"><a href="#Something-else" class="headerlink" title="Something else"></a>Something else</h2><p>这条博客的封面P站ID: [ID:46018784]. </p>
-]]></content>
-      <tags>
-        <tag>GitHub</tag>
-        <tag>Practical-Tips</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>The First Blog</title>
     <url>/The-First-Blog/</url>
     <content><![CDATA[<p>欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！此博客基于 <a href="https://hexo.io/">Hexo</a> 打造，主题使用的是 <a href="https://github.com/zhwangart/hexo-theme-ocean">Oceon</a>. 当你在阅读的时候有任何的问题,欢迎与我联系.</p>
@@ -37,8 +10,9 @@
 <p>更多 <em>关于</em> 请参见 <a href="../about/">About 页面</a>.</p>
 <h2 id="To-do-list"><a href="#To-do-list" class="headerlink" title="To-do list"></a>To-do list</h2><p>下面是一些之后的计划,用小标题表示,具体的进度会随时更新在下面.</p>
 <h3 id="整理一些宝可梦系列的知识等，包含游戏内知识与游戏外知识"><a href="#整理一些宝可梦系列的知识等，包含游戏内知识与游戏外知识" class="headerlink" title="整理一些宝可梦系列的知识等，包含游戏内知识与游戏外知识"></a>整理一些宝可梦系列的知识等，包含游戏内知识与游戏外知识</h3><ul>
-<li>2021-12-03 创建<a href="/Pokemon-Strategies-List/">宝可梦攻略整理页面</a><br>No Hurry.<br>准备从自己b站专栏搬一点先.</li>
+<li>2021-12-03 创建<a href="/Pokemon-Strategies-List/">宝可梦攻略整理页面</a></li>
 </ul>
+<p>No Hurry.<br>准备从自己b站专栏搬一点先.</p>
 <h3 id="分享生活"><a href="#分享生活" class="headerlink" title="分享生活"></a>分享生活</h3><p>AnyTime.</p>
 <h3 id="整理一下宝可梦各时代的乱数方法"><a href="#整理一下宝可梦各时代的乱数方法" class="headerlink" title="整理一下宝可梦各时代的乱数方法"></a>整理一下宝可梦各时代的乱数方法</h3><ul>
 <li>第三世代(RSE)</li>
@@ -65,6 +39,30 @@
 ]]></content>
       <tags>
         <tag>Life</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>宝可梦攻略整理</title>
+    <url>/Pokemon-Strategies-List/</url>
+    <content><![CDATA[<p>这篇我会用来专门整理宝可梦相关攻略，我之后写的攻略也会将直达链接放在这里，方便大家直接查找.</p>
+<span id="more"></span>
+
+<h2 id="游戏外攻略"><a href="#游戏外攻略" class="headerlink" title="游戏外攻略"></a>游戏外攻略</h2><p>No Hurry.</p>
+<h2 id="游戏内攻略"><a href="#游戏内攻略" class="headerlink" title="游戏内攻略"></a>游戏内攻略</h2><h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><ul>
+<li><details>
+  <summary>关于游戏的锁区</summary>
+  <img src="../images/body/Pokemon-Strategies-List/ZoneLock.jpg" alt="游戏锁区表">
+  gba不锁区<br>
+  3ds玩3ds卡必锁区<br>
+  主机（不包括ns）全部锁区（n64不清楚 有待考证）
+</details></li>
+<li><a href="https://tieba.baidu.com/p/6580100866?red_tag=2783794550">【攻略】【直播演示】GEN3 全图鉴 全精灵 理论规划及演示 – 卧看微尘 百度贴吧</a></li>
+</ul>
+<h3 id="乱数"><a href="#乱数" class="headerlink" title="乱数"></a>乱数</h3><p>No Hurry.</p>
+<h2 id="Something-else"><a href="#Something-else" class="headerlink" title="Something else"></a>Something else</h2><p>这条博客的封面P站ID: [ID:86247897]. </p>
+]]></content>
+      <tags>
+        <tag>Pokemon</tag>
       </tags>
   </entry>
   <entry>
@@ -154,27 +152,30 @@
       </tags>
   </entry>
   <entry>
-    <title>宝可梦攻略整理</title>
-    <url>/Pokemon-Strategies-List/</url>
-    <content><![CDATA[<p>这篇我会用来专门整理宝可梦相关攻略，我之后写的攻略也会将直达链接放在这里，方便大家直接查找.</p>
+    <title>解决访问GithHub速度慢的问题</title>
+    <url>/Accessing-GitHub-Slowly-Solution/</url>
+    <content><![CDATA[<p>今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN 域名遭到了 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢.</p>
+<p>可以通过修改本地 <code>hosts</code> 文件来绕过 DNS 解析来加速.</p>
 <span id="more"></span>
-
-<h2 id="游戏外攻略"><a href="#游戏外攻略" class="headerlink" title="游戏外攻略"></a>游戏外攻略</h2><p>No Hurry.</p>
-<h2 id="游戏内攻略"><a href="#游戏内攻略" class="headerlink" title="游戏内攻略"></a>游戏内攻略</h2><h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><ul>
-<li><details>
-  <summary>关于游戏的锁区</summary>
-  <img src="../images/body/Pokemon-Strategies-List/ZoneLock.jpg" alt="游戏锁区表">
-  gba不锁区<br>
-  3ds玩3ds卡必锁区<br>
-  主机（不包括ns）全部锁区（n64不清楚 有待考证）
-</details></li>
-<li><a href="https://tieba.baidu.com/p/6580100866?red_tag=2783794550">【攻略】【直播演示】GEN3 全图鉴 全精灵 理论规划及演示 – 卧看微尘 百度贴吧</a></li>
+<ul>
+<li>首先打开<a href="http://tool.chinaz.com/dns/">站长工具</a></li>
+<li>填入 &lt;Github.com&gt;<br><img src="../images/body/Accessing-GitHub-Slowly-Solution/Figure1.png" alt="Figure1" title="在 请输入域名 栏填写"></li>
+<li>将检测列表里的 TTL 值最小的 IP 记为 <em>a.b.c.d</em>.</li>
+<li>使用记事本打开 <code>hosts</code> 文件，位于 &lt;C:\Windows\System32\drivers\etc&gt;.</li>
+<li>将以下内容加在 <code>host</code> 文件末尾：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a.b.c.d www.github.com</span><br><span class="line">a.b.c.d github.global.ssl.fastly.net</span><br><span class="line">a.b.c.d nodeload.github.com</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其中 <em>a.b.c.d</em> 是上述步骤中记录的 IP 地址.<br>如果没有修改权限可以将 <code>host</code> 文件移出该文件夹，修改完成后再移回去.<br>系统会确认你授权管理员权限.<br><img src="../images/body/Accessing-GitHub-Slowly-Solution/Figure2.png" alt="Figure2" title="系统向确认你授权管理员权限"></p>
+</blockquote>
+</li>
+<li>Done！试试访问GitHub吧！</li>
 </ul>
-<h3 id="乱数"><a href="#乱数" class="headerlink" title="乱数"></a>乱数</h3><p>No Hurry.</p>
-<h2 id="Something-else"><a href="#Something-else" class="headerlink" title="Something else"></a>Something else</h2><p>这条博客的封面P站ID: [ID:86247897]. </p>
+<p>我发现还是有时候不太行———— 希望有更好办法的能分享一下.</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://blog.csdn.net/CS13477062349/article/details/88020283?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.no_search_link&spm=1001.2101.3001.4242.1">完美解决打开github速度慢的问题</a></p>
+<h2 id="Something-else"><a href="#Something-else" class="headerlink" title="Something else"></a>Something else</h2><p>这条博客的封面P站ID: [ID:46018784]. </p>
 ]]></content>
       <tags>
-        <tag>Pokemon</tag>
+        <tag>GitHub</tag>
+        <tag>Practical-Tips</tag>
       </tags>
   </entry>
 </search>
