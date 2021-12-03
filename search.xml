@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>解决访问GithHub速度慢的问题</title>
+    <url>/Accessing-GitHub-Slowly-Solution/</url>
+    <content><![CDATA[<p>今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN 域名遭到了 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢.</p>
+<p>可以通过修改本地 <code>hosts</code> 文件来绕过 DNS 解析来加速.</p>
+<p>封面 [ID:46018784]. </p>
+<span id="more"></span>
+<ul>
+<li>首先打开<a href="http://tool.chinaz.com/dns/">站长工具</a></li>
+<li>填入 &lt;Github.com&gt;<br><img src="../images/body/Accessing-GitHub-Slowly-Solution/Figure1.png" alt="Figure1" title="在 请输入域名 栏填写"></li>
+<li>将检测列表里的 TTL 值最小的 IP 记为 <em>a.b.c.d</em>.</li>
+<li>使用记事本打开 <code>hosts</code> 文件，位于 &lt;C:\Windows\System32\drivers\etc&gt;.</li>
+<li>将以下内容加在 <code>host</code> 文件末尾：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a.b.c.d www.github.com</span><br><span class="line">a.b.c.d github.global.ssl.fastly.net</span><br><span class="line">a.b.c.d nodeload.github.com</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其中 <em>a.b.c.d</em> 是上述步骤中记录的 IP 地址.<br>如果没有修改权限可以将 <code>host</code> 文件移出该文件夹，修改完成后再移回去.<br>系统会确认你授权管理员权限.<br><img src="../images/body/Accessing-GitHub-Slowly-Solution/Figure2.png" alt="Figure2" title="系统向确认你授权管理员权限"></p>
+</blockquote>
+</li>
+<li>Done！试试访问GitHub吧！</li>
+</ul>
+<p>我发现还是有时候不太行———— 希望有更好办法的能分享一下.</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://blog.csdn.net/CS13477062349/article/details/88020283?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.no_search_link&spm=1001.2101.3001.4242.1">完美解决打开github速度慢的问题</a></p>
+]]></content>
+      <tags>
+        <tag>GitHub</tag>
+        <tag>Practical-Tips</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>The First Blog</title>
     <url>/The-First-Blog/</url>
     <content><![CDATA[<p>欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！此博客基于 <a href="https://hexo.io/">Hexo</a> 打造，主题使用的是 <a href="https://github.com/zhwangart/hexo-theme-ocean">Oceon</a>. 当你在阅读的时候有任何的问题,欢迎与我联系.</p>
@@ -40,120 +67,6 @@
 ]]></content>
       <tags>
         <tag>Life</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>宝可梦绿宝石及没有电的红蓝宝石实机乱数</title>
-    <url>/Pokemon-RNG-Abuse-Gen3-Part1/</url>
-    <content><![CDATA[<p>这是宝可梦绿宝石及没电红蓝宝石的实机乱数教程.<br>如有纰漏，请<a href="../about/">与我联系</a>，万分感谢！</p>
-<p>封面 [ID:57789285]. </p>
-<span id="more"></span>
-
-<p><strong>注意，本教程仅支持：</strong><br><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part1/Support.png" alt="Support"></p>
-<p>如果你在找有电的红蓝宝石实机乱数教程，请点击<a href="">这里</a>.</p>
-<blockquote>
-<p>暂时还没写这一块，等我写了会加上.</p>
-</blockquote>
-<p>如果你在找火红叶绿的实机乱数.</p>
-<blockquote>
-<p>实机基本很难实现，外网也没有很详细的资料，油管有位好像有教程，但我没成功ORZ.</p>
-</blockquote>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>如果你想要乱数闪光宝可梦，你需要知道你的<a href="https://wiki.52poke.com/wiki/ID_No.#.E9.87.8CID_No.">SID</a>.</p>
-<blockquote>
-<p>如果你想要乱数的是已经创建好的存档，这可能会需要你导出存档并使用 <em>PKHex</em> 等软件查看你的存档（不涉及修改），请根据自身接受程度使用.<br>由于我没有怎么研究过乱数ID，所以如果你想要乱数ID，请查看：<a href=""></a>.<br>之后如果自己研究了一遍就会上传Blog.<br>不会导出存档？看看这篇博客：<a href="">还没写呢，写完放这里</a>.</p>
-</blockquote>
-<h2 id="硬件准备"><a href="#硬件准备" class="headerlink" title="硬件准备"></a>硬件准备</h2><ul>
-<li>能够游玩第三世代宝可梦卡带的机器（<em>GBA</em>系列、初代<em>NDS</em> 或 <em>NDS lite</em>，不推荐使用 <em>NGC</em>）.</li>
-<li>电脑.</li>
-<li>（若使用初代<em>NDS</em> 或 <em>NDS lite</em>可选）<em>NDS</em>烧录卡与读卡器<blockquote>
-<p>使用 <em>NDS</em>烧录卡提取存档进行查看可以大幅节省部分步骤的时间，强烈推荐.请根据自身接受程度使用.</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="下载乱数所需工具："><a href="#下载乱数所需工具：" class="headerlink" title="下载乱数所需工具："></a>下载乱数所需工具：</h2><ul>
-<li>计时器<a href="/download/CCTimer.exe">CCTimer</a><br>因为没有找到该软件的发布页，所以上传至仓库可直接点击下载，如果你知道它的发布页，请与我联系.</li>
-<li>乱数工具<a href="https://www.dropbox.com/sh/68qqg26op3uaymc/AAC8QFFKYxAqQjG80abgcHZ1a?dl=0">3genSearch</a><br>国内需要科学上网，因原作者禁止二次发布所以这里不提供直接下载，可以通过各搜索引擎找到别人的分享.</li>
-<li>乱数工具<a href="https://github.com/Admiral-Fish/RNGReporter/releases">RNGReporter</a><br>如果因为国内 GitHub 下载速度原因不好下载，可以点击<a href="/download/RNGReporter.zip">这里</a>进行下载.</li>
-</ul>
-<blockquote>
-<p>两个乱数工具选择任意一个都可以，本教程使用的是 <em>3genSearch</em> . RNGReporter的使用与之类似，还请读者自行探索.</p>
-</blockquote>
-<h2 id="了解乱数机制"><a href="#了解乱数机制" class="headerlink" title="了解乱数机制"></a>了解乱数机制</h2><p>我会尽量讲的简洁易懂一些，了解乱数机制可以为你理解每一步所做的原因，同时掌握各种乱数方法也会更迅速牢固.</p>
-<h3 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h3><blockquote>
-<p>真正意义上的随机数（或者随机事件）在某次产生过程中是按照实验过程中表现的分布概率随机产生的，其结果是不可预测的，是不可见的。而计算机中的随机函数是按照一定算法模拟产生的，其结果是确定的，是可见的。我们可以这样认为这个可预见的结果其出现的概率是100%。所以用计算机随机函数所产生的“随机数”并不随机，是伪随机数。</p>
-</blockquote>
-<h3 id="游戏机制与乱数目标"><a href="#游戏机制与乱数目标" class="headerlink" title="游戏机制与乱数目标"></a>游戏机制与乱数目标</h3><p>由于宝可梦绿宝石与没有电的红蓝宝石（以下简称 <em><strong>E</strong></em> 与 <em><strong>RS</strong></em>）的初始seed相同（<em><strong>E</strong></em>: <code>0x 0</code>，<em><strong>RS</strong></em>: <code>0x 5A0</code>），而当进入游戏后，会以每秒约60帧的速度过帧（根据运行机器不同会有极小差别）.当游戏判断需要生成一只宝可梦的时候便会使用当前帧的数据来生成，我称之为 <em>生成帧</em> . <em>3genSearch</em> 与 <em>RNGReporter</em> 都可以用来获取一个seed下产生的帧的信息.<br>我们的目标就是在某一seed下准确击中想要的帧数，即控制 <em>生成帧</em>.</p>
-<h2 id="确定乱数目标"><a href="#确定乱数目标" class="headerlink" title="确定乱数目标"></a>确定乱数目标</h2><p><em><strong>如果选择了野外相遇的宝可梦，请在队伍中准备一只习得了<a href="https://wiki.52poke.com/wiki/%E7%94%9C%E7%94%9C%E9%A6%99%E6%B0%94%EF%BC%88%E6%8B%9B%E5%BC%8F%EF%BC%89#.E5.8F.AF.E4.BB.A5.E5.AD.A6.E4.BC.9A.E8.AF.A5.E6.8B.9B.E5.BC.8F.E7.9A.84.E5.AE.9D.E5.8F.AF.E6.A2.A6">甜甜香气</a>的宝可梦.</strong></em><br>确定乱数目标后，选择相应的 <em>Method</em>.如果是乱数蛋，请看<a href="">这里</a>.</p>
-<h4 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a><em>Method 1</em></h4><ul>
-<li>草丛/海草/深沙/洞穴/水上/可以遇到宝可梦的建筑中通过移动/转向/甜甜香气遭遇的宝可梦（除了游走宝可梦）</li>
-<li>钓鱼钓上来的宝可梦</li>
-<li>通过碎岩遇到的宝可梦</li>
-</ul>
-<h4 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a><em>Method 2</em></h4><ul>
-<li>御三家（一周目与绿宝石二周目）</li>
-<li>定点宝可梦</li>
-<li>釜炎镇 NPC 赠送的小果然的蛋</li>
-</ul>
-<p>如果是 <em>Method 1</em>，在进入战斗前最后一次点击作为生成帧.</p>
-<blockquote>
-<p>实际生成帧可能会更往后，如甜甜香气，但这段时间是固定的，可以通过多次尝试来更新.<br>如果是 <em>Method 2</em>，点击下面的谜拟Q来查看保存游戏的位置与生成帧的所在时机（<em><strong>E</strong></em>，与<em><strong>RS</strong></em>可能会有区别）：</p>
-</blockquote>
-<details>
-    <summary><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part1/mimikyu.png" alt="Method 2 请点击丘丘" align=left></summary>
-    
-<pre><code>-- 御三家：在博士的包前保存，在问你“Do you choose this POKéMON?”时等待生成帧
--- 飘浮泡泡：在反派干部前保存，在研究员说“It might be an odd way of thanking you, but take this POKéMON.”时等待生成帧
--- 游走水都：击败冠军后在出自己的房间门前存档，在让你选择红蓝时等待生成帧
--- 复活化石：在研究员前保存，在他说“The fossil was an ancient POKéMON. [LILEEP/ANORITH], it was!”时等待生成帧
--- 小果然的蛋：在 NPC 前存档，在她说“Good! I hope you&#39;ll walk plenty with this here EGG!”时等待生成帧
--- 变隐龙：在隐形的变隐龙前存档，在提示“The startled POKéMON attacked!”时等待生成帧
--- 大吾的铁哑铃：在精灵球前存档，在选择是否拿走时等待生成帧
--- 胡说树：在其面前存档，在提示“The weird tree attacked!”时等待生成帧
--- 盖欧卡与固拉多：在距离剧情触发前一步存档，在进入战斗前最后一段时等待生成帧
--- 凤王：Save on the first space of the peak of the cliff. Last input is pressing up on the directional pad to place yourself on the second space of the cliff.
--- 梦幻：Save in the area it appears in. Last input is a press of the A button to &quot;tag&quot; it.
--- 其他：在宝可梦/触发物前保存，在进入战斗前最后一段时等待生成帧
-</code></pre>
-  </details>
-<br><br>
-
-<h1 id="开始乱数"><a href="#开始乱数" class="headerlink" title="开始乱数"></a>开始乱数</h1><h2 id="搜索目标宝可梦"><a href="#搜索目标宝可梦" class="headerlink" title="搜索目标宝可梦"></a>搜索目标宝可梦</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference*"></a>Reference*</h1><ul>
-<li><a href="https://taiyaki3gen.hatenablog.com/entry/2020/05/30/162400">3genSearch 作者博客</a></li>
-<li><a href="https://www.smogon.com/ingame/rng/">Smogon RNG 教程</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Pokemon</tag>
-        <tag>Pokemon-RNG-Abuse</tag>
-        <tag>Pokemon-Gen3</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>宝可梦攻略整理</title>
-    <url>/Pokemon-Strategies-List/</url>
-    <content><![CDATA[<p>这篇我会用来专门整理宝可梦相关攻略，我之后写的攻略也会将直达链接放在这里，方便大家直接查找.</p>
-<p>封面 [ID:86247897]. </p>
-<span id="more"></span>
-
-<h2 id="游戏外攻略"><a href="#游戏外攻略" class="headerlink" title="游戏外攻略"></a>游戏外攻略</h2><p>No Hurry.</p>
-<h2 id="游戏内攻略"><a href="#游戏内攻略" class="headerlink" title="游戏内攻略"></a>游戏内攻略</h2><h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><ul>
-<li><p>关于游戏的锁区<details></p>
-  <summary><点击这里></summary>
-
-  <img src="../images/body/Pokemon-Strategies-List/ZoneLock.jpg" alt="游戏锁区表">
-
-<p>  – gba不锁区<br>  – 3ds玩3ds卡必锁区<br>  – 主机（不包括ns）全部锁区（n64不清楚 有待考证）</p>
-</details></li>
-<li><p><a href="https://tieba.baidu.com/p/6580100866?red_tag=2783794550">【攻略】【直播演示】GEN3 全图鉴 全精灵 理论规划及演示 – 卧看微尘 百度贴吧</a></p>
-</li>
-</ul>
-<h3 id="乱数"><a href="#乱数" class="headerlink" title="乱数"></a>乱数</h3><ul>
-<li><a href="/Pokemon-RNG-Abuse-Gen3-E_And_Dry_Battery_RS/">第三世代绿宝石及没有电的红蓝宝石实机乱数</a></li>
-</ul>
-<p>No Hurry.</p>
-]]></content>
-      <tags>
-        <tag>Pokemon</tag>
       </tags>
   </entry>
   <entry>
@@ -243,30 +156,120 @@
       </tags>
   </entry>
   <entry>
-    <title>解决访问GithHub速度慢的问题</title>
-    <url>/Accessing-GitHub-Slowly-Solution/</url>
-    <content><![CDATA[<p>今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN 域名遭到了 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢.</p>
-<p>可以通过修改本地 <code>hosts</code> 文件来绕过 DNS 解析来加速.</p>
-<p>封面 [ID:46018784]. </p>
+    <title>宝可梦攻略整理</title>
+    <url>/Pokemon-Strategies-List/</url>
+    <content><![CDATA[<p>这篇我会用来专门整理宝可梦相关攻略，我之后写的攻略也会将直达链接放在这里，方便大家直接查找.</p>
+<p>封面 [ID:86247897]. </p>
 <span id="more"></span>
-<ul>
-<li>首先打开<a href="http://tool.chinaz.com/dns/">站长工具</a></li>
-<li>填入 &lt;Github.com&gt;<br><img src="../images/body/Accessing-GitHub-Slowly-Solution/Figure1.png" alt="Figure1" title="在 请输入域名 栏填写"></li>
-<li>将检测列表里的 TTL 值最小的 IP 记为 <em>a.b.c.d</em>.</li>
-<li>使用记事本打开 <code>hosts</code> 文件，位于 &lt;C:\Windows\System32\drivers\etc&gt;.</li>
-<li>将以下内容加在 <code>host</code> 文件末尾：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a.b.c.d www.github.com</span><br><span class="line">a.b.c.d github.global.ssl.fastly.net</span><br><span class="line">a.b.c.d nodeload.github.com</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>其中 <em>a.b.c.d</em> 是上述步骤中记录的 IP 地址.<br>如果没有修改权限可以将 <code>host</code> 文件移出该文件夹，修改完成后再移回去.<br>系统会确认你授权管理员权限.<br><img src="../images/body/Accessing-GitHub-Slowly-Solution/Figure2.png" alt="Figure2" title="系统向确认你授权管理员权限"></p>
-</blockquote>
+
+<h2 id="游戏外攻略"><a href="#游戏外攻略" class="headerlink" title="游戏外攻略"></a>游戏外攻略</h2><p>No Hurry.</p>
+<h2 id="游戏内攻略"><a href="#游戏内攻略" class="headerlink" title="游戏内攻略"></a>游戏内攻略</h2><h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><ul>
+<li><p>关于游戏的锁区<details></p>
+  <summary><点击这里></summary>
+
+  <img src="../images/body/Pokemon-Strategies-List/ZoneLock.jpg" alt="游戏锁区表">
+
+<p>  – gba不锁区<br>  – 3ds玩3ds卡必锁区<br>  – 主机（不包括ns）全部锁区（n64不清楚 有待考证）</p>
+</details></li>
+<li><p><a href="https://tieba.baidu.com/p/6580100866?red_tag=2783794550">【攻略】【直播演示】GEN3 全图鉴 全精灵 理论规划及演示 – 卧看微尘 百度贴吧</a></p>
 </li>
-<li>Done！试试访问GitHub吧！</li>
 </ul>
-<p>我发现还是有时候不太行———— 希望有更好办法的能分享一下.</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://blog.csdn.net/CS13477062349/article/details/88020283?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.no_search_link&spm=1001.2101.3001.4242.1">完美解决打开github速度慢的问题</a></p>
+<h3 id="乱数"><a href="#乱数" class="headerlink" title="乱数"></a>乱数</h3><ul>
+<li><a href="/Pokemon-RNG-Abuse-Gen3-Part1/">第三世代绿宝石及没有电的红蓝宝石实机乱数</a></li>
+</ul>
+<p>No Hurry.</p>
 ]]></content>
       <tags>
-        <tag>GitHub</tag>
-        <tag>Practical-Tips</tag>
+        <tag>Pokemon</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>宝可梦绿宝石及没有电的红蓝宝石实机乱数</title>
+    <url>/Pokemon-RNG-Abuse-Gen3-Part1/</url>
+    <content><![CDATA[<p>这是宝可梦绿宝石及没电红蓝宝石的实机乱数教程.<br>如有纰漏，请<a href="../about/">与我联系</a>，万分感谢！</p>
+<p>封面 [ID:57789285]. </p>
+<span id="more"></span>
+
+<p><strong>注意，本教程仅支持：</strong><br><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part1/Support.png" alt="Support"></p>
+<p>如果你在找有电的红蓝宝石实机乱数教程，请点击<a href="">这里</a>.</p>
+<blockquote>
+<p>暂时还没写这一块，等我写了会加上.</p>
+</blockquote>
+<p>如果你在找火红叶绿的实机乱数.</p>
+<blockquote>
+<p>实机基本很难实现，外网也没有很详细的资料，油管有位好像有教程，但我没成功ORZ.</p>
+</blockquote>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>如果你想要乱数闪光宝可梦，你需要知道你的<a href="https://wiki.52poke.com/wiki/ID_No.#.E9.87.8CID_No.">SID</a>.</p>
+<blockquote>
+<p>如果你想要乱数的是已经创建好的存档，这可能会需要你导出存档并使用 <em>PKHex</em> 等软件查看你的存档（不涉及修改），请根据自身接受程度使用.<br>由于我没有怎么研究过乱数ID，所以如果你想要乱数ID，请查看：<a href=""></a>.<br>之后如果自己研究了一遍就会上传Blog.<br>不会导出存档？看看这篇博客：<a href="">还没写呢，写完放这里</a>.</p>
+</blockquote>
+<h2 id="硬件准备"><a href="#硬件准备" class="headerlink" title="硬件准备"></a>硬件准备</h2><ul>
+<li>能够游玩第三世代宝可梦卡带的机器（<em>GBA</em>系列、初代<em>NDS</em> 或 <em>NDS lite</em>，不推荐使用 <em>NGC</em>）.</li>
+<li>电脑.</li>
+<li>（若使用初代<em>NDS</em> 或 <em>NDS lite</em>可选）<em>NDS</em>烧录卡与读卡器<blockquote>
+<p>使用 <em>NDS</em>烧录卡提取存档进行查看可以大幅节省部分步骤的时间，强烈推荐.请根据自身接受程度使用.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="下载乱数所需工具："><a href="#下载乱数所需工具：" class="headerlink" title="下载乱数所需工具："></a>下载乱数所需工具：</h2><ul>
+<li>计时器<a href="/download/CCTimer.exe">CCTimer</a><br>因为没有找到该软件的发布页，所以上传至仓库可直接点击下载，如果你知道它的发布页，请与我联系.</li>
+<li>乱数工具<a href="https://www.dropbox.com/sh/68qqg26op3uaymc/AAC8QFFKYxAqQjG80abgcHZ1a?dl=0">3genSearch</a><br>国内需要科学上网，因原作者禁止二次发布所以这里不提供直接下载，可以通过各搜索引擎找到别人的分享.</li>
+<li>乱数工具<a href="https://github.com/Admiral-Fish/RNGReporter/releases">RNGReporter</a><br>如果因为国内 GitHub 下载速度原因不好下载，可以点击<a href="/download/RNGReporter.zip">这里</a>进行下载.</li>
+</ul>
+<blockquote>
+<p>两个乱数工具选择任意一个都可以，本教程使用的是 <em>3genSearch</em> . RNGReporter的使用与之类似，还请读者自行探索.</p>
+</blockquote>
+<h2 id="了解乱数机制"><a href="#了解乱数机制" class="headerlink" title="了解乱数机制"></a>了解乱数机制</h2><p>我会尽量讲的简洁易懂一些，了解乱数机制可以为你理解每一步所做的原因，同时掌握各种乱数方法也会更迅速牢固.</p>
+<h3 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h3><blockquote>
+<p>真正意义上的随机数（或者随机事件）在某次产生过程中是按照实验过程中表现的分布概率随机产生的，其结果是不可预测的，是不可见的。而计算机中的随机函数是按照一定算法模拟产生的，其结果是确定的，是可见的。我们可以这样认为这个可预见的结果其出现的概率是100%。所以用计算机随机函数所产生的“随机数”并不随机，是伪随机数。</p>
+</blockquote>
+<h3 id="游戏机制与乱数目标"><a href="#游戏机制与乱数目标" class="headerlink" title="游戏机制与乱数目标"></a>游戏机制与乱数目标</h3><p>由于宝可梦绿宝石与没有电的红蓝宝石（以下简称 <em><strong>E</strong></em> 与 <em><strong>RS</strong></em>）的初始seed相同（<em><strong>E</strong></em>: <code>0x 0</code>，<em><strong>RS</strong></em>: <code>0x 5A0</code>），而当进入游戏后，会以每秒约60帧的速度过帧（根据运行机器不同会有极小差别）.当游戏判断需要生成一只宝可梦的时候便会使用当前帧的数据来生成，我称之为 <em>生成帧</em> . <em>3genSearch</em> 与 <em>RNGReporter</em> 都可以用来获取一个seed下产生的帧的信息.<br>我们的目标就是在某一seed下准确击中想要的帧数，即控制 <em>生成帧</em>.</p>
+<h2 id="确定乱数目标"><a href="#确定乱数目标" class="headerlink" title="确定乱数目标"></a>确定乱数目标</h2><p><em><strong>如果选择了野外相遇的宝可梦，请在队伍中准备一只习得了<a href="https://wiki.52poke.com/wiki/%E7%94%9C%E7%94%9C%E9%A6%99%E6%B0%94%EF%BC%88%E6%8B%9B%E5%BC%8F%EF%BC%89#.E5.8F.AF.E4.BB.A5.E5.AD.A6.E4.BC.9A.E8.AF.A5.E6.8B.9B.E5.BC.8F.E7.9A.84.E5.AE.9D.E5.8F.AF.E6.A2.A6">甜甜香气</a>的宝可梦.</strong></em><br>确定乱数目标后，选择相应的 <em>Method</em>.如果是乱数蛋，请看<a href="">这里</a>.</p>
+<h4 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a><em>Method 1</em></h4><ul>
+<li>草丛/海草/深沙/洞穴/水上/可以遇到宝可梦的建筑中通过移动/转向/甜甜香气遭遇的宝可梦（除了游走宝可梦）</li>
+<li>钓鱼钓上来的宝可梦</li>
+<li>通过碎岩遇到的宝可梦</li>
+</ul>
+<h4 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a><em>Method 2</em></h4><ul>
+<li>御三家（一周目与绿宝石二周目）</li>
+<li>定点宝可梦</li>
+<li>釜炎镇 NPC 赠送的小果然的蛋</li>
+</ul>
+<p>如果是 <em>Method 1</em>，在进入战斗前最后一次点击作为生成帧.</p>
+<blockquote>
+<p>实际生成帧可能会更往后，如甜甜香气，但这段时间是固定的，可以通过多次尝试来更新.</p>
+</blockquote>
+<p>如果是 <em>Method 2</em>，点击下面的谜拟Q来查看保存游戏的位置与生成帧的所在时机（<em><strong>E</strong></em>，与<em><strong>RS</strong></em>可能会有区别）：</p>
+<details>
+    <summary><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part1/mimikyu.png" alt="Method 2 请点击丘丘" align=left></summary>
+    
+<pre><code>-- 御三家：在博士的包前保存，在问你“Do you choose this POKéMON?”时等待生成帧
+-- 飘浮泡泡：在反派干部前保存，在研究员说“It might be an odd way of thanking you, but take this POKéMON.”时等待生成帧
+-- 游走水都：击败冠军后在出自己的房间门前存档，在让你选择红蓝时等待生成帧
+-- 复活化石：在研究员前保存，在他说“The fossil was an ancient POKéMON. [LILEEP/ANORITH], it was!”时等待生成帧
+-- 小果然的蛋：在 NPC 前存档，在她说“Good! I hope you&#39;ll walk plenty with this here EGG!”时等待生成帧
+-- 变隐龙：在隐形的变隐龙前存档，在提示“The startled POKéMON attacked!”时等待生成帧
+-- 大吾的铁哑铃：在精灵球前存档，在选择是否拿走时等待生成帧
+-- 胡说树：在其面前存档，在提示“The weird tree attacked!”时等待生成帧
+-- 盖欧卡与固拉多：在距离剧情触发前一步存档，在进入战斗前最后一段时等待生成帧
+-- 凤王：Save on the first space of the peak of the cliff. Last input is pressing up on the directional pad to place yourself on the second space of the cliff.
+-- 梦幻：Save in the area it appears in. Last input is a press of the A button to &quot;tag&quot; it.
+-- 其他：在宝可梦/触发物前保存，在进入战斗前最后一段时等待生成帧
+&lt;br&gt;
+凤王和梦幻的不知道怎么表达比较好，看英文感受一下.
+</code></pre>
+  </details>
+<br><br>
+
+<h1 id="开始乱数"><a href="#开始乱数" class="headerlink" title="开始乱数"></a>开始乱数</h1><h2 id="搜索目标宝可梦"><a href="#搜索目标宝可梦" class="headerlink" title="搜索目标宝可梦"></a>搜索目标宝可梦</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference*"></a>Reference*</h1><ul>
+<li><a href="https://taiyaki3gen.hatenablog.com/entry/2020/05/30/162400">3genSearch 作者博客</a></li>
+<li><a href="https://www.smogon.com/ingame/rng/">Smogon RNG 教程</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Pokemon</tag>
+        <tag>Pokemon-RNG-Abuse</tag>
+        <tag>Pokemon-Gen3</tag>
       </tags>
   </entry>
 </search>
