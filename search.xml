@@ -35,11 +35,74 @@
 <li>2021-12-02 更新了谜拟Q的icon.</li>
 </ul>
 <p>No Hurry.</p>
-<h2 id="测试用"><a href="#测试用" class="headerlink" title="测试用"></a>测试用</h2><p>点击<a href="../ZONE/WeiChenDemo/index.html">这里</a>来访问卧看小工具测试页</p>
+<h2 id="测试用"><a href="#测试用" class="headerlink" title="测试用"></a>测试用</h2><p>点击<a href="../ZONE/WeiChenDemo/index.html">这里</a>来访问卧看小工具测试页.</p>
 <h2 id="Something-else"><a href="#Something-else" class="headerlink" title="Something else"></a>Something else</h2><p>本博客中未说明来源的封面图片可能是忘记了来源,还请见谅. 如有侵权请与我联系!</p>
 ]]></content>
       <tags>
         <tag>Life</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>宝可梦绿宝石及没有电的红蓝宝石实机乱数</title>
+    <url>/Pokemon-RNG-Abuse-Gen3-Part1/</url>
+    <content><![CDATA[<p>这是宝可梦绿宝石及没电红蓝宝石的实机乱数教程.<br>如有纰漏，请<a href="../about/">与我联系</a>，万分感谢！</p>
+<p>封面 [ID:57789285]. </p>
+<span id="more"></span>
+
+<p><strong>注意，本教程仅支持：</strong><br>| Support     |   红蓝宝石  |   绿宝石     |<br>| :———: | :———: | :———: |<br>| 电池没电     |      ✔     |     ✔       |<br>| 电池有电     |      ✘     |     ✔       |</p>
+<p>如果你在找有电的红蓝宝石实机乱数教程，请点击<a href="">这里</a>.</p>
+<blockquote>
+<p>暂时还没写这一块，等我写了会加上.</p>
+</blockquote>
+<p>如果你在找火红叶绿的实机乱数.</p>
+<blockquote>
+<p>实机基本很难实现，外网也没有很详细的资料，油管有位好像有教程，但我没成功ORZ.</p>
+</blockquote>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>如果你想要乱数闪光宝可梦，你需要知道你的<a href="https://wiki.52poke.com/wiki/ID_No.#.E9.87.8CID_No.">SID</a>.</p>
+<blockquote>
+<p>如果你想要乱数的是已经创建好的存档，这可能会需要你导出存档并使用 <em>PKHex</em> 等软件查看你的存档（不涉及修改），请根据自身接受程度使用.<br>由于我没有怎么研究过乱数ID，所以如果你想要乱数ID，请查看：<a href=""></a>.<br>之后如果自己研究了一遍就会上传Blog.<br>不会导出存档？看看这篇博客：<a href="">还没写呢，写完放这里</a>.</p>
+</blockquote>
+<h2 id="硬件准备"><a href="#硬件准备" class="headerlink" title="硬件准备"></a>硬件准备</h2><ul>
+<li>能够游玩第三世代宝可梦卡带的机器（<em>GBA</em>系列、初代<em>NDS</em> 或 <em>NDS lite</em>，不推荐使用 <em>NGC</em>）.</li>
+<li>电脑.</li>
+<li>（若使用初代<em>NDS</em> 或 <em>NDS lite</em>可选）<em>NDS</em>烧录卡与读卡器<blockquote>
+<p>使用 <em>NDS</em>烧录卡提取存档进行查看可以大幅节省部分步骤的时间，强烈推荐.请根据自身接受程度使用.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="下载乱数所需工具："><a href="#下载乱数所需工具：" class="headerlink" title="下载乱数所需工具："></a>下载乱数所需工具：</h2><ul>
+<li>计时器<a href="/download/CCTimer.exe">CCTimer</a><br>因为没有找到该软件的发布页，所以上传至仓库可直接点击下载，如果你知道它的发布页，请与我联系.</li>
+<li>乱数工具<a href="https://www.dropbox.com/sh/68qqg26op3uaymc/AAC8QFFKYxAqQjG80abgcHZ1a?dl=0">3genSearch</a><br>国内需要科学上网，因原作者禁止二次发布所以这里不提供直接下载，可以通过各搜索引擎找到别人的分享.</li>
+<li>乱数工具<a href="https://github.com/Admiral-Fish/RNGReporter/releases">RNGReporter</a><br>如果因为国内 GitHub 下载速度原因不好下载，可以点击<a href="/download/RNGReporter.zip">这里</a>进行下载.</li>
+</ul>
+<blockquote>
+<p>两个乱数工具选择任意一个都可以，本教程使用的是 <em>3genSearch</em> . RNGReporter的使用与之类似，还请读者自行探索.</p>
+</blockquote>
+<h2 id="了解乱数机制"><a href="#了解乱数机制" class="headerlink" title="了解乱数机制"></a>了解乱数机制</h2><p>我会尽量讲的简洁易懂一些，了解乱数机制可以为你理解每一步所做的原因，同时掌握各种乱数方法也会更迅速牢固.</p>
+<h3 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h3><blockquote>
+<p>真正意义上的随机数（或者随机事件）在某次产生过程中是按照实验过程中表现的分布概率随机产生的，其结果是不可预测的，是不可见的。而计算机中的随机函数是按照一定算法模拟产生的，其结果是确定的，是可见的。我们可以这样认为这个可预见的结果其出现的概率是100%。所以用计算机随机函数所产生的“随机数”并不随机，是伪随机数。</p>
+</blockquote>
+<h3 id="游戏机制与乱数目标"><a href="#游戏机制与乱数目标" class="headerlink" title="游戏机制与乱数目标"></a>游戏机制与乱数目标</h3><p>由于宝可梦绿宝石与没有电的红蓝宝石（以下简称 <em><strong>E</strong></em> 与 <em><strong>RS</strong></em>）的初始seed相同（<em><strong>E</strong></em>: <code>0x 0</code>，<em><strong>RS</strong></em>: <code>0x 5A0</code>），而当进入游戏后，会以每秒约60帧的速度过帧（根据运行机器不同会有极小差别）.当游戏判断需要生成一只宝可梦的时候便会使用当前帧的数据来生成，我称之为 <em>生成帧</em> . <em>3genSearch</em> 与 <em>RNGReporter</em> 都可以用来获取一个seed下产生的帧的信息.<br>我们的目标就是在某一seed下准确击中想要的帧数，即控制 <em>生成帧</em>.</p>
+<h2 id="确定乱数目标"><a href="#确定乱数目标" class="headerlink" title="确定乱数目标"></a>确定乱数目标</h2><p><em><strong>如果选择了野外相遇的宝可梦，请在队伍中准备一只习得了<a href="https://wiki.52poke.com/wiki/%E7%94%9C%E7%94%9C%E9%A6%99%E6%B0%94%EF%BC%88%E6%8B%9B%E5%BC%8F%EF%BC%89#.E5.8F.AF.E4.BB.A5.E5.AD.A6.E4.BC.9A.E8.AF.A5.E6.8B.9B.E5.BC.8F.E7.9A.84.E5.AE.9D.E5.8F.AF.E6.A2.A6">甜甜香气</a>的宝可梦.</strong></em><br>确定乱数目标后，选择相应的 <em>Method</em>.<br>| Method Type |   Includes  |<br>| :———: | :——– |<br>| <em>Method 1</em>  |- 草丛/海草/深沙/洞穴/水上/可以遇到宝可梦的建筑中通过移动/转向/甜甜香气遭遇的宝可梦（除了游走宝可梦）<br>- 钓鱼钓上来的宝可梦<br>- 通过碎岩遇到的宝可梦|<br>| <em>Method 2</em>  |- 初始宝可梦<br>- 定点宝可梦<br>- 釜炎镇 NPC 赠送的小果然的蛋 |<br>如果是 <em>Method 2</em>，点击下面的谜拟Q来查看保存游戏的位置与生成帧的所在时机：</p>
+<details>
+    <summary><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part1/mimikyu.png" alt="Method 2 请点击丘丘" align=left></summary>
+    
+<pre><code>-- gba不锁区&lt;br&gt;
+-- 3ds玩3ds卡必锁区&lt;br&gt;
+-- 主机（不包括ns）全部锁区（n64不清楚 有待考证）
+</code></pre>
+  </details>
+<br>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference*"></a>Reference*</h1><ul>
+<li><a href="https://taiyaki3gen.hatenablog.com/entry/2020/05/30/162400">3genSearch 作者博客</a></li>
+<li><a href="https://www.smogon.com/ingame/rng/">Smogon RNG 教程</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Pokemon</tag>
+        <tag>Pokemon-RNG-Abuse</tag>
+        <tag>Pokemon-Gen3</tag>
       </tags>
   </entry>
   <entry>
@@ -51,16 +114,18 @@
 
 <h2 id="游戏外攻略"><a href="#游戏外攻略" class="headerlink" title="游戏外攻略"></a>游戏外攻略</h2><p>No Hurry.</p>
 <h2 id="游戏内攻略"><a href="#游戏内攻略" class="headerlink" title="游戏内攻略"></a>游戏内攻略</h2><h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><ul>
-<li><details>
-  <summary>关于游戏的锁区</summary>
+<li>关于游戏的锁区<details>  <summary><点击这里></summary>
   <img src="../images/body/Pokemon-Strategies-List/ZoneLock.jpg" alt="游戏锁区表">
-  gba不锁区<br>
-  3ds玩3ds卡必锁区<br>
-  主机（不包括ns）全部锁区（n64不清楚 有待考证）
+  -- gba不锁区<br>
+  -- 3ds玩3ds卡必锁区<br>
+  -- 主机（不包括ns）全部锁区（n64不清楚 有待考证）
 </details></li>
 <li><a href="https://tieba.baidu.com/p/6580100866?red_tag=2783794550">【攻略】【直播演示】GEN3 全图鉴 全精灵 理论规划及演示 – 卧看微尘 百度贴吧</a></li>
 </ul>
-<h3 id="乱数"><a href="#乱数" class="headerlink" title="乱数"></a>乱数</h3><p>No Hurry.</p>
+<h3 id="乱数"><a href="#乱数" class="headerlink" title="乱数"></a>乱数</h3><ul>
+<li><a href="/Pokemon-RNG-Abuse-Gen3-E_And_Dry_Battery_RS/">第三世代绿宝石及没有电的红蓝宝石实机乱数</a></li>
+</ul>
+<p>No Hurry.</p>
 ]]></content>
       <tags>
         <tag>Pokemon</tag>
