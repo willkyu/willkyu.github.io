@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-03T05:55:15.730Z</updated>
+  <updated>2021-12-03T05:57:04.182Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="http://willkyu.github.io/Pokemon-Strategies-List/"/>
     <id>http://willkyu.github.io/Pokemon-Strategies-List/</id>
     <published>2021-12-03T05:15:42.000Z</published>
-    <updated>2021-12-03T05:55:15.730Z</updated>
+    <updated>2021-12-03T05:57:04.182Z</updated>
     
     
     <summary type="html">&lt;p&gt;这篇我会用来专门整理宝可梦相关攻略，我之后写的攻略也会将直达链接放在这里，方便大家直接查找.&lt;/p&gt;
-&lt;p&gt;这条博客的封面P站ID: [ID:86247897]. &lt;/p&gt;</summary>
+&lt;p&gt;封面 [ID:86247897]. &lt;/p&gt;</summary>
     
     
     
@@ -39,12 +39,12 @@
     <link href="http://willkyu.github.io/Build-Your-Own-Blog-Like-This-One/"/>
     <id>http://willkyu.github.io/Build-Your-Own-Blog-Like-This-One/</id>
     <published>2021-12-02T01:06:31.000Z</published>
-    <updated>2021-12-03T05:54:42.373Z</updated>
+    <updated>2021-12-03T05:56:56.185Z</updated>
     
     
     <summary type="html">&lt;p&gt;想要搭建自己的博客？跟着这篇文章做下去，谜拟Q都能搭出私人博客！&lt;/p&gt;
 &lt;p&gt;以此文章记录丘丘Blog的制作过程.&lt;/p&gt;
-&lt;p&gt;这条博客的封面P站ID: [ID:91018415]. &lt;/p&gt;</summary>
+&lt;p&gt;封面 [ID:91018415]. &lt;/p&gt;</summary>
     
     
     
@@ -64,11 +64,12 @@
     <link href="http://willkyu.github.io/Accessing-GitHub-Slowly-Solution/"/>
     <id>http://willkyu.github.io/Accessing-GitHub-Slowly-Solution/</id>
     <published>2021-12-01T23:40:45.000Z</published>
-    <updated>2021-12-03T05:11:57.678Z</updated>
+    <updated>2021-12-03T05:57:00.568Z</updated>
     
     
     <summary type="html">&lt;p&gt;今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN 域名遭到了 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢.&lt;/p&gt;
-&lt;p&gt;可以通过修改本地 &lt;code&gt;hosts&lt;/code&gt; 文件来绕过 DNS 解析来加速.&lt;/p&gt;</summary>
+&lt;p&gt;可以通过修改本地 &lt;code&gt;hosts&lt;/code&gt; 文件来绕过 DNS 解析来加速.&lt;/p&gt;
+&lt;p&gt;封面 [ID:46018784]. &lt;/p&gt;</summary>
     
     
     
@@ -84,11 +85,11 @@
     <link href="http://willkyu.github.io/The-First-Blog/"/>
     <id>http://willkyu.github.io/The-First-Blog/</id>
     <published>2021-12-01T09:28:54.000Z</published>
-    <updated>2021-12-03T05:54:22.356Z</updated>
+    <updated>2021-12-03T05:57:11.943Z</updated>
     
     
     <summary type="html">&lt;p&gt;欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！此博客基于 &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt; 打造，主题使用的是 &lt;a href=&quot;https://github.com/zhwangart/hexo-theme-ocean&quot;&gt;Oceon&lt;/a&gt;. 当你在阅读的时候有任何的问题,欢迎与我联系.&lt;/p&gt;
-&lt;p&gt;这条博客的封面P站ID: [ID:85357809]. &lt;/p&gt;</summary>
+&lt;p&gt;封面 [ID:85357809]. &lt;/p&gt;</summary>
     
     
     

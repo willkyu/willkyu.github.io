@@ -4,7 +4,7 @@
     <title>The First Blog</title>
     <url>/The-First-Blog/</url>
     <content><![CDATA[<p>欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！此博客基于 <a href="https://hexo.io/">Hexo</a> 打造，主题使用的是 <a href="https://github.com/zhwangart/hexo-theme-ocean">Oceon</a>. 当你在阅读的时候有任何的问题,欢迎与我联系.</p>
-<p>这条博客的封面P站ID: [ID:85357809]. </p>
+<p>封面 [ID:85357809]. </p>
 <span id="more"></span>
 
 <h2 id="About-willkyu-and-This-Blog"><a href="#About-willkyu-and-This-Blog" class="headerlink" title="About willkyu and This Blog"></a>About willkyu and This Blog</h2><p>一只不务正业的谜拟Q 与其创建的不务正业的Blog.</p>
@@ -46,7 +46,7 @@
     <title>宝可梦攻略整理</title>
     <url>/Pokemon-Strategies-List/</url>
     <content><![CDATA[<p>这篇我会用来专门整理宝可梦相关攻略，我之后写的攻略也会将直达链接放在这里，方便大家直接查找.</p>
-<p>这条博客的封面P站ID: [ID:86247897]. </p>
+<p>封面 [ID:86247897]. </p>
 <span id="more"></span>
 
 <h2 id="游戏外攻略"><a href="#游戏外攻略" class="headerlink" title="游戏外攻略"></a>游戏外攻略</h2><p>No Hurry.</p>
@@ -71,7 +71,7 @@
     <url>/Build-Your-Own-Blog-Like-This-One/</url>
     <content><![CDATA[<p>想要搭建自己的博客？跟着这篇文章做下去，谜拟Q都能搭出私人博客！</p>
 <p>以此文章记录丘丘Blog的制作过程.</p>
-<p>这条博客的封面P站ID: [ID:91018415]. </p>
+<p>封面 [ID:91018415]. </p>
 <span id="more"></span>
 
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>说实话我做Blog就是为了记录分享，最重要的是很有意思，捣鼓捣鼓出来很有成就感.<br>不过我觉得这篇知乎专栏写的很不错，有兴趣的可以看看.</p>
@@ -157,6 +157,7 @@
     <url>/Accessing-GitHub-Slowly-Solution/</url>
     <content><![CDATA[<p>今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN 域名遭到了 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢.</p>
 <p>可以通过修改本地 <code>hosts</code> 文件来绕过 DNS 解析来加速.</p>
+<p>封面 [ID:46018784]. </p>
 <span id="more"></span>
 <ul>
 <li>首先打开<a href="http://tool.chinaz.com/dns/">站长工具</a></li>
@@ -172,7 +173,6 @@
 </ul>
 <p>我发现还是有时候不太行———— 希望有更好办法的能分享一下.</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://blog.csdn.net/CS13477062349/article/details/88020283?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.no_search_link&spm=1001.2101.3001.4242.1">完美解决打开github速度慢的问题</a></p>
-<h2 id="Something-else"><a href="#Something-else" class="headerlink" title="Something else"></a>Something else</h2><p>这条博客的封面P站ID: [ID:46018784]. </p>
 ]]></content>
       <tags>
         <tag>GitHub</tag>
