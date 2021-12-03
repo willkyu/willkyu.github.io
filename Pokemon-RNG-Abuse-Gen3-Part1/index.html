@@ -91,7 +91,7 @@
 <li>能够游玩第三世代宝可梦卡带的机器（<em>GBA</em>系列、初代<em>NDS</em> 或 <em>NDS lite</em>，不推荐使用 <em>NGC</em>）.</li>
 <li>电脑.</li>
 <li>（若使用初代<em>NDS</em> 或 <em>NDS lite</em>可选）<em>NDS</em>烧录卡与读卡器<blockquote>
-<p>使用 <em>NDS</em>烧录卡提取存档进行查看可以大幅节省部分步骤的时间，强烈推荐.请根据自身接受程度使用.</p>
+<p>使用 <em>NDS</em>烧录卡提取存档进行查看可以大幅节省部分步骤的时间，强烈推荐.请根据自身接受程度使用.<br>如果不准备使用烧录卡，请准备足够的神奇糖果.</p>
 </blockquote>
 </li>
 </ul>
@@ -115,7 +115,7 @@
 <li>通过碎岩遇到的宝可梦</li>
 </ul>
 <h4 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a><em>Method 2</em></h4><ul>
-<li>御三家（一周目与绿宝石二周目）</li>
+<li>御三家（一周目与<em><strong>E</strong></em>二周目）</li>
 <li>定点宝可梦</li>
 <li>釜炎镇 NPC 赠送的小果然的蛋</li>
 </ul>
@@ -145,7 +145,53 @@
   </details>
 <br><br>
 
-<h1 id="开始乱数"><a href="#开始乱数" class="headerlink" title="开始乱数"></a>开始乱数</h1><h2 id="搜索目标宝可梦"><a href="#搜索目标宝可梦" class="headerlink" title="搜索目标宝可梦"></a>搜索目标宝可梦</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference*"></a>Reference*</h1><ul>
+<h1 id="开始乱数"><a href="#开始乱数" class="headerlink" title="开始乱数"></a>开始乱数</h1><h2 id="搜索目标宝可梦"><a href="#搜索目标宝可梦" class="headerlink" title="搜索目标宝可梦"></a>搜索目标宝可梦</h2><p>打开乱数工具，选择/填入图中红框中内容：<br><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part1/Figure1.png" alt="Figure1"></p>
+<ol>
+<li>根据乱数目标选择<em>固定</em>或<em>野生</em>.</li>
+<li>如果选择了<em>野生</em>，可以修改绿框中的地点、版本信息.</li>
+<li>输入初期 seed，<em><strong>E</strong></em>为 0，<em><strong>RS</strong></em>为 5A0.</li>
+<li>F为搜索帧数的范围，建议700~100000，因为 seed 固定了所以可能很靠后才有你想要的帧.（1秒约60帧，请自行推测是否有耐心）.</li>
+<li><em>Method</em> 选择之前确定的 <em>Method</em>.</li>
+<li>检索区域根据自己的需要填写，若勾选 <em><strong>只显示异色</strong></em> ，需要在勾选框上方填入表里ID.</li>
+<li>点击黑框<em>计算</em>，得到结果.</li>
+</ol>
+<blockquote>
+<p>没有想要的宝可梦怎么办？<br>不建议帧数再加了，10w帧约27.8分钟了，可以试着降低一下要求.<br>闪帧太靠后了怎么办？<br>换个存档叭. 太非了这个档.</p>
+</blockquote>
+<p>在结果中选择一个满意的结果作为目标帧，将其 <em><strong>F</strong></em> 栏（即为你的<em>目标帧</em>）填入蓝框中（蓝框后面的内容不需要管）.</p>
+<h2 id="校准误差"><a href="#校准误差" class="headerlink" title="校准误差"></a>校准误差</h2><p><em><strong>如果你的目标宝可梦不是野外宝可梦（如定点宝可梦）且准备使用烧录卡协助乱数，那么要在步骤1结束后，使用GBA_Backup软件将存档提取出来</strong></em></p>
+<blockquote>
+<p>GBA_Backup软件可在<a href="">这里</a>找到.</p>
+</blockquote>
+<ol>
+<li>在游戏中你应该存档的位置存档（如果你准备在洞穴或是能出现宝可梦的建筑中使用甜甜香气，请往深处走一些距离，否则甜甜香气可能会失效），存档完成后关机.</li>
+<li>打开计时器 <em>CCTimer</em>，选择 <em>Setting</em>，点击红框内容，根据游戏平台选择对应选项. <img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part1/Figure2.png" alt="Figure2"></li>
+<li>回到 <em>Timer</em>，在蓝框内填入你刚刚的 <em>目标帧</em> 并点击 <em><strong>Add</strong></em> . <img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part1/Figure3.png" alt="Figure3"></li>
+<li>点击 <em><strong>Start</strong></em> 按钮的同时开始游戏(gba系列和设置过的nds是直接开机，未设置过的nds系列是在主页面点击GBA游戏图标).</li>
+<li>在游戏中快速到达目标帧的确定位置（如：在选择宝可梦使用甜甜香气的界面）.</li>
+<li>在 <em>CCTimer</em> 上的倒计时归零的瞬间按下机器的<em><strong>A</strong></em>键，然后等待进入战斗界面.</li>
+<li>捕捉这只宝可梦.</li>
+<li><ul>
+<li>如果你不准备使用烧录卡：将宝可梦的性格、等级、能力值等输入个体值计算软件得到其个体，如果无法得到唯一的个体，使用足够多的神奇糖果后重试. 这之后，关闭游戏. <em><strong>如果你的目标宝可梦不是野外宝可梦（如定点宝可梦），记住不要保存</strong></em></li>
+<li>如果你准备使用烧录卡：保存并关闭游戏，使用GBA_Backup软件提取出存档，使用读卡器连接到电脑后使用 <a target="_blank" rel="noopener" href="https://github.com/kwsch/PKHeX/releases">PKHex</a> 软件打开存档，查看刚捕捉的宝可梦的数据.</li>
+</ul>
+</li>
+<li>回到乱数工具，在黄框中填入刚捕捉到的宝可梦数据（如果不是闪光记得不要勾选 <em><strong>只显示异色</strong></em> ），点击 <em>计算</em>. 记下橙色框中的数字. <img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part1/Figure4.png" alt="Figure4"></li>
+<li>回到 <em>CCTimer</em>，计算<em>目标帧</em>减去刚刚橙色框中的数字的值，点击 <em><strong>Clear</strong></em> 按钮清除后输入该值并点击 <em><strong>Add</strong></em> .</li>
+</ol>
+<p>误差校准完成.</p>
+<h2 id="乱数"><a href="#乱数" class="headerlink" title="乱数"></a>乱数</h2><p>和校准误差的4、5、6步一致：</p>
+<ol>
+<li>点击 <em><strong>Start</strong></em> 按钮的同时开始游戏.</li>
+<li>在游戏中快速到达目标帧的确定位置.</li>
+<li>在 <em>CCTimer</em> 上的倒计时归零的瞬间按下机器的<em><strong>A</strong></em>键，然后等待进入战斗界面.</li>
+<li>如果得到的不是<em>目标帧</em>，可以选择再次进行误差校准或者再多尝试几次.<blockquote>
+<p>因为手工操作多少会有些误差，建议多尝试几次，若十几二十次失败再考虑重新校准误差.</p>
+</blockquote>
+</li>
+<li>乱数成功，得到目标！</li>
+</ol>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference*"></a>Reference*</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://taiyaki3gen.hatenablog.com/entry/2020/05/30/162400">3genSearch 作者博客</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.smogon.com/ingame/rng/">Smogon RNG 教程</a></li>
 </ul>
