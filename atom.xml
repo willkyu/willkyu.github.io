@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-04T06:02:11.238Z</updated>
+  <updated>2021-12-04T11:49:42.092Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -17,15 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>亲爱的宝可梦♡</title>
+    <link href="http://willkyu.github.io/See-My-Loving-Pokemons/"/>
+    <id>http://willkyu.github.io/See-My-Loving-Pokemons/</id>
+    <published>2021-12-04T08:22:50.000Z</published>
+    <updated>2021-12-04T11:49:42.092Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;以此博客纪念我爱的宝可梦们~~&lt;br&gt;封面 [ID:79498766]. &lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
+    
+  </entry>
+  
+  <entry>
     <title>如何备份你的存档</title>
     <link href="http://willkyu.github.io/How-To-Back-Up-Your-Savefiles/"/>
     <id>http://willkyu.github.io/How-To-Back-Up-Your-Savefiles/</id>
     <published>2021-12-04T04:55:29.000Z</published>
-    <updated>2021-12-04T06:02:11.238Z</updated>
+    <updated>2021-12-04T08:44:46.238Z</updated>
     
     
     <summary type="html">&lt;p&gt;这篇文章是宝可梦正版正作卡带从 &lt;em&gt;Gen1&lt;/em&gt; 到 &lt;em&gt;Gen7&lt;/em&gt; 的存档提取与导入教程.&lt;br&gt;不局限于宝可梦正作，其他卡带也可以通过同样的方法提取.&lt;br&gt;如果你对备份存档感到介意，请根据自身情况取舍.&lt;/p&gt;
-&lt;p&gt;封面 [ID:91220788]. &lt;/p&gt;</summary>
+&lt;p&gt;封面 [ID:86927624]. &lt;/p&gt;</summary>
     
     
     
@@ -125,7 +144,7 @@
     <link href="http://willkyu.github.io/The-First-Blog/"/>
     <id>http://willkyu.github.io/The-First-Blog/</id>
     <published>2021-12-01T09:28:54.000Z</published>
-    <updated>2021-12-04T07:50:41.744Z</updated>
+    <updated>2021-12-04T11:43:17.463Z</updated>
     
     
     <summary type="html">&lt;p&gt;欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！&lt;br&gt;此博客基于 &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt; 打造，主题使用的是 &lt;a href=&quot;https://github.com/zhwangart/hexo-theme-ocean&quot;&gt;Oceon&lt;/a&gt;. 当你在阅读的时候有任何的问题,欢迎与我联系.&lt;/p&gt;
