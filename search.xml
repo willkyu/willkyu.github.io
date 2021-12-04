@@ -3,7 +3,7 @@
   <entry>
     <title>The First Blog</title>
     <url>/The-First-Blog/</url>
-    <content><![CDATA[<p>欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！此博客基于 <a href="https://hexo.io/">Hexo</a> 打造，主题使用的是 <a href="https://github.com/zhwangart/hexo-theme-ocean">Oceon</a>. 当你在阅读的时候有任何的问题,欢迎与我联系.</p>
+    <content><![CDATA[<p>欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！<br>此博客基于 <a href="https://hexo.io/">Hexo</a> 打造，主题使用的是 <a href="https://github.com/zhwangart/hexo-theme-ocean">Oceon</a>. 当你在阅读的时候有任何的问题,欢迎与我联系.</p>
 <p>封面 [ID:85357809]. </p>
 <span id="more"></span>
 
@@ -50,6 +50,67 @@
       </tags>
   </entry>
   <entry>
+    <title>如何备份你的存档</title>
+    <url>/How-To-Back-Up-Your-Savefiles/</url>
+    <content><![CDATA[<p>这篇文章是宝可梦正版正作卡带从 <em>Gen1</em> 到 <em>Gen7</em> 的存档提取与导入教程.<br>不局限于宝可梦正作，其他卡带也可以通过同样的方法提取.<br>如果你对备份存档感到介意，请根据自身情况取舍.</p>
+<p>封面 [ID:91220788]. </p>
+<span id="more"></span>
+
+<h2 id="GB-与-GBC-卡带"><a href="#GB-与-GBC-卡带" class="headerlink" title="GB 与 GBC 卡带"></a><em>GB</em> 与 <em>GBC</em> 卡带</h2><p>包含的宝可梦卡带有：</p>
+<ul>
+<li>宝可梦 红 / 绿 / 蓝 / 黄</li>
+<li>宝可梦 金 / 银 / 水晶</li>
+</ul>
+<p>这类应该只能通过特殊设备提取与导入，如 <em>Flash Boy</em> 等.<br><img src="../images/body/How-To-Back-Up-Your-Savefiles/Flash-Boy1.png" alt="Flash Boy"><br><img src="../images/body/How-To-Back-Up-Your-Savefiles/Flash-Boy2.png" alt="Flash Boy"><br>在各电商应该都有购买方式.</p>
+<blockquote>
+<p>注意，这类卡带的存档依赖电池，如果电池没电了会导致存档丢失.</p>
+</blockquote>
+<h2 id="GBA-卡带"><a href="#GBA-卡带" class="headerlink" title="GBA 卡带"></a><em>GBA</em> 卡带</h2><p>包含的宝可梦卡带有：</p>
+<ul>
+<li>宝可梦 红宝石 / 蓝宝石 / 绿宝石</li>
+<li>宝可梦 火红 / 叶绿</li>
+</ul>
+<p>这类存档提取与导入可以通过：</p>
+<ol>
+<li>使用特殊设备提取，如上述 <em>Flash Boy</em>.</li>
+<li>使用 <em>初版 NDS</em> 或 <em>NDS lite</em> 配合 NDS 烧录卡与存档提取软件 <em><strong>GBA Backup Tool</strong></em>.</li>
+</ol>
+<ul>
+<li><a href="https://www.gamebrew.org/wiki/GBA_Backup_Tool">使用方法</a></li>
+<li><a href="https://tieba.baidu.com/p/4191400745">使用方法 - 中文</a></li>
+<li><a href="/download/GBA-Backup-Tool.nds">下载</a></li>
+</ul>
+<p><img src="../images/body/How-To-Back-Up-Your-Savefiles/GBA-Backup-Tool.png" alt="GBA Backup Tool"></p>
+<h2 id="NDS-与-3DS-卡带-以及-3DSVC-系列"><a href="#NDS-与-3DS-卡带-以及-3DSVC-系列" class="headerlink" title="NDS 与 3DS 卡带 以及 3DSVC 系列"></a><em>NDS</em> 与 <em>3DS</em> 卡带 以及 <em>3DS</em>VC 系列</h2><p>包含的宝可梦卡带有：</p>
+<ul>
+<li>宝可梦 珍珠 / 钻石 / 白金</li>
+<li>宝可梦 心金 / 魂银</li>
+<li>宝可梦 黑 / 白 </li>
+<li>宝可梦 黑2 / 白2</li>
+<li>宝可梦 X / Y</li>
+<li>宝可梦 欧米伽红宝石／阿尔法蓝宝石</li>
+<li>宝可梦 日 / 月</li>
+<li>宝可梦 究极之日 / 究极之月</li>
+<li>宝可梦 VC 系列</li>
+</ul>
+<p>这类存档提取与导入需要使用破解 <em>3DS</em> ，想要破解 <em>3DS</em> 请参见：<a href="https://stray-soul.com/">一只火狐的杂物间</a>.<br>请具备一定的破解 3DS 软件安装能力.</p>
+<ul>
+<li>使用 <em>3DS</em> 存档提取软件 <em><strong>CheckPoint</strong></em> （推荐）或者 <em><strong>TWLSaveTool</strong></em> .<ul>
+<li><a href="https://projectpokemon.org/home/tutorials/save-editing/managing-3ds-saves/using-checkpoint-r25/">CheckPoint使用方法</a></li>
+<li><a href="https://projectpokemon.org/home/tutorials/save-editing/managing-nds-saves/using-twl-save-tool-r59/">TWLSaveTool使用方法</a></li>
+<li><a href="https://github.com/FlagBrew/Checkpoint/releases">CheckPoint下载</a></li>
+<li><a href="https://github.com/TuxSH/TWLSaveTool/releases">TWLSaveTool下载</a></li>
+</ul>
+</li>
+</ul>
+<p>Checkpoint界面：<br><img src="../images/body/How-To-Back-Up-Your-Savefiles/CheckPoint.png" alt="CheckPoint"><br>TWLSaveTool界面：<br><img src="../images/body/How-To-Back-Up-Your-Savefiles/TWLSaveTool.png" alt="TWLSaveTool"></p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>不建议滥用存档导入导出，还请保持对游戏、对宝可梦的热爱进行使用！</p>
+]]></content>
+      <tags>
+        <tag>Pokemon</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>宝可梦绿宝石及没有电的红蓝宝石实机乱数（不包含 ID 或 Egg）</title>
     <url>/Pokemon-RNG-Abuse-Gen3-Part1/</url>
     <content><![CDATA[<p>这是宝可梦绿宝石及没电红蓝宝石的实机乱数教程.<br>不包含 ID 与 Egg 的乱数教程.<br>如有纰漏，请<a href="../about/">与我联系</a>，万分感谢！</p>
@@ -67,7 +128,7 @@
 </blockquote>
 <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>如果你想要乱数闪光宝可梦，你需要知道你的<a href="https://wiki.52poke.com/wiki/ID_No.#.E9.87.8CID_No.">SID</a>.</p>
 <blockquote>
-<p>如果你想要乱数的是已经创建好的存档，这可能会需要你导出存档并使用 <em>PKHex</em> 等软件查看你的存档（不涉及修改），请根据自身接受程度使用.<br>由于我没有怎么研究过乱数ID，所以如果你想要乱数ID，请查看：<a href=""></a>.<br>之后如果自己研究了一遍就会上传Blog.<br>不会导出存档？看看这篇博客：<a href="">还没写呢，写完放这里</a>.</p>
+<p>如果你想要乱数的是已经创建好的存档，这可能会需要你导出存档并使用 <em>PKHex</em> 等软件查看你的存档（不涉及修改），请根据自身接受程度使用.<br>由于我没有怎么研究过乱数ID，所以如果你想要乱数ID，请查看：<a href="https://www.smogon.com/ingame/rng/rs_nonbredrng#idsid">Smogon ID 乱数教程</a>.<br>之后如果自己研究了一遍就会上传Blog.<br>不会导出存档？看看这篇博客：<a href="/../How-To-Back-Up-Your-Savefiles/">如何备份你的存档</a>.</p>
 </blockquote>
 <h2 id="硬件准备"><a href="#硬件准备" class="headerlink" title="硬件准备"></a>硬件准备</h2><ul>
 <li>能够游玩第三世代宝可梦卡带的机器（<em>GBA</em>系列、初代<em>NDS</em> 或 <em>NDS lite</em>，不推荐使用 <em>NGC</em>）.</li>

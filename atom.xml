@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-03T15:19:40.738Z</updated>
+  <updated>2021-12-04T06:02:11.238Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -17,11 +17,29 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>如何备份你的存档</title>
+    <link href="http://willkyu.github.io/How-To-Back-Up-Your-Savefiles/"/>
+    <id>http://willkyu.github.io/How-To-Back-Up-Your-Savefiles/</id>
+    <published>2021-12-04T04:55:29.000Z</published>
+    <updated>2021-12-04T06:02:11.238Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这篇文章是宝可梦正版正作卡带从 &lt;em&gt;Gen1&lt;/em&gt; 到 &lt;em&gt;Gen7&lt;/em&gt; 的存档提取与导入教程.&lt;br&gt;不局限于宝可梦正作，其他卡带也可以通过同样的方法提取.&lt;br&gt;如果你对备份存档感到介意，请根据自身情况取舍.&lt;/p&gt;
+&lt;p&gt;封面 [ID:91220788]. &lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
+    
+  </entry>
+  
+  <entry>
     <title>宝可梦绿宝石及没有电的红蓝宝石实机乱数（不包含 ID 或 Egg）</title>
     <link href="http://willkyu.github.io/Pokemon-RNG-Abuse-Gen3-Part1/"/>
     <id>http://willkyu.github.io/Pokemon-RNG-Abuse-Gen3-Part1/</id>
     <published>2021-12-03T06:08:08.000Z</published>
-    <updated>2021-12-03T15:19:40.738Z</updated>
+    <updated>2021-12-04T06:03:08.506Z</updated>
     
     
     <summary type="html">&lt;p&gt;这是宝可梦绿宝石及没电红蓝宝石的实机乱数教程.&lt;br&gt;不包含 ID 与 Egg 的乱数教程.&lt;br&gt;如有纰漏，请&lt;a href=&quot;../about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
@@ -107,10 +125,10 @@
     <link href="http://willkyu.github.io/The-First-Blog/"/>
     <id>http://willkyu.github.io/The-First-Blog/</id>
     <published>2021-12-01T09:28:54.000Z</published>
-    <updated>2021-12-03T15:11:00.569Z</updated>
+    <updated>2021-12-04T05:19:02.709Z</updated>
     
     
-    <summary type="html">&lt;p&gt;欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！此博客基于 &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt; 打造，主题使用的是 &lt;a href=&quot;https://github.com/zhwangart/hexo-theme-ocean&quot;&gt;Oceon&lt;/a&gt;. 当你在阅读的时候有任何的问题,欢迎与我联系.&lt;/p&gt;
+    <summary type="html">&lt;p&gt;欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！&lt;br&gt;此博客基于 &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt; 打造，主题使用的是 &lt;a href=&quot;https://github.com/zhwangart/hexo-theme-ocean&quot;&gt;Oceon&lt;/a&gt;. 当你在阅读的时候有任何的问题,欢迎与我联系.&lt;/p&gt;
 &lt;p&gt;封面 [ID:85357809]. &lt;/p&gt;</summary>
     
     
