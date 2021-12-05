@@ -17,7 +17,7 @@ function clickEffect() {
 
     let ctx;
 
-    const colours = ["#F73859", "#14FFEC", "#00E0FF", "#FF99FE", "#FAF15D"];
+    const colours = ["#FFF0F5", "#E6E6FA", "#F0FFF0", "#F0F8FF", "#FFF8DC"];
 
     const canvas = document.createElement("canvas");
 
