@@ -1,33 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>解决访问GithHub速度慢的问题</title>
-    <url>/Accessing-GitHub-Slowly-Solution/</url>
-    <content><![CDATA[<p>今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN 域名遭到了 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢.</p>
-<p>可以通过修改本地 <code>hosts</code> 文件来绕过 DNS 解析来加速.</p>
-<p>封面 [ID:46018784]. </p>
-<span id="more"></span>
-<ul>
-<li>首先打开<a href="http://tool.chinaz.com/dns/">站长工具</a></li>
-<li>填入 &lt;Github.com&gt;<br><img src="../images/body/Accessing-GitHub-Slowly-Solution/Figure1.png" alt="Figure1" title="在 请输入域名 栏填写"></li>
-<li>将检测列表里的 TTL 值最小的 IP 记为 <em>a.b.c.d</em>.</li>
-<li>使用记事本打开 <code>hosts</code> 文件，位于 &lt;C:\Windows\System32\drivers\etc&gt;.</li>
-<li>将以下内容加在 <code>host</code> 文件末尾：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a.b.c.d www.github.com</span><br><span class="line">a.b.c.d github.global.ssl.fastly.net</span><br><span class="line">a.b.c.d nodeload.github.com</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>其中 <em>a.b.c.d</em> 是上述步骤中记录的 IP 地址.<br>如果没有修改权限可以将 <code>host</code> 文件移出该文件夹，修改完成后再移回去.<br>系统会确认你授权管理员权限.<br><img src="../images/body/Accessing-GitHub-Slowly-Solution/Figure2.png" alt="Figure2" title="系统向确认你授权管理员权限"></p>
-</blockquote>
-</li>
-<li>Done！试试访问GitHub吧！</li>
-</ul>
-<p>我发现还是有时候不太行———— 希望有更好办法的能分享一下.</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://blog.csdn.net/CS13477062349/article/details/88020283?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.no_search_link&spm=1001.2101.3001.4242.1">完美解决打开github速度慢的问题</a></p>
-]]></content>
-      <tags>
-        <tag>GitHub</tag>
-        <tag>Practical-Tips</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>置顶◇代办◇与更新记录</title>
     <url>/The-First-Blog/</url>
     <content><![CDATA[<p>欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！<br>此博客基于 <a href="https://hexo.io/">Hexo</a> 打造，主题使用的是 <a href="https://github.com/zhwangart/hexo-theme-ocean">Oceon</a>.<br>当你在阅读的时候有任何的问题,欢迎与我联系.</p>
@@ -91,114 +64,233 @@
       </tags>
   </entry>
   <entry>
-    <title>基于Hexo与GitHub制作私人博客</title>
-    <url>/Build-Your-Own-Blog-Like-This-One/</url>
-    <content><![CDATA[<p>想要搭建自己的博客？跟着这篇文章做下去，谜拟Q都能搭出私人博客！</p>
-<p>以此文章记录丘丘Blog的制作过程.</p>
-<p>封面 [ID:91018415]. </p>
+    <title>VS. Recorder</title>
+    <url>/VS-Recorder/</url>
+    <content><![CDATA[<p>此 Blog 用于记录一些宝可梦对战比赛，终有一日成为宝可梦大师！<br>平时比赛可能不是很勤，尽量8.</p>
+<p>封面 [ID:79621961]. </p>
 <span id="more"></span>
 
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>说实话我做Blog就是为了记录分享，最重要的是很有意思，捣鼓捣鼓出来很有成就感.<br>不过我觉得这篇知乎专栏写的很不错，有兴趣的可以看看.</p>
-<p><a href="https://zhuanlan.zhihu.com/p/19743861">为什么你要写博客？ - 陈素封的文章 - 知乎</a></p>
-<p>接下来我将记录一下这个博客的搭建与完善过程. </p>
-<p>谜拟Q都能看懂的博客搭建教程 开工！</p>
-<h1 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h1><p>这部分主要实现博客的从无到有，是做成自己独一无二博客的基础.</p>
-<h2 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h2><h3 id="注册-GitHub-账号"><a href="#注册-GitHub-账号" class="headerlink" title="注册 GitHub 账号"></a>注册 GitHub 账号</h3><p>这个很简单，<a href="https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=/&source=header-home">点击这里</a>来创建 GitHub 账号. </p>
-<h3 id="在个人主界面里选择创建一个新的-Repository"><a href="#在个人主界面里选择创建一个新的-Repository" class="headerlink" title="在个人主界面里选择创建一个新的 Repository"></a>在个人主界面里选择创建一个新的 <em>Repository</em></h3><p><em>Repository name</em> 处填写 <code>username.github.io</code>. 其中 <em>username</em> 是你的 GitHub 用户名.<br><strong>请勾选 <em>Add a README file</em> 选项.</strong><br><img src="../images/body/Build-Your-Own-Blog-Like-This-One/Figure1.png" alt="Figure1"></p>
-<blockquote>
-<p>图中因为我已经创建过了，所以会报错.</p>
-</blockquote>
-<p>创建后默认自动启用 HTTPS，博客地址为：<a href="https://username.github.io/">https://username.github.io</a>. 其中 <em>username</em> 是你的 GitHub 账号名. （不过可能进去没啥东西）</p>
-<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>Hexo 基于 Node.js，搭建过程中还需要使用 <code>npm</code>（Node.js 已带） 和 <code>git</code>，因此先搭建本地操作环境，安装 Node.js 和 Git.</p>
-<blockquote>
-<p>这里我全部按默认配置完成安装</p>
-</blockquote>
-<h3 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h3><p>访问 <a href="https://nodejs.org/en/">Node.js 官方网站</a>下载并安装Node.js . 这里我选择的是LTS版本（16.13.1），当前 <a href="ttps://hexo.io/zh-cn/docs/">Hexo 官方文档</a>建议 Node.js 版本高于12.0.0，可随时确认.</p>
-<blockquote>
-<p>此外，使用 Node.js 官方安装程序时，请确保勾选 <em>Add to PATH</em> 选项（默认已勾选）</p>
-<p>安装完成后，组合键<kbd>Win</kbd>+<kbd>R</kbd> 输入 <code>cmd</code> 并打开，依次输入 <code>node -v</code>、<code>npm -v</code>并回车，如下图出现程序版本号即安装成功.</p>
-</blockquote>
-<p><img src="../images/body/Build-Your-Own-Blog-Like-This-One/Figure2.png" alt="Figure2"></p>
-<h3 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h3><p>访问 <a href="https://git-scm.com/download/win">Git 官方下载地址</a>下载并安装 Git.</p>
-<blockquote>
-<p>安装完成后，组合键 <kbd>Win</kbd>+<kbd>R</kbd> 输入 <code>cmd</code> 并打开，输入 <code>git --version</code>、并回车，如下图出现程序版本号即安装成功.</p>
-</blockquote>
-<p><img src="../images/body/Build-Your-Own-Blog-Like-This-One/Figure3.png" alt="Figure3"></p>
-<h2 id="连接-GitHub"><a href="#连接-GitHub" class="headerlink" title="连接 GitHub"></a>连接 GitHub</h2><p>打开 <em>Git Bash</em> ，输入以下代码设置用户名和邮箱：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;GitHub 用户名&quot;</span><br><span class="line">git config --global user.email &quot;GitHub 邮箱&quot;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>用自己的 GitHub 用户名与邮箱替代代码中的相应部分.</p>
-</blockquote>
-<h3 id="创建-SSH-密钥"><a href="#创建-SSH-密钥" class="headerlink" title="创建 SSH 密钥"></a>创建 SSH 密钥</h3><p>继续输入代码<code>ssh-keygen -t rsa -C &quot;GitHub 邮箱&quot;</code> 然后一路回车.</p>
-<h3 id="添加密匙"><a href="#添加密匙" class="headerlink" title="添加密匙"></a>添加密匙</h3><p>进入 &lt;C:\Users\用户名.ssh&gt; 目录（可能需要勾选显示“隐藏的项目”），用记事本打开公钥 <em>id_rsa.pub</em> 文件并复制里面的内容.</p>
-<p>登陆 GitHub ，进入个人 <em>Settings</em> 页面，选择左边栏的 <em>SSH and GPG keys</em> ，点击 <em>New SSH key</em>.</p>
-<p>Title 随便填写一个名字，将 <em>id_rsa.pub</em> 内容复制粘贴到 Key 中，点击 <em>Add SSH key</em> 完成添加.<br><img src="../images/body/Build-Your-Own-Blog-Like-This-One/Figure4.png" alt="Figure4"></p>
-<h3 id="验证连接"><a href="#验证连接" class="headerlink" title="验证连接"></a>验证连接</h3><p>打开 <em>Git Bash</em>，输入 <code>ssh -T git@github.com</code> 出现 <em><strong>“Are you sure……”</strong></em> 字样时，输入 <em>yes</em> 并回车确认.</p>
-<p>显示 <em><strong>“Hi xxx! You’ve successfully……”</strong></em> 即连接成功.</p>
-<h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><p>在喜欢的位置创建一个空文件夹，打开 <em>Git Bash</em> 利用 <code>cd</code> 命令移动至此文件夹.</p>
-<blockquote>
-<p>之后若无特殊说明则将此文件夹称为根目录</p>
-</blockquote>
-<p>输入 <code>npm install -g hexo-cli</code> 回车进行安装.</p>
-<p>安装完成后输入以下代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init   #初始化 hexo</span><br><span class="line">hexo g  # 生成页面</span><br><span class="line">hexo s  # 启用预览，默认端口4000</span><br></pre></td></tr></table></figure>
-<p>访问<a href="http://localhost:4000/">http://localhost:4000</a>，出现 Hexo 默认页面，则本地博客安装成功.</p>
-<blockquote>
-<p>使用组合键 <kbd>Ctrl</kbd>+<kbd>C</kbd> 来关闭本地预览服务.</p>
-<p>若组合键 <kbd>Ctrl</kbd>+<kbd>C</kbd> 没有效果，可打开 <em>cmd</em> 运行 <code>taskkill /f /t /im node.exe</code> 来关闭服务.</p>
-<p>如果出现页面加载不出来，可能是端口被占用了. 组合键 <kbd>Ctrl</kbd>+<kbd>C</kbd> 关闭服务器，运行 <code>hexo server -p 5000</code> 更改端口号为5000后重试.</p>
-</blockquote>
-<p>Hexo 博客文件夹目录结构如下：(图源水印)<br><img src="../images/body/Build-Your-Own-Blog-Like-This-One/Figure5.jpg" alt="Figure5"></p>
-<h2 id="部署-Hexo-到-GitHub-Pages"><a href="#部署-Hexo-到-GitHub-Pages" class="headerlink" title="部署 Hexo 到 GitHub Pages"></a>部署 Hexo 到 GitHub Pages</h2><p>在 <em>Git Bash</em> 中运行 <code>npm install hexo-deployer-git --save</code>.</p>
-<p>打开根目录，找到文件 <em>_config.yml</em> 并打开，修改文件末尾的 Deployment 部分为：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:用户名/用户名.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>用自己的 GitHub 用户名替换代码相应部分</p>
-</blockquote>
-<p>接着，在 <em>Git Bash</em> 中运行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d  # 部署博客</span><br></pre></td></tr></table></figure>
+<h2 id="2020年10月苏州月赛战报-冠军"><a href="#2020年10月苏州月赛战报-冠军" class="headerlink" title="2020年10月苏州月赛战报-冠军"></a>2020年10月苏州月赛战报-冠军</h2><p><img src="../images/body/VS-Recorder/SPL-2020-10-05.png" alt="SPL-2020-10-05"></p>
+<h4 id="Date-2020-10-05"><a href="#Date-2020-10-05" class="headerlink" title="Date: 2020-10-05"></a>Date: 2020-10-05</h4><h4 id="Rule-不限标-允许携带最多一个幻兽"><a href="#Rule-不限标-允许携带最多一个幻兽" class="headerlink" title="Rule: 不限标 允许携带最多一个幻兽"></a>Rule: 不限标 允许携带最多一个幻兽</h4><h4 id="Record"><a href="#Record" class="headerlink" title="Record:"></a>Record:</h4><ul>
+<li>第一轮瑞士轮 轮空</li>
+<li>第二轮瑞士轮 vs red X<br>  首发谜拟Q+霜奶仙 对面首发野菊+妙蛙 赌对面点谜拟Q开空间所以霜奶仙换后排魔女 谜拟Q影袭队友触发弱测 结果对面打霜奶仙位 开空间 跪了</li>
+<li>第三轮瑞士轮 vs bd O<br>  bd开卡包开到高罕太激动了 嘎啦没点防壁被装饰jjh谜拟Q秒了 然后就被谜拟Q杀穿了（感觉点了防壁也赢不了？）</li>
+</ul>
+<p>2-1勉强进半决赛</p>
+<ul>
+<li>半决赛 vs red O<br>  同样的首发 直接装饰jjh谜拟Q开干 霜奶仙退场后梦幻变身谜拟Q 两只谜拟Q杀穿了</li>
+<li>决赛 vs 乌笔澄 bo3规则 OO<ul>
+<li>第一轮首发谜拟Q+风妖精 对面咆哮虎+智挥猩 谜拟Q剑舞 风妖精被击掌触发按钮白给换上霜奶仙 再次霜奶仙配合jjh谜拟Q贯穿</li>
+<li>第二轮对面首发垃圾之翼+毒电开顺风 还是被谜拟Q+霜奶仙秒了毒电 最后残局对面健康西施 我方残血霜奶仙+风妖精 霜奶仙给风妖精装饰后被打死 风妖精掉包换来了西施的背心 然后月爆对攻西施结束 拿下冠军</li>
+</ul>
+</li>
+</ul>
+<h4 id="Sentiment"><a href="#Sentiment" class="headerlink" title="Sentiment"></a>Sentiment</h4><p>没想到大部分钢属性幻兽的情况下这队表现能这么好！点名表扬谜拟Q 霜奶仙和风妖精. 真爱队胜利还是很开心的，以后再接再厉.</p>
+<h4 id="Team"><a href="#Team" class="headerlink" title="Team:"></a>Team:</h4><p>有些配置记不清了，大概如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mimikyu @ Babiri Berry  </span><br><span class="line">Ability: Disguise  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 160 Atk / 94 Def / 4 SpD  </span><br><span class="line">Adamant Nature  </span><br><span class="line">- Play Rough  </span><br><span class="line">- Shadow Sneak  </span><br><span class="line">- Swords Dance  </span><br><span class="line">- Shadow Claw  </span><br><span class="line"></span><br><span class="line">Alcremie @ Safety Goggles  </span><br><span class="line">Ability: Aroma Veil  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 74 Def / 4 SpA / 180 Spe  </span><br><span class="line">Timid Nature  </span><br><span class="line">- Decorate  </span><br><span class="line">- Dazzling Gleam  </span><br><span class="line">- Protect  </span><br><span class="line">- Helping Hand  </span><br><span class="line"></span><br><span class="line">Whimsicott @ Focus Sash  </span><br><span class="line">Ability: Prankster  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 6 SpD / 252 Spe  </span><br><span class="line">Timid Nature  </span><br><span class="line">IVs: 0 Atk  </span><br><span class="line">- Tailwind  </span><br><span class="line">- Endeavor  </span><br><span class="line">- Memento  </span><br><span class="line">- Helping Hand  </span><br><span class="line"></span><br><span class="line">Rotom-Heat @ Wiki Berry  </span><br><span class="line">Ability: Levitate  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 66 Def / 116 SpA / 76 Spe  </span><br><span class="line">Modest Nature  </span><br><span class="line">IVs: 0 Atk  </span><br><span class="line">- Thunderbolt  </span><br><span class="line">- Nasty Plot  </span><br><span class="line">- Protect  </span><br><span class="line">- Overheat  </span><br><span class="line"></span><br><span class="line">Hatterene-Gmax (F) @ Weakness Policy  </span><br><span class="line">Ability: Magic Bounce  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 4 Def / 252 SpA  </span><br><span class="line">Quiet Nature  </span><br><span class="line">IVs: 0 Atk  </span><br><span class="line">- Psychic  </span><br><span class="line">- Dazzling Gleam  </span><br><span class="line">- Calm Mind  </span><br><span class="line">- Trick Room  </span><br><span class="line"></span><br><span class="line">Mew @ Aguav Berry  </span><br><span class="line">Ability: Synchronize  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 252 Spe  </span><br><span class="line">Jolly Nature  </span><br><span class="line">IVs: 30 Atk  </span><br><span class="line">- Tailwind  </span><br><span class="line">- Transform  </span><br><span class="line">- Fake Out  </span><br><span class="line">- Helping Hand  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<br>
 
-<p>这时访问自己的 GitHub 域名 <a href="https://username.github.io/">https://username.github.io</a> 就可以看到 Hexo 网站了. </p>
-<p><br><br><br>到这里私人博客的搭建就差不多了，接下来便是去安装 hexo 的<a href="https://hexo.io/themes/">主题</a>与<a href="https://hexo.io/plugins/">插件</a>了.</p>
-<h1 id="完善"><a href="#完善" class="headerlink" title="完善"></a>完善</h1><p>这部分将你的博客个性化，来创造自己独一无二的博客吧！</p>
-<h2 id="选择并安装主题"><a href="#选择并安装主题" class="headerlink" title="选择并安装主题"></a>选择并安装主题</h2><p>在 <a href="https://hexo.io/themes/">Themes | Hexo</a> 选择一个喜欢的主题，按照官方文档进行安装即可. 这里我选择的是 <a href="https://zhwangart.com/2018/11/30/Ocean/">Ocean 主题</a>.</p>
-<p>因为官方文档的步骤都十分详细，因此这里不展开细说. 一般主题所需的插件也会在官方文档中提供安装与使用方法.</p>
-<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>跟着官方文档做下去，再按照自己的需求更改，个性化的博客便做好了.</p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://www.zhihu.com/question/20962496/answer/677815713">如何在 GitHub 上写博客？ - 少数派的回答 - 知乎</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/60578464">使用 Hexo+GitHub 搭建个人免费博客教程（小白向） - crystal的文章 - 知乎</a></p>
-<p><a href="https://hexo.io/zh-cn/docs/">Hexo 官方中文文档</a></p>
-<p><a href="https://zhwangart.com/2018/11/30/Ocean/">Ocean 官方文档</a></p>
+<hr>
+<br>
+
 ]]></content>
       <tags>
-        <tag>GitHub</tag>
-        <tag>Hexo</tag>
-        <tag>Ocean</tag>
-        <tag>Practical-Tips</tag>
+        <tag>Life</tag>
+        <tag>Pokemon</tag>
       </tags>
   </entry>
   <entry>
-    <title>宝可梦攻略整理</title>
-    <url>/Pokemon-Strategies-List/</url>
-    <content><![CDATA[<p>这篇我会用来专门整理宝可梦相关攻略，我之后写的攻略也会将直达链接放在这里，方便大家直接查找.</p>
-<p>封面 [ID:86247897]. </p>
+    <title>快乐的喷喷生活</title>
+    <url>/Share-Splatoon2-Happiness/</url>
+    <content><![CDATA[<p>以此Blog记录我爱的 <em>Splatoon</em> 和朋友们.<br>间谍伞，嘿嘿，间谍伞.</p>
+<p>封面 [ID:82331425]. </p>
+<span id="more"></span>
+<h2 id="Thanks-TO"><a href="#Thanks-TO" class="headerlink" title="Thanks TO"></a>Thanks TO</h2><h4 id="先感谢专业摄影师-口一宝——————"><a href="#先感谢专业摄影师-口一宝——————" class="headerlink" title="先感谢专业摄影师 口一宝——————"></a>先感谢专业摄影师 <em>口一宝</em>——————</h4><p><img src="../images/body/Share-Splatoon2-Happiness/Photographer.png" alt="Photographer"></p>
+<h4 id="感谢和我一起玩的朋友们："><a href="#感谢和我一起玩的朋友们：" class="headerlink" title="感谢和我一起玩的朋友们："></a>感谢和我一起玩的朋友们：</h4><ul>
+<li>天才口一狗勾</li>
+<li>蜜柑xbb</li>
+<li>童泡泡</li>
+<li>梨梨猫猫</li>
+<li>浴缸狂魔钢蛋</li>
+<li>还有海产群的以及和我一起快乐喷喷的各位!</li>
+</ul>
+<h2 id="Gallery"><a href="#Gallery" class="headerlink" title="Gallery"></a>Gallery</h2><p><img src="../images/body/Share-Splatoon2-Happiness/S(1).png"><br><img src="../images/body/Share-Splatoon2-Happiness/S(2).png"><br><img src="../images/body/Share-Splatoon2-Happiness/S(3).png"><br><img src="../images/body/Share-Splatoon2-Happiness/S(4).png"><br><img src="../images/body/Share-Splatoon2-Happiness/S(5).png"><br><img src="../images/body/Share-Splatoon2-Happiness/S(6).png"><br><img src="../images/body/Share-Splatoon2-Happiness/S(7).png"><br><img src="../images/body/Share-Splatoon2-Happiness/S(8).png"><br><img src="../images/body/Share-Splatoon2-Happiness/S(9).png"></p>
+]]></content>
+      <tags>
+        <tag>Life</tag>
+        <tag>Splatoon</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>亲爱的宝可梦♡</title>
+    <url>/See-My-Loving-Pokemons/</url>
+    <content><![CDATA[<p>以此博客纪念我爱的宝可梦们~~<br>封面 [ID:79498766]. </p>
 <span id="more"></span>
 
-<h2 id="游戏外攻略"><a href="#游戏外攻略" class="headerlink" title="游戏外攻略"></a>游戏外攻略</h2><p>No Hurry.</p>
-<h2 id="游戏内攻略"><a href="#游戏内攻略" class="headerlink" title="游戏内攻略"></a>游戏内攻略</h2><h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><ul>
-<li><p>关于游戏的锁区<details></p>
-  <summary><点击这里></summary>
+<h1 id="チュチュ-（丘丘）"><a href="#チュチュ-（丘丘）" class="headerlink" title="チュチュ （丘丘）"></a>チュチュ （丘丘）</h1><p><img src="../images/body/See-My-Loving-Pokemons/kyukyu.png" alt="丘丘"></p>
+<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p><img src="../images/body/See-My-Loving-Pokemons/kyukyu-Summary.png" alt="Summary"></p>
+<ul>
+<li>种类：#778 <a href="https://wiki.52poke.com/wiki/%E8%B0%9C%E6%8B%9F%EF%BC%B1">谜拟Q</a></li>
+<li>相遇时间：2021-01-03</li>
+<li>相遇地点：阿罗拉地区乌拉乌拉岛超值超市旧址<img src="../images/body/See-My-Loving-Pokemons/Thrifty-Megamart.png" alt="Thrifty-Megamart"></li>
+<li>相遇版本：ポケットモンスター サン</li>
+</ul>
+<p><img src="../images/body/See-My-Loving-Pokemons/kyukyu-Encounter1.png" alt="Encounter1"><br><img src="../images/body/See-My-Loving-Pokemons/kyukyu-Encounter2.png" alt="Encounter2"></p>
+<p><br><br></p>
+<hr>
+<p><br><br></p>
+<h1 id="Volta"><a href="#Volta" class="headerlink" title="Volta"></a>Volta</h1><p><img src="../images/body/See-My-Loving-Pokemons/Volta.png" alt="Volta"></p>
+<h2 id="About-1"><a href="#About-1" class="headerlink" title="About"></a>About</h2><p><img src="../images/body/See-My-Loving-Pokemons/Volta-Summary.png" alt="Summary"></p>
+<ul>
+<li>种类：#478 <a href="https://wiki.52poke.com/wiki/%E9%9B%AA%E5%A6%96%E5%A5%B3">雪妖女</a></li>
+<li>相遇时间：2021-04-19</li>
+<li>相遇地点：丰缘地区浅滩洞穴冰之房间<img src="../images/body/See-My-Loving-Pokemons/Hoenn_Shoal_Cave_Map.png" alt="Thrifty-Megamart"></li>
+<li>相遇版本：Pokemon Ruby</li>
+</ul>
+<p><img src="../images/body/See-My-Loving-Pokemons/Volta-Encounter1.png" alt="Encounter1"></p>
+<h2 id="Plans"><a href="#Plans" class="headerlink" title="Plans"></a>Plans</h2><ul>
+<li>集齐3代奖章后传去4代进化.</li>
+</ul>
+<p><br><br></p>
+<hr>
+<p><br><br></p>
+<h1 id="Ivy"><a href="#Ivy" class="headerlink" title="Ivy"></a>Ivy</h1><p><img src="../images/body/See-My-Loving-Pokemons/Ivy.png" alt="Ivy"></p>
+<h2 id="About-2"><a href="#About-2" class="headerlink" title="About"></a>About</h2><p><img src="../images/body/See-My-Loving-Pokemons/Ivy-Summary.png" alt="Summary"></p>
+<ul>
+<li>种类：#282 <a href="https://wiki.52poke.com/wiki/%E6%B2%99%E5%A5%88%E6%9C%B5">沙奈朵</a></li>
+<li>相遇时间：2021-01-22</li>
+<li>相遇地点：丰缘地区102号道路<img src="../images/body/See-My-Loving-Pokemons/Route102.webp" alt="Thrifty-Megamart"></li>
+<li>相遇版本：Pokemon Ruby</li>
+</ul>
+<p><img src="../images/body/See-My-Loving-Pokemons/Ivy-Encounter1.png" alt="Encounter1"></p>
+<h2 id="Evolution"><a href="#Evolution" class="headerlink" title="Evolution"></a>Evolution</h2><p><img src="../images/body/See-My-Loving-Pokemons/Ivy-Evolution1.png" alt="Evolution1"></p>
+<h2 id="Plans-1"><a href="#Plans-1" class="headerlink" title="Plans"></a>Plans</h2><ul>
+<li>集齐3代奖章.</li>
+</ul>
+<p><br><br></p>
+<hr>
+<p><br><br></p>
+<h1 id="Jirachi"><a href="#Jirachi" class="headerlink" title="Jirachi"></a>Jirachi</h1><p><img src="../images/body/See-My-Loving-Pokemons/Jirachi.png" alt="Jirachi"></p>
+<h2 id="About-3"><a href="#About-3" class="headerlink" title="About"></a>About</h2><p><img src="../images/body/See-My-Loving-Pokemons/Jirachi-Summary.png" alt="Summary"></p>
+<ul>
+<li>种类：#385 <a href="https://wiki.52poke.com/wiki/%E5%9F%BA%E6%8B%89%E7%A5%88">基拉祈</a></li>
+<li>相遇时间：2021-02-18</li>
+<li>相遇地点：<a href="https://wiki.52poke.com/wiki/%E5%91%BD%E4%B8%AD%E6%B3%A8%E5%AE%9A%E8%88%AC%E7%9A%84%E7%9B%B8%E9%81%87">Fateful Encounter</a>.</li>
+<li>相遇版本：Pokemon Ruby</li>
+</ul>
+<p><img src="../images/body/See-My-Loving-Pokemons/Jirachi-Encounter1.png" alt="Encounter1"></p>
+<p><br><br></p>
+<hr>
+<p><br><br></p>
+<h1 id="Charizard"><a href="#Charizard" class="headerlink" title="Charizard"></a>Charizard</h1><p><img src="../images/body/See-My-Loving-Pokemons/Charizard.png" alt="Charizard"></p>
+<h2 id="About-4"><a href="#About-4" class="headerlink" title="About"></a>About</h2><ul>
+<li>种类：#006 <a href="https://wiki.52poke.com/wiki/%E5%96%B7%E7%81%AB%E9%BE%99">喷火龙</a></li>
+<li>相遇时间：2021-07-26</li>
+<li>相遇地点：关都地区真新镇<img src="../images/body/See-My-Loving-Pokemons/Pallet-Town.webp" alt="Pallet Town"></li>
+<li>相遇版本：Pokemon Leaf Green</li>
+</ul>
+<p><img src="../images/body/See-My-Loving-Pokemons/Charizard-Encounter1.png" alt="Encounter1"></p>
+<h2 id="Evolution-1"><a href="#Evolution-1" class="headerlink" title="Evolution"></a>Evolution</h2><p><img src="../images/body/See-My-Loving-Pokemons/Charizard-Evolution1.png" alt="Evolution1"><br><img src="../images/body/See-My-Loving-Pokemons/Charizard-Evolution2.png" alt="Evolution2"></p>
+<h2 id="Plans-2"><a href="#Plans-2" class="headerlink" title="Plans"></a>Plans</h2><ul>
+<li>集齐3代奖章.</li>
+</ul>
+<p><br><br></p>
+<blockquote>
+<p>Not The End.<br>:D</p>
+</blockquote>
+<p><br><br></p>
+<hr>
+<hr>
+<br>
 
-  <img src="../images/body/Pokemon-Strategies-List/ZoneLock.jpg" alt="游戏锁区表">
+<h1 id="写在这里："><a href="#写在这里：" class="headerlink" title="写在这里："></a>写在这里：</h1><p>希望大家都能喜爱并珍惜与自己相遇的那些宝可梦！<br>享受宝可梦带来的快乐！</p>
+<p><br><br></p>
+<hr>
+<hr>
+<p><br><br></p>
+<h1 id="More"><a href="#More" class="headerlink" title="More"></a>More</h1><h2 id="第三世代"><a href="#第三世代" class="headerlink" title="第三世代"></a>第三世代</h2><p><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(1).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(2).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(3).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(4).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(5).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(6).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(7).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(8).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(9).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(10).png"></p>
+<p><br><br></p>
+<hr>
+<p><br><br></p>
+<h2 id="第四世代"><a href="#第四世代" class="headerlink" title="第四世代"></a>第四世代</h2><p><img src="../images/body/See-My-Loving-Pokemons/More/G4/G4(1).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G4/G4(2).png"></p>
+<p><br><br></p>
+<hr>
+<p><br><br></p>
+<h2 id="第五世代"><a href="#第五世代" class="headerlink" title="第五世代"></a>第五世代</h2><p><img src="../images/body/See-My-Loving-Pokemons/More/G5/G5(1).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G5/G5(2).png"></p>
+<p><br><br></p>
+<hr>
+<p><br><br></p>
+<h2 id="第六世代"><a href="#第六世代" class="headerlink" title="第六世代"></a>第六世代</h2><p><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(1).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(2).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(3).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(4).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(5).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(6).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(7).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(8).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(9).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(10).png"></p>
+<p><br><br></p>
+<hr>
+<p><br><br></p>
+<h2 id="第七世代"><a href="#第七世代" class="headerlink" title="第七世代"></a>第七世代</h2><p>No Hurry.</p>
+<p><br><br></p>
+<hr>
+<p><br><br></p>
+<h2 id="第八世代"><a href="#第八世代" class="headerlink" title="第八世代"></a>第八世代</h2><p>No Hurry.</p>
+]]></content>
+      <tags>
+        <tag>Life</tag>
+        <tag>Pokemon</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何备份你的存档</title>
+    <url>/How-To-Back-Up-Your-Savefiles/</url>
+    <content><![CDATA[<p>这篇文章是宝可梦正版正作卡带从 <em>Gen1</em> 到 <em>Gen7</em> 的存档提取与导入教程.<br>不局限于宝可梦正作，其他卡带也可以通过同样的方法提取.<br>如果你对备份存档感到介意，请根据自身情况取舍.</p>
+<p>封面 [ID:86927624]. </p>
+<span id="more"></span>
 
-<p>  – gba不锁区<br>  – 3ds玩3ds卡必锁区<br>  – 主机（不包括ns）全部锁区（n64不清楚 有待考证）</p>
-</details></li>
-<li><p><a href="https://tieba.baidu.com/p/6580100866?red_tag=2783794550">【攻略】【直播演示】GEN3 全图鉴 全精灵 理论规划及演示 – 卧看微尘 百度贴吧</a></p>
+<h2 id="GB-与-GBC-卡带"><a href="#GB-与-GBC-卡带" class="headerlink" title="GB 与 GBC 卡带"></a><em>GB</em> 与 <em>GBC</em> 卡带</h2><p>包含的宝可梦卡带有：</p>
+<ul>
+<li>宝可梦 红 / 绿 / 蓝 / 黄</li>
+<li>宝可梦 金 / 银 / 水晶</li>
+</ul>
+<p>这类应该只能通过特殊设备提取与导入，如 <em>Flash Boy</em> 等.<br><img src="../images/body/How-To-Back-Up-Your-Savefiles/Flash-Boy1.png" alt="Flash Boy"><br><img src="../images/body/How-To-Back-Up-Your-Savefiles/Flash-Boy2.png" alt="Flash Boy"><br>在各电商应该都有购买方式.</p>
+<blockquote>
+<p>注意，这类卡带的存档依赖电池，如果电池没电了会导致存档丢失.</p>
+</blockquote>
+<h2 id="GBA-卡带"><a href="#GBA-卡带" class="headerlink" title="GBA 卡带"></a><em>GBA</em> 卡带</h2><p>包含的宝可梦卡带有：</p>
+<ul>
+<li>宝可梦 红宝石 / 蓝宝石 / 绿宝石</li>
+<li>宝可梦 火红 / 叶绿</li>
+</ul>
+<p>这类存档提取与导入可以通过：</p>
+<ol>
+<li>使用特殊设备提取，如上述 <em>Flash Boy</em>.</li>
+<li>使用 <em>初版 NDS</em> 或 <em>NDS lite</em> 配合 NDS 烧录卡与存档提取软件 <em><strong>GBA Backup Tool</strong></em>.</li>
+</ol>
+<ul>
+<li><a href="https://www.gamebrew.org/wiki/GBA_Backup_Tool">使用方法</a></li>
+<li><a href="https://tieba.baidu.com/p/4191400745">使用方法 - 中文</a></li>
+<li><a href="/download/GBA-Backup-Tool.nds">下载</a></li>
+</ul>
+<p><img src="../images/body/How-To-Back-Up-Your-Savefiles/GBA-Backup-Tool.png" alt="GBA Backup Tool"></p>
+<h2 id="NDS-与-3DS-卡带-以及-3DS-VC-系列"><a href="#NDS-与-3DS-卡带-以及-3DS-VC-系列" class="headerlink" title="NDS 与 3DS 卡带 以及 3DS VC 系列"></a><em>NDS</em> 与 <em>3DS</em> 卡带 以及 <em>3DS</em> <strong>VC</strong> 系列</h2><p>包含的宝可梦卡带有：</p>
+<ul>
+<li>宝可梦 珍珠 / 钻石 / 白金</li>
+<li>宝可梦 心金 / 魂银</li>
+<li>宝可梦 黑 / 白 </li>
+<li>宝可梦 黑2 / 白2</li>
+<li>宝可梦 X / Y</li>
+<li>宝可梦 欧米伽红宝石／阿尔法蓝宝石</li>
+<li>宝可梦 日 / 月</li>
+<li>宝可梦 究极之日 / 究极之月</li>
+<li>宝可梦 VC 系列</li>
+</ul>
+<p>这类存档提取与导入需要使用破解 <em>3DS</em> ，想要破解 <em>3DS</em> 请参见：<a href="https://stray-soul.com/">一只火狐的杂物间</a>.<br>请具备一定的破解 3DS 软件安装能力.</p>
+<ul>
+<li>使用 <em>3DS</em> 存档提取软件 <em><strong>CheckPoint</strong></em> （推荐）或者 <em><strong>TWLSaveTool</strong></em> .<ul>
+<li><a href="https://projectpokemon.org/home/tutorials/save-editing/managing-3ds-saves/using-checkpoint-r25/">CheckPoint使用方法</a></li>
+<li><a href="https://projectpokemon.org/home/tutorials/save-editing/managing-nds-saves/using-twl-save-tool-r59/">TWLSaveTool使用方法</a></li>
+<li><a href="https://github.com/FlagBrew/Checkpoint/releases">CheckPoint下载</a></li>
+<li><a href="https://github.com/TuxSH/TWLSaveTool/releases">TWLSaveTool下载</a></li>
+</ul>
 </li>
 </ul>
-<h3 id="乱数"><a href="#乱数" class="headerlink" title="乱数"></a>乱数</h3><ul>
-<li><a href="/Pokemon-RNG-Abuse-Gen3-Part1/">宝可梦绿宝石及没有电的红蓝宝石实机乱数（不包含 ID 或 Egg）</a></li>
-</ul>
-<p>No Hurry.</p>
+<p>Checkpoint界面：<br><img src="../images/body/How-To-Back-Up-Your-Savefiles/CheckPoint.png" alt="CheckPoint"><br>TWLSaveTool界面：<br><img src="../images/body/How-To-Back-Up-Your-Savefiles/TWLSaveTool.png" alt="TWLSaveTool"></p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>不建议滥用存档导入导出，还请保持对游戏、对宝可梦的热爱进行使用！</p>
 ]]></content>
       <tags>
         <tag>Pokemon</tag>
@@ -340,236 +432,151 @@
       </tags>
   </entry>
   <entry>
-    <title>如何备份你的存档</title>
-    <url>/How-To-Back-Up-Your-Savefiles/</url>
-    <content><![CDATA[<p>这篇文章是宝可梦正版正作卡带从 <em>Gen1</em> 到 <em>Gen7</em> 的存档提取与导入教程.<br>不局限于宝可梦正作，其他卡带也可以通过同样的方法提取.<br>如果你对备份存档感到介意，请根据自身情况取舍.</p>
-<p>封面 [ID:86927624]. </p>
+    <title>宝可梦攻略整理</title>
+    <url>/Pokemon-Strategies-List/</url>
+    <content><![CDATA[<p>这篇我会用来专门整理宝可梦相关攻略，我之后写的攻略也会将直达链接放在这里，方便大家直接查找.</p>
+<p>封面 [ID:86247897]. </p>
 <span id="more"></span>
 
-<h2 id="GB-与-GBC-卡带"><a href="#GB-与-GBC-卡带" class="headerlink" title="GB 与 GBC 卡带"></a><em>GB</em> 与 <em>GBC</em> 卡带</h2><p>包含的宝可梦卡带有：</p>
-<ul>
-<li>宝可梦 红 / 绿 / 蓝 / 黄</li>
-<li>宝可梦 金 / 银 / 水晶</li>
-</ul>
-<p>这类应该只能通过特殊设备提取与导入，如 <em>Flash Boy</em> 等.<br><img src="../images/body/How-To-Back-Up-Your-Savefiles/Flash-Boy1.png" alt="Flash Boy"><br><img src="../images/body/How-To-Back-Up-Your-Savefiles/Flash-Boy2.png" alt="Flash Boy"><br>在各电商应该都有购买方式.</p>
-<blockquote>
-<p>注意，这类卡带的存档依赖电池，如果电池没电了会导致存档丢失.</p>
-</blockquote>
-<h2 id="GBA-卡带"><a href="#GBA-卡带" class="headerlink" title="GBA 卡带"></a><em>GBA</em> 卡带</h2><p>包含的宝可梦卡带有：</p>
-<ul>
-<li>宝可梦 红宝石 / 蓝宝石 / 绿宝石</li>
-<li>宝可梦 火红 / 叶绿</li>
-</ul>
-<p>这类存档提取与导入可以通过：</p>
-<ol>
-<li>使用特殊设备提取，如上述 <em>Flash Boy</em>.</li>
-<li>使用 <em>初版 NDS</em> 或 <em>NDS lite</em> 配合 NDS 烧录卡与存档提取软件 <em><strong>GBA Backup Tool</strong></em>.</li>
-</ol>
-<ul>
-<li><a href="https://www.gamebrew.org/wiki/GBA_Backup_Tool">使用方法</a></li>
-<li><a href="https://tieba.baidu.com/p/4191400745">使用方法 - 中文</a></li>
-<li><a href="/download/GBA-Backup-Tool.nds">下载</a></li>
-</ul>
-<p><img src="../images/body/How-To-Back-Up-Your-Savefiles/GBA-Backup-Tool.png" alt="GBA Backup Tool"></p>
-<h2 id="NDS-与-3DS-卡带-以及-3DS-VC-系列"><a href="#NDS-与-3DS-卡带-以及-3DS-VC-系列" class="headerlink" title="NDS 与 3DS 卡带 以及 3DS VC 系列"></a><em>NDS</em> 与 <em>3DS</em> 卡带 以及 <em>3DS</em> <strong>VC</strong> 系列</h2><p>包含的宝可梦卡带有：</p>
-<ul>
-<li>宝可梦 珍珠 / 钻石 / 白金</li>
-<li>宝可梦 心金 / 魂银</li>
-<li>宝可梦 黑 / 白 </li>
-<li>宝可梦 黑2 / 白2</li>
-<li>宝可梦 X / Y</li>
-<li>宝可梦 欧米伽红宝石／阿尔法蓝宝石</li>
-<li>宝可梦 日 / 月</li>
-<li>宝可梦 究极之日 / 究极之月</li>
-<li>宝可梦 VC 系列</li>
-</ul>
-<p>这类存档提取与导入需要使用破解 <em>3DS</em> ，想要破解 <em>3DS</em> 请参见：<a href="https://stray-soul.com/">一只火狐的杂物间</a>.<br>请具备一定的破解 3DS 软件安装能力.</p>
-<ul>
-<li>使用 <em>3DS</em> 存档提取软件 <em><strong>CheckPoint</strong></em> （推荐）或者 <em><strong>TWLSaveTool</strong></em> .<ul>
-<li><a href="https://projectpokemon.org/home/tutorials/save-editing/managing-3ds-saves/using-checkpoint-r25/">CheckPoint使用方法</a></li>
-<li><a href="https://projectpokemon.org/home/tutorials/save-editing/managing-nds-saves/using-twl-save-tool-r59/">TWLSaveTool使用方法</a></li>
-<li><a href="https://github.com/FlagBrew/Checkpoint/releases">CheckPoint下载</a></li>
-<li><a href="https://github.com/TuxSH/TWLSaveTool/releases">TWLSaveTool下载</a></li>
-</ul>
+<h2 id="游戏外攻略"><a href="#游戏外攻略" class="headerlink" title="游戏外攻略"></a>游戏外攻略</h2><p>No Hurry.</p>
+<h2 id="游戏内攻略"><a href="#游戏内攻略" class="headerlink" title="游戏内攻略"></a>游戏内攻略</h2><h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><ul>
+<li><p>关于游戏的锁区<details></p>
+  <summary><点击这里></summary>
+
+  <img src="../images/body/Pokemon-Strategies-List/ZoneLock.jpg" alt="游戏锁区表">
+
+<p>  – gba不锁区<br>  – 3ds玩3ds卡必锁区<br>  – 主机（不包括ns）全部锁区（n64不清楚 有待考证）</p>
+</details></li>
+<li><p><a href="https://tieba.baidu.com/p/6580100866?red_tag=2783794550">【攻略】【直播演示】GEN3 全图鉴 全精灵 理论规划及演示 – 卧看微尘 百度贴吧</a></p>
 </li>
 </ul>
-<p>Checkpoint界面：<br><img src="../images/body/How-To-Back-Up-Your-Savefiles/CheckPoint.png" alt="CheckPoint"><br>TWLSaveTool界面：<br><img src="../images/body/How-To-Back-Up-Your-Savefiles/TWLSaveTool.png" alt="TWLSaveTool"></p>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>不建议滥用存档导入导出，还请保持对游戏、对宝可梦的热爱进行使用！</p>
+<h3 id="乱数"><a href="#乱数" class="headerlink" title="乱数"></a>乱数</h3><ul>
+<li><a href="/Pokemon-RNG-Abuse-Gen3-Part1/">宝可梦绿宝石及没有电的红蓝宝石实机乱数（不包含 ID 或 Egg）</a></li>
+</ul>
+<p>No Hurry.</p>
 ]]></content>
       <tags>
         <tag>Pokemon</tag>
       </tags>
   </entry>
   <entry>
-    <title>亲爱的宝可梦♡</title>
-    <url>/See-My-Loving-Pokemons/</url>
-    <content><![CDATA[<p>以此博客纪念我爱的宝可梦们~~<br>封面 [ID:79498766]. </p>
+    <title>基于Hexo与GitHub制作私人博客</title>
+    <url>/Build-Your-Own-Blog-Like-This-One/</url>
+    <content><![CDATA[<p>想要搭建自己的博客？跟着这篇文章做下去，谜拟Q都能搭出私人博客！</p>
+<p>以此文章记录丘丘Blog的制作过程.</p>
+<p>封面 [ID:91018415]. </p>
 <span id="more"></span>
 
-<h1 id="チュチュ-（丘丘）"><a href="#チュチュ-（丘丘）" class="headerlink" title="チュチュ （丘丘）"></a>チュチュ （丘丘）</h1><p><img src="../images/body/See-My-Loving-Pokemons/kyukyu.png" alt="丘丘"></p>
-<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p><img src="../images/body/See-My-Loving-Pokemons/kyukyu-Summary.png" alt="Summary"></p>
-<ul>
-<li>种类：#778 <a href="https://wiki.52poke.com/wiki/%E8%B0%9C%E6%8B%9F%EF%BC%B1">谜拟Q</a></li>
-<li>相遇时间：2021-01-03</li>
-<li>相遇地点：阿罗拉地区乌拉乌拉岛超值超市旧址<img src="../images/body/See-My-Loving-Pokemons/Thrifty-Megamart.png" alt="Thrifty-Megamart"></li>
-<li>相遇版本：ポケットモンスター サン</li>
-</ul>
-<p><img src="../images/body/See-My-Loving-Pokemons/kyukyu-Encounter1.png" alt="Encounter1"><br><img src="../images/body/See-My-Loving-Pokemons/kyukyu-Encounter2.png" alt="Encounter2"></p>
-<p><br><br></p>
-<hr>
-<p><br><br></p>
-<h1 id="Volta"><a href="#Volta" class="headerlink" title="Volta"></a>Volta</h1><p><img src="../images/body/See-My-Loving-Pokemons/Volta.png" alt="Volta"></p>
-<h2 id="About-1"><a href="#About-1" class="headerlink" title="About"></a>About</h2><p><img src="../images/body/See-My-Loving-Pokemons/Volta-Summary.png" alt="Summary"></p>
-<ul>
-<li>种类：#478 <a href="https://wiki.52poke.com/wiki/%E9%9B%AA%E5%A6%96%E5%A5%B3">雪妖女</a></li>
-<li>相遇时间：2021-04-19</li>
-<li>相遇地点：丰缘地区浅滩洞穴冰之房间<img src="../images/body/See-My-Loving-Pokemons/Hoenn_Shoal_Cave_Map.png" alt="Thrifty-Megamart"></li>
-<li>相遇版本：Pokemon Ruby</li>
-</ul>
-<p><img src="../images/body/See-My-Loving-Pokemons/Volta-Encounter1.png" alt="Encounter1"></p>
-<h2 id="Plans"><a href="#Plans" class="headerlink" title="Plans"></a>Plans</h2><ul>
-<li>集齐3代奖章后传去4代进化.</li>
-</ul>
-<p><br><br></p>
-<hr>
-<p><br><br></p>
-<h1 id="Ivy"><a href="#Ivy" class="headerlink" title="Ivy"></a>Ivy</h1><p><img src="../images/body/See-My-Loving-Pokemons/Ivy.png" alt="Ivy"></p>
-<h2 id="About-2"><a href="#About-2" class="headerlink" title="About"></a>About</h2><p><img src="../images/body/See-My-Loving-Pokemons/Ivy-Summary.png" alt="Summary"></p>
-<ul>
-<li>种类：#282 <a href="https://wiki.52poke.com/wiki/%E6%B2%99%E5%A5%88%E6%9C%B5">沙奈朵</a></li>
-<li>相遇时间：2021-01-22</li>
-<li>相遇地点：丰缘地区102号道路<img src="../images/body/See-My-Loving-Pokemons/Route102.webp" alt="Thrifty-Megamart"></li>
-<li>相遇版本：Pokemon Ruby</li>
-</ul>
-<p><img src="../images/body/See-My-Loving-Pokemons/Ivy-Encounter1.png" alt="Encounter1"></p>
-<h2 id="Evolution"><a href="#Evolution" class="headerlink" title="Evolution"></a>Evolution</h2><p><img src="../images/body/See-My-Loving-Pokemons/Ivy-Evolution1.png" alt="Evolution1"></p>
-<h2 id="Plans-1"><a href="#Plans-1" class="headerlink" title="Plans"></a>Plans</h2><ul>
-<li>集齐3代奖章.</li>
-</ul>
-<p><br><br></p>
-<hr>
-<p><br><br></p>
-<h1 id="Jirachi"><a href="#Jirachi" class="headerlink" title="Jirachi"></a>Jirachi</h1><p><img src="../images/body/See-My-Loving-Pokemons/Jirachi.png" alt="Jirachi"></p>
-<h2 id="About-3"><a href="#About-3" class="headerlink" title="About"></a>About</h2><p><img src="../images/body/See-My-Loving-Pokemons/Jirachi-Summary.png" alt="Summary"></p>
-<ul>
-<li>种类：#385 <a href="https://wiki.52poke.com/wiki/%E5%9F%BA%E6%8B%89%E7%A5%88">基拉祈</a></li>
-<li>相遇时间：2021-02-18</li>
-<li>相遇地点：<a href="https://wiki.52poke.com/wiki/%E5%91%BD%E4%B8%AD%E6%B3%A8%E5%AE%9A%E8%88%AC%E7%9A%84%E7%9B%B8%E9%81%87">Fateful Encounter</a>.</li>
-<li>相遇版本：Pokemon Ruby</li>
-</ul>
-<p><img src="../images/body/See-My-Loving-Pokemons/Jirachi-Encounter1.png" alt="Encounter1"></p>
-<p><br><br></p>
-<hr>
-<p><br><br></p>
-<h1 id="Charizard"><a href="#Charizard" class="headerlink" title="Charizard"></a>Charizard</h1><p><img src="../images/body/See-My-Loving-Pokemons/Charizard.png" alt="Charizard"></p>
-<h2 id="About-4"><a href="#About-4" class="headerlink" title="About"></a>About</h2><ul>
-<li>种类：#006 <a href="https://wiki.52poke.com/wiki/%E5%96%B7%E7%81%AB%E9%BE%99">喷火龙</a></li>
-<li>相遇时间：2021-07-26</li>
-<li>相遇地点：关都地区真新镇<img src="../images/body/See-My-Loving-Pokemons/Pallet-Town.webp" alt="Pallet Town"></li>
-<li>相遇版本：Pokemon Leaf Green</li>
-</ul>
-<p><img src="../images/body/See-My-Loving-Pokemons/Charizard-Encounter1.png" alt="Encounter1"></p>
-<h2 id="Evolution-1"><a href="#Evolution-1" class="headerlink" title="Evolution"></a>Evolution</h2><p><img src="../images/body/See-My-Loving-Pokemons/Charizard-Evolution1.png" alt="Evolution1"><br><img src="../images/body/See-My-Loving-Pokemons/Charizard-Evolution2.png" alt="Evolution2"></p>
-<h2 id="Plans-2"><a href="#Plans-2" class="headerlink" title="Plans"></a>Plans</h2><ul>
-<li>集齐3代奖章.</li>
-</ul>
-<p><br><br></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>说实话我做Blog就是为了记录分享，最重要的是很有意思，捣鼓捣鼓出来很有成就感.<br>不过我觉得这篇知乎专栏写的很不错，有兴趣的可以看看.</p>
+<p><a href="https://zhuanlan.zhihu.com/p/19743861">为什么你要写博客？ - 陈素封的文章 - 知乎</a></p>
+<p>接下来我将记录一下这个博客的搭建与完善过程. </p>
+<p>谜拟Q都能看懂的博客搭建教程 开工！</p>
+<h1 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h1><p>这部分主要实现博客的从无到有，是做成自己独一无二博客的基础.</p>
+<h2 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h2><h3 id="注册-GitHub-账号"><a href="#注册-GitHub-账号" class="headerlink" title="注册 GitHub 账号"></a>注册 GitHub 账号</h3><p>这个很简单，<a href="https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=/&source=header-home">点击这里</a>来创建 GitHub 账号. </p>
+<h3 id="在个人主界面里选择创建一个新的-Repository"><a href="#在个人主界面里选择创建一个新的-Repository" class="headerlink" title="在个人主界面里选择创建一个新的 Repository"></a>在个人主界面里选择创建一个新的 <em>Repository</em></h3><p><em>Repository name</em> 处填写 <code>username.github.io</code>. 其中 <em>username</em> 是你的 GitHub 用户名.<br><strong>请勾选 <em>Add a README file</em> 选项.</strong><br><img src="../images/body/Build-Your-Own-Blog-Like-This-One/Figure1.png" alt="Figure1"></p>
 <blockquote>
-<p>Not The End.<br>:D</p>
+<p>图中因为我已经创建过了，所以会报错.</p>
 </blockquote>
-<p><br><br></p>
-<hr>
-<hr>
-<br>
+<p>创建后默认自动启用 HTTPS，博客地址为：<a href="https://username.github.io/">https://username.github.io</a>. 其中 <em>username</em> 是你的 GitHub 账号名. （不过可能进去没啥东西）</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>Hexo 基于 Node.js，搭建过程中还需要使用 <code>npm</code>（Node.js 已带） 和 <code>git</code>，因此先搭建本地操作环境，安装 Node.js 和 Git.</p>
+<blockquote>
+<p>这里我全部按默认配置完成安装</p>
+</blockquote>
+<h3 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h3><p>访问 <a href="https://nodejs.org/en/">Node.js 官方网站</a>下载并安装Node.js . 这里我选择的是LTS版本（16.13.1），当前 <a href="ttps://hexo.io/zh-cn/docs/">Hexo 官方文档</a>建议 Node.js 版本高于12.0.0，可随时确认.</p>
+<blockquote>
+<p>此外，使用 Node.js 官方安装程序时，请确保勾选 <em>Add to PATH</em> 选项（默认已勾选）</p>
+<p>安装完成后，组合键<kbd>Win</kbd>+<kbd>R</kbd> 输入 <code>cmd</code> 并打开，依次输入 <code>node -v</code>、<code>npm -v</code>并回车，如下图出现程序版本号即安装成功.</p>
+</blockquote>
+<p><img src="../images/body/Build-Your-Own-Blog-Like-This-One/Figure2.png" alt="Figure2"></p>
+<h3 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h3><p>访问 <a href="https://git-scm.com/download/win">Git 官方下载地址</a>下载并安装 Git.</p>
+<blockquote>
+<p>安装完成后，组合键 <kbd>Win</kbd>+<kbd>R</kbd> 输入 <code>cmd</code> 并打开，输入 <code>git --version</code>、并回车，如下图出现程序版本号即安装成功.</p>
+</blockquote>
+<p><img src="../images/body/Build-Your-Own-Blog-Like-This-One/Figure3.png" alt="Figure3"></p>
+<h2 id="连接-GitHub"><a href="#连接-GitHub" class="headerlink" title="连接 GitHub"></a>连接 GitHub</h2><p>打开 <em>Git Bash</em> ，输入以下代码设置用户名和邮箱：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;GitHub 用户名&quot;</span><br><span class="line">git config --global user.email &quot;GitHub 邮箱&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>用自己的 GitHub 用户名与邮箱替代代码中的相应部分.</p>
+</blockquote>
+<h3 id="创建-SSH-密钥"><a href="#创建-SSH-密钥" class="headerlink" title="创建 SSH 密钥"></a>创建 SSH 密钥</h3><p>继续输入代码<code>ssh-keygen -t rsa -C &quot;GitHub 邮箱&quot;</code> 然后一路回车.</p>
+<h3 id="添加密匙"><a href="#添加密匙" class="headerlink" title="添加密匙"></a>添加密匙</h3><p>进入 &lt;C:\Users\用户名.ssh&gt; 目录（可能需要勾选显示“隐藏的项目”），用记事本打开公钥 <em>id_rsa.pub</em> 文件并复制里面的内容.</p>
+<p>登陆 GitHub ，进入个人 <em>Settings</em> 页面，选择左边栏的 <em>SSH and GPG keys</em> ，点击 <em>New SSH key</em>.</p>
+<p>Title 随便填写一个名字，将 <em>id_rsa.pub</em> 内容复制粘贴到 Key 中，点击 <em>Add SSH key</em> 完成添加.<br><img src="../images/body/Build-Your-Own-Blog-Like-This-One/Figure4.png" alt="Figure4"></p>
+<h3 id="验证连接"><a href="#验证连接" class="headerlink" title="验证连接"></a>验证连接</h3><p>打开 <em>Git Bash</em>，输入 <code>ssh -T git@github.com</code> 出现 <em><strong>“Are you sure……”</strong></em> 字样时，输入 <em>yes</em> 并回车确认.</p>
+<p>显示 <em><strong>“Hi xxx! You’ve successfully……”</strong></em> 即连接成功.</p>
+<h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><p>在喜欢的位置创建一个空文件夹，打开 <em>Git Bash</em> 利用 <code>cd</code> 命令移动至此文件夹.</p>
+<blockquote>
+<p>之后若无特殊说明则将此文件夹称为根目录</p>
+</blockquote>
+<p>输入 <code>npm install -g hexo-cli</code> 回车进行安装.</p>
+<p>安装完成后输入以下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init   #初始化 hexo</span><br><span class="line">hexo g  # 生成页面</span><br><span class="line">hexo s  # 启用预览，默认端口4000</span><br></pre></td></tr></table></figure>
+<p>访问<a href="http://localhost:4000/">http://localhost:4000</a>，出现 Hexo 默认页面，则本地博客安装成功.</p>
+<blockquote>
+<p>使用组合键 <kbd>Ctrl</kbd>+<kbd>C</kbd> 来关闭本地预览服务.</p>
+<p>若组合键 <kbd>Ctrl</kbd>+<kbd>C</kbd> 没有效果，可打开 <em>cmd</em> 运行 <code>taskkill /f /t /im node.exe</code> 来关闭服务.</p>
+<p>如果出现页面加载不出来，可能是端口被占用了. 组合键 <kbd>Ctrl</kbd>+<kbd>C</kbd> 关闭服务器，运行 <code>hexo server -p 5000</code> 更改端口号为5000后重试.</p>
+</blockquote>
+<p>Hexo 博客文件夹目录结构如下：(图源水印)<br><img src="../images/body/Build-Your-Own-Blog-Like-This-One/Figure5.jpg" alt="Figure5"></p>
+<h2 id="部署-Hexo-到-GitHub-Pages"><a href="#部署-Hexo-到-GitHub-Pages" class="headerlink" title="部署 Hexo 到 GitHub Pages"></a>部署 Hexo 到 GitHub Pages</h2><p>在 <em>Git Bash</em> 中运行 <code>npm install hexo-deployer-git --save</code>.</p>
+<p>打开根目录，找到文件 <em>_config.yml</em> 并打开，修改文件末尾的 Deployment 部分为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:用户名/用户名.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>用自己的 GitHub 用户名替换代码相应部分</p>
+</blockquote>
+<p>接着，在 <em>Git Bash</em> 中运行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d  # 部署博客</span><br></pre></td></tr></table></figure>
 
-<h1 id="写在这里："><a href="#写在这里：" class="headerlink" title="写在这里："></a>写在这里：</h1><p>希望大家都能喜爱并珍惜与自己相遇的那些宝可梦！<br>享受宝可梦带来的快乐！</p>
-<p><br><br></p>
-<hr>
-<hr>
-<p><br><br></p>
-<h1 id="More"><a href="#More" class="headerlink" title="More"></a>More</h1><h2 id="第三世代"><a href="#第三世代" class="headerlink" title="第三世代"></a>第三世代</h2><p><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(1).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(2).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(3).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(4).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(5).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(6).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(7).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(8).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(9).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G3/G3(10).png"></p>
-<p><br><br></p>
-<hr>
-<p><br><br></p>
-<h2 id="第四世代"><a href="#第四世代" class="headerlink" title="第四世代"></a>第四世代</h2><p><img src="../images/body/See-My-Loving-Pokemons/More/G4/G4(1).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G4/G4(2).png"></p>
-<p><br><br></p>
-<hr>
-<p><br><br></p>
-<h2 id="第五世代"><a href="#第五世代" class="headerlink" title="第五世代"></a>第五世代</h2><p><img src="../images/body/See-My-Loving-Pokemons/More/G5/G5(1).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G5/G5(2).png"></p>
-<p><br><br></p>
-<hr>
-<p><br><br></p>
-<h2 id="第六世代"><a href="#第六世代" class="headerlink" title="第六世代"></a>第六世代</h2><p><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(1).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(2).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(3).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(4).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(5).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(6).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(7).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(8).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(9).png"><br><img src="../images/body/See-My-Loving-Pokemons/More/G6/G6(10).png"></p>
-<p><br><br></p>
-<hr>
-<p><br><br></p>
-<h2 id="第七世代"><a href="#第七世代" class="headerlink" title="第七世代"></a>第七世代</h2><p>No Hurry.</p>
-<p><br><br></p>
-<hr>
-<p><br><br></p>
-<h2 id="第八世代"><a href="#第八世代" class="headerlink" title="第八世代"></a>第八世代</h2><p>No Hurry.</p>
+<p>这时访问自己的 GitHub 域名 <a href="https://username.github.io/">https://username.github.io</a> 就可以看到 Hexo 网站了. </p>
+<p><br><br><br>到这里私人博客的搭建就差不多了，接下来便是去安装 hexo 的<a href="https://hexo.io/themes/">主题</a>与<a href="https://hexo.io/plugins/">插件</a>了.</p>
+<h1 id="完善"><a href="#完善" class="headerlink" title="完善"></a>完善</h1><p>这部分将你的博客个性化，来创造自己独一无二的博客吧！</p>
+<h2 id="选择并安装主题"><a href="#选择并安装主题" class="headerlink" title="选择并安装主题"></a>选择并安装主题</h2><p>在 <a href="https://hexo.io/themes/">Themes | Hexo</a> 选择一个喜欢的主题，按照官方文档进行安装即可. 这里我选择的是 <a href="https://zhwangart.com/2018/11/30/Ocean/">Ocean 主题</a>.</p>
+<p>因为官方文档的步骤都十分详细，因此这里不展开细说. 一般主题所需的插件也会在官方文档中提供安装与使用方法.</p>
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>跟着官方文档做下去，再按照自己的需求更改，个性化的博客便做好了.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://www.zhihu.com/question/20962496/answer/677815713">如何在 GitHub 上写博客？ - 少数派的回答 - 知乎</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/60578464">使用 Hexo+GitHub 搭建个人免费博客教程（小白向） - crystal的文章 - 知乎</a></p>
+<p><a href="https://hexo.io/zh-cn/docs/">Hexo 官方中文文档</a></p>
+<p><a href="https://zhwangart.com/2018/11/30/Ocean/">Ocean 官方文档</a></p>
 ]]></content>
       <tags>
-        <tag>Life</tag>
-        <tag>Pokemon</tag>
+        <tag>GitHub</tag>
+        <tag>Hexo</tag>
+        <tag>Ocean</tag>
+        <tag>Practical-Tips</tag>
       </tags>
   </entry>
   <entry>
-    <title>快乐的喷喷生活</title>
-    <url>/Share-Splatoon2-Happiness/</url>
-    <content><![CDATA[<p>以此Blog记录我爱的 <em>Splatoon</em> 和朋友们.<br>间谍伞，嘿嘿，间谍伞.</p>
-<p>封面 [ID:82331425]. </p>
+    <title>解决访问GithHub速度慢的问题</title>
+    <url>/Accessing-GitHub-Slowly-Solution/</url>
+    <content><![CDATA[<p>今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN 域名遭到了 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢.</p>
+<p>可以通过修改本地 <code>hosts</code> 文件来绕过 DNS 解析来加速.</p>
+<p>封面 [ID:46018784]. </p>
 <span id="more"></span>
-<h2 id="Thanks-TO"><a href="#Thanks-TO" class="headerlink" title="Thanks TO"></a>Thanks TO</h2><h4 id="先感谢专业摄影师-口一宝——————"><a href="#先感谢专业摄影师-口一宝——————" class="headerlink" title="先感谢专业摄影师 口一宝——————"></a>先感谢专业摄影师 <em>口一宝</em>——————</h4><p><img src="../images/body/Share-Splatoon2-Happiness/Photographer.png" alt="Photographer"></p>
-<h4 id="感谢和我一起玩的朋友们："><a href="#感谢和我一起玩的朋友们：" class="headerlink" title="感谢和我一起玩的朋友们："></a>感谢和我一起玩的朋友们：</h4><ul>
-<li>天才口一狗勾</li>
-<li>蜜柑xbb</li>
-<li>童泡泡</li>
-<li>梨梨猫猫</li>
-<li>浴缸狂魔钢蛋</li>
-<li>还有海产群的以及和我一起快乐喷喷的各位!</li>
-</ul>
-<h2 id="Gallery"><a href="#Gallery" class="headerlink" title="Gallery"></a>Gallery</h2><p><img src="../images/body/Share-Splatoon2-Happiness/S(1).png"><br><img src="../images/body/Share-Splatoon2-Happiness/S(2).png"><br><img src="../images/body/Share-Splatoon2-Happiness/S(3).png"><br><img src="../images/body/Share-Splatoon2-Happiness/S(4).png"><br><img src="../images/body/Share-Splatoon2-Happiness/S(5).png"><br><img src="../images/body/Share-Splatoon2-Happiness/S(6).png"><br><img src="../images/body/Share-Splatoon2-Happiness/S(7).png"><br><img src="../images/body/Share-Splatoon2-Happiness/S(8).png"><br><img src="../images/body/Share-Splatoon2-Happiness/S(9).png"></p>
-]]></content>
-      <tags>
-        <tag>Life</tag>
-        <tag>Splatoon</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VS. Recorder</title>
-    <url>/VS-Recorder/</url>
-    <content><![CDATA[<p>此 Blog 用于记录一些宝可梦对战比赛，终有一日成为宝可梦大师！<br>平时比赛可能不是很勤，尽量8.</p>
-<p>封面 [ID:79621961]. </p>
-<span id="more"></span>
-
-<h2 id="2020年10月苏州月赛战报-冠军"><a href="#2020年10月苏州月赛战报-冠军" class="headerlink" title="2020年10月苏州月赛战报-冠军"></a>2020年10月苏州月赛战报-冠军</h2><p><img src="../images/body/VS-Recorder/SPL-2020-10-05.png" alt="SPL-2020-10-05"></p>
-<h4 id="Date-2020-10-05"><a href="#Date-2020-10-05" class="headerlink" title="Date: 2020-10-05"></a>Date: 2020-10-05</h4><h4 id="Rule-不限标-允许携带最多一个幻兽"><a href="#Rule-不限标-允许携带最多一个幻兽" class="headerlink" title="Rule: 不限标 允许携带最多一个幻兽"></a>Rule: 不限标 允许携带最多一个幻兽</h4><h4 id="Record"><a href="#Record" class="headerlink" title="Record:"></a>Record:</h4><ul>
-<li>第一轮瑞士轮 轮空</li>
-<li>第二轮瑞士轮 vs red X<br>  首发谜拟Q+霜奶仙 对面首发野菊+妙蛙 赌对面点谜拟Q开空间所以霜奶仙换后排魔女 谜拟Q影袭队友触发弱测 结果对面打霜奶仙位 开空间 跪了</li>
-<li>第三轮瑞士轮 vs bd O<br>  bd开卡包开到高罕太激动了 嘎啦没点防壁被装饰jjh谜拟Q秒了 然后就被谜拟Q杀穿了（感觉点了防壁也赢不了？）</li>
-</ul>
-<p>2-1勉强进半决赛</p>
 <ul>
-<li>半决赛 vs red O<br>  同样的首发 直接装饰jjh谜拟Q开干 霜奶仙退场后梦幻变身谜拟Q 两只谜拟Q杀穿了</li>
-<li>决赛 vs 乌笔澄 bo3规则 OO<ul>
-<li>第一轮首发谜拟Q+风妖精 对面咆哮虎+智挥猩 谜拟Q剑舞 风妖精被击掌触发按钮白给换上霜奶仙 再次霜奶仙配合jjh谜拟Q贯穿</li>
-<li>第二轮对面首发垃圾之翼+毒电开顺风 还是被谜拟Q+霜奶仙秒了毒电 最后残局对面健康西施 我方残血霜奶仙+风妖精 霜奶仙给风妖精装饰后被打死 风妖精掉包换来了西施的背心 然后月爆对攻西施结束 拿下冠军</li>
-</ul>
+<li><p>首先打开<a href="http://tool.chinaz.com/dns/">站长工具</a></p>
+</li>
+<li><p>填入 &lt;Github.com&gt;<br><img src="../images/body/Accessing-GitHub-Slowly-Solution/Figure1.png" alt="Figure1" title="在 请输入域名 栏填写"></p>
+</li>
+<li><p>将检测列表里的 TTL 值最小的 IP 记为 <em>a.b.c.d</em>.</p>
+</li>
+<li><p>使用记事本打开 <code>hosts</code> 文件，位于 &lt;C:\Windows\System32\drivers\etc&gt;.</p>
+</li>
+<li><p>将以下内容加在 <code>host</code> 文件末尾：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a.b.c.d www.github.com</span><br><span class="line">a.b.c.d github.global.ssl.fastly.net</span><br><span class="line">a.b.c.d nodeload.github.com</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其中 <em>a.b.c.d</em> 是上述步骤中记录的 IP 地址.<br>如果没有修改权限可以将 <code>host</code> 文件移出该文件夹，修改完成后再移回去.<br>系统会确认你授权管理员权限.<br><img src="../images/body/Accessing-GitHub-Slowly-Solution/Figure2.png" alt="Figure2" title="系统向确认你授权管理员权限"></p>
+</blockquote>
+</li>
+<li><p><em>cmd</em> 输入命令 <code>ipconfig /flushdns</code> 刷新DNS缓存.</p>
+</li>
+<li><p>Done！试试访问GitHub吧！</p>
 </li>
 </ul>
-<h4 id="Sentiment"><a href="#Sentiment" class="headerlink" title="Sentiment"></a>Sentiment</h4><p>没想到大部分钢属性幻兽的情况下这队表现能这么好！点名表扬谜拟Q 霜奶仙和风妖精. 真爱队胜利还是很开心的，以后再接再厉.</p>
-<h4 id="Team"><a href="#Team" class="headerlink" title="Team:"></a>Team:</h4><p>有些配置记不清了，大概如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mimikyu @ Babiri Berry  </span><br><span class="line">Ability: Disguise  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 160 Atk / 94 Def / 4 SpD  </span><br><span class="line">Adamant Nature  </span><br><span class="line">- Play Rough  </span><br><span class="line">- Shadow Sneak  </span><br><span class="line">- Swords Dance  </span><br><span class="line">- Shadow Claw  </span><br><span class="line"></span><br><span class="line">Alcremie @ Safety Goggles  </span><br><span class="line">Ability: Aroma Veil  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 74 Def / 4 SpA / 180 Spe  </span><br><span class="line">Timid Nature  </span><br><span class="line">- Decorate  </span><br><span class="line">- Dazzling Gleam  </span><br><span class="line">- Protect  </span><br><span class="line">- Helping Hand  </span><br><span class="line"></span><br><span class="line">Whimsicott @ Focus Sash  </span><br><span class="line">Ability: Prankster  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 6 SpD / 252 Spe  </span><br><span class="line">Timid Nature  </span><br><span class="line">IVs: 0 Atk  </span><br><span class="line">- Tailwind  </span><br><span class="line">- Endeavor  </span><br><span class="line">- Memento  </span><br><span class="line">- Helping Hand  </span><br><span class="line"></span><br><span class="line">Rotom-Heat @ Wiki Berry  </span><br><span class="line">Ability: Levitate  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 66 Def / 116 SpA / 76 Spe  </span><br><span class="line">Modest Nature  </span><br><span class="line">IVs: 0 Atk  </span><br><span class="line">- Thunderbolt  </span><br><span class="line">- Nasty Plot  </span><br><span class="line">- Protect  </span><br><span class="line">- Overheat  </span><br><span class="line"></span><br><span class="line">Hatterene-Gmax (F) @ Weakness Policy  </span><br><span class="line">Ability: Magic Bounce  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 4 Def / 252 SpA  </span><br><span class="line">Quiet Nature  </span><br><span class="line">IVs: 0 Atk  </span><br><span class="line">- Psychic  </span><br><span class="line">- Dazzling Gleam  </span><br><span class="line">- Calm Mind  </span><br><span class="line">- Trick Room  </span><br><span class="line"></span><br><span class="line">Mew @ Aguav Berry  </span><br><span class="line">Ability: Synchronize  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 252 Spe  </span><br><span class="line">Jolly Nature  </span><br><span class="line">IVs: 30 Atk  </span><br><span class="line">- Tailwind  </span><br><span class="line">- Transform  </span><br><span class="line">- Fake Out  </span><br><span class="line">- Helping Hand  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<br>
-
-<hr>
-<br>
-
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://blog.csdn.net/CS13477062349/article/details/88020283?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.no_search_link&spm=1001.2101.3001.4242.1">完美解决打开github速度慢的问题</a></p>
 ]]></content>
       <tags>
-        <tag>Life</tag>
-        <tag>Pokemon</tag>
+        <tag>GitHub</tag>
+        <tag>Practical-Tips</tag>
       </tags>
   </entry>
 </search>
