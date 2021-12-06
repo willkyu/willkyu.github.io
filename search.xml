@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>The First Blog</title>
+    <title>置顶 代办 与更新记录</title>
     <url>/The-First-Blog/</url>
-    <content><![CDATA[<p>欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！<br>此博客基于 <a href="https://hexo.io/">Hexo</a> 打造，主题使用的是 <a href="https://github.com/zhwangart/hexo-theme-ocean">Oceon</a>. 当你在阅读的时候有任何的问题,欢迎与我联系.</p>
+    <content><![CDATA[<p>欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！<br>此博客基于 <a href="https://hexo.io/">Hexo</a> 打造，主题使用的是 <a href="https://github.com/zhwangart/hexo-theme-ocean">Oceon</a>.<br>当你在阅读的时候有任何的问题,欢迎与我联系.</p>
 <p>封面 [ID:85357809]. </p>
 <span id="more"></span>
 
@@ -16,7 +16,8 @@
 <p>No Hurry.<br>准备从自己b站专栏搬一点先.</p>
 <h3 id="分享生活"><a href="#分享生活" class="headerlink" title="分享生活"></a>分享生活</h3><ul>
 <li>2021-12-04 创建<a href="/See-My-Loving-Pokemons/">亲爱的宝可梦♡</a>页面.</li>
-<li>2021-12-05 创建<a href="/Share-Splatoon2-Happiness/">快乐的喷喷生活</a>页面.<br>AnyTime.</li>
+<li>2021-12-05 创建<a href="/Share-Splatoon2-Happiness/">快乐的喷喷生活</a>页面.</li>
+<li>2021-12-06 创建<a href="/VS-Recorder/">VS. Recorder</a>页面<br>AnyTime.</li>
 </ul>
 <h3 id="整理一下宝可梦各时代的乱数方法"><a href="#整理一下宝可梦各时代的乱数方法" class="headerlink" title="整理一下宝可梦各时代的乱数方法"></a>整理一下宝可梦各时代的乱数方法</h3><ul>
 <li>第三世代(RSE)<ul>
@@ -33,7 +34,14 @@
 <li>2021-12-02 完成了文章<a href="/Build-Your-Own-Blog-Like-This-One/">基于Hexo与GitHub制作私人博客</a>.</li>
 </ul>
 <h3 id="给博客加上评论等功能"><a href="#给博客加上评论等功能" class="headerlink" title="给博客加上评论等功能"></a>给博客加上评论等功能</h3><p>弄完上一个就搞.</p>
-<h3 id="完善博客相册"><a href="#完善博客相册" class="headerlink" title="完善博客相册"></a>完善博客相册</h3><p>No Hurry.</p>
+<ul>
+<li>2021-12-06 想鸽了.</li>
+</ul>
+<h3 id="完善博客相册"><a href="#完善博客相册" class="headerlink" title="完善博客相册"></a>完善博客相册</h3><ul>
+<li>2021-12-02 添加了3张生活照.</li>
+<li>宝可梦相关的照片请见：<a href="/See-My-Loving-Pokemons/">亲爱的宝可梦♡</a>页面.</li>
+<li>喷喷相关的照片请见：<a href="/Share-Splatoon2-Happiness/">快乐的喷喷生活</a>页面.<br>No Hurry.</li>
+</ul>
 <h3 id="个性化博客-现在主要还是直接套用的模板"><a href="#个性化博客-现在主要还是直接套用的模板" class="headerlink" title="个性化博客(现在主要还是直接套用的模板)"></a>个性化博客(现在主要还是直接套用的模板)</h3><ul>
 <li>2021-12-01 更新了首页视频为《GOTCHA》片段.</li>
 <li>2021-12-02 开启Gallery功能.</li>
@@ -42,6 +50,7 @@
 <li>2021-12-03 更新了404页面.</li>
 <li>2021-12-04 背景添加动态线条效果.</li>
 <li>2021-12-04 添加了点击特效.</li>
+<li>2021-12-05 更新了点击特效的颜色，使其更贴合博客风格.</li>
 </ul>
 <p>No Hurry.</p>
 <h2 id="测试用"><a href="#测试用" class="headerlink" title="测试用"></a>测试用</h2><ul>
@@ -52,6 +61,42 @@
 ]]></content>
       <tags>
         <tag>Life</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>对战记录器</title>
+    <url>/VS-Recorder/</url>
+    <content><![CDATA[<p>此 Blog 用于记录一些宝可梦对战比赛，终有一日成为宝可梦大师！<br>平时比赛可能不是很勤，尽量8.</p>
+<p>封面 [ID:79621961]. </p>
+<span id="more"></span>
+
+<h2 id="苏州宝可梦联赛2020年10月月赛"><a href="#苏州宝可梦联赛2020年10月月赛" class="headerlink" title="苏州宝可梦联赛2020年10月月赛"></a>苏州宝可梦联赛<em>2020年10月</em>月赛</h2><p><img src="../images/body/VS-Recorder/SPL-2020-10-05.png" alt="SPL-2020-10-05"></p>
+<h2 id="2020年10月苏州月赛战报-冠军"><a href="#2020年10月苏州月赛战报-冠军" class="headerlink" title="2020年10月苏州月赛战报-冠军"></a>2020年10月苏州月赛战报-冠军</h2><h4 id="Date-2020-10-05"><a href="#Date-2020-10-05" class="headerlink" title="Date: 2020-10-05"></a>Date: 2020-10-05</h4><h4 id="Rule-不限标-允许携带最多一个幻兽"><a href="#Rule-不限标-允许携带最多一个幻兽" class="headerlink" title="Rule: 不限标 允许携带最多一个幻兽"></a>Rule: 不限标 允许携带最多一个幻兽</h4><h4 id="Record"><a href="#Record" class="headerlink" title="Record:"></a>Record:</h4><ul>
+<li>第一轮瑞士轮 轮空（这我是没想到的</li>
+<li>第二轮瑞士轮 vs red X<br>  首发谜拟Q+霜奶仙 对面首发野菊+妙蛙 赌对面点谜拟Q开空间所以霜奶仙换后排魔女 谜拟Q影袭队友触发弱测 结果对面打霜奶仙位 开空间 跪了</li>
+<li>第三轮瑞士轮 vs bd O<br>  bd开卡包开到高罕太激动了 嘎啦没点防壁被装饰jjh谜拟Q秒了 然后就被谜拟Q杀穿了（感觉点了防壁也赢不了？）</li>
+</ul>
+<p>2-1勉强进半决赛</p>
+<ul>
+<li>半决赛 vs red O<br>  同样的首发 直接装饰jjh谜拟Q开干 霜奶仙退场后梦幻变身谜拟Q 两只谜拟Q杀穿了</li>
+<li>决赛 vs 乌笔澄 bo3规则 OO<ul>
+<li>第一轮首发谜拟Q+风妖精 对面咆哮虎+智挥猩 谜拟Q剑舞 风妖精被击掌触发按钮白给换上霜奶仙 再次霜奶仙配合jjh谜拟Q贯穿</li>
+<li>第二轮对面首发垃圾之翼+毒电开顺风 还是被谜拟Q+霜奶仙秒了毒电 最后残局对面健康西施 我方残血霜奶仙+风妖精 霜奶仙给风妖精装饰后被打死 风妖精掉包换来了西施的背心 然后月爆对攻西施结束 拿下冠军</li>
+</ul>
+</li>
+</ul>
+<h4 id="Sentiment"><a href="#Sentiment" class="headerlink" title="Sentiment"></a>Sentiment</h4><p>没想到大部分钢属性幻兽的情况下这队表现能这么好！点名表扬谜拟Q 霜奶仙和风妖精. 真爱队胜利还是很开心的，以后再接再厉.</p>
+<h4 id="Team"><a href="#Team" class="headerlink" title="Team:"></a>Team:</h4><p>有些配置记不清了，大概如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mimikyu @ Babiri Berry  </span><br><span class="line">Ability: Disguise  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 160 Atk / 94 Def / 4 SpD  </span><br><span class="line">Adamant Nature  </span><br><span class="line">- Play Rough  </span><br><span class="line">- Shadow Sneak  </span><br><span class="line">- Swords Dance  </span><br><span class="line">- Shadow Claw  </span><br><span class="line"></span><br><span class="line">Alcremie @ Safety Goggles  </span><br><span class="line">Ability: Aroma Veil  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 74 Def / 4 SpA / 180 Spe  </span><br><span class="line">Timid Nature  </span><br><span class="line">- Decorate  </span><br><span class="line">- Dazzling Gleam  </span><br><span class="line">- Protect  </span><br><span class="line">- Helping Hand  </span><br><span class="line"></span><br><span class="line">Whimsicott @ Focus Sash  </span><br><span class="line">Ability: Prankster  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 6 SpD / 252 Spe  </span><br><span class="line">Timid Nature  </span><br><span class="line">IVs: 0 Atk  </span><br><span class="line">- Tailwind  </span><br><span class="line">- Endeavor  </span><br><span class="line">- Memento  </span><br><span class="line">- Helping Hand  </span><br><span class="line"></span><br><span class="line">Rotom-Heat @ Wiki Berry  </span><br><span class="line">Ability: Levitate  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 66 Def / 116 SpA / 76 Spe  </span><br><span class="line">Modest Nature  </span><br><span class="line">IVs: 0 Atk  </span><br><span class="line">- Thunderbolt  </span><br><span class="line">- Nasty Plot  </span><br><span class="line">- Protect  </span><br><span class="line">- Overheat  </span><br><span class="line"></span><br><span class="line">Hatterene-Gmax (F) @ Weakness Policy  </span><br><span class="line">Ability: Magic Bounce  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 4 Def / 252 SpA  </span><br><span class="line">Quiet Nature  </span><br><span class="line">IVs: 0 Atk  </span><br><span class="line">- Psychic  </span><br><span class="line">- Dazzling Gleam  </span><br><span class="line">- Calm Mind  </span><br><span class="line">- Trick Room  </span><br><span class="line"></span><br><span class="line">Mew @ Aguav Berry  </span><br><span class="line">Ability: Synchronize  </span><br><span class="line">Level: 50  </span><br><span class="line">EVs: 252 HP / 252 Spe  </span><br><span class="line">Jolly Nature  </span><br><span class="line">IVs: 30 Atk  </span><br><span class="line">- Tailwind  </span><br><span class="line">- Transform  </span><br><span class="line">- Fake Out  </span><br><span class="line">- Helping Hand  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<br>
+
+<hr>
+<br>
+
+]]></content>
+      <tags>
+        <tag>Life</tag>
+        <tag>Pokemon</tag>
       </tags>
   </entry>
   <entry>
@@ -73,7 +118,7 @@
 ]]></content>
       <tags>
         <tag>Life</tag>
-        <tag>SPlatoon</tag>
+        <tag>Splatoon</tag>
       </tags>
   </entry>
   <entry>

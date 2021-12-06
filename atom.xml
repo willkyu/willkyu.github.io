@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-05T05:13:09.520Z</updated>
+  <updated>2021-12-06T13:39:22.978Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>对战记录器</title>
+    <link href="http://willkyu.github.io/VS-Recorder/"/>
+    <id>http://willkyu.github.io/VS-Recorder/</id>
+    <published>2021-12-06T12:26:43.000Z</published>
+    <updated>2021-12-06T13:39:22.978Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;此 Blog 用于记录一些宝可梦对战比赛，终有一日成为宝可梦大师！&lt;br&gt;平时比赛可能不是很勤，尽量8.&lt;/p&gt;
+&lt;p&gt;封面 [ID:79621961]. &lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
+    
+  </entry>
+  
+  <entry>
     <title>快乐的喷喷生活</title>
     <link href="http://willkyu.github.io/Share-Splatoon2-Happiness/"/>
     <id>http://willkyu.github.io/Share-Splatoon2-Happiness/</id>
     <published>2021-12-05T04:41:43.000Z</published>
-    <updated>2021-12-05T05:13:09.520Z</updated>
+    <updated>2021-12-06T12:43:28.825Z</updated>
     
     
     <summary type="html">&lt;p&gt;以此Blog记录我爱的 &lt;em&gt;Splatoon&lt;/em&gt; 和朋友们.&lt;br&gt;间谍伞，嘿嘿，间谍伞.&lt;/p&gt;
@@ -32,7 +52,7 @@
     
     <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
     
-    <category term="SPlatoon" scheme="http://willkyu.github.io/tags/SPlatoon/"/>
+    <category term="Splatoon" scheme="http://willkyu.github.io/tags/Splatoon/"/>
     
   </entry>
   
@@ -78,7 +98,7 @@
     <link href="http://willkyu.github.io/Pokemon-RNG-Abuse-Gen3-Part1/"/>
     <id>http://willkyu.github.io/Pokemon-RNG-Abuse-Gen3-Part1/</id>
     <published>2021-12-03T06:08:08.000Z</published>
-    <updated>2021-12-04T06:03:08.506Z</updated>
+    <updated>2021-12-06T12:18:43.360Z</updated>
     
     
     <summary type="html">&lt;p&gt;这是宝可梦绿宝石及没电红蓝宝石的实机乱数教程.&lt;br&gt;不包含 ID 与 Egg 的乱数教程.&lt;br&gt;如有纰漏，请&lt;a href=&quot;../about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
@@ -160,14 +180,14 @@
   </entry>
   
   <entry>
-    <title>The First Blog</title>
+    <title>置顶 代办 与更新记录</title>
     <link href="http://willkyu.github.io/The-First-Blog/"/>
     <id>http://willkyu.github.io/The-First-Blog/</id>
     <published>2021-12-01T09:28:54.000Z</published>
-    <updated>2021-12-05T05:06:09.015Z</updated>
+    <updated>2021-12-06T13:44:55.578Z</updated>
     
     
-    <summary type="html">&lt;p&gt;欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！&lt;br&gt;此博客基于 &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt; 打造，主题使用的是 &lt;a href=&quot;https://github.com/zhwangart/hexo-theme-ocean&quot;&gt;Oceon&lt;/a&gt;. 当你在阅读的时候有任何的问题,欢迎与我联系.&lt;/p&gt;
+    <summary type="html">&lt;p&gt;欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！&lt;br&gt;此博客基于 &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt; 打造，主题使用的是 &lt;a href=&quot;https://github.com/zhwangart/hexo-theme-ocean&quot;&gt;Oceon&lt;/a&gt;.&lt;br&gt;当你在阅读的时候有任何的问题,欢迎与我联系.&lt;/p&gt;
 &lt;p&gt;封面 [ID:85357809]. &lt;/p&gt;</summary>
     
     
