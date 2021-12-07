@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-06T14:07:56.654Z</updated>
+  <updated>2021-12-07T14:16:31.155Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>宝可梦卡带鉴别</title>
+    <link href="http://willkyu.github.io/Pokemon-Cartridges-Authenticate/"/>
+    <id>http://willkyu.github.io/Pokemon-Cartridges-Authenticate/</id>
+    <published>2021-12-07T13:31:32.000Z</published>
+    <updated>2021-12-07T14:16:31.155Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;从我的b站专栏：&lt;a href=&quot;https://www.bilibili.com/read/cv10463502&quot;&gt;宝可梦前代卡带鉴别&lt;/a&gt;搬过来的，稍微有些修改.&lt;br&gt;主要就是宝可梦 &lt;em&gt;GBA&lt;/em&gt; 和 &lt;em&gt;NDS&lt;/em&gt; 卡带真伪的鉴别.&lt;br&gt;如果对你有帮助可以去专栏给个三连~&lt;/p&gt;
+&lt;p&gt;封面 [ID:78728436]. &lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
+    
+  </entry>
   
   <entry>
     <title>VS. Recorder</title>
@@ -120,7 +138,7 @@
     <link href="http://willkyu.github.io/Pokemon-Strategies-List/"/>
     <id>http://willkyu.github.io/Pokemon-Strategies-List/</id>
     <published>2021-12-03T05:15:42.000Z</published>
-    <updated>2021-12-03T14:28:54.060Z</updated>
+    <updated>2021-12-07T14:20:16.883Z</updated>
     
     
     <summary type="html">&lt;p&gt;这篇我会用来专门整理宝可梦相关攻略，我之后写的攻略也会将直达链接放在这里，方便大家直接查找.&lt;/p&gt;
@@ -184,7 +202,7 @@
     <link href="http://willkyu.github.io/The-First-Blog/"/>
     <id>http://willkyu.github.io/The-First-Blog/</id>
     <published>2021-12-01T09:28:54.000Z</published>
-    <updated>2021-12-06T13:51:24.835Z</updated>
+    <updated>2021-12-07T14:20:31.250Z</updated>
     
     
     <summary type="html">&lt;p&gt;欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！&lt;br&gt;此博客基于 &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt; 打造，主题使用的是 &lt;a href=&quot;https://github.com/zhwangart/hexo-theme-ocean&quot;&gt;Oceon&lt;/a&gt;.&lt;br&gt;当你在阅读的时候有任何的问题,欢迎与我联系.&lt;/p&gt;
