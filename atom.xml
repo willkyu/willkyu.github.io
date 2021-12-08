@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-07T14:24:37.409Z</updated>
+  <updated>2021-12-08T02:12:16.389Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>苏州大学第一届鲤鱼王杯</title>
+    <link href="http://willkyu.github.io/Magi-cup-1st/"/>
+    <id>http://willkyu.github.io/Magi-cup-1st/</id>
+    <published>2021-12-08T01:42:06.000Z</published>
+    <updated>2021-12-08T02:12:16.389Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;点击以查看详情.&lt;br&gt;</summary>
+    
+    
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
+    
+    <category term="Magi-Cup" scheme="http://willkyu.github.io/tags/Magi-Cup/"/>
+    
+  </entry>
   
   <entry>
     <title>宝可梦卡带鉴别</title>
