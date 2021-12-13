@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-10T13:01:16.480Z</updated>
+  <updated>2021-12-13T13:19:39.635Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -17,21 +17,101 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>苏州大学第一届鲤鱼王杯</title>
-    <link href="http://willkyu.github.io/Magi-cup-1st/"/>
-    <id>http://willkyu.github.io/Magi-cup-1st/</id>
-    <published>2021-12-08T01:42:06.000Z</published>
-    <updated>2021-12-10T13:01:16.480Z</updated>
+    <title>生活◇奥康剃刀◇与自由意识</title>
+    <link href="http://willkyu.github.io/1-Life/"/>
+    <id>http://willkyu.github.io/1-Life/</id>
+    <published>2021-12-13T09:24:42.000Z</published>
+    <updated>2021-12-13T13:19:39.635Z</updated>
     
     
-    <summary type="html">&lt;p&gt;点击以查看详情.&lt;br&gt;</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;重要的人和事物，&lt;br&gt;无论经历多久都不会改变，&lt;br&gt;人们如此祈祷着.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;封面 [ID:76002561]. &lt;/p&gt;</summary>
     
     
+    
+    <category term="Life" scheme="http://willkyu.github.io/categories/Life/"/>
+    
+    
+    <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
+    
+    <category term="Main" scheme="http://willkyu.github.io/tags/Main/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>游戏◇动机判定◇与去悲剧化</title>
+    <link href="http://willkyu.github.io/1-Game/"/>
+    <id>http://willkyu.github.io/1-Game/</id>
+    <published>2021-12-13T09:24:38.000Z</published>
+    <updated>2021-12-13T13:20:49.679Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;真想见识更多的景色啊. 正因为知道了世界的广阔和自己的渺小，才会对明天充满希望！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有的人说，因为世界如此之大，才有了各种各样的想法.&lt;br&gt;也有的人说，正是因为各种各样的想法，世界才如此广阔.&lt;br&gt;这两种说法，都是正确的.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;封面 [ID:90778756]. &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Game" scheme="http://willkyu.github.io/categories/Game/"/>
+    
+    
+    <category term="Main" scheme="http://willkyu.github.io/tags/Main/"/>
+    
+    <category term="Game" scheme="http://willkyu.github.io/tags/Game/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>学习◇生存博弈◇与纯利他主义</title>
+    <link href="http://willkyu.github.io/1-Learning/"/>
+    <id>http://willkyu.github.io/1-Learning/</id>
+    <published>2021-12-13T09:24:35.000Z</published>
+    <updated>2021-12-13T13:20:53.186Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;就算没达到预期的水平也不能放弃，继续锻炼.&lt;br&gt;不管什么时候，改变世界的都是认真追求梦想的人.&lt;br&gt;——– &lt;em&gt;&lt;strong&gt;阿戴克&lt;/strong&gt;&lt;/em&gt; &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;封面 [ID:90778756]. &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
+    
+    <category term="Main" scheme="http://willkyu.github.io/tags/Main/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>宝可梦◇熵增定律◇与死亡誓言</title>
+    <link href="http://willkyu.github.io/1-Pokemon/"/>
+    <id>http://willkyu.github.io/1-Pokemon/</id>
+    <published>2021-12-13T09:24:30.000Z</published>
+    <updated>2021-12-13T12:56:49.559Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;强大的宝可梦，弱小的宝可梦，那只是人的一己之见. 真正强大的训练家应该为了用自己喜欢的宝可梦获胜而努力才对哦. 你知道什么才是最重要的呢. 像以往那样前进吧，冠军在等你哦.&lt;br&gt;——– &lt;em&gt;&lt;strong&gt;梨花&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;封面 [ID:79498766]. &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
     
     
     <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
     
-    <category term="Magi-Cup" scheme="http://willkyu.github.io/tags/Magi-Cup/"/>
+    <category term="Main" scheme="http://willkyu.github.io/tags/Main/"/>
     
   </entry>
   
@@ -40,7 +120,7 @@
     <link href="http://willkyu.github.io/Pokemon-Cartridges-Authenticate/"/>
     <id>http://willkyu.github.io/Pokemon-Cartridges-Authenticate/</id>
     <published>2021-12-07T13:31:32.000Z</published>
-    <updated>2021-12-07T14:24:37.409Z</updated>
+    <updated>2021-12-13T08:50:56.927Z</updated>
     
     
     <summary type="html">&lt;p&gt;从我的b站专栏：&lt;a href=&quot;https://www.bilibili.com/read/cv10463502&quot;&gt;宝可梦前代卡带鉴别&lt;/a&gt;搬过来的，稍微有些修改.&lt;br&gt;主要就是宝可梦 &lt;em&gt;GBA&lt;/em&gt; 和 &lt;em&gt;NDS&lt;/em&gt; 卡带真伪的鉴别.&lt;br&gt;如果对你有帮助可以去专栏给个三连~&lt;/p&gt;
@@ -48,8 +128,12 @@
     
     
     
+    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
+    
     
     <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
+    
+    <category term="Collection" scheme="http://willkyu.github.io/tags/Collection/"/>
     
   </entry>
   
@@ -117,13 +201,15 @@
     <link href="http://willkyu.github.io/How-To-Back-Up-Your-Savefiles/"/>
     <id>http://willkyu.github.io/How-To-Back-Up-Your-Savefiles/</id>
     <published>2021-12-04T04:55:29.000Z</published>
-    <updated>2021-12-04T08:44:46.238Z</updated>
+    <updated>2021-12-13T12:30:52.596Z</updated>
     
     
     <summary type="html">&lt;p&gt;这篇文章是宝可梦正版正作卡带从 &lt;em&gt;Gen1&lt;/em&gt; 到 &lt;em&gt;Gen7&lt;/em&gt; 的存档提取与导入教程.&lt;br&gt;不局限于宝可梦正作，其他卡带也可以通过同样的方法提取.&lt;br&gt;如果你对备份存档感到介意，请根据自身情况取舍.&lt;/p&gt;
 &lt;p&gt;封面 [ID:86927624]. &lt;/p&gt;</summary>
     
     
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
     
     
     <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
@@ -135,13 +221,15 @@
     <link href="http://willkyu.github.io/Pokemon-RNG-Abuse-Gen3-Part1/"/>
     <id>http://willkyu.github.io/Pokemon-RNG-Abuse-Gen3-Part1/</id>
     <published>2021-12-03T06:08:08.000Z</published>
-    <updated>2021-12-06T12:18:43.360Z</updated>
+    <updated>2021-12-13T08:52:52.811Z</updated>
     
     
     <summary type="html">&lt;p&gt;这是宝可梦绿宝石及没电红蓝宝石的实机乱数教程.&lt;br&gt;不包含 ID 与 Egg 的乱数教程.&lt;br&gt;如有纰漏，请&lt;a href=&quot;../about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
 &lt;p&gt;封面 [ID:57789285]. &lt;/p&gt;</summary>
     
     
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
     
     
     <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
@@ -153,29 +241,11 @@
   </entry>
   
   <entry>
-    <title>宝可梦攻略整理</title>
-    <link href="http://willkyu.github.io/Pokemon-Strategies-List/"/>
-    <id>http://willkyu.github.io/Pokemon-Strategies-List/</id>
-    <published>2021-12-03T05:15:42.000Z</published>
-    <updated>2021-12-07T14:20:16.883Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这篇我会用来专门整理宝可梦相关攻略，我之后写的攻略也会将直达链接放在这里，方便大家直接查找.&lt;/p&gt;
-&lt;p&gt;封面 [ID:86247897]. &lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
-    
-  </entry>
-  
-  <entry>
     <title>基于Hexo与GitHub制作私人博客</title>
     <link href="http://willkyu.github.io/Build-Your-Own-Blog-Like-This-One/"/>
     <id>http://willkyu.github.io/Build-Your-Own-Blog-Like-This-One/</id>
     <published>2021-12-02T01:06:31.000Z</published>
-    <updated>2021-12-03T05:56:56.185Z</updated>
+    <updated>2021-12-13T08:50:31.486Z</updated>
     
     
     <summary type="html">&lt;p&gt;想要搭建自己的博客？跟着这篇文章做下去，谜拟Q都能搭出私人博客！&lt;/p&gt;
@@ -183,6 +253,8 @@
 &lt;p&gt;封面 [ID:91018415]. &lt;/p&gt;</summary>
     
     
+    
+    <category term="Blog" scheme="http://willkyu.github.io/categories/Blog/"/>
     
     
     <category term="GitHub" scheme="http://willkyu.github.io/tags/GitHub/"/>
@@ -193,6 +265,8 @@
     
     <category term="Practical-Tips" scheme="http://willkyu.github.io/tags/Practical-Tips/"/>
     
+    <category term="Blog" scheme="http://willkyu.github.io/tags/Blog/"/>
+    
   </entry>
   
   <entry>
@@ -200,7 +274,7 @@
     <link href="http://willkyu.github.io/Accessing-GitHub-Slowly-Solution/"/>
     <id>http://willkyu.github.io/Accessing-GitHub-Slowly-Solution/</id>
     <published>2021-12-01T23:40:45.000Z</published>
-    <updated>2021-12-06T14:12:35.170Z</updated>
+    <updated>2021-12-13T08:50:04.563Z</updated>
     
     
     <summary type="html">&lt;p&gt;今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN 域名遭到了 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢.&lt;/p&gt;
@@ -209,10 +283,14 @@
     
     
     
+    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
+    
     
     <category term="GitHub" scheme="http://willkyu.github.io/tags/GitHub/"/>
     
     <category term="Practical-Tips" scheme="http://willkyu.github.io/tags/Practical-Tips/"/>
+    
+    <category term="Solutions" scheme="http://willkyu.github.io/tags/Solutions/"/>
     
   </entry>
   
@@ -221,7 +299,7 @@
     <link href="http://willkyu.github.io/The-First-Blog/"/>
     <id>http://willkyu.github.io/The-First-Blog/</id>
     <published>2021-12-01T09:28:54.000Z</published>
-    <updated>2021-12-13T08:29:20.665Z</updated>
+    <updated>2021-12-13T12:46:36.615Z</updated>
     
     
     <summary type="html">&lt;p&gt;欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！&lt;br&gt;此博客基于 &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt; 打造，主题使用的是 &lt;a href=&quot;https://github.com/zhwangart/hexo-theme-ocean&quot;&gt;Oceon&lt;/a&gt;. &lt;/p&gt;
@@ -230,10 +308,12 @@
     
     
     
-    <category term="123" scheme="http://willkyu.github.io/categories/123/"/>
+    <category term="Main" scheme="http://willkyu.github.io/categories/Main/"/>
     
     
-    <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
+    <category term="Blog" scheme="http://willkyu.github.io/tags/Blog/"/>
+    
+    <category term="Main" scheme="http://willkyu.github.io/tags/Main/"/>
     
   </entry>
   
