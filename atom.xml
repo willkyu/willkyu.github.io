@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-13T13:33:58.017Z</updated>
+  <updated>2021-12-13T14:47:59.315Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://willkyu.github.io/1-Learning/"/>
     <id>http://willkyu.github.io/1-Learning/</id>
     <published>2021-12-13T09:24:45.000Z</published>
-    <updated>2021-12-13T13:33:58.017Z</updated>
+    <updated>2021-12-13T14:47:59.315Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -69,7 +69,7 @@
     <link href="http://willkyu.github.io/1-Pokemon/"/>
     <id>http://willkyu.github.io/1-Pokemon/</id>
     <published>2021-12-13T09:24:30.000Z</published>
-    <updated>2021-12-13T13:28:47.711Z</updated>
+    <updated>2021-12-13T15:21:06.371Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -93,7 +93,7 @@
     <link href="http://willkyu.github.io/1-Game/"/>
     <id>http://willkyu.github.io/1-Game/</id>
     <published>2021-12-13T09:24:28.000Z</published>
-    <updated>2021-12-13T13:38:41.200Z</updated>
+    <updated>2021-12-13T14:48:04.178Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -112,6 +112,30 @@
     <category term="Main" scheme="http://willkyu.github.io/tags/Main/"/>
     
     <category term="Game" scheme="http://willkyu.github.io/tags/Game/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>收藏◇知觉丧失◇与不完备定理</title>
+    <link href="http://willkyu.github.io/1-Collection/"/>
+    <id>http://willkyu.github.io/1-Collection/</id>
+    <published>2021-12-13T09:04:52.000Z</published>
+    <updated>2021-12-13T15:33:10.869Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;纵然身朽去，心美亦永恒&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;封面 [ID:71672001]. &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Collection" scheme="http://willkyu.github.io/categories/Collection/"/>
+    
+    
+    <category term="Collection" scheme="http://willkyu.github.io/tags/Collection/"/>
+    
+    <category term="Main" scheme="http://willkyu.github.io/tags/Main/"/>
     
   </entry>
   
