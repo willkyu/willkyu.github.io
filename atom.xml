@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-13T13:19:39.635Z</updated>
+  <updated>2021-12-13T13:33:58.017Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>学习◇生存博弈◇与纯利他主义</title>
+    <link href="http://willkyu.github.io/1-Learning/"/>
+    <id>http://willkyu.github.io/1-Learning/</id>
+    <published>2021-12-13T09:24:45.000Z</published>
+    <updated>2021-12-13T13:33:58.017Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;就算没达到预期的水平也不能放弃，继续锻炼.&lt;br&gt;不管什么时候，&lt;br&gt;改变世界的都是认真追求梦想的人.&lt;br&gt;——– &lt;em&gt;&lt;strong&gt;阿戴克&lt;/strong&gt;&lt;/em&gt; &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;封面 [ID:90778756]. &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
+    
+    <category term="Main" scheme="http://willkyu.github.io/tags/Main/"/>
+    
+  </entry>
   
   <entry>
     <title>生活◇奥康剃刀◇与自由意识</title>
@@ -41,57 +65,6 @@
   </entry>
   
   <entry>
-    <title>游戏◇动机判定◇与去悲剧化</title>
-    <link href="http://willkyu.github.io/1-Game/"/>
-    <id>http://willkyu.github.io/1-Game/</id>
-    <published>2021-12-13T09:24:38.000Z</published>
-    <updated>2021-12-13T13:23:23.035Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;真想见识更多的景色啊.&lt;br&gt;正因为知道了世界的广阔和自己的渺小，&lt;br&gt;才会对明天充满希望！&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;有的人说，因为世界如此之大，才有了各种各样的想法.&lt;br&gt;也有的人说，正是因为各种各样的想法，世界才如此广阔.&lt;br&gt;这两种说法，都是正确的.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;封面 [ID:90778756]. &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Game" scheme="http://willkyu.github.io/categories/Game/"/>
-    
-    
-    <category term="Main" scheme="http://willkyu.github.io/tags/Main/"/>
-    
-    <category term="Game" scheme="http://willkyu.github.io/tags/Game/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>学习◇生存博弈◇与纯利他主义</title>
-    <link href="http://willkyu.github.io/1-Learning/"/>
-    <id>http://willkyu.github.io/1-Learning/</id>
-    <published>2021-12-13T09:24:35.000Z</published>
-    <updated>2021-12-13T13:22:53.229Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;就算没达到预期的水平也不能放弃，继续锻炼.&lt;br&gt;不管什么时候，&lt;br&gt;改变世界的都是认真追求梦想的人.&lt;br&gt;——– &lt;em&gt;&lt;strong&gt;阿戴克&lt;/strong&gt;&lt;/em&gt; &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;封面 [ID:90778756]. &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
-    
-    
-    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
-    
-    <category term="Main" scheme="http://willkyu.github.io/tags/Main/"/>
-    
-  </entry>
-  
-  <entry>
     <title>宝可梦◇熵增定律◇与死亡誓言</title>
     <link href="http://willkyu.github.io/1-Pokemon/"/>
     <id>http://willkyu.github.io/1-Pokemon/</id>
@@ -112,6 +85,33 @@
     <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
     
     <category term="Main" scheme="http://willkyu.github.io/tags/Main/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>游戏◇动机判定◇与去悲剧化</title>
+    <link href="http://willkyu.github.io/1-Game/"/>
+    <id>http://willkyu.github.io/1-Game/</id>
+    <published>2021-12-13T09:24:28.000Z</published>
+    <updated>2021-12-13T13:34:15.084Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;真想见识更多的景色啊.&lt;br&gt;正因为知道了世界的广阔和自己的渺小，&lt;br&gt;才会对明天充满希望！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有的人说，因为世界如此之大，才有了各种各样的想法.&lt;br&gt;也有的人说，正是因为各种各样的想法，世界才如此广阔.&lt;br&gt;这两种说法，都是正确的.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;封面 [ID:90778756]. &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Game" scheme="http://willkyu.github.io/categories/Game/"/>
+    
+    
+    <category term="Main" scheme="http://willkyu.github.io/tags/Main/"/>
+    
+    <category term="Game" scheme="http://willkyu.github.io/tags/Game/"/>
     
   </entry>
   
