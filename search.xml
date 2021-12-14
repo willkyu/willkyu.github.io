@@ -89,8 +89,8 @@
 <span id="more"></span>
 
 <h1 id="Learning"><a href="#Learning" class="headerlink" title="Learning"></a>Learning</h1><p>记录与整理学习上的一些要点或者问题.</p>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ul>
-<li>None.</li>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><h4 id="PyTorch"><a href="#PyTorch" class="headerlink" title="PyTorch"></a>PyTorch</h4><ul>
+<li><a href="/PyTorch01/">PyTorch笔记01—-基本数据类型</a></li>
 </ul>
 <h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><ul>
 <li><a href="/Accessing-GitHub-Slowly-Solution/">解决访问GithHub速度慢的问题</a></li>
@@ -244,6 +244,113 @@
       <tags>
         <tag>Collection</tag>
         <tag>Archive</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PyTorch笔记01----基本数据类型</title>
+    <url>/PyTorch01/</url>
+    <content><![CDATA[<p>PyTorch基本数据类型</p>
+<span id="more"></span>
+
+<hr>
+<table>
+<thead>
+<tr>
+<th align="center">python</th>
+<th align="center">PyTorch</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Int</td>
+<td align="center">IntTensor of size()</td>
+</tr>
+<tr>
+<td align="center">Float</td>
+<td align="center">FloatTensor of size()</td>
+</tr>
+<tr>
+<td align="center">Int array</td>
+<td align="center">IntTensor of size[d1, d2, …]</td>
+</tr>
+<tr>
+<td align="center">Float array</td>
+<td align="center">FloatTensor of size[d1, d2, …]</td>
+</tr>
+<tr>
+<td align="center">String</td>
+<td align="center">–</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Pytorch不是一个完备的语言库，不支持String.</p>
+</blockquote>
+<h3 id="How-to-denote-string"><a href="#How-to-denote-string" class="headerlink" title="How to denote string"></a>How to denote string</h3><ul>
+<li>One-hot Encoding<br>[0, 1, 0, 0, …]<br>每一维代表一个单词<blockquote>
+<p>数据量过大时，整个向量会变得特别稀疏.<br>不同的单词有相近的意思，如like、love，这种方法无法体现这种相关性.</p>
+</blockquote>
+</li>
+<li>Embedding<ul>
+<li>Word2vec</li>
+<li>glove</li>
+</ul>
+</li>
+</ul>
+<h3 id="Data-type"><a href="#Data-type" class="headerlink" title="Data type"></a>Data type</h3><p>CPU tensor: </p>
+<ul>
+<li>torch.FloatTensor</li>
+<li>torch.IntTensor</li>
+<li>…</li>
+</ul>
+<p>GPU tensor: 在torch与tensor之间加上cuda</p>
+<ul>
+<li>torch.cuda.FloatTensor</li>
+<li>torch.cuda.IntTensor</li>
+<li>…</li>
+</ul>
+<h2 id="Type-check"><a href="#Type-check" class="headerlink" title="Type check"></a>Type check</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = torch.randn(2, 3)   #使用随机正态分布</span><br><span class="line">a.type()    #&#x27;torch.FloatTensor&#x27;</span><br><span class="line"></span><br><span class="line">type(a)     #&#x27;torch.Tensor&#x27;返回基本的数据类型</span><br><span class="line"></span><br><span class="line">isinstance(a, torch.FloatTensor)    #True</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">isinstance(data, torch.cuda.DoubleTensor)   #False</span><br><span class="line">data = data.cuda()</span><br><span class="line">isinstance(data, torch.cuda.DoubleTensor)   #True</span><br></pre></td></tr></table></figure>
+
+<h2 id="Dimension-0-Rank-0-标量"><a href="#Dimension-0-Rank-0-标量" class="headerlink" title="Dimension 0 / Rank 0 标量"></a>Dimension 0 / Rank 0 标量</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">torch.tensor(1.)    #直接生成标量Tensor(1.)</span><br><span class="line">torch.tensor(1.3)   #直接生成标量tensor(1.300)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>经常用于计算<em>Loss</em> — 维度为0的标量.</p>
+</blockquote>
+<p>如何确定Dim为0？</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Loss.shape  #torch.Size([])</span><br><span class="line"></span><br><span class="line">len(Loss.shape) #0</span><br><span class="line"></span><br><span class="line">Loss.dim()  #0</span><br><span class="line"></span><br><span class="line">Loss.size() #torch.Size([])</span><br></pre></td></tr></table></figure>
+
+<h2 id="Dimension-1-Rank-1-向量"><a href="#Dimension-1-Rank-1-向量" class="headerlink" title="Dimension 1 / Rank 1 向量"></a>Dimension 1 / Rank 1 向量</h2><blockquote>
+<p>PyTorch里一维多维向量统称tensor张量</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">torch.tensor([1.1])     #tensor([1.1000]) 注意有中括号</span><br><span class="line">torch.tensor([1.1, 2.2])    #tensor([1.1000, 2.2000])</span><br><span class="line"></span><br><span class="line">torch.FloatTensor(1)    #tensor([3.2239e-25]) 指定长度，random初始化</span><br><span class="line">torch.FloatTensor(2)    #tensor([3.2239e-25, 4.5915e-41])</span><br><span class="line"></span><br><span class="line">#还可以通过numpy引入</span><br><span class="line">data = np.ones(2)       #生成一个[1, 1]的向量</span><br><span class="line">data        #array([1., 1.])</span><br><span class="line"></span><br><span class="line">torch.from_numpy(data)  #tensor([1., 1.], dtype=torch.float64)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Dim 1的张量一般用于Bias（偏置）、Linear Input（神经网络线性层的输入）（如[28, 28]的图片展开成[748]长度的向量输入）.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = torch.ones(2)</span><br><span class="line">a.shape     #torch.Size([2])</span><br><span class="line">a.size()    #torch.Size([2])</span><br></pre></td></tr></table></figure>
+
+<h2 id="Dimension-2、Dimension-3、……"><a href="#Dimension-2、Dimension-3、……" class="headerlink" title="Dimension 2、Dimension 3、……"></a>Dimension 2、Dimension 3、……</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = torch.randn(2,3)</span><br><span class="line">a       #tensor([[-0.4423, 0.5949, 1.1440],</span><br><span class="line">                 [-2.0935, 0.2051, 1.2781]])</span><br><span class="line">                 </span><br><span class="line">a.shape #torch.Size([2,3])</span><br><span class="line">a.size(0)   #2 第一个维度的长度</span><br><span class="line">a.shape[0]  #2</span><br><span class="line">a.size(1)   #3 第二个维度的长度</span><br><span class="line">a.shape[1]  #3</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Dim 2的张量一般用于Linear Input batch（如4张[28, 28]的图片，我们将它们叠在一起，形成[4, 784]，4表示4张照片，784表示一张照片的数据）</p>
+</blockquote>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = torch.rand(1,2,3)   #使用随机均匀分布</span><br><span class="line">a   #tensor([[[0.0764, 0.2590, 0.9816],</span><br><span class="line">              [0.6798, 0.1568, 0.7919]]])</span><br><span class="line"></span><br><span class="line">a.shape #torch.Size([1, 2, 3])</span><br><span class="line"></span><br><span class="line">a[0]    #tensor([[0.0764, 0.2590, 0.9816],</span><br><span class="line">                 [0.6798, 0.1568, 0.7919]])</span><br><span class="line">            </span><br><span class="line">list(a.shape)   #[1, 2, 3]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Dim 3在RNN Input Batch中使用非常广泛：<br>一句话有10个单词，每个单词用一个100维的One-hot编码，一次送入20句话，就是[10, 20, 100]</p>
+</blockquote>
+<blockquote>
+<p>Dim 4适合彩色图片：<br>[2, 3, 28, 28] 2张图片，3个通道（RGB，如果是黑白图片则是1），28*28像素的图片</p>
+</blockquote>
+<pre><code>a = torch.rand(2, 3, 28, 28)
+
+a.dim() #4
+a.numel()   #4704 4704 = 2 * 3 * 28 * 28
+</code></pre>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>PyTorch</tag>
       </tags>
   </entry>
   <entry>
@@ -791,7 +898,27 @@
 <p>封面 [ID:57789285]. </p>
 <span id="more"></span>
 
-<p><strong>注意，本教程仅支持：</strong><br><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part1/Support.png" alt="Support"></p>
+<p><strong>注意，本教程仅支持：</strong></p>
+<hr>
+<table>
+<thead>
+<tr>
+<th align="center">Support</th>
+<th align="center">红蓝宝石</th>
+<th align="center">绿宝石</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">电池有电</td>
+<td align="center">✘</td>
+<td align="center">✔</td>
+</tr>
+<tr>
+<td align="center">电池没电</td>
+<td align="center">✔</td>
+<td align="center">✔</td>
+</tr>
+</tbody></table>
 <p>如果你在找有电的红蓝宝石实机乱数教程，请点击<a href="/Pokemon-RNG-Abuse-Gen3-Part2/">这里</a>.</p>
 <p>如果你在找火红叶绿的实机乱数，请点击<a href="">这里</a>.</p>
 <blockquote>
