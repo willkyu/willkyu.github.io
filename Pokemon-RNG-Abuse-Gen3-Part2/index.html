@@ -102,6 +102,7 @@
 <li>乱数工具<a target="_blank" rel="noopener" href="https://github.com/Admiral-Fish/RNGReporter/releases">RNGReporter</a><br>如果因为国内 GitHub 下载速度原因不好下载，可以点击<a href="/download/RNGReporter.zip">这里</a>进行下载.</li>
 <li>时钟修复软件<a target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/%E6%97%B6%E9%92%9F%E7%94%B5%E8%B7%AF%EF%BC%88%E6%BC%8F%E6%B4%9E%EF%BC%89#.E5.A4.96.E9.83.A8.E9.93.BE.E6.8E.A5">rtcread</a><br>将<code>.nds</code>文件放在烧录卡的储存卡中. 也可以点击<a href="/download/rtcread-ds.rar">这里</a>进行下载.</li>
 <li>存档修改器<a target="_blank" rel="noopener" href="https://github.com/kwsch/PKHeX/releases">PKHex</a><br>将使用其查看宝可梦的个体，不会涉及到存档修改.<br>如果因为国内 GitHub 下载速度原因不好下载，可以点击<a href="/download/PKHeX(190705).zip">这里</a>进行下载（版本：19.07.05）.</li>
+<li>seed查找工具<a target="_blank" rel="noopener" href="https://www.smogon.com/forums/threads/rng-manipulation-in-firered-leafgreen-wild-pok%C3%A9mon-supported-in-rng-reporter-9-93.62357/">FRLGSeedFinder</a><br>如果选用3genSearch可以不用此工具. 也可以点击<a href="/download/FRLGSeedFinder.zip">这里</a>进行下载.</li>
 </ul>
 <blockquote>
 <p>两个乱数工具选择任意一个都可以，本教程使用的是 <em>3genSearch</em>. RNGReporter的使用与之类似，还请读者自行探索.</p>
@@ -121,6 +122,9 @@
 <li>钓鱼钓上来的宝可梦（外网说丑丑鱼是Method 2，但我实际操作下来发现好像是Method 4，读者可以自行测试一下）</li>
 <li>通过碎岩遇到的宝可梦</li>
 </ul>
+<blockquote>
+<p> <em><strong>测试时发现甜甜香气的宝可梦应该归属于 Method 1</strong></em></p>
+</blockquote>
 <p>如果是 <em>Method 1</em>，点击下面的谜拟Q来查看保存游戏的位置与生成帧的所在时机（ <em><strong>E</strong></em> 与 <em><strong>RS</strong></em> 有些会有区别）：</p>
 <details>
     <summary><img src="../images/mimikyu.png" alt="Method 2 请点击丘丘" align=left></summary>
@@ -157,7 +161,7 @@
 <li>尽快开机进入游戏，任意捕捉一只宝可梦后存档并关机（宝可梦相遇越快越好）.</li>
 <li>使用 NDS烧录卡 提取游戏存档后使用 PKHex 打开.</li>
 <li>找到你捕捉的宝可梦，右击选择 <em>查看</em> 并选择左侧选项卡的 <em>数值</em>.<br> <img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part2/Figure5.png" alt="Figure5"></li>
-<li>打开乱数工具，选择<em>个体逆算</em>，并根据 PKHex 中的数据填入并点击 <em>计算</em>（游戏版本与地点、相遇方式等也别忘了修改）<br>再根据PKHex左侧选项卡的 <em>主页面</em> 确定 <em>开始seed</em>（第一列）（如果有多个无法区分，都记下，并可能需要再来一次）.<br><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part2/Figure6.png" alt="Figure6"><br><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part2/Figure7.png" alt="Figure7"></li>
+<li>打开乱数工具，选择<em>个体逆算</em>，并根据 PKHex 中的数据填入并点击 <em>计算</em>（游戏版本与地点、相遇方式等也别忘了修改）<br>再根据PKHex左侧选项卡的 <em>主页面</em> 确定 <em>开始seed</em>（第一列）或 <em>生成seed</em>（第二列）（如果有多个无法区分，都记下，并可能需要再来一次. 此外，其实只要保证<strong>pid</strong>相同即可）.<br><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part2/Figure6.png" alt="Figure6"><br><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part2/Figure7.png" alt="Figure7"></li>
 <li>右击复制该<em>开始seed</em>，选择<em>其他-初期seed检索</em> ，将复制的<em>开始seed</em>填入<em>目标seed</em>，勾选上 <em>初期seed全探索</em>.<br>[F] 处第二个空填入18000左右即可（根据你遇到这只宝可梦的游戏时间决定，一分钟约3600 F），点击 <em>计算</em>.<blockquote>
 <p>图中实例宝可梦并非游戏一开始就遇到的，仅为教程作参考，以实际为准.<br><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part2/Figure8.png" alt="Figure8"></p>
 </blockquote>
@@ -211,11 +215,18 @@
 </li>
 <li>乱数成功，得到目标！</li>
 </ol>
+<h1 id="如果选用-RNGReporter"><a href="#如果选用-RNGReporter" class="headerlink" title="如果选用 RNGReporter"></a>如果选用 RNGReporter</h1><p>发现这两个软件在反查初始seed有些不同，下面记录一下RNGReporter反查seed的方法：</p>
+<ul>
+<li>打开RNGReporter，选择<em>4th Gen Tools</em> 中的 <em>Calculate PID from IVs</em>.<br><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part2/Figure9.png" alt="Figure9"></li>
+<li>输入个体性格，点击<em>Find</em>，选择<strong>PID</strong>对应的一栏.<br><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part2/Figure10.png" alt="Figure10"></li>
+<li>这里得到的seed是<em>生成seed</em>，将其输入工具<em>FRLGSeedFinder</em>中（虽然写的FRLG，但是三代通用）.<br><img src="../images/body/Pokemon-RNG-Abuse-Gen3-Part2/Figure11.png" alt="Figure11"></li>
+<li>得到初始seed.</li>
+</ul>
 <h1 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h1><ul>
 <li>在<a href="#%E7%A1%AE%E5%AE%9A%E5%88%9D%E5%A7%8Bseed">确定初始 seed</a>步骤可以多选择几个RTC时间，捉完宝可梦后保存然后再次重复，导出存档一起确定seed，然后选择最满意的.</li>
 <li>还有一种比较麻烦的方法，在这里描述一下，十分费时费力，就不展开说了：<ul>
 <li>准备大量的神奇糖果.</li>
-<li>使用玩家自制的软件 <a target="_blank" rel="noopener" href="https://www.smogon.com/forums/threads/fr-lg-rng-timer.3554964/">FR/LG RNG Timer</a>.</li>
+<li>使用玩家自制的软件 <a target="_blank" rel="noopener" href="https://www.smogon.com/forums/threads/fr-lg-rng-timer.3554964/">FR/LG RNG Timer</a>. 也可以点击<a href="/download/FRLG_RNG_Timer.jar">这里</a>进行下载.</li>
 <li>进入游戏的同时开始计时器.</li>
 <li>捕捉一只宝可梦并通过糖果确定个体.</li>
 <li>使用个体查出初始seed.</li>
