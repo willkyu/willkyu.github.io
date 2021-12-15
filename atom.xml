@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-15T12:26:45.927Z</updated>
+  <updated>2021-12-15T16:32:26.653Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何自制宝可梦Gen4与Gen5的配信器</title>
+    <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/WCD-Distribution-Patch/"/>
+    <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/WCD-Distribution-Patch/</id>
+    <published>2021-12-15T14:52:38.000Z</published>
+    <updated>2021-12-15T16:32:26.653Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这是宝可梦自制四五代配信器的教程.&lt;br&gt;如有纰漏，请&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
+&lt;p&gt;封面 [ID:84354949]. &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
+    
+    <category term="Pokemon-Distribution" scheme="http://willkyu.github.io/tags/Pokemon-Distribution/"/>
+    
+    <category term="Pokemon-Gen4" scheme="http://willkyu.github.io/tags/Pokemon-Gen4/"/>
+    
+    <category term="Pokemon-Gen5" scheme="http://willkyu.github.io/tags/Pokemon-Gen5/"/>
+    
+  </entry>
   
   <entry>
     <title>PyTorch笔记04----Tensor维度变换</title>

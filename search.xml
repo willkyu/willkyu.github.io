@@ -254,6 +254,83 @@
       </tags>
   </entry>
   <entry>
+    <title>如何自制宝可梦Gen4与Gen5的配信器</title>
+    <url>/Pokemon/Strategies/In-Game/WCD-Distribution-Patch/</url>
+    <content><![CDATA[<p>这是宝可梦自制四五代配信器的教程.<br>如有纰漏，请<a href="/about/">与我联系</a>，万分感谢！</p>
+<p>封面 [ID:84354949]. </p>
+<span id="more"></span>
+
+
+<p><strong>注意，本教程仅支持<a href="https://wiki.52poke.com/wiki/%E7%AC%AC%E5%9B%9B%E4%B8%96%E4%BB%A3">宝可梦第四世代</a>正作游戏与<a href="https://wiki.52poke.com/wiki/%E7%AC%AC%E4%BA%94%E4%B8%96%E4%BB%A3">宝可梦第五世代</a>正作游戏.</strong></p>
+<p>如果你在找<a href="https://wiki.52poke.com/wiki/%E7%AC%AC%E4%B8%89%E4%B8%96%E4%BB%A3">宝可梦第三世代</a>的船票配信方法，请点击<a href="%5B/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part1/%5D(https://github.com/mrhappyasthma/NDSEventTool.nds)">这里</a>.</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p><strong>请确保你了解一些计算机基础知识</strong></p>
+<h2 id="硬件准备"><a href="#硬件准备" class="headerlink" title="硬件准备"></a>硬件准备</h2><ul>
+<li>能够游玩第四、五世代宝可梦卡带的<em>NDS</em>、<em>3DS</em>系列机器<strong>两台</strong>（以下简称 <em>DS</em> 系列掌机）.</li>
+<li>电脑.</li>
+<li><em>NDS</em>烧录卡与读卡器.</li>
+</ul>
+<h2 id="下载配信所需工具："><a href="#下载配信所需工具：" class="headerlink" title="下载配信所需工具："></a>下载配信所需工具：</h2><ul>
+<li><p>四代<a href="https://gbatemp.net/threads/wcdpatcher.129568/">WCDPatcher</a><br>上面帖子里的下载地址失效了，可以点击<a href="https://projectpokemon.org/home/files/file/1808-pok%C3%A9mon-wcd-patcher/">这里</a>下载.</p>
+</li>
+<li><p><a href="https://projectpokemon.org/home/files/category/2-event-gallery/">你想要的配信的Mystery Gift and Wonder Card files</a></p>
+</li>
+<li><p>或者点击<a href="/download/WCD-Distribution-Patch.rar">这里</a>下载由b站用户<a href="https://space.bilibili.com/3691432">翾樾non</a>整理的自制配信器所需的所有文件.</p>
+<blockquote>
+<p>很遗憾我没有找到他这里第五世代的<code>LTDCE.exe</code>文件的发布网站，但找到了另外一个第五世代配信器制作软件<a href="https://github.com/PlasticJustice/PKMG5DC">PKMG5DC</a>，感兴趣的话可以自行研究一下</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>b站用户<a href="https://space.bilibili.com/3691432">翾樾non</a>有发布很详细的<a href="https://www.bilibili.com/video/BV1QW411D78Q?share_source=copy_web">视频教学</a>，请先观看该视频. </p>
+</blockquote>
+<h1 id="制作配信器"><a href="#制作配信器" class="headerlink" title="制作配信器"></a>制作配信器</h1><p>如果你下载的是压缩包，请先解压. </p>
+<blockquote>
+<p>接下来的教程将会以下载<a href="https://space.bilibili.com/3691432">翾樾non</a>提供的压缩包为例.<br>下面将以</p>
+</blockquote>
+<h2 id="第四世代"><a href="#第四世代" class="headerlink" title="第四世代"></a>第四世代</h2><p><img src="/images/body/WCD-Distribution-Patch/Figure1.png" alt="Figure1"></p>
+<ul>
+<li>打开<em>Gen4</em>文件夹中的<code>WCDPatcher.exe</code>. 点击红色框.</li>
+<li>在弹出的<em>Select the Distribution ROM</em>窗口中选择同一目录下的<code>NTR-AARE-USA - GameStop Deoxys.nds</code>文件并点击<em>打开</em>.</li>
+<li>点击<code>WCDPatcher.exe</code>上的蓝色框.</li>
+<li>在弹出的<em>Select the Wondercard ROM</em>窗口中，打开文件夹<code>Gen4\PPorg_GenIV_WCs\PPorg_GenIV_WCs\</code>并寻找你所需要的配信文件并点击<em>打开</em>.<br>如<code>Gen4\PPorg_GenIV_WCs\PPorg_GenIV_WCs\Darkrai - Movie 2007\</code>文件夹下的<code>007 Movie Darkrai ENG-USA [PPorg].pcd</code>文件.<blockquote>
+<p>注意，每个配信对应的文件夹中的文件分游戏语音（地区）版本，请选择你接收的游戏对应的版本</p>
+</blockquote>
+</li>
+<li>点击<code>WCDPatcher.exe</code>上的紫色框，并选择对应地区语言版本.</li>
+<li>点击<code>WCDPatcher.exe</code>上的黄色框.</li>
+<li>在弹出的<em>Select the New ROM Location</em>窗口中，打开到你想要保存的位置，在文件名处随意命名，点击<em>保存</em>.</li>
+<li>得到<code>.nds</code>文件.</li>
+</ul>
+<h2 id="第五世代"><a href="#第五世代" class="headerlink" title="第五世代"></a>第五世代</h2><p><img src="/images/body/WCD-Distribution-Patch/Figure2.png" alt="Figure2"></p>
+<ul>
+<li>打开<em>Gen5</em>文件夹中的<code>LTDCE.exe</code>. 点击<strong>Open ROM</strong>.</li>
+<li>在弹出的<em>Open Nintendo DS ROM</em>窗口中选择同一目录下的<code>2046 Liberty Pass ENG .nds</code>文件并点击<em>打开</em>.</li>
+<li>点击<code>LTDCE.exe</code>上的红色框.</li>
+<li>在弹出的<em>Open Pokemon Mystery Gift File</em>窗口中，打开文件夹<code>Gen5\PPorg_GenV_WCs\PPorg_GenV_WCs</code>并根据你的游戏语言版本进入对应文件夹，寻找你所需要的配信文件并点击<em>打开</em>.<br>如<code>Gen5\PPorg_GenV_WCs\PPorg_GenV_WCs\English</code>文件夹下的<code>028 Dark Explorer Darkrai ENG [PPorg].pgf</code>文件.</li>
+<li>点击<code>LTDCE.exe</code>上的绿色框，并选择对应地区语言版本.</li>
+<li>点击<code>LTDCE.exe</code>上的蓝色框.</li>
+<li>在弹出的<em>Save Nintendo DS ROM</em>窗口中，打开到你想要保存的位置，在文件名处随意命名，点击<em>保存</em>.</li>
+<li>得到<code>.nds</code>文件.</li>
+</ul>
+<h1 id="进行配信"><a href="#进行配信" class="headerlink" title="进行配信"></a>进行配信</h1><ul>
+<li>将上一步得到的<code>.nds</code>文件放入烧录卡中，使用一台 <em>DS</em> 系列掌机打开该nds文件.</li>
+<li>另一台 <em>DS</em> 系列掌机运行游戏，按照正常配信步骤配信即可. 参考<a href="https://wiki.52poke.com/wiki/%E7%A5%9E%E7%A7%98%E7%A4%BC%E7%89%A9#.E7.AC.AC.E5.9B.9B.E4.B8.96.E4.BB.A3">神百–神秘礼物</a>界面.</li>
+</ul>
+<blockquote>
+<p>注意，这一步请确保 <em>DS</em> 系列掌机的WiFi开关打开（New 3DS、New 2DS、2DS、DSi系列需要在设置中打开，3DS需要打开侧边开关，DS、DS Lite系列不用管）</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Pokemon</category>
+      </categories>
+      <tags>
+        <tag>Pokemon</tag>
+        <tag>Pokemon-Distribution</tag>
+        <tag>Pokemon-Gen4</tag>
+        <tag>Pokemon-Gen5</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PyTorch笔记04----Tensor维度变换</title>
     <url>/Learning/Notes/PyTorch/PyTorch04/</url>
     <content><![CDATA[<p>PyTorch的一些Tensor维度变换方式</p>
