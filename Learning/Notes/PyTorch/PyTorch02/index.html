@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="一只谜拟Q的Blog">
+  
+  <title>
+    PyTorch笔记02----创建Tensor |
+    
+    丘丘Blog
+  </title>
+  
+    <link rel="shortcut icon" href="/mimikyu_sprite.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="丘丘Blog" type="application/atom+xml">
+</head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-Learning/Notes/PyTorch/PyTorch02" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  PyTorch笔记02----创建Tensor
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/Learning/Notes/PyTorch/PyTorch02/" class="article-date">
+  <time datetime="2021-12-15T03:03:38.000Z" itemprop="datePublished">2021-12-15</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p>PyTorch各种创建Tensor方式</p>
+<span id="more"></span>
+
+<h1 id="PyTorch02"><a href="#PyTorch02" class="headerlink" title="PyTorch02"></a>PyTorch02</h1><h4 id="import-from-numpy"><a href="#import-from-numpy" class="headerlink" title="import from numpy"></a>import from numpy</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([2, 3.3])</span><br><span class="line">torch.from_numpy(a) #tensor([2.000, 3.300], dtype = torch.float64)</span><br><span class="line"></span><br><span class="line">a = np.ones([2, 3])</span><br><span class="line">torch.from_numpy(a) #tensor([[1., 1., 1.],</span><br><span class="line">                             [1., 1., 1.]], dtype = torch.float64)</span><br></pre></td></tr></table></figure>
+
+<h4 id="import-from-list"><a href="#import-from-list" class="headerlink" title="import from list"></a>import from list</h4><blockquote>
+<p>torch承载的参数是现成的数据：numpy或者list<br>Torch、FloatTensor接收shape作为参数，生成一个没有初始化的类型. 或使用list来接收现有数据（不建议）.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">torch.tensor([2, 3.2])  #tensor([2.0000, 3.2000])</span><br><span class="line"></span><br><span class="line">torch.FloatTensor([2., 3.2])    #tensor([2.0000, 3.2000])</span><br><span class="line"></span><br><span class="line">torch.tensor([[2., 3.2],[1., 22.3]])</span><br></pre></td></tr></table></figure>
+
+<h4 id="uninitialized"><a href="#uninitialized" class="headerlink" title="uninitialized"></a>uninitialized</h4><ul>
+<li>torch.empty(d1, d2)</li>
+<li>torch.FloatTensor(d1, d2, d3)</li>
+<li>torch.IntTensor(d1, d2, d3)</li>
+</ul>
+<blockquote>
+<p>要把未初始化的数据覆盖掉，如果出现torch.nan或者torch.inf，可能就是使用了未初始化的数据.</p>
+</blockquote>
+<h4 id="set-default-type"><a href="#set-default-type" class="headerlink" title="set default type"></a>set default type</h4><blockquote>
+<p>一般使用Tensor默认是FloatTensor</p>
+</blockquote>
+<p>使用<code>torch.set_default_tensor_type(torch.DoubleTensor)</code>来改变默认类型</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.tensor([1.2, 3]).type #&#x27;torch.FloatTensor&#x27;</span><br><span class="line">torch.set_default_tensor_type(torch.DoubleTensor)</span><br><span class="line">torch.tensor([1.2, 3]).type #&#x27;torch.DoubleTensor&#x27;</span><br></pre></td></tr></table></figure>
+
+<h4 id="rand-rand-like-randint"><a href="#rand-rand-like-randint" class="headerlink" title="rand/rand_like, randint"></a>rand/rand_like, randint</h4><ul>
+<li><p>rand 随机使用[0, 1]均匀分布</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.rand(3, 3)    #按均匀分布生成3*3shape的随机张量</span><br></pre></td></tr></table></figure></li>
+<li><p>rand_like 接受的参数是一个tensor，生成一个和其shape相同的随机张量 </p>
+<blockquote>
+<p>*_like</p>
+</blockquote>
+</li>
+<li><p>randint(min, max, [shape])，左闭右开</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">randint(1, 10, [3, 3])</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="randn-标准正态分布"><a href="#randn-标准正态分布" class="headerlink" title="randn 标准正态分布"></a>randn 标准正态分布</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.randn(3, 3)    #按标准正态分布生成3*3shape的随机张量</span><br></pre></td></tr></table></figure>
+
+<p>如果想自定义均值和方差，使用normal生成一维张量后reshape</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.normal(mean = torch.full([10], 0), std = torch.arange(1, 0, -0.1)) </span><br><span class="line">#torch.full([10], 0)生成一个10*1的全0张量</span><br><span class="line">#均值为0，方差依次递减[1, 0.9, ...]</span><br></pre></td></tr></table></figure>
+
+<h4 id="full"><a href="#full" class="headerlink" title="full"></a>full</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.full([2, 3], 7)   #tensor([[7., 7., 7.],</span><br><span class="line">                                 [7., 7., 7.])</span><br><span class="line">torch.full([], 7)   #tensor(7.)</span><br></pre></td></tr></table></figure>
+
+<h4 id="arange-range"><a href="#arange-range" class="headerlink" title="arange / range"></a>arange / range</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.arange(0, 4)   #tensor([0, 1, 2, 3])</span><br><span class="line">torch.arange(0, 4, 2)   #ensor([0, 2])</span><br><span class="line">torch.range(0, 4)   #tensor([0, 1, 2, 3, 4]) 不建议使用range</span><br></pre></td></tr></table></figure>
+<h4 id="linspace-logspace"><a href="#linspace-logspace" class="headerlink" title="linspace / logspace"></a>linspace / logspace</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">torch.linspace(0, 10, steps = 4)    #第三个参数是数量</span><br><span class="line">#tensor([0.0000, 3.3333, 6.6666, 10.0000])</span><br><span class="line"></span><br><span class="line">torch.logspace(0, -1, steps = 10)   #相当于linspace生成的这些数作为10的幂</span><br><span class="line">#tensor([1.0000, 0.7743, ..., 0.1000])</span><br></pre></td></tr></table></figure>
+
+<h4 id="Ones-Zeros-Eye"><a href="#Ones-Zeros-Eye" class="headerlink" title="Ones / Zeros / Eye"></a>Ones / Zeros / Eye</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">torch.ones(2, 2)</span><br><span class="line">#tensor([[1, 1],</span><br><span class="line">         [1, 1])</span><br><span class="line">         </span><br><span class="line">torch.zeros(2, 2)</span><br><span class="line">#tensor([[0, 0],</span><br><span class="line">         [0, 0])</span><br><span class="line">         </span><br><span class="line">torch.eye(2, 3)</span><br><span class="line">#tensor([[1, 0, 0],</span><br><span class="line">         [0, 1, 0])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">torch.eye(3)</span><br><span class="line">#tensor([[1, 0, 0],</span><br><span class="line">         [0, 1, 0],</span><br><span class="line">         [0, 0, 1]])</span><br><span class="line"></span><br><span class="line">a = torch.zeros(3, 3)</span><br><span class="line">torch.ones_like(a)</span><br><span class="line">#tensor([[1, 1, 1],</span><br><span class="line">         [1, 1, 1],</span><br><span class="line">         [1, 1, 1]])</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>eye最多两个参数</p>
+</blockquote>
+<h4 id="randperm"><a href="#randperm" class="headerlink" title="randperm"></a>randperm</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">torch.randperm(10)</span><br><span class="line">#tensor([1, 5, 4, 2, 0, 6, 3, 9, 7, 8]) 生成随机索引</span><br></pre></td></tr></table></figure>
+<ul>
+<li>random.shuffle<blockquote>
+<p>为了保持配对</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = torch.rand(2, 3)</span><br><span class="line">b = torch.rand(2, 2)</span><br><span class="line">idx = torch.randperm(2)</span><br><span class="line">idx #tensor([1, 0])</span><br><span class="line"></span><br><span class="line">a[idx]</span><br><span class="line">b[idx]</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch02/" data-id="ckx6z5qnm000074st8s2tg4qo" class="article-share-link">
+        分享
+      </a>
+      
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  
+  <a href="/Learning/Notes/PyTorch/PyTorch01/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">PyTorch笔记01----基本数据类型</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>丘丘Blog &copy; 2021</li>
+      
+        <li>willkyu</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/mimikyu1.png" alt="丘丘Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">Gallery</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/favorites">Favorites</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">About</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>
+
+<!--动态线条背景-->
+<script type="text/javascript" color="220,220,220" opacity='0.7' zIndex="-2" count="200"
+  src="/js/canvas-nest.min.js">
+  </script>
+
+<!-- 页面点击特效-->
+<script type="text/javascript" src="/js/click.js"></script>

@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-14T16:04:28.195Z</updated>
+  <updated>2021-12-15T03:08:36.696Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -17,9 +17,24 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>PyTorch笔记02----创建Tensor</title>
+    <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch02/"/>
+    <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch02/</id>
+    <published>2021-12-15T03:03:38.000Z</published>
+    <updated>2021-12-15T03:08:36.696Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;PyTorch各种创建Tensor方式&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>PyTorch笔记01----基本数据类型</title>
-    <link href="http://willkyu.github.io/PyTorch01/"/>
-    <id>http://willkyu.github.io/PyTorch01/</id>
+    <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch01/"/>
+    <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch01/</id>
     <published>2021-12-14T15:05:10.000Z</published>
     <updated>2021-12-14T16:04:28.195Z</updated>
     
@@ -39,13 +54,13 @@
   
   <entry>
     <title>宝可梦有电的红蓝宝石实机乱数（不包含 ID 或 Egg）</title>
-    <link href="http://willkyu.github.io/Pokemon-RNG-Abuse-Gen3-Part2/"/>
-    <id>http://willkyu.github.io/Pokemon-RNG-Abuse-Gen3-Part2/</id>
+    <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part2/"/>
+    <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part2/</id>
     <published>2021-12-14T00:10:35.000Z</published>
-    <updated>2021-12-14T05:43:18.909Z</updated>
+    <updated>2021-12-15T04:01:17.284Z</updated>
     
     
-    <summary type="html">&lt;p&gt;这是宝可梦有电红蓝宝石的实机乱数教程.&lt;br&gt;不包含 ID 与 Egg 的乱数教程.&lt;br&gt;如有纰漏，请&lt;a href=&quot;../about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
+    <summary type="html">&lt;p&gt;这是宝可梦有电红蓝宝石的实机乱数教程.&lt;br&gt;不包含 ID 与 Egg 的乱数教程.&lt;br&gt;如有纰漏，请&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
 &lt;p&gt;封面 [ID:88418874]. &lt;/p&gt;</summary>
     
     
@@ -63,10 +78,10 @@
   
   <entry>
     <title>学习◇生存博弈◇与纯利他主义</title>
-    <link href="http://willkyu.github.io/1-Learning/"/>
-    <id>http://willkyu.github.io/1-Learning/</id>
+    <link href="http://willkyu.github.io/Archive/1-Learning/"/>
+    <id>http://willkyu.github.io/Archive/1-Learning/</id>
     <published>2021-12-13T09:24:45.000Z</published>
-    <updated>2021-12-14T15:08:45.842Z</updated>
+    <updated>2021-12-15T03:26:54.054Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -87,10 +102,10 @@
   
   <entry>
     <title>生活◇奥康剃刀◇与自由意识</title>
-    <link href="http://willkyu.github.io/1-Life/"/>
-    <id>http://willkyu.github.io/1-Life/</id>
+    <link href="http://willkyu.github.io/Archive/1-Life/"/>
+    <id>http://willkyu.github.io/Archive/1-Life/</id>
     <published>2021-12-13T09:24:42.000Z</published>
-    <updated>2021-12-14T05:07:45.776Z</updated>
+    <updated>2021-12-15T03:28:38.969Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -111,10 +126,10 @@
   
   <entry>
     <title>宝可梦◇熵增定律◇与死亡誓言</title>
-    <link href="http://willkyu.github.io/1-Pokemon/"/>
-    <id>http://willkyu.github.io/1-Pokemon/</id>
+    <link href="http://willkyu.github.io/Archive/1-Pokemon/"/>
+    <id>http://willkyu.github.io/Archive/1-Pokemon/</id>
     <published>2021-12-13T09:24:30.000Z</published>
-    <updated>2021-12-14T05:14:26.359Z</updated>
+    <updated>2021-12-15T03:34:29.620Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -135,10 +150,10 @@
   
   <entry>
     <title>游戏◇动机判定◇与去悲剧化</title>
-    <link href="http://willkyu.github.io/1-Game/"/>
-    <id>http://willkyu.github.io/1-Game/</id>
+    <link href="http://willkyu.github.io/Archive/1-Game/"/>
+    <id>http://willkyu.github.io/Archive/1-Game/</id>
     <published>2021-12-13T09:24:28.000Z</published>
-    <updated>2021-12-14T05:12:21.050Z</updated>
+    <updated>2021-12-15T03:21:09.563Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -162,8 +177,8 @@
   
   <entry>
     <title>收藏◇知觉丧失◇与不完备定理</title>
-    <link href="http://willkyu.github.io/1-Collection/"/>
-    <id>http://willkyu.github.io/1-Collection/</id>
+    <link href="http://willkyu.github.io/Archive/1-Collection/"/>
+    <id>http://willkyu.github.io/Archive/1-Collection/</id>
     <published>2021-12-13T09:04:52.000Z</published>
     <updated>2021-12-14T05:07:56.129Z</updated>
     
@@ -186,10 +201,10 @@
   
   <entry>
     <title>宝可梦卡带鉴别</title>
-    <link href="http://willkyu.github.io/Pokemon-Cartridges-Authenticate/"/>
-    <id>http://willkyu.github.io/Pokemon-Cartridges-Authenticate/</id>
+    <link href="http://willkyu.github.io/Pokemon/Strategies/Out-Game/Pokemon-Cartridges-Authenticate/"/>
+    <id>http://willkyu.github.io/Pokemon/Strategies/Out-Game/Pokemon-Cartridges-Authenticate/</id>
     <published>2021-12-07T13:31:32.000Z</published>
-    <updated>2021-12-13T08:50:56.927Z</updated>
+    <updated>2021-12-15T03:48:37.613Z</updated>
     
     
     <summary type="html">&lt;p&gt;从我的b站专栏：&lt;a href=&quot;https://www.bilibili.com/read/cv10463502&quot;&gt;宝可梦前代卡带鉴别&lt;/a&gt;搬过来的，稍微有些修改.&lt;br&gt;主要就是宝可梦 &lt;em&gt;GBA&lt;/em&gt; 和 &lt;em&gt;NDS&lt;/em&gt; 卡带真伪的鉴别.&lt;br&gt;如果对你有帮助可以去专栏给个三连~&lt;/p&gt;
@@ -208,10 +223,10 @@
   
   <entry>
     <title>VS. Recorder</title>
-    <link href="http://willkyu.github.io/VS-Recorder/"/>
-    <id>http://willkyu.github.io/VS-Recorder/</id>
+    <link href="http://willkyu.github.io/Pokemon/VS-Recorder/"/>
+    <id>http://willkyu.github.io/Pokemon/VS-Recorder/</id>
     <published>2021-12-06T12:26:43.000Z</published>
-    <updated>2021-12-06T14:07:56.654Z</updated>
+    <updated>2021-12-15T03:45:27.681Z</updated>
     
     
     <summary type="html">&lt;p&gt;此 Blog 用于记录一些宝可梦对战比赛，终有一日成为宝可梦大师！&lt;br&gt;平时比赛可能不是很勤，尽量8.&lt;/p&gt;
@@ -228,10 +243,10 @@
   
   <entry>
     <title>快乐的喷喷生活</title>
-    <link href="http://willkyu.github.io/Share-Splatoon2-Happiness/"/>
-    <id>http://willkyu.github.io/Share-Splatoon2-Happiness/</id>
+    <link href="http://willkyu.github.io/Game/Share-Splatoon2-Happiness/"/>
+    <id>http://willkyu.github.io/Game/Share-Splatoon2-Happiness/</id>
     <published>2021-12-05T04:41:43.000Z</published>
-    <updated>2021-12-06T12:43:28.825Z</updated>
+    <updated>2021-12-15T03:25:10.709Z</updated>
     
     
     <summary type="html">&lt;p&gt;以此Blog记录我爱的 &lt;em&gt;Splatoon&lt;/em&gt; 和朋友们.&lt;br&gt;间谍伞，嘿嘿，间谍伞.&lt;/p&gt;
@@ -248,10 +263,10 @@
   
   <entry>
     <title>亲爱的宝可梦♡</title>
-    <link href="http://willkyu.github.io/See-My-Loving-Pokemons/"/>
-    <id>http://willkyu.github.io/See-My-Loving-Pokemons/</id>
+    <link href="http://willkyu.github.io/Pokemon/See-My-Loving-Pokemons/"/>
+    <id>http://willkyu.github.io/Pokemon/See-My-Loving-Pokemons/</id>
     <published>2021-12-04T08:22:50.000Z</published>
-    <updated>2021-12-13T15:36:49.404Z</updated>
+    <updated>2021-12-15T03:46:47.904Z</updated>
     
     
     <summary type="html">&lt;p&gt;以此博客纪念我爱的宝可梦们~~&lt;br&gt;封面 [ID:79498766]. &lt;/p&gt;</summary>
@@ -267,10 +282,10 @@
   
   <entry>
     <title>如何备份你的存档</title>
-    <link href="http://willkyu.github.io/How-To-Back-Up-Your-Savefiles/"/>
-    <id>http://willkyu.github.io/How-To-Back-Up-Your-Savefiles/</id>
+    <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/How-To-Back-Up-Your-Savefiles/"/>
+    <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/How-To-Back-Up-Your-Savefiles/</id>
     <published>2021-12-04T04:55:29.000Z</published>
-    <updated>2021-12-13T12:30:52.596Z</updated>
+    <updated>2021-12-15T03:51:12.872Z</updated>
     
     
     <summary type="html">&lt;p&gt;这篇文章是宝可梦正版正作卡带从 &lt;em&gt;Gen1&lt;/em&gt; 到 &lt;em&gt;Gen7&lt;/em&gt; 的存档提取与导入教程.&lt;br&gt;不局限于宝可梦正作，其他卡带也可以通过同样的方法提取.&lt;br&gt;如果你对备份存档感到介意，请根据自身情况取舍.&lt;/p&gt;
@@ -287,13 +302,13 @@
   
   <entry>
     <title>宝可梦绿宝石及没有电的红蓝宝石实机乱数（不包含 ID 或 Egg）</title>
-    <link href="http://willkyu.github.io/Pokemon-RNG-Abuse-Gen3-Part1/"/>
-    <id>http://willkyu.github.io/Pokemon-RNG-Abuse-Gen3-Part1/</id>
+    <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part1/"/>
+    <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part1/</id>
     <published>2021-12-03T06:08:08.000Z</published>
-    <updated>2021-12-14T16:03:39.093Z</updated>
+    <updated>2021-12-15T03:57:14.908Z</updated>
     
     
-    <summary type="html">&lt;p&gt;这是宝可梦绿宝石及没电红蓝宝石的实机乱数教程.&lt;br&gt;不包含 ID 与 Egg 的乱数教程.&lt;br&gt;如有纰漏，请&lt;a href=&quot;../about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
+    <summary type="html">&lt;p&gt;这是宝可梦绿宝石及没电红蓝宝石的实机乱数教程.&lt;br&gt;不包含 ID 与 Egg 的乱数教程.&lt;br&gt;如有纰漏，请&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
 &lt;p&gt;封面 [ID:57789285]. &lt;/p&gt;</summary>
     
     
@@ -311,10 +326,10 @@
   
   <entry>
     <title>基于Hexo与GitHub制作私人博客</title>
-    <link href="http://willkyu.github.io/Build-Your-Own-Blog-Like-This-One/"/>
-    <id>http://willkyu.github.io/Build-Your-Own-Blog-Like-This-One/</id>
+    <link href="http://willkyu.github.io/Learning/Blog/Build-Your-Own-Blog-Like-This-One/"/>
+    <id>http://willkyu.github.io/Learning/Blog/Build-Your-Own-Blog-Like-This-One/</id>
     <published>2021-12-02T01:06:31.000Z</published>
-    <updated>2021-12-13T08:50:31.486Z</updated>
+    <updated>2021-12-15T03:41:59.753Z</updated>
     
     
     <summary type="html">&lt;p&gt;想要搭建自己的博客？跟着这篇文章做下去，谜拟Q都能搭出私人博客！&lt;/p&gt;
@@ -340,10 +355,10 @@
   
   <entry>
     <title>解决访问GithHub速度慢的问题</title>
-    <link href="http://willkyu.github.io/Accessing-GitHub-Slowly-Solution/"/>
-    <id>http://willkyu.github.io/Accessing-GitHub-Slowly-Solution/</id>
+    <link href="http://willkyu.github.io/Learning/Solutions/Accessing-GitHub-Slowly-Solution/"/>
+    <id>http://willkyu.github.io/Learning/Solutions/Accessing-GitHub-Slowly-Solution/</id>
     <published>2021-12-01T23:40:45.000Z</published>
-    <updated>2021-12-13T08:50:04.563Z</updated>
+    <updated>2021-12-15T03:42:47.271Z</updated>
     
     
     <summary type="html">&lt;p&gt;今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN 域名遭到了 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢.&lt;/p&gt;
@@ -365,10 +380,10 @@
   
   <entry>
     <title>置顶◇代办◇与更新记录</title>
-    <link href="http://willkyu.github.io/The-First-Blog/"/>
-    <id>http://willkyu.github.io/The-First-Blog/</id>
+    <link href="http://willkyu.github.io/Archive/The-First-Blog/"/>
+    <id>http://willkyu.github.io/Archive/The-First-Blog/</id>
     <published>2021-12-01T09:28:54.000Z</published>
-    <updated>2021-12-14T02:31:46.518Z</updated>
+    <updated>2021-12-15T04:02:36.963Z</updated>
     
     
     <summary type="html">&lt;p&gt;欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！&lt;br&gt;此博客基于 &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt; 打造，主题使用的是 &lt;a href=&quot;https://github.com/zhwangart/hexo-theme-ocean&quot;&gt;Oceon&lt;/a&gt;. &lt;/p&gt;
