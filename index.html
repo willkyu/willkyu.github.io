@@ -572,6 +572,91 @@
 
 </article>
     
+    <article id="post-Learning/Notes/PyTorch/PyTorch03" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/Learning/Notes/PyTorch/PyTorch03/">PyTorch笔记03----索引与切片</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/Learning/Notes/PyTorch/PyTorch03/" class="article-date">
+  <time datetime="2021-12-15T09:06:49.000Z" itemprop="datePublished">2021-12-15</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/Learning/">Learning</a>
+</div>
+
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+      <p>PyTorch中的索引与切片.</p>
+<h2 id="Indexing"><a href="#Indexing" class="headerlink" title="Indexing"></a>Indexing</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = torch.rand(4, 3, 28, 28)</span><br><span class="line"></span><br><span class="line">a[0].shape      #torch.Size([3, 28, 28])</span><br><span class="line">a[0, 0].shape   #torch.Size([28, 28])</span><br><span class="line">a[0, 0, 2, 4]   #tensor(0.8082)</span><br></pre></td></tr></table></figure>
+
+<h2 id="select-first-last-N"><a href="#select-first-last-N" class="headerlink" title="select first / last N"></a>select first / last N</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a.shape         #torch.Size([4, 3, 28, 28])</span><br><span class="line">a[:2].shape     #torch.Size([2, 3, 28, 28]) 左闭右开</span><br><span class="line">a[:2, :1, :,:]  #torch.Size([2, 1, 28, 28])</span><br><span class="line">a[:2, 1:, :,:]  #torch.Size([2, 2, 28, 28])</span><br><span class="line">a[:2, -1:, :,:] #torch.Size([2, 1, 28, 28])</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="select-by-steps"><a href="#select-by-steps" class="headerlink" title="select by steps"></a>select by steps</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a[:, :, 0:28:2, 0:28:2].shape</span><br><span class="line">#torch.Size([4, 3, 14, 14]) 后两个维度每两个取一个，2是step</span><br><span class="line">a[:, :, ::2, ::2].shape     #与上面的等价</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>同Python切片</p>
+</blockquote>
+<h3 id="select-by-specific-index"><a href="#select-by-specific-index" class="headerlink" title="select by specific index"></a>select by specific index</h3><ul>
+<li>index_select() 第一个参数表示操作的维度，第二个参数直接给索引号（必须是Tensor）<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a.index_select(0, torch.Tensor([0, 2])).shape</span><br><span class="line">#torch.Size([2, 3, 28, 28])</span><br><span class="line">a.index_select(1, torch.Tensor([1, 2])).shape</span><br><span class="line">#torch.Size([4, 2, 28, 28])</span><br><span class="line"></span><br><span class="line">a.index_select(2, torch.arange(8)).shape</span><br><span class="line">#torch.Size([4, 3, 8, 28])</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="select-by"><a href="#select-by" class="headerlink" title="select by ..."></a>select by <code>...</code></h3><blockquote>
+<p><code>...</code>代表任意维度，贪心匹配（？）</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a[...].shape            #等价于a[:, :, :, :].shape</span><br><span class="line">a[0, ...].shape         #等价于a[0].shape</span><br><span class="line">a[0,...,::2].shape      #torch.Size([1, 3, 28, 14])</span><br><span class="line">a[:, 1, ...].shape      #torch.Size([4, 1, 28, 28])</span><br></pre></td></tr></table></figure>
+
+<h3 id="select-by-mask"><a href="#select-by-mask" class="headerlink" title="select by mask"></a>select by mask</h3><blockquote>
+<p>使用掩码选择，会打平数据，用的不多</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">x = torch.randn(3, 4)</span><br><span class="line">#tensor([[-1.3911, -0.7871, -1.6558, -0.2542],</span><br><span class="line">         [-0.9011,  0.5404, -0.6612,  0.3917],</span><br><span class="line">         [-0.3854,  0.2968,  0.6040,  1.5771]])</span><br><span class="line">         </span><br><span class="line">mask = x.ge(0.5)        #大于等于0.5的记为1</span><br><span class="line">#tensor([[0, 0, 0, 0],</span><br><span class="line">         [0, 1, 0, 0],</span><br><span class="line">         [0, 0, 1, 1]], dtype = torch.uint8)</span><br><span class="line">         </span><br><span class="line">torch.masked_select(x, mask)</span><br><span class="line">#tensor([0.5404, 0.6040, 1.5771])</span><br><span class="line">torch.masked_select(x, mask).shape</span><br><span class="line">#torch.Size([3]) 与原shape无关</span><br></pre></td></tr></table></figure>
+
+<h3 id="select-by-flatten-index"><a href="#select-by-flatten-index" class="headerlink" title="select by flatten index"></a>select by flatten index</h3><ul>
+<li>take函数也会打平数据，用的不多</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">src = torch.tensor([[4, 3, 5],</span><br><span class="line">                    [6, 7, 8]])</span><br><span class="line">torch.take(src, torch.tensor([0, 2, 5]))</span><br><span class="line">#tensor([4, 5, 8])</span><br><span class="line">#[2, 3]先打平成[6]，再选index为0，2，5的数据</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch03/" data-id="ckx7bdspg00019wstc7wb5gh7" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Learning/" rel="tag">Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/" rel="tag">PyTorch</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
     <article id="post-Learning/Notes/PyTorch/PyTorch02" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -595,6 +680,10 @@
   <time datetime="2021-12-15T03:03:38.000Z" itemprop="datePublished">2021-12-15</time>
 </a>
       
+<div class="article-category">
+  <a class="article-category-link" href="/categories/Learning/">Learning</a>
+</div>
+
     </div>
     
 
@@ -621,6 +710,8 @@
         分享
       </a>
       
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Learning/" rel="tag">Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/" rel="tag">PyTorch</a></li></ul>
+
     </footer>
 
   </div>
@@ -763,84 +854,6 @@
       </a>
       
 <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pokemon/" rel="tag">Pokemon</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pokemon-Gen3/" rel="tag">Pokemon-Gen3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pokemon-RNG-Abuse/" rel="tag">Pokemon-RNG-Abuse</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-    
-    <article id="post-Pokemon/Strategies/Out-Game/Pokemon-Cartridges-Authenticate" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
-
-<h2 itemprop="name">
-  <a class="article-title" href="/Pokemon/Strategies/Out-Game/Pokemon-Cartridges-Authenticate/">宝可梦卡带鉴别</a>
-</h2>
-
-
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/Pokemon/Strategies/Out-Game/Pokemon-Cartridges-Authenticate/" class="article-date">
-  <time datetime="2021-12-07T13:31:32.000Z" itemprop="datePublished">2021-12-07</time>
-</a>
-      
-<div class="article-category">
-  <a class="article-category-link" href="/categories/Pokemon/">Pokemon</a>
-</div>
-
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        
-<div class="article-gallery">
-  <div class="article-gallery-photos">
-    
-    
-    <a class="article-gallery-img" href="/Pokemon/Strategies/Out-Game/Pokemon-Cartridges-Authenticate/" rel="gallery_ckx6zcoel00033ost237kflf5">
-      <img src="/images/cover/Pokemon-Cartridges-Authenticate.png" itemprop="image">
-    </a>
-    
-    
-  </div>
-</div>
-
-      
-      
-        <p>从我的b站专栏：<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv10463502">宝可梦前代卡带鉴别</a>搬过来的，稍微有些修改.<br>主要就是宝可梦 <em>GBA</em> 和 <em>NDS</em> 卡带真伪的鉴别.<br>如果对你有帮助可以去专栏给个三连~</p>
-<p>封面 [ID:78728436]. </p>
-        
-          <p>
-            <a class="article-more-link" href="/Pokemon/Strategies/Out-Game/Pokemon-Cartridges-Authenticate/">
-              Read More...
-            </a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://willkyu.github.io/Pokemon/Strategies/Out-Game/Pokemon-Cartridges-Authenticate/" data-id="ckx6zcoel00033ost237kflf5" class="article-share-link">
-        分享
-      </a>
-      
-<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Collection/" rel="tag">Collection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pokemon/" rel="tag">Pokemon</a></li></ul>
 
     </footer>
 

@@ -96,6 +96,7 @@
 <h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><h4 id="PyTorch"><a href="#PyTorch" class="headerlink" title="PyTorch"></a>PyTorch</h4><ul>
 <li><a href="/Learning/Notes/Pytorch/PyTorch01/">PyTorch笔记01—-基本数据类型</a></li>
 <li><a href="/Learning/Notes/Pytorch/PyTorch02/">PyTorch笔记02—-创建Tensor</a></li>
+<li><a href="/Learning/Notes/Pytorch/PyTorch03/">PyTorch笔记03—-索引与切片</a></li>
 </ul>
 <h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><ul>
 <li><a href="/Learning/Solutions/Accessing-GitHub-Slowly-Solution/">解决访问GithHub速度慢的问题</a></li>
@@ -252,12 +253,51 @@
       </tags>
   </entry>
   <entry>
+    <title>PyTorch笔记03----索引与切片</title>
+    <url>/Learning/Notes/PyTorch/PyTorch03/</url>
+    <content><![CDATA[<p>PyTorch中的索引与切片.</p>
+<h2 id="Indexing"><a href="#Indexing" class="headerlink" title="Indexing"></a>Indexing</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = torch.rand(4, 3, 28, 28)</span><br><span class="line"></span><br><span class="line">a[0].shape      #torch.Size([3, 28, 28])</span><br><span class="line">a[0, 0].shape   #torch.Size([28, 28])</span><br><span class="line">a[0, 0, 2, 4]   #tensor(0.8082)</span><br></pre></td></tr></table></figure>
+
+<h2 id="select-first-last-N"><a href="#select-first-last-N" class="headerlink" title="select first / last N"></a>select first / last N</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a.shape         #torch.Size([4, 3, 28, 28])</span><br><span class="line">a[:2].shape     #torch.Size([2, 3, 28, 28]) 左闭右开</span><br><span class="line">a[:2, :1, :,:]  #torch.Size([2, 1, 28, 28])</span><br><span class="line">a[:2, 1:, :,:]  #torch.Size([2, 2, 28, 28])</span><br><span class="line">a[:2, -1:, :,:] #torch.Size([2, 1, 28, 28])</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="select-by-steps"><a href="#select-by-steps" class="headerlink" title="select by steps"></a>select by steps</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a[:, :, 0:28:2, 0:28:2].shape</span><br><span class="line">#torch.Size([4, 3, 14, 14]) 后两个维度每两个取一个，2是step</span><br><span class="line">a[:, :, ::2, ::2].shape     #与上面的等价</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>同Python切片</p>
+</blockquote>
+<h3 id="select-by-specific-index"><a href="#select-by-specific-index" class="headerlink" title="select by specific index"></a>select by specific index</h3><ul>
+<li>index_select() 第一个参数表示操作的维度，第二个参数直接给索引号（必须是Tensor）<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a.index_select(0, torch.Tensor([0, 2])).shape</span><br><span class="line">#torch.Size([2, 3, 28, 28])</span><br><span class="line">a.index_select(1, torch.Tensor([1, 2])).shape</span><br><span class="line">#torch.Size([4, 2, 28, 28])</span><br><span class="line"></span><br><span class="line">a.index_select(2, torch.arange(8)).shape</span><br><span class="line">#torch.Size([4, 3, 8, 28])</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="select-by"><a href="#select-by" class="headerlink" title="select by ..."></a>select by <code>...</code></h3><blockquote>
+<p><code>...</code>代表任意维度，贪心匹配（？）</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a[...].shape            #等价于a[:, :, :, :].shape</span><br><span class="line">a[0, ...].shape         #等价于a[0].shape</span><br><span class="line">a[0,...,::2].shape      #torch.Size([1, 3, 28, 14])</span><br><span class="line">a[:, 1, ...].shape      #torch.Size([4, 1, 28, 28])</span><br></pre></td></tr></table></figure>
+
+<h3 id="select-by-mask"><a href="#select-by-mask" class="headerlink" title="select by mask"></a>select by mask</h3><blockquote>
+<p>使用掩码选择，会打平数据，用的不多</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">x = torch.randn(3, 4)</span><br><span class="line">#tensor([[-1.3911, -0.7871, -1.6558, -0.2542],</span><br><span class="line">         [-0.9011,  0.5404, -0.6612,  0.3917],</span><br><span class="line">         [-0.3854,  0.2968,  0.6040,  1.5771]])</span><br><span class="line">         </span><br><span class="line">mask = x.ge(0.5)        #大于等于0.5的记为1</span><br><span class="line">#tensor([[0, 0, 0, 0],</span><br><span class="line">         [0, 1, 0, 0],</span><br><span class="line">         [0, 0, 1, 1]], dtype = torch.uint8)</span><br><span class="line">         </span><br><span class="line">torch.masked_select(x, mask)</span><br><span class="line">#tensor([0.5404, 0.6040, 1.5771])</span><br><span class="line">torch.masked_select(x, mask).shape</span><br><span class="line">#torch.Size([3]) 与原shape无关</span><br></pre></td></tr></table></figure>
+
+<h3 id="select-by-flatten-index"><a href="#select-by-flatten-index" class="headerlink" title="select by flatten index"></a>select by flatten index</h3><ul>
+<li>take函数也会打平数据，用的不多</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src = torch.tensor([[4, 3, 5],</span><br><span class="line">                    [6, 7, 8]])</span><br><span class="line">torch.take(src, torch.tensor([0, 2, 5]))</span><br><span class="line">#tensor([4, 5, 8])</span><br><span class="line">#[2, 3]先打平成[6]，再选index为0，2，5的数据</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>PyTorch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PyTorch笔记02----创建Tensor</title>
     <url>/Learning/Notes/PyTorch/PyTorch02/</url>
     <content><![CDATA[<p>PyTorch各种创建Tensor方式</p>
 <span id="more"></span>
 
-<h1 id="PyTorch02"><a href="#PyTorch02" class="headerlink" title="PyTorch02"></a>PyTorch02</h1><h4 id="import-from-numpy"><a href="#import-from-numpy" class="headerlink" title="import from numpy"></a>import from numpy</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = np.array([2, 3.3])</span><br><span class="line">torch.from_numpy(a) #tensor([2.000, 3.300], dtype = torch.float64)</span><br><span class="line"></span><br><span class="line">a = np.ones([2, 3])</span><br><span class="line">torch.from_numpy(a) #tensor([[1., 1., 1.],</span><br><span class="line">                             [1., 1., 1.]], dtype = torch.float64)</span><br></pre></td></tr></table></figure>
+<h4 id="import-from-numpy"><a href="#import-from-numpy" class="headerlink" title="import from numpy"></a>import from numpy</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = np.array([2, 3.3])</span><br><span class="line">torch.from_numpy(a) #tensor([2.000, 3.300], dtype = torch.float64)</span><br><span class="line"></span><br><span class="line">a = np.ones([2, 3])</span><br><span class="line">torch.from_numpy(a) #tensor([[1., 1., 1.],</span><br><span class="line">                             [1., 1., 1.]], dtype = torch.float64)</span><br></pre></td></tr></table></figure>
 
 <h4 id="import-from-list"><a href="#import-from-list" class="headerlink" title="import from list"></a>import from list</h4><blockquote>
 <p>torch承载的参数是现成的数据：numpy或者list<br>Torch、FloatTensor接收shape作为参数，生成一个没有初始化的类型. 或使用list来接收现有数据（不建议）.</p>
@@ -312,6 +352,13 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = torch.rand(2, 3)</span><br><span class="line">b = torch.rand(2, 2)</span><br><span class="line">idx = torch.randperm(2)</span><br><span class="line">idx #tensor([1, 0])</span><br><span class="line"></span><br><span class="line">a[idx]</span><br><span class="line">b[idx]</span><br></pre></td></tr></table></figure></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>PyTorch</tag>
+      </tags>
   </entry>
   <entry>
     <title>PyTorch笔记01----基本数据类型</title>
