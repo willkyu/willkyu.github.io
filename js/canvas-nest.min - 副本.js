@@ -6,21 +6,6 @@
         return document.getElementsByTagName(i)
     }
     function l() {
-        /*
-        var colorList = [];    //创建一个数组变量来存储背景图片的路径
-        colorList[0] = "132, 112, 255";
-        colorList[1] = "220, 220, 220";
-        colorList[2] = "144, 238, 144";
-        colorList[3] = "255, 193, 37";
-        colorList[4] = "218, 112, 214";
-        colorList[5] = "218, 112, 214";
-        colorList[6] = "218, 112, 214";
-        colorList[7] = "218, 112, 214";
-        colorList[8] = "218, 112, 214";
-        var randomColorIndex = Math.round(Math.random() * 7);
-        */
-        var randomColor = Math.floor(Math.random() * 256) + ', ' + Math.floor(Math.random() * 256) + ', ' +Math.floor(Math.random() * 256)
-
         var i = j("script"),
             w = i.length,
             v = i[w - 1];
@@ -28,7 +13,7 @@
             l: w,
             z: o(v, "zIndex", - 1),
             o: o(v, "opacity", 0.5),
-            c: o(v, "color", randomColor),
+            c: o(v, "color", "0,0,0"),
             n: o(v, "count", 99)
         }
     }

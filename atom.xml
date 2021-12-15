@@ -184,7 +184,7 @@
     <link href="http://willkyu.github.io/Archive/1-Pokemon/"/>
     <id>http://willkyu.github.io/Archive/1-Pokemon/</id>
     <published>2021-12-13T09:24:30.000Z</published>
-    <updated>2021-12-15T03:34:29.620Z</updated>
+    <updated>2021-12-15T13:36:15.465Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -438,7 +438,7 @@
     <link href="http://willkyu.github.io/Archive/The-First-Blog/"/>
     <id>http://willkyu.github.io/Archive/The-First-Blog/</id>
     <published>2021-12-01T09:28:54.000Z</published>
-    <updated>2021-12-15T04:02:36.963Z</updated>
+    <updated>2021-12-15T13:13:34.804Z</updated>
     
     
     <summary type="html">&lt;p&gt;欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！&lt;br&gt;此博客基于 &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt; 打造，主题使用的是 &lt;a href=&quot;https://github.com/zhwangart/hexo-theme-ocean&quot;&gt;Oceon&lt;/a&gt;. &lt;/p&gt;
@@ -447,12 +447,12 @@
     
     
     
-    <category term="Main" scheme="http://willkyu.github.io/categories/Main/"/>
+    <category term="Archive" scheme="http://willkyu.github.io/categories/Archive/"/>
     
     
     <category term="Blog" scheme="http://willkyu.github.io/tags/Blog/"/>
     
-    <category term="Main" scheme="http://willkyu.github.io/tags/Main/"/>
+    <category term="Archive" scheme="http://willkyu.github.io/tags/Archive/"/>
     
   </entry>
   
