@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-15T09:10:47.869Z</updated>
+  <updated>2021-12-15T12:26:45.927Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PyTorch笔记04----Tensor维度变换</title>
+    <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch04/"/>
+    <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch04/</id>
+    <published>2021-12-15T12:17:23.000Z</published>
+    <updated>2021-12-15T12:26:45.927Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;PyTorch的一些Tensor维度变换方式&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
+    
+    <category term="PyTorch" scheme="http://willkyu.github.io/tags/PyTorch/"/>
+    
+  </entry>
   
   <entry>
     <title>PyTorch笔记03----索引与切片</title>
@@ -115,7 +136,7 @@
     <link href="http://willkyu.github.io/Archive/1-Learning/"/>
     <id>http://willkyu.github.io/Archive/1-Learning/</id>
     <published>2021-12-13T09:24:45.000Z</published>
-    <updated>2021-12-15T09:11:14.647Z</updated>
+    <updated>2021-12-15T12:27:24.267Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
