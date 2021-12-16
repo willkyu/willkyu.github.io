@@ -89,7 +89,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = torch.tensor([1.2, 2.3])</span><br><span class="line">a.unsqueeze(-1)</span><br><span class="line">#tensor([[1.2000],</span><br><span class="line">         [2.3000]])</span><br><span class="line">#shape由[2]变为[2,1]</span><br><span class="line"></span><br><span class="line">a.unsqueeze(0)</span><br><span class="line">#tensor([[1.2000, 2.3000]])</span><br><span class="line">#shape由[2]变为[1,2]</span><br></pre></td></tr></table></figure>
 <ul>
 <li>Example<blockquote>
-<p>将shape为[32]的bias增加到shape为[4， 32， 14， 14]的FigureMap的channel中</p>
+<p>将shape为[32]的bias增加到shape为[4， 32， 14， 14]的FeatureMap的channel中</p>
 </blockquote>
 </li>
 </ul>

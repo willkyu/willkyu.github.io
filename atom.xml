@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-16T06:39:06.765Z</updated>
+  <updated>2021-12-16T13:02:21.191Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -17,11 +17,53 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>PyTorch笔记09----高阶OP</title>
+    <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch09/"/>
+    <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch09/</id>
+    <published>2021-12-16T12:59:16.000Z</published>
+    <updated>2021-12-16T13:02:21.191Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;记录了PyTorch中两个高阶操作：&lt;code&gt;Where&lt;/code&gt;与&lt;code&gt;Gather&lt;/code&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
+    
+    <category term="PyTorch" scheme="http://willkyu.github.io/tags/PyTorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PyTorch笔记08----统计属性</title>
+    <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch08/"/>
+    <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch08/</id>
+    <published>2021-12-16T12:59:12.000Z</published>
+    <updated>2021-12-16T13:01:05.758Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;记录了PyTorch一些常见统计属性.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
+    
+    <category term="PyTorch" scheme="http://willkyu.github.io/tags/PyTorch/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PyTorch笔记07----基本运算</title>
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch07/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch07/</id>
     <published>2021-12-16T06:36:32.000Z</published>
-    <updated>2021-12-16T06:39:06.765Z</updated>
+    <updated>2021-12-16T12:01:58.454Z</updated>
     
     
     <summary type="html">&lt;p&gt;PyTorch的一些基本运算&lt;/p&gt;</summary>
@@ -110,7 +152,7 @@
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch04/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch04/</id>
     <published>2021-12-15T12:17:23.000Z</published>
-    <updated>2021-12-15T12:26:45.927Z</updated>
+    <updated>2021-12-16T08:48:22.099Z</updated>
     
     
     <summary type="html">&lt;p&gt;PyTorch的一些Tensor维度变换方式&lt;/p&gt;</summary>
@@ -218,7 +260,7 @@
     <link href="http://willkyu.github.io/Archive/1-Learning/"/>
     <id>http://willkyu.github.io/Archive/1-Learning/</id>
     <published>2021-12-13T09:24:45.000Z</published>
-    <updated>2021-12-16T06:39:58.197Z</updated>
+    <updated>2021-12-16T13:03:08.072Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -414,50 +456,6 @@
     <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
     
     <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何备份你的存档</title>
-    <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/How-To-Back-Up-Your-Savefiles/"/>
-    <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/How-To-Back-Up-Your-Savefiles/</id>
-    <published>2021-12-04T04:55:29.000Z</published>
-    <updated>2021-12-15T09:59:14.895Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这篇文章是宝可梦正版正作卡带从 &lt;em&gt;Gen1&lt;/em&gt; 到 &lt;em&gt;Gen7&lt;/em&gt; 的存档提取与导入教程.&lt;br&gt;不局限于宝可梦正作，其他卡带也可以通过同样的方法提取.&lt;br&gt;如果你对备份存档感到介意，请根据自身情况取舍.&lt;/p&gt;
-&lt;p&gt;封面 [ID:86927624]. &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
-    
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>宝可梦绿宝石及没有电的红蓝宝石实机乱数（不包含 ID 或 Egg）</title>
-    <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part1/"/>
-    <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part1/</id>
-    <published>2021-12-03T06:08:08.000Z</published>
-    <updated>2021-12-15T03:57:14.908Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这是宝可梦绿宝石及没电红蓝宝石的实机乱数教程.&lt;br&gt;不包含 ID 与 Egg 的乱数教程.&lt;br&gt;如有纰漏，请&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
-&lt;p&gt;封面 [ID:57789285]. &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
-    
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
-    
-    <category term="Pokemon-RNG-Abuse" scheme="http://willkyu.github.io/tags/Pokemon-RNG-Abuse/"/>
-    
-    <category term="Pokemon-Gen3" scheme="http://willkyu.github.io/tags/Pokemon-Gen3/"/>
     
   </entry>
   
