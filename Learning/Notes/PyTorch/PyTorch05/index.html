@@ -10,7 +10,7 @@
   <meta name="description" content="一只谜拟Q的Blog">
   
   <title>
-    学习◇生存博弈◇与纯利他主义 |
+    PyTorch笔记05----Broadcast自动扩展 |
     
     丘丘Blog
   </title>
@@ -34,7 +34,7 @@
 <body>
   <main class="content">
     <section class="outer">
-  <article id="post-Archive/1-Learning" class="article article-type-post" itemscope
+  <article id="post-Learning/Notes/PyTorch/PyTorch05" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -43,7 +43,7 @@
       
 
 <h1 class="article-title" itemprop="name">
-  学习◇生存博弈◇与纯利他主义
+  PyTorch笔记05----Broadcast自动扩展
 </h1>
 
 
@@ -53,8 +53,8 @@
 
     
     <div class="article-meta">
-      <a href="/Archive/1-Learning/" class="article-date">
-  <time datetime="2021-12-13T09:24:45.000Z" itemprop="datePublished">2021-12-13</time>
+      <a href="/Learning/Notes/PyTorch/PyTorch05/" class="article-date">
+  <time datetime="2021-12-16T02:55:29.000Z" itemprop="datePublished">2021-12-16</time>
 </a>
       
 <div class="article-category">
@@ -74,38 +74,67 @@
       
       
       
-      <blockquote>
-<p>就算没达到预期的水平也不能放弃，继续锻炼.<br>不管什么时候，<br>改变世界的都是认真追求梦想的人.<br>——– <em><strong>阿戴克</strong></em> </p>
-</blockquote>
-<p>封面 [ID:90778756]. </p>
+      <p>PyTorch的自动扩展</p>
 <span id="more"></span>
 
-<h1 id="Learning"><a href="#Learning" class="headerlink" title="Learning"></a>Learning</h1><p>记录与整理学习上的一些要点或者问题.</p>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><h4 id="PyTorch"><a href="#PyTorch" class="headerlink" title="PyTorch"></a>PyTorch</h4><ul>
-<li><a href="/Learning/Notes/Pytorch/PyTorch01/">PyTorch笔记01—-基本数据类型</a></li>
-<li><a href="/Learning/Notes/Pytorch/PyTorch02/">PyTorch笔记02—-创建Tensor</a></li>
-<li><a href="/Learning/Notes/Pytorch/PyTorch03/">PyTorch笔记03—-索引与切片</a></li>
-<li><a href="/Learning/Notes/Pytorch/PyTorch04/">PyTorch笔记04—-Tensor维度变换</a></li>
-<li><a href="/Learning/Notes/Pytorch/PyTorch05/">PyTorch笔记05—-Broadcast自动扩展</a></li>
+<ul>
+<li>Expand，可以维度扩展</li>
+<li>without copying data，扩展时不用拷贝数据，能节省空间</li>
 </ul>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><ul>
-<li><a href="/Learning/Solutions/Accessing-GitHub-Slowly-Solution/">解决访问GithHub速度慢的问题</a></li>
+<h3 id="Key-idea"><a href="#Key-idea" class="headerlink" title="Key idea"></a>Key idea</h3><ul>
+<li>Insert 1 dim ahead</li>
+<li>Expand dims with size 1 to same size</li>
 </ul>
-<p><br><br></p>
-<hr>
-<p><br><br></p>
-<h1 id="Blog"><a href="#Blog" class="headerlink" title="Blog"></a>Blog</h1><ul>
-<li><a href="/Learning/Blog/Build-Your-Own-Blog-Like-This-One/">基于Hexo与GitHub制作私人博客</a>.</li>
+<p>Feature maps: [4, 32, 14, 14]<br>Bias: [32] –&gt; [32, 1, 1] –&gt; [1, 32, 1, 1] –&gt; [4, 32, 14, 14]</p>
+<p>Broadcast示意图：<br><img src="/images/body/PyTorch/PyTorch05.png" alt="Figure1"></p>
+<h3 id="Why-broadcasting"><a href="#Why-broadcasting" class="headerlink" title="Why broadcasting"></a>Why broadcasting</h3><ol>
+<li><p>for actual demanding</p>
+<ul>
+<li>[class, student, scores]</li>
+<li>Add bias for every students: +5 score</li>
+<li>[4, 32, 8] + [5.0] (标量)</li>
+<li><code>bias.unsqueeze(0).unsqueeze(0).expand_as(A)</code></li>
 </ul>
+</li>
+<li><p>memory consumption<br>节省内存消耗</p>
+</li>
+</ol>
+<h3 id="Is-it-broadcasting-able"><a href="#Is-it-broadcasting-able" class="headerlink" title="Is it broadcasting-able?"></a>Is it broadcasting-able?</h3><h4 id="Match-from-Last-dim-从最后一维匹配（一般最后一维是物理意义上的小维度）"><a href="#Match-from-Last-dim-从最后一维匹配（一般最后一维是物理意义上的小维度）" class="headerlink" title="Match from Last dim 从最后一维匹配（一般最后一维是物理意义上的小维度）"></a>Match from <strong>Last</strong> dim 从最后一维匹配（一般最后一维是物理意义上的小维度）</h4><ul>
+<li>If current dim = 1, expand to same</li>
+<li>If either has no dim, insert one dim and expand to same</li>
+<li>otherwise, NOT broadcasting-able</li>
+</ul>
+<blockquote>
+<p>例如[8, 32, 8]（8个班，每班32个学生，每个学生修八门课即八个成绩）bias = [5]是 [1]的shape，对八门课都要加，对每个班每个学生都适用 –&gt; [1, 1, 1] —&gt; [32, 32, 8]</p>
+</blockquote>
+<blockquote>
+<p>如果仅对某一门课的成绩添加bias，那么bias = [0, 0, 5, …, 0]是 [8]的shape，每个班每个学生都适用 –&gt; [1, 1, 8] –&gt; [32, 32, 8]</p>
+</blockquote>
+<blockquote>
+<p>A: [4, 32, 8], bias: [4]  NOT broadcasting-able</p>
+</blockquote>
+<h3 id="Situation"><a href="#Situation" class="headerlink" title="Situation"></a>Situation</h3><h4 id="Situation-1"><a href="#Situation-1" class="headerlink" title="Situation 1"></a>Situation 1</h4><p>A: [4, 32, 14, 14]<br>B: [1, 32, 1, 1] –&gt; [4, 32, 14, 14]</p>
+<h4 id="Situation-2"><a href="#Situation-2" class="headerlink" title="Situation 2"></a>Situation 2</h4><p>A: [4, 32, 14, 14]<br>B: [14, 14] –&gt; [1, 1, 14, 14] –&gt; [4, 32, 14, 14]</p>
+<h4 id="Situation-3"><a href="#Situation-3" class="headerlink" title="Situation 3"></a>Situation 3</h4><p>A: [4, 32, 14, 14]<br>B: [2, 32, 14, 14]<br>NOT broadcasting-able</p>
+<h3 id="How-to-understand-this-behavior"><a href="#How-to-understand-this-behavior" class="headerlink" title="How to understand this behavior?"></a>How to understand this behavior?</h3><h4 id="When-it-has-no-dim"><a href="#When-it-has-no-dim" class="headerlink" title="When it has no dim"></a>When it has no dim</h4><ul>
+<li>treat it as all own the same</li>
+<li>[class, student, scores] + [scores]</li>
+</ul>
+<h4 id="When-it-has-dim-of-size-1"><a href="#When-it-has-dim-of-size-1" class="headerlink" title="When it has dim of size 1"></a>When it has dim of size 1</h4><ul>
+<li>treat it shared by all</li>
+<li>[class, student, scores] + [student, 1]（a学生所有课程 + 0，b学生所有课程 + 1 …这种情况）</li>
+</ul>
+<p><em><strong>match from LAST dim</strong></em></p>
+<p>+ [1, 1, 1, 1] 等价 + [1]</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://willkyu.github.io/Archive/1-Learning/" data-id="ckx6ygper0003ysstgyj6cguc" class="article-share-link">
+      <a data-url="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch05/" data-id="ckx8dirrz0000m4stftn8fadz" class="article-share-link">
         分享
       </a>
       
-<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Archive/" rel="tag">Archive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Learning/" rel="tag">Learning</a></li></ul>
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Learning/" rel="tag">Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/" rel="tag">PyTorch</a></li></ul>
 
     </footer>
 
@@ -115,19 +144,10 @@
   
 <nav class="article-nav">
   
-  <a href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part2/" class="article-nav-link">
-    <strong class="article-nav-caption">前一篇</strong>
-    <div class="article-nav-title">
-      
-      宝可梦有电的红蓝宝石实机乱数（不包含 ID 或 Egg）
-      
-    </div>
-  </a>
   
-  
-  <a href="/Archive/1-Life/" class="article-nav-link">
+  <a href="/Pokemon/Strategies/In-Game/WCD-Distribution-Patch/" class="article-nav-link">
     <strong class="article-nav-caption">后一篇</strong>
-    <div class="article-nav-title">生活◇奥康剃刀◇与自由意识</div>
+    <div class="article-nav-title">如何自制宝可梦Gen4与Gen5的配信器</div>
   </a>
   
 </nav>

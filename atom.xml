@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-15T16:32:26.653Z</updated>
+  <updated>2021-12-16T03:05:29.520Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PyTorch笔记05----Broadcast自动扩展</title>
+    <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch05/"/>
+    <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch05/</id>
+    <published>2021-12-16T02:55:29.000Z</published>
+    <updated>2021-12-16T03:05:29.520Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;PyTorch的自动扩展&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
+    
+    <category term="PyTorch" scheme="http://willkyu.github.io/tags/PyTorch/"/>
+    
+  </entry>
   
   <entry>
     <title>如何自制宝可梦Gen4与Gen5的配信器</title>
@@ -155,7 +176,7 @@
     <link href="http://willkyu.github.io/Archive/1-Learning/"/>
     <id>http://willkyu.github.io/Archive/1-Learning/</id>
     <published>2021-12-13T09:24:45.000Z</published>
-    <updated>2021-12-15T12:27:24.267Z</updated>
+    <updated>2021-12-16T03:06:30.010Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -449,29 +470,6 @@
     <category term="Practical-Tips" scheme="http://willkyu.github.io/tags/Practical-Tips/"/>
     
     <category term="Solutions" scheme="http://willkyu.github.io/tags/Solutions/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>置顶◇代办◇与更新记录</title>
-    <link href="http://willkyu.github.io/Archive/The-First-Blog/"/>
-    <id>http://willkyu.github.io/Archive/The-First-Blog/</id>
-    <published>2021-12-01T09:28:54.000Z</published>
-    <updated>2021-12-15T16:36:08.331Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！&lt;br&gt;此博客基于 &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt; 打造，主题使用的是 &lt;a href=&quot;https://github.com/zhwangart/hexo-theme-ocean&quot;&gt;Oceon&lt;/a&gt;. &lt;/p&gt;
-&lt;p&gt;当你在阅读的时候有任何的问题,欢迎与我联系.&lt;/p&gt;
-&lt;p&gt;封面 [ID:85357809]. &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Archive" scheme="http://willkyu.github.io/categories/Archive/"/>
-    
-    
-    <category term="Blog" scheme="http://willkyu.github.io/tags/Blog/"/>
-    
-    <category term="Archive" scheme="http://willkyu.github.io/tags/Archive/"/>
     
   </entry>
   
