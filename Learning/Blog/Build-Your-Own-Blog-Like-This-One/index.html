@@ -111,7 +111,7 @@
 <p>用自己的 GitHub 用户名与邮箱替代代码中的相应部分.</p>
 </blockquote>
 <h3 id="创建-SSH-密钥"><a href="#创建-SSH-密钥" class="headerlink" title="创建 SSH 密钥"></a>创建 SSH 密钥</h3><p>继续输入代码<code>ssh-keygen -t rsa -C &quot;GitHub 邮箱&quot;</code> 然后一路回车.</p>
-<h3 id="添加密匙"><a href="#添加密匙" class="headerlink" title="添加密匙"></a>添加密匙</h3><p>进入 &lt;C:\Users\用户名.ssh&gt; 目录（可能需要勾选显示“隐藏的项目”），用记事本打开公钥 <em>id_rsa.pub</em> 文件并复制里面的内容.</p>
+<h3 id="添加密匙"><a href="#添加密匙" class="headerlink" title="添加密匙"></a>添加密匙</h3><p>进入 &lt;C:\Users\用户名\.ssh&gt; 目录（可能需要勾选显示“隐藏的项目”），用记事本打开公钥 <em>id_rsa.pub</em> 文件并复制里面的内容.</p>
 <p>登陆 GitHub ，进入个人 <em>Settings</em> 页面，选择左边栏的 <em>SSH and GPG keys</em> ，点击 <em>New SSH key</em>.</p>
 <p>Title 随便填写一个名字，将 <em>id_rsa.pub</em> 内容复制粘贴到 Key 中，点击 <em>Add SSH key</em> 完成添加.<br><img src="/images/body/Build-Your-Own-Blog-Like-This-One/Figure4.png" alt="Figure4"></p>
 <h3 id="验证连接"><a href="#验证连接" class="headerlink" title="验证连接"></a>验证连接</h3><p>打开 <em>Git Bash</em>，输入 <code>ssh -T git@github.com</code> 出现 <em><strong>“Are you sure……”</strong></em> 字样时，输入 <em>yes</em> 并回车确认.</p>
