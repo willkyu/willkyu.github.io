@@ -753,34 +753,14 @@
         
       
       
-      <p>PyTorch中的索引与切片.</p>
-<h2 id="Indexing"><a href="#Indexing" class="headerlink" title="Indexing"></a>Indexing</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = torch.rand(4, 3, 28, 28)</span><br><span class="line"></span><br><span class="line">a[0].shape      #torch.Size([3, 28, 28])</span><br><span class="line">a[0, 0].shape   #torch.Size([28, 28])</span><br><span class="line">a[0, 0, 2, 4]   #tensor(0.8082)</span><br></pre></td></tr></table></figure>
-
-<h2 id="select-first-last-N"><a href="#select-first-last-N" class="headerlink" title="select first / last N"></a>select first / last N</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a.shape         #torch.Size([4, 3, 28, 28])</span><br><span class="line">a[:2].shape     #torch.Size([2, 3, 28, 28]) 左闭右开</span><br><span class="line">a[:2, :1, :,:]  #torch.Size([2, 1, 28, 28])</span><br><span class="line">a[:2, 1:, :,:]  #torch.Size([2, 2, 28, 28])</span><br><span class="line">a[:2, -1:, :,:] #torch.Size([2, 1, 28, 28])</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="select-by-steps"><a href="#select-by-steps" class="headerlink" title="select by steps"></a>select by steps</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a[:, :, 0:28:2, 0:28:2].shape</span><br><span class="line">#torch.Size([4, 3, 14, 14]) 后两个维度每两个取一个，2是step</span><br><span class="line">a[:, :, ::2, ::2].shape     #与上面的等价</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>同Python切片</p>
-</blockquote>
-<h3 id="select-by-specific-index"><a href="#select-by-specific-index" class="headerlink" title="select by specific index"></a>select by specific index</h3><ul>
-<li>index_select() 第一个参数表示操作的维度，第二个参数直接给索引号（必须是Tensor）<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a.index_select(0, torch.Tensor([0, 2])).shape</span><br><span class="line">#torch.Size([2, 3, 28, 28])</span><br><span class="line">a.index_select(1, torch.Tensor([1, 2])).shape</span><br><span class="line">#torch.Size([4, 2, 28, 28])</span><br><span class="line"></span><br><span class="line">a.index_select(2, torch.arange(8)).shape</span><br><span class="line">#torch.Size([4, 3, 8, 28])</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="select-by"><a href="#select-by" class="headerlink" title="select by ..."></a>select by <code>...</code></h3><blockquote>
-<p><code>...</code>代表任意维度，贪心匹配（？）</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a[...].shape            #等价于a[:, :, :, :].shape</span><br><span class="line">a[0, ...].shape         #等价于a[0].shape</span><br><span class="line">a[0,...,::2].shape      #torch.Size([1, 3, 28, 14])</span><br><span class="line">a[:, 1, ...].shape      #torch.Size([4, 1, 28, 28])</span><br></pre></td></tr></table></figure>
-
-<h3 id="select-by-mask"><a href="#select-by-mask" class="headerlink" title="select by mask"></a>select by mask</h3><blockquote>
-<p>使用掩码选择，会打平数据，用的不多</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">x = torch.randn(3, 4)</span><br><span class="line">#tensor([[-1.3911, -0.7871, -1.6558, -0.2542],</span><br><span class="line">         [-0.9011,  0.5404, -0.6612,  0.3917],</span><br><span class="line">         [-0.3854,  0.2968,  0.6040,  1.5771]])</span><br><span class="line">         </span><br><span class="line">mask = x.ge(0.5)        #大于等于0.5的记为1</span><br><span class="line">#tensor([[0, 0, 0, 0],</span><br><span class="line">         [0, 1, 0, 0],</span><br><span class="line">         [0, 0, 1, 1]], dtype = torch.uint8)</span><br><span class="line">         </span><br><span class="line">torch.masked_select(x, mask)</span><br><span class="line">#tensor([0.5404, 0.6040, 1.5771])</span><br><span class="line">torch.masked_select(x, mask).shape</span><br><span class="line">#torch.Size([3]) 与原shape无关</span><br></pre></td></tr></table></figure>
-
-<h3 id="select-by-flatten-index"><a href="#select-by-flatten-index" class="headerlink" title="select by flatten index"></a>select by flatten index</h3><ul>
-<li>take函数也会打平数据，用的不多</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">src = torch.tensor([[4, 3, 5],</span><br><span class="line">                    [6, 7, 8]])</span><br><span class="line">torch.take(src, torch.tensor([0, 2, 5]))</span><br><span class="line">#tensor([4, 5, 8])</span><br><span class="line">#[2, 3]先打平成[6]，再选index为0，2，5的数据</span><br></pre></td></tr></table></figure>
-
+        <p>PyTorch中的索引与切片.</p>
+        
+          <p>
+            <a class="article-more-link" href="/Learning/Notes/PyTorch/PyTorch03/">
+              Read More...
+            </a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
