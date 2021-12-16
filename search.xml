@@ -102,6 +102,8 @@
 <li><a href="/Learning/Notes/Pytorch/PyTorch03/">PyTorch笔记03—-索引与切片</a></li>
 <li><a href="/Learning/Notes/Pytorch/PyTorch04/">PyTorch笔记04—-Tensor维度变换</a></li>
 <li><a href="/Learning/Notes/Pytorch/PyTorch05/">PyTorch笔记05—-Broadcast自动扩展</a></li>
+<li><a href="/Learning/Notes/Pytorch/PyTorch06/">PyTorch笔记06—-拼接与拆分</a></li>
+<li><a href="/Learning/Notes/Pytorch/PyTorch07/">PyTorch笔记07—-基本运算</a></li>
 </ul>
 <h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><ul>
 <li><a href="/Learning/Solutions/Accessing-GitHub-Slowly-Solution/">解决访问GithHub速度慢的问题</a></li>
@@ -256,6 +258,97 @@
       <tags>
         <tag>Collection</tag>
         <tag>Archive</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PyTorch笔记07----基本运算</title>
+    <url>/Learning/Notes/PyTorch/PyTorch07/</url>
+    <content><![CDATA[<p>PyTorch的一些基本运算</p>
+<span id="more"></span>
+
+<ul>
+<li>add / minus / multiply / divide</li>
+<li>matmul</li>
+<li>pow</li>
+<li>sqrt / rsqrt</li>
+<li>round</li>
+</ul>
+<h3 id="basic"><a href="#basic" class="headerlink" title="basic"></a>basic</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = torch.rand(3, 4)</span><br><span class="line">b = torch.rand(4)</span><br><span class="line"></span><br><span class="line">torch.all(torch.eq(a + b, torch.add(a, b))) #tensor(True)</span><br><span class="line"></span><br><span class="line">torch.all(torch.eq(a - b, torch.sub(a, b))) #tensor(True)</span><br><span class="line"></span><br><span class="line">torch.all(torch.eq(a * b, torch.mul(a, b))) #tensor(True)</span><br><span class="line"></span><br><span class="line">torch.all(torch.eq(a / b, torch.div(a, b))) #tensor(True)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>//</code>是整除</p>
+</blockquote>
+<h3 id="matmul-矩阵乘法"><a href="#matmul-矩阵乘法" class="headerlink" title="matmul 矩阵乘法"></a>matmul 矩阵乘法</h3><ul>
+<li><code>torch.mm</code> only for 2d，因此不推荐</li>
+<li><code>torch.matmul</code> 或 <code>@</code></li>
+</ul>
+<blockquote>
+<p><code>*</code>是相同位置元素相乘，<code>.matmul</code>是矩阵乘法</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a                   #tensor([[3., 3.],</span><br><span class="line">                             [3., 3.]])</span><br><span class="line">b = torch.ones(2, 2)</span><br><span class="line"></span><br><span class="line">torch.mm(a, b)      #tensor([[6., 6.],</span><br><span class="line">                             [6., 6.]])</span><br><span class="line">                             </span><br><span class="line">torch.matmul(a, b)</span><br><span class="line">a @ b</span><br><span class="line">#结果相同     </span><br></pre></td></tr></table></figure>
+
+<h4 id="example"><a href="#example" class="headerlink" title="example"></a>example</h4><p>神经网络线性层的相加</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = torch.rand(4, 784)</span><br><span class="line">x = torch.rand(4, 784)</span><br><span class="line"></span><br><span class="line">w = torch.rand(512, 784)    #降维，把784降到512</span><br><span class="line"># 默认是[channel-out, channel-in]</span><br><span class="line"></span><br><span class="line">(x @ w.t()).shape           #tensor.Size([4, 512])</span><br><span class="line">#如果w是高维的，使用transpose交换</span><br></pre></td></tr></table></figure>
+
+<h4 id="tensor-matmul"><a href="#tensor-matmul" class="headerlink" title="tensor matmul"></a>tensor matmul</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = torch.rand(4, 3, 28, 64)</span><br><span class="line">b = torch.rand(4, 3, 64, 32)</span><br><span class="line"></span><br><span class="line">torch.mm(a, b).shape</span><br><span class="line">--------ERROR--------</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">torch.matmul(a, b).shape        #tensor.Size([4, 3, 28, 32]) 只用最后两维运算，前面的不变</span><br><span class="line"></span><br><span class="line">b = torch.rand(4, 1, 64, 32)</span><br><span class="line">torch.matmul(a, b).shape        #tensor.Size([4, 3, 28, 32]) 使用了broadcast机制</span><br><span class="line"></span><br><span class="line">b = torch.rand(2, 64, 32)</span><br><span class="line">torch.matmul(a, b).shape</span><br><span class="line">--------ERROR--------</span><br></pre></td></tr></table></figure>
+
+<h3 id="power-sqrt-rsqrt"><a href="#power-sqrt-rsqrt" class="headerlink" title="power / sqrt / rsqrt"></a>power / sqrt / rsqrt</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = torch.full([2, 2], 3)</span><br><span class="line">a.power(2)      #tensor([[9., 9.],</span><br><span class="line">                         [9., 9.]])</span><br><span class="line">a ** 2          #结果相同</span><br><span class="line"></span><br><span class="line">aa = a ** 2</span><br><span class="line">aa.sqrt()       #tensor([[3., 3.],</span><br><span class="line">                         [3., 3.]])</span><br><span class="line">aa.rsqrt()      #tensor([[0.3333, 0.3333],</span><br><span class="line">                         [0.3333, 0.3333]])</span><br><span class="line">#是sqrt的倒数</span><br><span class="line"></span><br><span class="line">a ** 0.5        #同sqrt()</span><br><span class="line">```                         </span><br><span class="line"></span><br><span class="line">### exp / log</span><br></pre></td></tr></table></figure>
+<p>a = torch.exp(torch.ones(2, 2))<br>a               #tensor([[2.7183, 2.7183],<br>                         [2.7183, 2.7183]])</p>
+<p>torch.log(a)    #tensor([[1., 1.],<br>                         [1., 1.]])<br>#默认以e为底，还可使用log2()、log10()</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">### approximation 近似值</span><br><span class="line">- `.floor()` / `.ceil()` 向下取整与向上取整</span><br><span class="line">- `.round()` 四舍五入</span><br><span class="line">- `.trunc()` / `.frac()` 整数部分与小数部分</span><br><span class="line"></span><br><span class="line">### clamp 裁剪</span><br><span class="line">- gradient clipping 梯度裁剪（梯度弥散、梯度爆炸）</span><br><span class="line">&gt; 时不时要打印梯度的模`w.grad.norm(2)`</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>grad = torch.rand(2, 3) * 15<br>grad    #tensor([[14.8737, 10.1571,  4.4872],<br>                 [11.3591,  8.9101, 14.0524]])</p>
+<p>grad.max()                  #tensor(14.8737)<br>grad.median()               #tensor(10.1571) 中间值</p>
+<p>grad.clamp(10)              #将grad中的小于10的部分变为10<br>#tensor([[14.8737, 10.1571, 10.0000],<br>         [11.3591, 10.0000, 14.0524]])</p>
+<p>grad.clamp(0, 10)           #将grad中的数据设置为0～10直接，超出算10，小于算0<br>#tensor([[10.0000, 10.0000,  4.4872],<br>         [10.0000,  8.9101, 10.0000]])</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">梯度裁剪：</span><br></pre></td></tr></table></figure>
+<p>for w in [] #wlist<br>    clamp(w.grad, 10)</p>
+<pre><code>
+</code></pre>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>PyTorch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PyTorch笔记06----拼接与拆分</title>
+    <url>/Learning/Notes/PyTorch/PyTorch06/</url>
+    <content><![CDATA[<p>Tensor的拼接与拆分操作</p>
+<span id="more"></span>
+
+<ul>
+<li>Cat</li>
+<li>Stack</li>
+<li>Split</li>
+<li>Chunk</li>
+</ul>
+<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><p>Statisics about scores</p>
+<ul>
+<li>[class1-4, students, scores]</li>
+<li>[class5-9, students, scores]</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = torch.rand(4, 32, 8)</span><br><span class="line">b = torch.rand(5, 32, 8)</span><br><span class="line"></span><br><span class="line">torch.cat([a, b], dim = 0).shape</span><br><span class="line">#torch.Size([9, 32, 8])</span><br><span class="line">#第一个参数是一个list，包含了所有需要拼接的Tensor</span><br><span class="line">#第二个参数dim决定了合并的维度</span><br><span class="line">#其他维度要一样</span><br><span class="line">c = torch.rand(3, 32, 1)</span><br><span class="line">torch.cat([a, c], dim = 0).shape</span><br><span class="line">--------ERROR--------</span><br></pre></td></tr></table></figure>
+
+<h3 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h3><p>create new dim</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = torch.rand(32, 8)</span><br><span class="line">b = torch.rand(32, 8)</span><br><span class="line"></span><br><span class="line">torch.stack([a, b], dim = 0).shape</span><br><span class="line">#torch.Size([2, 32, 8])</span><br><span class="line">torch.stack([a, b], dim = 1).shape</span><br><span class="line">#torch.Size([32, 2, 8])</span><br></pre></td></tr></table></figure>
+<p>例如一个老师统计了一个班的成绩: [students, scores]，另一个老师也是，那么使用stack得到[2, students, scores]，而不是把students那一维度拼接起来</p>
+<p><strong>stack必须维度一致</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = torch.rand(30, 8)</span><br><span class="line">b = torch.rand(32, 8)</span><br><span class="line">torch.stack([a, b], dim = 0)</span><br><span class="line">--------ERROR--------</span><br></pre></td></tr></table></figure>
+
+<h3 id="split-by-len"><a href="#split-by-len" class="headerlink" title="split: by len"></a>split: by len</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">b = torch.rand(32, 8)</span><br><span class="line">a.shape     #torch.Size([32, 8])</span><br><span class="line">c = torch.stack([a, b], dim = 0)</span><br><span class="line">c.shape     #torch.Size([2, 32, 8])</span><br><span class="line"></span><br><span class="line">aa, bb = c.split(1, dim = 0)    #第一个参数是长度</span><br><span class="line">aa.shape, bb.shape</span><br><span class="line">#torch.Size([1, 32, 8]), torch.Size([1, 32, 8])</span><br><span class="line"></span><br><span class="line">aa, bb = c.split([1, 1], dim = 0)   #第一个参数是长度的list</span><br><span class="line">#结果同上</span><br><span class="line"></span><br><span class="line">aa, bb = c.split(2, dim = 0)</span><br><span class="line">-------ERROR--------</span><br></pre></td></tr></table></figure>
+
+<h3 id="chunk-by-num"><a href="#chunk-by-num" class="headerlink" title="chunk: by num"></a>chunk: by num</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">b = torch.rand(32, 8)</span><br><span class="line">a.shape     #torch.Size([32, 8])</span><br><span class="line">c = torch.stack([a, b], dim = 0)</span><br><span class="line">c.shape     #torch.Size([2, 32, 8])</span><br><span class="line"></span><br><span class="line">aa, bb = c.chunk(2, dim = 0)    #平均分成2块</span><br><span class="line">aa.shape, bb.shape</span><br><span class="line">#torch.Size([1, 32, 8]), torch.Size([1, 32, 8])</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>PyTorch</tag>
       </tags>
   </entry>
   <entry>

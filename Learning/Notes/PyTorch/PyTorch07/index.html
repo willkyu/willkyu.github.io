@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="一只谜拟Q的Blog">
+  
+  <title>
+    PyTorch笔记07----基本运算 |
+    
+    丘丘Blog
+  </title>
+  
+    <link rel="shortcut icon" href="/mimikyu_sprite.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="丘丘Blog" type="application/atom+xml">
+</head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-Learning/Notes/PyTorch/PyTorch07" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  PyTorch笔记07----基本运算
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/Learning/Notes/PyTorch/PyTorch07/" class="article-date">
+  <time datetime="2021-12-16T06:36:32.000Z" itemprop="datePublished">2021-12-16</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/Learning/">Learning</a>
+</div>
+
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p>PyTorch的一些基本运算</p>
+<span id="more"></span>
+
+<ul>
+<li>add / minus / multiply / divide</li>
+<li>matmul</li>
+<li>pow</li>
+<li>sqrt / rsqrt</li>
+<li>round</li>
+</ul>
+<h3 id="basic"><a href="#basic" class="headerlink" title="basic"></a>basic</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a = torch.rand(3, 4)</span><br><span class="line">b = torch.rand(4)</span><br><span class="line"></span><br><span class="line">torch.all(torch.eq(a + b, torch.add(a, b))) #tensor(True)</span><br><span class="line"></span><br><span class="line">torch.all(torch.eq(a - b, torch.sub(a, b))) #tensor(True)</span><br><span class="line"></span><br><span class="line">torch.all(torch.eq(a * b, torch.mul(a, b))) #tensor(True)</span><br><span class="line"></span><br><span class="line">torch.all(torch.eq(a / b, torch.div(a, b))) #tensor(True)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>//</code>是整除</p>
+</blockquote>
+<h3 id="matmul-矩阵乘法"><a href="#matmul-矩阵乘法" class="headerlink" title="matmul 矩阵乘法"></a>matmul 矩阵乘法</h3><ul>
+<li><code>torch.mm</code> only for 2d，因此不推荐</li>
+<li><code>torch.matmul</code> 或 <code>@</code></li>
+</ul>
+<blockquote>
+<p><code>*</code>是相同位置元素相乘，<code>.matmul</code>是矩阵乘法</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a                   #tensor([[3., 3.],</span><br><span class="line">                             [3., 3.]])</span><br><span class="line">b = torch.ones(2, 2)</span><br><span class="line"></span><br><span class="line">torch.mm(a, b)      #tensor([[6., 6.],</span><br><span class="line">                             [6., 6.]])</span><br><span class="line">                             </span><br><span class="line">torch.matmul(a, b)</span><br><span class="line">a @ b</span><br><span class="line">#结果相同     </span><br></pre></td></tr></table></figure>
+
+<h4 id="example"><a href="#example" class="headerlink" title="example"></a>example</h4><p>神经网络线性层的相加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = torch.rand(4, 784)</span><br><span class="line">x = torch.rand(4, 784)</span><br><span class="line"></span><br><span class="line">w = torch.rand(512, 784)    #降维，把784降到512</span><br><span class="line"># 默认是[channel-out, channel-in]</span><br><span class="line"></span><br><span class="line">(x @ w.t()).shape           #tensor.Size([4, 512])</span><br><span class="line">#如果w是高维的，使用transpose交换</span><br></pre></td></tr></table></figure>
+
+<h4 id="tensor-matmul"><a href="#tensor-matmul" class="headerlink" title="tensor matmul"></a>tensor matmul</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">a = torch.rand(4, 3, 28, 64)</span><br><span class="line">b = torch.rand(4, 3, 64, 32)</span><br><span class="line"></span><br><span class="line">torch.mm(a, b).shape</span><br><span class="line">--------ERROR--------</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">torch.matmul(a, b).shape        #tensor.Size([4, 3, 28, 32]) 只用最后两维运算，前面的不变</span><br><span class="line"></span><br><span class="line">b = torch.rand(4, 1, 64, 32)</span><br><span class="line">torch.matmul(a, b).shape        #tensor.Size([4, 3, 28, 32]) 使用了broadcast机制</span><br><span class="line"></span><br><span class="line">b = torch.rand(2, 64, 32)</span><br><span class="line">torch.matmul(a, b).shape</span><br><span class="line">--------ERROR--------</span><br></pre></td></tr></table></figure>
+
+<h3 id="power-sqrt-rsqrt"><a href="#power-sqrt-rsqrt" class="headerlink" title="power / sqrt / rsqrt"></a>power / sqrt / rsqrt</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">a = torch.full([2, 2], 3)</span><br><span class="line">a.power(2)      #tensor([[9., 9.],</span><br><span class="line">                         [9., 9.]])</span><br><span class="line">a ** 2          #结果相同</span><br><span class="line"></span><br><span class="line">aa = a ** 2</span><br><span class="line">aa.sqrt()       #tensor([[3., 3.],</span><br><span class="line">                         [3., 3.]])</span><br><span class="line">aa.rsqrt()      #tensor([[0.3333, 0.3333],</span><br><span class="line">                         [0.3333, 0.3333]])</span><br><span class="line">#是sqrt的倒数</span><br><span class="line"></span><br><span class="line">a ** 0.5        #同sqrt()</span><br><span class="line">```                         </span><br><span class="line"></span><br><span class="line">### exp / log</span><br></pre></td></tr></table></figure>
+<p>a = torch.exp(torch.ones(2, 2))<br>a               #tensor([[2.7183, 2.7183],<br>                         [2.7183, 2.7183]])</p>
+<p>torch.log(a)    #tensor([[1., 1.],<br>                         [1., 1.]])<br>#默认以e为底，还可使用log2()、log10()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### approximation 近似值</span><br><span class="line">- `.floor()` / `.ceil()` 向下取整与向上取整</span><br><span class="line">- `.round()` 四舍五入</span><br><span class="line">- `.trunc()` / `.frac()` 整数部分与小数部分</span><br><span class="line"></span><br><span class="line">### clamp 裁剪</span><br><span class="line">- gradient clipping 梯度裁剪（梯度弥散、梯度爆炸）</span><br><span class="line">&gt; 时不时要打印梯度的模`w.grad.norm(2)`</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>grad = torch.rand(2, 3) * 15<br>grad    #tensor([[14.8737, 10.1571,  4.4872],<br>                 [11.3591,  8.9101, 14.0524]])</p>
+<p>grad.max()                  #tensor(14.8737)<br>grad.median()               #tensor(10.1571) 中间值</p>
+<p>grad.clamp(10)              #将grad中的小于10的部分变为10<br>#tensor([[14.8737, 10.1571, 10.0000],<br>         [11.3591, 10.0000, 14.0524]])</p>
+<p>grad.clamp(0, 10)           #将grad中的数据设置为0～10直接，超出算10，小于算0<br>#tensor([[10.0000, 10.0000,  4.4872],<br>         [10.0000,  8.9101, 10.0000]])</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">梯度裁剪：</span><br></pre></td></tr></table></figure>
+<p>for w in [] #wlist<br>    clamp(w.grad, 10)</p>
+<pre><code>
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch07/" data-id="ckx8lfbnn0000vwst7m777gf9" class="article-share-link">
+        分享
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Learning/" rel="tag">Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/" rel="tag">PyTorch</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  
+  <a href="/Learning/Notes/PyTorch/PyTorch06/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">PyTorch笔记06----拼接与拆分</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>丘丘Blog &copy; 2021</li>
+      
+        <li>willkyu</li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/mimikyu1.png" alt="丘丘Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">Gallery</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/favorites">Favorites</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">About</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/copybtn.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>
+
+<!--动态线条背景-->
+<script type="text/javascript"  opacity='0.6' zIndex="-2" count="110"
+  src="/js/canvas-nest.min.js">
+  </script>
+
+<!-- 页面点击特效-->
+<script type="text/javascript" src="/js/click.js"></script>
