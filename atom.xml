@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-16T13:08:45.287Z</updated>
+  <updated>2021-12-17T04:10:07.049Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PyTorch笔记10----激活函数与常见Loss</title>
+    <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch10/"/>
+    <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch10/</id>
+    <published>2021-12-17T03:34:44.000Z</published>
+    <updated>2021-12-17T04:10:07.049Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;梯度下降，激活函数，与常见Loss&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
+    
+    <category term="PyTorch" scheme="http://willkyu.github.io/tags/PyTorch/"/>
+    
+  </entry>
   
   <entry>
     <title>PyTorch笔记09----高阶OP</title>
@@ -260,7 +281,7 @@
     <link href="http://willkyu.github.io/Archive/1-Learning/"/>
     <id>http://willkyu.github.io/Archive/1-Learning/</id>
     <published>2021-12-13T09:24:45.000Z</published>
-    <updated>2021-12-16T13:03:08.072Z</updated>
+    <updated>2021-12-17T04:10:54.823Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -437,25 +458,6 @@
     <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
     
     <category term="Splatoon" scheme="http://willkyu.github.io/tags/Splatoon/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>亲爱的宝可梦♡</title>
-    <link href="http://willkyu.github.io/Pokemon/See-My-Loving-Pokemons/"/>
-    <id>http://willkyu.github.io/Pokemon/See-My-Loving-Pokemons/</id>
-    <published>2021-12-04T08:22:50.000Z</published>
-    <updated>2021-12-15T03:46:47.904Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;以此博客纪念我爱的宝可梦们~~&lt;br&gt;封面 [ID:79498766]. &lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
     
   </entry>
   
