@@ -51,6 +51,7 @@
 <ul>
 <li>2021-12-06 想鸽了.</li>
 <li>2021-12-13 思考必要性.</li>
+<li>2021-12-17 实现Gitalk评论功能，使用GitHub账号登陆，支持MarkDown语法. 此外新增指定post开启评论功能.<br><em><strong>请不要发布无意义的评论</strong></em></li>
 </ul>
 <h3 id="完善博客相册"><a href="#完善博客相册" class="headerlink" title="完善博客相册"></a>完善博客相册</h3><ul>
 <li>2021-12-02 添加了3张生活照.</li>
@@ -78,6 +79,7 @@
 <li>2021-12-15 实现背景动态线条的随机颜色效果.</li>
 <li>2021-12-16 更新了404页面，套用网站<a href="https://hakim.se/">hakim.se</a>.</li>
 <li>2021-12-16 更新了博客的一些细节，修复了Category页面无法正确显示标题的错误.</li>
+<li>2021-12-17 实现博客评论功能，详见<a href="#%E7%BB%99%E5%8D%9A%E5%AE%A2%E5%8A%A0%E4%B8%8A%E8%AF%84%E8%AE%BA%E7%AD%89%E5%8A%9F%E8%83%BD">本页面</a>.</li>
 </ul>
 <p>No Hurry.</p>
 <h1 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h1><ul>
@@ -1253,6 +1255,9 @@ a.numel()   #4704 4704 = 2 * 3 * 28 * 28
 </ul>
 <h2 id="Gallery"><a href="#Gallery" class="headerlink" title="Gallery"></a>Gallery</h2><p><img src="/images/body/Share-Splatoon2-Happiness/S(1).png"><br><img src="/images/body/Share-Splatoon2-Happiness/S(2).png"><br><img src="/images/body/Share-Splatoon2-Happiness/S(3).png"><br><img src="/images/body/Share-Splatoon2-Happiness/S(4).png"><br><img src="/images/body/Share-Splatoon2-Happiness/S(5).png"><br><img src="/images/body/Share-Splatoon2-Happiness/S(6).png"><br><img src="/images/body/Share-Splatoon2-Happiness/S(7).png"><br><img src="/images/body/Share-Splatoon2-Happiness/S(8).png"><br><img src="/images/body/Share-Splatoon2-Happiness/S(9).png"></p>
 ]]></content>
+      <categories>
+        <category>Game</category>
+      </categories>
       <tags>
         <tag>Life</tag>
         <tag>Splatoon</tag>

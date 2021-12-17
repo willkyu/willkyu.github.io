@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-17T04:57:09.484Z</updated>
+  <updated>2021-12-17T05:03:10.564Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch10/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch10/</id>
     <published>2021-12-17T03:34:44.000Z</published>
-    <updated>2021-12-17T04:57:09.484Z</updated>
+    <updated>2021-12-17T05:03:10.564Z</updated>
     
     
     <summary type="html">&lt;p&gt;梯度下降，激活函数，与常见Loss&lt;/p&gt;</summary>
@@ -42,7 +42,7 @@
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch09/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch09/</id>
     <published>2021-12-16T12:59:16.000Z</published>
-    <updated>2021-12-16T13:08:45.287Z</updated>
+    <updated>2021-12-17T05:03:12.262Z</updated>
     
     
     <summary type="html">&lt;p&gt;记录了PyTorch中两个高阶操作：&lt;code&gt;Where&lt;/code&gt;与&lt;code&gt;Gather&lt;/code&gt;&lt;/p&gt;</summary>
@@ -63,7 +63,7 @@
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch08/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch08/</id>
     <published>2021-12-16T12:59:12.000Z</published>
-    <updated>2021-12-16T13:01:05.758Z</updated>
+    <updated>2021-12-17T05:06:47.443Z</updated>
     
     
     <summary type="html">&lt;p&gt;记录了PyTorch一些常见统计属性.&lt;/p&gt;</summary>
@@ -84,7 +84,7 @@
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch07/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch07/</id>
     <published>2021-12-16T06:36:32.000Z</published>
-    <updated>2021-12-16T12:01:58.454Z</updated>
+    <updated>2021-12-17T05:06:40.069Z</updated>
     
     
     <summary type="html">&lt;p&gt;PyTorch的一些基本运算&lt;/p&gt;</summary>
@@ -105,7 +105,7 @@
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch06/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch06/</id>
     <published>2021-12-16T06:36:05.000Z</published>
-    <updated>2021-12-16T06:38:37.041Z</updated>
+    <updated>2021-12-17T05:06:14.614Z</updated>
     
     
     <summary type="html">&lt;p&gt;Tensor的拼接与拆分操作&lt;/p&gt;</summary>
@@ -126,7 +126,7 @@
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch05/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch05/</id>
     <published>2021-12-16T02:55:29.000Z</published>
-    <updated>2021-12-16T03:05:29.520Z</updated>
+    <updated>2021-12-17T05:06:11.026Z</updated>
     
     
     <summary type="html">&lt;p&gt;PyTorch的自动扩展&lt;/p&gt;</summary>
@@ -147,7 +147,7 @@
     <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/WCD-Distribution-Patch/"/>
     <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/WCD-Distribution-Patch/</id>
     <published>2021-12-15T14:52:38.000Z</published>
-    <updated>2021-12-15T16:32:26.653Z</updated>
+    <updated>2021-12-17T05:08:36.396Z</updated>
     
     
     <summary type="html">&lt;p&gt;这是宝可梦自制四五代配信器的教程.&lt;br&gt;如有纰漏，请&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
@@ -173,7 +173,7 @@
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch04/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch04/</id>
     <published>2021-12-15T12:17:23.000Z</published>
-    <updated>2021-12-16T08:48:22.099Z</updated>
+    <updated>2021-12-17T05:06:21.341Z</updated>
     
     
     <summary type="html">&lt;p&gt;PyTorch的一些Tensor维度变换方式&lt;/p&gt;</summary>
@@ -194,7 +194,7 @@
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch03/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch03/</id>
     <published>2021-12-15T09:06:49.000Z</published>
-    <updated>2021-12-16T01:51:46.165Z</updated>
+    <updated>2021-12-17T05:06:17.887Z</updated>
     
     
     <summary type="html">&lt;p&gt;PyTorch中的索引与切片.&lt;/p&gt;</summary>
@@ -236,7 +236,7 @@
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch01/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch01/</id>
     <published>2021-12-14T15:05:10.000Z</published>
-    <updated>2021-12-14T16:04:28.195Z</updated>
+    <updated>2021-12-17T05:05:47.727Z</updated>
     
     
     <summary type="html">&lt;p&gt;PyTorch基本数据类型&lt;/p&gt;</summary>
@@ -257,7 +257,7 @@
     <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part2/"/>
     <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part2/</id>
     <published>2021-12-14T00:10:35.000Z</published>
-    <updated>2021-12-15T04:01:17.284Z</updated>
+    <updated>2021-12-17T05:08:16.452Z</updated>
     
     
     <summary type="html">&lt;p&gt;这是宝可梦有电红蓝宝石的实机乱数教程.&lt;br&gt;不包含 ID 与 Egg 的乱数教程.&lt;br&gt;如有纰漏，请&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
@@ -404,7 +404,7 @@
     <link href="http://willkyu.github.io/Pokemon/Strategies/Out-Game/Pokemon-Cartridges-Authenticate/"/>
     <id>http://willkyu.github.io/Pokemon/Strategies/Out-Game/Pokemon-Cartridges-Authenticate/</id>
     <published>2021-12-07T13:31:32.000Z</published>
-    <updated>2021-12-15T03:48:37.613Z</updated>
+    <updated>2021-12-17T05:08:45.632Z</updated>
     
     
     <summary type="html">&lt;p&gt;从我的b站专栏：&lt;a href=&quot;https://www.bilibili.com/read/cv10463502&quot;&gt;宝可梦前代卡带鉴别&lt;/a&gt;搬过来的，稍微有些修改.&lt;br&gt;主要就是宝可梦 &lt;em&gt;GBA&lt;/em&gt; 和 &lt;em&gt;NDS&lt;/em&gt; 卡带真伪的鉴别.&lt;br&gt;如果对你有帮助可以去专栏给个三连~&lt;/p&gt;
@@ -426,7 +426,7 @@
     <link href="http://willkyu.github.io/Pokemon/VS-Recorder/"/>
     <id>http://willkyu.github.io/Pokemon/VS-Recorder/</id>
     <published>2021-12-06T12:26:43.000Z</published>
-    <updated>2021-12-15T03:45:27.681Z</updated>
+    <updated>2021-12-17T05:07:34.337Z</updated>
     
     
     <summary type="html">&lt;p&gt;此 Blog 用于记录一些宝可梦对战比赛，终有一日成为宝可梦大师！&lt;br&gt;平时比赛可能不是很勤，尽量8.&lt;/p&gt;
@@ -446,13 +446,15 @@
     <link href="http://willkyu.github.io/Game/Share-Splatoon2-Happiness/"/>
     <id>http://willkyu.github.io/Game/Share-Splatoon2-Happiness/</id>
     <published>2021-12-05T04:41:43.000Z</published>
-    <updated>2021-12-15T03:25:10.709Z</updated>
+    <updated>2021-12-17T05:04:26.166Z</updated>
     
     
     <summary type="html">&lt;p&gt;以此Blog记录我爱的 &lt;em&gt;Splatoon&lt;/em&gt; 和朋友们.&lt;br&gt;间谍伞，嘿嘿，间谍伞.&lt;/p&gt;
 &lt;p&gt;封面 [ID:82331425]. &lt;/p&gt;</summary>
     
     
+    
+    <category term="Game" scheme="http://willkyu.github.io/categories/Game/"/>
     
     
     <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
