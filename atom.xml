@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-17T04:52:39.045Z</updated>
+  <updated>2021-12-17T04:57:09.484Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch10/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch10/</id>
     <published>2021-12-17T03:34:44.000Z</published>
-    <updated>2021-12-17T04:52:39.045Z</updated>
+    <updated>2021-12-17T04:57:09.484Z</updated>
     
     
     <summary type="html">&lt;p&gt;梯度下降，激活函数，与常见Loss&lt;/p&gt;</summary>
