@@ -78,6 +78,7 @@
 <li>2021-12-16 更新了404页面，套用网站<a href="https://hakim.se/">hakim.se</a>.</li>
 <li>2021-12-16 更新了博客的一些细节，修复了Category页面无法正确显示标题的错误.</li>
 <li>2021-12-17 实现博客评论功能，详见<a href="#%E7%BB%99%E5%8D%9A%E5%AE%A2%E5%8A%A0%E4%B8%8A%E8%AF%84%E8%AE%BA%E7%AD%89%E5%8A%9F%E8%83%BD">本页面</a>.</li>
+<li>2021-12-18 实现图片懒加载.</li>
 </ul>
 <p>No Hurry.</p>
 <h1 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h1><ul>
