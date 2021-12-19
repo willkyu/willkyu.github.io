@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-17T05:03:10.564Z</updated>
+  <updated>2021-12-19T12:34:47.972Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博客个性化笔记----基于Ocean</title>
+    <link href="http://willkyu.github.io/Learning/Blog/Blog-Personalization/"/>
+    <id>http://willkyu.github.io/Learning/Blog/Blog-Personalization/</id>
+    <published>2021-12-19T10:56:54.000Z</published>
+    <updated>2021-12-19T12:34:47.972Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;记录博客使用 &lt;a href=&quot;https://github.com/zhwangart/hexo-theme-ocean&quot;&gt;Oceon&lt;/a&gt; 主题后进行的各项改动，&lt;br&gt;根据&lt;a href=&quot;/Archive/The-First-Blog/&quot;&gt;置顶◇代办◇与更新记录&lt;/a&gt;记录的更新顺序排序.&lt;/p&gt;
+&lt;p&gt;封面 [ID:89138905]. &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Blog" scheme="http://willkyu.github.io/categories/Blog/"/>
+    
+    
+    <category term="GitHub" scheme="http://willkyu.github.io/tags/GitHub/"/>
+    
+    <category term="Hexo" scheme="http://willkyu.github.io/tags/Hexo/"/>
+    
+    <category term="Ocean" scheme="http://willkyu.github.io/tags/Ocean/"/>
+    
+    <category term="Practical-Tips" scheme="http://willkyu.github.io/tags/Practical-Tips/"/>
+    
+    <category term="Blog" scheme="http://willkyu.github.io/tags/Blog/"/>
+    
+  </entry>
   
   <entry>
     <title>PyTorch笔记10----激活函数与常见Loss</title>
@@ -281,7 +309,7 @@
     <link href="http://willkyu.github.io/Archive/1-Learning/"/>
     <id>http://willkyu.github.io/Archive/1-Learning/</id>
     <published>2021-12-13T09:24:45.000Z</published>
-    <updated>2021-12-17T04:10:54.823Z</updated>
+    <updated>2021-12-19T12:35:21.150Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -438,28 +466,6 @@
     <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
     
     <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>快乐的喷喷生活</title>
-    <link href="http://willkyu.github.io/Game/Share-Splatoon2-Happiness/"/>
-    <id>http://willkyu.github.io/Game/Share-Splatoon2-Happiness/</id>
-    <published>2021-12-05T04:41:43.000Z</published>
-    <updated>2021-12-17T05:04:26.166Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;以此Blog记录我爱的 &lt;em&gt;Splatoon&lt;/em&gt; 和朋友们.&lt;br&gt;间谍伞，嘿嘿，间谍伞.&lt;/p&gt;
-&lt;p&gt;封面 [ID:82331425]. &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Game" scheme="http://willkyu.github.io/categories/Game/"/>
-    
-    
-    <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
-    
-    <category term="Splatoon" scheme="http://willkyu.github.io/tags/Splatoon/"/>
     
   </entry>
   
