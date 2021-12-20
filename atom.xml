@@ -32,15 +32,15 @@
     <category term="Blog" scheme="http://willkyu.github.io/categories/Blog/"/>
     
     
+    <category term="Blog" scheme="http://willkyu.github.io/tags/Blog/"/>
+    
+    <category term="Practical-Tips" scheme="http://willkyu.github.io/tags/Practical-Tips/"/>
+    
     <category term="GitHub" scheme="http://willkyu.github.io/tags/GitHub/"/>
     
     <category term="Hexo" scheme="http://willkyu.github.io/tags/Hexo/"/>
     
     <category term="Ocean" scheme="http://willkyu.github.io/tags/Ocean/"/>
-    
-    <category term="Practical-Tips" scheme="http://willkyu.github.io/tags/Practical-Tips/"/>
-    
-    <category term="Blog" scheme="http://willkyu.github.io/tags/Blog/"/>
     
   </entry>
   
@@ -309,7 +309,7 @@
     <link href="http://willkyu.github.io/Archive/1-Learning/"/>
     <id>http://willkyu.github.io/Archive/1-Learning/</id>
     <published>2021-12-13T09:24:45.000Z</published>
-    <updated>2021-12-19T12:35:21.150Z</updated>
+    <updated>2021-12-20T14:12:54.946Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -322,9 +322,9 @@
     <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
     
     
-    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
-    
     <category term="Archive" scheme="http://willkyu.github.io/tags/Archive/"/>
+    
+    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
     
   </entry>
   
@@ -333,7 +333,7 @@
     <link href="http://willkyu.github.io/Archive/1-Life/"/>
     <id>http://willkyu.github.io/Archive/1-Life/</id>
     <published>2021-12-13T09:24:42.000Z</published>
-    <updated>2021-12-15T03:28:38.969Z</updated>
+    <updated>2021-12-20T14:13:01.413Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -346,9 +346,9 @@
     <category term="Life" scheme="http://willkyu.github.io/categories/Life/"/>
     
     
-    <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
-    
     <category term="Archive" scheme="http://willkyu.github.io/tags/Archive/"/>
+    
+    <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
     
   </entry>
   
@@ -357,7 +357,7 @@
     <link href="http://willkyu.github.io/Archive/1-Pokemon/"/>
     <id>http://willkyu.github.io/Archive/1-Pokemon/</id>
     <published>2021-12-13T09:24:30.000Z</published>
-    <updated>2021-12-18T13:32:04.485Z</updated>
+    <updated>2021-12-20T14:13:52.708Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -370,9 +370,9 @@
     <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
     
     
-    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
-    
     <category term="Archive" scheme="http://willkyu.github.io/tags/Archive/"/>
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
     
   </entry>
   
@@ -381,7 +381,7 @@
     <link href="http://willkyu.github.io/Archive/1-Game/"/>
     <id>http://willkyu.github.io/Archive/1-Game/</id>
     <published>2021-12-13T09:24:28.000Z</published>
-    <updated>2021-12-19T05:53:48.853Z</updated>
+    <updated>2021-12-20T14:14:05.814Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -397,9 +397,9 @@
     <category term="Game" scheme="http://willkyu.github.io/categories/Game/"/>
     
     
-    <category term="Game" scheme="http://willkyu.github.io/tags/Game/"/>
-    
     <category term="Archive" scheme="http://willkyu.github.io/tags/Archive/"/>
+    
+    <category term="Game" scheme="http://willkyu.github.io/tags/Game/"/>
     
   </entry>
   
@@ -443,9 +443,9 @@
     <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
     
     
-    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
-    
     <category term="Collection" scheme="http://willkyu.github.io/tags/Collection/"/>
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
     
   </entry>
   
