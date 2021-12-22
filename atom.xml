@@ -463,9 +463,9 @@
     
     
     
-    <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
-    
     <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
+    
+    <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
     
   </entry>
   

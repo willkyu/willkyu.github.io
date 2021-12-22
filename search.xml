@@ -60,39 +60,6 @@
       </tags>
   </entry>
   <entry>
-    <title>生活◇奥康剃刀◇与自由意识</title>
-    <url>/Archive/1-Life/</url>
-    <content><![CDATA[<blockquote>
-<p>重要的人和事物，<br>无论经历多久都不会改变，<br>人们如此祈祷着.</p>
-</blockquote>
-<p>封面 [ID:76002561]. </p>
-<span id="more"></span>
-
-<h1 id="Life-Recorder"><a href="#Life-Recorder" class="headerlink" title="Life-Recorder"></a>Life-Recorder</h1><blockquote>
-<p>趁阳光正好，趁微风不燥，趁现在的双手还能拥抱彼此，趁我们还能呼吸，去见你想见的人，做你想做的事.</p>
-</blockquote>
-<blockquote>
-<p>只要留存在什么人的记忆里……<br>那就是曾经存在过的证明.</p>
-</blockquote>
-<p>以<a href="/gallery/">Gallery</a>记录生活.</p>
-<br>
-
-<hr>
-<br>
-
-<h1 id="Imprisoned-Post"><a href="#Imprisoned-Post" class="headerlink" title="Imprisoned Post"></a>Imprisoned Post</h1><ul>
-<li><a href="/Life/Draw-100Days/">Draw 100Days</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Life</category>
-      </categories>
-      <tags>
-        <tag>Archive</tag>
-        <tag>Life</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>宝可梦◇熵增定律◇与死亡誓言</title>
     <url>/Archive/1-Pokemon/</url>
     <content><![CDATA[<blockquote>
@@ -162,6 +129,84 @@
       <tags>
         <tag>Archive</tag>
         <tag>Pokemon</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>生活◇奥康剃刀◇与自由意识</title>
+    <url>/Archive/1-Life/</url>
+    <content><![CDATA[<blockquote>
+<p>重要的人和事物，<br>无论经历多久都不会改变，<br>人们如此祈祷着.</p>
+</blockquote>
+<p>封面 [ID:76002561]. </p>
+<span id="more"></span>
+
+<h1 id="Life-Recorder"><a href="#Life-Recorder" class="headerlink" title="Life-Recorder"></a>Life-Recorder</h1><blockquote>
+<p>趁阳光正好，趁微风不燥，趁现在的双手还能拥抱彼此，趁我们还能呼吸，去见你想见的人，做你想做的事.</p>
+</blockquote>
+<blockquote>
+<p>只要留存在什么人的记忆里……<br>那就是曾经存在过的证明.</p>
+</blockquote>
+<p>以<a href="/gallery/">Gallery</a>记录生活.</p>
+<br>
+
+<hr>
+<br>
+
+<h1 id="Imprisoned-Post"><a href="#Imprisoned-Post" class="headerlink" title="Imprisoned Post"></a>Imprisoned Post</h1><ul>
+<li><a href="/Life/Draw-100Days/">Draw 100Days</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Life</category>
+      </categories>
+      <tags>
+        <tag>Archive</tag>
+        <tag>Life</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>学习◇生存博弈◇与纯利他主义</title>
+    <url>/Archive/1-Learning/</url>
+    <content><![CDATA[<blockquote>
+<p>就算没达到预期的水平也不能放弃，继续锻炼.<br>不管什么时候，<br>改变世界的都是认真追求梦想的人.<br>——– <em><strong>阿戴克</strong></em> </p>
+</blockquote>
+<p>封面 [ID:90778756]. </p>
+<span id="more"></span>
+
+<h1 id="Learning"><a href="#Learning" class="headerlink" title="Learning"></a>Learning</h1><p>记录与整理学习上的一些要点或者问题.</p>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><h4 id="PyTorch"><a href="#PyTorch" class="headerlink" title="PyTorch"></a>PyTorch</h4><ul>
+<li><a href="/Learning/Notes/Pytorch/PyTorch01/">PyTorch笔记01—-基本数据类型</a></li>
+<li><a href="/Learning/Notes/Pytorch/PyTorch02/">PyTorch笔记02—-创建Tensor</a></li>
+<li><a href="/Learning/Notes/Pytorch/PyTorch03/">PyTorch笔记03—-索引与切片</a></li>
+<li><a href="/Learning/Notes/Pytorch/PyTorch04/">PyTorch笔记04—-Tensor维度变换</a></li>
+<li><a href="/Learning/Notes/Pytorch/PyTorch05/">PyTorch笔记05—-Broadcast自动扩展</a></li>
+<li><a href="/Learning/Notes/Pytorch/PyTorch06/">PyTorch笔记06—-拼接与拆分</a></li>
+<li><a href="/Learning/Notes/Pytorch/PyTorch07/">PyTorch笔记07—-基本运算</a></li>
+<li><a href="/Learning/Notes/Pytorch/PyTorch08/">PyTorch笔记08—-统计属性</a></li>
+<li><a href="/Learning/Notes/Pytorch/PyTorch09/">PyTorch笔记09—-高阶OP</a></li>
+<li><a href="/Learning/Notes/Pytorch/PyTorch10/">PyTorch笔记10—-激活函数与常见Loss</a></li>
+</ul>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><ul>
+<li><a href="/Learning/Solutions/Accessing-GitHub-Slowly-Solution/">解决访问GithHub速度慢的问题</a></li>
+</ul>
+<br>
+
+<hr>
+<br>
+
+<h1 id="Blog"><a href="#Blog" class="headerlink" title="Blog"></a>Blog</h1><ul>
+<li><a href="/Learning/Blog/Build-Your-Own-Blog-Like-This-One/">基于Hexo与GitHub制作私人博客</a>.</li>
+<li><a href="/Learning/Blog/Blog-Personalization/">博客个性化笔记—-基于Ocean</a></li>
+<li><a href="https://markdown.com.cn/basic-syntax/">MarkDown语法</a></li>
+<li><a href="/ZONE/Emoji/Emoji.html">MarkDown支持Emoji列表</a><br>原地址: <a href="https://gist.github.com/rxaviers/7360908">Complete list of github markdown emoji markup</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Archive</tag>
+        <tag>Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -272,51 +317,6 @@
       <tags>
         <tag>Archive</tag>
         <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>学习◇生存博弈◇与纯利他主义</title>
-    <url>/Archive/1-Learning/</url>
-    <content><![CDATA[<blockquote>
-<p>就算没达到预期的水平也不能放弃，继续锻炼.<br>不管什么时候，<br>改变世界的都是认真追求梦想的人.<br>——– <em><strong>阿戴克</strong></em> </p>
-</blockquote>
-<p>封面 [ID:90778756]. </p>
-<span id="more"></span>
-
-<h1 id="Learning"><a href="#Learning" class="headerlink" title="Learning"></a>Learning</h1><p>记录与整理学习上的一些要点或者问题.</p>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><h4 id="PyTorch"><a href="#PyTorch" class="headerlink" title="PyTorch"></a>PyTorch</h4><ul>
-<li><a href="/Learning/Notes/Pytorch/PyTorch01/">PyTorch笔记01—-基本数据类型</a></li>
-<li><a href="/Learning/Notes/Pytorch/PyTorch02/">PyTorch笔记02—-创建Tensor</a></li>
-<li><a href="/Learning/Notes/Pytorch/PyTorch03/">PyTorch笔记03—-索引与切片</a></li>
-<li><a href="/Learning/Notes/Pytorch/PyTorch04/">PyTorch笔记04—-Tensor维度变换</a></li>
-<li><a href="/Learning/Notes/Pytorch/PyTorch05/">PyTorch笔记05—-Broadcast自动扩展</a></li>
-<li><a href="/Learning/Notes/Pytorch/PyTorch06/">PyTorch笔记06—-拼接与拆分</a></li>
-<li><a href="/Learning/Notes/Pytorch/PyTorch07/">PyTorch笔记07—-基本运算</a></li>
-<li><a href="/Learning/Notes/Pytorch/PyTorch08/">PyTorch笔记08—-统计属性</a></li>
-<li><a href="/Learning/Notes/Pytorch/PyTorch09/">PyTorch笔记09—-高阶OP</a></li>
-<li><a href="/Learning/Notes/Pytorch/PyTorch10/">PyTorch笔记10—-激活函数与常见Loss</a></li>
-</ul>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><ul>
-<li><a href="/Learning/Solutions/Accessing-GitHub-Slowly-Solution/">解决访问GithHub速度慢的问题</a></li>
-</ul>
-<br>
-
-<hr>
-<br>
-
-<h1 id="Blog"><a href="#Blog" class="headerlink" title="Blog"></a>Blog</h1><ul>
-<li><a href="/Learning/Blog/Build-Your-Own-Blog-Like-This-One/">基于Hexo与GitHub制作私人博客</a>.</li>
-<li><a href="/Learning/Blog/Blog-Personalization/">博客个性化笔记—-基于Ocean</a></li>
-<li><a href="https://markdown.com.cn/basic-syntax/">MarkDown语法</a></li>
-<li><a href="/ZONE/Emoji/Emoji.html">MarkDown支持Emoji列表</a><br>原地址: <a href="https://gist.github.com/rxaviers/7360908">Complete list of github markdown emoji markup</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Archive</tag>
-        <tag>Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -454,8 +454,8 @@
 <h2 id="第八世代"><a href="#第八世代" class="headerlink" title="第八世代"></a>第八世代</h2><p>No Hurry.</p>
 ]]></content>
       <tags>
-        <tag>Life</tag>
         <tag>Pokemon</tag>
+        <tag>Life</tag>
       </tags>
   </entry>
   <entry>
@@ -490,8 +490,8 @@
 
 ]]></content>
       <tags>
-        <tag>Life</tag>
         <tag>Pokemon</tag>
+        <tag>Life</tag>
       </tags>
   </entry>
   <entry>
@@ -669,6 +669,44 @@
       </tags>
   </entry>
   <entry>
+    <title>解决访问GithHub速度慢的问题</title>
+    <url>/Learning/Solutions/Accessing-GitHub-Slowly-Solution/</url>
+    <content><![CDATA[<p>今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN 域名遭到了 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢.</p>
+<p>可以通过修改本地 <code>hosts</code> 文件来绕过 DNS 解析来加速.</p>
+<p>封面 [ID:46018784]. </p>
+<span id="more"></span>
+<ul>
+<li><p>首先打开<a href="http://tool.chinaz.com/dns/">站长工具</a></p>
+</li>
+<li><p>填入 &lt;Github.com&gt;<br><img src="/images/body/Accessing-GitHub-Slowly-Solution/Figure1.png" alt="Figure1" title="在 请输入域名 栏填写"></p>
+</li>
+<li><p>将检测列表里的 TTL 值最小的 IP 记为 <em>a.b.c.d</em>.</p>
+</li>
+<li><p>使用记事本打开 <code>hosts</code> 文件，位于 &lt;C:\Windows\System32\drivers\etc&gt;.</p>
+</li>
+<li><p>将以下内容加在 <code>host</code> 文件末尾：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a.b.c.d www.github.com</span><br><span class="line">a.b.c.d github.global.ssl.fastly.net</span><br><span class="line">a.b.c.d nodeload.github.com</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其中 <em>a.b.c.d</em> 是上述步骤中记录的 IP 地址.<br>如果没有修改权限可以将 <code>host</code> 文件移出该文件夹，修改完成后再移回去.<br>系统会确认你授权管理员权限.<br><img src="/images/body/Accessing-GitHub-Slowly-Solution/Figure2.png" alt="Figure2" title="系统向确认你授权管理员权限"></p>
+</blockquote>
+</li>
+<li><p><em>cmd</em> 输入命令 <code>ipconfig /flushdns</code> 刷新DNS缓存.</p>
+</li>
+<li><p>Done！试试访问GitHub吧！</p>
+</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://blog.csdn.net/CS13477062349/article/details/88020283?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.no_search_link&spm=1001.2101.3001.4242.1">完美解决打开github速度慢的问题</a></p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Practical-Tips</tag>
+        <tag>GitHub</tag>
+        <tag>Solutions</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PyTorch笔记01----基本数据类型</title>
     <url>/Learning/Notes/PyTorch/PyTorch01/</url>
     <content><![CDATA[<p>PyTorch基本数据类型</p>
@@ -773,44 +811,6 @@ a.numel()   #4704 4704 = 2 * 3 * 28 * 28
       <tags>
         <tag>Learning</tag>
         <tag>PyTorch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决访问GithHub速度慢的问题</title>
-    <url>/Learning/Solutions/Accessing-GitHub-Slowly-Solution/</url>
-    <content><![CDATA[<p>今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN 域名遭到了 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢.</p>
-<p>可以通过修改本地 <code>hosts</code> 文件来绕过 DNS 解析来加速.</p>
-<p>封面 [ID:46018784]. </p>
-<span id="more"></span>
-<ul>
-<li><p>首先打开<a href="http://tool.chinaz.com/dns/">站长工具</a></p>
-</li>
-<li><p>填入 &lt;Github.com&gt;<br><img src="/images/body/Accessing-GitHub-Slowly-Solution/Figure1.png" alt="Figure1" title="在 请输入域名 栏填写"></p>
-</li>
-<li><p>将检测列表里的 TTL 值最小的 IP 记为 <em>a.b.c.d</em>.</p>
-</li>
-<li><p>使用记事本打开 <code>hosts</code> 文件，位于 &lt;C:\Windows\System32\drivers\etc&gt;.</p>
-</li>
-<li><p>将以下内容加在 <code>host</code> 文件末尾：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a.b.c.d www.github.com</span><br><span class="line">a.b.c.d github.global.ssl.fastly.net</span><br><span class="line">a.b.c.d nodeload.github.com</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>其中 <em>a.b.c.d</em> 是上述步骤中记录的 IP 地址.<br>如果没有修改权限可以将 <code>host</code> 文件移出该文件夹，修改完成后再移回去.<br>系统会确认你授权管理员权限.<br><img src="/images/body/Accessing-GitHub-Slowly-Solution/Figure2.png" alt="Figure2" title="系统向确认你授权管理员权限"></p>
-</blockquote>
-</li>
-<li><p><em>cmd</em> 输入命令 <code>ipconfig /flushdns</code> 刷新DNS缓存.</p>
-</li>
-<li><p>Done！试试访问GitHub吧！</p>
-</li>
-</ul>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://blog.csdn.net/CS13477062349/article/details/88020283?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.no_search_link&spm=1001.2101.3001.4242.1">完美解决打开github速度慢的问题</a></p>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Practical-Tips</tag>
-        <tag>GitHub</tag>
-        <tag>Solutions</tag>
       </tags>
   </entry>
   <entry>
@@ -924,6 +924,70 @@ a.numel()   #4704 4704 = 2 * 3 * 28 * 28
       </tags>
   </entry>
   <entry>
+    <title>PyTorch笔记05----Broadcast自动扩展</title>
+    <url>/Learning/Notes/PyTorch/PyTorch05/</url>
+    <content><![CDATA[<p>PyTorch的自动扩展</p>
+<span id="more"></span>
+
+<ul>
+<li>Expand，可以维度扩展</li>
+<li>without copying data，扩展时不用拷贝数据，能节省空间</li>
+</ul>
+<h3 id="Key-idea"><a href="#Key-idea" class="headerlink" title="Key idea"></a>Key idea</h3><ul>
+<li>Insert 1 dim ahead</li>
+<li>Expand dims with size 1 to same size</li>
+</ul>
+<p>Feature maps: [4, 32, 14, 14]<br>Bias: [32] –&gt; [32, 1, 1] –&gt; [1, 32, 1, 1] –&gt; [4, 32, 14, 14]</p>
+<p>Broadcast示意图：<br><img src="/images/body/PyTorch/PyTorch05.png" alt="Figure1"></p>
+<h3 id="Why-broadcasting"><a href="#Why-broadcasting" class="headerlink" title="Why broadcasting"></a>Why broadcasting</h3><ol>
+<li><p>for actual demanding</p>
+<ul>
+<li>[class, student, scores]</li>
+<li>Add bias for every students: +5 score</li>
+<li>[4, 32, 8] + [5.0] (标量)</li>
+<li><code>bias.unsqueeze(0).unsqueeze(0).expand_as(A)</code></li>
+</ul>
+</li>
+<li><p>memory consumption<br>节省内存消耗</p>
+</li>
+</ol>
+<h3 id="Is-it-broadcasting-able"><a href="#Is-it-broadcasting-able" class="headerlink" title="Is it broadcasting-able?"></a>Is it broadcasting-able?</h3><h4 id="Match-from-Last-dim-从最后一维匹配（一般最后一维是物理意义上的小维度）"><a href="#Match-from-Last-dim-从最后一维匹配（一般最后一维是物理意义上的小维度）" class="headerlink" title="Match from Last dim 从最后一维匹配（一般最后一维是物理意义上的小维度）"></a>Match from <strong>Last</strong> dim 从最后一维匹配（一般最后一维是物理意义上的小维度）</h4><ul>
+<li>If current dim = 1, expand to same</li>
+<li>If either has no dim, insert one dim and expand to same</li>
+<li>otherwise, NOT broadcasting-able</li>
+</ul>
+<blockquote>
+<p>例如[8, 32, 8]（8个班，每班32个学生，每个学生修八门课即八个成绩）bias = [5]是 [1]的shape，对八门课都要加，对每个班每个学生都适用 –&gt; [1, 1, 1] —&gt; [32, 32, 8]</p>
+</blockquote>
+<blockquote>
+<p>如果仅对某一门课的成绩添加bias，那么bias = [0, 0, 5, …, 0]是 [8]的shape，每个班每个学生都适用 –&gt; [1, 1, 8] –&gt; [32, 32, 8]</p>
+</blockquote>
+<blockquote>
+<p>A: [4, 32, 8], bias: [4]  NOT broadcasting-able</p>
+</blockquote>
+<h3 id="Situation"><a href="#Situation" class="headerlink" title="Situation"></a>Situation</h3><h4 id="Situation-1"><a href="#Situation-1" class="headerlink" title="Situation 1"></a>Situation 1</h4><p>A: [4, 32, 14, 14]<br>B: [1, 32, 1, 1] –&gt; [4, 32, 14, 14]</p>
+<h4 id="Situation-2"><a href="#Situation-2" class="headerlink" title="Situation 2"></a>Situation 2</h4><p>A: [4, 32, 14, 14]<br>B: [14, 14] –&gt; [1, 1, 14, 14] –&gt; [4, 32, 14, 14]</p>
+<h4 id="Situation-3"><a href="#Situation-3" class="headerlink" title="Situation 3"></a>Situation 3</h4><p>A: [4, 32, 14, 14]<br>B: [2, 32, 14, 14]<br>NOT broadcasting-able</p>
+<h3 id="How-to-understand-this-behavior"><a href="#How-to-understand-this-behavior" class="headerlink" title="How to understand this behavior?"></a>How to understand this behavior?</h3><h4 id="When-it-has-no-dim"><a href="#When-it-has-no-dim" class="headerlink" title="When it has no dim"></a>When it has no dim</h4><ul>
+<li>treat it as all own the same</li>
+<li>[class, student, scores] + [scores]</li>
+</ul>
+<h4 id="When-it-has-dim-of-size-1"><a href="#When-it-has-dim-of-size-1" class="headerlink" title="When it has dim of size 1"></a>When it has dim of size 1</h4><ul>
+<li>treat it shared by all</li>
+<li>[class, student, scores] + [student, 1]（a学生所有课程 + 0，b学生所有课程 + 1 …这种情况）</li>
+</ul>
+<p><em><strong>match from LAST dim</strong></em></p>
+<p>+ [1, 1, 1, 1] 等价 + [1]</p>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>PyTorch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PyTorch笔记04----Tensor维度变换</title>
     <url>/Learning/Notes/PyTorch/PyTorch04/</url>
     <content><![CDATA[<p>PyTorch的一些Tensor维度变换方式</p>
@@ -1011,70 +1075,6 @@ a.numel()   #4704 4704 = 2 * 3 * 28 * 28
 <h3 id="chunk-by-num"><a href="#chunk-by-num" class="headerlink" title="chunk: by num"></a>chunk: by num</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">b = torch.rand(32, 8)</span><br><span class="line">a.shape     #torch.Size([32, 8])</span><br><span class="line">c = torch.stack([a, b], dim = 0)</span><br><span class="line">c.shape     #torch.Size([2, 32, 8])</span><br><span class="line"></span><br><span class="line">aa, bb = c.chunk(2, dim = 0)    #平均分成2块</span><br><span class="line">aa.shape, bb.shape</span><br><span class="line">#torch.Size([1, 32, 8]), torch.Size([1, 32, 8])</span><br></pre></td></tr></table></figure>
 
 
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-        <tag>PyTorch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PyTorch笔记05----Broadcast自动扩展</title>
-    <url>/Learning/Notes/PyTorch/PyTorch05/</url>
-    <content><![CDATA[<p>PyTorch的自动扩展</p>
-<span id="more"></span>
-
-<ul>
-<li>Expand，可以维度扩展</li>
-<li>without copying data，扩展时不用拷贝数据，能节省空间</li>
-</ul>
-<h3 id="Key-idea"><a href="#Key-idea" class="headerlink" title="Key idea"></a>Key idea</h3><ul>
-<li>Insert 1 dim ahead</li>
-<li>Expand dims with size 1 to same size</li>
-</ul>
-<p>Feature maps: [4, 32, 14, 14]<br>Bias: [32] –&gt; [32, 1, 1] –&gt; [1, 32, 1, 1] –&gt; [4, 32, 14, 14]</p>
-<p>Broadcast示意图：<br><img src="/images/body/PyTorch/PyTorch05.png" alt="Figure1"></p>
-<h3 id="Why-broadcasting"><a href="#Why-broadcasting" class="headerlink" title="Why broadcasting"></a>Why broadcasting</h3><ol>
-<li><p>for actual demanding</p>
-<ul>
-<li>[class, student, scores]</li>
-<li>Add bias for every students: +5 score</li>
-<li>[4, 32, 8] + [5.0] (标量)</li>
-<li><code>bias.unsqueeze(0).unsqueeze(0).expand_as(A)</code></li>
-</ul>
-</li>
-<li><p>memory consumption<br>节省内存消耗</p>
-</li>
-</ol>
-<h3 id="Is-it-broadcasting-able"><a href="#Is-it-broadcasting-able" class="headerlink" title="Is it broadcasting-able?"></a>Is it broadcasting-able?</h3><h4 id="Match-from-Last-dim-从最后一维匹配（一般最后一维是物理意义上的小维度）"><a href="#Match-from-Last-dim-从最后一维匹配（一般最后一维是物理意义上的小维度）" class="headerlink" title="Match from Last dim 从最后一维匹配（一般最后一维是物理意义上的小维度）"></a>Match from <strong>Last</strong> dim 从最后一维匹配（一般最后一维是物理意义上的小维度）</h4><ul>
-<li>If current dim = 1, expand to same</li>
-<li>If either has no dim, insert one dim and expand to same</li>
-<li>otherwise, NOT broadcasting-able</li>
-</ul>
-<blockquote>
-<p>例如[8, 32, 8]（8个班，每班32个学生，每个学生修八门课即八个成绩）bias = [5]是 [1]的shape，对八门课都要加，对每个班每个学生都适用 –&gt; [1, 1, 1] —&gt; [32, 32, 8]</p>
-</blockquote>
-<blockquote>
-<p>如果仅对某一门课的成绩添加bias，那么bias = [0, 0, 5, …, 0]是 [8]的shape，每个班每个学生都适用 –&gt; [1, 1, 8] –&gt; [32, 32, 8]</p>
-</blockquote>
-<blockquote>
-<p>A: [4, 32, 8], bias: [4]  NOT broadcasting-able</p>
-</blockquote>
-<h3 id="Situation"><a href="#Situation" class="headerlink" title="Situation"></a>Situation</h3><h4 id="Situation-1"><a href="#Situation-1" class="headerlink" title="Situation 1"></a>Situation 1</h4><p>A: [4, 32, 14, 14]<br>B: [1, 32, 1, 1] –&gt; [4, 32, 14, 14]</p>
-<h4 id="Situation-2"><a href="#Situation-2" class="headerlink" title="Situation 2"></a>Situation 2</h4><p>A: [4, 32, 14, 14]<br>B: [14, 14] –&gt; [1, 1, 14, 14] –&gt; [4, 32, 14, 14]</p>
-<h4 id="Situation-3"><a href="#Situation-3" class="headerlink" title="Situation 3"></a>Situation 3</h4><p>A: [4, 32, 14, 14]<br>B: [2, 32, 14, 14]<br>NOT broadcasting-able</p>
-<h3 id="How-to-understand-this-behavior"><a href="#How-to-understand-this-behavior" class="headerlink" title="How to understand this behavior?"></a>How to understand this behavior?</h3><h4 id="When-it-has-no-dim"><a href="#When-it-has-no-dim" class="headerlink" title="When it has no dim"></a>When it has no dim</h4><ul>
-<li>treat it as all own the same</li>
-<li>[class, student, scores] + [scores]</li>
-</ul>
-<h4 id="When-it-has-dim-of-size-1"><a href="#When-it-has-dim-of-size-1" class="headerlink" title="When it has dim of size 1"></a>When it has dim of size 1</h4><ul>
-<li>treat it shared by all</li>
-<li>[class, student, scores] + [student, 1]（a学生所有课程 + 0，b学生所有课程 + 1 …这种情况）</li>
-</ul>
-<p><em><strong>match from LAST dim</strong></em></p>
-<p>+ [1, 1, 1, 1] 等价 + [1]</p>
 ]]></content>
       <categories>
         <category>Learning</category>
@@ -1182,36 +1182,6 @@ a.numel()   #4704 4704 = 2 * 3 * 28 * 28
       </tags>
   </entry>
   <entry>
-    <title>PyTorch笔记09----高阶OP</title>
-    <url>/Learning/Notes/PyTorch/PyTorch09/</url>
-    <content><![CDATA[<p>记录了PyTorch中两个高阶操作：<code>Where</code>与<code>Gather</code></p>
-<span id="more"></span>
-
-<h2 id="Where"><a href="#Where" class="headerlink" title="Where"></a>Where</h2><p><code>torch.where(condition, x, y)</code>  </p>
-<p>满足condition的 返回x，否则返回y</p>
-<p>x、y、condition的shape相同</p>
-<p>condition矩阵: </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tensor([[1, 0],</span><br><span class="line">        [0, 1]])</span><br></pre></td></tr></table></figure>
-<p>那么A的地方取x对应元素，B的地方取y对应元素</p>
-<h4 id="example"><a href="#example" class="headerlink" title="example"></a>example</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cond        #tensor([[0.6769, 0.7271],</span><br><span class="line">                     [0.8884, 0.4163]])</span><br><span class="line">a           #tensor([[0., 0.],</span><br><span class="line">                     [0., 0.]])  </span><br><span class="line">b           #tensor([[1., 1.],</span><br><span class="line">                     [1., 1.]])</span><br><span class="line">                     </span><br><span class="line">torch.where(cond &gt; 0.5, a, b)</span><br><span class="line">#tensor([[0., 0.],</span><br><span class="line">         [0., 1.]])</span><br></pre></td></tr></table></figure>
-
-<h2 id="Gather"><a href="#Gather" class="headerlink" title="Gather"></a>Gather</h2><p><code>torch.gather(input, dim, index, out = None)</code></p>
-<blockquote>
-<p>index是表，dim是查表的维度，index是需要查的index</p>
-</blockquote>
-<p>查表操作，如：表[x1, x2, x3]，那么我们gather需要查的index：[0, 1, 0, 2]得到[x1, x2, x1, x3]</p>
-<p>四条数据输入神经网络得到一个输出：[4, 10]<br>取出每条数据概率最大的index:[[1], [2], [0], [9]]<br>使用gather查表得到对应的元素</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">prob = torch.rand(4, 10)</span><br><span class="line">idx = prob.topk(dim = 1, k = 3)[1]</span><br><span class="line">idx</span><br><span class="line">#tensor([[7, 4, 9],</span><br><span class="line">         [8, 1, 3],</span><br><span class="line">         [2, 8, 4],</span><br><span class="line">         [8, 6, 0]])</span><br><span class="line">label = torch.arange(10) + 100</span><br><span class="line">label</span><br><span class="line">#tensor([100, 101, ..., 109])</span><br><span class="line"></span><br><span class="line">torch.gather(label.expand(4, 10), dim = 1, index = idx.long())</span><br><span class="line">#tensor([[107, 104, 109],</span><br><span class="line">         [108, 101, 103],</span><br><span class="line">         [102, 108, 104],</span><br><span class="line">         [108, 106, 100]])</span><br><span class="line">#.long()转化为LongTensor类型，不加也可以得到相同结果</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Learning</tag>
-        <tag>PyTorch</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PyTorch笔记10----激活函数与常见Loss</title>
     <url>/Learning/Notes/PyTorch/PyTorch10/</url>
     <content><![CDATA[<p>梯度下降，激活函数，与常见Loss</p>
@@ -1262,6 +1232,7 @@ a.numel()   #4704 4704 = 2 * 3 * 28 * 28
 <p>封面 [ID:86927624]. </p>
 <span id="more"></span>
 
+<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>已经有人在贴吧写了详细的傻瓜教程，比我写的详细很多：<a href="https://tieba.baidu.com/p/6349601583?share=9105&fr=sharewise&see_lz=0&share_from=post&sfc=copy&client_type=2&client_version=12.15.1.0&st=1640142523&unique=9EBFF40D479B24A05CA7FA461487C5A9&qq-pf-to=pcqq.group&red_tag=0588212229">【教程】全版本正版游戏卡带存档导出导入教程</a><br>这篇注重于收录方法而非详细教程（都有写的那么详细的了）.</p>
 <h2 id="GB-与-GBC-卡带"><a href="#GB-与-GBC-卡带" class="headerlink" title="GB 与 GBC 卡带"></a><em>GB</em> 与 <em>GBC</em> 卡带</h2><p>包含的宝可梦卡带有：</p>
 <ul>
 <li>宝可梦 红 / 绿 / 蓝 / 黄</li>
@@ -1411,6 +1382,36 @@ a.numel()   #4704 4704 = 2 * 3 * 28 * 28
         <tag>Pokemon-Distribution</tag>
         <tag>Pokemon-Gen4</tag>
         <tag>Pokemon-Gen5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PyTorch笔记09----高阶OP</title>
+    <url>/Learning/Notes/PyTorch/PyTorch09/</url>
+    <content><![CDATA[<p>记录了PyTorch中两个高阶操作：<code>Where</code>与<code>Gather</code></p>
+<span id="more"></span>
+
+<h2 id="Where"><a href="#Where" class="headerlink" title="Where"></a>Where</h2><p><code>torch.where(condition, x, y)</code>  </p>
+<p>满足condition的 返回x，否则返回y</p>
+<p>x、y、condition的shape相同</p>
+<p>condition矩阵: </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tensor([[1, 0],</span><br><span class="line">        [0, 1]])</span><br></pre></td></tr></table></figure>
+<p>那么A的地方取x对应元素，B的地方取y对应元素</p>
+<h4 id="example"><a href="#example" class="headerlink" title="example"></a>example</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cond        #tensor([[0.6769, 0.7271],</span><br><span class="line">                     [0.8884, 0.4163]])</span><br><span class="line">a           #tensor([[0., 0.],</span><br><span class="line">                     [0., 0.]])  </span><br><span class="line">b           #tensor([[1., 1.],</span><br><span class="line">                     [1., 1.]])</span><br><span class="line">                     </span><br><span class="line">torch.where(cond &gt; 0.5, a, b)</span><br><span class="line">#tensor([[0., 0.],</span><br><span class="line">         [0., 1.]])</span><br></pre></td></tr></table></figure>
+
+<h2 id="Gather"><a href="#Gather" class="headerlink" title="Gather"></a>Gather</h2><p><code>torch.gather(input, dim, index, out = None)</code></p>
+<blockquote>
+<p>index是表，dim是查表的维度，index是需要查的index</p>
+</blockquote>
+<p>查表操作，如：表[x1, x2, x3]，那么我们gather需要查的index：[0, 1, 0, 2]得到[x1, x2, x1, x3]</p>
+<p>四条数据输入神经网络得到一个输出：[4, 10]<br>取出每条数据概率最大的index:[[1], [2], [0], [9]]<br>使用gather查表得到对应的元素</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">prob = torch.rand(4, 10)</span><br><span class="line">idx = prob.topk(dim = 1, k = 3)[1]</span><br><span class="line">idx</span><br><span class="line">#tensor([[7, 4, 9],</span><br><span class="line">         [8, 1, 3],</span><br><span class="line">         [2, 8, 4],</span><br><span class="line">         [8, 6, 0]])</span><br><span class="line">label = torch.arange(10) + 100</span><br><span class="line">label</span><br><span class="line">#tensor([100, 101, ..., 109])</span><br><span class="line"></span><br><span class="line">torch.gather(label.expand(4, 10), dim = 1, index = idx.long())</span><br><span class="line">#tensor([[107, 104, 109],</span><br><span class="line">         [108, 101, 103],</span><br><span class="line">         [102, 108, 104],</span><br><span class="line">         [108, 106, 100]])</span><br><span class="line">#.long()转化为LongTensor类型，不加也可以得到相同结果</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Learning</tag>
+        <tag>PyTorch</tag>
       </tags>
   </entry>
   <entry>
