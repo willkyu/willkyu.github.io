@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-22T10:14:39.612Z</updated>
+  <updated>2021-12-24T03:57:31.100Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>willkyu的宝可梦计划</title>
+    <link href="http://willkyu.github.io/Pokemon/PokeSchedule/"/>
+    <id>http://willkyu.github.io/Pokemon/PokeSchedule/</id>
+    <published>2021-12-24T00:36:44.000Z</published>
+    <updated>2021-12-24T03:57:31.100Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;使用 &lt;em&gt;CheckBox&lt;/em&gt; 记录宝可梦各世代的目标以及完成情况.&lt;br&gt;你可以将这篇当作&lt;strong&gt;各版本要素整理&lt;/strong&gt;.&lt;br&gt;如果还有什么有意思的要素欢迎&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;封面 [ID:94230956]. &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
+    
+    <category term="Schedule" scheme="http://willkyu.github.io/tags/Schedule/"/>
+    
+  </entry>
   
   <entry>
     <title>博客个性化笔记----基于Ocean</title>
@@ -357,7 +379,7 @@
     <link href="http://willkyu.github.io/Archive/1-Pokemon/"/>
     <id>http://willkyu.github.io/Archive/1-Pokemon/</id>
     <published>2021-12-13T09:24:30.000Z</published>
-    <updated>2021-12-20T14:13:52.708Z</updated>
+    <updated>2021-12-24T03:56:34.339Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -446,26 +468,6 @@
     <category term="Collection" scheme="http://willkyu.github.io/tags/Collection/"/>
     
     <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VS. Recorder</title>
-    <link href="http://willkyu.github.io/Pokemon/VS-Recorder/"/>
-    <id>http://willkyu.github.io/Pokemon/VS-Recorder/</id>
-    <published>2021-12-06T12:26:43.000Z</published>
-    <updated>2021-12-17T05:07:34.337Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;此 Blog 用于记录一些宝可梦对战比赛，终有一日成为宝可梦大师！&lt;br&gt;平时比赛可能不是很勤，尽量8.&lt;/p&gt;
-&lt;p&gt;封面 [ID:79621961]. &lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
-    
-    <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
     
   </entry>
   
