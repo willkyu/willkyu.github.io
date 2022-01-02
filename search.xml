@@ -2476,7 +2476,7 @@ a.numel()   #4704 4704 = 2 * 3 * 28 * 28
 <p>如果你想要组建一个自己的强有力的队伍但不知道从何下手，请看下面的链接，里面有一些关于战斗金字塔的攻略：<br><a href="https://www.smogon.com/forums/threads/emerald-battle-pyramid-rmt.3488817/">https://www.smogon.com/forums/threads/emerald-battle-pyramid-rmt.3488817/</a><br><a href="https://gamefaqs.gamespot.com/boards/921905-pokemon-emerald-version/52746591">https://gamefaqs.gamespot.com/boards/921905-pokemon-emerald-version/52746591</a><br><a href="https://www.reddit.com/r/pokemon/comments/68t0uf/i_finally_got_all_7_gold_symbols_in_the_emerald/">https://www.reddit.com/r/pokemon/comments/68t0uf/i_finally_got_all_7_gold_symbols_in_the_emerald/</a><br><a href="https://www.reddit.com/r/pokemon/comments/30npi5/emerald_battle_frontier_team/">https://www.reddit.com/r/pokemon/comments/30npi5/emerald_battle_frontier_team/</a><br><a href="https://www.reddit.com/r/pokemon/comments/48mntm/pok%C3%A9mon_emerald_battle_frontier_guide_how_to_get/">https://www.reddit.com/r/pokemon/comments/48mntm/pok%C3%A9mon_emerald_battle_frontier_guide_how_to_get/</a></p>
 <br>
 
-<h3 id="烧录卡"><a href="#烧录卡" class="headerlink" title="烧录卡"></a>烧录卡</h3><p>烧录卡确实是有些争议的，但如果你仅仅用其备份/导入你的存档的话，我不认为这有什么.<br>你需要一张烧录卡，一个SD卡读卡器，一台电脑和一台 Nintendo DS（Lite 或者初代饭盒）.<br>关于如何备份你的存档可以参见视频：[<a href="https://youtu.be/fWCDzpzAhsk]">https://youtu.be/fWCDzpzAhsk]</a>. </p>
+<h3 id="烧录卡"><a href="#烧录卡" class="headerlink" title="烧录卡"></a>烧录卡</h3><p>烧录卡确实是有些争议的，但如果你仅仅用其备份/导入你的存档的话，我不认为这有什么.<br>你需要一张烧录卡，一个SD卡读卡器，一台电脑和一台 Nintendo DS（Lite 或者初代饭盒）.<br>关于如何备份你的存档可以参见视频：<a href="https://youtu.be/fWCDzpzAhsk">https://youtu.be/fWCDzpzAhsk</a>. </p>
 <blockquote>
 <p>译者注：贴吧等也有很多教程教你如何备份存档，活用搜索引擎. </p>
 </blockquote>
@@ -2496,8 +2496,9 @@ a.numel()   #4704 4704 = 2 * 3 * 28 * 28
 <ul>
 <li>需要6只</li>
 <li>习得四个技能，其中最后一个技能基于你的游戏语言：<br>闪光（美版或德版）/<br>无（法版）（原文是—，不确定是否是不带技能）/<br>觉醒力量（西班牙版）/<br>自然之力（意大利版）/<br>碎岩（日版）</li>
-<li>努力值基于你的游戏语言：语言    物攻努力值    HP努力值<br>:—–:|:——:|:——:<br>法版|41|200<br>美版|41|192<br>西班牙版|148|140<br>德版|41|201<br>日版|67|96<br>意大利版|148|129</li>
+<li>努力值基于你的游戏语言：</li>
 </ul>
+<p>语言    物攻努力值    HP努力值<br>:—–:|:——:|:——:<br>法版|41|200<br>美版|41|192<br>西班牙版|148|140<br>德版|41|201<br>日版|67|96<br>意大利版|148|129</p>
 <blockquote>
 <p>营养饮料 / 强制锻炼器 / 宝可病毒都可以帮助获得努力值</p>
 </blockquote>
