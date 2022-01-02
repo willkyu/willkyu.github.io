@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2021-12-25T02:56:42.967Z</updated>
+  <updated>2022-01-02T15:59:56.327Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>战斗金字塔刷闪教程</title>
+    <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/Battle-Pyramid-Shiny/"/>
+    <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/Battle-Pyramid-Shiny/</id>
+    <published>2022-01-02T14:33:57.000Z</published>
+    <updated>2022-01-02T15:59:56.327Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;对战金字塔中会出现很多平时抓不到的（闪光）宝可梦，但却没有办法抓，是不是很不甘心呢？这篇攻略为你带来了捕捉方法！（&lt;strong&gt;当然很难也有副作用&lt;/strong&gt;）&lt;/p&gt;
+&lt;p&gt;本篇文章为个人译制，可能有些许地方措辞不当，请多包涵！&lt;/p&gt;
+&lt;p&gt;封面 [ID:91220788]. &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
+    
+    <category term="Pomeg Glitch" scheme="http://willkyu.github.io/tags/Pomeg-Glitch/"/>
+    
+    <category term="Double Corruption" scheme="http://willkyu.github.io/tags/Double-Corruption/"/>
+    
+  </entry>
   
   <entry>
     <title>宝可梦火红叶绿实机乱数（不包含 ID 或 Egg）</title>
@@ -403,7 +428,7 @@
     <link href="http://willkyu.github.io/Archive/1-Pokemon/"/>
     <id>http://willkyu.github.io/Archive/1-Pokemon/</id>
     <published>2021-12-13T09:24:30.000Z</published>
-    <updated>2022-01-01T14:22:50.158Z</updated>
+    <updated>2022-01-02T16:03:56.785Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -446,30 +471,6 @@
     <category term="Archive" scheme="http://willkyu.github.io/tags/Archive/"/>
     
     <category term="Game" scheme="http://willkyu.github.io/tags/Game/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>收藏◇知觉丧失◇与不完备定理</title>
-    <link href="http://willkyu.github.io/Archive/1-Collection/"/>
-    <id>http://willkyu.github.io/Archive/1-Collection/</id>
-    <published>2021-12-13T09:04:52.000Z</published>
-    <updated>2021-12-14T05:07:56.129Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;纵然身朽去，心美亦永恒&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;封面 [ID:71672001]. &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Collection" scheme="http://willkyu.github.io/categories/Collection/"/>
-    
-    
-    <category term="Collection" scheme="http://willkyu.github.io/tags/Collection/"/>
-    
-    <category term="Archive" scheme="http://willkyu.github.io/tags/Archive/"/>
     
   </entry>
   
