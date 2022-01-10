@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2022-01-02T17:01:55.275Z</updated>
+  <updated>2022-01-10T17:01:56.111Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>间谍伞日记</title>
+    <link href="http://willkyu.github.io/Game/Undercover-Brella-Diary/"/>
+    <id>http://willkyu.github.io/Game/Undercover-Brella-Diary/</id>
+    <published>2022-01-07T15:54:32.000Z</published>
+    <updated>2022-01-10T17:01:56.111Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;记录间谍伞的心路历程与领悟，希望早日上&lt;strong&gt;X&lt;/strong&gt;！&lt;/p&gt;
+&lt;p&gt;封面 [ID:68572483]. &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Game" scheme="http://willkyu.github.io/categories/Game/"/>
+    
+    
+    <category term="Game" scheme="http://willkyu.github.io/tags/Game/"/>
+    
+    <category term="Splatoon" scheme="http://willkyu.github.io/tags/Splatoon/"/>
+    
+  </entry>
   
   <entry>
     <title>战斗金字塔刷闪教程</title>
@@ -444,33 +466,6 @@
     <category term="Archive" scheme="http://willkyu.github.io/tags/Archive/"/>
     
     <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>游戏◇动机判定◇与去悲剧化</title>
-    <link href="http://willkyu.github.io/Archive/1-Game/"/>
-    <id>http://willkyu.github.io/Archive/1-Game/</id>
-    <published>2021-12-13T09:24:28.000Z</published>
-    <updated>2021-12-20T14:14:05.814Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;真想见识更多的景色啊.&lt;br&gt;正因为知道了世界的广阔和自己的渺小，&lt;br&gt;才会对明天充满希望！&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;有的人说，&lt;br&gt;因为世界如此之大，&lt;br&gt;才有了各种各样的想法.&lt;br&gt;也有的人说，&lt;br&gt;正是因为各种各样的想法，&lt;br&gt;世界才如此广阔.&lt;br&gt;这两种说法，&lt;br&gt;都是正确的.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;封面 [ID:90778756]. &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Game" scheme="http://willkyu.github.io/categories/Game/"/>
-    
-    
-    <category term="Archive" scheme="http://willkyu.github.io/tags/Archive/"/>
-    
-    <category term="Game" scheme="http://willkyu.github.io/tags/Game/"/>
     
   </entry>
   
