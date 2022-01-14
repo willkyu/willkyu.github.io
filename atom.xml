@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2022-01-11T07:12:27.187Z</updated>
+  <updated>2022-01-14T05:27:12.962Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>宝可梦四代实机乱数</title>
+    <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen4/"/>
+    <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen4/</id>
+    <published>2022-01-14T02:01:15.000Z</published>
+    <updated>2022-01-14T05:27:12.962Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这是宝可梦四代的实机乱数教程.&lt;br&gt;包含 ID 与 Egg 的乱数教程.&lt;br&gt;如有纰漏，请&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
+&lt;p&gt;封面 [ID:92026700]. &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
+    
+    <category term="Pokemon-Gen4" scheme="http://willkyu.github.io/tags/Pokemon-Gen4/"/>
+    
+    <category term="Pokemon-RNG-Abuse" scheme="http://willkyu.github.io/tags/Pokemon-RNG-Abuse/"/>
+    
+  </entry>
   
   <entry>
     <title>间谍伞日记</title>
@@ -442,30 +466,6 @@
     <category term="Archive" scheme="http://willkyu.github.io/tags/Archive/"/>
     
     <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>宝可梦◇熵增定律◇与死亡誓言</title>
-    <link href="http://willkyu.github.io/Archive/1-Pokemon/"/>
-    <id>http://willkyu.github.io/Archive/1-Pokemon/</id>
-    <published>2021-12-13T09:24:30.000Z</published>
-    <updated>2022-01-03T02:16:36.518Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;强大的宝可梦，&lt;br&gt;弱小的宝可梦，&lt;br&gt;那只是人的一己之见.&lt;br&gt;真正强大的训练家应该为了用自己喜欢的宝可梦获胜而努力才对哦.&lt;br&gt;你知道什么才是最重要的呢.&lt;br&gt;像以往那样前进吧，&lt;br&gt;冠军在等你哦.&lt;br&gt;——– &lt;em&gt;&lt;strong&gt;梨花&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;封面 [ID:79498766]. &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
-    
-    
-    <category term="Archive" scheme="http://willkyu.github.io/tags/Archive/"/>
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
     
   </entry>
   
