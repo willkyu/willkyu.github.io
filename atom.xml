@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2022-01-14T08:23:28.515Z</updated>
+  <updated>2022-01-15T12:39:03.833Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>宝可梦六代实机乱数（破解机插件辅助 &amp; 不包含蛋）</title>
+    <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen6/"/>
+    <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen6/</id>
+    <published>2022-01-15T08:32:56.000Z</published>
+    <updated>2022-01-15T12:39:03.833Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本文内容不涉及3ds/2ds系列的破解过程，本篇内容均建立在读者已经将3ds/2ds系列破解了的基础上. &lt;/p&gt;
+&lt;p&gt;同时本文使用的是&lt;strong&gt;正版卡带 + 辅助插件&lt;/strong&gt;，未测试相应盗版软件是否可以正常操作. &lt;/p&gt;
+&lt;p&gt;封面 [ID:50105089]. &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
+    
+    <category term="Pokemon-RNG-Abuse" scheme="http://willkyu.github.io/tags/Pokemon-RNG-Abuse/"/>
+    
+    <category term="Pokemon-Gen6" scheme="http://willkyu.github.io/tags/Pokemon-Gen6/"/>
+    
+  </entry>
   
   <entry>
     <title>宝可梦四代实机乱数</title>
@@ -442,30 +467,6 @@
     <category term="Archive" scheme="http://willkyu.github.io/tags/Archive/"/>
     
     <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>生活◇奥康剃刀◇与自由意识</title>
-    <link href="http://willkyu.github.io/Archive/1-Life/"/>
-    <id>http://willkyu.github.io/Archive/1-Life/</id>
-    <published>2021-12-13T09:24:42.000Z</published>
-    <updated>2021-12-20T14:13:01.413Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;重要的人和事物，&lt;br&gt;无论经历多久都不会改变，&lt;br&gt;人们如此祈祷着.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;封面 [ID:76002561]. &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Life" scheme="http://willkyu.github.io/categories/Life/"/>
-    
-    
-    <category term="Archive" scheme="http://willkyu.github.io/tags/Archive/"/>
-    
-    <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
     
   </entry>
   
