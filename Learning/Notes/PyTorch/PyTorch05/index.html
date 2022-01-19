@@ -28,11 +28,7 @@
   
 <script src="/js/pace.min.js"></script>
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="丘丘Blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="丘丘Blog" type="application/atom+xml">
 </head>
 
 
@@ -81,7 +77,6 @@
       
       <p>PyTorch的自动扩展</p>
 <span id="more"></span>
-
 <ul>
 <li>Expand，可以维度扩展</li>
 <li>without copying data，扩展时不用拷贝数据，能节省空间</li>
@@ -90,7 +85,7 @@
 <li>Insert 1 dim ahead</li>
 <li>Expand dims with size 1 to same size</li>
 </ul>
-<p>Feature maps: [4, 32, 14, 14]<br>Bias: [32] –&gt; [32, 1, 1] –&gt; [1, 32, 1, 1] –&gt; [4, 32, 14, 14]</p>
+<p>Feature maps: [4, 32, 14, 14]<br>Bias: [32] —&gt; [32, 1, 1] —&gt; [1, 32, 1, 1] —&gt; [4, 32, 14, 14]</p>
 <p>Broadcast示意图：<br><img src="/images/ImageLoading.gif" data-original="/images/body/PyTorch/PyTorch05.png" alt="Figure1"></p>
 <h3 id="Why-broadcasting"><a href="#Why-broadcasting" class="headerlink" title="Why broadcasting"></a>Why broadcasting</h3><ol>
 <li><p>for actual demanding</p>
@@ -110,16 +105,12 @@
 <li>otherwise, NOT broadcasting-able</li>
 </ul>
 <blockquote>
-<p>例如[8, 32, 8]（8个班，每班32个学生，每个学生修八门课即八个成绩）bias = [5]是 [1]的shape，对八门课都要加，对每个班每个学生都适用 –&gt; [1, 1, 1] —&gt; [32, 32, 8]</p>
-</blockquote>
-<blockquote>
-<p>如果仅对某一门课的成绩添加bias，那么bias = [0, 0, 5, …, 0]是 [8]的shape，每个班每个学生都适用 –&gt; [1, 1, 8] –&gt; [32, 32, 8]</p>
-</blockquote>
-<blockquote>
+<p>例如[8, 32, 8]（8个班，每班32个学生，每个学生修八门课即八个成绩）bias = [5]是 [1]的shape，对八门课都要加，对每个班每个学生都适用 —&gt; [1, 1, 1] —-&gt; [32, 32, 8]</p>
+<p>如果仅对某一门课的成绩添加bias，那么bias = [0, 0, 5, …, 0]是 [8]的shape，每个班每个学生都适用 —&gt; [1, 1, 8] —&gt; [32, 32, 8]</p>
 <p>A: [4, 32, 8], bias: [4]  NOT broadcasting-able</p>
 </blockquote>
-<h3 id="Situation"><a href="#Situation" class="headerlink" title="Situation"></a>Situation</h3><h4 id="Situation-1"><a href="#Situation-1" class="headerlink" title="Situation 1"></a>Situation 1</h4><p>A: [4, 32, 14, 14]<br>B: [1, 32, 1, 1] –&gt; [4, 32, 14, 14]</p>
-<h4 id="Situation-2"><a href="#Situation-2" class="headerlink" title="Situation 2"></a>Situation 2</h4><p>A: [4, 32, 14, 14]<br>B: [14, 14] –&gt; [1, 1, 14, 14] –&gt; [4, 32, 14, 14]</p>
+<h3 id="Situation"><a href="#Situation" class="headerlink" title="Situation"></a>Situation</h3><h4 id="Situation-1"><a href="#Situation-1" class="headerlink" title="Situation 1"></a>Situation 1</h4><p>A: [4, 32, 14, 14]<br>B: [1, 32, 1, 1] —&gt; [4, 32, 14, 14]</p>
+<h4 id="Situation-2"><a href="#Situation-2" class="headerlink" title="Situation 2"></a>Situation 2</h4><p>A: [4, 32, 14, 14]<br>B: [14, 14] —&gt; [1, 1, 14, 14] —&gt; [4, 32, 14, 14]</p>
 <h4 id="Situation-3"><a href="#Situation-3" class="headerlink" title="Situation 3"></a>Situation 3</h4><p>A: [4, 32, 14, 14]<br>B: [2, 32, 14, 14]<br>NOT broadcasting-able</p>
 <h3 id="How-to-understand-this-behavior"><a href="#How-to-understand-this-behavior" class="headerlink" title="How to understand this behavior?"></a>How to understand this behavior?</h3><h4 id="When-it-has-no-dim"><a href="#When-it-has-no-dim" class="headerlink" title="When it has no dim"></a>When it has no dim</h4><ul>
 <li>treat it as all own the same</li>
@@ -129,13 +120,13 @@
 <li>treat it shared by all</li>
 <li>[class, student, scores] + [student, 1]（a学生所有课程 + 0，b学生所有课程 + 1 …这种情况）</li>
 </ul>
-<p><em><strong>match from LAST dim</strong></em></p>
+<p><strong><em>match from LAST dim</em></strong></p>
 <p>+ [1, 1, 1, 1] 等价 + [1]</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch05/" data-id="ckxjqvr8k001zn0stguw70top" class="article-share-link">
+      <a data-url="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch05/" data-id="ckyk58t0f001xj4stdamrga2n" class="article-share-link">
         Share
       </a>
       

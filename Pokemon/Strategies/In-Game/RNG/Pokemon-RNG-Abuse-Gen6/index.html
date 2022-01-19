@@ -28,11 +28,7 @@
   
 <script src="/js/pace.min.js"></script>
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="丘丘Blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="丘丘Blog" type="application/atom+xml">
 </head>
 
 
@@ -80,35 +76,37 @@
       
       
       <p>本文内容不涉及3ds/2ds系列的破解过程，本篇内容均建立在读者已经将3ds/2ds系列破解了的基础上. </p>
-<p>同时本文使用的是<strong>正版卡带 + 辅助插件</strong>，未测试相应盗版软件是否可以正常操作. </p>
+<p>同时本文使用的是<strong>正版卡带 + 辅助插件</strong>，相应盗版软件无法正常操作. </p>
 <p>封面 [ID:50105089]. </p>
 <span id="more"></span>
-
-
 <p><strong>注意，本教程仅支持宝可梦六代正作游戏：</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">Version</th>
-<th align="center">X</th>
-<th align="center">Y</th>
-<th align="center">欧米伽红宝石</th>
-<th align="center">阿尔法蓝宝石</th>
-<th align="center">其他</th>
+<th style="text-align:center">Version</th>
+<th style="text-align:center">X</th>
+<th style="text-align:center">Y</th>
+<th style="text-align:center">欧米伽红宝石</th>
+<th style="text-align:center">阿尔法蓝宝石</th>
+<th style="text-align:center">其他</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">Support</td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✔</td>
-<td align="center">✘</td>
+<tbody>
+<tr>
+<td style="text-align:center">Support</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>本篇搬运+修改自<strong>無論</strong>的原博客：<a target="_blank" rel="noopener" href="https://wulun0102.github.io/2021-08-21/%E5%8F%A3%E8%A2%8B%E5%A6%96%E6%80%AA%E7%AC%AC%E5%85%AD%E4%B8%96%E4%BB%A3-ORAS%E4%B9%B1%E6%95%B0%E8%AE%B0%E5%BD%95/">口袋妖怪第六世代-ORAS乱数记录</a>.</p>
 <p>授权图：<br><img src="/images/ImageLoading.gif" data-original="/images/body/Pokemon-RNG-Abuse-Gen6/Authorization.jpg" alt="Authorization"></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文仅写出了自己在使用插件过程中遇到的BUG，如果有其他小伙伴出现了其他问题，可以跳转到参考网址中相关插件的发布网址寻求答案.<br>关于原始<strong>（非破解）</strong>的Seed确定方法我找到了一篇文章：<a target="_blank" rel="noopener" href="https://sina-poke.hatenablog.com/entry/2017/05/06/000557">第六世代固定シンボル乱数調整のやり方 - かけらの記録ノート</a>. 总的来说非常繁琐，值得尝试但不建议推广. 参考文章中也有说到六代的乱数麻烦在哪里，在这里就不再赘述了. </p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文仅写出了自己在使用插件过程中遇到的BUG，如果有其他小伙伴出现了其他问题，可以跳转到参考网址中相关插件的发布网址寻求答案.<br>关于原始 <strong>（非破解）</strong> 的Seed确定方法我找到了一篇文章：<a target="_blank" rel="noopener" href="https://sina-poke.hatenablog.com/entry/2017/05/06/000557">第六世代固定シンボル乱数調整のやり方 - かけらの記録ノート</a>. 总的来说非常繁琐，值得尝试但不建议推广. 参考文章中也有说到六代的乱数麻烦在哪里，在这里就不再赘述了. </p>
 <p>成果展示：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV13v411N74t?spm_id_from=333.999.0.0">無論的b站视频</a></p>
 <blockquote>
 <p>如果你在找 3DS 系列的破解教程，请参考 <a target="_blank" rel="noopener" href="https://stray-soul.com/index.php/3dshack-getstarted">3DS/2DS破解-开始  -一只火狐的杂物间</a> 或者 <a target="_blank" rel="noopener" href="https://3ds.hacks.guide/">这里</a>.</p>
@@ -142,10 +140,8 @@
 <li><strong>针对 O3DS 和 O2DS</strong>：请在<a target="_blank" rel="noopener" href="https://www.pokemonrng.com/misc-3ds-installing-pcalc">How to Install PCalc</a>中寻找，但是ORAS对O3DS并不支持. </li>
 </ul>
 <h2 id="故障排除："><a href="#故障排除：" class="headerlink" title="故障排除："></a>故障排除：</h2><ul>
-<li><p>（主要是3DS固件版本过高和Luma的问题？）</p>
-</li>
-<li><p>BootNTR Selector 下最高版本的没有问题（需要）</p>
-</li>
+<li>（主要是3DS固件版本过高和Luma的问题？）</li>
+<li>BootNTR Selector 下最高版本的没有问题（需要）</li>
 <li><p>我用的是 <strong>Luma3ds 10.2.1</strong> 与 <strong>3DS 11.14.0 固件</strong></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://support.sudomemo.net/info-about-2ds-3ds-system-version-11-14/">Important Information about 2DS/3DS System Version 11.14</a></p>
@@ -184,8 +180,7 @@
 </blockquote>
 <h2 id="游戏版本故障排除"><a href="#游戏版本故障排除" class="headerlink" title="游戏版本故障排除"></a>游戏版本故障排除</h2><p>如果使用 ORAS 和 PCalc 不起作用：</p>
 <ul>
-<li><p>确保你有最新更新的游戏补丁. </p>
-</li>
+<li>确保你有最新更新的游戏补丁. </li>
 <li><p>ORAS为v1.4. 游戏版本可以在系统设置里面找到. </p>
 <blockquote>
 <p>（System Settings —&gt; Data Management —&gt; NINTENDO 3DS —&gt; Downloadable Content）</p>
@@ -226,30 +221,26 @@
 <h1 id="乱数ID"><a href="#乱数ID" class="headerlink" title="乱数ID"></a>乱数ID</h1><p>详情 <a target="_blank" rel="noopener" href="https://www.pokemonrng.com/retail-oras-tid">Trainer ID RNG（ORAS）</a>、<a target="_blank" rel="noopener" href="https://www.pokemonrng.com/pcalc-xy-tid">Trainer ID, Secret ID, and/or TSV RNG（XY）</a>中已经写明了，我在这里只简单的说一些事项.<br><img src="/images/ImageLoading.gif" data-original="/images/body/Pokemon-RNG-Abuse-Gen6/Trainer-ID-RNG.png" alt="Trainer ID RNG"></p>
 <ol>
 <li>打开 <code>wwwwwwzx</code> 大佬的乱数工具 <strong>3DSRNGTool</strong></li>
-<li>获取开始帧信息（gen6下方的四组数据）</li>
-</ol>
-<ul>
+<li>获取开始帧信息（gen6下方的四组数据）<ul>
 <li>方法1：使用NTR助手（非必须，需要在局域网下进行）</li>
 <li>方法2：手动填入</li>
 <li><strong>注意事项</strong>：这里不需要关注frame对应的seed，因为这里的乱数信息在很早就已经确定并且不是以60帧/s的速度改变ID数据，只需要注意给<strong>角色取名</strong>时的关键节点进行帧信息的获取就好. （具体方法请看上面的网址和<a target="_blank" rel="noopener" href="https://github.com/wwwwwwzx/3DSRNGTool#readme">wwwwwwzx大佬GitHub中的<code>Readme.md</code>文件</a>）</li>
 </ul>
-<ol start="3">
-<li>决定ID信息</li>
-</ol>
-<ul>
+</li>
+<li>决定ID信息<ul>
 <li>如上面所述这里的乱数信息不是跟随图像变化的，消耗帧的方法是<strong>给角色取名之后再取消</strong>，过程相对比较繁琐所以我当时只刷了几遍，看到4999就收了emmm</li>
 <li>乱这个的时候建议多过几遍最开始的剧情找个好的开始帧…这样轻松一些（建议使用NTR助手）</li>
 <li>NTR Helper里面的那个自动过帧我没玩儿明白反正…</li>
 </ul>
-<ol start="4">
-<li>记录ID信息</li>
-</ol>
-<ul>
+</li>
+<li>记录ID信息<ul>
 <li>我个人建议在你乱出来ID之后，记录一下对应的表里ID（也就是TID &amp; SID）他们共同决定了你的闪值（TSV）<blockquote>
 <p>在六七代中训练家的TSV和获得宠物（初次取名）时的PSV是否相同决定了宠物是否为异色</p>
 </blockquote>
 </li>
 </ul>
+</li>
+</ol>
 <h1 id="确定TSV"><a href="#确定TSV" class="headerlink" title="确定TSV"></a>确定TSV</h1><ul>
 <li>如果你之前乱数过ID并记录了对应的TSV，请跳过这步并在乱数工具对应的位置上填好tsv</li>
 <li>如果没有乱数过，请继续往下看</li>
@@ -265,28 +256,30 @@
 <li>再选择红色框中的那个“OT/…”（初训家&amp; ？）</li>
 <li>鼠标悬浮到SID（or TID）里面的数字上就能看到你的TSV了</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">需要注意的参数</th>
-<th align="center">TSV显示</th>
+<th style="text-align:center">需要注意的参数</th>
+<th style="text-align:center">TSV显示</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><img src="/images/ImageLoading.gif" data-original="/images/body/Pokemon-RNG-Abuse-Gen6/pkhex1.png" alt="pkhex1"></td>
-<td align="center"><img src="/images/ImageLoading.gif" data-original="/images/body/Pokemon-RNG-Abuse-Gen6/pkhex2.png" alt="pkhex2"></td>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/images/ImageLoading.gif" data-original="/images/body/Pokemon-RNG-Abuse-Gen6/pkhex1.png" alt="pkhex1"></td>
+<td style="text-align:center"><img src="/images/ImageLoading.gif" data-original="/images/body/Pokemon-RNG-Abuse-Gen6/pkhex2.png" alt="pkhex2"></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h1 id="乱数宝可梦"><a href="#乱数宝可梦" class="headerlink" title="乱数宝可梦"></a>乱数宝可梦</h1><h2 id="3DSRNGTOOL界面设置"><a href="#3DSRNGTOOL界面设置" class="headerlink" title="3DSRNGTOOL界面设置"></a>3DSRNGTOOL界面设置</h2><p>以下是3DS乱数工具中会用到以及需要调整的部分</p>
 <ul>
-<li>蓝色框中注意TSV是否填写正确（如果不知道请跳转到上方<a href="#%E7%A1%AE%E5%AE%9Atsv">确定TSV</a>）</li>
+<li>蓝色框中注意TSV是否填写正确（如果不知道请跳转到上方<a href="#确定tsv">确定TSV</a>）</li>
 <li>红色框中注意每次的 <em>Init Seed</em> （在点击神兽界面变化之后的）和延迟（因为不同神兽的捕获地点入场动画不同，所以对应的延迟参数也不同）</li>
 <li>请确认蓝色框和红色框的数据之后再点击绿色框</li>
 <li><strong>注意！</strong>黄色框的同步性格选项不会对下面结果有任何影响 依旧是是50%几率替换对应帧的性格Orz</li>
 </ul>
-<h2 id="PCALC-工具使用"><a href="#PCALC-工具使用" class="headerlink" title="PCALC 工具使用"></a>PCALC 工具使用</h2><p>组合键使用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">- X+Up: Key Combo Menu</span><br><span class="line">- Start+Down: Egg Seed View</span><br><span class="line">- Start+Up: RNG Tools</span><br><span class="line">- Start+Left: Wild Pokemon View</span><br><span class="line">- Start+Right: Party Pokemon View</span><br><span class="line">- Select+Left: Party Pokemon View -1 Slot</span><br><span class="line">  - Plugin switches to the other daycare in Egg View</span><br><span class="line">  - Plugin switches Horde Pokemon -1 Slot in Wild View</span><br><span class="line">- Select+Right: Party Pokemon View +1 Slot</span><br><span class="line">  - Plugin switches to the other daycare in Egg View</span><br><span class="line">  - Plugin switches Horde Pokemon +1 Slotin Wild View</span><br><span class="line">- Start+Select: Pause Game</span><br><span class="line">- Pause+A: Unpause Game</span><br><span class="line">  - Additionally, press any D-Pad and the &quot;Y&quot; button plus A to unpause as well</span><br><span class="line">    - (This helps with certain RNG types)</span><br><span class="line">- Pause+Start: Unpause Game</span><br><span class="line">- Pause+Select: Advance One Frame</span><br></pre></td></tr></table></figure>
-<p>这个里面我们主要用到 <code>Start+Select</code> &amp; <code>Pause+Select</code>，简单翻译就是先使用 <code>Start+Select</code> 暂停帧跳动，然后再在 <em>Pause</em> 状态下单独按 <code>Select</code> 让游戏消耗一帧. </p>
+<h2 id="PCALC-工具使用"><a href="#PCALC-工具使用" class="headerlink" title="PCALC 工具使用"></a>PCALC 工具使用</h2><p>组合键使用<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">- X+Up: Key Combo Menu</span><br><span class="line">- Start+Down: Egg Seed View</span><br><span class="line">- Start+Up: RNG Tools</span><br><span class="line">- Start+Left: Wild Pokemon View</span><br><span class="line">- Start+Right: Party Pokemon View</span><br><span class="line">- Select+Left: Party Pokemon View -1 Slot</span><br><span class="line">  - Plugin switches to the other daycare in Egg View</span><br><span class="line">  - Plugin switches Horde Pokemon -1 Slot in Wild View</span><br><span class="line">- Select+Right: Party Pokemon View +1 Slot</span><br><span class="line">  - Plugin switches to the other daycare in Egg View</span><br><span class="line">  - Plugin switches Horde Pokemon +1 Slotin Wild View</span><br><span class="line">- Start+Select: Pause Game</span><br><span class="line">- Pause+A: Unpause Game</span><br><span class="line">  - Additionally, press any D-Pad and the &quot;Y&quot; button plus A to unpause as well</span><br><span class="line">    - (This helps with certain RNG types)</span><br><span class="line">- Pause+Start: Unpause Game</span><br><span class="line">- Pause+Select: Advance One Frame</span><br></pre></td></tr></table></figure><br>这个里面我们主要用到 <code>Start+Select</code> &amp; <code>Pause+Select</code>，简单翻译就是先使用 <code>Start+Select</code> 暂停帧跳动，然后再在 <em>Pause</em> 状态下单独按 <code>Select</code> 让游戏消耗一帧. </p>
 <h3 id="部分故障排除"><a href="#部分故障排除" class="headerlink" title="部分故障排除"></a>部分故障排除</h3><ul>
 <li>我按了”A”，但我的战斗没有开始/没有点击上”A”<ul>
 <li>确保按住”A”，而不是轻点它</li>
@@ -302,24 +295,20 @@
 <li>other：<a target="_blank" rel="noopener" href="https://gbatemp.net/threads/pokecalcntr-for-gen-6-the-rng-tool-suite-for-the-3ds.473221/">pokeCalcNTR for Gen 6 - The RNG Tool Suite for the 3ds</a></li>
 </ul>
 <h2 id="操作流程（通用）"><a href="#操作流程（通用）" class="headerlink" title="操作流程（通用）"></a>操作流程（通用）</h2><ol>
-<li>进入 <strong>BootNTR Selector</strong> 显示 <em>Succeeded</em> &amp; 屏幕一篮  —&gt;  进入游戏屏幕一绿（就可以开工了）</li>
-<li>在选择存档界面输入 <em>Init Seed</em> 到 3DSRNGTool 里面计算是否有合适的目标帧</li>
-</ol>
-<ul>
+<li>进入 <strong>BootNTR Selector</strong> 显示 <em>Succeeded</em> &amp; 屏幕一篮  —-&gt;  进入游戏屏幕一绿（就可以开工了）</li>
+<li>在选择存档界面输入 <em>Init Seed</em> 到 3DSRNGTool 里面计算是否有合适的目标帧<ul>
 <li>如果没有，按 <strong>B</strong> 回到神兽界面，再按 <strong>A</strong> 进入刷新 <em>Init Seed</em> ，道理同SL<br><img src="/images/ImageLoading.gif" data-original="/images/body/Pokemon-RNG-Abuse-Gen6/InitSeed.png" alt="InitSeed"></li>
 </ul>
-<ol start="3">
+</li>
 <li>确定停止界面（离目标帧大约100帧内 然后用select慢慢逼近）</li>
 <li>校准延迟（不同神兽的场景对应这不同击中时机，可以根据自己机器的情况改变 3DSRNGTool 中的延迟参数）</li>
-<li>精确调整帧数（逐步使用<strong>Select</strong> <a href="#%E9%83%A8%E5%88%86%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4">注意：击中的帧数是奇数还是偶数</a>）</li>
-</ol>
-<ul>
+<li>精确调整帧数（逐步使用<strong>Select</strong> <a href="#部分故障排除">注意：击中的帧数是奇数还是偶数</a>）<ul>
 <li>使用 PCalc，在游戏选择屏幕上等待，直到接近您想要的Frame</li>
 <li>一旦你接近你想要的Frame，按<strong>Start+Select</strong>暂停游戏</li>
 <li>按<strong>Select</strong>逐帧前进，直到达到您想要的Frame</li>
 <li>到达所需Frame后，<strong>按住A</strong></li>
 </ul>
-<ol start="6">
+</li>
 <li>击中目标帧</li>
 </ol>
 <h2 id="部分场景的逐步调整击中帧的界面"><a href="#部分场景的逐步调整击中帧的界面" class="headerlink" title="部分场景的逐步调整击中帧的界面"></a>部分场景的逐步调整击中帧的界面</h2><ul>
@@ -333,25 +322,26 @@
 </ul>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://wulun0102.github.io/2021-08-21/%E5%8F%A3%E8%A2%8B%E5%A6%96%E6%80%AA%E7%AC%AC%E5%85%AD%E4%B8%96%E4%BB%A3-ORAS%E4%B9%B1%E6%95%B0%E8%AE%B0%E5%BD%95/">口袋妖怪第六世代-ORAS乱数记录</a></li>
-<li> <a target="_blank" rel="noopener" href="https://stray-soul.com/index.php/3dshack-getstarted">3DS/2DS破解-开始  -一只火狐的杂物间</a></li>
+<li><a target="_blank" rel="noopener" href="https://stray-soul.com/index.php/3dshack-getstarted">3DS/2DS破解-开始  -一只火狐的杂物间</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.pokemonrng.com/misc-3ds-installing-pcalc">How to Install PCalc</a></li>
 <li><a target="_blank" rel="noopener" href="https://sina-poke.hatenablog.com/entry/2017/05/06/000557">第六世代固定シンボル乱数調整のやり方 - かけらの記録ノート</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.pokemonrng.com/retail-oras-tid">Trainer ID RNG</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.pokemonrng.com/pcalc-xy-tid">Trainer ID, Secret ID, and/or TSV RNG</a></li>
 <li><a target="_blank" rel="noopener" href="https://gbatemp.net/threads/pokecalcntr-for-gen-6-the-rng-tool-suite-for-the-3ds.473221/">pokeCalcNTR for Gen 6 - The RNG Tool Suite for the 3ds</a></li>
-<li><a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/5168730356?pid=108235360876&cid=0#108235360876">【乱数】3ds乱数工具+6代一些游戏机制的补充【口袋妖怪吧】</a></li>
-<li><a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/5168730356?pid=108235360876&cid=0#108235360876">常见问题 - 3DS Hacks Guide</a></li>
+<li><a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/5168730356?pid=108235360876&amp;cid=0#108235360876">【乱数】3ds乱数工具+6代一些游戏机制的补充【口袋妖怪吧】</a></li>
+<li><a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/5168730356?pid=108235360876&amp;cid=0#108235360876">常见问题 - 3DS Hacks Guide</a></li>
 <li><a target="_blank" rel="noopener" href="https://stray-soul.com/index.php/how-to-use-bootntr">3DS BootNTR金手指使用教程 - 一只火狐的杂物间一只火狐的杂物间</a></li>
 <li><a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/7108473529">BootNTRSelector 2.13.4更新支持11.14【3ds破解吧】_百度贴吧</a></li>
 </ul>
 <h1 id="Appreciation"><a href="#Appreciation" class="headerlink" title="Appreciation"></a>Appreciation</h1><ul>
 <li>感谢<strong>無論</strong>的授权，可以去<a target="_blank" rel="noopener" href="https://wulun0102.github.io/">無論的博客</a>看看.</li>
+<li>感谢<strong>wwwwwwzx</strong>大佬的研究成果.</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen6/" data-id="ckyft8hta0000z8stfdg3dfft" class="article-share-link">
+      <a data-url="http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen6/" data-id="ckyk58t1o006dj4st1l8x5tb1" class="article-share-link">
         Share
       </a>
       
@@ -364,6 +354,15 @@
   
   
 <nav class="article-nav">
+  
+  <a href="/Learning/Notes/GraIL/" class="article-nav-link">
+    <strong class="article-nav-caption">Newer</strong>
+    <div class="article-nav-title">
+      
+      GraIL
+      
+    </div>
+  </a>
   
   
   <a href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen4/" class="article-nav-link">

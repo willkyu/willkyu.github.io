@@ -28,11 +28,7 @@
   
 <script src="/js/pace.min.js"></script>
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="丘丘Blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="丘丘Blog" type="application/atom+xml">
 </head>
 
 
@@ -81,7 +77,6 @@
       
       <p>梯度下降，激活函数，与常见Loss</p>
 <span id="more"></span>
-
 <h3 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h3><p>新值 = 当前值 - 学习率 * 梯度</p>
 <ul>
 <li>可能会收敛到局部极小值</li>
@@ -90,32 +85,27 @@
 <li>使用sigmoid函数当x很大的时候导数趋向于0，数据会得不到更新，这种现象叫做梯度弥散</li>
 </ul>
 <h3 id="一些激活函数"><a href="#一些激活函数" class="headerlink" title="一些激活函数"></a>一些激活函数</h3><h4 id="Sigmoid"><a href="#Sigmoid" class="headerlink" title="Sigmoid"></a>Sigmoid</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">z = torch.linspace(-100, 100, 10)</span><br><span class="line">z   #tensor([-100.0000, -77.7778, -55.5556, -33.3333, -11.1111, 11.1111, 33.3333, 55.5556, 77.7778, 100.0000])</span><br><span class="line">torch.sigmoid(z)</span><br><span class="line">#tensor([0.0000e+00, 1.6655e-34, 7.4564e-25, 3.3382e-15, 1.4945e-05, 9.9999e-01, 1.0000e+00, 1.0000e+00, 1.0000e+00, 1.0000e+00])</span><br></pre></td></tr></table></figure>
-
 <h4 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h4><p><code>tanh(x) = 2sigmoid(2x) - 1</code><br>类似sigmoid，值域(-1, 1)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = torch.linspace(-1, 1, 10)</span><br><span class="line">torch.tanh(a)</span><br></pre></td></tr></table></figure>
-
 <h4 id="ReLU-Rectified-Linear-Unit"><a href="#ReLU-Rectified-Linear-Unit" class="headerlink" title="ReLU (Rectified Linear Unit)"></a>ReLU (Rectified Linear Unit)</h4><ul>
 <li>使用很多，奠基石</li>
 <li>减少了梯度弥散和梯度爆炸的出现</li>
 <li>使用<code>torch.relu(a)</code>或<code>F.relu(a)</code>（<code>import torch.nn.functional as F</code>）</li>
 </ul>
-<h4 id="Softmax（soft-version-of-max）"><a href="#Softmax（soft-version-of-max）" class="headerlink" title="Softmax（soft version of max）"></a>Softmax（soft version of max）</h4><p>输入y: [y1, y2, …, yn] ，输出p: [p1, p2, …, pn]且sum(p) = 1<br><code>S(yi) = exp(yi) / sum(exp(y))</code><br>如y:[2.0, 1.0, 0.1] —&gt; p: [0.7, 0.2, 0.1]<br>会让大的更大，小的压缩在一个更密集的空间<br>梯度<code>dpi_daj</code>：</p>
+<h4 id="Softmax（soft-version-of-max）"><a href="#Softmax（soft-version-of-max）" class="headerlink" title="Softmax（soft version of max）"></a>Softmax（soft version of max）</h4><p>输入y: [y1, y2, …, yn] ，输出p: [p1, p2, …, pn]且sum(p) = 1<br><code>S(yi) = exp(yi) / sum(exp(y))</code><br>如y:[2.0, 1.0, 0.1] —-&gt; p: [0.7, 0.2, 0.1]<br>会让大的更大，小的压缩在一个更密集的空间<br>梯度<code>dpi_daj</code>：</p>
 <ul>
 <li>i = j: <code>dpi_dai = pi * (1 - pi)</code> &gt; 0</li>
 <li>i != j:<code>dpi_daj = - pj * pi</code> &lt; 0</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">a = torch.rand(3)</span><br><span class="line">a.requires_grad_()</span><br><span class="line"></span><br><span class="line">p = F.softmax(a, dim = 0)</span><br><span class="line">#每次求导会将梯度信息清除</span><br><span class="line">#应该在第一次函数内加入retain_graph = True参数</span><br><span class="line"></span><br><span class="line">p = F.softmax(a, dim = 0)</span><br><span class="line">torch.autograd.grad(p[1], [a], retain_graph = True)</span><br><span class="line">#tensor([-0.0828, 0.2274, -0.1447]) 索引1为正</span><br><span class="line">torch.autograd.grad(p[2], [a])</span><br><span class="line">#tensor([-0.0979, -0.1447, 0.2425]) 索引2为正</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p.backward()</span><br><span class="line">--------ERROR--------</span><br><span class="line">#p是向量，这样.backward()会报错</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <h3 id="Loss及其梯度"><a href="#Loss及其梯度" class="headerlink" title="Loss及其梯度"></a>Loss及其梯度</h3><h4 id="均方差MSE（Mean-Squared-Error）"><a href="#均方差MSE（Mean-Squared-Error）" class="headerlink" title="均方差MSE（Mean Squared Error）"></a>均方差MSE（Mean Squared Error）</h4><p><code>loss = sum((y - y_pred) ** 2)</code><br>不是L2-norm<br><code>L2-norm = sqrt(sum((y - y+pred) ** 2))</code><br>可以使用norm()函数<br><code>loss = norm.norm(y - y_pred, 2).pow(2)</code><br>梯度：<code>dloss_dx = 2 * sum(y - y_pred) * dy_pred_dx</code></p>
-<p>使用PyTorch求导</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">x = torch.ones(1)</span><br><span class="line">w = torch.full([1], 2)</span><br><span class="line">mse = F.mse_loss(x * w, torch.ones(1))  #第一个参数为predict值，第二个参数为label</span><br><span class="line">#tensor(1.)</span><br><span class="line"></span><br><span class="line">torch.autograd.grad(mse, [w])</span><br><span class="line">#第一个参数y，第二个参数[x1, x2, ...]</span><br><span class="line">#tensor定义时默认不需要求导信息，所以w无法求导 </span><br><span class="line">--------ERROR--------</span><br><span class="line"></span><br><span class="line">#对w进行更新或者在定义w时加入参数requires_grad = True</span><br><span class="line">w.requires_grad_()</span><br><span class="line">    #tensor([2.], requires_grad = True)</span><br><span class="line">    #这时求梯度仍然会报错，因为PyTorch是动态图（做一步计算一步图），要先更新一下mse</span><br><span class="line">mse = F.mse_loss(x * w, torch.ones(1))</span><br><span class="line"></span><br><span class="line">torch.autograd.grad(mse, [w])   #tensor([2.])                                                                                                                 </span><br><span class="line"></span><br><span class="line">mse.backward()</span><br><span class="line">mse.grad            #tensor([2.])</span><br></pre></td></tr></table></figure>
-
+<p>使用PyTorch求导<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">x = torch.ones(1)</span><br><span class="line">w = torch.full([1], 2)</span><br><span class="line">mse = F.mse_loss(x * w, torch.ones(1))  #第一个参数为predict值，第二个参数为label</span><br><span class="line">#tensor(1.)</span><br><span class="line"></span><br><span class="line">torch.autograd.grad(mse, [w])</span><br><span class="line">#第一个参数y，第二个参数[x1, x2, ...]</span><br><span class="line">#tensor定义时默认不需要求导信息，所以w无法求导 </span><br><span class="line">--------ERROR--------</span><br><span class="line"></span><br><span class="line">#对w进行更新或者在定义w时加入参数requires_grad = True</span><br><span class="line">w.requires_grad_()</span><br><span class="line">    #tensor([2.], requires_grad = True)</span><br><span class="line">    #这时求梯度仍然会报错，因为PyTorch是动态图（做一步计算一步图），要先更新一下mse</span><br><span class="line">mse = F.mse_loss(x * w, torch.ones(1))</span><br><span class="line"></span><br><span class="line">torch.autograd.grad(mse, [w])   #tensor([2.])                                                                                                                 </span><br><span class="line"></span><br><span class="line">mse.backward()</span><br><span class="line">mse.grad            #tensor([2.])</span><br></pre></td></tr></table></figure></p>
 <h3 id="Cross-Entropy-Loss"><a href="#Cross-Entropy-Loss" class="headerlink" title="Cross Entropy Loss"></a>Cross Entropy Loss</h3><p>之后介绍</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch10/" data-id="ckxjqvr8m0025n0stczbs0cix" class="article-share-link">
+      <a data-url="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch10/" data-id="ckyk58t0j002cj4st1ajm1o0a" class="article-share-link">
         Share
       </a>
       

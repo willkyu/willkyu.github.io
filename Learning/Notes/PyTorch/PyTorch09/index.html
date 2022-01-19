@@ -28,11 +28,7 @@
   
 <script src="/js/pace.min.js"></script>
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="丘丘Blog" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="丘丘Blog" type="application/atom+xml">
 </head>
 
 
@@ -81,15 +77,11 @@
       
       <p>记录了PyTorch中两个高阶操作：<code>Where</code>与<code>Gather</code></p>
 <span id="more"></span>
-
 <h2 id="Where"><a href="#Where" class="headerlink" title="Where"></a>Where</h2><p><code>torch.where(condition, x, y)</code>  </p>
 <p>满足condition的 返回x，否则返回y</p>
 <p>x、y、condition的shape相同</p>
-<p>condition矩阵: </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tensor([[1, 0],</span><br><span class="line">        [0, 1]])</span><br></pre></td></tr></table></figure>
-<p>那么A的地方取x对应元素，B的地方取y对应元素</p>
+<p>condition矩阵:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tensor([[1, 0],</span><br><span class="line">        [0, 1]])</span><br></pre></td></tr></table></figure><br>那么A的地方取x对应元素，B的地方取y对应元素</p>
 <h4 id="example"><a href="#example" class="headerlink" title="example"></a>example</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cond        #tensor([[0.6769, 0.7271],</span><br><span class="line">                     [0.8884, 0.4163]])</span><br><span class="line">a           #tensor([[0., 0.],</span><br><span class="line">                     [0., 0.]])  </span><br><span class="line">b           #tensor([[1., 1.],</span><br><span class="line">                     [1., 1.]])</span><br><span class="line">                     </span><br><span class="line">torch.where(cond &gt; 0.5, a, b)</span><br><span class="line">#tensor([[0., 0.],</span><br><span class="line">         [0., 1.]])</span><br></pre></td></tr></table></figure>
-
 <h2 id="Gather"><a href="#Gather" class="headerlink" title="Gather"></a>Gather</h2><p><code>torch.gather(input, dim, index, out = None)</code></p>
 <blockquote>
 <p>index是表，dim是查表的维度，index是需要查的index</p>
@@ -101,7 +93,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch09/" data-id="ckxjqvr8n0029n0st7uf25ktj" class="article-share-link">
+      <a data-url="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch09/" data-id="ckyk58t0l002ij4st3epv0n04" class="article-share-link">
         Share
       </a>
       
