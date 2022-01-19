@@ -4,7 +4,7 @@
     <title>置顶◇代办◇与更新记录</title>
     <url>/Archive/The-First-Blog/</url>
     <content><![CDATA[<p>欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！<br />
-此博客基于 <a href="https://hexo.io/">Hexo</a> 打造，主题使用的是 <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a>.</p>
+此博客基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span> 打造，主题使用的是 <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy8=">NexT<i class="fa fa-external-link-alt"></i></span>.</p>
 <p>当你在阅读的时候有任何的问题,欢迎与我联系.</p>
 <p>封面 [ID:85357809].</p>
 <span id="more"></span>
@@ -83,7 +83,7 @@ AnyTime.</li>
 <li>2021-12-17 实现Gitalk评论功能，使用GitHub账号登陆，支持MarkDown语法. 此外新增指定post开启评论功能.<br />
 <em><strong>请不要发布无意义的评论</strong></em><br />
 当你在某篇文章下评论后，如果有其他人跟帖，你也会收到GitHub邮件提醒.<br />
-如果想要取消，请前去<a href="https://github.com/willkyu/Hexo-Gitalk/issues">Issues</a>中找到对应<strong>Issue</strong>，进入后选择右侧栏的取消订阅 <em>Unsubscribe</em> 即可.</li>
+如果想要取消，请前去<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dpbGxreXUvSGV4by1HaXRhbGsvaXNzdWVz">Issues<i class="fa fa-external-link-alt"></i></span>中找到对应<strong>Issue</strong>，进入后选择右侧栏的取消订阅 <em>Unsubscribe</em> 即可.</li>
 </ul>
 <h2 id="完善博客相册"><a class="markdownIt-Anchor" href="#完善博客相册"></a> 完善博客相册</h2>
 <ul>
@@ -100,34 +100,73 @@ No Hurry.</li>
 </ul>
 <h2 id="个性化博客"><a class="markdownIt-Anchor" href="#个性化博客"></a> 个性化博客</h2>
 <ul>
-<li>2021-12-01 更新了首页视频为 <strong>《GOTCHA》</strong> 片段.</li>
-<li>2021-12-02 开启Gallery功能.</li>
-<li>2021-12-02 新增Favorites页面.</li>
-<li>2021-12-02 更新了谜拟Q的icon.</li>
-<li>2021-12-03 更新了404页面.<br />
-404界面的图片：[ID:29310361].
+<li>
+<p>2021-12-01 更新了首页视频为 <strong>《GOTCHA》</strong> 片段.</p>
+</li>
+<li>
+<p>2021-12-02 开启Gallery功能.</p>
+</li>
+<li>
+<p>2021-12-02 新增Favorites页面.</p>
+</li>
+<li>
+<p>2021-12-02 更新了谜拟Q的icon.</p>
+</li>
+<li>
+<p>2021-12-03 更新了404页面.<br />
+404界面的图片：[ID:29310361].</p>
 <ul>
 <li>2021-12-16 已更换，点击<a href="/old404-1/">这里</a>来访问原来的404页面</li>
 </ul>
 </li>
-<li>2021-12-04 背景添加动态线条效果.</li>
-<li>2021-12-04 添加了点击特效.</li>
-<li>2021-12-05 更新了点击特效的颜色，使其更贴合博客风格. 试试长按再松开~</li>
-<li>2021-12-06 新增博客隐藏功能.</li>
-<li>2021-12-13 加入大分类页(<a href="/Archive/1-Pokemon/">宝可梦◇熵增定律◇与死亡誓言</a>、<a href="/Archive/1-Learning/">学习◇生存博弈◇与纯利他主义</a>、<a href="/Archive/1-Game/">游戏◇动机判定◇与去悲剧化</a>、<a href="/Archive/1-Life/">生活◇奥康剃刀◇与自由意识</a>、<a href="/Archive/1-Collection/">收藏◇知觉丧失◇与不完备定理</a>)以归档所有博客并置顶. 使博客更加美观简洁，提高易读性.</li>
-<li>2021-12-15 修改了博客结构，使得博客分类更加直观.</li>
-<li>2021-12-15 实现背景动态线条的随机颜色效果.</li>
-<li>2021-12-16 更新了404页面，套用<a href="https://hakim.se">hakim.se</a>网站的404界面.
+<li>
+<p>2021-12-04 背景添加动态线条效果.</p>
+</li>
+<li>
+<p>2021-12-04 添加了点击特效.</p>
+</li>
+<li>
+<p>2021-12-05 更新了点击特效的颜色，使其更贴合博客风格. 试试长按再松开~</p>
+</li>
+<li>
+<p>2021-12-06 新增博客隐藏功能.</p>
+</li>
+<li>
+<p>2021-12-13 加入大分类页(<a href="/Archive/1-Pokemon/">宝可梦◇熵增定律◇与死亡誓言</a>、<a href="/Archive/1-Learning/">学习◇生存博弈◇与纯利他主义</a>、<a href="/Archive/1-Game/">游戏◇动机判定◇与去悲剧化</a>、<a href="/Archive/1-Life/">生活◇奥康剃刀◇与自由意识</a>、<a href="/Archive/1-Collection/">收藏◇知觉丧失◇与不完备定理</a>)以归档所有博客并置顶. 使博客更加美观简洁，提高易读性.</p>
+</li>
+<li>
+<p>2021-12-15 修改了博客结构，使得博客分类更加直观.</p>
+</li>
+<li>
+<p>2021-12-15 实现背景动态线条的随机颜色效果.</p>
+</li>
+<li>
+<p>2021-12-16 更新了404页面，套用<span class="exturl" data-url="aHR0cHM6Ly9oYWtpbS5zZQ==">hakim.se<i class="fa fa-external-link-alt"></i></span>网站的404界面.</p>
 <ul>
 <li>2021-12-18 已更换，点击<a href="/old404-2/">这里</a>来访问原来的404页面</li>
 </ul>
 </li>
-<li>2021-12-16 更新了博客的一些细节，修复了Category页面无法正确显示标题的错误.</li>
-<li>2021-12-17 实现博客评论功能，详见<a href="#%E7%BB%99%E5%8D%9A%E5%AE%A2%E5%8A%A0%E4%B8%8A%E8%AF%84%E8%AE%BA%E7%AD%89%E5%8A%9F%E8%83%BD">本页面对应部分</a>.</li>
-<li>2021-12-18 实现图片懒加载.</li>
-<li>2021-12-19 更新了404页面，使用了<a href="https://github.com/HFIProgramming/mikutap">Mikutap</a>作为网站的404界面.</li>
-<li>2021-12-20 新增博客加密功能.</li>
-<li>2022-01-01 优化博客细节.</li>
+<li>
+<p>2021-12-16 更新了博客的一些细节，修复了Category页面无法正确显示标题的错误.</p>
+</li>
+<li>
+<p>2021-12-17 实现博客评论功能，详见<a href="#%E7%BB%99%E5%8D%9A%E5%AE%A2%E5%8A%A0%E4%B8%8A%E8%AF%84%E8%AE%BA%E7%AD%89%E5%8A%9F%E8%83%BD">本页面对应部分</a>.</p>
+</li>
+<li>
+<p>2021-12-18 实现图片懒加载.</p>
+</li>
+<li>
+<p>2021-12-19 更新了404页面，使用了<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hGSVByb2dyYW1taW5nL21pa3V0YXA=">Mikutap<i class="fa fa-external-link-alt"></i></span>作为网站的404界面.</p>
+</li>
+<li>
+<p>2021-12-20 新增博客加密功能.</p>
+</li>
+<li>
+<p>2022-01-01 优化博客细节.</p>
+</li>
+<li>
+<p><em><strong>2022-01-19 更改博客主题为NexT.</strong></em></p>
+</li>
 </ul>
 <p>No Hurry.</p>
 <br>
@@ -135,26 +174,10 @@ No Hurry.</li>
 <br>
 <h1 id="test"><a class="markdownIt-Anchor" href="#test"></a> Test</h1>
 <ul>
-<li>
-<p>点击<a href="/ZONE/WeiChenDemo/index.html">这里</a>来访问卧看小工具测试页.<br />
-成品：<a href="https://wokann.github.io/Tool/GEN3_Mirage_island/index.html">3代幻之岛计算器</a>.</p>
-</li>
-<li>
-<p>点击<a href="/404/">这里</a>来访问最新的404页面.</p>
-</li>
-<li>
-<p>点击<a href="/old404-1/">这里</a>来访问第一代404页面</p>
-</li>
-<li>
-<p>点击<a href="/old404-2/">这里</a>来访问第二代404页面</p>
-</li>
+<li>点击<a href="/ZONE/WeiChenDemo/index.html">这里</a>来访问卧看小工具测试页.<br />
+成品：<span class="exturl" data-url="aHR0cHM6Ly93b2thbm4uZ2l0aHViLmlvL1Rvb2wvR0VOM19NaXJhZ2VfaXNsYW5kL2luZGV4Lmh0bWw=">3代幻之岛计算器<i class="fa fa-external-link-alt"></i></span>.</li>
+<li>点击<a href="/404/">这里</a>来访问404页面.</li>
 </ul>
-<br>
-<hr />
-<br>
-<h1 id="关于转载"><a class="markdownIt-Anchor" href="#关于转载"></a> 关于转载</h1>
-<p>此博客中的所有原创内容转载前 <strong>必须</strong> 先<a href="/about/">与我联系</a>.<br />
-一般不会拒绝，但务必要让我知道，感谢配合！</p>
 <br>
 <hr />
 <br>
