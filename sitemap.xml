@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://willkyu.github.io/gallery/index.html</loc>
+    
+    <lastmod>2022-01-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://willkyu.github.io/Archive/The-First-Blog/</loc>
     
     <lastmod>2022-01-19</lastmod>
@@ -347,15 +356,6 @@
     <loc>http://willkyu.github.io/Archive/1-Collection/</loc>
     
     <lastmod>2021-12-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/gallery/index.html</loc>
-    
-    <lastmod>2021-12-02</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
