@@ -356,15 +356,15 @@
 </tbody>
 </table>
 <p>前人栽树，后人乘凉.<br />
-本篇对转载原文:<a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/6552613197?pid=130747309042&amp;cid=0#130747309042">【转载】四代乱数教程及工具</a>稍作修改，无法找到原作者，见谅.<br />
+本篇对转载原文:<span class="exturl" data-url="aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC82NTUyNjEzMTk3P3BpZD0xMzA3NDczMDkwNDImY2lkPTAjMTMwNzQ3MzA5MDQy">【转载】四代乱数教程及工具<i class="fa fa-external-link-alt"></i></span>稍作修改，无法找到原作者，见谅.<br />
 如果你认识原作者，可以<a href="/about/">与我联系</a>！</p>
 <h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
 <ol>
-<li>四代乱数的原理，机制. 还有各种乱数相关的知识，大多源自于外文网站<a target="_blank" rel="noopener" href="https://www.smogon.com/ingame/rng/dpphgss_rng_intro">Smogon</a>(虽然Smogon的一些资料也是翻译自日文资料). 没有多少是原作者原创的. 这篇教程更多是一篇翻译+整理，加上实际乱数的一些技巧. 感谢各位大大做的努力，造福广大口袋玩家.</li>
+<li>四代乱数的原理，机制. 还有各种乱数相关的知识，大多源自于外文网站<span class="exturl" data-url="aHR0cHM6Ly93d3cuc21vZ29uLmNvbS9pbmdhbWUvcm5nL2RwcGhnc3Nfcm5nX2ludHJv">Smogon<i class="fa fa-external-link-alt"></i></span>(虽然Smogon的一些资料也是翻译自日文资料). 没有多少是原作者原创的. 这篇教程更多是一篇翻译+整理，加上实际乱数的一些技巧. 感谢各位大大做的努力，造福广大口袋玩家.</li>
 <li>本教程采用傻瓜式渐进方式，从头开始一点一点的讲解四代乱数，希望能带来一些帮助.</li>
 </ol>
 <h1 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h1>
-<p>如果你想要乱数闪光宝可梦，你需要知道你的<a target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/ID_No.#.E9.87.8CID_No.">SID</a>.</p>
+<p>如果你想要乱数闪光宝可梦，你需要知道你的<span class="exturl" data-url="aHR0cHM6Ly93aWtpLjUycG9rZS5jb20vd2lraS9JRF9Oby4jLkU5Ljg3LjhDSURfTm8u">SID<i class="fa fa-external-link-alt"></i></span>.</p>
 <blockquote>
 <p>如果你想要乱数的是已经创建好的存档，这可能会需要你导出存档并使用 <em>PKHex</em> 等软件查看你的存档（不涉及修改与导入），请根据自身接受程度使用.<br />
 不会导出存档？看看这篇博客：<a href="/Pokemon/Strategies/In-Game/How-To-Back-Up-Your-Savefiles/">如何备份你的存档</a>.</p>
@@ -380,9 +380,9 @@
 </blockquote>
 <h2 id="下载乱数所需工具"><a class="markdownIt-Anchor" href="#下载乱数所需工具"></a> 下载乱数所需工具：</h2>
 <ul>
-<li>计时器<a target="_blank" rel="noopener" href="https://github.com/dylmeadows/EonTimer/releases">EonTimer</a><br />
+<li>计时器<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2R5bG1lYWRvd3MvRW9uVGltZXIvcmVsZWFzZXM=">EonTimer<i class="fa fa-external-link-alt"></i></span><br />
 如果因为国内 GitHub 下载速度原因不好下载，可以点击<a href="/download/EonTimer.rar">这里</a>进行下载.</li>
-<li>乱数工具<a target="_blank" rel="noopener" href="https://github.com/Admiral-Fish/RNGReporter/releases">RNGReporter</a><br />
+<li>乱数工具<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0FkbWlyYWwtRmlzaC9STkdSZXBvcnRlci9yZWxlYXNlcw==">RNGReporter<i class="fa fa-external-link-alt"></i></span><br />
 如果因为国内 GitHub 下载速度原因不好下载，可以点击<a href="/download/RNGReporter.zip">这里</a>进行下载.</li>
 </ul>
 <h2 id="了解四代乱数机制"><a class="markdownIt-Anchor" href="#了解四代乱数机制"></a> 了解四代乱数机制</h2>
@@ -396,7 +396,7 @@
 <li>在游戏内，按下 <strong>A</strong> 键读档进入游戏这一刻的时间，年月日时分秒全部参与计算，也只精确到秒.</li>
 <li>从启动游戏这一刻，到按下 <strong>A</strong> 键读档进入游戏这一刻，所经过的时间. 这个时间的精度为 1/30 秒，即约0.033秒.<br />
 这是四代乱数最基础的两点知识，想要着手开始四代乱数的各位一定要牢记.<br />
-最后，本教程默认读者了解涉及的一些基础知识，例如何为<a target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/ID_No.">ID</a>， <a target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/ID_No.#.E9.87.8CID_No.">SID</a>， <a target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/%E6%80%A7%E6%A0%BC%E5%80%BC">PID</a>， <a target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/%E4%B8%AA%E4%BD%93%E5%80%BC">IV(个体值)</a>.</li>
+最后，本教程默认读者了解涉及的一些基础知识，例如何为<span class="exturl" data-url="aHR0cHM6Ly93aWtpLjUycG9rZS5jb20vd2lraS9JRF9Oby4=">ID<i class="fa fa-external-link-alt"></i></span>， <span class="exturl" data-url="aHR0cHM6Ly93aWtpLjUycG9rZS5jb20vd2lraS9JRF9Oby4jLkU5Ljg3LjhDSURfTm8u">SID<i class="fa fa-external-link-alt"></i></span>， <span class="exturl" data-url="aHR0cHM6Ly93aWtpLjUycG9rZS5jb20vd2lraS8lRTYlODAlQTclRTYlQTAlQkMlRTUlODAlQkM=">PID<i class="fa fa-external-link-alt"></i></span>， <span class="exturl" data-url="aHR0cHM6Ly93aWtpLjUycG9rZS5jb20vd2lraS8lRTQlQjglQUElRTQlQkQlOTMlRTUlODAlQkM=">IV(个体值)<i class="fa fa-external-link-alt"></i></span>.</li>
 </ol>
 <h1 id="id乱数"><a class="markdownIt-Anchor" href="#id乱数"></a> ID乱数</h1>
 <h2 id="目的"><a class="markdownIt-Anchor" href="#目的"></a> 目的</h2>
@@ -485,7 +485,7 @@ year可以随便填. Min，Max Delay，Min，Max Frame如果不理解的话，�
 <p>在前文讲seed的时候提到过，seed生成了一个长长长长的随机数序列. 但是，如何用这些随机数来生成我们实际得到的宝可梦的各项参数：例如个体，性格，特性，性别，是否闪光之类的；均是由method来决定的. 所以，即便是一串相同的随机数，在不同的method下得到的宝可梦是不同的(即便是同一编号的宝可梦). 最简单的例子就是绿宝石内定点的变隐龙和野生的变隐龙，即便在相同的随机数序列下，抓到的定点和野生的变隐龙也是不同的.<br />
 所以乱宝可梦，首先要知道它对应的Method.</p>
 <h2 id="确定乱数目标"><a class="markdownIt-Anchor" href="#确定乱数目标"></a> 确定乱数目标</h2>
-<p><em><strong>如果选择了野外相遇的宝可梦，请在队伍中准备一只习得了<a target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/%E7%94%9C%E7%94%9C%E9%A6%99%E6%B0%94%EF%BC%88%E6%8B%9B%E5%BC%8F%EF%BC%89#.E5.8F.AF.E4.BB.A5.E5.AD.A6.E4.BC.9A.E8.AF.A5.E6.8B.9B.E5.BC.8F.E7.9A.84.E5.AE.9D.E5.8F.AF.E6.A2.A6">甜甜香气</a>的宝可梦.</strong></em><br />
+<p><em><strong>如果选择了野外相遇的宝可梦，请在队伍中准备一只习得了<span class="exturl" data-url="aHR0cHM6Ly93aWtpLjUycG9rZS5jb20vd2lraS8lRTclOTQlOUMlRTclOTQlOUMlRTklQTYlOTklRTYlQjAlOTQlRUYlQkMlODglRTYlOEIlOUIlRTUlQkMlOEYlRUYlQkMlODkjLkU1LjhGLkFGLkU0LkJCLkE1LkU1LkFELkE2LkU0LkJDLjlBLkU4LkFGLkE1LkU2LjhCLjlCLkU1LkJDLjhGLkU3LjlBLjg0LkU1LkFFLjlELkU1LjhGLkFGLkU2LkEyLkE2">甜甜香气<i class="fa fa-external-link-alt"></i></span>的宝可梦.</strong></em><br />
 确定乱数目标后，选择相应的 <em>Method</em>. 如果是乱数蛋，请【】.</p>
 <h3 id="method-1"><a class="markdownIt-Anchor" href="#method-1"></a> <em>Method 1</em></h3>
 <ul>
@@ -623,7 +623,7 @@ Irwin可能的回复有三种：<br />
 <img data-src="/images/body/Pokemon-RNG-Abuse-Gen4/Figure17.png" alt="Figure17" /><br />
 <img data-src="/images/body/Pokemon-RNG-Abuse-Gen4/Figure18.jpg" alt="Figure18" /><br />
 进入游戏之后，将抛硬币得到的结果输入，直到Possible Results变为1，确认之后就能找到结果了. 与HgSs的不同点在于，抛硬币不像打电话一样会增加帧数. 另外，在PT中，进入游戏时的日记会增加帧数(看一页增加2帧). 所以在PT里乱的时候，到目标处，存档读档再存档，去掉日记的干扰为最佳.</p>
-<p>**白金的<a target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/%E5%AF%B6%E5%8F%AF%E9%8C%B6#.E6.8E.B7.E7.A1.AC.E5.B8.81">抛硬币插件</a>要拿到攀岩之后才能获得. **</p>
+<p>**白金的<span class="exturl" data-url="aHR0cHM6Ly93aWtpLjUycG9rZS5jb20vd2lraS8lRTUlQUYlQjYlRTUlOEYlQUYlRTklOEMlQjYjLkU2LjhFLkI3LkU3LkExLkFDLkU1LkI4Ljgx">抛硬币插件<i class="fa fa-external-link-alt"></i></span>要拿到攀岩之后才能获得. **</p>
 <blockquote>
 <p>注意，对于无法利用上述方法的场合，可以通过导出存档后查看个体并通过RNGReporter的工具<strong>4th Gen Tools --&gt; Find Seed by IVs</strong>来反查seed/delay.<br />
 此外，也可以参考别人写的呆呆兽初始与迷人之躯教程中列表的方法，但会很耗时间. 相关文章可点击<a href="/download/GEN4-Slowpoke-RNG.rar">这里</a>下载.</p>
@@ -652,8 +652,8 @@ Irwin可能的回复有三种：<br />
 <p>具体的操作方法，就留一个小小的尾巴，让各位自行尝试吧. 不过有一点建议，因为通信会强制存档，所以乱闪光玛娜菲我们只有一次机会. 建议在HgSs里乱玛娜菲(<strong>因为没有随机NPC</strong>)，然后再传到其他卡带里孵化，如果对乱数熟练掌握的话，成功率几乎是100%.</p>
 <h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h1>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/6552613197?pid=130747309042&amp;cid=0#130747309042">【转载】四代乱数教程及工具</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.smogon.com/ingame/rng/">Smogon RNG 教程</a></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC82NTUyNjEzMTk3P3BpZD0xMzA3NDczMDkwNDImY2lkPTAjMTMwNzQ3MzA5MDQy">【转载】四代乱数教程及工具<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuc21vZ29uLmNvbS9pbmdhbWUvcm5nLw==">Smogon RNG 教程<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 
     </div>

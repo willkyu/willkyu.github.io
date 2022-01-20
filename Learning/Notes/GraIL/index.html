@@ -430,9 +430,9 @@ mjx-container[display="true"] + br {
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>论文 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1911.06962">Inductive relation prediction by subgraph reasoning</a> 阅读笔记.</p>
+        <p>论文 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MTEuMDY5NjI=">Inductive relation prediction by subgraph reasoning<i class="fa fa-external-link-alt"></i></span> 阅读笔记.</p>
 <span id="more"></span>
-<p>相关代码见<a target="_blank" rel="noopener" href="https://github.com/kkteru/grail">作者的GitHub</a>.</p>
+<p>相关代码见<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2trdGVydS9ncmFpbA==">作者的GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
 <h1 id="背景"><a class="markdownIt-Anchor" href="#背景"></a> 背景</h1>
 <h2 id="现实背景"><a class="markdownIt-Anchor" href="#现实背景"></a> 现实背景</h2>
 <p>知识图谱（Knowledge Graph，KG）是人工智能的重要分支技术，它在2012年由谷歌提出，是结构化的语义知识库，用于以符号形式描述物理世界中的概念及其相互关系，其基本组成单位是 <strong>“实体—关系—实体”（Facts： Head_Entity - Relation - Tail_Entity, i.e., (h; r; t)）三元组，以及实体及其相关属性—值对</strong>，实体间通过关系相互联结，构成网状的知识结构<a href="#reference">1</a>。知识图谱本质上是一种叫作语义网络的知识库，即一个具有有向图结构的知识库，其中图的结点代表实体或者概念，而图的边代表实体/概念之间的各种语义关系<a href="#reference">2</a>.</p>
@@ -498,7 +498,7 @@ mjx-container[display="true"] + br {
 </ul>
 <h2 id="模型算法"><a class="markdownIt-Anchor" href="#模型算法"></a> 模型算法</h2>
 <h3 id="子图提取"><a class="markdownIt-Anchor" href="#子图提取"></a> 子图提取</h3>
-<p>我们假设<em>KG中特定三元组的局部图邻域包含推导目标节点之间关系所需的逻辑证据</em>。特别地，我们假设连接两个目标节点的路径包含可能隐含目标关系的信息。因此，作为第一步，我们提取目标节点周围的包围子图。我们将节点u和v之间的封闭子图定义为出现在u和v之间的路径上的所有节点所诱导的图，它由两个目标节点的邻居的交集给出。随后进行剪枝过程，设NK(U)和NK(V)是KG中两个目标节点的<a target="_blank" rel="noopener" href="https://support.huaweicloud.com/usermanual-ges/ges_01_0034.html">k跳（k-hop）</a>(无向)邻域中的节点集合。我们通过取这些k跳邻域集合的交集<strong>Nk(U) ∩ Nk(V)<strong>来计算包围子图，然后</strong>修剪与任一目标节点隔离或距离大于k的节点</strong>。由<em>Observation 1</em>，我们得到在节点u和v之间的长度至多为k+1的路径上出现的所有节点。</p>
+<p>我们假设<em>KG中特定三元组的局部图邻域包含推导目标节点之间关系所需的逻辑证据</em>。特别地，我们假设连接两个目标节点的路径包含可能隐含目标关系的信息。因此，作为第一步，我们提取目标节点周围的包围子图。我们将节点u和v之间的封闭子图定义为出现在u和v之间的路径上的所有节点所诱导的图，它由两个目标节点的邻居的交集给出。随后进行剪枝过程，设NK(U)和NK(V)是KG中两个目标节点的<span class="exturl" data-url="aHR0cHM6Ly9zdXBwb3J0Lmh1YXdlaWNsb3VkLmNvbS91c2VybWFudWFsLWdlcy9nZXNfMDFfMDAzNC5odG1s">k跳（k-hop）<i class="fa fa-external-link-alt"></i></span>(无向)邻域中的节点集合。我们通过取这些k跳邻域集合的交集<strong>Nk(U) ∩ Nk(V)<strong>来计算包围子图，然后</strong>修剪与任一目标节点隔离或距离大于k的节点</strong>。由<em>Observation 1</em>，我们得到在节点u和v之间的长度至多为k+1的路径上出现的所有节点。</p>
 <ul>
 <li><em>Observation 1：在任何给定图中，设两个不同节点x和y之间的长度为λ的路径上的节点构成集合Pxy(λ)。这样的路径v∈Pxy(λ)上的任何节点到x或y的最大距离是λ−1。</em></li>
 </ul>

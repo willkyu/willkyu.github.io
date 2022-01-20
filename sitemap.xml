@@ -408,13 +408,6 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Pokemon/</loc>
-    <lastmod>2022-01-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://willkyu.github.io/tags/Learning/</loc>
     <lastmod>2022-01-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -423,6 +416,13 @@
   
   <url>
     <loc>http://willkyu.github.io/tags/Blog/</loc>
+    <lastmod>2022-01-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/Pokemon/</loc>
     <lastmod>2022-01-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -457,14 +457,14 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Draw/</loc>
+    <loc>http://willkyu.github.io/tags/Schedule/</loc>
     <lastmod>2022-01-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Schedule/</loc>
+    <loc>http://willkyu.github.io/tags/Draw/</loc>
     <lastmod>2022-01-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -506,14 +506,7 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Knowledage-Graphs/</loc>
-    <lastmod>2022-01-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/GraIL/</loc>
+    <loc>http://willkyu.github.io/tags/PyTorch/</loc>
     <lastmod>2022-01-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -527,7 +520,14 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/PyTorch/</loc>
+    <loc>http://willkyu.github.io/tags/Knowledage-Graphs/</loc>
+    <lastmod>2022-01-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/GraIL/</loc>
     <lastmod>2022-01-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -613,13 +613,6 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/categories/Pokemon/</loc>
-    <lastmod>2022-01-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://willkyu.github.io/categories/Learning/</loc>
     <lastmod>2022-01-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -628,6 +621,13 @@
   
   <url>
     <loc>http://willkyu.github.io/categories/Archive/</loc>
+    <lastmod>2022-01-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/categories/Pokemon/</loc>
     <lastmod>2022-01-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
