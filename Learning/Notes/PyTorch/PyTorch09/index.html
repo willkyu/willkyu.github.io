@@ -78,7 +78,7 @@
       <p class="site-title">丘丘Blog</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">willkyu</p>
+      <p class="site-subtitle" itemprop="description">willkyu's blog</p>
   </div>
 
   <div class="site-nav-right">
@@ -153,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#where"><span class="nav-text"> Where</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example"><span class="nav-text"> example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gather"><span class="nav-text"> Gather</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#where"><span class="nav-text">Where</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example"><span class="nav-text">example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gather"><span class="nav-text">Gather</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,13 +162,13 @@
     <img class="site-author-image" itemprop="image" alt="willkyu"
       src="/images/avatar_.png">
   <p class="site-author-name" itemprop="name">willkyu</p>
-  <div class="site-description" itemprop="description">一只谜拟Q的Blog</div>
+  <div class="site-description" itemprop="description">爱你所爱 求你所求 得你所得</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -261,7 +261,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_.png">
       <meta itemprop="name" content="willkyu">
-      <meta itemprop="description" content="一只谜拟Q的Blog">
+      <meta itemprop="description" content="爱你所爱 求你所求 得你所得">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -318,23 +318,21 @@
     <div class="post-body" itemprop="articleBody">
         <p>记录了PyTorch中两个高阶操作：<code>Where</code>与<code>Gather</code></p>
 <span id="more"></span>
-<h2 id="where"><a class="markdownIt-Anchor" href="#where"></a> Where</h2>
+<h2 id="where">Where</h2>
 <p><code>torch.where(condition, x, y)</code></p>
 <p>满足condition的 返回x，否则返回y</p>
 <p>x、y、condition的shape相同</p>
-<p>condition矩阵:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tensor([[1, 0],</span><br><span class="line">        [0, 1]])</span><br></pre></td></tr></table></figure>
-<p>那么A的地方取x对应元素，B的地方取y对应元素</p>
-<h2 id="example"><a class="markdownIt-Anchor" href="#example"></a> example</h2>
+<p>condition矩阵: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tensor([[1, 0],</span><br><span class="line">        [0, 1]])</span><br></pre></td></tr></table></figure>
+那么A的地方取x对应元素，B的地方取y对应元素</p>
+<h2 id="example">example</h2>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cond        #tensor([[0.6769, 0.7271],</span><br><span class="line">                     [0.8884, 0.4163]])</span><br><span class="line">a           #tensor([[0., 0.],</span><br><span class="line">                     [0., 0.]])  </span><br><span class="line">b           #tensor([[1., 1.],</span><br><span class="line">                     [1., 1.]])</span><br><span class="line">                     </span><br><span class="line">torch.where(cond &gt; 0.5, a, b)</span><br><span class="line">#tensor([[0., 0.],</span><br><span class="line">         [0., 1.]])</span><br></pre></td></tr></table></figure>
-<h2 id="gather"><a class="markdownIt-Anchor" href="#gather"></a> Gather</h2>
-<p><code>torch.gather(input, dim, index, out = None)</code></p>
-<blockquote>
-<p>index是表，dim是查表的维度，index是需要查的index</p>
-</blockquote>
-<p>查表操作，如：表[x1, x2, x3]，那么我们gather需要查的index：[0, 1, 0, 2]得到[x1, x2, x1, x3]</p>
-<p>四条数据输入神经网络得到一个输出：[4, 10]<br />
-取出每条数据概率最大的index:[[1], [2], [0], [9]]<br />
+<h2 id="gather">Gather</h2>
+<p><code>torch.gather(input, dim, index, out = None)</code> &gt;
+index是表，dim是查表的维度，index是需要查的index</p>
+<p>查表操作，如：表[x1, x2, x3]，那么我们gather需要查的index：[0, 1, 0,
+2]得到[x1, x2, x1, x3]</p>
+<p>四条数据输入神经网络得到一个输出：[4, 10]
+取出每条数据概率最大的index:[[1], [2], [0], [9]]
 使用gather查表得到对应的元素</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">prob = torch.rand(4, 10)</span><br><span class="line">idx = prob.topk(dim = 1, k = 3)[1]</span><br><span class="line">idx</span><br><span class="line">#tensor([[7, 4, 9],</span><br><span class="line">         [8, 1, 3],</span><br><span class="line">         [2, 8, 4],</span><br><span class="line">         [8, 6, 0]])</span><br><span class="line">label = torch.arange(10) + 100</span><br><span class="line">label</span><br><span class="line">#tensor([100, 101, ..., 109])</span><br><span class="line"></span><br><span class="line">torch.gather(label.expand(4, 10), dim = 1, index = idx.long())</span><br><span class="line">#tensor([[107, 104, 109],</span><br><span class="line">         [108, 101, 103],</span><br><span class="line">         [102, 108, 104],</span><br><span class="line">         [108, 106, 100]])</span><br><span class="line">#.long()转化为LongTensor类型，不加也可以得到相同结果</span><br></pre></td></tr></table></figure>
 

@@ -23,12 +23,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"willkyu.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="这篇文章是宝可梦正版正作卡带从 Gen1 到 Gen7 的存档提取与导入教程. 不局限于宝可梦正作，其他卡带也可以通过同样的方法提取. 如果你对备份存档感到介意，请根据自身情况取舍. 封面 [ID:86927624].">
+<meta name="description" content="这篇文章是宝可梦正版正作卡带从 Gen1 到 Gen7 的存档提取与导入教程. 不局限于宝可梦正作，其他卡带也可以通过同样的方法提取. 如果你对备份存档感到介意，请根据自身情况取舍. 封面 [ID:86927624].">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何备份你的存档">
 <meta property="og:url" content="http://willkyu.github.io/Pokemon/Strategies/In-Game/How-To-Back-Up-Your-Savefiles/index.html">
 <meta property="og:site_name" content="丘丘Blog">
-<meta property="og:description" content="这篇文章是宝可梦正版正作卡带从 Gen1 到 Gen7 的存档提取与导入教程. 不局限于宝可梦正作，其他卡带也可以通过同样的方法提取. 如果你对备份存档感到介意，请根据自身情况取舍. 封面 [ID:86927624].">
+<meta property="og:description" content="这篇文章是宝可梦正版正作卡带从 Gen1 到 Gen7 的存档提取与导入教程. 不局限于宝可梦正作，其他卡带也可以通过同样的方法提取. 如果你对备份存档感到介意，请根据自身情况取舍. 封面 [ID:86927624].">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://willkyu.github.io/Pokemon/Strategies/In-Game/How-To-Back-Up-Your-Savefiles/images/cover/How-To-Back-Up-Your-Savefiles.png">
 <meta property="article:published_time" content="2021-12-04T04:55:29.000Z">
@@ -79,7 +79,7 @@
       <p class="site-title">丘丘Blog</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">willkyu</p>
+      <p class="site-subtitle" itemprop="description">willkyu's blog</p>
   </div>
 
   <div class="site-nav-right">
@@ -154,7 +154,9 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-text"> 写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gb-%E4%B8%8E-gbc-%E5%8D%A1%E5%B8%A6"><span class="nav-text"> GB 与 GBC 卡带</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#flash-boy"><span class="nav-text"> Flash Boy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gb-operator"><span class="nav-text"> GB Operator</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gba-%E5%8D%A1%E5%B8%A6"><span class="nav-text"> GBA 卡带</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nds-%E4%B8%8E-3ds-%E5%8D%A1%E5%B8%A6-%E4%BB%A5%E5%8F%8A-3ds-vc-%E7%B3%BB%E5%88%97"><span class="nav-text"> NDS 与 3DS 卡带 以及 3DS VC 系列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%B2%E5%A4%B1%E6%95%88%E7%9A%84%E4%B8%8E%E6%9C%AA%E7%BB%8F%E6%B5%8B%E8%AF%95%E7%9A%84-3ds-%E5%8D%A1%E5%B8%A6%E5%AD%98%E6%A1%A3%E6%8F%90%E5%8F%96%E5%A4%96%E8%AE%BE"><span class="nav-text"> 已失效的与未经测试的 3DS 卡带存档提取外设</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cyber-save-editor"><span class="nav-text"> Cyber Save Editor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cyber-save-editor-2"><span class="nav-text"> Cyber Save Editor 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-text"> 写在最后</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gb-%E4%B8%8E-gbc-%E5%8D%A1%E5%B8%A6"><span class="nav-text">GB 与 GBC 卡带</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#flash-boy"><span class="nav-text">Flash Boy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gb-operator"><span class="nav-text">GB Operator</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gba-%E5%8D%A1%E5%B8%A6"><span class="nav-text">GBA 卡带</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nds-%E4%B8%8E-3ds-%E5%8D%A1%E5%B8%A6-%E4%BB%A5%E5%8F%8A-3ds-vc-%E7%B3%BB%E5%88%97"><span class="nav-text">NDS 与 3DS
+卡带 以及 3DS VC 系列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%B2%E5%A4%B1%E6%95%88%E7%9A%84%E4%B8%8E%E6%9C%AA%E7%BB%8F%E6%B5%8B%E8%AF%95%E7%9A%84-3ds-%E5%8D%A1%E5%B8%A6%E5%AD%98%E6%A1%A3%E6%8F%90%E5%8F%96%E5%A4%96%E8%AE%BE"><span class="nav-text">已失效的与未经测试的
+3DS 卡带存档提取外设</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cyber-save-editor"><span class="nav-text">Cyber Save Editor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cyber-save-editor-2"><span class="nav-text">Cyber Save Editor 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-text">写在最后</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -163,13 +165,13 @@
     <img class="site-author-image" itemprop="image" alt="willkyu"
       src="/images/avatar_.png">
   <p class="site-author-name" itemprop="name">willkyu</p>
-  <div class="site-description" itemprop="description">一只谜拟Q的Blog</div>
+  <div class="site-description" itemprop="description">爱你所爱 求你所求 得你所得</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -267,7 +269,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_.png">
       <meta itemprop="name" content="willkyu">
-      <meta itemprop="description" content="一只谜拟Q的Blog">
+      <meta itemprop="description" content="爱你所爱 求你所求 得你所得">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -322,102 +324,108 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>这篇文章是宝可梦正版正作卡带从 <em>Gen1</em> 到 <em>Gen7</em> 的存档提取与导入教程.<br />
-不局限于宝可梦正作，其他卡带也可以通过同样的方法提取.<br />
+        <p>这篇文章是宝可梦正版正作卡带从 <em>Gen1</em> 到 <em>Gen7</em>
+的存档提取与导入教程.
+不局限于宝可梦正作，其他卡带也可以通过同样的方法提取.
 如果你对备份存档感到介意，请根据自身情况取舍.</p>
 <p>封面 [ID:86927624].</p>
 <span id="more"></span>
-<h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
-<p>已经有人在贴吧写了详细的傻瓜教程，比我写的详细很多：<span class="exturl" data-url="aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC82MzQ5NjAxNTgzP3NoYXJlPTkxMDUmZnI9c2hhcmV3aXNlJnNlZV9sej0wJnNoYXJlX2Zyb209cG9zdCZzZmM9Y29weSZjbGllbnRfdHlwZT0yJmNsaWVudF92ZXJzaW9uPTEyLjE1LjEuMCZzdD0xNjQwMTQyNTIzJnVuaXF1ZT05RUJGRjQwRDQ3OUIyNEEwNUNBN0ZBNDYxNDg3QzVBOSZxcS1wZi10bz1wY3FxLmdyb3VwJnJlZF90YWc9MDU4ODIxMjIyOQ==">【教程】全版本正版游戏卡带存档导出导入教程<i class="fa fa-external-link-alt"></i></span><br />
+<h1 id="写在前面">写在前面</h1>
+<p>已经有人在贴吧写了详细的傻瓜教程，比我写的详细很多：<a
+target="_blank" rel="noopener" href="https://tieba.baidu.com/p/6349601583?share=9105&amp;fr=sharewise&amp;see_lz=0&amp;share_from=post&amp;sfc=copy&amp;client_type=2&amp;client_version=12.15.1.0&amp;st=1640142523&amp;unique=9EBFF40D479B24A05CA7FA461487C5A9&amp;qq-pf-to=pcqq.group&amp;red_tag=0588212229">【教程】全版本正版游戏卡带存档导出导入教程</a>
 这篇注重于收录常规方法而非详细教程（都有写的那么详细的了）.</p>
-<p>除了下面提到的方法，更多方法请参考<a target="_blank" rel="noopener" href="https://projectpokemon.org/home/forums/topic/15107-nds-how-to-backuprestore-your-retail-cartridge-save-file-for-ds-games/">NDS: How to Backup/Restore your retail cartridge save file for DS games<br />
-</a>.</p>
-<h1 id="gb-与-gbc-卡带"><a class="markdownIt-Anchor" href="#gb-与-gbc-卡带"></a> <em>GB</em> 与 <em>GBC</em> 卡带</h1>
-<p>包含的宝可梦卡带有：</p>
-<ul>
-<li>宝可梦 红 / 绿 / 蓝 / 黄</li>
-<li>宝可梦 金 / 银 / 水晶</li>
-</ul>
-<p>这类应该只能通过特殊设备提取与导入，如 <em>Flash Boy</em> 、 <em>GB Operator</em> 等.</p>
-<h2 id="flash-boy"><a class="markdownIt-Anchor" href="#flash-boy"></a> <em>Flash Boy</em></h2>
-<p><img data-src="/images/body/How-To-Back-Up-Your-Savefiles/Flash-Boy1.png" alt="Flash Boy" /><br />
-<img data-src="/images/body/How-To-Back-Up-Your-Savefiles/Flash-Boy2.png" alt="Flash Boy" /><br />
-在各电商应该都有购买方式.</p>
-<h2 id="gb-operator"><a class="markdownIt-Anchor" href="#gb-operator"></a> <em>GB Operator</em></h2>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZXBpbG9ndWUuY28vcHJvZHVjdC9nYi1vcGVyYXRvcg==">官网地址<i class="fa fa-external-link-alt"></i></span></p>
-<p><img data-src="/images/body/How-To-Back-Up-Your-Savefiles/GB-Operator.gif" alt="GB Operator" /></p>
+<p>除了下面提到的方法，更多方法请参考<a
+target="_blank" rel="noopener" href="https://projectpokemon.org/home/forums/topic/15107-nds-how-to-backuprestore-your-retail-cartridge-save-file-for-ds-games/">NDS:
+How to Backup/Restore your retail cartridge save file for DS
+games</a>.</p>
+<h1 id="gb-与-gbc-卡带"><em>GB</em> 与 <em>GBC</em> 卡带</h1>
+<p>包含的宝可梦卡带有： - 宝可梦 红 / 绿 / 蓝 / 黄 - 宝可梦 金 / 银 /
+水晶</p>
+<p>这类应该只能通过特殊设备提取与导入，如 <em>Flash Boy</em> 、 <em>GB
+Operator</em> 等.</p>
+<h2 id="flash-boy"><em>Flash Boy</em></h2>
+<p><img data-src="/images/body/How-To-Back-Up-Your-Savefiles/Flash-Boy1.png"
+alt="Flash Boy" /> <img
+src="/images/body/How-To-Back-Up-Your-Savefiles/Flash-Boy2.png"
+alt="Flash Boy" /> 在各电商应该都有购买方式.</p>
+<h2 id="gb-operator"><em>GB Operator</em></h2>
+<p><a
+target="_blank" rel="noopener" href="https://www.epilogue.co/product/gb-operator">官网地址</a></p>
+<figure>
+<img data-src="/images/body/How-To-Back-Up-Your-Savefiles/GB-Operator.gif"
+alt="GB Operator" />
+<figcaption aria-hidden="true">GB Operator</figcaption>
+</figure>
 <blockquote>
 <p>注意，这类卡带的存档依赖电池，如果电池没电了会导致存档丢失.</p>
 </blockquote>
-<h1 id="gba-卡带"><a class="markdownIt-Anchor" href="#gba-卡带"></a> <em>GBA</em> 卡带</h1>
-<p>包含的宝可梦卡带有：</p>
-<ul>
-<li>宝可梦 红宝石 / 蓝宝石 / 绿宝石</li>
-<li>宝可梦 火红 / 叶绿</li>
-</ul>
-<p>这类存档提取与导入可以通过：</p>
-<ol>
-<li>使用特殊设备提取，如上述 <em>Flash Boy</em> 、 <em>GB Operator</em>.</li>
-<li>使用 <em>初版 NDS</em> 或 <em>NDS lite</em> 配合 NDS 烧录卡与存档提取软件 <em><strong>GBA Backup Tool</strong></em>.</li>
-</ol>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2FtZWJyZXcub3JnL3dpa2kvR0JBX0JhY2t1cF9Ub29s">使用方法<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC80MTkxNDAwNzQ1">使用方法 - 中文<i class="fa fa-external-link-alt"></i></span></li>
-<li><a href="/download/GBA-Backup-Tool.nds">下载</a></li>
-<li><a href="/Game/DSTWO/">DSTWO相关资源整理</a></li>
-</ul>
-<p><img data-src="/images/body/How-To-Back-Up-Your-Savefiles/GBA-Backup-Tool.png" alt="GBA Backup Tool" /></p>
-<h1 id="nds-与-3ds-卡带-以及-3ds-vc-系列"><a class="markdownIt-Anchor" href="#nds-与-3ds-卡带-以及-3ds-vc-系列"></a> <em>NDS</em> 与 <em>3DS</em> 卡带 以及 <em>3DS</em> <strong>VC</strong> 系列</h1>
-<p>包含的宝可梦卡带有：</p>
-<ul>
-<li>宝可梦 珍珠 / 钻石 / 白金</li>
-<li>宝可梦 心金 / 魂银</li>
-<li>宝可梦 黑 / 白</li>
-<li>宝可梦 黑2 / 白2</li>
-<li>宝可梦 X / Y</li>
-<li>宝可梦 欧米伽红宝石／阿尔法蓝宝石</li>
-<li>宝可梦 日 / 月</li>
-<li>宝可梦 究极之日 / 究极之月</li>
-<li>宝可梦 VC 系列</li>
-</ul>
-<p>这类存档提取与导入需要使用破解 <em>3DS</em> ，想要破解 <em>3DS</em> 请参见：<span class="exturl" data-url="aHR0cHM6Ly9zdHJheS1zb3VsLmNvbS8=">一只火狐的杂物间<i class="fa fa-external-link-alt"></i></span>.<br />
-请具备一定的破解 3DS 软件安装能力.</p>
-<ul>
-<li>使用 <em>3DS</em> 存档提取软件 <em><strong>CheckPoint</strong></em> （推荐）或者 <em><strong>TWLSaveTool</strong></em> .
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0cG9rZW1vbi5vcmcvaG9tZS90dXRvcmlhbHMvc2F2ZS1lZGl0aW5nL21hbmFnaW5nLTNkcy1zYXZlcy91c2luZy1jaGVja3BvaW50LXIyNS8=">CheckPoint使用方法<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0cG9rZW1vbi5vcmcvaG9tZS90dXRvcmlhbHMvc2F2ZS1lZGl0aW5nL21hbmFnaW5nLW5kcy1zYXZlcy91c2luZy10d2wtc2F2ZS10b29sLXI1OS8=">TWLSaveTool使用方法<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0ZsYWdCcmV3L0NoZWNrcG9pbnQvcmVsZWFzZXM=">CheckPoint下载<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1R1eFNIL1RXTFNhdmVUb29sL3JlbGVhc2Vz">TWLSaveTool下载<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-</li>
-</ul>
-<p>Checkpoint界面：<br />
-<img data-src="/images/body/How-To-Back-Up-Your-Savefiles/CheckPoint.png" alt="CheckPoint" /><br />
-TWLSaveTool界面：<br />
-<img data-src="/images/body/How-To-Back-Up-Your-Savefiles/TWLSaveTool.png" alt="TWLSaveTool" /></p>
-<h1 id="已失效的与未经测试的-3ds-卡带存档提取外设"><a class="markdownIt-Anchor" href="#已失效的与未经测试的-3ds-卡带存档提取外设"></a> 已失效的与未经测试的 <em>3DS</em> 卡带存档提取外设</h1>
-<h2 id="cyber-save-editor"><a class="markdownIt-Anchor" href="#cyber-save-editor"></a> <strong>Cyber Save Editor</strong></h2>
-<p><img data-src="/images/body/How-To-Back-Up-Your-Savefiles/Cyber-Save-Editor01.png" alt="Cyber Save Editor" /></p>
-<blockquote>
-<p>网站已经停止服务了，应该仅支持日版.</p>
-</blockquote>
-<p><img data-src="/images/body/How-To-Back-Up-Your-Savefiles/Cyber-Save-Editor02.jpg" alt="Cyber Save Editor" /></p>
-<h2 id="cyber-save-editor-2"><a class="markdownIt-Anchor" href="#cyber-save-editor-2"></a> <strong>Cyber Save Editor 2</strong></h2>
-<p>普通版<br />
-<img data-src="/images/body/How-To-Back-Up-Your-Savefiles/Cyber-Save-Editor03.png" alt="Cyber Save Editor 2" /><br />
-<img data-src="/images/body/How-To-Back-Up-Your-Savefiles/Cyber-Save-Editor04.png" alt="Cyber Save Editor 2" /><br />
-<br></p>
-<p>典藏版<br />
-<img data-src="/images/body/How-To-Back-Up-Your-Savefiles/Cyber-Save-Editor05.webp" alt="Cyber Save Editor 2" /></p>
-<blockquote>
-<p><strong>仅支持日版</strong>，是否停止服务未知，如果你知道，请<a href="/about/">与我联系</a>.</p>
-</blockquote>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cudGxkZXZ0ZWNoLmNvbS9iZXN0LTNkcy1zYXZlLWVkaXRvci1jeWJlci1zYXZlLWVkaXRvci8=">Cyber Save Editor 2使用方法<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
-<p>不建议滥用存档导入导出，还请保持对游戏、对宝可梦的热爱进行使用！<br />
+<h1 id="gba-卡带"><em>GBA</em> 卡带</h1>
+<p>包含的宝可梦卡带有： - 宝可梦 红宝石 / 蓝宝石 / 绿宝石 - 宝可梦 火红
+/ 叶绿</p>
+<p>这类存档提取与导入可以通过： 1. 使用特殊设备提取，如上述 <em>Flash
+Boy</em> 、 <em>GB Operator</em>. 2. 使用 <em>初版 NDS</em> 或 <em>NDS
+lite</em> 配合 NDS 烧录卡与存档提取软件 <strong><em>GBA Backup
+Tool</em></strong>. - <a
+target="_blank" rel="noopener" href="https://www.gamebrew.org/wiki/GBA_Backup_Tool">使用方法</a> - <a
+target="_blank" rel="noopener" href="https://tieba.baidu.com/p/4191400745">使用方法 - 中文</a> - <a
+href="/download/GBA-Backup-Tool.nds">下载</a> - <a
+href="/Game/DSTWO/">DSTWO相关资源整理</a></p>
+<figure>
+<img
+src="/images/body/How-To-Back-Up-Your-Savefiles/GBA-Backup-Tool.png"
+alt="GBA Backup Tool" />
+<figcaption aria-hidden="true">GBA Backup Tool</figcaption>
+</figure>
+<h1 id="nds-与-3ds-卡带-以及-3ds-vc-系列"><em>NDS</em> 与 <em>3DS</em>
+卡带 以及 <em>3DS</em> <strong>VC</strong> 系列</h1>
+<p>包含的宝可梦卡带有： - 宝可梦 珍珠 / 钻石 / 白金 - 宝可梦 心金 / 魂银
+- 宝可梦 黑 / 白 - 宝可梦 黑2 / 白2 - 宝可梦 X / Y - 宝可梦
+欧米伽红宝石／阿尔法蓝宝石 - 宝可梦 日 / 月 - 宝可梦 究极之日 / 究极之月
+- 宝可梦 VC 系列</p>
+<p>这类存档提取与导入需要使用破解 <em>3DS</em> ，想要破解 <em>3DS</em>
+请参见：<span class="exturl" data-url="aHR0cHM6Ly9zdHJheS1zb3VsLmNvbS8=">一只火狐的杂物间<i class="fa fa-external-link-alt"></i></span>.
+请具备一定的破解 3DS 软件安装能力. - 使用 <em>3DS</em> 存档提取软件
+<strong><em>CheckPoint</em></strong> （推荐）或者
+<strong><em>TWLSaveTool</em></strong> . - <a
+target="_blank" rel="noopener" href="https://projectpokemon.org/home/tutorials/save-editing/managing-3ds-saves/using-checkpoint-r25/">CheckPoint使用方法</a>
+- <a
+target="_blank" rel="noopener" href="https://projectpokemon.org/home/tutorials/save-editing/managing-nds-saves/using-twl-save-tool-r59/">TWLSaveTool使用方法</a>
+- <a
+target="_blank" rel="noopener" href="https://github.com/FlagBrew/Checkpoint/releases">CheckPoint下载</a>
+- <a
+target="_blank" rel="noopener" href="https://github.com/TuxSH/TWLSaveTool/releases">TWLSaveTool下载</a></p>
+<p>Checkpoint界面： <img
+src="/images/body/How-To-Back-Up-Your-Savefiles/CheckPoint.png"
+alt="CheckPoint" /> TWLSaveTool界面： <img
+src="/images/body/How-To-Back-Up-Your-Savefiles/TWLSaveTool.png"
+alt="TWLSaveTool" /></p>
+<h1 id="已失效的与未经测试的-3ds-卡带存档提取外设">已失效的与未经测试的
+<em>3DS</em> 卡带存档提取外设</h1>
+<h2 id="cyber-save-editor"><strong>Cyber Save Editor</strong></h2>
+<p><img
+src="/images/body/How-To-Back-Up-Your-Savefiles/Cyber-Save-Editor01.png"
+alt="Cyber Save Editor" /> &gt; 网站已经停止服务了，应该仅支持日版.</p>
+<figure>
+<img
+src="/images/body/How-To-Back-Up-Your-Savefiles/Cyber-Save-Editor02.jpg"
+alt="Cyber Save Editor" />
+<figcaption aria-hidden="true">Cyber Save Editor</figcaption>
+</figure>
+<h2 id="cyber-save-editor-2"><strong>Cyber Save Editor 2</strong></h2>
+<p>普通版 <img
+src="/images/body/How-To-Back-Up-Your-Savefiles/Cyber-Save-Editor03.png"
+alt="Cyber Save Editor 2" /> <img
+src="/images/body/How-To-Back-Up-Your-Savefiles/Cyber-Save-Editor04.png"
+alt="Cyber Save Editor 2" /> <br></p>
+<p>典藏版 <img
+src="/images/body/How-To-Back-Up-Your-Savefiles/Cyber-Save-Editor05.webp"
+alt="Cyber Save Editor 2" /> &gt;
+<strong>仅支持日版</strong>，是否停止服务未知，如果你知道，请<a
+href="/about/">与我联系</a>. - <a
+target="_blank" rel="noopener" href="https://www.tldevtech.com/best-3ds-save-editor-cyber-save-editor/">Cyber
+Save Editor 2使用方法</a></p>
+<h1 id="写在最后">写在最后</h1>
+<p>不建议滥用存档导入导出，还请保持对游戏、对宝可梦的热爱进行使用！
 如果你知道更多的方法，还请<a href="/about/">不吝赐教</a>！</p>
 
     </div>

@@ -23,12 +23,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"willkyu.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN 域名遭到了 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢. 可以通过修改本地 hosts 文件来绕过 DNS 解析来加速. 封面 [ID:46018784].">
+<meta name="description" content="今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN 域名遭到了 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢. 可以通过修改本地 hosts 文件来绕过 DNS 解析来加速. 封面 [ID:46018784].">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决访问GithHub速度慢的问题">
 <meta property="og:url" content="http://willkyu.github.io/Learning/Solutions/Accessing-GitHub-Slowly-Solution/index.html">
 <meta property="og:site_name" content="丘丘Blog">
-<meta property="og:description" content="今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN 域名遭到了 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢. 可以通过修改本地 hosts 文件来绕过 DNS 解析来加速. 封面 [ID:46018784].">
+<meta property="og:description" content="今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN 域名遭到了 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢. 可以通过修改本地 hosts 文件来绕过 DNS 解析来加速. 封面 [ID:46018784].">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://willkyu.github.io/Learning/Solutions/Accessing-GitHub-Slowly-Solution/images/cover/Accessing-GitHub-Slowly-Solution.png">
 <meta property="article:published_time" content="2021-12-01T23:40:45.000Z">
@@ -81,7 +81,7 @@
       <p class="site-title">丘丘Blog</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">willkyu</p>
+      <p class="site-subtitle" itemprop="description">willkyu's blog</p>
   </div>
 
   <div class="site-nav-right">
@@ -156,7 +156,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#solution"><span class="nav-text"> Solution</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text"> Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#solution"><span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -165,13 +165,13 @@
     <img class="site-author-image" itemprop="image" alt="willkyu"
       src="/images/avatar_.png">
   <p class="site-author-name" itemprop="name">willkyu</p>
-  <div class="site-description" itemprop="description">一只谜拟Q的Blog</div>
+  <div class="site-description" itemprop="description">爱你所爱 求你所求 得你所得</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -269,7 +269,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_.png">
       <meta itemprop="name" content="willkyu">
-      <meta itemprop="description" content="一只谜拟Q的Blog">
+      <meta itemprop="description" content="爱你所爱 求你所求 得你所得">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -324,32 +324,34 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN 域名遭到了 DNS 污染，导致无法连接使用 GitHub 的加速分发服务器，才使得国内访问速度很慢.</p>
+        <p>今天早上上 GitHub 又没上上去，去网上找了一下原因是 GitHub 的 CDN
+域名遭到了 DNS 污染，导致无法连接使用 GitHub
+的加速分发服务器，才使得国内访问速度很慢.</p>
 <p>可以通过修改本地 <code>hosts</code> 文件来绕过 DNS 解析来加速.</p>
 <p>封面 [ID:46018784].</p>
 <span id="more"></span>
-<h1 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h1>
+<h1 id="solution">Solution</h1>
 <ul>
-<li>首先打开<span class="exturl" data-url="aHR0cDovL3Rvb2wuY2hpbmF6LmNvbS9kbnMv">站长工具<i class="fa fa-external-link-alt"></i></span></li>
-<li>填入 &lt;<span class="exturl" data-url="aHR0cDovL0dpdGh1Yi5jb20=">Github.com<i class="fa fa-external-link-alt"></i></span>&gt;<br />
-<img data-src="/images/body/Accessing-GitHub-Slowly-Solution/Figure1.png" alt="Figure1" title="在 请输入域名 栏填写" /></li>
-<li>将检测列表里的 TTL 值最小的 IP 记为 <em>a.b.c.d</em>.</li>
-<li>使用记事本打开 <code>hosts</code> 文件，位于 &lt;C:\Windows\System32\drivers\etc&gt;.</li>
-<li>将以下内容加在 <code>host</code> 文件末尾：</li>
+<li><p>首先打开<a
+target="_blank" rel="noopener" href="http://tool.chinaz.com/dns/">站长工具</a></p></li>
+<li><p>填入 &lt;Github.com&gt; <img
+src="/images/body/Accessing-GitHub-Slowly-Solution/Figure1.png"
+title="在 请输入域名 栏填写" alt="Figure1" /></p></li>
+<li><p>将检测列表里的 TTL 值最小的 IP 记为 <em>a.b.c.d</em>.</p></li>
+<li><p>使用记事本打开 <code>hosts</code> 文件，位于 &lt;C:&gt;.</p></li>
+<li><p>将以下内容加在 <code>host</code> 文件末尾： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a.b.c.d www.github.com</span><br><span class="line">a.b.c.d github.global.ssl.fastly.net</span><br><span class="line">a.b.c.d nodeload.github.com</span><br></pre></td></tr></table></figure> &gt;
+其中 <em>a.b.c.d</em> 是上述步骤中记录的 IP 地址. &gt;
+如果没有修改权限可以将 <code>host</code>
+文件移出该文件夹，修改完成后再移回去. &gt; 系统会确认你授权管理员权限.
+<img data-src="/images/body/Accessing-GitHub-Slowly-Solution/Figure2.png"
+title="系统向确认你授权管理员权限" alt="Figure2" /></p></li>
+<li><p><em>cmd</em> 输入命令 <code>ipconfig /flushdns</code>
+刷新DNS缓存.</p></li>
+<li><p>Done！试试访问GitHub吧！</p></li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a.b.c.d www.github.com</span><br><span class="line">a.b.c.d github.global.ssl.fastly.net</span><br><span class="line">a.b.c.d nodeload.github.com</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>其中 <em>a.b.c.d</em> 是上述步骤中记录的 IP 地址.<br />
-如果没有修改权限可以将 <code>host</code> 文件移出该文件夹，修改完成后再移回去.<br />
-系统会确认你授权管理员权限.<br />
-<img data-src="/images/body/Accessing-GitHub-Slowly-Solution/Figure2.png" alt="Figure2" title="系统向确认你授权管理员权限" /></p>
-</blockquote>
-<ul>
-<li><em>cmd</em> 输入命令 <code>ipconfig /flushdns</code> 刷新DNS缓存.</li>
-<li>Done！试试访问GitHub吧！</li>
-</ul>
-<h1 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h1>
-<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTMTM0NzcwNjIzNDkvYXJ0aWNsZS9kZXRhaWxzLzg4MDIwMjgzP3V0bV9tZWRpdW09ZGlzdHJpYnV0ZS5wY19yZWxldmFudC5ub25lLXRhc2stYmxvZy0yfmRlZmF1bHR+YmFpZHVqc19iYWlkdWxhbmRpbmd3b3JkfmRlZmF1bHQtMC5ub19zZWFyY2hfbGluayZzcG09MTAwMS4yMTAxLjMwMDEuNDI0Mi4x">完美解决打开github速度慢的问题<i class="fa fa-external-link-alt"></i></span></p>
+<h1 id="reference">Reference</h1>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/CS13477062349/article/details/88020283?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.no_search_link&amp;spm=1001.2101.3001.4242.1">完美解决打开github速度慢的问题</a></p>
 
     </div>
 

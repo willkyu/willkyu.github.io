@@ -78,7 +78,7 @@
       <p class="site-title">丘丘Blog</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">willkyu</p>
+      <p class="site-subtitle" itemprop="description">willkyu's blog</p>
   </div>
 
   <div class="site-nav-right">
@@ -153,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#import-from-numpy"><span class="nav-text"> import from numpy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#import-from-list"><span class="nav-text"> import from list</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#uninitialized"><span class="nav-text"> uninitialized</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#set-default-type"><span class="nav-text"> set default type</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#randrand_like-randint"><span class="nav-text"> rand&#x2F;rand_like, randint</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#randn-%E6%A0%87%E5%87%86%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83"><span class="nav-text"> randn 标准正态分布</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#full"><span class="nav-text"> full</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#arange-range"><span class="nav-text"> arange &#x2F; range</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linspace-logspace"><span class="nav-text"> linspace &#x2F; logspace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ones-zeros-eye"><span class="nav-text"> Ones &#x2F; Zeros &#x2F; Eye</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#randperm"><span class="nav-text"> randperm</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#import-from-numpy"><span class="nav-text">import from numpy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#import-from-list"><span class="nav-text">import from list</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#uninitialized"><span class="nav-text">uninitialized</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#set-default-type"><span class="nav-text">set default type</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#randrand_like-randint"><span class="nav-text">rand&#x2F;rand_like, randint</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#randn-%E6%A0%87%E5%87%86%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83"><span class="nav-text">randn 标准正态分布</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#full"><span class="nav-text">full</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#arange-range"><span class="nav-text">arange &#x2F; range</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linspace-logspace"><span class="nav-text">linspace &#x2F; logspace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ones-zeros-eye"><span class="nav-text">Ones &#x2F; Zeros &#x2F; Eye</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#randperm"><span class="nav-text">randperm</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,13 +162,13 @@
     <img class="site-author-image" itemprop="image" alt="willkyu"
       src="/images/avatar_.png">
   <p class="site-author-name" itemprop="name">willkyu</p>
-  <div class="site-description" itemprop="description">一只谜拟Q的Blog</div>
+  <div class="site-description" itemprop="description">爱你所爱 求你所求 得你所得</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -261,7 +261,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_.png">
       <meta itemprop="name" content="willkyu">
-      <meta itemprop="description" content="一只谜拟Q的Blog">
+      <meta itemprop="description" content="爱你所爱 求你所求 得你所得">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -318,15 +318,15 @@
     <div class="post-body" itemprop="articleBody">
         <p>PyTorch各种创建Tensor方式</p>
 <span id="more"></span>
-<h1 id="import-from-numpy"><a class="markdownIt-Anchor" href="#import-from-numpy"></a> import from numpy</h1>
+<h1 id="import-from-numpy">import from numpy</h1>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([2, 3.3])</span><br><span class="line">torch.from_numpy(a) #tensor([2.000, 3.300], dtype = torch.float64)</span><br><span class="line"></span><br><span class="line">a = np.ones([2, 3])</span><br><span class="line">torch.from_numpy(a) #tensor([[1., 1., 1.],</span><br><span class="line">                             [1., 1., 1.]], dtype = torch.float64)</span><br></pre></td></tr></table></figure>
-<h1 id="import-from-list"><a class="markdownIt-Anchor" href="#import-from-list"></a> import from list</h1>
+<h1 id="import-from-list">import from list</h1>
 <blockquote>
-<p>torch承载的参数是现成的数据：numpy或者list<br />
-Torch、FloatTensor接收shape作为参数，生成一个没有初始化的类型. 或使用list来接收现有数据（不建议）.</p>
+<p>torch承载的参数是现成的数据：numpy或者list
+Torch、FloatTensor接收shape作为参数，生成一个没有初始化的类型.
+或使用list来接收现有数据（不建议）. <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">torch.tensor([2, 3.2])  #tensor([2.0000, 3.2000])</span><br><span class="line"></span><br><span class="line">torch.FloatTensor([2., 3.2])    #tensor([2.0000, 3.2000])</span><br><span class="line"></span><br><span class="line">torch.tensor([[2., 3.2],[1., 22.3]])</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">torch.tensor([2, 3.2])  #tensor([2.0000, 3.2000])</span><br><span class="line"></span><br><span class="line">torch.FloatTensor([2., 3.2])    #tensor([2.0000, 3.2000])</span><br><span class="line"></span><br><span class="line">torch.tensor([[2., 3.2],[1., 22.3]])</span><br></pre></td></tr></table></figure>
-<h1 id="uninitialized"><a class="markdownIt-Anchor" href="#uninitialized"></a> uninitialized</h1>
+<h1 id="uninitialized">uninitialized</h1>
 <ul>
 <li>torch.empty(d1, d2)</li>
 <li>torch.FloatTensor(d1, d2, d3)</li>
@@ -335,54 +335,40 @@ Torch、FloatTensor接收shape作为参数，生成一个没有初始化的类�
 <blockquote>
 <p>要把未初始化的数据覆盖掉，如果出现torch.nan或者torch.inf，可能就是使用了未初始化的数据.</p>
 </blockquote>
-<h1 id="set-default-type"><a class="markdownIt-Anchor" href="#set-default-type"></a> set default type</h1>
+<h1 id="set-default-type">set default type</h1>
 <blockquote>
 <p>一般使用Tensor默认是FloatTensor</p>
 </blockquote>
 <p>使用<code>torch.set_default_tensor_type(torch.DoubleTensor)</code>来改变默认类型</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.tensor([1.2, 3]).type #&#x27;torch.FloatTensor&#x27;</span><br><span class="line">torch.set_default_tensor_type(torch.DoubleTensor)</span><br><span class="line">torch.tensor([1.2, 3]).type #&#x27;torch.DoubleTensor&#x27;</span><br></pre></td></tr></table></figure>
-<h1 id="randrand_like-randint"><a class="markdownIt-Anchor" href="#randrand_like-randint"></a> rand/rand_like, randint</h1>
+<h1 id="randrand_like-randint">rand/rand_like, randint</h1>
 <ul>
-<li>rand 随机使用[0, 1]均匀分布</li>
+<li><p>rand 随机使用[0, 1]均匀分布 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.rand(3, 3)    #按均匀分布生成3*3shape的随机张量</span><br></pre></td></tr></table></figure></p></li>
+<li><p>rand_like 接受的参数是一个tensor，生成一个和其shape相同的随机张量
+&gt; *_like</p></li>
+<li><p>randint(min, max, [shape])，左闭右开 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">randint(1, 10, [3, 3])</span><br></pre></td></tr></table></figure></p></li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.rand(3, 3)    #按均匀分布生成3*3shape的随机张量</span><br></pre></td></tr></table></figure>
-<ul>
-<li>
-<p>rand_like 接受的参数是一个tensor，生成一个和其shape相同的随机张量</p>
-<blockquote>
-<p>*_like</p>
-</blockquote>
-</li>
-<li>
-<p>randint(min, max, [shape])，左闭右开</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">randint(1, 10, [3, 3])</span><br></pre></td></tr></table></figure>
-<h1 id="randn-标准正态分布"><a class="markdownIt-Anchor" href="#randn-标准正态分布"></a> randn 标准正态分布</h1>
+<h1 id="randn-标准正态分布">randn 标准正态分布</h1>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.randn(3, 3)    #按标准正态分布生成3*3shape的随机张量</span><br></pre></td></tr></table></figure>
-<p>如果想自定义均值和方差，使用normal生成一维张量后reshape</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.normal(mean = torch.full([10], 0), std = torch.arange(1, 0, -0.1)) </span><br><span class="line">#torch.full([10], 0)生成一个10*1的全0张量</span><br><span class="line">#均值为0，方差依次递减[1, 0.9, ...]</span><br></pre></td></tr></table></figure>
-<h1 id="full"><a class="markdownIt-Anchor" href="#full"></a> full</h1>
+<p>如果想自定义均值和方差，使用normal生成一维张量后reshape
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.normal(mean = torch.full([10], 0), std = torch.arange(1, 0, -0.1)) </span><br><span class="line">#torch.full([10], 0)生成一个10*1的全0张量</span><br><span class="line">#均值为0，方差依次递减[1, 0.9, ...]</span><br></pre></td></tr></table></figure></p>
+<h1 id="full">full</h1>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.full([2, 3], 7)   #tensor([[7., 7., 7.],</span><br><span class="line">                                 [7., 7., 7.])</span><br><span class="line">torch.full([], 7)   #tensor(7.)</span><br></pre></td></tr></table></figure>
-<h1 id="arange-range"><a class="markdownIt-Anchor" href="#arange-range"></a> arange / range</h1>
+<h1 id="arange-range">arange / range</h1>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.arange(0, 4)   #tensor([0, 1, 2, 3])</span><br><span class="line">torch.arange(0, 4, 2)   #ensor([0, 2])</span><br><span class="line">torch.range(0, 4)   #tensor([0, 1, 2, 3, 4]) 不建议使用range</span><br></pre></td></tr></table></figure>
-<h1 id="linspace-logspace"><a class="markdownIt-Anchor" href="#linspace-logspace"></a> linspace / logspace</h1>
+<h1 id="linspace-logspace">linspace / logspace</h1>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">torch.linspace(0, 10, steps = 4)    #第三个参数是数量</span><br><span class="line">#tensor([0.0000, 3.3333, 6.6666, 10.0000])</span><br><span class="line"></span><br><span class="line">torch.logspace(0, -1, steps = 10)   #相当于linspace生成的这些数作为10的幂</span><br><span class="line">#tensor([1.0000, 0.7743, ..., 0.1000])</span><br></pre></td></tr></table></figure>
-<h1 id="ones-zeros-eye"><a class="markdownIt-Anchor" href="#ones-zeros-eye"></a> Ones / Zeros / Eye</h1>
+<h1 id="ones-zeros-eye">Ones / Zeros / Eye</h1>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">torch.ones(2, 2)</span><br><span class="line">#tensor([[1, 1],</span><br><span class="line">         [1, 1])</span><br><span class="line">         </span><br><span class="line">torch.zeros(2, 2)</span><br><span class="line">#tensor([[0, 0],</span><br><span class="line">         [0, 0])</span><br><span class="line">         </span><br><span class="line">torch.eye(2, 3)</span><br><span class="line">#tensor([[1, 0, 0],</span><br><span class="line">         [0, 1, 0])</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">torch.eye(3)</span><br><span class="line">#tensor([[1, 0, 0],</span><br><span class="line">         [0, 1, 0],</span><br><span class="line">         [0, 0, 1]])</span><br><span class="line"></span><br><span class="line">a = torch.zeros(3, 3)</span><br><span class="line">torch.ones_like(a)</span><br><span class="line">#tensor([[1, 1, 1],</span><br><span class="line">         [1, 1, 1],</span><br><span class="line">         [1, 1, 1]])</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>eye最多两个参数</p>
 </blockquote>
-<h1 id="randperm"><a class="markdownIt-Anchor" href="#randperm"></a> randperm</h1>
+<h1 id="randperm">randperm</h1>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">torch.randperm(10)</span><br><span class="line">#tensor([1, 5, 4, 2, 0, 6, 3, 9, 7, 8]) 生成随机索引</span><br></pre></td></tr></table></figure>
 <ul>
-<li>random.shuffle</li>
+<li>random.shuffle &gt; 为了保持配对 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = torch.rand(2, 3)</span><br><span class="line">b = torch.rand(2, 2)</span><br><span class="line">idx = torch.randperm(2)</span><br><span class="line">idx #tensor([1, 0])</span><br><span class="line"></span><br><span class="line">a[idx]</span><br><span class="line">b[idx]</span><br></pre></td></tr></table></figure></li>
 </ul>
-<blockquote>
-<p>为了保持配对</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = torch.rand(2, 3)</span><br><span class="line">b = torch.rand(2, 2)</span><br><span class="line">idx = torch.randperm(2)</span><br><span class="line">idx #tensor([1, 0])</span><br><span class="line"></span><br><span class="line">a[idx]</span><br><span class="line">b[idx]</span><br></pre></td></tr></table></figure>
 
     </div>
 

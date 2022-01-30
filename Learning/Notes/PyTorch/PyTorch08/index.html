@@ -78,7 +78,7 @@
       <p class="site-title">丘丘Blog</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">willkyu</p>
+      <p class="site-subtitle" itemprop="description">willkyu's blog</p>
   </div>
 
   <div class="site-nav-right">
@@ -153,7 +153,8 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#norm"><span class="nav-text"> norm</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mean-sum-min-max-prod-argmax-argmin"><span class="nav-text"> mean &#x2F; sum &#x2F; min &#x2F; max &#x2F; prod &#x2F; argmax &#x2F; argmin</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dim-keepdim"><span class="nav-text"> dim &#x2F; keepdim</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#top-k-k-th"><span class="nav-text"> top-k &#x2F; k-th</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#compare"><span class="nav-text"> compare</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#norm"><span class="nav-text">norm</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mean-sum-min-max-prod-argmax-argmin"><span class="nav-text">mean &#x2F; sum &#x2F; min &#x2F; max &#x2F;
+prod &#x2F; argmax &#x2F; argmin</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dim-keepdim"><span class="nav-text">dim &#x2F; keepdim</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#top-k-k-th"><span class="nav-text">top-k &#x2F; k-th</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#compare"><span class="nav-text">compare</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,13 +163,13 @@
     <img class="site-author-image" itemprop="image" alt="willkyu"
       src="/images/avatar_.png">
   <p class="site-author-name" itemprop="name">willkyu</p>
-  <div class="site-description" itemprop="description">一只谜拟Q的Blog</div>
+  <div class="site-description" itemprop="description">爱你所爱 求你所求 得你所得</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -261,7 +262,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_.png">
       <meta itemprop="name" content="willkyu">
-      <meta itemprop="description" content="一只谜拟Q的Blog">
+      <meta itemprop="description" content="爱你所爱 求你所求 得你所得">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -318,24 +319,17 @@
     <div class="post-body" itemprop="articleBody">
         <p>记录了PyTorch一些常见统计属性.</p>
 <span id="more"></span>
-<p>常见统计属性：</p>
-<ul>
-<li>norm 范数</li>
-<li>mean sum</li>
-<li>prod 累乘</li>
-<li>min max argmin argmax 最小/大值的位置</li>
-<li>kthvalue topk</li>
-</ul>
-<h1 id="norm"><a class="markdownIt-Anchor" href="#norm"></a> norm</h1>
-<p><em>不是normalize正则化</em><br />
-<em>矩阵范数与向量范数有区别的</em></p>
-<p>norm-p p范数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">a = torch.full([8], 1)</span><br><span class="line">b = a.review(2, 4)</span><br><span class="line">c = a.review(2, 2, 2)</span><br><span class="line"></span><br><span class="line">a.norm(1), b.norm(1), c.norm(1)</span><br><span class="line">#tensor(8.), tensor(8.), tensor(8.)</span><br><span class="line"></span><br><span class="line">a.norm(2), b.norm(2), c.norm(2)</span><br><span class="line">#tensor(2.8284), tensor(2.8284), tensor(2.8284)</span><br><span class="line"></span><br><span class="line">b.norm(1, dim = 0)</span><br><span class="line">#tensor([4., 4.])</span><br><span class="line"></span><br><span class="line">c.norm(1, dim = 0)</span><br><span class="line">#tensor([[2, 2],</span><br><span class="line">         [2, 2]])</span><br></pre></td></tr></table></figure>
-<h1 id="mean-sum-min-max-prod-argmax-argmin"><a class="markdownIt-Anchor" href="#mean-sum-min-max-prod-argmax-argmin"></a> mean / sum / min / max / prod / argmax / argmin</h1>
+<p>常见统计属性： - norm 范数 - mean sum - prod 累乘 - min max argmin
+argmax 最小/大值的位置 - kthvalue topk</p>
+<h1 id="norm">norm</h1>
+<p><em>不是normalize正则化</em> <em>矩阵范数与向量范数有区别的</em></p>
+<p>norm-p p范数 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">a = torch.full([8], 1)</span><br><span class="line">b = a.review(2, 4)</span><br><span class="line">c = a.review(2, 2, 2)</span><br><span class="line"></span><br><span class="line">a.norm(1), b.norm(1), c.norm(1)</span><br><span class="line">#tensor(8.), tensor(8.), tensor(8.)</span><br><span class="line"></span><br><span class="line">a.norm(2), b.norm(2), c.norm(2)</span><br><span class="line">#tensor(2.8284), tensor(2.8284), tensor(2.8284)</span><br><span class="line"></span><br><span class="line">b.norm(1, dim = 0)</span><br><span class="line">#tensor([4., 4.])</span><br><span class="line"></span><br><span class="line">c.norm(1, dim = 0)</span><br><span class="line">#tensor([[2, 2],</span><br><span class="line">         [2, 2]])</span><br></pre></td></tr></table></figure></p>
+<h1 id="mean-sum-min-max-prod-argmax-argmin">mean / sum / min / max /
+prod / argmax / argmin</h1>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">a = torch.arange(8).view(2, 4).float()</span><br><span class="line">#tensor([[0, 1, 2, 3],</span><br><span class="line">         [4, 5, 6, 7]])</span><br><span class="line">         </span><br><span class="line">a.min(), a.max(), a.mean(), a.prod(), a.sum()</span><br><span class="line">#tensor(0.), tensor(7.), tensor(3.5000), tensor(0.), tensor(28.)</span><br><span class="line"></span><br><span class="line">a.max(dim = 1)</span><br><span class="line">#tensor([3., 7.]), tensor([3, 3])</span><br><span class="line"></span><br><span class="line">a.argmax(), a.argmin()</span><br><span class="line">#tensor(7), tensor(0) 会将tesor打平后求max、min索引</span><br><span class="line"></span><br><span class="line">a.argmax(dim = 1)</span><br><span class="line">#tensor([3, 3])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="dim-keepdim"><a class="markdownIt-Anchor" href="#dim-keepdim"></a> dim / keepdim</h1>
+<h1 id="dim-keepdim">dim / keepdim</h1>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">a = torch.rand(4, 10)</span><br><span class="line">a.max(dim = 1)</span><br><span class="line">#tensor([0.8362, 1.7015, 1.1297, 0.6386]), tensor([3, 8, 6, 4])</span><br><span class="line"></span><br><span class="line">a.max(dim = 1, keepdim = True)  #dim与原tensor保持一致</span><br><span class="line">#tensor([[0.8362],</span><br><span class="line">         [1.7015],</span><br><span class="line">         [1.1297],</span><br><span class="line">         [0.6386]]), tensor([[3],</span><br><span class="line">                             [8],</span><br><span class="line">                             [6],</span><br><span class="line">                             [4]])</span><br><span class="line">                             </span><br><span class="line">a.argmax(dim = 1, keepdim = True)</span><br><span class="line">#tensor([[3],</span><br><span class="line">         [8],</span><br><span class="line">         [6],</span><br><span class="line">         [4]])</span><br></pre></td></tr></table></figure>
-<h1 id="top-k-k-th"><a class="markdownIt-Anchor" href="#top-k-k-th"></a> top-k / k-th</h1>
+<h1 id="top-k-k-th">top-k / k-th</h1>
 <ul>
 <li>top-k 返回最大的k个数和其索引</li>
 </ul>
@@ -344,11 +338,10 @@
 <li>kthvalue</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a.kthvalue(8, dim = 1)</span><br><span class="line">#tensor([-0.1830, 1.2393, 0.2227, -0.3927]), tensor([9, 5, 6, 9])</span><br><span class="line">#返回第8小的元素及其索引（在这里是第3大）</span><br><span class="line">a.kthvalue(8)       #结果同上</span><br></pre></td></tr></table></figure>
-<h1 id="compare"><a class="markdownIt-Anchor" href="#compare"></a> compare</h1>
+<h1 id="compare">compare</h1>
 <blockquote>
-<p>&gt;, &gt;=, &lt;, &lt;=, !=, ==</p>
+<p>&gt;, &gt;=, &lt;, &lt;=, !=, == <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a &gt; 0</span><br><span class="line">#tensor([[0, 0, 0, 1, ...],</span><br><span class="line">         [0, 0, 0, 0, ...],</span><br><span class="line">         [0, 1, 1, 0, ...],</span><br><span class="line">         [0, 0, 0, 0, ...]])</span><br><span class="line">torch.gt(a, 0)  #结果同上</span><br><span class="line"></span><br><span class="line">b = rand(2, 2)</span><br><span class="line">torch.eq(b, b)</span><br><span class="line">#tensor([[1, 1],</span><br><span class="line">         [1, 1]])</span><br><span class="line">torch.equal(b, b)</span><br><span class="line">#True</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a &gt; 0</span><br><span class="line">#tensor([[0, 0, 0, 1, ...],</span><br><span class="line">         [0, 0, 0, 0, ...],</span><br><span class="line">         [0, 1, 1, 0, ...],</span><br><span class="line">         [0, 0, 0, 0, ...]])</span><br><span class="line">torch.gt(a, 0)  #结果同上</span><br><span class="line"></span><br><span class="line">b = rand(2, 2)</span><br><span class="line">torch.eq(b, b)</span><br><span class="line">#tensor([[1, 1],</span><br><span class="line">         [1, 1]])</span><br><span class="line">torch.equal(b, b)</span><br><span class="line">#True</span><br></pre></td></tr></table></figure>
 
     </div>
 

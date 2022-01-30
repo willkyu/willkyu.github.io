@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>丘丘Blog</title>
   
-  <subtitle>willkyu</subtitle>
+  <subtitle>willkyu&#39;s blog</subtitle>
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2022-01-23T08:21:35.179Z</updated>
+  <updated>2022-01-30T04:13:21.489Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -17,6 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>稀疏矩阵及其存储格式（COO、CSR、CSC）</title>
+    <link href="http://willkyu.github.io/Learning/Notes/Sparse-Matrix/"/>
+    <id>http://willkyu.github.io/Learning/Notes/Sparse-Matrix/</id>
+    <published>2022-01-30T03:36:27.000Z</published>
+    <updated>2022-01-30T04:13:21.489Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;在矩阵中，若数值为0的元素数目远远多于非0元素的数目，并且非0元素分布没有规律时，则称该矩阵为&lt;strong&gt;稀疏矩阵&lt;/strong&gt;；与之相反，若非0元素数目占大多数时，则称该矩阵为稠密矩阵。定义非零元素的总数比上矩阵所有元素的总数为矩阵的稠密度。简单来说,&lt;em&gt;稀疏矩阵就是绝大部分都是0的矩阵,只包含很少的非零值&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;封面 [ID:79498766].&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
+    
+    <category term="Knowledage-Graphs" scheme="http://willkyu.github.io/tags/Knowledage-Graphs/"/>
+    
+  </entry>
+  
+  <entry>
     <title>GraIL</title>
     <link href="http://willkyu.github.io/Learning/Notes/GraIL/"/>
     <id>http://willkyu.github.io/Learning/Notes/GraIL/</id>
@@ -24,7 +48,8 @@
     <updated>2022-01-23T08:21:35.179Z</updated>
     
     
-    <summary type="html">&lt;p&gt;论文 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MTEuMDY5NjI=&quot;&gt;Inductive relation prediction by subgraph reasoning&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 阅读笔记.&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;论文 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MTEuMDY5NjI=&quot;&gt;Inductive relation
+prediction by subgraph reasoning&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 阅读笔记.&lt;/p&gt;</summary>
     
     
     
@@ -48,7 +73,8 @@
     
     
     <summary type="html">&lt;p&gt;本文内容不涉及3ds/2ds系列的破解过程，本篇内容均建立在读者已经将3ds/2ds系列破解了的基础上.&lt;/p&gt;
-&lt;p&gt;同时本文使用的是&lt;strong&gt;正版卡带 + 辅助插件&lt;/strong&gt;，相应盗版软件无法正常操作.&lt;/p&gt;
+&lt;p&gt;同时本文使用的是&lt;strong&gt;正版卡带 +
+辅助插件&lt;/strong&gt;，相应盗版软件无法正常操作.&lt;/p&gt;
 &lt;p&gt;封面 [ID:50105089].&lt;/p&gt;</summary>
     
     
@@ -72,8 +98,7 @@
     <updated>2022-01-19T15:18:59.352Z</updated>
     
     
-    <summary type="html">&lt;p&gt;这是宝可梦四代的实机乱数教程.&lt;br /&gt;
-包含 ID 与 Egg 的乱数教程.&lt;br /&gt;
+    <summary type="html">&lt;p&gt;这是宝可梦四代的实机乱数教程. 包含 ID 与 Egg 的乱数教程.
 如有纰漏，请&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
 &lt;p&gt;封面 [ID:92026700].&lt;/p&gt;</summary>
     
@@ -145,8 +170,7 @@
     <updated>2021-12-25T02:56:44.000Z</updated>
     
     
-    <summary type="html">&lt;p&gt;这是宝可梦火红叶绿的实机乱数教程.&lt;br /&gt;
-不包含 ID 与 Egg 的乱数教程.&lt;br /&gt;
+    <summary type="html">&lt;p&gt;这是宝可梦火红叶绿的实机乱数教程. 不包含 ID 与 Egg 的乱数教程.
 如有纰漏，请&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
 &lt;p&gt;封面 [ID:94783450].&lt;/p&gt;</summary>
     
@@ -168,11 +192,11 @@
     <link href="http://willkyu.github.io/Pokemon/PokeSchedule/"/>
     <id>http://willkyu.github.io/Pokemon/PokeSchedule/</id>
     <published>2021-12-24T00:36:44.000Z</published>
-    <updated>2022-01-19T15:13:54.908Z</updated>
+    <updated>2022-01-30T04:29:53.884Z</updated>
     
     
-    <summary type="html">&lt;p&gt;使用 &lt;em&gt;CheckBox&lt;/em&gt; 记录宝可梦各世代的目标以及完成情况.&lt;br /&gt;
-你可以将这篇当作&lt;strong&gt;各版本要素整理&lt;/strong&gt;.&lt;br /&gt;
+    <summary type="html">&lt;p&gt;使用 &lt;em&gt;CheckBox&lt;/em&gt; 记录宝可梦各世代的目标以及完成情况.
+你可以将这篇当作&lt;strong&gt;各版本要素整理&lt;/strong&gt;.
 如果还有什么有意思的要素欢迎&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;封面 [ID:94230956].&lt;/p&gt;</summary>
     
@@ -195,8 +219,10 @@
     <updated>2022-01-19T15:08:23.421Z</updated>
     
     
-    <summary type="html">&lt;p&gt;记录博客使用 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL3pod2FuZ2FydC9oZXhvLXRoZW1lLW9jZWFu&quot;&gt;Oceon&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 主题后进行的各项改动，&lt;br /&gt;
-根据&lt;a href=&quot;/Archive/The-First-Blog/&quot;&gt;置顶◇代办◇与更新记录&lt;/a&gt;记录的更新顺序排序.&lt;/p&gt;
+    <summary type="html">&lt;p&gt;记录博客使用 &lt;a
+href=&quot;https://github.com/zhwangart/hexo-theme-ocean&quot;&gt;Oceon&lt;/a&gt;
+主题后进行的各项改动， 根据&lt;a
+href=&quot;/Archive/The-First-Blog/&quot;&gt;置顶◇代办◇与更新记录&lt;/a&gt;记录的更新顺序排序.&lt;/p&gt;
 &lt;p&gt;封面 [ID:89138905].&lt;/p&gt;</summary>
     
     
@@ -350,8 +376,8 @@
     <updated>2022-01-22T05:42:11.911Z</updated>
     
     
-    <summary type="html">&lt;p&gt;这是宝可梦自制四五代配信器的教程.&lt;br /&gt;
-如有纰漏，请&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
+    <summary type="html">&lt;p&gt;这是宝可梦自制四五代配信器的教程. 如有纰漏，请&lt;a
+href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
 &lt;p&gt;封面 [ID:84354949].&lt;/p&gt;</summary>
     
     
@@ -450,32 +476,6 @@
     <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
     
     <category term="PyTorch" scheme="http://willkyu.github.io/tags/PyTorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>宝可梦有电的红蓝宝石实机乱数（不包含 ID 或 Egg）</title>
-    <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part2/"/>
-    <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part2/</id>
-    <published>2021-12-14T00:10:35.000Z</published>
-    <updated>2022-01-19T15:18:06.651Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这是宝可梦有电红蓝宝石的实机乱数教程.&lt;br /&gt;
-不包含 ID 与 Egg 的乱数教程.&lt;br /&gt;
-如有纰漏，请&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
-&lt;p&gt;封面 [ID:88418874].&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
-    
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
-    
-    <category term="Pokemon-RNG-Abuse" scheme="http://willkyu.github.io/tags/Pokemon-RNG-Abuse/"/>
-    
-    <category term="Pokemon-Gen3" scheme="http://willkyu.github.io/tags/Pokemon-Gen3/"/>
     
   </entry>
   

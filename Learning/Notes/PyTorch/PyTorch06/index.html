@@ -78,7 +78,7 @@
       <p class="site-title">丘丘Blog</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">willkyu</p>
+      <p class="site-subtitle" itemprop="description">willkyu's blog</p>
   </div>
 
   <div class="site-nav-right">
@@ -153,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cat"><span class="nav-text"> cat</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#stack"><span class="nav-text"> stack</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#split-by-len"><span class="nav-text"> split: by len</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chunk-by-num"><span class="nav-text"> chunk: by num</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cat"><span class="nav-text">cat</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#stack"><span class="nav-text">stack</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#split-by-len"><span class="nav-text">split: by len</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chunk-by-num"><span class="nav-text">chunk: by num</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,13 +162,13 @@
     <img class="site-author-image" itemprop="image" alt="willkyu"
       src="/images/avatar_.png">
   <p class="site-author-name" itemprop="name">willkyu</p>
-  <div class="site-description" itemprop="description">一只谜拟Q的Blog</div>
+  <div class="site-description" itemprop="description">爱你所爱 求你所求 得你所得</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -261,7 +261,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_.png">
       <meta itemprop="name" content="willkyu">
-      <meta itemprop="description" content="一只谜拟Q的Blog">
+      <meta itemprop="description" content="爱你所爱 求你所求 得你所得">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -324,22 +324,18 @@
 <li>Split</li>
 <li>Chunk</li>
 </ul>
-<h1 id="cat"><a class="markdownIt-Anchor" href="#cat"></a> cat</h1>
-<p>Statisics about scores</p>
-<ul>
-<li>[class1-4, students, scores]</li>
-<li>[class5-9, students, scores]</li>
-</ul>
+<h1 id="cat">cat</h1>
+<p>Statisics about scores - [class1-4, students, scores] - [class5-9,
+students, scores]</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = torch.rand(4, 32, 8)</span><br><span class="line">b = torch.rand(5, 32, 8)</span><br><span class="line"></span><br><span class="line">torch.cat([a, b], dim = 0).shape</span><br><span class="line">#torch.Size([9, 32, 8])</span><br><span class="line">#第一个参数是一个list，包含了所有需要拼接的Tensor</span><br><span class="line">#第二个参数dim决定了合并的维度</span><br><span class="line">#其他维度要一样</span><br><span class="line">c = torch.rand(3, 32, 1)</span><br><span class="line">torch.cat([a, c], dim = 0).shape</span><br><span class="line">--------ERROR--------</span><br></pre></td></tr></table></figure>
-<h1 id="stack"><a class="markdownIt-Anchor" href="#stack"></a> stack</h1>
-<p>create new dim</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = torch.rand(32, 8)</span><br><span class="line">b = torch.rand(32, 8)</span><br><span class="line"></span><br><span class="line">torch.stack([a, b], dim = 0).shape</span><br><span class="line">#torch.Size([2, 32, 8])</span><br><span class="line">torch.stack([a, b], dim = 1).shape</span><br><span class="line">#torch.Size([32, 2, 8])</span><br></pre></td></tr></table></figure>
-<p>例如一个老师统计了一个班的成绩: [students, scores]，另一个老师也是，那么使用stack得到[2, students, scores]，而不是把students那一维度拼接起来</p>
-<p><strong>stack必须维度一致</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = torch.rand(30, 8)</span><br><span class="line">b = torch.rand(32, 8)</span><br><span class="line">torch.stack([a, b], dim = 0)</span><br><span class="line">--------ERROR--------</span><br></pre></td></tr></table></figure>
-<h1 id="split-by-len"><a class="markdownIt-Anchor" href="#split-by-len"></a> split: by len</h1>
+<h1 id="stack">stack</h1>
+<p>create new dim <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = torch.rand(32, 8)</span><br><span class="line">b = torch.rand(32, 8)</span><br><span class="line"></span><br><span class="line">torch.stack([a, b], dim = 0).shape</span><br><span class="line">#torch.Size([2, 32, 8])</span><br><span class="line">torch.stack([a, b], dim = 1).shape</span><br><span class="line">#torch.Size([32, 2, 8])</span><br></pre></td></tr></table></figure> 例如一个老师统计了一个班的成绩:
+[students, scores]，另一个老师也是，那么使用stack得到[2, students,
+scores]，而不是把students那一维度拼接起来</p>
+<p><strong>stack必须维度一致</strong> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = torch.rand(30, 8)</span><br><span class="line">b = torch.rand(32, 8)</span><br><span class="line">torch.stack([a, b], dim = 0)</span><br><span class="line">--------ERROR--------</span><br></pre></td></tr></table></figure></p>
+<h1 id="split-by-len">split: by len</h1>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">b = torch.rand(32, 8)</span><br><span class="line">a.shape     #torch.Size([32, 8])</span><br><span class="line">c = torch.stack([a, b], dim = 0)</span><br><span class="line">c.shape     #torch.Size([2, 32, 8])</span><br><span class="line"></span><br><span class="line">aa, bb = c.split(1, dim = 0)    #第一个参数是长度</span><br><span class="line">aa.shape, bb.shape</span><br><span class="line">#torch.Size([1, 32, 8]), torch.Size([1, 32, 8])</span><br><span class="line"></span><br><span class="line">aa, bb = c.split([1, 1], dim = 0)   #第一个参数是长度的list</span><br><span class="line">#结果同上</span><br><span class="line"></span><br><span class="line">aa, bb = c.split(2, dim = 0)</span><br><span class="line">-------ERROR--------</span><br></pre></td></tr></table></figure>
-<h1 id="chunk-by-num"><a class="markdownIt-Anchor" href="#chunk-by-num"></a> chunk: by num</h1>
+<h1 id="chunk-by-num">chunk: by num</h1>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">b = torch.rand(32, 8)</span><br><span class="line">a.shape     #torch.Size([32, 8])</span><br><span class="line">c = torch.stack([a, b], dim = 0)</span><br><span class="line">c.shape     #torch.Size([2, 32, 8])</span><br><span class="line"></span><br><span class="line">aa, bb = c.chunk(2, dim = 0)    #平均分成2块</span><br><span class="line">aa.shape, bb.shape</span><br><span class="line">#torch.Size([1, 32, 8]), torch.Size([1, 32, 8])</span><br></pre></td></tr></table></figure>
 
     </div>

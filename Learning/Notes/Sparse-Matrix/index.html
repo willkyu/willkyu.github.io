@@ -23,31 +23,31 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"willkyu.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="记录间谍伞的心路历程与领悟，希望早日上X！ 封面 [ID:68572483].">
+<meta name="description" content="在矩阵中，若数值为0的元素数目远远多于非0元素的数目，并且非0元素分布没有规律时，则称该矩阵为稀疏矩阵；与之相反，若非0元素数目占大多数时，则称该矩阵为稠密矩阵。定义非零元素的总数比上矩阵所有元素的总数为矩阵的稠密度。简单来说,稀疏矩阵就是绝大部分都是0的矩阵,只包含很少的非零值.  封面 [ID:79498766].">
 <meta property="og:type" content="article">
-<meta property="og:title" content="间谍伞日记">
-<meta property="og:url" content="http://willkyu.github.io/Game/Undercover-Brella-Diary/index.html">
+<meta property="og:title" content="稀疏矩阵及其存储格式（COO、CSR、CSC）">
+<meta property="og:url" content="http://willkyu.github.io/Learning/Notes/Sparse-Matrix/index.html">
 <meta property="og:site_name" content="丘丘Blog">
-<meta property="og:description" content="记录间谍伞的心路历程与领悟，希望早日上X！ 封面 [ID:68572483].">
+<meta property="og:description" content="在矩阵中，若数值为0的元素数目远远多于非0元素的数目，并且非0元素分布没有规律时，则称该矩阵为稀疏矩阵；与之相反，若非0元素数目占大多数时，则称该矩阵为稠密矩阵。定义非零元素的总数比上矩阵所有元素的总数为矩阵的稠密度。简单来说,稀疏矩阵就是绝大部分都是0的矩阵,只包含很少的非零值.  封面 [ID:79498766].">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://willkyu.github.io/images/cover/Undercover-Brella-Diary.jpg">
-<meta property="article:published_time" content="2022-01-07T15:54:32.000Z">
-<meta property="article:modified_time" content="2022-01-24T12:12:13.197Z">
+<meta property="og:image" content="http://willkyu.github.io/images/cover/Sparse-Matrix.png">
+<meta property="article:published_time" content="2022-01-30T03:36:27.000Z">
+<meta property="article:modified_time" content="2022-01-30T04:13:21.489Z">
 <meta property="article:author" content="willkyu">
-<meta property="article:tag" content="Game">
-<meta property="article:tag" content="Splatoon">
+<meta property="article:tag" content="Learning">
+<meta property="article:tag" content="Knowledage-Graphs">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://willkyu.github.io/images/cover/Undercover-Brella-Diary.jpg">
+<meta name="twitter:image" content="http://willkyu.github.io/images/cover/Sparse-Matrix.png">
 
 
-<link rel="canonical" href="http://willkyu.github.io/Game/Undercover-Brella-Diary/">
+<link rel="canonical" href="http://willkyu.github.io/Learning/Notes/Sparse-Matrix/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://willkyu.github.io/Game/Undercover-Brella-Diary/","path":"Game/Undercover-Brella-Diary/","title":"间谍伞日记"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://willkyu.github.io/Learning/Notes/Sparse-Matrix/","path":"Learning/Notes/Sparse-Matrix/","title":"稀疏矩阵及其存储格式（COO、CSR、CSC）"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>间谍伞日记 | 丘丘Blog</title>
+<title>稀疏矩阵及其存储格式（COO、CSR、CSC） | 丘丘Blog</title>
   
 
 
@@ -155,7 +155,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undercover-brella"><span class="nav-text">Undercover Brella</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#preface"><span class="nav-text">Preface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#diary"><span class="nav-text">Diary</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#section"><span class="nav-text">~2022-01-06</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-1"><span class="nav-text">2021-01-07</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-2"><span class="nav-text">2022-01-08</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-3"><span class="nav-text">2022-01-10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-4"><span class="nav-text">2022-01-11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-5"><span class="nav-text">2022-01-13</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-6"><span class="nav-text">2022-01-14</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-7"><span class="nav-text">2022-01-24</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5"><span class="nav-text">稀疏矩阵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#coo"><span class="nav-text">COO</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#csr%E4%B8%8Ecsc"><span class="nav-text">CSR与CSC</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -258,12 +258,12 @@
   <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
     
     <div class="post-gallery-image">
-      <img src="/images/cover/Undercover-Brella-Diary.jpg" itemprop="contentUrl">
+      <img src="/images/cover/Sparse-Matrix.png" itemprop="contentUrl">
     </div>
     </div>
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://willkyu.github.io/Game/Undercover-Brella-Diary/">
+    <link itemprop="mainEntityOfPage" href="http://willkyu.github.io/Learning/Notes/Sparse-Matrix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_.png">
@@ -276,7 +276,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          间谍伞日记
+          稀疏矩阵及其存储格式（COO、CSR、CSC）
         </h1>
 
         <div class="post-meta-container">
@@ -286,15 +286,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2022-01-07 23:54:32" itemprop="dateCreated datePublished" datetime="2022-01-07T23:54:32+08:00">2022-01-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-24 20:12:13" itemprop="dateModified" datetime="2022-01-24T20:12:13+08:00">2022-01-24</time>
+      <time title="Created: 2022-01-30 11:36:27 / Modified: 12:13:21" itemprop="dateCreated datePublished" datetime="2022-01-30T11:36:27+08:00">2022-01-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -302,7 +296,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Game/" itemprop="url" rel="index"><span itemprop="name">Game</span></a>
+          <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
         </span>
     </span>
 
@@ -323,89 +317,71 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>记录间谍伞的心路历程与领悟，希望早日上<strong>X</strong>！</p>
-<p>封面 [ID:68572483].</p>
+        <blockquote>
+<p>在矩阵中，若数值为0的元素数目远远多于非0元素的数目，并且非0元素分布没有规律时，则称该矩阵为<strong>稀疏矩阵</strong>；与之相反，若非0元素数目占大多数时，则称该矩阵为稠密矩阵。定义非零元素的总数比上矩阵所有元素的总数为矩阵的稠密度。简单来说,<em>稀疏矩阵就是绝大部分都是0的矩阵,只包含很少的非零值</em>.</p>
+</blockquote>
+<p>封面 [ID:79498766].</p>
 <span id="more"></span>
-<h1 id="undercover-brella">Undercover Brella</h1>
-<p><del>老婆！</del></p>
-<figure>
-<img data-src="/images/body/Undercover-Brella-Diary/Undercover-Brella.png"
-alt="Undercover Brella" />
-<figcaption aria-hidden="true">Undercover Brella</figcaption>
-</figure>
+<h1 id="稀疏矩阵">稀疏矩阵</h1>
+<p>例如：</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+    1 &amp; 2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; 3 &amp; 4 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 5 &amp; 6 &amp; 7 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 8 &amp; 0 \\
+    0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 9 \\
+\end{pmatrix}
+\]</span></p>
+<p>上述稀疏矩阵非零元素有9个，26个零值，稀疏性是74%。</p>
+<p>稀疏矩阵因为绝大部分都是0元素,如果我们仍然按照普通方式存储,无疑会浪费很多空间;同时如果进行运算时,0元素对最终结果也没有帮助,增加了许多无效计算.
+因此,我们需要设计出新的存储方式,或者说数据结构来存储稀疏矩阵.比较常见的有：</p>
 <ul>
-<li><p>Class: Brella</p></li>
-<li><p>Sub:
-<img no-lazy data-src="/images/body/Undercover-Brella-Diary/Ink-Mine.png"  align=left />Ink
-Mine</p></li>
-<li><p>Special:
-<img no-lazy data-src="/images/body/Undercover-Brella-Diary/Splashdown.png" align=left />Splashdown</p></li>
-<li><p>Base Damage:</p>
-<ul>
-<li>12 per pellet (Cap: 40)</li>
-<li>15 (Contact)</li>
-</ul></li>
-<li><p>Ink consumption: 4%</p></li>
-<li><p>Special Points: 150p</p></li>
-<li><p>Range: 50 / 100</p></li>
-<li><p>Damage: 30 / 100</p></li>
-<li><p>Durability: 25 / 100</p></li>
-<li><p>Other variants:</p>
-<ul>
-<li><p><img no-lazy data-src="/images/body/Undercover-Brella-Diary/Undercover-Sorella-Brella.png"  align=left />Undercover
-Sorella Brella</p></li>
-<li><p><img no-lazy data-src="/images/body/Undercover-Brella-Diary/Kensa-Undercover-Brella.png"  align=left />Kensa
-Undercover Brella</p></li>
-</ul></li>
+<li>DOK: Dictionary of keys. 将非零元素的坐标 <strong>(row,
+column)</strong>
+作为<strong>key</strong>,非零元素值作为<strong>value</strong>,只存储非零元素值.
+可以以任意顺序逐渐构建稀疏矩阵;但是按某种顺序访问非零元素时比较困难.
+通常用来构建矩阵,然后再把矩阵转换成别的方式.</li>
+<li>COO: Coordinate list. 坐标格式.
+三个数组<strong>row</strong>,<strong>col</strong>,<strong>value</strong>分别存储非零元素坐标的行,列以及非零值.
+理论上稀疏矩阵中的元素在存储时顺序是任意的,但是为了方便元素访问,存储时先按照先左后右,先上后下顺序进行存储(left
+to right, top to buttom).</li>
+<li>CSR: Compressed Sparse Row. 压缩稀疏行</li>
+<li>CSC: Compressed Sparse Column. 压缩稀疏列,和CSR类似.</li>
 </ul>
-<h1 id="preface">Preface</h1>
-<p>从我的段位如下开始记录.
-一开始配装会在意一些，后面就是主要是吐槽了///. - 区域:
-<strong>S</strong> - 塔: <strong>A-</strong> - 鱼: <strong>S+0</strong>
-- 蛤蜊: <strong>A</strong></p>
-<p><br></p>
-<p>当前配置： <img data-src="/images/body/Undercover-Brella-Diary/Share.png"
-alt="Share0" /></p>
-<p><br></p>
-<h1 id="diary">Diary</h1>
-<h2 id="section">~2022-01-06</h2>
-<p>在这之前一直用的如下配置: <img
-src="/images/body/Undercover-Brella-Diary/Share1.png"
-alt="Share1" /></p>
-<p>以干扰埋雷补刀为主，加上砸地rush（不是）.
-实际效果用起来机动性不够，伞面恢复也慢了点（太脆了）.
-看了X佬的间谍伞无双思考要不要改变战术.</p>
-<h2 id="section-1">2021-01-07</h2>
-<p>乌乌，打不过. 我对不起伞伞.</p>
-<h2 id="section-2">2022-01-08</h2>
-<p>配置改为： <img data-src="/images/body/Undercover-Brella-Diary/Share.png"
-alt="Share0" /></p>
-<p>机动性与存活能力明显改善，砸地虽然慢了不少但这个配置依赖主武器更多一些.
-好用！</p>
-<h2 id="section-3">2022-01-10</h2>
-<p>sendou.ink上别人的伞伞评价: <img
-src="/images/body/Undercover-Brella-Diary/SenDou.png"
-alt="SenDou" /></p>
-<p>伞伞那么乖,怎么可以这样!</p>
-<p><br></p>
-<p>打了一把好厉害的真格蛤蜊！ <img
-src="/images/body/Undercover-Brella-Diary/Battle1.png"
-alt="Battle1" /></p>
-<h2 id="section-4">2022-01-11</h2>
-<p>摸到了极黑的可爱走速衣！kwii！ <img
-src="/images/body/Undercover-Brella-Diary/Pink-Easy-Stripe-Shirt.png"
-alt="Pink Easy-Stripe Shirt" /></p>
-<p>狗绿桶.</p>
-<p><strong>S+</strong>的鱼过了OK线！开心！ 蛤蜊: <strong>A</strong>
---&gt; <strong>A+</strong></p>
-<p>今天一直在划水，立回还是不太行55.</p>
-<h2 id="section-5">2022-01-13</h2>
-<p>鱼: <strong>S+0</strong> --&gt; <strong>S+1</strong></p>
-<h2 id="section-6">2022-01-14</h2>
-<p>区域: <strong>S</strong> --&gt; <strong>S+0</strong></p>
-<h2 id="section-7">2022-01-24</h2>
-<p>看了<strong>X</strong>段的间谍伞，好帅55555
-<strong><em>多埋地雷</em></strong></p>
+<h1 id="coo">COO</h1>
+<p>我们使用三个数组row,column和data分别用来存储非零元素坐标的row_index,col_index,以及数值.比如:</p>
+<figure>
+<img data-src="/images/body/Sparse-Matrix/COO.webp" alt="COO" />
+<figcaption aria-hidden="true">COO</figcaption>
+</figure>
+<p>三个数组的长度都是NNO.data[i] (NNO:The number of
+nonzero.矩阵非零元素个数),在原稀疏矩阵中的坐标为(row[i],col[i]]).</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from scipy.sparse import *</span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; row = [0,0,1,1,2,2,2,3,3]</span><br><span class="line">&gt;&gt;&gt; col = [0,1,1,2,0,2,3,1,3]</span><br><span class="line">&gt;&gt;&gt; data = [1,7,2,8,5,3,9,6,4]</span><br><span class="line">&gt;&gt;&gt; import numpy as np</span><br><span class="line">&gt;&gt;&gt; coo = coo_matrix((data,(row,col)),shape=(4,4),dtype=np.int)</span><br><span class="line">&gt;&gt;&gt; coo</span><br><span class="line">&lt;4x4 sparse matrix of type &#x27;&lt;class &#x27;numpy.int64&#x27;&gt;&#x27;</span><br><span class="line">    with 9 stored elements in COOrdinate format&gt;</span><br><span class="line">&gt;&gt;&gt; coo.todense()</span><br><span class="line">matrix([[1, 7, 0, 0],</span><br><span class="line">        [0, 2, 8, 0],</span><br><span class="line">        [5, 0, 3, 9],</span><br><span class="line">        [0, 6, 0, 4]])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>可以发现,这种存储方式中,row数组和column数组中有一定的重复元素.我们是否可以针对这个冗余特性进一步进行压缩?
+之后的CSR,CSC,分别是对row数组和column数组进行了压缩.</p>
+<h1 id="csr与csc">CSR与CSC</h1>
+<ul>
+<li>V，用来存储矩阵中的非零元素的值；</li>
+<li>COL_INDEX，第i个元素记录了V[i]元素的列数；</li>
+<li>ROW_INDEX, 第i个元素记录了前i-1行包含的非零元素的数量。
+进一步，令a=ROW_INDEX[row], b = ROW_INDEX[row+1]，则V[a,
+b)的行数等于row，再结合COL_INDEX，即可得到非零元素的行数和列数。</li>
+</ul>
+<p><span class="math display">\[
+\begin{pmatrix}
+    1 &amp; 2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; 3 &amp; 4 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 5 &amp; 6 &amp; 7 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 8 &amp; 0 \\
+    0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 9 \\
+\end{pmatrix}
+\]</span></p>
+<p>其中 V = [1, 2, 3, 4, 5, 6, 7, 8, 9] COL_INDEX = [0, 1, 1, 2, 2, 3,
+4, 5, 6] ROW_INDEX = [0, 2, 4, 7, 8, 9]</p>
+<p>假如我们想得到“7”的坐标位置，通过V得到index为6，通过COL_INDEX得到列数为4；
+4 ∈ [4,7) ，所以行数为2，最终7的坐标为(2, 4).</p>
+<p><strong>CSC同理.</strong></p>
 
     </div>
 
@@ -441,7 +417,7 @@ alt="Pink Easy-Stripe Shirt" /></p>
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="http://willkyu.github.io/Game/Undercover-Brella-Diary/" title="间谍伞日记">http://willkyu.github.io/Game/Undercover-Brella-Diary/</a>
+      <a href="http://willkyu.github.io/Learning/Notes/Sparse-Matrix/" title="稀疏矩阵及其存储格式（COO、CSR、CSC）">http://willkyu.github.io/Learning/Notes/Sparse-Matrix/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -450,22 +426,19 @@ alt="Pink Easy-Stripe Shirt" /></p>
 </div>
 
           <div class="post-tags">
-              <a href="/tags/Game/" rel="tag"><i class="fa fa-tag"></i> Game</a>
-              <a href="/tags/Splatoon/" rel="tag"><i class="fa fa-tag"></i> Splatoon</a>
+              <a href="/tags/Learning/" rel="tag"><i class="fa fa-tag"></i> Learning</a>
+              <a href="/tags/Knowledage-Graphs/" rel="tag"><i class="fa fa-tag"></i> Knowledage-Graphs</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/Pokemon/Strategies/In-Game/Battle-Pyramid-Shiny/" rel="prev" title="战斗金字塔刷闪教程">
-                  <i class="fa fa-chevron-left"></i> 战斗金字塔刷闪教程
+                <a href="/Learning/Notes/GraIL/" rel="prev" title="GraIL">
+                  <i class="fa fa-chevron-left"></i> GraIL
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen4/" rel="next" title="宝可梦四代实机乱数">
-                  宝可梦四代实机乱数 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -542,16 +515,16 @@ alt="Pink Easy-Stripe Shirt" /></p>
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
   <script src="https://cdn.jsdelivr.net/npm/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"http://willkyu.github.io/Game/Undercover-Brella-Diary/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"http://willkyu.github.io/Learning/Notes/Sparse-Matrix/"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"willkyu","repo":"Hexo-Gitalk","client_id":"4d181641d25dd938916f","client_secret":"225a2edcdc643bb02ca476ce92f4b386a924b99a","admin_user":"willkyu","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"ed352a6002f059dd2c9930490dec3995"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"willkyu","repo":"Hexo-Gitalk","client_id":"4d181641d25dd938916f","client_secret":"225a2edcdc643bb02ca476ce92f4b386a924b99a","admin_user":"willkyu","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"dc9bf69dcbb458223d1bf2f6b289462c"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 
