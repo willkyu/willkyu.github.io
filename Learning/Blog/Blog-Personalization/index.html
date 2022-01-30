@@ -23,16 +23,16 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"willkyu.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="记录博客使用 Oceon 主题后进行的各项改动， 根据置顶◇代办◇与更新记录记录的更新顺序排序. 封面 [ID:89138905].">
+<meta name="description" content="记录博客在使用 Oceon 主题时进行的各项改动， 根据置顶◇代办◇与更新记录记录的更新顺序排序. 封面 [ID:89138905].">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博客个性化笔记----基于Ocean">
 <meta property="og:url" content="http://willkyu.github.io/Learning/Blog/Blog-Personalization/index.html">
 <meta property="og:site_name" content="丘丘Blog">
-<meta property="og:description" content="记录博客使用 Oceon 主题后进行的各项改动， 根据置顶◇代办◇与更新记录记录的更新顺序排序. 封面 [ID:89138905].">
+<meta property="og:description" content="记录博客在使用 Oceon 主题时进行的各项改动， 根据置顶◇代办◇与更新记录记录的更新顺序排序. 封面 [ID:89138905].">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://willkyu.github.io/Learning/Blog/Blog-Personalization/images/cover/Blog-Personalization.png">
 <meta property="article:published_time" content="2021-12-19T10:56:54.000Z">
-<meta property="article:modified_time" content="2022-01-19T15:08:23.421Z">
+<meta property="article:modified_time" content="2022-01-30T13:33:32.593Z">
 <meta property="article:author" content="willkyu">
 <meta property="article:tag" content="Blog">
 <meta property="article:tag" content="Practical-Tips">
@@ -297,7 +297,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-19 23:08:23" itemprop="dateModified" datetime="2022-01-19T23:08:23+08:00">2022-01-19</time>
+      <time title="Modified: 2022-01-30 21:33:32" itemprop="dateModified" datetime="2022-01-30T21:33:32+08:00">2022-01-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -326,22 +326,25 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>记录博客使用 <a
+        <p>记录博客在使用 <a
 target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Oceon</a>
-主题后进行的各项改动， 根据<a
+主题时进行的各项改动， 根据<a
 href="/Archive/The-First-Blog/">置顶◇代办◇与更新记录</a>记录的更新顺序排序.</p>
 <p>封面 [ID:89138905].</p>
 <span id="more"></span>
+<div class="note warning"><p>注意，本博客已更换为 <a
+target="_blank" rel="noopener" href="https://theme-next.js.org/">NexT主题</a>.</p>
+</div>
 <h1 id="更新首页视频">更新首页视频</h1>
 <p>在<code>/themes/ocean/source/images/ocean</code>中替换相关视频.
 如果想替换文件名，打开<code>/themes/ocean/layout/_partial/ocean.ejs</code>，修改对应代码：
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;video-media&quot;&gt;</span><br><span class="line">  &lt;video playsinline=&quot;&quot; autoplay=&quot;&quot; loop=&quot;&quot; muted=&quot;&quot; data-autoplay=&quot;&quot; poster=&quot;&lt;%- theme.ocean.path %&gt;ocean.png&quot;</span><br><span class="line">    x5-video-player-type=&quot;h5&quot;&gt;</span><br><span class="line">    &lt;source src=&quot;&lt;%- theme.ocean.path %&gt;ocean.mp4&quot; type=&quot;video/mp4&quot;&gt;</span><br><span class="line">    &lt;source src=&quot;&lt;%- theme.ocean.path %&gt;ocean.ogv&quot; type=&quot;video/ogg&quot;&gt;</span><br><span class="line">    &lt;source src=&quot;&lt;%- theme.ocean.path %&gt;ocean.webm&quot; type=&quot;video/webm&quot;&gt;</span><br><span class="line">    &lt;p&gt;Your user agent does not support the HTML5 Video element.&lt;/p&gt;</span><br><span class="line">  &lt;/video&gt;</span><br><span class="line">  &lt;div class=&quot;video-overlay&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure> 将其中的文件名改为自己的文件名即可.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;video-media&quot;&gt;</span><br><span class="line">  &lt;video playsinline=&quot;&quot; autoplay=&quot;&quot; loop=&quot;&quot; muted=&quot;&quot; data-autoplay=&quot;&quot; poster=&quot;&lt;%- theme.ocean.path %&gt;ocean.png&quot;</span><br><span class="line">    x5-video-player-type=&quot;h5&quot;&gt;</span><br><span class="line">    &lt;source src=&quot;&lt;%- theme.ocean.path %&gt;ocean.mp4&quot; type=&quot;video/mp4&quot;&gt;</span><br><span class="line">    &lt;source src=&quot;&lt;%- theme.ocean.path %&gt;ocean.ogv&quot; type=&quot;video/ogg&quot;&gt;</span><br><span class="line">    &lt;source src=&quot;&lt;%- theme.ocean.path %&gt;ocean.webm&quot; type=&quot;video/webm&quot;&gt;</span><br><span class="line">    &lt;p&gt;Your user agent does not support the HTML5 Video element.&lt;/p&gt;</span><br><span class="line">  &lt;/video&gt;</span><br><span class="line">  &lt;div class=&quot;video-overlay&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure> 将其中的文件名改为自己的文件名即可.</p>
 <h1 id="开启gallery功能">开启Gallery功能</h1>
 <p>按照<a
 target="_blank" rel="noopener" href="https://zhwangart.com/2018/11/30/Ocean/#%E7%9B%B8%E5%86%8C">官方文档相关部分</a>进行设置.</p>
 <p>添加照片:</p>
 <p>打开<code>/source/gallery/index.md</code>，修改<strong>Front-matter</strong>部分：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Gallery</span><br><span class="line">author: YourName</span><br><span class="line">albums: [</span><br><span class="line">        [&quot;address of image1&quot;,&quot;description&quot;],</span><br><span class="line">        [&quot;address of image2&quot;,&quot;description&quot;],</span><br><span class="line">        [&quot;address of image3&quot;,&quot;description&quot;],</span><br><span class="line">        ]</span><br><span class="line">#date: Date</span><br><span class="line">#type: gallery</span><br><span class="line">#layout: &quot;gallery&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Gallery</span><br><span class="line">author: YourName</span><br><span class="line">albums: [</span><br><span class="line">        [&quot;address of image1&quot;,&quot;description&quot;],</span><br><span class="line">        [&quot;address of image2&quot;,&quot;description&quot;],</span><br><span class="line">        [&quot;address of image3&quot;,&quot;description&quot;],</span><br><span class="line">        ]</span><br><span class="line">#date: Date</span><br><span class="line">#type: gallery</span><br><span class="line">#layout: &quot;gallery&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 <p>如果操作完后无法正常显示照片，参考官方文档中的<a
 target="_blank" rel="noopener" href="https://zhwangart.com/2019/07/02/Ocean-Issues/#2-9-%E7%9B%B8%E5%86%8C%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E6%85%A2">改进图片加速方法</a>.</p>
 <h1 id="新增favorites页面">新增Favorites页面</h1>
@@ -349,16 +352,16 @@ target="_blank" rel="noopener" href="https://zhwangart.com/2019/07/02/Ocean-Issu
 <li><p>创建一个 <em>page</em> 命名 <em>favorites</em>： <code>$ hexo new
 page favorites</code></p></li>
 <li><p>在 <code>/themes/_config.yml</code> 文件新增一个菜单：
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">收藏: /favorites</span><br></pre></td></tr></table></figure></p></li>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">收藏: /favorites</span><br></pre></td></tr></table></figure></p></li>
 </ul>
 <p>-修改 <code>/themes/ocean/source/css/_partialnavbar.styl</code>
 文件中应该是第 35 行，<em>favorites</em>
 ，展示收藏图标，注意顺序，如果对菜单顺序不理解，看<a
 target="_blank" rel="noopener" href="https://zhwangart.com/2019/07/02/Ocean-Issues/#2">这里</a>. 编辑
-favorites 页面，格式如下： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 样机 Mockups</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;card-quote&quot;&gt;</span><br><span class="line"></span><br><span class="line">&gt; ![Graphics](/images/logos/lstoreLogo.svg)</span><br><span class="line">&gt; ## Graphics</span><br><span class="line">&gt; 高质量的样机素材</span><br><span class="line">&gt; [https://www.ls.graphics](https://www.ls.graphics)</span><br><span class="line"></span><br><span class="line">&gt; ![sketchsheets](/images/logos/sketchLogo.svg)</span><br><span class="line">&gt; ## Sketchsheets</span><br><span class="line">&gt; Sketch 稿件的样机素材</span><br><span class="line">&gt; [https://sketchsheets.com](https://sketchsheets.com)</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+favorites 页面，格式如下： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 样机 Mockups</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;card-quote&quot;&gt;</span><br><span class="line"></span><br><span class="line">&gt; ![Graphics](/images/logos/lstoreLogo.svg)</span><br><span class="line">&gt; ## Graphics</span><br><span class="line">&gt; 高质量的样机素材</span><br><span class="line">&gt; [https://www.ls.graphics](https://www.ls.graphics)</span><br><span class="line"></span><br><span class="line">&gt; ![sketchsheets](/images/logos/sketchLogo.svg)</span><br><span class="line">&gt; ## Sketchsheets</span><br><span class="line">&gt; Sketch 稿件的样机素材</span><br><span class="line">&gt; [https://sketchsheets.com](https://sketchsheets.com)</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
 <h1 id="更新icon">更新icon</h1>
 <p>修改 <code>/themes/_config.yml</code> 文件，大约第10行:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Miscellaneous</span><br><span class="line">favicon: /filename.ico          #这里</span><br><span class="line">brand: /images/filename.png     #这里</span><br><span class="line"></span><br><span class="line"># Ocean Video</span><br><span class="line"># Because I put videos in multiple formats on the same path, I just labeled the path here.</span><br><span class="line">ocean:</span><br><span class="line">  overlay: true</span><br><span class="line">  path: /images/ocean/</span><br><span class="line">  brand: /images/filename.png   #这里</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Miscellaneous</span><br><span class="line">favicon: /filename.ico          #这里</span><br><span class="line">brand: /images/filename.png     #这里</span><br><span class="line"></span><br><span class="line"># Ocean Video</span><br><span class="line"># Because I put videos in multiple formats on the same path, I just labeled the path here.</span><br><span class="line">ocean:</span><br><span class="line">  overlay: true</span><br><span class="line">  path: /images/ocean/</span><br><span class="line">  brand: /images/filename.png   #这里</span><br></pre></td></tr></table></figure>
 <p>分别将对应图片/图标放在<code>/themes/ocean/source</code>、<code>/themes/ocean/source</code>、<code>/themes/ocean/source/images</code>中.</p>
 <h1 id="更新404页面.">更新404页面.</h1>
 <p>直接更换<code>/themes/ocean/source/404.html</code>即可.
@@ -366,7 +369,7 @@ favorites 页面，格式如下： <figure class="highlight plaintext"><table><t
 <code>/themes/ocean/source/images/forrestgump.png</code>图片即可.</p>
 <h1 id="背景添加动态线条效果">背景添加动态线条效果</h1>
 <p>在<code>/Hexo/themes/ocean/layout/layout.ejs</code>文件中添加如下代码：
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--动态线条背景--&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;</span><br><span class="line">color=&quot;220,220,220&quot; opacity=&#x27;0.7&#x27; zIndex=&quot;-2&quot; count=&quot;200&quot; src=&quot;//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!--动态线条背景--&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;</span><br><span class="line">color=&quot;220,220,220&quot; opacity=&#x27;0.7&#x27; zIndex=&quot;-2&quot; count=&quot;200&quot; src=&quot;//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
 <p>其中： color：表示线条颜色，三个数字分别为(R,G,B)，默认：（0,0,0）
 opacity：表示线条透明度（0~1），默认：0.5 -
 count：表示线条的总数量，默认：150
@@ -374,13 +377,13 @@ zIndex：表示背景的z-index属性，css属性用于控制所在层的位置�
 <ul>
 <li><p>如果想要实现随机线条颜色效果，将上述代码中的链接内的代码拷贝至本地，将其中添加随机生成颜色代码后引用.
 然后将color参数删除. 下面是我修改的随机颜色代码.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function l() &#123;</span><br><span class="line">      var randomColor = Math.floor(Math.random() * 256) + &#x27;, &#x27; + Math.floor(Math.random() * 256) + &#x27;, &#x27; +Math.floor(Math.random() * 256)</span><br><span class="line">      var i = j(&quot;script&quot;),</span><br><span class="line">          w = i.length,</span><br><span class="line">          v = i[w - 1];</span><br><span class="line">      return &#123;</span><br><span class="line">          l: w,</span><br><span class="line">          z: o(v, &quot;zIndex&quot;, - 1),</span><br><span class="line">          o: o(v, &quot;opacity&quot;, 0.5),</span><br><span class="line">          c: o(v, &quot;color&quot;, randomColor),</span><br><span class="line">          n: o(v, &quot;count&quot;, 99)</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function l() &#123;</span><br><span class="line">      var randomColor = Math.floor(Math.random() * 256) + &#x27;, &#x27; + Math.floor(Math.random() * 256) + &#x27;, &#x27; +Math.floor(Math.random() * 256)</span><br><span class="line">      var i = j(&quot;script&quot;),</span><br><span class="line">          w = i.length,</span><br><span class="line">          v = i[w - 1];</span><br><span class="line">      return &#123;</span><br><span class="line">          l: w,</span><br><span class="line">          z: o(v, &quot;zIndex&quot;, - 1),</span><br><span class="line">          o: o(v, &quot;opacity&quot;, 0.5),</span><br><span class="line">          c: o(v, &quot;color&quot;, randomColor),</span><br><span class="line">          n: o(v, &quot;count&quot;, 99)</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h1 id="添加点击特效">添加点击特效</h1>
 <p>参考文章<a
 target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43562785/article/details/109511585">纯Javascript实现鼠标点击特效（烟花特效）</a>.</p>
 <p>在<code>/Hexo/themes/ocean/layout/layout.ejs</code>文件中添加如下代码：
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 页面点击特效--&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/js/click.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- 页面点击特效--&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/js/click.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 在目录<code>/themes/ocean/source/js</code>中新建文件<code>click.js</code>，填入参考文章中的代码.</p>
 <ul>
 <li>如果想要自定义颜色，修改代码中数组<code>const colours = ["色值1",
@@ -401,7 +404,7 @@ target="_blank" rel="noopener" href="https://zhwangart.com/2018/11/30/Ocean/#%E8
 <p>使用Hexo插件<a
 target="_blank" rel="noopener" href="https://github.com/Troy-Yang/hexo-lazyload-image">hexo-lazyload-image</a>实现.
 - 运行代码<code>$ npm install hexo-lazyload-image --save</code> - 在
-<code>/themes/_config.yml</code> 文件末尾加上以下代码： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lazyload:</span><br><span class="line">enable: true</span><br><span class="line">onlypost: false # optional</span><br><span class="line">loadingImg: # optional eg ./images/loading.gif 这里填写你的懒加载图片地址，请提前将其放在博客图片库中.</span><br><span class="line">isSPA: false # optional</span><br><span class="line">preloadRatio: 3 # optional, default is 1</span><br></pre></td></tr></table></figure> -
+<code>/themes/_config.yml</code> 文件末尾加上以下代码： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lazyload:</span><br><span class="line">enable: true</span><br><span class="line">onlypost: false # optional</span><br><span class="line">loadingImg: # optional eg ./images/loading.gif 这里填写你的懒加载图片地址，请提前将其放在博客图片库中.</span><br><span class="line">isSPA: false # optional</span><br><span class="line">preloadRatio: 3 # optional, default is 1</span><br></pre></td></tr></table></figure> -
 配置相关参数： - onlypost If true, only the images from post or page
 will support lazy-load. If false, the whole images of your site will use
 lazy-load, including the images dist from your theme, but not including
@@ -419,7 +422,7 @@ false (default value), the performance would be the best.</p></li>
 value is 1. This ratio means to pre-load the images where is within how
 many ratios than current screen size, even these images are not in
 current view point.</p></li>
-<li><p>取消不需要的图片懒加载 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img no-lazy src=&quot;abc.png&quot; /&gt;</span><br></pre></td></tr></table></figure> 以 Ocean 主题为例，
+<li><p>取消不需要的图片懒加载 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;img no-lazy src=&quot;abc.png&quot; /&gt;</span><br></pre></td></tr></table></figure> 以 Ocean 主题为例，
 修改<code>/themes/ocean/layout/_partial/ocean.ejs</code>中所有<code>&lt;img&gt;</code>标签,
 修改<code>/themes/ocean/layout/_partial/sidebar.ejs</code>中所有<code>&lt;img&gt;</code>标签.</p></li>
 </ul>

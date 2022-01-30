@@ -2980,12 +2980,15 @@ C装置皮肤全收集</li>
   <entry>
     <title>博客个性化笔记----基于Ocean</title>
     <url>/Learning/Blog/Blog-Personalization/</url>
-    <content><![CDATA[<p>记录博客使用 <a
+    <content><![CDATA[<p>记录博客在使用 <a
 href="https://github.com/zhwangart/hexo-theme-ocean">Oceon</a>
-主题后进行的各项改动， 根据<a
+主题时进行的各项改动， 根据<a
 href="/Archive/The-First-Blog/">置顶◇代办◇与更新记录</a>记录的更新顺序排序.</p>
 <p>封面 [ID:89138905].</p>
 <span id="more"></span>
+<div class="note warning"><p>注意，本博客已更换为 <a
+href="https://theme-next.js.org/">NexT主题</a>.</p>
+</div>
 <h1 id="更新首页视频">更新首页视频</h1>
 <p>在<code>/themes/ocean/source/images/ocean</code>中替换相关视频.
 如果想替换文件名，打开<code>/themes/ocean/layout/_partial/ocean.ejs</code>，修改对应代码：
