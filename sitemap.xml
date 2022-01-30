@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://willkyu.github.io/about/index.html</loc>
+    
+    <lastmod>2022-01-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://willkyu.github.io/404.html</loc>
     
     <lastmod>2022-01-30</lastmod>
@@ -302,15 +311,6 @@
     <loc>http://willkyu.github.io/Pokemon/Strategies/In-Game/Battle-Pyramid-Shiny/</loc>
     
     <lastmod>2022-01-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/about/index.html</loc>
-    
-    <lastmod>2022-01-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
