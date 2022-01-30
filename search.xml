@@ -206,25 +206,25 @@ href="https://wokann.github.io/Tool/GEN3_Mirage_island/index.html">3代幻之岛
 <h3 id="pytorch">PyTorch</h3>
 <ul>
 <li><a
-href="/Learning/Notes/Pytorch/PyTorch01/">PyTorch笔记01----基本数据类型</a></li>
+href="/Learning/Notes/PyTorch/PyTorch01/">PyTorch笔记01----基本数据类型</a></li>
 <li><a
-href="/Learning/Notes/Pytorch/PyTorch02/">PyTorch笔记02----创建Tensor</a></li>
+href="/Learning/Notes/PyTorch/PyTorch02/">PyTorch笔记02----创建Tensor</a></li>
 <li><a
-href="/Learning/Notes/Pytorch/PyTorch03/">PyTorch笔记03----索引与切片</a></li>
+href="/Learning/Notes/PyTorch/PyTorch03/">PyTorch笔记03----索引与切片</a></li>
 <li><a
-href="/Learning/Notes/Pytorch/PyTorch04/">PyTorch笔记04----Tensor维度变换</a></li>
+href="/Learning/Notes/PyTorch/PyTorch04/">PyTorch笔记04----Tensor维度变换</a></li>
 <li><a
-href="/Learning/Notes/Pytorch/PyTorch05/">PyTorch笔记05----Broadcast自动扩展</a></li>
+href="/Learning/Notes/PyTorch/PyTorch05/">PyTorch笔记05----Broadcast自动扩展</a></li>
 <li><a
-href="/Learning/Notes/Pytorch/PyTorch06/">PyTorch笔记06----拼接与拆分</a></li>
+href="/Learning/Notes/PyTorch/PyTorch06/">PyTorch笔记06----拼接与拆分</a></li>
 <li><a
-href="/Learning/Notes/Pytorch/PyTorch07/">PyTorch笔记07----基本运算</a></li>
+href="/Learning/Notes/PyTorch/PyTorch07/">PyTorch笔记07----基本运算</a></li>
 <li><a
-href="/Learning/Notes/Pytorch/PyTorch08/">PyTorch笔记08----统计属性</a></li>
+href="/Learning/Notes/PyTorch/PyTorch08/">PyTorch笔记08----统计属性</a></li>
 <li><a
-href="/Learning/Notes/Pytorch/PyTorch09/">PyTorch笔记09----高阶OP</a></li>
+href="/Learning/Notes/PyTorch/PyTorch09/">PyTorch笔记09----高阶OP</a></li>
 <li><a
-href="/Learning/Notes/Pytorch/PyTorch10/">PyTorch笔记10----激活函数与常见Loss</a></li>
+href="/Learning/Notes/PyTorch/PyTorch10/">PyTorch笔记10----激活函数与常见Loss</a></li>
 </ul>
 <h2 id="solutions">Solutions</h2>
 <ul>
