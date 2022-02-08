@@ -32,7 +32,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen4/images/cover/Pokemon-RNG-Abuse-Gen4.jpg">
 <meta property="article:published_time" content="2022-01-14T02:01:15.000Z">
-<meta property="article:modified_time" content="2022-01-19T15:18:59.352Z">
+<meta property="article:modified_time" content="2022-02-08T04:04:30.751Z">
 <meta property="article:author" content="willkyu">
 <meta property="article:tag" content="Pokemon">
 <meta property="article:tag" content="Pokemon-Gen4">
@@ -156,7 +156,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E5%87%86%E5%A4%87"><span class="nav-text">硬件准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E4%B9%B1%E6%95%B0%E6%89%80%E9%9C%80%E5%B7%A5%E5%85%B7"><span class="nav-text">下载乱数所需工具：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3%E5%9B%9B%E4%BB%A3%E4%B9%B1%E6%95%B0%E6%9C%BA%E5%88%B6"><span class="nav-text">了解四代乱数机制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#id%E4%B9%B1%E6%95%B0"><span class="nav-text">ID乱数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AE%E8%AE%A4%E7%9B%AE%E6%A0%87"><span class="nav-text">确认目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%A1%E5%87%86%E5%81%8F%E5%B7%AE%E4%B8%8E%E4%B9%B1%E6%95%B0id"><span class="nav-text">校准偏差与乱数ID</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8eontimer%E8%AE%A1%E6%97%B6%E5%99%A8"><span class="nav-text">如何使用Eontimer计时器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9D%E5%8F%AF%E6%A2%A6%E4%B9%B1%E6%95%B0"><span class="nav-text">宝可梦乱数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#method-1"><span class="nav-text">Method 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#method-jk"><span class="nav-text">Method J&#x2F;K</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wondercard-ivs"><span class="nav-text">Wondercard IVs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%B1%E6%95%B0%E5%AE%9D%E5%8F%AF%E6%A2%A6"><span class="nav-text">乱数宝可梦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%B8%A7%E4%B8%8E%E5%88%A4%E6%96%ADdelay"><span class="nav-text">初始帧与判断delay</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hgss"><span class="nav-text">HgSs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E6%89%93%E7%94%B5%E8%AF%9D%E6%9D%A5%E7%A1%AE%E8%AE%A4%E5%B8%A7"><span class="nav-text">通过打电话来确认帧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E6%B8%B8%E8%B5%B0%E7%A5%9E%E5%85%BD%E7%9A%84%E4%BD%8D%E7%BD%AE%E6%9D%A5%E7%A1%AE%E8%AE%A4%E5%B8%A7"><span class="nav-text">通过游走神兽的位置来确认帧</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dppt"><span class="nav-text">DPPt</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%8F%A3%E8%A2%8B%E6%89%8B%E8%A1%A8%E7%9A%84%E7%A1%AC%E5%B8%81%E6%8F%92%E4%BB%B6%E6%9D%A5%E7%A1%AE%E8%AE%A4%E5%B8%A7"><span class="nav-text">使用口袋手表的硬币插件来确认帧</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E5%B8%A7%E6%95%B0"><span class="nav-text">增加帧数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%9B%8B%E4%B9%B1%E6%95%B0"><span class="nav-text">蛋乱数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A4%BC%E7%89%A9%E7%89%B9%E5%88%AB%E7%AF%87----%E7%8E%9B%E5%A8%9C%E8%8F%B2%E7%9A%84%E8%9B%8B"><span class="nav-text">礼物特别篇----玛娜菲的蛋</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E5%87%86%E5%A4%87"><span class="nav-text">硬件准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E4%B9%B1%E6%95%B0%E6%89%80%E9%9C%80%E5%B7%A5%E5%85%B7"><span class="nav-text">下载乱数所需工具：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3%E5%9B%9B%E4%BB%A3%E4%B9%B1%E6%95%B0%E6%9C%BA%E5%88%B6"><span class="nav-text">了解四代乱数机制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#id%E4%B9%B1%E6%95%B0"><span class="nav-text">ID乱数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AE%E8%AE%A4%E7%9B%AE%E6%A0%87"><span class="nav-text">确认目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%A1%E5%87%86%E5%81%8F%E5%B7%AE%E4%B8%8E%E4%B9%B1%E6%95%B0id"><span class="nav-text">校准偏差与乱数ID</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8eontimer%E8%AE%A1%E6%97%B6%E5%99%A8"><span class="nav-text">如何使用Eontimer计时器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9D%E5%8F%AF%E6%A2%A6%E4%B9%B1%E6%95%B0"><span class="nav-text">宝可梦乱数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E4%B9%B1%E6%95%B0%E7%9B%AE%E6%A0%87"><span class="nav-text">确定乱数目标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#method-1"><span class="nav-text">Method 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#method-jk"><span class="nav-text">Method J&#x2F;K</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wondercard-ivs"><span class="nav-text">Wondercard IVs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%B1%E6%95%B0%E5%AE%9D%E5%8F%AF%E6%A2%A6"><span class="nav-text">乱数宝可梦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%B8%A7%E4%B8%8E%E5%88%A4%E6%96%ADdelay"><span class="nav-text">初始帧与判断delay</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hgss"><span class="nav-text">HgSs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E6%89%93%E7%94%B5%E8%AF%9D%E6%9D%A5%E7%A1%AE%E8%AE%A4%E5%B8%A7"><span class="nav-text">通过打电话来确认帧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E6%B8%B8%E8%B5%B0%E7%A5%9E%E5%85%BD%E7%9A%84%E4%BD%8D%E7%BD%AE%E6%9D%A5%E7%A1%AE%E8%AE%A4%E5%B8%A7"><span class="nav-text">通过游走神兽的位置来确认帧</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dppt"><span class="nav-text">DPPt</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%8F%A3%E8%A2%8B%E6%89%8B%E8%A1%A8%E7%9A%84%E7%A1%AC%E5%B8%81%E6%8F%92%E4%BB%B6%E6%9D%A5%E7%A1%AE%E8%AE%A4%E5%B8%A7"><span class="nav-text">使用口袋手表的硬币插件来确认帧</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E5%B8%A7%E6%95%B0"><span class="nav-text">增加帧数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%9B%8B%E4%B9%B1%E6%95%B0"><span class="nav-text">蛋乱数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A4%BC%E7%89%A9%E7%89%B9%E5%88%AB%E7%AF%87----%E7%8E%9B%E5%A8%9C%E8%8F%B2%E7%9A%84%E8%9B%8B"><span class="nav-text">礼物特别篇----玛娜菲的蛋</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -295,7 +295,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-19 23:18:59" itemprop="dateModified" datetime="2022-01-19T23:18:59+08:00">2022-01-19</time>
+      <time title="Modified: 2022-02-08 12:04:30" itemprop="dateModified" datetime="2022-02-08T12:04:30+08:00">2022-02-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -367,12 +367,14 @@ target="_blank" rel="noopener" href="https://www.smogon.com/ingame/rng/dpphgss_r
 </ol>
 <h1 id="准备工作">准备工作</h1>
 <p>如果你想要乱数闪光宝可梦，你需要知道你的<a
-target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/ID_No.#.E9.87.8CID_No.">SID</a>. &gt;
-如果你想要乱数的是已经创建好的存档，这可能会需要你导出存档并使用
+target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/ID_No.#.E9.87.8CID_No.">SID</a>.</p>
+<blockquote>
+<p>如果你想要乱数的是已经创建好的存档，这可能会需要你导出存档并使用
 <em>PKHex</em>
-等软件查看你的存档（不涉及修改与导入），请根据自身接受程度使用. &gt;
+等软件查看你的存档（不涉及修改与导入），请根据自身接受程度使用.<br>
 不会导出存档？看看这篇博客：<a
 href="/Pokemon/Strategies/In-Game/How-To-Back-Up-Your-Savefiles/">如何备份你的存档</a>.</p>
+</blockquote>
 <h2 id="硬件准备">硬件准备</h2>
 <ul>
 <li>能够游玩第四世代宝可梦卡带的机器（<em>NDS</em> 或 <em>3DS</em>
@@ -400,22 +402,26 @@ href="/download/RNGReporter.zip">这里</a>进行下载.</li>
 可以简单的这么理解. <strong>Seed</strong>
 是一个数值，在游戏开始的时候会确定下来. 然后游戏系统会根据
 <strong>Seed</strong>
-计算出一个长长长长的随机数序列，然后游戏内的随机事件，就会由这个数列里的随机数来决定如何发生.
-&gt; 举一个最简单的例子，某一次我进入游戏. 当前 <strong>Seed</strong>
+计算出一个长长长长的随机数序列，然后游戏内的随机事件，就会由这个数列里的随机数来决定如何发生.</p>
+<blockquote>
+<p>举一个最简单的例子，某一次我进入游戏. 当前 <strong>Seed</strong>
 生成的前三个随机数是 F011，F410，0112. 那么此时我按下 <strong>A</strong>
 键与我面前的一只闪电鸟进入战斗(身上无同步率).
 此时系统会根据第一个随机数来决定闪电鸟的性格. F011 / A3E = 17.
 查表可以知道，17对应的是Quiet性格.
-所以我进入战斗遇到的这只闪电鸟性格一定是Quiet. 既然
-<strong>Seed</strong> 决定了游戏内的随机事件如何发生.
+所以我进入战斗遇到的这只闪电鸟性格一定是Quiet.</p>
+</blockquote>
+<p>既然 <strong>Seed</strong> 决定了游戏内的随机事件如何发生.
 那么我们怎么来得到我们想要的 <strong>Seed</strong> 呢？</p>
-<p>四代的 <strong>Seed</strong> 由两个因素决定. 1. 在游戏内，按下
-<strong>A</strong>
-键读档进入游戏这一刻的时间，年月日时分秒全部参与计算，也只精确到秒. 2.
-从启动游戏这一刻，到按下 <strong>A</strong>
+<p>四代的 <strong>Seed</strong> 由两个因素决定.</p>
+<ol type="1">
+<li>在游戏内，按下 <strong>A</strong>
+键读档进入游戏这一刻的时间，年月日时分秒全部参与计算，也只精确到秒.</li>
+<li>从启动游戏这一刻，到按下 <strong>A</strong>
 键读档进入游戏这一刻，所经过的时间. 这个时间的精度为 1/30
-秒，即约0.033秒.
-这是四代乱数最基础的两点知识，想要着手开始四代乱数的各位一定要牢记.
+秒，即约0.033秒.</li>
+</ol>
+<p>这是四代乱数最基础的两点知识，想要着手开始四代乱数的各位一定要牢记.
 最后，本教程默认读者了解涉及的一些基础知识，例如何为<a
 target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/ID_No.">ID</a>， <a
 target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/ID_No.#.E9.87.8CID_No.">SID</a>， <a
@@ -424,13 +430,16 @@ target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/%E6%80%A7%E6%A
 target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/%E4%B8%AA%E4%BD%93%E5%80%BC">IV(个体值)</a>.</p>
 <h1 id="id乱数">ID乱数</h1>
 <h2 id="目的">目的</h2>
-<p>通常大家追求ID，SID，是为了两个目的： 1. 获得自己喜欢的表ID. 2.
-获得高个体的闪光宝可梦.
+<p>通常大家追求ID，SID，是为了两个目的：</p>
+<ol type="1">
+<li>获得自己喜欢的表ID.</li>
+<li>获得高个体的闪光宝可梦.
 因为四代乱数机制的关系，一只宝可梦如果IVs全部确定，那么这只宝可梦就只有少数几种可能的
 PID.
 例如最常说的6V神兽，就只有6种可能的PID(火钢除外)，如果不借助乱数，自然获得一个ID，SID进入游戏.
 那么我们获得6V闪光神兽的概率，也就和BW异国孵蛋出闪光的概率一样(而且性格还不一定是自己想要的).
-所以，为了心仪的闪光神兽，乱一个 ID，SID 开始游戏，也是有必要的.</p>
+所以，为了心仪的闪光神兽，乱一个 ID，SID 开始游戏，也是有必要的.</li>
+</ol>
 <h2 id="确认目标">确认目标</h2>
 <ol type="1">
 <li><p>打开 RNGReporter，选择 <strong>Time Finder --&gt; 4th Generation
@@ -441,13 +450,16 @@ alt="Figure1" /></p></li>
 Delay，Min，Max Frame如果不理解的话，都和图上一样的填好.
 然后填上自己想要的个体，性格，特性，性别. 点击 <strong>Generate</strong>
 . <img data-src="/images/body/Pokemon-RNG-Abuse-Gen4/Figure2.png"
-alt="Figure2" /> &gt; 另外，这里有一个成对的概念.
+alt="Figure2" /></p>
+<blockquote>
+<p>另外，这里有一个成对的概念.
 具体原理略不过不谈，只需要知道，对同一组个体值，同一组
 ID，SID，有两个PID会同时对应闪光.
 例如图上最后两行对应的Timid，Modest，就是成对的. 一组 ID，SID
 只要能让其中一个闪光，就必定能闪另一个.
 从图上观察，只要两个分布具有相同的 Frame，Hour，并且 PID
-的末三位都相同，那它们就是成对闪光的.</p></li>
+的末三位都相同，那它们就是成对闪光的.</p>
+</blockquote></li>
 <li><p>找到目标之后，就记下这对分布的任意一个PID. 这里我们以最后一对
 TIMID，MODEST 为例，记下 PID: 7942EF72.</p></li>
 <li><p>在 RNGReporter 的主界面，选择 <strong>4th Gen Tools</strong> 中的
@@ -546,10 +558,12 @@ Time工具内，改一下种子的年份(+-1)，用新生成的种子作为目�
 但是，如何用这些随机数来生成我们实际得到的宝可梦的各项参数：例如个体，性格，特性，性别，是否闪光之类的；均是由method来决定的.
 所以，即便是一串相同的随机数，在不同的method下得到的宝可梦是不同的(即便是同一编号的宝可梦).
 最简单的例子就是绿宝石内定点的变隐龙和野生的变隐龙，即便在相同的随机数序列下，抓到的定点和野生的变隐龙也是不同的.
-所以乱宝可梦，首先要知道它对应的Method. ## 确定乱数目标
-<strong><em>如果选择了野外相遇的宝可梦，请在队伍中准备一只习得了<a
+所以乱宝可梦，首先要知道它对应的Method.</p>
+<h2 id="确定乱数目标">确定乱数目标</h2>
+<p><strong><em>如果选择了野外相遇的宝可梦，请在队伍中准备一只习得了<a
 target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/%E7%94%9C%E7%94%9C%E9%A6%99%E6%B0%94%EF%BC%88%E6%8B%9B%E5%BC%8F%EF%BC%89#.E5.8F.AF.E4.BB.A5.E5.AD.A6.E4.BC.9A.E8.AF.A5.E6.8B.9B.E5.BC.8F.E7.9A.84.E5.AE.9D.E5.8F.AF.E6.A2.A6">甜甜香气</a>的宝可梦.</em></strong>
-确定乱数目标后，选择相应的 <em>Method</em>. 如果是乱数蛋，请【】.</p>
+确定乱数目标后，选择相应的 <em>Method</em>. 如果是乱数蛋，请点击<a
+href="#蛋乱数">这里</a>.</p>
 <h3 id="method-1"><em>Method 1</em></h3>
 <ul>
 <li>初始御三家，赠送的前代御三家</li>
@@ -565,15 +579,17 @@ target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/%E7%94%9C%E7%9
 <summary>
 <img no-lazy data-src="/images/mimikyu.png" alt="Method 1 请点击丘丘" align=left>
 </summary>
-<p>DPP： Starter Pokemon Cynthia's Togepi Egg Fossil Pokemon from Mining
-Museum Riolu Egg from Riley Eevee from Bebe Porygon from Veilstone
-Cresselia， Mesprit， Articuno， Zapdos， and Moltres</p>
-<p>HgSs： Kanto/Hoenn/Johto Starters Togepi Egg Bill's Eevee Raikou，
-Entei， and Latios/Latias roamer; the Latios/Latias from the Enigma
-Stone event is NOT Method 1 Tyrogue from Mt. Mortar ExtremeSpeed Dratini
-received from Dragon's Den Goldenrod/Celadon Game Corner Prize Pokemon
-Fossil Pokemon Pewter City Museum Sinjoh Ruins Dragon event where you
-need Arceus</p>
+<p><br> DPP：<br> Starter Pokemon<br> Cynthia's Togepi Egg<br> Fossil
+Pokemon from Mining Museum<br> Riolu Egg from Riley<br> Eevee from
+Bebe<br> Porygon from Veilstone<br> Cresselia， Mesprit， Articuno，
+Zapdos， and Moltres<br><br></p>
+<p>HgSs：<br> Kanto/Hoenn/Johto Starters<br> Togepi Egg<br> Bill's
+Eevee<br> Raikou， Entei， and Latios/Latias roamer; the Latios/Latias
+from the Enigma Stone event is NOT Method 1<br> Tyrogue from Mt.
+Mortar<br> ExtremeSpeed Dratini received from Dragon's Den<br>
+Goldenrod/Celadon Game Corner Prize Pokemon<br> Fossil Pokemon Pewter
+City Museum<br> Sinjoh Ruins Dragon event where you need
+Arceus<br><br></p>
 <p>Note: Any Pokemon received from a trade or as a gift that has a fixed
 nickname and OT (Kenya the Spearow， Gaspar the Haunter， etc.) will
 have set IVs and nature so RNG manipulation techniques will never work
@@ -638,16 +654,16 @@ href="#初始帧与判断delay">判断实际击中的delay</a>.</p></li>
 <h2 id="初始帧与判断delay">初始帧与判断delay</h2>
 <h3 id="hgss">HgSs</h3>
 <h4 id="通过打电话来确认帧">通过打电话来确认帧</h4>
-<p>在某些情况下，我们只有使用打电话的方法来确认delay. 1.
-在35号路获得杂耍艺人 麦克的电话： <img
+<p>在某些情况下，我们只有使用打电话的方法来确认delay.</p>
+<ol type="1">
+<li><p>在35号路获得杂耍艺人 麦克的电话： <img
 src="/images/body/Pokemon-RNG-Abuse-Gen4/Irwin1.jpg" alt="Irwin1" />
 <img data-src="/images/body/Pokemon-RNG-Abuse-Gen4/Irwin2.png"
 alt="Irwin2" /> Irwin可能的回复有三种： <img
 src="/images/body/Pokemon-RNG-Abuse-Gen4/E.png" alt="E" /> <img
 src="/images/body/Pokemon-RNG-Abuse-Gen4/K.png" alt="K" /> <img
 src="/images/body/Pokemon-RNG-Abuse-Gen4/P.png" alt="P" /> 分别记为
-<strong>E</strong>，<strong>K</strong>，<strong>P</strong>.</p>
-<ol start="2" type="1">
+<strong>E</strong>，<strong>K</strong>，<strong>P</strong>.</p></li>
 <li><p>进入游戏之后，快速转到打电话页面，给Irwin打电话，记录下每次打电话的结果.
 注意，每打一个电话会增加1帧，如我打了8个电话，回复序列是P P K P P K E
 E，则前进了8帧.</p></li>

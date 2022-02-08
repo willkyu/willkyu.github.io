@@ -32,7 +32,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part2/images/cover/Pokemon-RNG-Abuse-Gen3-Part2.png">
 <meta property="article:published_time" content="2021-12-14T00:10:35.000Z">
-<meta property="article:modified_time" content="2022-02-05T07:07:23.932Z">
+<meta property="article:modified_time" content="2022-02-08T03:50:49.849Z">
 <meta property="article:author" content="willkyu">
 <meta property="article:tag" content="Pokemon">
 <meta property="article:tag" content="Pokemon-RNG-Abuse">
@@ -295,7 +295,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-02-05 15:07:23" itemprop="dateModified" datetime="2022-02-05T15:07:23+08:00">2022-02-05</time>
+      <time title="Modified: 2022-02-08 11:50:49" itemprop="dateModified" datetime="2022-02-08T11:50:49+08:00">2022-02-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -332,8 +332,10 @@
 <p>如果你在找绿宝石及没电红蓝宝石的红蓝宝石实机乱数教程，请点击<a
 href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part1/">这里</a>.</p>
 <p>如果你在找火红叶绿的实机乱数，请点击<a
-href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part3/">这里</a>.
-&gt; 实机很难实现，难度很高.</p>
+href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part3/">这里</a>.</p>
+<blockquote>
+<p>实机很难实现，难度很高.</p>
+</blockquote>
 <blockquote>
 <p>成果展示: <img
 src="/images/body/Pokemon-RNG-Abuse-Gen3-Part2/Result.png"
@@ -341,14 +343,16 @@ alt="Result" /></p>
 </blockquote>
 <h1 id="准备工作">准备工作</h1>
 <p>如果你想要乱数闪光宝可梦，你需要知道你的<a
-target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/ID_No.#.E9.87.8CID_No.">SID</a>. &gt;
-如果你想要乱数的是已经创建好的存档，这可能会需要你导出存档并使用
+target="_blank" rel="noopener" href="https://wiki.52poke.com/wiki/ID_No.#.E9.87.8CID_No.">SID</a>.</p>
+<blockquote>
+<p>如果你想要乱数的是已经创建好的存档，这可能会需要你导出存档并使用
 <em>PKHex</em>
 等软件查看你的存档（不涉及修改与导入），请根据自身接受程度使用.（本教程默认读者使用<em>NDS</em>烧录卡进行存档提取来方便查看个体）</p>
+</blockquote>
 <blockquote>
 <p>由于我没有怎么研究过乱数ID，所以如果你想要乱数ID，请参考：<a
 target="_blank" rel="noopener" href="https://www.smogon.com/ingame/rng/rs_nonbredrng#idsid">Smogon ID
-乱数教程</a>. 之后如果自己研究了一遍就会上传Blog.</p>
+乱数教程</a>.<br> 之后如果自己研究了一遍就会上传Blog.</p>
 </blockquote>
 <blockquote>
 <p>不会导出存档？看看这篇博客：<a
@@ -359,12 +363,14 @@ href="/Pokemon/Strategies/In-Game/How-To-Back-Up-Your-Savefiles/">如何备份�
 <li>能够游玩第三世代宝可梦卡带的<em>NDS</em>系列机器（初代 <em>NDS</em>
 或 <em>NDS lite</em>，以下统称 <em>NDS</em>）.</li>
 <li>电脑.</li>
-<li><em>NDS</em>烧录卡与读卡器. &gt;
-本教程默认读者使用<em>NDS</em>烧录卡进行存档提取来方便查看个体，如若抗拒，请参考
+<li><em>NDS</em>烧录卡与读卡器.</li>
+</ul>
+<blockquote>
+<p>本教程默认读者使用<em>NDS</em>烧录卡进行存档提取来方便查看个体，如若抗拒，请参考
 <a
 href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part1/">宝可梦绿宝石及没有电的红蓝宝石实机乱数（不包含
-ID 或 Egg）</a> 中提及的方法（使用神奇糖果）.</li>
-</ul>
+ID 或 Egg）</a> 中提及的方法（使用神奇糖果）.</p>
+</blockquote>
 <h2 id="下载乱数所需工具">下载乱数所需工具：</h2>
 <ul>
 <li>计时器<a href="/download/CCTimer.rar">CCTimer</a>
@@ -402,11 +408,14 @@ ID 或 Egg）</a> 中的相应部分.
 <strong><em>RS</em></strong>）进入游戏的初始 seed. 而
 <strong><em>RS</em></strong> 的初始 seed
 在每一分钟都是相同的，也就是说，控制进入游戏时 <em>RTC</em>
-的时间在同一分钟就可以固定住初始 seed，因此我们使用时钟修复软件 rtcread.
-&gt; 我在参阅外网资料时有看到，<strong><em>RS</em></strong> 的初始 seed
+的时间在同一分钟就可以固定住初始 seed，因此我们使用时钟修复软件
+rtcread.</p>
+<blockquote>
+<p>我在参阅外网资料时有看到，<strong><em>RS</em></strong> 的初始 seed
 每分钟推进 1，但实际操作中发现并不是这样. 有时会推进
 1，有时会推进或者倒退很多（但不会太多，大约 2~16左右）. 因此 seed
 并不会变化太快.</p>
+</blockquote>
 <h2 id="确定乱数目标">确定乱数目标</h2>
 <p>与<a
 href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part1/#确定乱数目标">宝可梦绿宝石及没有电的红蓝宝石实机乱数（不包含
@@ -468,8 +477,10 @@ Last input is a press of the A button to "tag" it. <br> --
 </details>
 <p><br><br></p>
 <p>如果是 <em>Method 2</em> 或 <em>Method 1</em>
-的后三类，在进入战斗前最后一次点击作为生成帧. &gt;
-实际生成帧可能会更往后，如甜甜香气，但这段时间是固定的，可以通过多次尝试来更新.</p>
+的后三类，在进入战斗前最后一次点击作为生成帧.</p>
+<blockquote>
+<p>实际生成帧可能会更往后，如甜甜香气，但这段时间是固定的，可以通过多次尝试来更新.</p>
+</blockquote>
 <h1 id="开始乱数">开始乱数</h1>
 <h2 id="确定初始seed">确定初始seed</h2>
 <ol type="1">
@@ -525,19 +536,24 @@ Egg）</a>相应部分类似，但每次开始游戏前需要执行一遍步骤2
 <h2 id="搜索目标宝可梦">搜索目标宝可梦</h2>
 <p>打开乱数工具，选择/填入图中红框中内容： <img
 src="/images/body/Pokemon-RNG-Abuse-Gen3-Part1/Figure1.png"
-alt="Figure1" /> 1. 根据乱数目标选择<em>固定</em>或<em>野生</em>. 2.
-如果选择了<em>野生</em>，可以修改绿框中的地点、版本信息. 3.
-输入之前得到的初期 seed. 4. F为搜索帧数的范围，建议800~10000，因为 seed
-固定了所以可能很靠后才有你想要的帧.（1秒约60帧，请自行推测是否有耐心）（请根据实际情况调整，如甜甜香气动画较长，所以起始帧会高一些）.
-5. <em>Method</em> 选择之前确定的 <em>Method</em>. 6.
-检索区域根据自己的需要填写，若勾选 <strong><em>只显示异色</em></strong>
-，需要在勾选框上方填入表里ID. 7. 点击黑框<em>计算</em>，得到结果.</p>
+alt="Figure1" /></p>
+<ol type="1">
+<li>根据乱数目标选择<em>固定</em>或<em>野生</em>.</li>
+<li>如果选择了<em>野生</em>，可以修改绿框中的地点、版本信息.</li>
+<li>输入之前得到的初期 seed.</li>
+<li>F为搜索帧数的范围，建议800~10000，因为 seed
+固定了所以可能很靠后才有你想要的帧.（1秒约60帧，请自行推测是否有耐心）（请根据实际情况调整，如甜甜香气动画较长，所以起始帧会高一些）.</li>
+<li><em>Method</em> 选择之前确定的 <em>Method</em>.</li>
+<li>检索区域根据自己的需要填写，若勾选
+<strong><em>只显示异色</em></strong> ，需要在勾选框上方填入表里ID.</li>
+<li>点击黑框<em>计算</em>，得到结果.</li>
+</ol>
 <blockquote>
-<p>没有想要的宝可梦怎么办？
+<p>没有想要的宝可梦怎么办？<br>
 不建议帧数再加了，10w帧约27.8分钟了，可以试着降低一下要求.</p>
 </blockquote>
 <blockquote>
-<p>闪帧太靠后了怎么办？ 回到 <a href="#确定初始seed">确定初始
+<p>闪帧太靠后了怎么办？<br> 回到 <a href="#确定初始seed">确定初始
 seed</a>步骤，并在第五步选择一个不同的时间（精确到 min）.</p>
 </blockquote>
 <p>在结果中选择一个满意的结果作为目标帧，将其
@@ -546,66 +562,78 @@ seed</a>步骤，并在第五步选择一个不同的时间（精确到 min）.<
 <h2 id="校准误差">校准误差</h2>
 <p><strong><em>如果你的目标宝可梦不是野外宝可梦（如定点宝可梦），那么要在步骤1结束后，将存档备份</em></strong></p>
 <ol type="1">
-<li>在游戏中你应该存档的位置存档（如果你准备在洞穴或是能出现宝可梦的建筑中使用甜甜香气，请往深处走一些距离，否则甜甜香气可能会失效），存档完成后关机.</li>
-<li>打开计时器 <em>CCTimer</em>，选择
+<li><p>在游戏中你应该存档的位置存档（如果你准备在洞穴或是能出现宝可梦的建筑中使用甜甜香气，请往深处走一些距离，否则甜甜香气可能会失效），存档完成后关机.</p></li>
+<li><p>打开计时器 <em>CCTimer</em>，选择
 <em>Setting</em>，点击红框内容，根据游戏平台选择对应选项. <img
 src="/images/body/Pokemon-RNG-Abuse-Gen3-Part1/Figure2.png"
-alt="Figure2" /></li>
-<li>回到 <em>Timer</em>，在蓝框内填入你刚刚的 <em>目标帧</em> 并点击
+alt="Figure2" /></p></li>
+<li><p>回到 <em>Timer</em>，在蓝框内填入你刚刚的 <em>目标帧</em> 并点击
 <strong><em>Add</em></strong> . <img
 src="/images/body/Pokemon-RNG-Abuse-Gen3-Part1/Figure3.png"
-alt="Figure3" /></li>
-<li><strong><em>执行一遍<a href="#确定初始seed">确定初始
+alt="Figure3" /></p></li>
+<li><p><strong><em>执行一遍<a href="#确定初始seed">确定初始
 seed</a>步骤的2~6，且需尽快开机进入游戏以确保seed不变.</em></strong>
 点击 <strong><em>Start</em></strong>
-按钮的同时开始游戏(设置过的nds是直接开机，未设置过的nds系列是在主页面点击GBA游戏图标).</li>
-<li>在游戏中快速到达目标帧的确定位置（如：在选择宝可梦使用甜甜香气的界面）.</li>
-<li>在 <em>CCTimer</em> 上的倒计时归零的瞬间按下机器的
-<strong><em>A</em></strong> 键，然后等待进入战斗界面.</li>
-<li>捕捉这只宝可梦.</li>
-<li>保存并关闭游戏，提取存档，使用读卡器连接到电脑后使用 PKHex
-打开存档，查看刚捕捉的宝可梦的数据.</li>
-<li>回到乱数工具，在黄框中填入刚捕捉到的宝可梦数据（如果不是闪光记得不要勾选
+按钮的同时开始游戏(设置过的nds是直接开机，未设置过的nds系列是在主页面点击GBA游戏图标).</p></li>
+<li><p>在游戏中快速到达目标帧的确定位置（如：在选择宝可梦使用甜甜香气的界面）.</p></li>
+<li><p>在 <em>CCTimer</em> 上的倒计时归零的瞬间按下机器的
+<strong><em>A</em></strong> 键，然后等待进入战斗界面.</p></li>
+<li><p>捕捉这只宝可梦.</p></li>
+<li><p>保存并关闭游戏，提取存档，使用读卡器连接到电脑后使用 PKHex
+打开存档，查看刚捕捉的宝可梦的数据.</p></li>
+<li><p>回到乱数工具，在黄框中填入刚捕捉到的宝可梦数据（如果不是闪光记得不要勾选
 <strong><em>只显示异色</em></strong> ），点击 <em>计算</em>.
 记下橙色框中的数字（如有多个，选择离<em>目标帧</em>最近的）. <img
 src="/images/body/Pokemon-RNG-Abuse-Gen3-Part1/Figure4.png"
-alt="Figure4" /></li>
-<li>回到
+alt="Figure4" /></p></li>
+<li><p>回到
 <em>CCTimer</em>，计算<em>目标帧</em>减去刚刚橙色框中的数字的值，点击
 <strong><em>Clear</em></strong> 按钮清除后输入该值并点击
-<strong><em>Add</em></strong> . &gt; 例如 CCTimer
-中的值（目标帧）是2156，击中帧是2177，2156 - 2177 = -21（橙色框中数字为
-21），那么将 CCTimer 中的值更新为 2156 - 21 = 2135. 误差校准完成.</li>
+<strong><em>Add</em></strong> .</p>
+<blockquote>
+<p>例如 CCTimer 中的值（目标帧）是2156，击中帧是2177，2156 - 2177 =
+-21（橙色框中数字为 21），那么将 CCTimer 中的值更新为 2156 - 21 =
+2135.</p>
+</blockquote></li>
 </ol>
+<p>误差校准完成.</p>
 <blockquote>
 <p>注意，如果你更换了目标，即宝可梦获得方式改变（如Method不同 或
 由游戏厅切换为固拉多），请重新进行误差校准！</p>
 </blockquote>
 <h2 id="乱数">乱数</h2>
 <p><strong><em>如果你的目标宝可梦不是野外宝可梦（如定点宝可梦），那么要先将备份存档恢复</em></strong>
-和校准误差的4、5、6步一致： 1. <strong><em>执行一遍<a
-href="#确定初始seed">确定初始
+和校准误差的4、5、6步一致：</p>
+<ol type="1">
+<li><strong><em>执行一遍<a href="#确定初始seed">确定初始
 seed</a>步骤的2~6，且需尽快开机进入游戏以确保seed不变.</em></strong>
-点击 <strong><em>Start</em></strong> 按钮的同时开始游戏. 2.
-在游戏中快速到达目标帧的确定位置. 3. 在 <em>CCTimer</em>
-上的倒计时归零的瞬间按下机器的 <strong><em>A</em></strong>
-键，然后等待进入战斗界面. 4.
-如果得到的不是<em>目标帧</em>，可以选择再次进行误差校准或者再多尝试几次.
-&gt;
-因为手工操作多少会有些误差，建议多尝试几次，若十几二十次失败再考虑重新校准误差.
-5. 乱数成功，得到目标！</p>
+点击 <strong><em>Start</em></strong> 按钮的同时开始游戏.</li>
+<li>在游戏中快速到达目标帧的确定位置.</li>
+<li>在 <em>CCTimer</em> 上的倒计时归零的瞬间按下机器的
+<strong><em>A</em></strong> 键，然后等待进入战斗界面.</li>
+<li>如果得到的不是<em>目标帧</em>，可以选择再次进行误差校准或者再多尝试几次.</li>
+</ol>
+<blockquote>
+<p>因为手工操作多少会有些误差，建议多尝试几次，若十几二十次失败再考虑重新校准误差.</p>
+</blockquote>
+<ol start="5" type="1">
+<li>乱数成功，得到目标！</li>
+</ol>
 <h1 id="如果选用-rngreporter">如果选用 RNGReporter</h1>
-<p>发现这两个软件在反查初始seed有些不同，下面记录一下RNGReporter反查seed的方法：
-- 打开RNGReporter，选择<em>4th Gen Tools</em> 中的 <em>Calculate PID
+<p>发现这两个软件在反查初始seed有些不同，下面记录一下RNGReporter反查seed的方法：</p>
+<ul>
+<li>打开RNGReporter，选择<em>4th Gen Tools</em> 中的 <em>Calculate PID
 from IVs</em>. <img
 src="/images/body/Pokemon-RNG-Abuse-Gen3-Part2/Figure9.png"
-alt="Figure9" /> -
-输入个体性格与你的ID，点击<em>Find</em>，选择<strong>PID</strong>对应的一栏.
+alt="Figure9" /></li>
+<li>输入个体性格与你的ID，点击<em>Find</em>，选择<strong>PID</strong>对应的一栏.
 <img data-src="/images/body/Pokemon-RNG-Abuse-Gen3-Part2/Figure10.png"
-alt="Figure10" /> -
-这里得到的seed是<em>生成seed</em>，将其输入工具<em>FRLGSeedFinder</em>中（虽然写的FRLG，但是三代通用）.
+alt="Figure10" /></li>
+<li>这里得到的seed是<em>生成seed</em>，将其输入工具<em>FRLGSeedFinder</em>中（虽然写的FRLG，但是三代通用）.
 <img data-src="/images/body/Pokemon-RNG-Abuse-Gen3-Part2/Figure11.png"
-alt="Figure11" /> - 得到初始seed.</p>
+alt="Figure11" /></li>
+<li>得到初始seed.</li>
+</ul>
 <h1 id="写在后面">写在后面</h1>
 <ul>
 <li>在<a href="#确定初始seed">确定初始
