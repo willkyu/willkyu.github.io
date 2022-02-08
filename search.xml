@@ -281,8 +281,8 @@ github markdown emoji markup<i class="fa fa-external-link-alt"></i></span></li>
         <category>Life</category>
       </categories>
       <tags>
-        <tag>Life</tag>
         <tag>Archive</tag>
+        <tag>Life</tag>
       </tags>
   </entry>
   <entry>
@@ -456,8 +456,8 @@ Edition相关资源整理</a></li>
         <category>Game</category>
       </categories>
       <tags>
-        <tag>Game</tag>
         <tag>Archive</tag>
+        <tag>Game</tag>
       </tags>
   </entry>
   <entry>
@@ -2612,14 +2612,18 @@ alt="Draft" /></li>
 </blockquote>
 <h1 id="总览">总览</h1>
 <h2 id="第三世代">第三世代</h2>
-<h3 id="红宝石">红宝石</h3>
-<ul>
-<li><a href="#x">x</a> 喜欢的ID: 02233</li>
-<li><a href="#x">x</a> 通关联盟</li>
-<li><a href="#x">x</a> 50级对战塔50+连胜: 当前63，最高63</li>
+<h3 id="宝可梦红宝石">宝可梦红宝石</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+喜欢的ID: 02233</li>
+<li><input type="checkbox" disabled="" checked="" />
+通关联盟</li>
+<li><input type="checkbox" disabled="" checked="" />
+50级对战塔50+连胜: 当前63，最高63</li>
 <li><input type="checkbox" disabled="" />
 100级对战塔50+连胜</li>
-<li><a href="#x">x</a> 研究华丽大赛</li>
+<li><input type="checkbox" disabled="" checked="" />
+研究华丽大赛</li>
 <li><input type="checkbox" disabled="" />
 研究制作宝可方块</li>
 <li><input type="checkbox" disabled="" />
@@ -2636,22 +2640,24 @@ alt="Draft" /></li>
 游戏时间999:59</li>
 </ul>
 <hr />
-<h3 id="蓝宝石">蓝宝石</h3>
+<h3 id="宝可梦蓝宝石">宝可梦蓝宝石</h3>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 开始游戏</li>
 </ul>
 <hr />
-<h3 id="火红">火红</h3>
+<h3 id="宝可梦火红">宝可梦火红</h3>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 开始游戏</li>
 </ul>
 <hr />
-<h3 id="叶绿">叶绿</h3>
-<ul>
-<li><a href="#x">x</a> 喜欢的ID: 07411</li>
-<li><a href="#x">x</a> 通关联盟</li>
+<h3 id="宝可梦叶绿">宝可梦叶绿</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+喜欢的ID: 07411</li>
+<li><input type="checkbox" disabled="" checked="" />
+通关联盟</li>
 <li><input type="checkbox" disabled="" />
 给宝可梦拍照</li>
 <li><input type="checkbox" disabled="" />
@@ -2670,7 +2676,7 @@ alt="Draft" /></li>
 游戏时间999:59</li>
 </ul>
 <hr />
-<h3 id="绿宝石">绿宝石</h3>
+<h3 id="宝可梦绿宝石">宝可梦绿宝石</h3>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 开始游戏</li>
@@ -2679,15 +2685,16 @@ alt="Draft" /></li>
 <hr />
 <hr />
 <h2 id="第四世代">第四世代</h2>
-<h3 id="珍珠">珍珠</h3>
+<h3 id="宝可梦珍珠">宝可梦珍珠</h3>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 开始游戏</li>
 </ul>
 <hr />
-<h3 id="钻石">钻石</h3>
-<ul>
-<li><a href="#x">x</a> 喜欢的ID</li>
+<h3 id="宝可梦钻石">宝可梦钻石</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+喜欢的ID</li>
 <li><input type="checkbox" disabled="" />
 通关联盟</li>
 <li><input type="checkbox" disabled="" />
@@ -2716,15 +2723,16 @@ alt="Draft" /></li>
 游戏时间999:59</li>
 </ul>
 <hr />
-<h3 id="白金">白金</h3>
+<h3 id="宝可梦白金">宝可梦白金</h3>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 开始游戏</li>
 </ul>
 <hr />
-<h3 id="心金">心金</h3>
-<ul>
-<li><a href="#x">x</a> 喜欢的ID</li>
+<h3 id="宝可梦心金">宝可梦心金</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+喜欢的ID</li>
 <li><input type="checkbox" disabled="" />
 给宝可梦拍照（别忘了火箭队的衣服）</li>
 <li><input type="checkbox" disabled="" />
@@ -2761,7 +2769,7 @@ alt="Draft" /></li>
 游戏时间999:59</li>
 </ul>
 <hr />
-<h3 id="魂银">魂银</h3>
+<h3 id="宝可梦魂银">宝可梦魂银</h3>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 开始游戏</li>
@@ -2770,10 +2778,12 @@ alt="Draft" /></li>
 <hr />
 <hr />
 <h2 id="第五世代">第五世代</h2>
-<h3 id="黑">黑</h3>
-<ul>
-<li><a href="#x">x</a> 喜欢的ID</li>
-<li><a href="#x">x</a> 通关联盟</li>
+<h3 id="宝可梦黑">宝可梦黑</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+喜欢的ID</li>
+<li><input type="checkbox" disabled="" checked="" />
+通关联盟</li>
 <li><input type="checkbox" disabled="" />
 C装置皮肤全收集</li>
 <li><input type="checkbox" disabled="" />
@@ -2800,28 +2810,32 @@ C装置皮肤全收集</li>
 游戏时间999:59</li>
 </ul>
 <hr />
-<h3 id="白">白</h3>
+<h3 id="宝可梦白">宝可梦白</h3>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 开始游戏</li>
 </ul>
 <hr />
-<h3 id="黑2">黑2</h3>
+<h3 id="宝可梦黑2">宝可梦黑2</h3>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 开始游戏</li>
 </ul>
 <hr />
-<h3 id="白2">白2</h3>
-<ul>
-<li><a href="#x">x</a> 喜欢的ID</li>
-<li><a href="#x">x</a> 通关联盟</li>
+<h3 id="宝可梦白2">宝可梦白2</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+喜欢的ID</li>
+<li><input type="checkbox" disabled="" checked="" />
+通关联盟</li>
 <li><input type="checkbox" disabled="" />
 C装置皮肤全收集</li>
 <li><input type="checkbox" disabled="" />
 盒子皮肤全收集</li>
-<li><a href="#x">x</a> 完成合众图鉴</li>
-<li><a href="#x">x</a> 完成全国图鉴</li>
+<li><input type="checkbox" disabled="" checked="" />
+完成合众图鉴</li>
+<li><input type="checkbox" disabled="" checked="" />
+完成全国图鉴</li>
 <li><input type="checkbox" disabled="" />
 绘制签名，更换联机形象</li>
 <li><input type="checkbox" disabled="" />
@@ -2830,7 +2844,8 @@ C装置皮肤全收集</li>
 获得所有宝可梦装扮道具</li>
 <li><input type="checkbox" disabled="" />
 宝可梦好莱坞</li>
-<li><a href="#x">x</a> 通关白色树洞</li>
+<li><input type="checkbox" disabled="" checked="" />
+通关白色树洞</li>
 <li><input type="checkbox" disabled="" />
 奖牌全收集</li>
 <li><input type="checkbox" disabled="" />
@@ -2848,10 +2863,12 @@ C装置皮肤全收集</li>
 <hr />
 <hr />
 <h2 id="第六世代">第六世代</h2>
-<h3 id="x">X</h3>
-<ul>
-<li><a href="#x">x</a> 喜欢的ID</li>
-<li><a href="#x">x</a> 通关联盟</li>
+<h3 id="宝可梦x">宝可梦X</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+喜欢的ID</li>
+<li><input type="checkbox" disabled="" checked="" />
+通关联盟</li>
 <li><input type="checkbox" disabled="" />
 盒子皮肤全收集</li>
 <li><input type="checkbox" disabled="" />
@@ -2878,15 +2895,16 @@ C装置皮肤全收集</li>
 游戏时间999:59</li>
 </ul>
 <hr />
-<h3 id="y">Y</h3>
+<h3 id="宝可梦y">宝可梦Y</h3>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 开始游戏</li>
 </ul>
 <hr />
-<h3 id="欧米伽红宝石">欧米伽红宝石</h3>
-<ul>
-<li><a href="#x">x</a> 喜欢的ID: 40411</li>
+<h3 id="宝可梦欧米伽红宝石">宝可梦欧米伽红宝石</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+喜欢的ID: 40411</li>
 <li><input type="checkbox" disabled="" />
 通关联盟</li>
 <li><input type="checkbox" disabled="" />
@@ -2913,7 +2931,7 @@ C装置皮肤全收集</li>
 游戏时间999:59</li>
 </ul>
 <hr />
-<h3 id="阿尔法蓝宝石">阿尔法蓝宝石</h3>
+<h3 id="宝可梦阿尔法蓝宝石">宝可梦阿尔法蓝宝石</h3>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 开始游戏</li>
@@ -2922,9 +2940,10 @@ C装置皮肤全收集</li>
 <hr />
 <hr />
 <h2 id="第七世代">第七世代</h2>
-<h3 id="日">日</h3>
-<ul>
-<li><a href="#x">x</a> 喜欢的ID</li>
+<h3 id="宝可梦日">宝可梦日</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+喜欢的ID</li>
 <li><input type="checkbox" disabled="" />
 完成诸岛巡礼</li>
 <li><input type="checkbox" disabled="" />
@@ -2950,36 +2969,40 @@ C装置皮肤全收集</li>
 <li><input type="checkbox" disabled="" />
 游戏时间999:59</li>
 </ul>
-<h3 id="月">月</h3>
+<h3 id="宝可梦月">宝可梦月</h3>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 开始游戏</li>
 </ul>
 <hr />
-<h3 id="究极之日">究极之日</h3>
+<h3 id="宝可梦究极之日">宝可梦究极之日</h3>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 开始游戏</li>
 </ul>
 <hr />
-<h3 id="究极之月">究极之月</h3>
+<h3 id="宝可梦究极之月">宝可梦究极之月</h3>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 开始游戏</li>
 </ul>
 <hr />
-<h3 id="lets-go皮卡丘lets-go伊布">Let's Go！皮卡丘／Let's Go！伊布</h3>
-<ul>
-<li><a href="#x">x</a> 不玩</li>
+<h3 id="宝可梦lets-go皮卡丘lets-go伊布">宝可梦Let's Go！皮卡丘／Let's
+Go！伊布</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+不玩</li>
 </ul>
 <hr />
 <hr />
 <hr />
 <h2 id="第八世代">第八世代</h2>
-<h3 id="剑">剑</h3>
-<ul>
-<li><a href="#x">x</a> 通关联盟</li>
-<li><a href="#x">x</a> 完成伽勒尔图鉴</li>
+<h3 id="宝可梦剑">宝可梦剑</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+通关联盟</li>
+<li><input type="checkbox" disabled="" checked="" />
+完成伽勒尔图鉴</li>
 <li><input type="checkbox" disabled="" />
 完成铠岛图鉴</li>
 <li><input type="checkbox" disabled="" />
@@ -2990,15 +3013,16 @@ C装置皮肤全收集</li>
 级别对战大师球级</li>
 </ul>
 <hr />
-<h3 id="盾">盾</h3>
+<h3 id="宝可梦盾">宝可梦盾</h3>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 开始游戏</li>
 </ul>
 <hr />
 <h3 id="晶灿钻石明亮珍珠">晶灿钻石／明亮珍珠</h3>
-<ul>
-<li><a href="#x">x</a> 不玩</li>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+不玩</li>
 </ul>
 ]]></content>
       <categories>
@@ -4384,8 +4408,8 @@ alt="SPL-2020-10-05" />
 <p><br></p>
 ]]></content>
       <tags>
-        <tag>Life</tag>
         <tag>Pokemon</tag>
+        <tag>Life</tag>
       </tags>
   </entry>
   <entry>
@@ -4418,8 +4442,8 @@ src="/images/body/Share-Splatoon2-Happiness/S(9).png" /></p>
         <category>Game</category>
       </categories>
       <tags>
-        <tag>Splatoon</tag>
         <tag>Life</tag>
+        <tag>Splatoon</tag>
       </tags>
   </entry>
   <entry>
@@ -4605,8 +4629,8 @@ src="/images/body/See-My-Loving-Pokemons/More/G6/G6(11).png" /></p>
 <p>No Hurry.</p>
 ]]></content>
       <tags>
-        <tag>Life</tag>
         <tag>Pokemon</tag>
+        <tag>Life</tag>
       </tags>
   </entry>
   <entry>

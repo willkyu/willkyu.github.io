@@ -339,7 +339,7 @@ src="/images/body/Accessing-GitHub-Slowly-Solution/Figure1.png"
 title="在 请输入域名 栏填写" alt="Figure1" /></p></li>
 <li><p>将检测列表里的 TTL 值最小的 IP 记为 <em>a.b.c.d</em>.</p></li>
 <li><p>使用记事本打开 <code>hosts</code> 文件，位于 &lt;C:&gt;.</p></li>
-<li><p>将以下内容加在 <code>host</code> 文件末尾： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a.b.c.d www.github.com</span><br><span class="line">a.b.c.d github.global.ssl.fastly.net</span><br><span class="line">a.b.c.d nodeload.github.com</span><br></pre></td></tr></table></figure> &gt;
+<li><p>将以下内容加在 <code>host</code> 文件末尾： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a.b.c.d www.github.com</span><br><span class="line">a.b.c.d github.global.ssl.fastly.net</span><br><span class="line">a.b.c.d nodeload.github.com</span><br></pre></td></tr></table></figure> &gt;
 其中 <em>a.b.c.d</em> 是上述步骤中记录的 IP 地址. &gt;
 如果没有修改权限可以将 <code>host</code>
 文件移出该文件夹，修改完成后再移回去. &gt; 系统会确认你授权管理员权限.

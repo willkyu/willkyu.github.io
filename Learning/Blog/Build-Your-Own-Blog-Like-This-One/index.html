@@ -395,7 +395,7 @@ alt="Figure3" />
 <figcaption aria-hidden="true">Figure3</figcaption>
 </figure>
 <h2 id="连接-github">连接 GitHub</h2>
-<p>打开 <em>Git Bash</em> ，输入以下代码设置用户名和邮箱： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;GitHub 用户名&quot;</span><br><span class="line">git config --global user.email &quot;GitHub 邮箱&quot;</span><br></pre></td></tr></table></figure>
+<p>打开 <em>Git Bash</em> ，输入以下代码设置用户名和邮箱： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;GitHub 用户名&quot;</span><br><span class="line">git config --global user.email &quot;GitHub 邮箱&quot;</span><br></pre></td></tr></table></figure>
 &gt; 用自己的 GitHub 用户名与邮箱替代代码中的相应部分.</p>
 <h3 id="创建-ssh-密钥">创建 SSH 密钥</h3>
 <p>继续输入代码<code>ssh-keygen -t rsa -C "GitHub 邮箱"</code>
@@ -423,7 +423,7 @@ alt="Figure4" /></p>
 <p>之后若无特殊说明则将此文件夹称为根目录</p>
 </blockquote>
 <p>输入 <code>npm install -g hexo-cli</code> 回车进行安装.</p>
-<p>安装完成后输入以下代码： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init   #初始化 hexo</span><br><span class="line">hexo g  # 生成页面</span><br><span class="line">hexo s  # 启用预览，默认端口4000</span><br></pre></td></tr></table></figure> 访问<a
+<p>安装完成后输入以下代码： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init   #初始化 hexo</span><br><span class="line">hexo g  # 生成页面</span><br><span class="line">hexo s  # 启用预览，默认端口4000</span><br></pre></td></tr></table></figure> 访问<a
 target="_blank" rel="noopener" href="http://localhost:4000" class="uri">http://localhost:4000</a>，出现
 Hexo 默认页面，则本地博客安装成功.</p>
 <blockquote>
@@ -441,8 +441,8 @@ alt="Figure5" /></p>
 <p>在 <em>Git Bash</em> 中运行 <code>npm install hexo-deployer-git
 --save</code>.</p>
 <p>打开根目录，找到文件 *_config.yml* 并打开，修改文件末尾的 Deployment
-部分为： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:用户名/用户名.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure> &gt; 用自己的 GitHub 用户名替换代码相应部分</p>
-<p>接着，在 <em>Git Bash</em> 中运行 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d  # 部署博客</span><br></pre></td></tr></table></figure></p>
+部分为： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:用户名/用户名.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure> &gt; 用自己的 GitHub 用户名替换代码相应部分</p>
+<p>接着，在 <em>Git Bash</em> 中运行 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d  # 部署博客</span><br></pre></td></tr></table></figure></p>
 <p>这时访问自己的 GitHub 域名 <span class="exturl" data-url="aHR0cHM6Ly91c2VybmFtZS5naXRodWIuaW8=">https://username.github.io<i class="fa fa-external-link-alt"></i></span> 就可以看到 Hexo 网站了.</p>
 <p><br><br><br>到这里私人博客的搭建就差不多了，接下来便是去安装 hexo
 的<span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL3RoZW1lcy8=">主题<i class="fa fa-external-link-alt"></i></span>与<a

@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://willkyu.github.io/Pokemon/PokeSchedule/</loc>
+    
+    <lastmod>2022-02-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://willkyu.github.io/Archive/1-Life/</loc>
     
     <lastmod>2022-02-08</lastmod>
@@ -147,15 +156,6 @@
   
   <url>
     <loc>http://willkyu.github.io/Pokemon/See-My-Loving-Pokemons/</loc>
-    
-    <lastmod>2022-01-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/Pokemon/PokeSchedule/</loc>
     
     <lastmod>2022-01-30</lastmod>
     
@@ -398,7 +398,49 @@
 
   
   <url>
+    <loc>http://willkyu.github.io/tags/Collection/</loc>
+    <lastmod>2022-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/Archive/</loc>
+    <lastmod>2022-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/Learning/</loc>
+    <lastmod>2022-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://willkyu.github.io/tags/Game/</loc>
+    <lastmod>2022-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/Pokemon/</loc>
+    <lastmod>2022-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/Life/</loc>
+    <lastmod>2022-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/Blog/</loc>
     <lastmod>2022-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -427,48 +469,6 @@
   
   <url>
     <loc>http://willkyu.github.io/tags/Splatoon/</loc>
-    <lastmod>2022-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/Life/</loc>
-    <lastmod>2022-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/Collection/</loc>
-    <lastmod>2022-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/Archive/</loc>
-    <lastmod>2022-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/Learning/</loc>
-    <lastmod>2022-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/Pokemon/</loc>
-    <lastmod>2022-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/Blog/</loc>
     <lastmod>2022-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -610,13 +610,6 @@
 
   
   <url>
-    <loc>http://willkyu.github.io/categories/Game/</loc>
-    <lastmod>2022-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://willkyu.github.io/categories/Collection/</loc>
     <lastmod>2022-02-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -631,7 +624,7 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/categories/Life/</loc>
+    <loc>http://willkyu.github.io/categories/Game/</loc>
     <lastmod>2022-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -639,6 +632,13 @@
   
   <url>
     <loc>http://willkyu.github.io/categories/Pokemon/</loc>
+    <lastmod>2022-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/categories/Life/</loc>
     <lastmod>2022-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
