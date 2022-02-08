@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://willkyu.github.io/Archive/1-Life/</loc>
+    <lastmod>2022-02-08</lastmod>
+  </url>
+  <url>
+    <loc>http://willkyu.github.io/Archive/The-First-Blog/</loc>
+    <lastmod>2022-02-08</lastmod>
+  </url>
+  <url>
     <loc>http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen4/</loc>
     <lastmod>2022-02-08</lastmod>
   </url>
@@ -46,10 +54,6 @@
   </url>
   <url>
     <loc>http://willkyu.github.io/Learning/Blog/Blog-Personalization/</loc>
-    <lastmod>2022-01-30</lastmod>
-  </url>
-  <url>
-    <loc>http://willkyu.github.io/Archive/The-First-Blog/</loc>
     <lastmod>2022-01-30</lastmod>
   </url>
   <url>
@@ -135,9 +139,5 @@
   <url>
     <loc>http://willkyu.github.io/Learning/Blog/Build-Your-Own-Blog-Like-This-One/</loc>
     <lastmod>2021-12-22</lastmod>
-  </url>
-  <url>
-    <loc>http://willkyu.github.io/Archive/1-Life/</loc>
-    <lastmod>2021-12-20</lastmod>
   </url>
 </urlset> 
