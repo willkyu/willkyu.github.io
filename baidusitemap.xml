@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://willkyu.github.io/Learning/Notes/GraIL/</loc>
+    <lastmod>2022-03-12</lastmod>
+  </url>
+  <url>
+    <loc>http://willkyu.github.io/Game/Undercover-Brella-Diary/</loc>
+    <lastmod>2022-03-12</lastmod>
+  </url>
+  <url>
     <loc>http://willkyu.github.io/Pokemon/Strategies/In-Game/How-To-Back-Up-Your-Savefiles/</loc>
     <lastmod>2022-02-27</lastmod>
   </url>
@@ -53,10 +61,6 @@
     <lastmod>2022-02-05</lastmod>
   </url>
   <url>
-    <loc>http://willkyu.github.io/Learning/Notes/GraIL/</loc>
-    <lastmod>2022-02-05</lastmod>
-  </url>
-  <url>
     <loc>http://willkyu.github.io/Archive/1-Pokemon/</loc>
     <lastmod>2022-02-05</lastmod>
   </url>
@@ -71,10 +75,6 @@
   <url>
     <loc>http://willkyu.github.io/Learning/Notes/Sparse-Matrix/</loc>
     <lastmod>2022-01-30</lastmod>
-  </url>
-  <url>
-    <loc>http://willkyu.github.io/Game/Undercover-Brella-Diary/</loc>
-    <lastmod>2022-01-24</lastmod>
   </url>
   <url>
     <loc>http://willkyu.github.io/Pokemon/Strategies/Out-Game/Pokemon-Cartridges-Authenticate/</loc>

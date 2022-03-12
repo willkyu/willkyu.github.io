@@ -23,15 +23,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"willkyu.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="论文 Inductive relation prediction by subgraph reasoning 阅读笔记.">
+<meta name="description" content="论文 Inductive relation prediction by subgraph reasoning 阅读笔记. 译文可见https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1IXtIZhYJFkEciqEPflWKuQ，提取码will.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GraIL相关论文阅读笔记">
 <meta property="og:url" content="http://willkyu.github.io/Learning/Notes/GraIL/index.html">
 <meta property="og:site_name" content="丘丘Blog">
-<meta property="og:description" content="论文 Inductive relation prediction by subgraph reasoning 阅读笔记.">
+<meta property="og:description" content="论文 Inductive relation prediction by subgraph reasoning 阅读笔记. 译文可见https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1IXtIZhYJFkEciqEPflWKuQ，提取码will.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-01-18T03:34:44.000Z">
-<meta property="article:modified_time" content="2022-02-05T07:10:29.445Z">
+<meta property="article:modified_time" content="2022-03-12T02:48:34.348Z">
 <meta property="article:author" content="willkyu">
 <meta property="article:tag" content="Learning">
 <meta property="article:tag" content="Knowledage-Graphs">
@@ -154,7 +154,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E5%AE%9E%E8%83%8C%E6%99%AF"><span class="nav-text">现实背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E5%81%9A%E4%BB%80%E4%B9%88"><span class="nav-text">在做什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="nav-text">存在什么问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">使用的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E7%8E%B0%E7%8A%B6related-work"><span class="nav-text">研究现状（Related Work）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E6%96%B9%E6%B3%95"><span class="nav-text">嵌入方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E4%B8%96%E7%95%8C%E5%B5%8C%E5%85%A5"><span class="nav-text">传统世界嵌入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E6%94%BE%E4%B8%96%E7%95%8C%E5%B5%8C%E5%85%A5"><span class="nav-text">开放世界嵌入</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%81%9A%E6%B3%95"><span class="nav-text">做法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#baseline"><span class="nav-text">baseline？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D"><span class="nav-text">模型介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E7%AE%97%E6%B3%95"><span class="nav-text">模型算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E5%9B%BE%E6%8F%90%E5%8F%96"><span class="nav-text">子图提取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8A%82%E7%82%B9%E6%A0%87%E8%AE%B0"><span class="nav-text">节点标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gnn%E8%AF%84%E5%88%86"><span class="nav-text">GNN评分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E5%88%B6%E5%BA%A6"><span class="nav-text">训练制度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#baseline-1"><span class="nav-text">baseline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E7%8E%B0"><span class="nav-text">复现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E5%8A%A8"><span class="nav-text">改动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E5%AE%9E%E8%83%8C%E6%99%AF"><span class="nav-text">现实背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E5%81%9A%E4%BB%80%E4%B9%88"><span class="nav-text">在做什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="nav-text">存在什么问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">使用的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E7%8E%B0%E7%8A%B6related-work"><span class="nav-text">研究现状（Related Work）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E6%96%B9%E6%B3%95"><span class="nav-text">嵌入方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E4%B8%96%E7%95%8C%E5%B5%8C%E5%85%A5"><span class="nav-text">传统世界嵌入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E6%94%BE%E4%B8%96%E7%95%8C%E5%B5%8C%E5%85%A5"><span class="nav-text">开放世界嵌入</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%81%9A%E6%B3%95"><span class="nav-text">做法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#baseline"><span class="nav-text">baseline？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D"><span class="nav-text">模型介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E7%AE%97%E6%B3%95"><span class="nav-text">模型算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E5%9B%BE%E6%8F%90%E5%8F%96"><span class="nav-text">子图提取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8A%82%E7%82%B9%E6%A0%87%E8%AE%B0"><span class="nav-text">节点标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gnn%E8%AF%84%E5%88%86"><span class="nav-text">GNN评分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E5%88%B6%E5%BA%A6"><span class="nav-text">训练制度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90"><span class="nav-text">理论分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-text">复杂度分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%AE%9E%E9%AA%8C"><span class="nav-text">模型实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E7%BA%B3%E5%BC%8F%E5%85%B3%E7%B3%BB%E9%A2%84%E6%B5%8B"><span class="nav-text">归纳式关系预测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A8%E5%BC%8F%E5%85%B3%E7%B3%BB%E9%A2%84%E6%B5%8B"><span class="nav-text">直推式关系预测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%81%B5%E6%95%8F%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-text">灵敏度分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -288,7 +288,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-02-05 15:10:29" itemprop="dateModified" datetime="2022-02-05T15:10:29+08:00">2022-02-05</time>
+      <time title="Modified: 2022-03-12 10:48:34" itemprop="dateModified" datetime="2022-03-12T10:48:34+08:00">2022-03-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -318,7 +318,9 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>论文 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MTEuMDY5NjI=">Inductive relation
-prediction by subgraph reasoning<i class="fa fa-external-link-alt"></i></span> 阅读笔记.</p>
+prediction by subgraph reasoning<i class="fa fa-external-link-alt"></i></span> 阅读笔记. 译文可见<a
+target="_blank" rel="noopener" href="https://pan.baidu.com/s/1IXtIZhYJFkEciqEPflWKuQ"
+class="uri">https://pan.baidu.com/s/1IXtIZhYJFkEciqEPflWKuQ</a>，提取码<em>will</em>.</p>
 <span id="more"></span>
 <p>相关代码见<a
 target="_blank" rel="noopener" href="https://github.com/kkteru/grail">作者的GitHub</a>.</p>
@@ -551,10 +553,178 @@ L = \sum^{|E|}_{i=1}max(0, score(n_i) − score(p_i) + γ)
 是训练图中所有边/三元组的集合；<span class="math inline">\(p_i\)</span>
 和 <span class="math inline">\(n_i\)</span> 分别表示正负三元组；γ
 是边距超参数。</p>
-<h1 id="实验">实验</h1>
-<h2 id="baseline-1">baseline</h2>
-<h2 id="复现">复现</h2>
-<h2 id="改动">改动</h2>
+<h2 id="理论分析">理论分析</h2>
+<p>我们可以证明，GraIL
+架构能够编码流行规则归纳模型中使用的同一类基于路径的逻辑规则，如 RuleN和
+NeuralLP以及在最近使用神经网络进行逻辑推理的工作的研究。为了便于说明，我们将知识图谱中的边
+(u, r, v) 等同于二元逻辑谓词 r(u, v)，其中边 (u, r, v)
+存在于图中当且仅当r(u,v) = true。 定理 1. 令 R
+为以下形式的二元谓词上的任何逻辑规则（即子句）：</p>
+<p><span class="math display">\[
+r_t (X,Y)← r_1 (X,Z_1 )∧ r_2 (Z_1,Z_2 )∧ …∧ r_k (Z_(k-1),Y )
+\]</span></p>
+<p>其中rt, r1, ..., rk是知识图谱中的（不一定是唯一的）关系，X, Z1, ...,
+Zk, Y 是可以被任意唯一实体绑定的自由变量。对于任何这样的
+R，都存在一个参数设置为Θ的 GraIL
+模型，其具有k个GNN层，且所有潜在嵌入的维度为d = 1，使得<span
+class="math inline">\(score(u,r_t,v)≠0\)</span>,当且仅当∃Z1,…,
+Zk，使R的主体满足X = u和Y = v。</p>
+<p>定理 1
+指出，知识图中路径对应的任何逻辑规则都可以被模型编码。GraIL将输出一个非零值当且仅当此逻辑规则的主体基于一组特定的查询实体
+X = u 和 Y = v 时。定理 1
+的完整证明在附录中有详细说明，其关键思想如下：可以使用边注意力权重设置模型参数，使得节点的隐藏嵌入在一轮消息传递后非零（即h_s^i≠0）当且仅当节点
+s 通过关系 ri
+有至少一个邻节点。换句话说，边缘注意机制允许模型指示特定关系是否与特定实体相关，并且——因为我们已经唯一标记了目标节点
+u 和 v——我们可以使用这种关系指示属性来检测是否存在节点 u 和 v
+之间的特定路径。 我们可以直接对定理 1进行扩展得到显示以下推论：</p>
+<p><strong>推论 1.</strong> 令 R1,…, Rm 是一组与定理 1
+中有着相同结构的逻辑规则，每个规则具有相同的头部rt(X, Y )。令</p>
+<p><span class="math display">\[
+β = |{R_i ∶∃Z_1,…,Z_k  where R_i=true with X = u and Y = v}|.
+\]</span></p>
+<p>那么便存在一个与定理1相同假设的GraIL模型的参数设置，为</p>
+<p><span class="math display">\[
+score(u,r_t,v)∝β
+\]</span></p>
+<p>这个推论表明，给定一组暗示相同目标关系的逻辑规则，GraIL
+可以计算对于特定的查询实体u和
+v，这些规则有多少是满足的。换句话说，类似于规则归纳模型，如RuleN，GraIL
+可以结合来自多个规则的证据来进行预测。</p>
+<p>有趣的是，定理 1 和推论 1 表明 GraIL
+可以仅使用实体和关系的一维嵌入来学习逻辑规则，这与我们的经验相吻合，即
+GraIL 的性能在维度d = 1, ..., 64
+范围内相当稳定。但是，上述分析只对应于固定类别的逻辑规则，我们期望GraIL可以受益于更大的潜在维度来学习不同种类的逻辑规则以及这些规则之间更复杂的组合。</p>
+<h2 id="复杂度分析">复杂度分析</h2>
+<p>与传统的基于嵌入的方法不同，GraIL
+模型中的推理需要提取和处理候选边（u、rt、v）周围的子图，并在该提取的子图上运行
+GNN。鉴于我们的处理需要评估提取的子图中从目标节点到所有其他节点的最短路径，我们认为
+GraIL 对候选边 (u, rt, v) 进行评分的推理时间复杂度为</p>
+<p><span class="math display">\[
+O(log(V)E + Rdk)
+\]</span></p>
+<p>其中 V、R 和 E 分别是由u和v导出的封闭子图中的节点、关系和边的数量。d
+是节点/关系嵌入的维度。
+因此GraIL推理的成本很大程度上取决于提取的子图大小，实际的运行时间一般由在这些子图上运行Dijkstra算法来决定。</p>
+<h1 id="模型实验">模型实验</h1>
+<p><strong><em>该章节的所有图表请见原文或我的译文</em></strong></p>
+<p>我们在三个基准知识完成数据集上进行实验：WN18RR、FB15k-237和
+NELL-995（以及其他由他们衍生而来的数据集）。我们的实证研究主要关注以下问题：</p>
+<ol type="1">
+<li>归纳式关系预测。通过定理 1，我们知道 GraIL
+可以编码归纳式逻辑规则。与在归纳式设置中明确进行规则归纳的现有统计和可微方法相比，它的表现如何？</li>
+<li>直推式关系预测。我们的方法具有很强的结构归纳偏差，我们假设它是对现有最先进的知识图嵌入方法的补充。这种互补的归纳偏置能否对传统直推式设置中现有的最先进的知识图谱嵌入方法进行任何改进？</li>
+<li>灵敏度分析。我们提出的框架的各个组成部分有多重要？比如，定理 1
+依赖于注意力和节点标记方案的使用，但这些模型方面在实践中有多重要？</li>
+</ol>
+<p>所有提及的实验代码与数据都在：https://github.com/kkteru/grail。</p>
+<h2 id="归纳式关系预测">归纳式关系预测</h2>
+<p>如图 1c
+所示，归纳式设置评估模型泛化到新实体的能力。完全归纳式的设置中，在训练和测试期间看到的实体集是没有交集的。更一般地，新实体的数量范围可以从仅引入几个新实体到完全的归纳设置（图
+1c）。只要关系的底层语义（即知识图的模式）保持不变，GraIL
+得到的节点特性是不变的。我们展示了我们的归纳结果在非常极端的情况下：一个带有新的实体集的全新的测试图。</p>
+<p><strong>数据集。</strong>WN18RR、FB15k-237 和 NELL-995
+基准数据集最初是为直推式设置开发的。换句话说，标准测试拆分的实体是训练拆分中实体的子集（图
+1b）。为了促进归纳测试，我们通过从这些数据集中采样不相交的子图来创建新的全归纳基准数据集。特别地，我们的每个数据集都由一对图组成：train-graph
+和 ind-test-graph。这两个图(i)具有完全不相交的实体集，并且(ii)
+train-graph包含ind-test-graph中存在的所有关系。生成该数据集的过程在附录中有详细说明。为了进行稳健的评估，我们采样了四对不同的train-graph和ind-test-graph，其中每对基准知识图的节点和边数都在增加。在附录的表中给出了这些归纳基准的统计数据。在归纳式设置中，模型在
+train-graph 上进行训练并在 ind-test-graph 上进行测试。我们随机选择
+ind-test-graph 中10%的边/元组作为测试边。</p>
+<p><strong>Baseline和实施细节。</strong>我们将 GraIL
+与其他两种端到端可微分方法NeuralLP17和
+DRUM19进行了比较。据我们所知，这些是唯一能够进行归纳关系预测的可微方法。我们使用作者公开提供的最佳配置实现。我们还与最先进的统计规则归纳方法
+RuleN15进行了比较，该方法在直推式设置表现得比与其他基于嵌入的方法更好。
+RuleN 代表了KG上归纳关系预测的当前最先进技术。它显式地提取了等式 (1)
+中所示的那种基于路径的规则。我们使用 RuleN 的原始术语来训练它学习长度为
+4 的规则。通过Observation 1，这对应于目标节点周围的 3
+跳邻域。为公平起见，我们在 GNN 方法的目标链接周围采样 3
+跳封闭子图。我们使用了一个 3 层 GNN，所有潜在嵌入的维度都等于
+32，基础维度设置为 4，边缘丢失率设置为 0.5。在我们的实验中，GraIL
+对超参数相对稳健，并且在各种设置下都具有稳定的性能。更多的超参数选择在附录中有详细说明。
+<strong>结果。</strong>我们在分类和排名指标上评估模型，即分别在精确召回曲线
+(AUC-PR) 下的面积和 Hits@10。为了计算
+AUC-PR，连同测试集中存在的三元组，我们使用随机实体替换头部（或尾部）的标准做法对相同数量的负三元组进行评分。由于第
+3.4 节中描述的推理复杂性，我们通过在 50
+个其他随机采样的负三元组中对每个测试三元组进行排名来近似 Hits@10。在表 1
+和表 2 中，我们分别列出了 5 次运行的平均 AUC-PR 和 Hits@10。
+（所有设置中的方差都非常低，因此这些表中省略了标准误差。）</p>
+<p>正如我们所见，GraIL
+在两个指标中的所有数据集上都显著优于归纳基线。仔细观察，之前的可微分方法（Neural-LP
+和 DRUM）的性能明显比 GraIL 差。此外，如图 3 所示，GraIL
+的强结构归纳偏置使其能够以数量级更少的参数数量实现极高的参数效率。GraIL
+还始终优于统计规则归纳方法 RuleN，这表明 GraIL
+不仅能够学习基于路径的逻辑规则，而且 GraIL
+还能够利用更复杂的结构模式并有效地组合多个规则（推论
+1）。为了完整起见，我们还在附录中列出了这些生成的数据集的直推式性能。请注意，与直推式设置相比，归纳式性能（在所有数据集和模型中）相对低于转导性能，这体现了归纳关系预测任务的难度。</p>
+<h2 id="直推式关系预测">直推式关系预测</h2>
+<p>正如之前所展示的，GraIL
+具有很强的归纳偏差来编码知识图谱背后的逻辑规则和复杂的结构模式。我们相信，这与当前最先进的直推式知识图谱补全方法相辅相成，后者依赖于基于嵌入的方法。基于这一观察，在本节中，我们将探讨（i）GraIL
+在直推式设置中的表现以及（ii）将 GraIL
+与现有的基于嵌入的方法集成的效益。由于相较基于嵌入的方法，GraIL拥有很强的互补归纳偏差，我们预计通过将其与现有的基于嵌入的方法集成可以获得显着的收益。</p>
+<p>我们的主要集成策略是后期融合，即集成各组成方法的输出分数。我们使用要集成的方法对每个测试三元组进行评分，每种方法输出的分数形成了每个测试点的特征向量。该特征向量被输入到一个线性分类器中，将该分类器训练得能够使正三元组得分高于负三元组。我们使用验证集训练这个线性分类器。</p>
+<p><strong>数据集。</strong>我们使用标准的 WN18RR、FB15k-237 和 NELL-995
+基准。对于 WN18RR 和 FB15k-237，我们使用文献中可用的拆分。对于
+NELL-995，我们以 70/15/15
+的比例将整个数据集拆分为训练集/验证集/测试集，确保拆分出的验证集和测试集中所有实体和关系在训练集中至少出现一次。</p>
+<p><strong>Baseline和实施细节。</strong>我们将 GraIL 与
+TransE、DistMult、ComplEx和
+RotatE中的每一个进行了集成，它们构成了一组代表性的KGE方法。对于所有方法，我们使用5提供的实现和超参数，其给出了所有方法的最新结果。为了公平比较所有方法，我们禁用了5提出的自我对抗负采样。对于
+GraIL，我们对 WN18RR 和 NELL-995 使用2跳邻域子图，对
+FB15k-237使用1跳邻域子图。其他所有超参数与归纳式设置中的相同。</p>
+<p><strong>结果。</strong>表3、4、5展示了不同KGE方法之间以及与 GraIL
+的成对集成的AUC-PR性能。这些表中的一个特定条目对应于由行和列标签表示的一对方法的集合，每个方法的单独性能在对角线上。从这些表的最后一列可以看出，在这三个数据集的其中两个，使用GraIL集成可以在所有直推式方法中获得一致的性能提升。此外，使用
+GraIL
+进行集成比使用其他任何两种方法获得更多收益。更精确地，我们定义了通过集成两种方法获得的增益，G(M1,
+M2)，如下</p>
+<p><span class="math display">\[
+G(M_1,M_2 )=\frac{P(M_1,M_2 )-max⁡(P(M_1 ),P(M_2))}{max⁡(P(M_1 ),P(M_2
+)}
+\]</span></p>
+<p>换句话说，它实现的百分比改进是相较于两种方法中最好的。因此，通过使用GraIL集成获得的平均增益由下式给出</p>
+<p><span class="math display">\[
+G_{avg}^{GraIL}=\frac{1}{4} \sum_{|M_1 |∈KGE}G(M_1,GraIL)
+\]</span></p>
+<p>通过KGE方法之间的成对集成获得的平均增益由下式给出，</p>
+<p><span class="math display">\[
+G_{avg}^{GraIL}=\frac{1}{12}\sum_{(|M_1 |,|M_2 |)∈KGE}G(M_1,M_2 )
+\]</span></p>
+<p>GraIL 在 WN18RR 和 NELL-995 上获得的平均增益分别为 1.5% 和
+0.62%。这比 KGE 集成获得的平均增益好几个数量级：0.007% 和
+0.08%。令人惊讶的是，没有一个集成获得FB15k-237的显着收益。因此，虽然
+GraIL
+本身针对归纳式设置进行了优化，而不是最先进的直推式预测，但它确实通过集成对最先进的直推式方法进行了有意义的改进。</p>
+<p>表 6 显示了当节点特征（由我们的原始节点标记方案计算）与 TransE
+模型学习的节点嵌入连接时GraIL
+的性能。添加这些预训练嵌入可以显着提升性能。因此，虽然后期融合展示了
+GraIL 所体现的互补归纳偏差，但这种早期融合展示了 GraIL
+利用任何可用节点嵌入/节点特征的自然能力。可以在附录中看到，所有
+Hits@10的结果均呈现相似的趋势。</p>
+<h2 id="灵敏度分析">灵敏度分析</h2>
+<p>在本节中，我们强调 GraIL
+的三个关键组件的重要性：i）封闭子图提取，ii）双半径节点标记方案，以及
+iii）GNN 中的注意力机制，结果总结在表 7 中。</p>
+<p>封闭子图提取。如前所述，我们假设特定链接的逻辑证据可以在链接的两个目标节点周围的子图中找到。因此，我们建议提取由两个目标节点之间的路径上出现的所有节点诱导的子图。在这里，我们想强调仅提取路径，而不是天真地提取由目标节点的所有k-hop邻接点得到的子图的重要性。在这种配置下，性能急剧下降。事实上，该模型严重地过度拟合训练数据，训练AUC超过
+99%。该模式适用于所有数据集。 双半径节点标记。定理 1
+的证明假设了目标节点u和v具有唯一的标记。我们通过使用 (1, 1)
+的恒定节点标签而不是最初提出的节点标签方案来评估 GraIL
+，结果的性能下降证实了我们的节点标记方案的重要性。
+GNN中的注意力机制。正如定理 1
+的证明中所指出的，注意机制是我们模型编码路径规则时的重要组成部分。我们在没有注意机制的情况下评估GraIL并注意到性能明显下降，这与我们的理论发现相呼应。</p>
+<h1 id="总结">总结</h1>
+<p>我们提出了一个基于 GNN 的框架
+GraIL，用于归纳式知识图推理。与基于嵌入的方法不同，GraIL
+模型能够预测在训练期间没有的节点之间的关系，并在这种归纳式设置中实现最先进的结果。此外，我们展示了
+GraIL
+带来了与当前最先进的知识图谱补全方法之间互补的归纳偏差。特别是，我们通过一组完整的实验证明了与
+GraIL
+集成时各种知识图谱嵌入方法的性能提升。此外，我们还从理论上了解了关于GNN在编码有用的逻辑规则子集方面的表达能力。</p>
+<p>这项工作通过一组新的基准数据集与对现有归纳关系预测方法的全面研究，为知识图谱背景下的归纳式推理探索开辟了一个新方向。例如，进一步探索的明显方向包括从
+GraIL
+中提取可解释的规则和结构模式，分析关系分布的变化如何影响归纳性能，以及将
+GraIL 与元学习策略相结合来处理小样本学习设置。</p>
+<p>#致谢。</p>
+<p>这项研究的部分资金来自微软研究院的学术资助，以及由 Mila - Quebec AI
+研究所的 Hamilton 教授担任的Canada CIFAR AI 主席。此外，IVADO
+通过本科生研究奖学金为 Etienne 提供支持。</p>
 <h1 id="reference">Reference</h1>
 <p>[1] 刘峤, 等.知识图谱构建技术综述[J]. 计算机研究与发展, 2016, 53
 (3):582-600. [2] 漆桂林, 高桓, 吴天星. 知识图谱研究进展[J]. 情报工程,
