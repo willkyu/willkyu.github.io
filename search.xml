@@ -3,9 +3,7 @@
   <entry>
     <title>置顶◇代办◇与更新记录</title>
     <url>/Archive/The-First-Blog/</url>
-    <content><![CDATA[<p>欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！
-此博客基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span> 打造，主题使用的是 <a
-href="https://theme-next.js.org/">NexT</a>.</p>
+    <content><![CDATA[<p>欢迎光临will的Blog，这是第一次使用博客的方式记录东西，希望能坚持下去！ 此博客基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvLw==">Hexo<i class="fa fa-external-link-alt"></i></span> 打造，主题使用的是 <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy8=">NexT<i class="fa fa-external-link-alt"></i></span>.</p>
 <p>当你在阅读的时候有任何的问题,欢迎与我联系.</p>
 <p>封面 [ID:85357809].</p>
 <span id="more"></span>
@@ -30,95 +28,64 @@ href="https://theme-next.js.org/">NexT</a>.</p>
 <p>下面是一些之后的计划,用小标题表示,具体的进度会随时更新在下面.</p>
 <h2 id="记录与分享生活">记录与分享生活</h2>
 <ul>
-<li>2021-12-04 创建<a
-href="/Pokemon/See-My-Loving-Pokemons/">亲爱的宝可梦♡</a>页面.</li>
-<li>2021-12-05 创建<a
-href="/Game/Share-Splatoon2-Happiness/">快乐的喷喷生活</a>页面.</li>
-<li>2021-12-06 创建<a href="/Pokemon/VS-Recorder/">VS.
-Recorder</a>页面.</li>
-<li>2022-01-07 创建<a
-href="/Game/Undercover-Brella-Diary">间谍伞日记</a>页面. AnyTime.</li>
+<li>2021-12-04 创建<a href="/Pokemon/See-My-Loving-Pokemons/">亲爱的宝可梦♡</a>页面.</li>
+<li>2021-12-05 创建<a href="/Game/Share-Splatoon2-Happiness/">快乐的喷喷生活</a>页面.</li>
+<li>2021-12-06 创建<a href="/Pokemon/VS-Recorder/">VS. Recorder</a>页面.</li>
+<li>2022-01-07 创建<a href="/Game/Undercover-Brella-Diary">间谍伞日记</a>页面. AnyTime.</li>
 </ul>
-<h2
-id="整理一些宝可梦系列相关的知识等包含游戏内知识与游戏外知识">整理一些宝可梦系列相关的知识等，包含游戏内知识与游戏外知识</h2>
+<h2 id="整理一些宝可梦系列相关的知识等包含游戏内知识与游戏外知识">整理一些宝可梦系列相关的知识等，包含游戏内知识与游戏外知识</h2>
 <ul>
 <li>2021-12-03 创建<a href="/Archive/1-Pokemon/">宝可梦攻略整理</a>页面.
 <ul>
-<li>2021-12-13 已合并至宝可梦归档页面：<a
-href="/Archive/1-Pokemon/">宝可梦◇熵增定律◇与死亡誓言</a>.</li>
+<li>2021-12-13 已合并至宝可梦归档页面：<a href="/Archive/1-Pokemon/">宝可梦◇熵增定律◇与死亡誓言</a>.</li>
 </ul></li>
-<li>2021-12-04 完成文章<a
-href="/Pokemon/Strategies/In-Game/How-To-Back-Up-Your-Savefiles">如何备份你的存档</a>页面.</li>
-<li>2021-12-07 完成文章<a
-href="/Pokemon/Strategies/Out-Game/Pokemon-Cartridges-Authenticate/">宝可梦卡带鉴别</a>.</li>
-<li>2021-12-16 完成文章<a
-href="/Pokemon/Strategies/In-Game/WCD-Distribution-Patch/">如何自制宝可梦Gen4与Gen5的配信器</a>.</li>
-<li>2022-01-03 完成文章<a
-href="/Pokemon/Strategies/In-Game/Battle-Pyramid-Shiny/">战斗金字塔刷闪教程</a>.</li>
+<li>2021-12-04 完成文章<a href="/Pokemon/Strategies/In-Game/How-To-Back-Up-Your-Savefiles">如何备份你的存档</a>页面.</li>
+<li>2021-12-07 完成文章<a href="/Pokemon/Strategies/Out-Game/Pokemon-Cartridges-Authenticate/">宝可梦卡带鉴别</a>.</li>
+<li>2021-12-16 完成文章<a href="/Pokemon/Strategies/In-Game/WCD-Distribution-Patch/">如何自制宝可梦Gen4与Gen5的配信器</a>.</li>
+<li>2022-01-03 完成文章<a href="/Pokemon/Strategies/In-Game/Battle-Pyramid-Shiny/">战斗金字塔刷闪教程</a>.</li>
 </ul>
 <p>No Hurry. 准备从自己b站专栏搬一点先.</p>
-<h2
-id="整理一下宝可梦各时代的乱数方法">整理一下宝可梦各时代的乱数方法</h2>
+<h2 id="整理一下宝可梦各时代的乱数方法">整理一下宝可梦各时代的乱数方法</h2>
 <ul>
 <li>第三世代(RSE)
 <ul>
-<li>2021-12-03 完成文章<a
-href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part1/">宝可梦绿宝石及没有电的红蓝宝石实机乱数（不包含
-ID 或 Egg）</a>.</li>
-<li>2021-12-14 完成文章<a
-href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part2/">宝可梦有电的红蓝宝石实机乱数（不包含
-ID 或 Egg）</a>.</li>
-<li>2021-12-24 完成文章<a
-href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part3/">宝可梦火红叶绿实机乱数（不包含
-ID 或 Egg）</a>.</li>
+<li>2021-12-03 完成文章<a href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part1/">宝可梦绿宝石及没有电的红蓝宝石实机乱数（不包含 ID 或 Egg）</a>.</li>
+<li>2021-12-14 完成文章<a href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part2/">宝可梦有电的红蓝宝石实机乱数（不包含 ID 或 Egg）</a>.</li>
+<li>2021-12-24 完成文章<a href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part3/">宝可梦火红叶绿实机乱数（不包含 ID 或 Egg）</a>.</li>
 </ul></li>
 <li>第四世代(DPPt HgSs)
 <ul>
-<li>2022-01-14 完成文章<a
-href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen4">宝可梦四代实机乱数</a>.</li>
+<li>2022-01-14 完成文章<a href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen4">宝可梦四代实机乱数</a>.</li>
 </ul></li>
 <li>第五世代(BW BW2)</li>
 <li>第六世代(XY OrAs)
 <ul>
-<li>2022-01-15 完成文章<a
-href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen6">宝可梦六代实机乱数（破解机插件辅助
-&amp; 不包含蛋）</a>.</li>
+<li>2022-01-15 完成文章<a href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen6">宝可梦六代实机乱数（破解机插件辅助 &amp; 不包含蛋）</a>.</li>
 </ul></li>
 <li>第七世代(SM UsUm)</li>
 </ul>
 <h2 id="整理一下搭建博客的方法">整理一下搭建博客的方法</h2>
 <ul>
-<li>2021-12-02 完成了文章<a
-href="/Learning/Blog/Build-Your-Own-Blog-Like-This-One/">基于Hexo与GitHub制作私人博客</a>.</li>
-<li>2021-12-19 完成文章<a
-href="/Learning/Blog/Blog-Personalization/">博客个性化笔记----基于Ocean</a></li>
+<li>2021-12-02 完成了文章<a href="/Learning/Blog/Build-Your-Own-Blog-Like-This-One/">基于Hexo与GitHub制作私人博客</a>.</li>
+<li>2021-12-19 完成文章<a href="/Learning/Blog/Blog-Personalization/">博客个性化笔记----基于Ocean</a></li>
 </ul>
 <h2 id="给博客加上评论等功能">给博客加上评论等功能</h2>
 <ul>
 <li>2021-12-06 想鸽了.</li>
 <li>2021-12-13 思考必要性.</li>
-<li>2021-12-17 实现Gitalk评论功能，使用GitHub账号登陆，支持MarkDown语法.
-此外新增指定post开启评论功能.
-<strong><em>请不要发布无意义的评论</em></strong>
-当你在某篇文章下评论后，如果有其他人跟帖，你也会收到GitHub邮件提醒.
-如果想要取消，请前去<a
-href="https://github.com/willkyu/Hexo-Gitalk/issues">Issues</a>中找到对应<strong>Issue</strong>，进入后选择右侧栏的取消订阅
-<em>Unsubscribe</em> 即可.</li>
+<li>2021-12-17 实现Gitalk评论功能，使用GitHub账号登陆，支持MarkDown语法. 此外新增指定post开启评论功能. <strong><em>请不要发布无意义的评论</em></strong> 当你在某篇文章下评论后，如果有其他人跟帖，你也会收到GitHub邮件提醒. 如果想要取消，请前去<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dpbGxreXUvSGV4by1HaXRhbGsvaXNzdWVz">Issues<i class="fa fa-external-link-alt"></i></span>中找到对应<strong>Issue</strong>，进入后选择右侧栏的取消订阅 <em>Unsubscribe</em> 即可.</li>
 </ul>
-<h2 id="完善博客相册">完善博客相册</h2>
+<h2 id="完善博客相册已废弃">完善博客相册（已废弃）</h2>
 <ul>
 <li>2021-12-02 添加了3张生活照.</li>
-<li>宝可梦相关的照片请见：<a
-href="/Pokemon/See-My-Loving-Pokemons/">亲爱的宝可梦♡</a>页面.</li>
-<li>喷喷相关的照片请见：<a
-href="/Game/Share-Splatoon2-Happiness/">快乐的喷喷生活</a>页面.</li>
+<li>宝可梦相关的照片请见：<a href="/Pokemon/See-My-Loving-Pokemons/">亲爱的宝可梦♡</a>页面.</li>
+<li>喷喷相关的照片请见：<a href="/Game/Share-Splatoon2-Happiness/">快乐的喷喷生活</a>页面.</li>
 <li>2021-12-19 拍的好看照片太少了555，也许应该多出去走走.</li>
 </ul>
 <p>No Hurry.</p>
 <h2 id="学习记录">学习记录</h2>
 <ul>
-<li>请参考<a
-href="/Archive/1-Learning/">学习◇生存博弈◇与纯利他主义</a>页面.</li>
+<li>请参考<a href="/Archive/1-Learning/">学习◇生存博弈◇与纯利他主义</a>页面.</li>
 <li>2021-12-17 思考是否要将笔记转移至GitHub仓库.</li>
 </ul>
 <h2 id="个性化博客">个性化博客</h2>
@@ -129,32 +96,22 @@ href="/Archive/1-Learning/">学习◇生存博弈◇与纯利他主义</a>页面
 <li>2021-12-02 更新了谜拟Q的icon.</li>
 <li>2021-12-04 背景添加动态线条效果.</li>
 <li>2021-12-04 添加了点击特效.</li>
-<li>2021-12-05 更新了点击特效的颜色，使其更贴合博客风格.
-试试长按再松开~</li>
+<li>2021-12-05 更新了点击特效的颜色，使其更贴合博客风格. 试试长按再松开~</li>
 <li>2021-12-06 新增博客隐藏功能.</li>
-<li>2021-12-13 加入大分类页(<a
-href="/Archive/1-Pokemon/">宝可梦◇熵增定律◇与死亡誓言</a>、<a
-href="/Archive/1-Learning/">学习◇生存博弈◇与纯利他主义</a>、<a
-href="/Archive/1-Game/">游戏◇动机判定◇与去悲剧化</a>、<a
-href="/Archive/1-Life/">生活◇奥康剃刀◇与自由意识</a>、<a
-href="/Archive/1-Collection/">收藏◇知觉丧失◇与不完备定理</a>)以归档所有博客并置顶.
-使博客更加美观简洁，提高易读性.</li>
+<li>2021-12-13 加入大分类页(<a href="/Archive/1-Pokemon/">宝可梦◇熵增定律◇与死亡誓言</a>、<a href="/Archive/1-Learning/">学习◇生存博弈◇与纯利他主义</a>、<a href="/Archive/1-Game/">游戏◇动机判定◇与去悲剧化</a>、<a href="/Archive/1-Life/">生活◇奥康剃刀◇与自由意识</a>、<a href="/Archive/1-Collection/">收藏◇知觉丧失◇与不完备定理</a>)以归档所有博客并置顶. 使博客更加美观简洁，提高易读性.</li>
 <li>2021-12-15 修改了博客结构，使得博客分类更加直观.</li>
 <li>2021-12-15 实现背景动态线条的随机颜色效果.</li>
-<li>2021-12-16
-更新了博客的一些细节，修复了Category页面无法正确显示标题的错误.</li>
-<li>2021-12-17 实现博客评论功能，详见<a
-href="#给博客加上评论等功能">本页面对应部分</a>.</li>
+<li>2021-12-16 更新了博客的一些细节，修复了Category页面无法正确显示标题的错误.</li>
+<li>2021-12-17 实现博客评论功能，详见<a href="#给博客加上评论等功能">本页面对应部分</a>.</li>
 <li>2021-12-18 实现图片懒加载.</li>
-<li>2021-12-19 加入了<a
-href="https://github.com/HFIProgramming/mikutap">Mikutap</a>，点击<a
-href="/mikutap/">这里</a>进行游玩.</li>
+<li>2021-12-19 加入了<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hGSVByb2dyYW1taW5nL21pa3V0YXA=">Mikutap<i class="fa fa-external-link-alt"></i></span>，点击<a href="/mikutap/">这里</a>进行游玩.</li>
 <li>2021-12-20 新增博客加密功能.</li>
 <li>2022-01-01 优化博客细节.</li>
 <li><strong><em>2022-01-19 更改博客主题为NexT.</em></strong></li>
 <li>2022-01-19 引入Gitter聊天室，快来聊天室聊天8！</li>
 <li>2022-01-30 重新修改404页面，化繁为简:D.</li>
 <li>2022-02-08 优化博客内容，修复了一些因换主题带来的显示bug.</li>
+<li>2022-05-16 优化博客排版.</li>
 </ul>
 <p>No Hurry.</p>
 <p><br></p>
@@ -162,18 +119,14 @@ href="/mikutap/">这里</a>进行游玩.</li>
 <p><br></p>
 <h1 id="test">Test</h1>
 <ul>
-<li>点击<a
-href="/ZONE/WeiChenDemo/index.html">这里</a>来访问卧看小工具测试页.
-成品：<a
-href="https://wokann.github.io/Tool/GEN3_Mirage_island/index.html">3代幻之岛计算器</a>.</li>
+<li>点击<a href="/ZONE/WeiChenDemo/index.html">这里</a>来访问卧看小工具测试页. 成品：<span class="exturl" data-url="aHR0cHM6Ly93b2thbm4uZ2l0aHViLmlvL1Rvb2wvR0VOM19NaXJhZ2VfaXNsYW5kL2luZGV4Lmh0bWw=">3代幻之岛计算器<i class="fa fa-external-link-alt"></i></span>.</li>
 <li>点击<a href="/404/">这里</a>来访问404页面.</li>
 </ul>
 <p><br></p>
 <hr />
 <p><br></p>
 <h1 id="something-else">Something else</h1>
-<p>本博客中未说明来源的绘图可能是忘记了来源,还请见谅.
-如有侵权请与我联系!</p>
+<p>本博客中未说明来源的绘图可能是忘记了来源,还请见谅. 如有侵权请与我联系!</p>
 ]]></content>
       <categories>
         <category>Archive</category>
@@ -187,9 +140,9 @@ href="https://wokann.github.io/Tool/GEN3_Mirage_island/index.html">3代幻之岛
     <title>学习◇生存博弈◇与纯利他主义</title>
     <url>/Archive/1-Learning/</url>
     <content><![CDATA[<blockquote>
-<p>就算没达到预期的水平也不能放弃，继续锻炼. 不管什么时候，
-改变世界的都是认真追求梦想的人. --------
-<strong><em>阿戴克</em></strong></p>
+<p>就算没达到预期的水平也不能放弃，继续锻炼.</p>
+<p>不管什么时候，</p>
+<p>改变世界的都是认真追求梦想的人. -------- <strong><em>阿戴克</em></strong></p>
 </blockquote>
 <p>封面 [ID:90778756].</p>
 <span id="more"></span>
@@ -198,52 +151,35 @@ href="https://wokann.github.io/Tool/GEN3_Mirage_island/index.html">3代幻之岛
 <h2 id="notes">Notes</h2>
 <h3 id="pytorch">PyTorch</h3>
 <ul>
-<li><a
-href="/Learning/Notes/PyTorch/PyTorch01/">PyTorch笔记01----基本数据类型</a></li>
-<li><a
-href="/Learning/Notes/PyTorch/PyTorch02/">PyTorch笔记02----创建Tensor</a></li>
-<li><a
-href="/Learning/Notes/PyTorch/PyTorch03/">PyTorch笔记03----索引与切片</a></li>
-<li><a
-href="/Learning/Notes/PyTorch/PyTorch04/">PyTorch笔记04----Tensor维度变换</a></li>
-<li><a
-href="/Learning/Notes/PyTorch/PyTorch05/">PyTorch笔记05----Broadcast自动扩展</a></li>
-<li><a
-href="/Learning/Notes/PyTorch/PyTorch06/">PyTorch笔记06----拼接与拆分</a></li>
-<li><a
-href="/Learning/Notes/PyTorch/PyTorch07/">PyTorch笔记07----基本运算</a></li>
-<li><a
-href="/Learning/Notes/PyTorch/PyTorch08/">PyTorch笔记08----统计属性</a></li>
-<li><a
-href="/Learning/Notes/PyTorch/PyTorch09/">PyTorch笔记09----高阶OP</a></li>
-<li><a
-href="/Learning/Notes/PyTorch/PyTorch10/">PyTorch笔记10----激活函数与常见Loss</a></li>
+<li><a href="/Learning/Notes/PyTorch/PyTorch01/">PyTorch笔记01----基本数据类型</a></li>
+<li><a href="/Learning/Notes/PyTorch/PyTorch02/">PyTorch笔记02----创建Tensor</a></li>
+<li><a href="/Learning/Notes/PyTorch/PyTorch03/">PyTorch笔记03----索引与切片</a></li>
+<li><a href="/Learning/Notes/PyTorch/PyTorch04/">PyTorch笔记04----Tensor维度变换</a></li>
+<li><a href="/Learning/Notes/PyTorch/PyTorch05/">PyTorch笔记05----Broadcast自动扩展</a></li>
+<li><a href="/Learning/Notes/PyTorch/PyTorch06/">PyTorch笔记06----拼接与拆分</a></li>
+<li><a href="/Learning/Notes/PyTorch/PyTorch07/">PyTorch笔记07----基本运算</a></li>
+<li><a href="/Learning/Notes/PyTorch/PyTorch08/">PyTorch笔记08----统计属性</a></li>
+<li><a href="/Learning/Notes/PyTorch/PyTorch09/">PyTorch笔记09----高阶OP</a></li>
+<li><a href="/Learning/Notes/PyTorch/PyTorch10/">PyTorch笔记10----激活函数与常见Loss</a></li>
 </ul>
 <h3 id="knowledge-graphs">Knowledge Graphs</h3>
 <ul>
-<li><a
-href="/Learning/Notes/Sparse-Matrix/">稀疏矩阵及其存储格式（COO、CSR、CSC）</a></li>
+<li><a href="/Learning/Notes/Sparse-Matrix/">稀疏矩阵及其存储格式（COO、CSR、CSC）</a></li>
 <li><a href="/Learning/Notes/GraIL/">GraIL相关论文阅读笔记</a></li>
 </ul>
 <h2 id="solutions">Solutions</h2>
 <ul>
-<li><a
-href="/Learning/Solutions/Accessing-GitHub-Slowly-Solution/">解决访问GithHub速度慢的问题</a></li>
+<li><a href="/Learning/Solutions/Accessing-GitHub-Slowly-Solution/">解决访问GithHub速度慢的问题</a></li>
 </ul>
 <p><br></p>
 <hr />
 <p><br></p>
 <h1 id="blog">Blog</h1>
 <ul>
-<li><a
-href="/Learning/Blog/Build-Your-Own-Blog-Like-This-One/">基于Hexo与GitHub制作私人博客</a>.</li>
-<li><a
-href="/Learning/Blog/Blog-Personalization/">博客个性化笔记----基于Ocean</a></li>
-<li><a
-href="https://markdown.com.cn/basic-syntax/">MarkDown语法</a></li>
-<li><a href="/ZONE/Emoji/Emoji.html">MarkDown支持Emoji列表</a> 原地址:
-<span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vcnhhdmllcnMvNzM2MDkwOA==">Complete list of
-github markdown emoji markup<i class="fa fa-external-link-alt"></i></span></li>
+<li><a href="/Learning/Blog/Build-Your-Own-Blog-Like-This-One/">基于Hexo与GitHub制作私人博客</a>.</li>
+<li><a href="/Learning/Blog/Blog-Personalization/">博客个性化笔记----基于Ocean</a></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tYXJrZG93bi5jb20uY24vYmFzaWMtc3ludGF4Lw==">MarkDown语法<i class="fa fa-external-link-alt"></i></span></li>
+<li><a href="/ZONE/Emoji/Emoji.html">MarkDown支持Emoji列表</a> 原地址: <span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vcnhhdmllcnMvNzM2MDkwOA==">Complete list of github markdown emoji markup<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 ]]></content>
       <categories>
@@ -258,7 +194,9 @@ github markdown emoji markup<i class="fa fa-external-link-alt"></i></span></li>
     <title>生活◇奥康剃刀◇与自由意识</title>
     <url>/Archive/1-Life/</url>
     <content><![CDATA[<blockquote>
-<p>重要的人和事物， 无论经历多久都不会改变， 人们如此祈祷着.</p>
+<p>重要的人和事物，</p>
+<p>无论经历多久都不会改变，</p>
+<p>人们如此祈祷着.</p>
 </blockquote>
 <p>封面 [ID:76002561].</p>
 <span id="more"></span>
@@ -267,7 +205,8 @@ github markdown emoji markup<i class="fa fa-external-link-alt"></i></span></li>
 <p>趁阳光正好，趁微风不燥，趁现在的双手还能拥抱彼此，趁我们还能呼吸，去见你想见的人，做你想做的事.</p>
 </blockquote>
 <blockquote>
-<p>只要留存在什么人的记忆里...... 那就是曾经存在过的证明.</p>
+<p>只要留存在什么人的记忆里......</p>
+<p>那就是曾经存在过的证明.</p>
 </blockquote>
 <p><br></p>
 <hr />
@@ -289,42 +228,53 @@ github markdown emoji markup<i class="fa fa-external-link-alt"></i></span></li>
     <title>宝可梦◇熵增定律◇与死亡誓言</title>
     <url>/Archive/1-Pokemon/</url>
     <content><![CDATA[<blockquote>
-<p>强大的宝可梦， 弱小的宝可梦， 那只是人的一己之见.
-真正强大的训练家应该为了用自己喜欢的宝可梦获胜而努力才对哦.
-你知道什么才是最重要的呢. 像以往那样前进吧， 冠军在等你哦. --------
-<strong><em>梨花</em></strong></p>
+<p>强大的宝可梦，</p>
+<p>弱小的宝可梦，</p>
+<p>那只是人的一己之见.</p>
+<p>真正强大的训练家应该为了用自己喜欢的宝可梦获胜而努力才对哦.</p>
+<p>你知道什么才是最重要的呢.</p>
+<p>像以往那样前进吧，</p>
+<p>冠军在等你哦. -------- <strong><em>梨花</em></strong></p>
 </blockquote>
 <p>封面 [ID:79498766].</p>
 <span id="more"></span>
 <h1 id="preface">Preface</h1>
 <blockquote>
-<p>我知道你，你就是那个把宝可梦往死里使唤的训练师！
-你算什么！没有宝可梦，你算什么！
-你……到底伤害了多少精灵才走到今天这一步的？</p>
+<p>我知道你，你就是那个把宝可梦往死里使唤的训练师！</p>
+<p>你算什么！没有宝可梦，你算什么！</p>
+<p>你……到底伤害了多少精灵才走到今天这一步的？</p>
 </blockquote>
 <hr />
 <blockquote>
-<p>我有话要对你说. 那是我在唐草镇第一次遇见你的时候.
-从你的宝可梦那里听到的声音让我很震惊……… 因为它说 喜欢你， 想和你在一起.
-当时我不理解. 世界上居然有喜欢人类的宝可梦.
-在那之前我还不知道有这样的宝可梦………
-从那之后，随著我继续旅行，我的内心逐渐动摇………
-因为我遇到的都是心灵相通、互相帮助的宝可梦和人类.
-所以，我才想和你战斗，看看自己相信的东西究竟是什么………
-我曾希望能同样作为英雄，与你面对面……… 只考虑宝可梦………
-不，连宝可梦也无法理解的我………
-根本不可能战胜与众多宝可梦邂逅，身边还围绕著同伴的你……… 冠军原谅我了………
-但是今后我该怎么做，还是要我自己决定……… 你说过，你有梦想.
-那就去实现那个梦想吧！ 实现美好的梦想，将它作为你所追求的真实！ 那么………
-再见了！ -------- <strong><em>N</em></strong></p>
+<p>我有话要对你说.</p>
+<p>那是我在唐草镇第一次遇见你的时候.</p>
+<p>从你的宝可梦那里听到的声音让我很震惊………</p>
+<p>因为它说</p>
+<p>喜欢你，</p>
+<p>想和你在一起.</p>
+<p>当时我不理解.</p>
+<p>世界上居然有喜欢人类的宝可梦.</p>
+<p>在那之前我还不知道有这样的宝可梦………</p>
+<p>从那之后，随著我继续旅行，我的内心逐渐动摇………</p>
+<p>因为我遇到的都是心灵相通、互相帮助的宝可梦和人类.</p>
+<p>所以，我才想和你战斗，看看自己相信的东西究竟是什么………</p>
+<p>我曾希望能同样作为英雄，与你面对面………</p>
+<p>只考虑宝可梦………</p>
+<p>不，连宝可梦也无法理解的我………</p>
+<p>根本不可能战胜与众多宝可梦邂逅，身边还围绕著同伴的你………</p>
+<p>冠军原谅我了………</p>
+<p>但是今后我该怎么做，还是要我自己决定………</p>
+<p>你说过，你有梦想.</p>
+<p>那就去实现那个梦想吧！</p>
+<p>实现美好的梦想，将它作为你所追求的真实！</p>
+<p>那么………</p>
+<p>再见了！ -------- <strong><em>N</em></strong></p>
 </blockquote>
 <p><br></p>
 <hr />
 <p><br></p>
-<h1 id="vs.-recorder"><a href="/Pokemon/VS-Recorder/">VS.
-Recorder</a></h1>
-<p>An amazing device that can record a battle either between friends or
-at a special battle facility.</p>
+<h1 id="vs.-recorder"><a href="/Pokemon/VS-Recorder/">VS. Recorder</a></h1>
+<p>An amazing device that can record a battle either between friends or at a special battle facility.</p>
 <p><br></p>
 <hr />
 <p><br></p>
@@ -338,74 +288,68 @@ at a special battle facility.</p>
 <p><img no-lazy data-src="/images/mimikyu.png" alt="请点击丘丘" align=left></p>
 </summary>
 <p><img data-src="/images/body/1-Pokemon/ZoneLock.jpg" alt="游戏锁区表"></p>
-<p>-- gba不锁区 <br> -- 3ds玩3ds卡必锁区 <br> --
-主机（不包括ns）全部锁区（n64不清楚 有待考证）</p>
+<p>-- gba不锁区 <br> -- 3ds玩3ds卡必锁区 <br> -- 主机（不包括ns）全部锁区（n64不清楚 有待考证）</p>
 </details>
 <p><br><br></p></li>
-<li><p><a
-href="https://tieba.baidu.com/p/6580100866?red_tag=2783794550">【攻略】【直播演示】GEN3
-全图鉴 全精灵 理论规划及演示 -- 卧看微尘 百度贴吧</a></p></li>
-<li><p><a
-href="/Pokemon/Strategies/In-Game/How-To-Back-Up-Your-Savefiles/">如何备份你的存档</a></p></li>
-<li><p><a
-href="/Pokemon/Strategies/In-Game/WCD-Distribution-Patch/">如何自制宝可梦Gen4与Gen5的配信器</a></p></li>
-<li><p><a
-href="https://tieba.baidu.com/p/7680216276?pid=142702978152&amp;cid=#142702978152">【攻略贴】全球第1份100%开启Gen3幻之岛教程！
-新年钜献 -- 卧看微尘 百度贴吧</a></p></li>
-<li><p><a
-href="https://tieba.baidu.com/p/7349572038?pid=139295609895&amp;cid=#139295609895">【攻略贴】神奥“甜甜蜜树”详解
-dppt（珍珠钻石白金） -- 卧看微尘 百度贴吧</a></p></li>
-<li><p><a
-href="/Pokemon/Strategies/In-Game/Battle-Pyramid-Shiny/">战斗金字塔刷闪教程</a>.</p></li>
+<li><p>3-5代努力值推荐表，右击另存为图片保存高清大图</p>
+<details>
+<summary>
+<p><img no-lazy data-src="/images/mimikyu.png" alt="请点击丘丘" align=left></p>
+</summary>
+<p><img data-src="/images/body/1-Pokemon/EVTips.png" alt="努力值推荐表"></p>
+</details>
+<p><br><br></p></li>
+<li><p>3DS关服前软件整理</p>
+<details>
+<summary>
+<p><img no-lazy data-src="/images/mimikyu.png" alt="请点击丘丘" align=left></p>
+</summary>
+<p><img data-src="/images/body/1-Pokemon/3DSSoftware.png" alt="3DS下载版软件表"></p>
+</details>
+<p><br><br></p></li>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC82NTgwMTAwODY2P3JlZF90YWc9Mjc4Mzc5NDU1MA==">【攻略】【直播演示】GEN3 全图鉴 全精灵 理论规划及演示 -- 卧看微尘 百度贴吧<i class="fa fa-external-link-alt"></i></span></p></li>
+<li><p><a href="/Pokemon/Strategies/In-Game/How-To-Back-Up-Your-Savefiles/">如何备份你的存档</a></p></li>
+<li><p><a href="/Pokemon/Strategies/In-Game/WCD-Distribution-Patch/">如何自制宝可梦Gen4与Gen5的配信器</a></p></li>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC83NjgwMjE2Mjc2P3BpZD0xNDI3MDI5NzgxNTImY2lkPSMxNDI3MDI5NzgxNTI=">【攻略贴】全球第1份100%开启Gen3幻之岛教程！ 新年钜献 -- 卧看微尘 百度贴吧<i class="fa fa-external-link-alt"></i></span></p></li>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC83MzQ5NTcyMDM4P3BpZD0xMzkyOTU2MDk4OTUmY2lkPSMxMzkyOTU2MDk4OTU=">【攻略贴】神奥“甜甜蜜树”详解 dppt（珍珠钻石白金） -- 卧看微尘 百度贴吧<i class="fa fa-external-link-alt"></i></span></p></li>
+<li><p><a href="/Pokemon/Strategies/In-Game/Battle-Pyramid-Shiny/">战斗金字塔刷闪教程</a>.</p></li>
 </ul>
 <h3 id="rng-abuse">RNG Abuse</h3>
 <ul>
 <li><p>第三世代(RSE)</p>
 <ul>
-<li><a
-href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part1/">宝可梦绿宝石及没有电的红蓝宝石实机乱数（不包含
-ID 或 Egg）</a></li>
-<li><a
-href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part2/">宝可梦有电的红蓝宝石实机乱数（不包含
-ID 或 Egg）</a></li>
-<li><a
-href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part3/">宝可梦火红叶绿实机乱数（不包含
-ID 或 Egg）</a></li>
+<li><a href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part1/">宝可梦绿宝石及没有电的红蓝宝石实机乱数（不包含 ID 或 Egg）</a></li>
+<li><a href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part2/">宝可梦有电的红蓝宝石实机乱数（不包含 ID 或 Egg）</a></li>
+<li><a href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part3/">宝可梦火红叶绿实机乱数（不包含 ID 或 Egg）</a></li>
 </ul></li>
 <li><p>第四世代(DPPt HgSs)</p>
 <ul>
-<li><a
-href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen4">宝可梦四代实机乱数</a></li>
+<li><a href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen4">宝可梦四代实机乱数</a></li>
 </ul></li>
 <li><p>第五世代(BW BW2)</p></li>
 <li><p>第六世代(XY OrAs)</p>
 <ul>
-<li><a
-href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen6">宝可梦六代实机乱数（破解机插件辅助
-&amp; 不包含蛋）</a></li>
+<li><a href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen6">宝可梦六代实机乱数（破解机插件辅助 &amp; 不包含蛋）</a></li>
 </ul></li>
 <li><p>第七世代(SM UsUm)</p></li>
 </ul>
 <h2 id="out-game-strategies">Out-Game Strategies</h2>
 <ul>
-<li><a
-href="/Pokemon/Strategies/Out-Game/Pokemon-Cartridges-Authenticate/">宝可梦卡带鉴别</a></li>
+<li><a href="/Pokemon/Strategies/Out-Game/Pokemon-Cartridges-Authenticate/">宝可梦卡带鉴别</a></li>
 </ul>
 <p><br></p>
 <hr />
 <p><br></p>
 <h1 id="competition-promotion">Competition Promotion</h1>
 <ul>
-<li><a
-href="/Pokemon/Promotion/Magi-cup-1st/">苏州大学第一届鲤鱼王杯</a></li>
+<li><a href="/Pokemon/Promotion/Magi-cup-1st/">苏州大学第一届鲤鱼王杯</a></li>
 </ul>
 <p><br></p>
 <hr />
 <p><br></p>
 <h1 id="commemoration">Commemoration</h1>
 <ul>
-<li><a
-href="/Pokemon/See-My-Loving-Pokemons/">纪念我爱的宝可梦们.</a></li>
+<li><a href="/Pokemon/See-My-Loving-Pokemons/">纪念我爱的宝可梦们.</a></li>
 <li><a href="/Pokemon/PokeSchedule/">willkyu的宝可梦计划</a></li>
 </ul>
 ]]></content>
@@ -421,18 +365,26 @@ href="/Pokemon/See-My-Loving-Pokemons/">纪念我爱的宝可梦们.</a></li>
     <title>游戏◇动机判定◇与去悲剧化</title>
     <url>/Archive/1-Game/</url>
     <content><![CDATA[<blockquote>
-<p>真想见识更多的景色啊. 正因为知道了世界的广阔和自己的渺小，
-才会对明天充满希望！</p>
+<p>真想见识更多的景色啊.</p>
+<p>正因为知道了世界的广阔和自己的渺小，</p>
+<p>才会对明天充满希望！</p>
 </blockquote>
 <blockquote>
-<p>有的人说， 因为世界如此之大， 才有了各种各样的想法. 也有的人说，
-正是因为各种各样的想法， 世界才如此广阔. 这两种说法， 都是正确的.</p>
+<p>有的人说，</p>
+<p>因为世界如此之大，</p>
+<p>才有了各种各样的想法.</p>
+<p>也有的人说，</p>
+<p>正是因为各种各样的想法，</p>
+<p>世界才如此广阔.</p>
+<p>这两种说法，</p>
+<p>都是正确的.</p>
 </blockquote>
 <p>封面 [ID:90778756].</p>
 <span id="more"></span>
 <h1 id="preface">Preface</h1>
 <blockquote>
-<p>如果你面对抉择的时候，让别人替你做决定. 你会对事情的结果后悔的.</p>
+<p>如果你面对抉择的时候，让别人替你做决定.</p>
+<p>你会对事情的结果后悔的.</p>
 </blockquote>
 <p><br></p>
 <hr />
@@ -440,8 +392,7 @@ href="/Pokemon/See-My-Loving-Pokemons/">纪念我爱的宝可梦们.</a></li>
 <h1 id="flash-card">Flash Card</h1>
 <ul>
 <li><a href="/Game/DSTWO/">DSTWO相关资源整理</a></li>
-<li><a href="/Game/EZODE/">EZ-Flash Omega Definitive
-Edition相关资源整理</a></li>
+<li><a href="/Game/EZODE/">EZ-Flash Omega Definitive Edition相关资源整理</a></li>
 </ul>
 <p><br></p>
 <hr />
