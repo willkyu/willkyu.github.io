@@ -1,8 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://willkyu.github.io/Pokemon/Shiny-Lock/</loc>
+    <lastmod>2022-05-24</lastmod>
+  </url>
+  <url>
     <loc>http://willkyu.github.io/Archive/The-First-Blog/</loc>
-    <lastmod>2022-05-16</lastmod>
+    <lastmod>2022-05-24</lastmod>
+  </url>
+  <url>
+    <loc>http://willkyu.github.io/Archive/1-Pokemon/</loc>
+    <lastmod>2022-05-24</lastmod>
+  </url>
+  <url>
+    <loc>http://willkyu.github.io/Learning/Notes/LATEX/</loc>
+    <lastmod>2022-05-24</lastmod>
+  </url>
+  <url>
+    <loc>http://willkyu.github.io/Learning/Notes/GraIL/</loc>
+    <lastmod>2022-05-24</lastmod>
+  </url>
+  <url>
+    <loc>http://willkyu.github.io/test/</loc>
+    <lastmod>2022-05-24</lastmod>
+  </url>
+  <url>
+    <loc>http://willkyu.github.io/Game/Share-Splatoon2-Happiness/</loc>
+    <lastmod>2022-05-24</lastmod>
+  </url>
+  <url>
+    <loc>http://willkyu.github.io/Game/Undercover-Brella-Diary/</loc>
+    <lastmod>2022-05-24</lastmod>
   </url>
   <url>
     <loc>http://willkyu.github.io/Archive/1-Life/</loc>
@@ -17,24 +45,12 @@
     <lastmod>2022-05-16</lastmod>
   </url>
   <url>
-    <loc>http://willkyu.github.io/Archive/1-Pokemon/</loc>
-    <lastmod>2022-05-16</lastmod>
-  </url>
-  <url>
     <loc>http://willkyu.github.io/Learning/Blog/Build-Your-Own-Blog-Like-This-One/</loc>
     <lastmod>2022-03-26</lastmod>
   </url>
   <url>
     <loc>http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen4/</loc>
     <lastmod>2022-03-26</lastmod>
-  </url>
-  <url>
-    <loc>http://willkyu.github.io/Learning/Notes/GraIL/</loc>
-    <lastmod>2022-03-12</lastmod>
-  </url>
-  <url>
-    <loc>http://willkyu.github.io/Game/Undercover-Brella-Diary/</loc>
-    <lastmod>2022-03-12</lastmod>
   </url>
   <url>
     <loc>http://willkyu.github.io/Pokemon/Strategies/In-Game/How-To-Back-Up-Your-Savefiles/</loc>
@@ -130,10 +146,6 @@
   </url>
   <url>
     <loc>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch01/</loc>
-    <lastmod>2022-01-19</lastmod>
-  </url>
-  <url>
-    <loc>http://willkyu.github.io/Game/Share-Splatoon2-Happiness/</loc>
     <lastmod>2022-01-19</lastmod>
   </url>
   <url>

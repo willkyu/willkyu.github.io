@@ -23,15 +23,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"willkyu.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="论文 Inductive relation prediction by subgraph reasoning 阅读笔记. 译文可见https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1IXtIZhYJFkEciqEPflWKuQ，提取码will.">
+<meta name="description" content="论文 Inductive relation prediction by subgraph reasoning 阅读笔记. 译文可见https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1IXtIZhYJFkEciqEPflWKuQ，提取码will.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GraIL相关论文阅读笔记">
 <meta property="og:url" content="http://willkyu.github.io/Learning/Notes/GraIL/index.html">
 <meta property="og:site_name" content="丘丘Blog">
-<meta property="og:description" content="论文 Inductive relation prediction by subgraph reasoning 阅读笔记. 译文可见https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1IXtIZhYJFkEciqEPflWKuQ，提取码will.">
+<meta property="og:description" content="论文 Inductive relation prediction by subgraph reasoning 阅读笔记. 译文可见https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1IXtIZhYJFkEciqEPflWKuQ，提取码will.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-01-18T03:34:44.000Z">
-<meta property="article:modified_time" content="2022-03-12T02:48:34.348Z">
+<meta property="article:modified_time" content="2022-05-24T03:32:52.239Z">
 <meta property="article:author" content="willkyu">
 <meta property="article:tag" content="Learning">
 <meta property="article:tag" content="Knowledage-Graphs">
@@ -154,7 +154,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E5%AE%9E%E8%83%8C%E6%99%AF"><span class="nav-text">现实背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E5%81%9A%E4%BB%80%E4%B9%88"><span class="nav-text">在做什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="nav-text">存在什么问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">使用的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E7%8E%B0%E7%8A%B6related-work"><span class="nav-text">研究现状（Related Work）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E6%96%B9%E6%B3%95"><span class="nav-text">嵌入方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E4%B8%96%E7%95%8C%E5%B5%8C%E5%85%A5"><span class="nav-text">传统世界嵌入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E6%94%BE%E4%B8%96%E7%95%8C%E5%B5%8C%E5%85%A5"><span class="nav-text">开放世界嵌入</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%81%9A%E6%B3%95"><span class="nav-text">做法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#baseline"><span class="nav-text">baseline？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D"><span class="nav-text">模型介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E7%AE%97%E6%B3%95"><span class="nav-text">模型算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E5%9B%BE%E6%8F%90%E5%8F%96"><span class="nav-text">子图提取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8A%82%E7%82%B9%E6%A0%87%E8%AE%B0"><span class="nav-text">节点标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gnn%E8%AF%84%E5%88%86"><span class="nav-text">GNN评分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E5%88%B6%E5%BA%A6"><span class="nav-text">训练制度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90"><span class="nav-text">理论分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-text">复杂度分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%AE%9E%E9%AA%8C"><span class="nav-text">模型实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E7%BA%B3%E5%BC%8F%E5%85%B3%E7%B3%BB%E9%A2%84%E6%B5%8B"><span class="nav-text">归纳式关系预测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A8%E5%BC%8F%E5%85%B3%E7%B3%BB%E9%A2%84%E6%B5%8B"><span class="nav-text">直推式关系预测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%81%B5%E6%95%8F%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-text">灵敏度分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E5%AE%9E%E8%83%8C%E6%99%AF"><span class="nav-text">现实背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E5%81%9A%E4%BB%80%E4%B9%88"><span class="nav-text">在做什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="nav-text">存在什么问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">使用的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E7%8E%B0%E7%8A%B6related-work"><span class="nav-text">研究现状（Related Work）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E6%96%B9%E6%B3%95"><span class="nav-text">嵌入方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E4%B8%96%E7%95%8C%E5%B5%8C%E5%85%A5"><span class="nav-text">传统世界嵌入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E6%94%BE%E4%B8%96%E7%95%8C%E5%B5%8C%E5%85%A5"><span class="nav-text">开放世界嵌入</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%81%9A%E6%B3%95"><span class="nav-text">做法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#baseline"><span class="nav-text">baseline？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D"><span class="nav-text">模型介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E7%AE%97%E6%B3%95"><span class="nav-text">模型算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E5%9B%BE%E6%8F%90%E5%8F%96"><span class="nav-text">子图提取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8A%82%E7%82%B9%E6%A0%87%E8%AE%B0"><span class="nav-text">节点标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gnn%E8%AF%84%E5%88%86"><span class="nav-text">GNN评分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E5%88%B6%E5%BA%A6"><span class="nav-text">训练制度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90"><span class="nav-text">理论分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-text">复杂度分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%AE%9E%E9%AA%8C"><span class="nav-text">模型实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E7%BA%B3%E5%BC%8F%E5%85%B3%E7%B3%BB%E9%A2%84%E6%B5%8B"><span class="nav-text">归纳式关系预测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A8%E5%BC%8F%E5%85%B3%E7%B3%BB%E9%A2%84%E6%B5%8B"><span class="nav-text">直推式关系预测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%81%B5%E6%95%8F%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-text">灵敏度分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%B4%E8%B0%A2"><span class="nav-text">致谢</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -169,7 +169,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -180,7 +180,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -288,7 +288,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-12 10:48:34" itemprop="dateModified" datetime="2022-03-12T10:48:34+08:00">2022-03-12</time>
+      <time title="Modified: 2022-05-24 11:32:52" itemprop="dateModified" datetime="2022-05-24T11:32:52+08:00">2022-05-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -317,114 +317,35 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>论文 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MTEuMDY5NjI=">Inductive relation
-prediction by subgraph reasoning<i class="fa fa-external-link-alt"></i></span> 阅读笔记. 译文可见<a
-target="_blank" rel="noopener" href="https://pan.baidu.com/s/1IXtIZhYJFkEciqEPflWKuQ"
-class="uri">https://pan.baidu.com/s/1IXtIZhYJFkEciqEPflWKuQ</a>，提取码<em>will</em>.</p>
+        <p>论文 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MTEuMDY5NjI=">Inductive relation prediction by subgraph reasoning<i class="fa fa-external-link-alt"></i></span> 阅读笔记. 译文可见<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMUlYdElaaFlKRmtFY2lxRVBmbFdLdVE=">https://pan.baidu.com/s/1IXtIZhYJFkEciqEPflWKuQ<i class="fa fa-external-link-alt"></i></span>，提取码<em>will</em>.</p>
 <span id="more"></span>
-<p>相关代码见<a
-target="_blank" rel="noopener" href="https://github.com/kkteru/grail">作者的GitHub</a>.</p>
+<p>相关代码见<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2trdGVydS9ncmFpbA==">作者的GitHub<i class="fa fa-external-link-alt"></i></span>.</p>
 <h1 id="背景">背景</h1>
 <h2 id="现实背景">现实背景</h2>
-<p>知识图谱（Knowledge
-Graph，KG）是人工智能的重要分支技术，它在2012年由谷歌提出，是结构化的语义知识库，用于以符号形式描述物理世界中的概念及其相互关系，其基本组成单位是
-<strong>“实体—关系—实体”（Facts： Head_Entity - Relation - Tail_Entity,
-i.e., (h; r;
-t)）三元组，以及实体及其相关属性—值对</strong>，实体间通过关系相互联结，构成网状的知识结构<a
-href="#reference">1</a>。知识图谱本质上是一种叫作语义网络的知识库，即一个具有有向图结构的知识库，其中图的结点代表实体或者概念，而图的边代表实体/概念之间的各种语义关系<a
-href="#reference">2</a>.</p>
-<p>知识图谱的链接预测方法主要通过学习和操作实体和关系的潜在表示（即嵌入
-embeddings）。然而这些基于嵌入的方法并没有明确地捕获知识图谱背后的组合逻辑规则，本质上假设图中的实体集是固定的——这种假设通常被称为直推式设置（Transductive
-Setting），仅限于<em>直推式学习（Transductive
-learning）</em>而不是<em>归纳式学习（Inductive
-learning）</em>。因此我们使用了一个基于图神经网络的关系预测框架
-<strong>GraIL</strong><a
-href="#reference">3</a>，其对局部子图结构进行推理，并且具有很强的归纳能力来学习与实体无关的关系语义。与基于嵌入的模型不同，GraIL
-是自身便具有归纳能力，可以在训练后泛化到无联通增量中。<a
-href="#reference">3</a>提供了理论证明和强有力的经验证据，证明 GraIL
-可以代表有用的一阶逻辑子集，还表明 GraIL
-在归纳设置中优于现有的Baseline。<a
-href="#reference">3</a>还展示了通过在直推式设置中将 GraIL
-与各种知识图谱嵌入方法集成来获得的显著收益，突出了该方法的互补归纳倾向。</p>
+<p>知识图谱（Knowledge Graph，KG）是人工智能的重要分支技术，它在2012年由谷歌提出，是结构化的语义知识库，用于以符号形式描述物理世界中的概念及其相互关系，其基本组成单位是 <strong>“实体—关系—实体”（Facts： Head_Entity - Relation - Tail_Entity, i.e., (h; r; t)）三元组，以及实体及其相关属性—值对</strong>，实体间通过关系相互联结，构成网状的知识结构<a href="#reference">1</a>。知识图谱本质上是一种叫作语义网络的知识库，即一个具有有向图结构的知识库，其中图的结点代表实体或者概念，而图的边代表实体/概念之间的各种语义关系<a href="#reference">2</a>.</p>
+<p>知识图谱的链接预测方法主要通过学习和操作实体和关系的潜在表示（即嵌入 embeddings）。然而这些基于嵌入的方法并没有明确地捕获知识图谱背后的组合逻辑规则，本质上假设图中的实体集是固定的——这种假设通常被称为直推式设置（Transductive Setting），仅限于<em>直推式学习（Transductive learning）</em>而不是<em>归纳式学习（Inductive learning）</em>。因此我们使用了一个基于图神经网络的关系预测框架 <strong>GraIL</strong><a href="#reference">3</a>，其对局部子图结构进行推理，并且具有很强的归纳能力来学习与实体无关的关系语义。与基于嵌入的模型不同，GraIL 是自身便具有归纳能力，可以在训练后泛化到无联通增量中。<a href="#reference">3</a>提供了理论证明和强有力的经验证据，证明 GraIL 可以代表有用的一阶逻辑子集，还表明 GraIL 在归纳设置中优于现有的Baseline。<a href="#reference">3</a>还展示了通过在直推式设置中将 GraIL 与各种知识图谱嵌入方法集成来获得的显著收益，突出了该方法的互补归纳倾向。</p>
 <h2 id="在做什么">在做什么</h2>
-<p>预测与另一个给定实体具有特定关系的实体，即<em>链接预测（Link
-Prediction）</em>————给定头尾实体、关系三者中的任意两者，预测剩下那个，即<em>实体预测（Entity
-Prediction）</em>或<em>实体排名（Entity Ranking）</em> <strong>（(?; r;
-t)、(h; r; ?)）</strong> 和 <em>关系预测（Relation Prediction）</em>
-<strong>（(h; ?; t)）</strong>。这本质上是
-KG补全，即向图中添加缺失的知识（实体/关系），
-通过事先学习的实体和关系表示，链接预测可以简单地通过排序过程来执行。例如预测任务(?;
-r; t) 要预测头实体，可以将KG中的每个实体 h0 作为候选答案，计算得分fr(h0,
-t)后进行排序。一旦在 KG
-上训练了嵌入模型，就可以通过使用学习的嵌入和评分函数轻松实现这一点。</p>
-<p>一种常见的做法是在有序列表中记录正确答案的排名，以便查看正确答案是否可以排在错误答案之前。例如预测
-(?, DirectorOf, Psycho) 时，得到了有序列表[JamesCameron,
-AlfredHitchcock, GeorgeLucas, QuentinTarantino]，正确答案
-AlfredHitchcock 的排名为
-2。排名越靠前表示性能越好。基于这些排名设计了各种评估指标，例如，<strong>mean
-rank</strong>（预测排名的平均值）、<strong>mean reciprocal rank</strong>
-（倒数排名的平均值）、<strong>Hits@n</strong>（排名不大于 n
-的比例）、<strong>AUC-PR</strong>（精确召回曲线下的面积）。</p>
+<p>预测与另一个给定实体具有特定关系的实体，即<em>链接预测（Link Prediction）</em>————给定头尾实体、关系三者中的任意两者，预测剩下那个，即<em>实体预测（Entity Prediction）</em>或<em>实体排名（Entity Ranking）</em> <strong>（(?; r; t)、(h; r; ?)）</strong> 和 <em>关系预测（Relation Prediction）</em> <strong>（(h; ?; t)）</strong>。这本质上是 KG补全，即向图中添加缺失的知识（实体/关系）， 通过事先学习的实体和关系表示，链接预测可以简单地通过排序过程来执行。例如预测任务(?; r; t) 要预测头实体，可以将KG中的每个实体 h0 作为候选答案，计算得分fr(h0, t)后进行排序。一旦在 KG 上训练了嵌入模型，就可以通过使用学习的嵌入和评分函数轻松实现这一点。</p>
+<p>一种常见的做法是在有序列表中记录正确答案的排名，以便查看正确答案是否可以排在错误答案之前。例如预测 (?, DirectorOf, Psycho) 时，得到了有序列表[JamesCameron, AlfredHitchcock, GeorgeLucas, QuentinTarantino]，正确答案 AlfredHitchcock 的排名为 2。排名越靠前表示性能越好。基于这些排名设计了各种评估指标，例如，<strong>mean rank</strong>（预测排名的平均值）、<strong>mean reciprocal rank</strong> （倒数排名的平均值）、<strong>Hits@n</strong>（排名不大于 n 的比例）、<strong>AUC-PR</strong>（精确召回曲线下的面积）。</p>
 <h2 id="存在什么问题">存在什么问题</h2>
 <p>对于直推式学习来说，链接预测如上所述般简单，但在许多情况下，我们通过引入与实体无关的逻辑规则来寻求具有归纳能力的算法。许多现实世界的知识图谱都在不断发展，随着时间的推移会添加新的节点或实体，例如电子商务平台上的新用户和产品或生物医学知识图谱中的新分子。面对无联通增量知识图谱进行链接预测，需要归纳式学习模型。训练无需昂贵的重新计算即可对这些新实体进行预测的能力的机器学习模型至关重要。尽管归纳式学习模型具有这一关键优势，但它们仍存在可扩展性问题，并且缺乏那些基于嵌入的方法的表达能力。</p>
 <h2 id="使用的方法">使用的方法</h2>
-<p>使用<em>图神经网络（GNN: Graph Neural Networks）框架</em>
-<strong>GraIL（Graph Inductive Learning）</strong>，
-其具有很强的归纳学习与实体无关的关系语义的能力。通过学习候选关系周围的子图结构来进行关系预测，学习对独立于任何特定节点身份的子图结构进行推理，能够自然地推广到无联通增量知识图谱中的节点。<a
-href="#reference">3</a>提供了理论证明和强有力的经验证据。</p>
-<p>除了 GraIL
-框架，我们还为归纳关系预测问题引入了一系列<strong>benchmark
-tasks</strong>。由于用于知识图谱补全的现有基准数据集是为直推式学习设置的，即它们确保测试集中的所有实体都在训练数据中。因此为了测试具有归纳式学习能力的模型，通过从不同的知识图谱数据集中采样子图来构建几个新的归纳式基准数据集。在这些新的基准数据集上的实验表明，GraIL
-能够大大优于最先进的baseline，在 AUC-PR 和 Hits@10
-方面，平均相对性能分别提高了 5.25% 和 6.75%。</p>
-<p>最后，我们将 GraIL
-与现有的基于嵌入的直推式学习模型进行比较。特别地，我们假设我们的方法具有与基于嵌入的方法互补的归纳偏差，并且研究了使用基于嵌入的方法集成
-GraIL 后的能力。我们发现集成 GraIL 后性能显著提高。</p>
+<p>使用<em>图神经网络（GNN: Graph Neural Networks）框架</em> <strong>GraIL（Graph Inductive Learning）</strong>， 其具有很强的归纳学习与实体无关的关系语义的能力。通过学习候选关系周围的子图结构来进行关系预测，学习对独立于任何特定节点身份的子图结构进行推理，能够自然地推广到无联通增量知识图谱中的节点。<a href="#reference">3</a>提供了理论证明和强有力的经验证据。</p>
+<p>除了 GraIL 框架，我们还为归纳关系预测问题引入了一系列<strong>benchmark tasks</strong>。由于用于知识图谱补全的现有基准数据集是为直推式学习设置的，即它们确保测试集中的所有实体都在训练数据中。因此为了测试具有归纳式学习能力的模型，通过从不同的知识图谱数据集中采样子图来构建几个新的归纳式基准数据集。在这些新的基准数据集上的实验表明，GraIL 能够大大优于最先进的baseline，在 AUC-PR 和 Hits@10 方面，平均相对性能分别提高了 5.25% 和 6.75%。</p>
+<p>最后，我们将 GraIL 与现有的基于嵌入的直推式学习模型进行比较。特别地，我们假设我们的方法具有与基于嵌入的方法互补的归纳偏差，并且研究了使用基于嵌入的方法集成 GraIL 后的能力。我们发现集成 GraIL 后性能显著提高。</p>
 <h2 id="研究现状related-work">研究现状（Related Work）</h2>
 <ul>
-<li><p><strong>基于嵌入的模型</strong> 如前所述，大多数现有的 KG
-补全方法都属于基于嵌入的范畴。 RotatE、ComplEx、ConvE 和 TransE
-是为训练集中的每个节点训练浅嵌入的一些代表性方法，使得这些低维嵌入可以检索图的关系信息。GraIL
-体现了另一种归纳倾向，明确地对结构规则进行编码。此外，虽然 GraIL
-是自然归纳的，但在归纳式学习设置中采用嵌入方法进行预测，需要为新节点重新训练嵌入，代价很高。</p>
-<p>与 GraIL 类似，R-GCN 模型也使用 GNN
-来执行关系预测。尽管最初提出的这种方法本质上是直推式的，但如果给定一些节点特征，它便具有归纳的潜力。与
-GraIL 不同的是，R-GCN 仍然需要学习特定于节点的嵌入，而 GraIL
-将关系预测视为子图推理问题。</p></li>
-<li><p><strong>归纳嵌入</strong>
-无联通知识图谱的嵌入很有前景，尽管它们在某些方面受到限制。汉密尔顿等人和
-Bojchevski &amp; Günnemann 依赖于许多 KG 中不存在的节点特征的存在。
-(Wang et al., 2019) 和 (Hamaguchi et al., 2017) 通过使用 GNN
-聚合相邻节点嵌入来学习为无联通增量知识图谱生成嵌入。然而，这两种方法都需要新节点被已知节点包围，且不能处理全新的图。</p></li>
-<li><p><strong>规则归纳法</strong>
-与基于嵌入的方法不同，统计规则挖掘方法通过枚举知识图中存在的统计规律和模式来诱导概率逻辑规则。这些方法本质上是归纳式学习，因为规则独立于节点。但这些方法存在可扩展性问题，并且由于它们基于规则的性质而缺乏表达能力。受这些统计规则归纳方法的启发，NeuralLP
-模型使用 TensorLog 运算符以端到端的可微方式从 KG 中学习逻辑规则。基于
-NeuralLP，Sadeghian 等人最近提出了
-DRUM，它可以学习更准确的规则。这组方法构成了我们在归纳设置中的Baseline。</p></li>
-<li><p><strong>使用 GNN 进行链接预测</strong> 在 KG 文献之外，Zhang
-&amp; Chen (2018) 从理论上证明了 GNN
-可以学习常见的图启发式方法，用于简单图中的链接预测。Zhang &amp; Chen
-Inductive Relation Prediction by Subgraph Reasoning (2020) 提出了一种与
-GraIL
-非常相似的方法，并在归纳矩阵完成和迁移学习方面十分有效。虽然存在方法上的相似性，但
-GraIL 的重点是多关系知识图与模型诱导逻辑规则的能力。</p></li>
-<li><p><strong>逻辑推理和 GNN</strong>
-最近的许多工作同时探索了逻辑推理和图神经网络的联系。 Barcel´o 等人
-(2020) 提出了 GNN 的表达能力与一阶谓词逻辑子集 FOC2
-之间的紧密联系，利用与 WL 同构测试的联系（Cai 等人，1992
-年）。然而，他们的发现集中在简单的图表和一元逻辑公式上，而 GraIL
-的结果通过在多关系图和二元逻辑公式的上下文中展示类似的连接来增强他们的发现。另一条并行工作将图神经网络与强大的概率推理引擎——马尔可夫逻辑网络（Markov
-Logic Networks）相结合（Qu &amp; Tang，2019；Zhang
-等人，2020）。这些方法侧重于使用一组给定的预定义规则对 KG
-进行演绎和推理。事实上，张等人 (2020) 在其预处理步骤中使用
-NeuralLP（我们的Baseline之一）来推导逻辑规则。GraIL
-与他们的方法互补，因为其隐含地执行规则归纳以及演绎和推理。</p></li>
+<li><p><strong>基于嵌入的模型</strong> 如前所述，大多数现有的 KG 补全方法都属于基于嵌入的范畴。 RotatE、ComplEx、ConvE 和 TransE 是为训练集中的每个节点训练浅嵌入的一些代表性方法，使得这些低维嵌入可以检索图的关系信息。GraIL 体现了另一种归纳倾向，明确地对结构规则进行编码。此外，虽然 GraIL 是自然归纳的，但在归纳式学习设置中采用嵌入方法进行预测，需要为新节点重新训练嵌入，代价很高。</p>
+<p>与 GraIL 类似，R-GCN 模型也使用 GNN 来执行关系预测。尽管最初提出的这种方法本质上是直推式的，但如果给定一些节点特征，它便具有归纳的潜力。与 GraIL 不同的是，R-GCN 仍然需要学习特定于节点的嵌入，而 GraIL 将关系预测视为子图推理问题。</p></li>
+<li><p><strong>归纳嵌入</strong> 无联通知识图谱的嵌入很有前景，尽管它们在某些方面受到限制。汉密尔顿等人和 Bojchevski &amp; Günnemann 依赖于许多 KG 中不存在的节点特征的存在。 (Wang et al., 2019) 和 (Hamaguchi et al., 2017) 通过使用 GNN 聚合相邻节点嵌入来学习为无联通增量知识图谱生成嵌入。然而，这两种方法都需要新节点被已知节点包围，且不能处理全新的图。</p></li>
+<li><p><strong>规则归纳法</strong> 与基于嵌入的方法不同，统计规则挖掘方法通过枚举知识图中存在的统计规律和模式来诱导概率逻辑规则。这些方法本质上是归纳式学习，因为规则独立于节点。但这些方法存在可扩展性问题，并且由于它们基于规则的性质而缺乏表达能力。受这些统计规则归纳方法的启发，NeuralLP 模型使用 TensorLog 运算符以端到端的可微方式从 KG 中学习逻辑规则。基于 NeuralLP，Sadeghian 等人最近提出了 DRUM，它可以学习更准确的规则。这组方法构成了我们在归纳设置中的Baseline。</p></li>
+<li><p><strong>使用 GNN 进行链接预测</strong> 在 KG 文献之外，Zhang &amp; Chen (2018) 从理论上证明了 GNN 可以学习常见的图启发式方法，用于简单图中的链接预测。Zhang &amp; Chen Inductive Relation Prediction by Subgraph Reasoning (2020) 提出了一种与 GraIL 非常相似的方法，并在归纳矩阵完成和迁移学习方面十分有效。虽然存在方法上的相似性，但 GraIL 的重点是多关系知识图与模型诱导逻辑规则的能力。</p></li>
+<li><p><strong>逻辑推理和 GNN</strong> 最近的许多工作同时探索了逻辑推理和图神经网络的联系。 Barcel´o 等人 (2020) 提出了 GNN 的表达能力与一阶谓词逻辑子集 FOC2 之间的紧密联系，利用与 WL 同构测试的联系（Cai 等人，1992 年）。然而，他们的发现集中在简单的图表和一元逻辑公式上，而 GraIL 的结果通过在多关系图和二元逻辑公式的上下文中展示类似的连接来增强他们的发现。另一条并行工作将图神经网络与强大的概率推理引擎——马尔可夫逻辑网络（Markov Logic Networks）相结合（Qu &amp; Tang，2019；Zhang 等人，2020）。这些方法侧重于使用一组给定的预定义规则对 KG 进行演绎和推理。事实上，张等人 (2020) 在其预处理步骤中使用 NeuralLP（我们的Baseline之一）来推导逻辑规则。GraIL 与他们的方法互补，因为其隐含地执行规则归纳以及演绎和推理。</p></li>
 </ul>
 <h1 id="嵌入方法">嵌入方法</h1>
 <h2 id="传统世界嵌入">传统世界嵌入</h2>
 <ul>
-<li>距离转移方法：TransE (2013-NIPS)、TransH (2014-AAAI)、TransR
-(2015-AAAI)</li>
+<li>距离转移方法：TransE (2013-NIPS)、TransH (2014-AAAI)、TransR (2015-AAAI)</li>
 <li>矩阵分解方法：RESCAL (ICML-2011)、DistMult (ICLR-2015)</li>
 <li>传统神经网络方法：NTN (NIPS-2013)、MLP (SIGKDD-2014)</li>
 <li>深度学习方法：ConvE (2018-AAAI)、ParamE (2020-AAAI)</li>
@@ -432,153 +353,73 @@ NeuralLP（我们的Baseline之一）来推导逻辑规则。GraIL
 </ul>
 <h2 id="开放世界嵌入">开放世界嵌入</h2>
 <ul>
-<li>附加信息：附加图片信息 IKRL (2016-IJCAI)、附加文本信息 DKRL
-(2016-AAAI)</li>
-<li>图神经网络：MEAN (2017-IJCAI)、LAN (2019-AAAI)、VN
-Network（2020-CIKM)</li>
+<li>附加信息：附加图片信息 IKRL (2016-IJCAI)、附加文本信息 DKRL (2016-AAAI)</li>
+<li>图神经网络：MEAN (2017-IJCAI)、LAN (2019-AAAI)、VN Network（2020-CIKM)</li>
 <li>规则推理：GraIL(2020-ICML)、TACT (2021-AAAI)</li>
 <li>元学习：GEN (2020-NIPS)</li>
 </ul>
 <h1 id="做法">做法</h1>
 <h2 id="baseline">baseline？</h2>
 <h2 id="模型介绍">模型介绍</h2>
-<p>GraIL
-方法背后的关键思想是<strong>根据两个节点周围的子图结构来预测这两个节点之间的关系</strong>。其建立在图形神经网络(GNN)(Hamilton等人，2007a)(或神经消息传递(Gilmer等人，2017))形式主义基础上，不使用任何节点属性从而测试
-GraIL 仅从结构学习和泛化的能力。由于 GraIL
-只接受结构信息(即子图结构和结构节点特征)作为输入，因此学习知识图谱背后的结构语义是完成关系预测任务的唯一途径。总体任务是对三元组<span
-class="math inline">\({u, r_t,
-v}\)</span>进行评分，即预测KG中头节点u和尾节点v之间可能的关系rt的可能性，其中我们将节点u和v称为目标节点，并将rt称为目标关系。我们对这样的三元组进行评分的方法可以大致分为三个子任务：
-- (I)提取目标节点周围的包围子图 - (II)标记提取的子图中的节点 -
-(III)使用GNN对标记的子图进行评分</p>
+<p>GraIL 方法背后的关键思想是<strong>根据两个节点周围的子图结构来预测这两个节点之间的关系</strong>。其建立在图形神经网络(GNN)(Hamilton等人，2007a)(或神经消息传递(Gilmer等人，2017))形式主义基础上，不使用任何节点属性从而测试 GraIL 仅从结构学习和泛化的能力。由于 GraIL 只接受结构信息(即子图结构和结构节点特征)作为输入，因此学习知识图谱背后的结构语义是完成关系预测任务的唯一途径。总体任务是对三元组<span class="math inline">\({u, r_t, v}\)</span>进行评分，即预测KG中头节点u和尾节点v之间可能的关系rt的可能性，其中我们将节点u和v称为目标节点，并将rt称为目标关系。我们对这样的三元组进行评分的方法可以大致分为三个子任务： - (I)提取目标节点周围的包围子图 - (II)标记提取的子图中的节点 - (III)使用GNN对标记的子图进行评分</p>
 <h2 id="模型算法">模型算法</h2>
 <h3 id="子图提取">子图提取</h3>
-<p>我们假设<em>KG中特定三元组的局部图邻域包含推导目标节点之间关系所需的逻辑证据</em>。特别地，我们假设连接两个目标节点的路径包含可能隐含目标关系的信息。因此，作为第一步，我们提取目标节点周围的封闭子图。我们将节点u和v之间的封闭子图定义为出现在u和v之间的路径上的所有节点所得到的图，它是两个目标节点相邻节点的交集。随后进行剪枝。即，设<span
-class="math inline">\(N_k(u)\)</span>和<span
-class="math inline">\(N_k(v)\)</span>是KG中两个目标节点的<a
-target="_blank" rel="noopener" href="https://support.huaweicloud.com/usermanual-ges/ges_01_0034.html">k跳（k-hop）</a>(无向)邻域中的节点集合。我们通过取这些k跳邻域集合的交集<span
-class="math inline">\(N_k(u) ∩
-N_k(v)\)</span>来得到封闭子图，然后<strong>修剪与任一目标节点独立或距离大于k的节点</strong>。由<em>Observation
-1</em>知，这会得到在节点u和v之间的长度至多为k+1的路径上出现的所有节点。</p>
+<p>我们假设<em>KG中特定三元组的局部图邻域包含推导目标节点之间关系所需的逻辑证据</em>。特别地，我们假设连接两个目标节点的路径包含可能隐含目标关系的信息。因此，作为第一步，我们提取目标节点周围的封闭子图。我们将节点u和v之间的封闭子图定义为出现在u和v之间的路径上的所有节点所得到的图，它是两个目标节点相邻节点的交集。随后进行剪枝。即，设<span class="math inline">\(N_k(u)\)</span>和<span class="math inline">\(N_k(v)\)</span>是KG中两个目标节点的<span class="exturl" data-url="aHR0cHM6Ly9zdXBwb3J0Lmh1YXdlaWNsb3VkLmNvbS91c2VybWFudWFsLWdlcy9nZXNfMDFfMDAzNC5odG1s">k跳（k-hop）<i class="fa fa-external-link-alt"></i></span>(无向)邻域中的节点集合。我们通过取这些k跳邻域集合的交集<span class="math inline">\(N_k(u) ∩ N_k(v)\)</span>来得到封闭子图，然后<strong>修剪与任一目标节点独立或距离大于k的节点</strong>。由<em>Observation 1</em>知，这会得到在节点u和v之间的长度至多为k+1的路径上出现的所有节点。</p>
 <ul>
-<li><em>Observation
-1：在任何给定图中，设两个不同节点x和y之间的长度为λ的路径上的节点构成集合Pxy(λ)。这样的路径v∈Pxy(λ)上的任何节点到x或y的最大距离是λ−1。</em></li>
+<li><em>Observation 1：在任何给定图中，设两个不同节点x和y之间的长度为λ的路径上的节点构成集合Pxy(λ)。这样的路径v∈Pxy(λ)上的任何节点到x或y的最大距离是λ−1。</em></li>
 </ul>
-<p>注意，在提取封闭子图时，我们将其视为无向图。然而，在使用GNN传递消息时，我们考虑有向图，这将在后文提到。此外，我们将目标元组/边<span
-class="math inline">\({u, r_t,
-v}\)</span>添加到提取出的子图中来实现两个目标节点之间的消息传递。</p>
+<p>注意，在提取封闭子图时，我们将其视为无向图。然而，在使用GNN传递消息时，我们考虑有向图，这将在后文提到。此外，我们将目标元组/边<span class="math inline">\({u, r_t, v}\)</span>添加到提取出的子图中来实现两个目标节点之间的消息传递。</p>
 <h3 id="节点标记">节点标记</h3>
-<p>GNN 需要将节点特征矩阵 <span class="math inline">\(X∈ R^{|V| ×
-d_i}\)</span>
-作为输入来初始化神经消息传递算法(Gilmer等人，2017年)。由于我们在输入KG中没有假设任何节点属性，因此我们遵循Zhang&amp;Chen(2018)，并将他们的<strong>双半径顶点标注方案</strong>扩展到我们的设置中。节点u和v周围的子图中的每个节点i用元组
-<em>(d(i，u)，d(i，v))</em> 标记，其中 <em>d(i，u)</em>
-表示节点i和u之间的不通过v的最短距离( <em>d(i，v)</em>
-也是如此)。这将捕获每个节点相对于目标节点的拓扑位置，并反映其在子图中的结构角色。两个目标节点u和v被唯一地标记为(0，1)和(1，0)，以便模型可识别。因此，节点特征是
-<strong>[One-Hot(d(i，u)) ⊕ One-Hot(d(i，v))]</strong>
-，其中⊕表示两个向量的连接。注意，作为 <em>Observation 1</em>
-的结果，以这种方式构建的节点特征的维度受提取封闭子图时所考虑的跳数的限制。</p>
+<p>GNN 需要将节点特征矩阵 <span class="math inline">\(X∈ R^{|V| × d_i}\)</span> 作为输入来初始化神经消息传递算法(Gilmer等人，2017年)。由于我们在输入KG中没有假设任何节点属性，因此我们遵循Zhang&amp;Chen(2018)，并将他们的<strong>双半径顶点标注方案</strong>扩展到我们的设置中。节点u和v周围的子图中的每个节点i用元组 <em>(d(i，u)，d(i，v))</em> 标记，其中 <em>d(i，u)</em> 表示节点i和u之间的不通过v的最短距离( <em>d(i，v)</em> 也是如此)。这将捕获每个节点相对于目标节点的拓扑位置，并反映其在子图中的结构角色。两个目标节点u和v被唯一地标记为(0，1)和(1，0)，以便模型可识别。因此，节点特征是 <strong>[One-Hot(d(i，u)) ⊕ One-Hot(d(i，v))]</strong> ，其中⊕表示两个向量的连接。注意，作为 <em>Observation 1</em> 的结果，以这种方式构建的节点特征的维度受提取封闭子图时所考虑的跳数的限制。</p>
 <h3 id="gnn评分">GNN评分</h3>
-<p>我们框架中的最后一步是给定G(u，v，rt)，使用GNN对元组<span
-class="math inline">\({u, r_t,
-v}\)</span>的可能性进行评分，其中G(u，v，rt)是目标节点周围提取和标记的子图。我们采用了Xu等人描述的
-<em>通用消息传递方案</em>
-(2019年)，其通过将节点表示与其相邻节点表示的聚集组合来迭代更新节点表示。特别地，我们GNN的第k层由下列公式给出</p>
+<p>我们框架中的最后一步是给定G(u，v，rt)，使用GNN对元组<span class="math inline">\({u, r_t, v}\)</span>的可能性进行评分，其中G(u，v，rt)是目标节点周围提取和标记的子图。我们采用了Xu等人描述的 <em>通用消息传递方案</em> (2019年)，其通过将节点表示与其相邻节点表示的聚集组合来迭代更新节点表示。特别地，我们GNN的第k层由下列公式给出</p>
 <p><span class="math display">\[
 a_t^k = AGGREGATE^k(\{h_s^{k-1}: s∈N(t)\}, h_t^{k-1})
 \]</span></p>
 <p><span class="math display">\[
 h_t^k = COMBINE^k(h_t^{k-1}, a_t^k)
 \]</span></p>
-<p>其中<span
-class="math inline">\(a_t^k\)</span>是来自相邻节点的聚合消息，<span
-class="math inline">\(h_t^k\)</span> 表示第k层中节点t的潜在表示，<span
-class="math inline">\(N(t)\)</span>表示节点t的直接相邻节点的集合。任何节点
-<span class="math inline">\(i\)</span>，<span
-class="math inline">\(h_i^0\)</span>
-的初始潜在节点表示被初始化为步骤2中描述的<strong>双半径顶点标注方案</strong>构建的节点特征
-<span
-class="math inline">\(X_i\)</span>。该框架可以插入不同的AGGREGATE和COMBINE函数，从而拥有各种GNN架构。</p>
-<p>受多关系R-GCN(Schlichtkrull等人，2017)和edge
-attention的启发，我们将聚合函数定义为</p>
+<p>其中<span class="math inline">\(a_t^k\)</span>是来自相邻节点的聚合消息，<span class="math inline">\(h_t^k\)</span> 表示第k层中节点t的潜在表示，<span class="math inline">\(N(t)\)</span>表示节点t的直接相邻节点的集合。任何节点 <span class="math inline">\(i\)</span>，<span class="math inline">\(h_i^0\)</span> 的初始潜在节点表示被初始化为步骤2中描述的<strong>双半径顶点标注方案</strong>构建的节点特征 <span class="math inline">\(X_i\)</span>。该框架可以插入不同的AGGREGATE和COMBINE函数，从而拥有各种GNN架构。</p>
+<p>受多关系R-GCN(Schlichtkrull等人，2017)和edge attention的启发，我们将聚合函数定义为</p>
 <p><span class="math display">\[
 a^k_t = \sum_{r=1}^R\sum_{s∈N_r(t)}α^k_{rr_tst}W^k_rh^{k−1}_s
 \]</span></p>
-<p>其中，<span
-class="math inline">\(R\)</span>是知识图中存在的关系的总数；<span
-class="math inline">\(N_r(t)\)</span>表示关系r下节点t的直接传出邻节点集合；<span
-class="math inline">\(W^k_r\)</span>是用于在关系r上的第k层中传播消息的变换矩阵；<span
-class="math inline">\(α^k_{rr_tst}\)</span>是对应于经由关系r连接节点s和t的边的第k层的边attention权重。该attention权重是源节点t、邻节点s、边类型r和要预测的目标关系<span
-class="math inline">\(r_t\)</span>的函数，定义为</p>
+<p>其中，<span class="math inline">\(R\)</span>是知识图中存在的关系的总数；<span class="math inline">\(N_r(t)\)</span>表示关系r下节点t的直接传出邻节点集合；<span class="math inline">\(W^k_r\)</span>是用于在关系r上的第k层中传播消息的变换矩阵；<span class="math inline">\(α^k_{rr_tst}\)</span>是对应于经由关系r连接节点s和t的边的第k层的边attention权重。该attention权重是源节点t、邻节点s、边类型r和要预测的目标关系<span class="math inline">\(r_t\)</span>的函数，定义为</p>
 <p><span class="math display">\[
 s=ReLU(A^k_1[h^{k-1}_s ⊕ h^{k-1}_t ⊕ e^a_r ⊕ e^a_{r_t}]+b^k_1)
 \]</span></p>
 <p><span class="math display">\[
 α^k_{rr_tst}=σ(A^k_2s+b^k_2)
 \]</span></p>
-<p>这里，<span class="math inline">\(h^k_s\)</span>和<span
-class="math inline">\(h^k_t\)</span>表示GNN的第k层的各个节点的潜在节点表示，<span
-class="math inline">\(e^a_r\)</span>和<span
-class="math inline">\(e^a_{r_t}\)</span>表示各个关系的学习注意嵌入。注意，attention权重并不是标准化的，而是来自一个Sigmoid门，该门控制着从每个相邻节点那里聚集来的信息。我们采用了Schlichtkrull等人(Schlichtkrull等人，2017)提出的<em>基共享机制</em>来正则化，，在每层的变换矩阵<span
-class="math inline">\(W^k_r\)</span>中。我们还实现了一种<em>边丢弃</em>的方法，将边从图中随机丢弃，同时聚合来自相邻节点的信息。</p>
+<p>这里，<span class="math inline">\(h^k_s\)</span>和<span class="math inline">\(h^k_t\)</span>表示GNN的第k层的各个节点的潜在节点表示，<span class="math inline">\(e^a_r\)</span>和<span class="math inline">\(e^a_{r_t}\)</span>表示各个关系的学习注意嵌入。注意，attention权重并不是标准化的，而是来自一个Sigmoid门，该门控制着从每个相邻节点那里聚集来的信息。我们采用了Schlichtkrull等人(Schlichtkrull等人，2017)提出的<em>基共享机制</em>来正则化，，在每层的变换矩阵<span class="math inline">\(W^k_r\)</span>中。我们还实现了一种<em>边丢弃</em>的方法，将边从图中随机丢弃，同时聚合来自相邻节点的信息。</p>
 <p>有最好效果的COMBINE函数也是由R-GCN架构派生而来的。</p>
 <p><span class="math display">\[
 h^k_t=ReLU(W^k_{self}h^{k-1}_t+a^k_t)
 \]</span></p>
-<p>使用上述GNN体系结构，我们在L层消息传递之后获得节点表示。<span
-class="math inline">\(G(u，v，r_t)\)</span>的子图表示是通过对所有潜在节点表示进行平均池化（average-
-pooling）得到的：</p>
+<p>使用上述GNN体系结构，我们在L层消息传递之后获得节点表示。<span class="math inline">\(G(u，v，r_t)\)</span>的子图表示是通过对所有潜在节点表示进行平均池化（average- pooling）得到的：</p>
 <p><span class="math display">\[
 h^L_{G(u, v r_t)}=\frac{1}{V}\sum_{i∈V}h^L_i
 \]</span></p>
-<p>其中V表示<span
-class="math inline">\(G(u，v，r_t)\)</span>的顶点集。</p>
-<p>最后，为了获得三元组<span class="math inline">\({u, r_t,
-v}\)</span>的可能性得分，我们串联四个向量：子图表示 (<span
-class="math inline">\(h^L_{G(u, v r_t)}\)</span>)、目标节点的潜在表示
-(<span class="math inline">\(h^L_u\)</span> 和 <span
-class="math inline">\(h^L_v\)</span>)以及已学习的目标关系的嵌入 (<span
-class="math inline">\(e_{r_t}\)</span>)，并通过线性层传递这些连接表示：</p>
+<p>其中V表示<span class="math inline">\(G(u，v，r_t)\)</span>的顶点集。</p>
+<p>最后，为了获得三元组<span class="math inline">\({u, r_t, v}\)</span>的可能性得分，我们串联四个向量：子图表示 (<span class="math inline">\(h^L_{G(u, v r_t)}\)</span>)、目标节点的潜在表示 (<span class="math inline">\(h^L_u\)</span> 和 <span class="math inline">\(h^L_v\)</span>)以及已学习的目标关系的嵌入 (<span class="math inline">\(e_{r_t}\)</span>)，并通过线性层传递这些连接表示：</p>
 <p><span class="math display">\[
 score(u, r_t, v) = W^T[h^L_{G(u, v, r_t)} ⊕ h^L_u ⊕ h^L_v ⊕ e_{r_t} ]
 \]</span></p>
 <p>在我们的最佳性能模型中，除了使用最后一层的节点表示外，我们还使用间歇层的表示。这是受Xu等人介绍的<em>JK-Connection机制</em>的启发(2018)，为每个节点提供灵活的邻域范围。这种JK连接的加入使得我们的模型的性能对于GNN的层数是稳健的。</p>
 <h2 id="训练制度">训练制度</h2>
-<p>根据标准和成功的实践，我们使用噪声对比铰链损失训练模型以使正三元组得分高于负三元组（Bordes
-et al.,
-2013）。更准确地说，对于训练图中存在的每个三元组，我们通过用均匀采样的随机实体替换三元组的头部（或尾部）来获得一个负三元组。
-然后我们使用以下损失函数通过随机梯度下降训练我们的模型：</p>
+<p>根据标准和成功的实践，我们使用噪声对比铰链损失训练模型以使正三元组得分高于负三元组（Bordes et al., 2013）。更准确地说，对于训练图中存在的每个三元组，我们通过用均匀采样的随机实体替换三元组的头部（或尾部）来获得一个负三元组。 然后我们使用以下损失函数通过随机梯度下降训练我们的模型：</p>
 <p><span class="math display">\[
 L = \sum^{|E|}_{i=1}max(0, score(n_i) − score(p_i) + γ)
 \]</span></p>
-<p>其中 <span class="math inline">\(E\)</span>
-是训练图中所有边/三元组的集合；<span class="math inline">\(p_i\)</span>
-和 <span class="math inline">\(n_i\)</span> 分别表示正负三元组；γ
-是边距超参数。</p>
+<p>其中 <span class="math inline">\(E\)</span> 是训练图中所有边/三元组的集合；<span class="math inline">\(p_i\)</span> 和 <span class="math inline">\(n_i\)</span> 分别表示正负三元组；γ 是边距超参数。</p>
 <h2 id="理论分析">理论分析</h2>
-<p>我们可以证明，GraIL
-架构能够编码流行规则归纳模型中使用的同一类基于路径的逻辑规则，如 RuleN和
-NeuralLP以及在最近使用神经网络进行逻辑推理的工作的研究。为了便于说明，我们将知识图谱中的边
-(u, r, v) 等同于二元逻辑谓词 r(u, v)，其中边 (u, r, v)
-存在于图中当且仅当r(u,v) = true。 定理 1. 令 R
-为以下形式的二元谓词上的任何逻辑规则（即子句）：</p>
+<p>我们可以证明，GraIL 架构能够编码流行规则归纳模型中使用的同一类基于路径的逻辑规则，如 RuleN和 NeuralLP以及在最近使用神经网络进行逻辑推理的工作的研究。为了便于说明，我们将知识图谱中的边 (u, r, v) 等同于二元逻辑谓词 r(u, v)，其中边 (u, r, v) 存在于图中当且仅当r(u,v) = true。 定理 1. 令 R 为以下形式的二元谓词上的任何逻辑规则（即子句）：</p>
 <p><span class="math display">\[
 r_t (X,Y)← r_1 (X,Z_1 )∧ r_2 (Z_1,Z_2 )∧ …∧ r_k (Z_(k-1),Y )
 \]</span></p>
-<p>其中rt, r1, ..., rk是知识图谱中的（不一定是唯一的）关系，X, Z1, ...,
-Zk, Y 是可以被任意唯一实体绑定的自由变量。对于任何这样的
-R，都存在一个参数设置为Θ的 GraIL
-模型，其具有k个GNN层，且所有潜在嵌入的维度为d = 1，使得<span
-class="math inline">\(score(u,r_t,v)≠0\)</span>,当且仅当∃Z1,…,
-Zk，使R的主体满足X = u和Y = v。</p>
-<p>定理 1
-指出，知识图中路径对应的任何逻辑规则都可以被模型编码。GraIL将输出一个非零值当且仅当此逻辑规则的主体基于一组特定的查询实体
-X = u 和 Y = v 时。定理 1
-的完整证明在附录中有详细说明，其关键思想如下：可以使用边注意力权重设置模型参数，使得节点的隐藏嵌入在一轮消息传递后非零（即h_s^i≠0）当且仅当节点
-s 通过关系 ri
-有至少一个邻节点。换句话说，边缘注意机制允许模型指示特定关系是否与特定实体相关，并且——因为我们已经唯一标记了目标节点
-u 和 v——我们可以使用这种关系指示属性来检测是否存在节点 u 和 v
-之间的特定路径。 我们可以直接对定理 1进行扩展得到显示以下推论：</p>
-<p><strong>推论 1.</strong> 令 R1,…, Rm 是一组与定理 1
-中有着相同结构的逻辑规则，每个规则具有相同的头部rt(X, Y )。令</p>
+<p>其中rt, r1, ..., rk是知识图谱中的（不一定是唯一的）关系，X, Z1, ..., Zk, Y 是可以被任意唯一实体绑定的自由变量。对于任何这样的 R，都存在一个参数设置为Θ的 GraIL 模型，其具有k个GNN层，且所有潜在嵌入的维度为d = 1，使得<span class="math inline">\(score(u,r_t,v)≠0\)</span>,当且仅当∃Z1,…, Zk，使R的主体满足X = u和Y = v。</p>
+<p>定理 1 指出，知识图中路径对应的任何逻辑规则都可以被模型编码。GraIL将输出一个非零值当且仅当此逻辑规则的主体基于一组特定的查询实体 X = u 和 Y = v 时。定理 1 的完整证明在附录中有详细说明，其关键思想如下：可以使用边注意力权重设置模型参数，使得节点的隐藏嵌入在一轮消息传递后非零（即h_s^i≠0）当且仅当节点 s 通过关系 ri 有至少一个邻节点。换句话说，边缘注意机制允许模型指示特定关系是否与特定实体相关，并且——因为我们已经唯一标记了目标节点 u 和 v——我们可以使用这种关系指示属性来检测是否存在节点 u 和 v 之间的特定路径。 我们可以直接对定理 1进行扩展得到显示以下推论：</p>
+<p><strong>推论 1.</strong> 令 R1,…, Rm 是一组与定理 1 中有着相同结构的逻辑规则，每个规则具有相同的头部rt(X, Y )。令</p>
 <p><span class="math display">\[
 β = |{R_i ∶∃Z_1,…,Z_k  where R_i=true with X = u and Y = v}|.
 \]</span></p>
@@ -586,150 +427,60 @@ u 和 v——我们可以使用这种关系指示属性来检测是否存在节�
 <p><span class="math display">\[
 score(u,r_t,v)∝β
 \]</span></p>
-<p>这个推论表明，给定一组暗示相同目标关系的逻辑规则，GraIL
-可以计算对于特定的查询实体u和
-v，这些规则有多少是满足的。换句话说，类似于规则归纳模型，如RuleN，GraIL
-可以结合来自多个规则的证据来进行预测。</p>
-<p>有趣的是，定理 1 和推论 1 表明 GraIL
-可以仅使用实体和关系的一维嵌入来学习逻辑规则，这与我们的经验相吻合，即
-GraIL 的性能在维度d = 1, ..., 64
-范围内相当稳定。但是，上述分析只对应于固定类别的逻辑规则，我们期望GraIL可以受益于更大的潜在维度来学习不同种类的逻辑规则以及这些规则之间更复杂的组合。</p>
+<p>这个推论表明，给定一组暗示相同目标关系的逻辑规则，GraIL 可以计算对于特定的查询实体u和 v，这些规则有多少是满足的。换句话说，类似于规则归纳模型，如RuleN，GraIL 可以结合来自多个规则的证据来进行预测。</p>
+<p>有趣的是，定理 1 和推论 1 表明 GraIL 可以仅使用实体和关系的一维嵌入来学习逻辑规则，这与我们的经验相吻合，即 GraIL 的性能在维度d = 1, ..., 64 范围内相当稳定。但是，上述分析只对应于固定类别的逻辑规则，我们期望GraIL可以受益于更大的潜在维度来学习不同种类的逻辑规则以及这些规则之间更复杂的组合。</p>
 <h2 id="复杂度分析">复杂度分析</h2>
-<p>与传统的基于嵌入的方法不同，GraIL
-模型中的推理需要提取和处理候选边（u、rt、v）周围的子图，并在该提取的子图上运行
-GNN。鉴于我们的处理需要评估提取的子图中从目标节点到所有其他节点的最短路径，我们认为
-GraIL 对候选边 (u, rt, v) 进行评分的推理时间复杂度为</p>
+<p>与传统的基于嵌入的方法不同，GraIL 模型中的推理需要提取和处理候选边（u、rt、v）周围的子图，并在该提取的子图上运行 GNN。鉴于我们的处理需要评估提取的子图中从目标节点到所有其他节点的最短路径，我们认为 GraIL 对候选边 (u, rt, v) 进行评分的推理时间复杂度为</p>
 <p><span class="math display">\[
 O(log(V)E + Rdk)
 \]</span></p>
-<p>其中 V、R 和 E 分别是由u和v导出的封闭子图中的节点、关系和边的数量。d
-是节点/关系嵌入的维度。
-因此GraIL推理的成本很大程度上取决于提取的子图大小，实际的运行时间一般由在这些子图上运行Dijkstra算法来决定。</p>
+<p>其中 V、R 和 E 分别是由u和v导出的封闭子图中的节点、关系和边的数量。d 是节点/关系嵌入的维度。 因此GraIL推理的成本很大程度上取决于提取的子图大小，实际的运行时间一般由在这些子图上运行Dijkstra算法来决定。</p>
 <h1 id="模型实验">模型实验</h1>
 <p><strong><em>该章节的所有图表请见原文或我的译文</em></strong></p>
-<p>我们在三个基准知识完成数据集上进行实验：WN18RR、FB15k-237和
-NELL-995（以及其他由他们衍生而来的数据集）。我们的实证研究主要关注以下问题：</p>
+<p>我们在三个基准知识完成数据集上进行实验：WN18RR、FB15k-237和 NELL-995（以及其他由他们衍生而来的数据集）。我们的实证研究主要关注以下问题：</p>
 <ol type="1">
-<li>归纳式关系预测。通过定理 1，我们知道 GraIL
-可以编码归纳式逻辑规则。与在归纳式设置中明确进行规则归纳的现有统计和可微方法相比，它的表现如何？</li>
+<li>归纳式关系预测。通过定理 1，我们知道 GraIL 可以编码归纳式逻辑规则。与在归纳式设置中明确进行规则归纳的现有统计和可微方法相比，它的表现如何？</li>
 <li>直推式关系预测。我们的方法具有很强的结构归纳偏差，我们假设它是对现有最先进的知识图嵌入方法的补充。这种互补的归纳偏置能否对传统直推式设置中现有的最先进的知识图谱嵌入方法进行任何改进？</li>
-<li>灵敏度分析。我们提出的框架的各个组成部分有多重要？比如，定理 1
-依赖于注意力和节点标记方案的使用，但这些模型方面在实践中有多重要？</li>
+<li>灵敏度分析。我们提出的框架的各个组成部分有多重要？比如，定理 1 依赖于注意力和节点标记方案的使用，但这些模型方面在实践中有多重要？</li>
 </ol>
 <p>所有提及的实验代码与数据都在：https://github.com/kkteru/grail。</p>
 <h2 id="归纳式关系预测">归纳式关系预测</h2>
-<p>如图 1c
-所示，归纳式设置评估模型泛化到新实体的能力。完全归纳式的设置中，在训练和测试期间看到的实体集是没有交集的。更一般地，新实体的数量范围可以从仅引入几个新实体到完全的归纳设置（图
-1c）。只要关系的底层语义（即知识图的模式）保持不变，GraIL
-得到的节点特性是不变的。我们展示了我们的归纳结果在非常极端的情况下：一个带有新的实体集的全新的测试图。</p>
-<p><strong>数据集。</strong>WN18RR、FB15k-237 和 NELL-995
-基准数据集最初是为直推式设置开发的。换句话说，标准测试拆分的实体是训练拆分中实体的子集（图
-1b）。为了促进归纳测试，我们通过从这些数据集中采样不相交的子图来创建新的全归纳基准数据集。特别地，我们的每个数据集都由一对图组成：train-graph
-和 ind-test-graph。这两个图(i)具有完全不相交的实体集，并且(ii)
-train-graph包含ind-test-graph中存在的所有关系。生成该数据集的过程在附录中有详细说明。为了进行稳健的评估，我们采样了四对不同的train-graph和ind-test-graph，其中每对基准知识图的节点和边数都在增加。在附录的表中给出了这些归纳基准的统计数据。在归纳式设置中，模型在
-train-graph 上进行训练并在 ind-test-graph 上进行测试。我们随机选择
-ind-test-graph 中10%的边/元组作为测试边。</p>
-<p><strong>Baseline和实施细节。</strong>我们将 GraIL
-与其他两种端到端可微分方法NeuralLP17和
-DRUM19进行了比较。据我们所知，这些是唯一能够进行归纳关系预测的可微方法。我们使用作者公开提供的最佳配置实现。我们还与最先进的统计规则归纳方法
-RuleN15进行了比较，该方法在直推式设置表现得比与其他基于嵌入的方法更好。
-RuleN 代表了KG上归纳关系预测的当前最先进技术。它显式地提取了等式 (1)
-中所示的那种基于路径的规则。我们使用 RuleN 的原始术语来训练它学习长度为
-4 的规则。通过Observation 1，这对应于目标节点周围的 3
-跳邻域。为公平起见，我们在 GNN 方法的目标链接周围采样 3
-跳封闭子图。我们使用了一个 3 层 GNN，所有潜在嵌入的维度都等于
-32，基础维度设置为 4，边缘丢失率设置为 0.5。在我们的实验中，GraIL
-对超参数相对稳健，并且在各种设置下都具有稳定的性能。更多的超参数选择在附录中有详细说明。
-<strong>结果。</strong>我们在分类和排名指标上评估模型，即分别在精确召回曲线
-(AUC-PR) 下的面积和 Hits@10。为了计算
-AUC-PR，连同测试集中存在的三元组，我们使用随机实体替换头部（或尾部）的标准做法对相同数量的负三元组进行评分。由于第
-3.4 节中描述的推理复杂性，我们通过在 50
-个其他随机采样的负三元组中对每个测试三元组进行排名来近似 Hits@10。在表 1
-和表 2 中，我们分别列出了 5 次运行的平均 AUC-PR 和 Hits@10。
-（所有设置中的方差都非常低，因此这些表中省略了标准误差。）</p>
-<p>正如我们所见，GraIL
-在两个指标中的所有数据集上都显著优于归纳基线。仔细观察，之前的可微分方法（Neural-LP
-和 DRUM）的性能明显比 GraIL 差。此外，如图 3 所示，GraIL
-的强结构归纳偏置使其能够以数量级更少的参数数量实现极高的参数效率。GraIL
-还始终优于统计规则归纳方法 RuleN，这表明 GraIL
-不仅能够学习基于路径的逻辑规则，而且 GraIL
-还能够利用更复杂的结构模式并有效地组合多个规则（推论
-1）。为了完整起见，我们还在附录中列出了这些生成的数据集的直推式性能。请注意，与直推式设置相比，归纳式性能（在所有数据集和模型中）相对低于转导性能，这体现了归纳关系预测任务的难度。</p>
+<p>如图 1c 所示，归纳式设置评估模型泛化到新实体的能力。完全归纳式的设置中，在训练和测试期间看到的实体集是没有交集的。更一般地，新实体的数量范围可以从仅引入几个新实体到完全的归纳设置（图 1c）。只要关系的底层语义（即知识图的模式）保持不变，GraIL 得到的节点特性是不变的。我们展示了我们的归纳结果在非常极端的情况下：一个带有新的实体集的全新的测试图。</p>
+<p><strong>数据集。</strong>WN18RR、FB15k-237 和 NELL-995 基准数据集最初是为直推式设置开发的。换句话说，标准测试拆分的实体是训练拆分中实体的子集（图 1b）。为了促进归纳测试，我们通过从这些数据集中采样不相交的子图来创建新的全归纳基准数据集。特别地，我们的每个数据集都由一对图组成：train-graph 和 ind-test-graph。这两个图(i)具有完全不相交的实体集，并且(ii) train-graph包含ind-test-graph中存在的所有关系。生成该数据集的过程在附录中有详细说明。为了进行稳健的评估，我们采样了四对不同的train-graph和ind-test-graph，其中每对基准知识图的节点和边数都在增加。在附录的表中给出了这些归纳基准的统计数据。在归纳式设置中，模型在 train-graph 上进行训练并在 ind-test-graph 上进行测试。我们随机选择 ind-test-graph 中10%的边/元组作为测试边。</p>
+<p><strong>Baseline和实施细节。</strong>我们将 GraIL 与其他两种端到端可微分方法NeuralLP17和 DRUM19进行了比较。据我们所知，这些是唯一能够进行归纳关系预测的可微方法。我们使用作者公开提供的最佳配置实现。我们还与最先进的统计规则归纳方法 RuleN15进行了比较，该方法在直推式设置表现得比与其他基于嵌入的方法更好。 RuleN 代表了KG上归纳关系预测的当前最先进技术。它显式地提取了等式 (1) 中所示的那种基于路径的规则。我们使用 RuleN 的原始术语来训练它学习长度为 4 的规则。通过Observation 1，这对应于目标节点周围的 3 跳邻域。为公平起见，我们在 GNN 方法的目标链接周围采样 3 跳封闭子图。我们使用了一个 3 层 GNN，所有潜在嵌入的维度都等于 32，基础维度设置为 4，边缘丢失率设置为 0.5。在我们的实验中，GraIL 对超参数相对稳健，并且在各种设置下都具有稳定的性能。更多的超参数选择在附录中有详细说明。</p>
+<p><strong>结果。</strong>我们在分类和排名指标上评估模型，即分别在精确召回曲线 (AUC-PR) 下的面积和 Hits@10。为了计算 AUC-PR，连同测试集中存在的三元组，我们使用随机实体替换头部（或尾部）的标准做法对相同数量的负三元组进行评分。由于第 3.4 节中描述的推理复杂性，我们通过在 50 个其他随机采样的负三元组中对每个测试三元组进行排名来近似 Hits@10。在表 1 和表 2 中，我们分别列出了 5 次运行的平均 AUC-PR 和 Hits@10。 （所有设置中的方差都非常低，因此这些表中省略了标准误差。）</p>
+<p>正如我们所见，GraIL 在两个指标中的所有数据集上都显著优于归纳基线。仔细观察，之前的可微分方法（Neural-LP 和 DRUM）的性能明显比 GraIL 差。此外，如图 3 所示，GraIL 的强结构归纳偏置使其能够以数量级更少的参数数量实现极高的参数效率。GraIL 还始终优于统计规则归纳方法 RuleN，这表明 GraIL 不仅能够学习基于路径的逻辑规则，而且 GraIL 还能够利用更复杂的结构模式并有效地组合多个规则（推论 1）。为了完整起见，我们还在附录中列出了这些生成的数据集的直推式性能。请注意，与直推式设置相比，归纳式性能（在所有数据集和模型中）相对低于转导性能，这体现了归纳关系预测任务的难度。</p>
 <h2 id="直推式关系预测">直推式关系预测</h2>
-<p>正如之前所展示的，GraIL
-具有很强的归纳偏差来编码知识图谱背后的逻辑规则和复杂的结构模式。我们相信，这与当前最先进的直推式知识图谱补全方法相辅相成，后者依赖于基于嵌入的方法。基于这一观察，在本节中，我们将探讨（i）GraIL
-在直推式设置中的表现以及（ii）将 GraIL
-与现有的基于嵌入的方法集成的效益。由于相较基于嵌入的方法，GraIL拥有很强的互补归纳偏差，我们预计通过将其与现有的基于嵌入的方法集成可以获得显着的收益。</p>
+<p>正如之前所展示的，GraIL 具有很强的归纳偏差来编码知识图谱背后的逻辑规则和复杂的结构模式。我们相信，这与当前最先进的直推式知识图谱补全方法相辅相成，后者依赖于基于嵌入的方法。基于这一观察，在本节中，我们将探讨（i）GraIL 在直推式设置中的表现以及（ii）将 GraIL 与现有的基于嵌入的方法集成的效益。由于相较基于嵌入的方法，GraIL拥有很强的互补归纳偏差，我们预计通过将其与现有的基于嵌入的方法集成可以获得显着的收益。</p>
 <p>我们的主要集成策略是后期融合，即集成各组成方法的输出分数。我们使用要集成的方法对每个测试三元组进行评分，每种方法输出的分数形成了每个测试点的特征向量。该特征向量被输入到一个线性分类器中，将该分类器训练得能够使正三元组得分高于负三元组。我们使用验证集训练这个线性分类器。</p>
-<p><strong>数据集。</strong>我们使用标准的 WN18RR、FB15k-237 和 NELL-995
-基准。对于 WN18RR 和 FB15k-237，我们使用文献中可用的拆分。对于
-NELL-995，我们以 70/15/15
-的比例将整个数据集拆分为训练集/验证集/测试集，确保拆分出的验证集和测试集中所有实体和关系在训练集中至少出现一次。</p>
-<p><strong>Baseline和实施细节。</strong>我们将 GraIL 与
-TransE、DistMult、ComplEx和
-RotatE中的每一个进行了集成，它们构成了一组代表性的KGE方法。对于所有方法，我们使用5提供的实现和超参数，其给出了所有方法的最新结果。为了公平比较所有方法，我们禁用了5提出的自我对抗负采样。对于
-GraIL，我们对 WN18RR 和 NELL-995 使用2跳邻域子图，对
-FB15k-237使用1跳邻域子图。其他所有超参数与归纳式设置中的相同。</p>
-<p><strong>结果。</strong>表3、4、5展示了不同KGE方法之间以及与 GraIL
-的成对集成的AUC-PR性能。这些表中的一个特定条目对应于由行和列标签表示的一对方法的集合，每个方法的单独性能在对角线上。从这些表的最后一列可以看出，在这三个数据集的其中两个，使用GraIL集成可以在所有直推式方法中获得一致的性能提升。此外，使用
-GraIL
-进行集成比使用其他任何两种方法获得更多收益。更精确地，我们定义了通过集成两种方法获得的增益，G(M1,
-M2)，如下</p>
+<p><strong>数据集。</strong>我们使用标准的 WN18RR、FB15k-237 和 NELL-995 基准。对于 WN18RR 和 FB15k-237，我们使用文献中可用的拆分。对于 NELL-995，我们以 70/15/15 的比例将整个数据集拆分为训练集/验证集/测试集，确保拆分出的验证集和测试集中所有实体和关系在训练集中至少出现一次。</p>
+<p><strong>Baseline和实施细节。</strong>我们将 GraIL 与 TransE、DistMult、ComplEx和 RotatE中的每一个进行了集成，它们构成了一组代表性的KGE方法。对于所有方法，我们使用5提供的实现和超参数，其给出了所有方法的最新结果。为了公平比较所有方法，我们禁用了5提出的自我对抗负采样。对于 GraIL，我们对 WN18RR 和 NELL-995 使用2跳邻域子图，对 FB15k-237使用1跳邻域子图。其他所有超参数与归纳式设置中的相同。</p>
+<p><strong>结果。</strong>表3、4、5展示了不同KGE方法之间以及与 GraIL 的成对集成的AUC-PR性能。这些表中的一个特定条目对应于由行和列标签表示的一对方法的集合，每个方法的单独性能在对角线上。从这些表的最后一列可以看出，在这三个数据集的其中两个，使用GraIL集成可以在所有直推式方法中获得一致的性能提升。此外，使用 GraIL 进行集成比使用其他任何两种方法获得更多收益。更精确地，我们定义了通过集成两种方法获得的增益，G(M1, M2)，如下</p>
 <p><span class="math display">\[
-G(M_1,M_2 )=\frac{P(M_1,M_2 )-max⁡(P(M_1 ),P(M_2))}{max⁡(P(M_1 ),P(M_2
-)}
+G(M_1,M_2 )=\frac{P(M_1,M_2 )-max⁡(P(M_1 ),P(M_2))}{max⁡(P(M_1 ),P(M_2 )} 
 \]</span></p>
 <p>换句话说，它实现的百分比改进是相较于两种方法中最好的。因此，通过使用GraIL集成获得的平均增益由下式给出</p>
 <p><span class="math display">\[
-G_{avg}^{GraIL}=\frac{1}{4} \sum_{|M_1 |∈KGE}G(M_1,GraIL)
+G_{avg}^{GraIL}=\frac{1}{4} \sum_{|M_1 |∈KGE}G(M_1,GraIL) 
 \]</span></p>
 <p>通过KGE方法之间的成对集成获得的平均增益由下式给出，</p>
 <p><span class="math display">\[
 G_{avg}^{GraIL}=\frac{1}{12}\sum_{(|M_1 |,|M_2 |)∈KGE}G(M_1,M_2 )
 \]</span></p>
-<p>GraIL 在 WN18RR 和 NELL-995 上获得的平均增益分别为 1.5% 和
-0.62%。这比 KGE 集成获得的平均增益好几个数量级：0.007% 和
-0.08%。令人惊讶的是，没有一个集成获得FB15k-237的显着收益。因此，虽然
-GraIL
-本身针对归纳式设置进行了优化，而不是最先进的直推式预测，但它确实通过集成对最先进的直推式方法进行了有意义的改进。</p>
-<p>表 6 显示了当节点特征（由我们的原始节点标记方案计算）与 TransE
-模型学习的节点嵌入连接时GraIL
-的性能。添加这些预训练嵌入可以显着提升性能。因此，虽然后期融合展示了
-GraIL 所体现的互补归纳偏差，但这种早期融合展示了 GraIL
-利用任何可用节点嵌入/节点特征的自然能力。可以在附录中看到，所有
-Hits@10的结果均呈现相似的趋势。</p>
+<p>GraIL 在 WN18RR 和 NELL-995 上获得的平均增益分别为 1.5% 和 0.62%。这比 KGE 集成获得的平均增益好几个数量级：0.007% 和 0.08%。令人惊讶的是，没有一个集成获得FB15k-237的显着收益。因此，虽然 GraIL 本身针对归纳式设置进行了优化，而不是最先进的直推式预测，但它确实通过集成对最先进的直推式方法进行了有意义的改进。</p>
+<p>表 6 显示了当节点特征（由我们的原始节点标记方案计算）与 TransE 模型学习的节点嵌入连接时GraIL 的性能。添加这些预训练嵌入可以显着提升性能。因此，虽然后期融合展示了 GraIL 所体现的互补归纳偏差，但这种早期融合展示了 GraIL 利用任何可用节点嵌入/节点特征的自然能力。可以在附录中看到，所有 Hits@10的结果均呈现相似的趋势。</p>
 <h2 id="灵敏度分析">灵敏度分析</h2>
-<p>在本节中，我们强调 GraIL
-的三个关键组件的重要性：i）封闭子图提取，ii）双半径节点标记方案，以及
-iii）GNN 中的注意力机制，结果总结在表 7 中。</p>
-<p>封闭子图提取。如前所述，我们假设特定链接的逻辑证据可以在链接的两个目标节点周围的子图中找到。因此，我们建议提取由两个目标节点之间的路径上出现的所有节点诱导的子图。在这里，我们想强调仅提取路径，而不是天真地提取由目标节点的所有k-hop邻接点得到的子图的重要性。在这种配置下，性能急剧下降。事实上，该模型严重地过度拟合训练数据，训练AUC超过
-99%。该模式适用于所有数据集。 双半径节点标记。定理 1
-的证明假设了目标节点u和v具有唯一的标记。我们通过使用 (1, 1)
-的恒定节点标签而不是最初提出的节点标签方案来评估 GraIL
-，结果的性能下降证实了我们的节点标记方案的重要性。
-GNN中的注意力机制。正如定理 1
-的证明中所指出的，注意机制是我们模型编码路径规则时的重要组成部分。我们在没有注意机制的情况下评估GraIL并注意到性能明显下降，这与我们的理论发现相呼应。</p>
+<p>在本节中，我们强调 GraIL 的三个关键组件的重要性：i）封闭子图提取，ii）双半径节点标记方案，以及 iii）GNN 中的注意力机制，结果总结在表 7 中。</p>
+<p>封闭子图提取。如前所述，我们假设特定链接的逻辑证据可以在链接的两个目标节点周围的子图中找到。因此，我们建议提取由两个目标节点之间的路径上出现的所有节点诱导的子图。在这里，我们想强调仅提取路径，而不是天真地提取由目标节点的所有k-hop邻接点得到的子图的重要性。在这种配置下，性能急剧下降。事实上，该模型严重地过度拟合训练数据，训练AUC超过 99%。该模式适用于所有数据集。</p>
+<p>双半径节点标记。定理 1 的证明假设了目标节点u和v具有唯一的标记。我们通过使用 (1, 1) 的恒定节点标签而不是最初提出的节点标签方案来评估 GraIL ，结果的性能下降证实了我们的节点标记方案的重要性。</p>
+<p>GNN中的注意力机制。正如定理 1 的证明中所指出的，注意机制是我们模型编码路径规则时的重要组成部分。我们在没有注意机制的情况下评估GraIL并注意到性能明显下降，这与我们的理论发现相呼应。</p>
 <h1 id="总结">总结</h1>
-<p>我们提出了一个基于 GNN 的框架
-GraIL，用于归纳式知识图推理。与基于嵌入的方法不同，GraIL
-模型能够预测在训练期间没有的节点之间的关系，并在这种归纳式设置中实现最先进的结果。此外，我们展示了
-GraIL
-带来了与当前最先进的知识图谱补全方法之间互补的归纳偏差。特别是，我们通过一组完整的实验证明了与
-GraIL
-集成时各种知识图谱嵌入方法的性能提升。此外，我们还从理论上了解了关于GNN在编码有用的逻辑规则子集方面的表达能力。</p>
-<p>这项工作通过一组新的基准数据集与对现有归纳关系预测方法的全面研究，为知识图谱背景下的归纳式推理探索开辟了一个新方向。例如，进一步探索的明显方向包括从
-GraIL
-中提取可解释的规则和结构模式，分析关系分布的变化如何影响归纳性能，以及将
-GraIL 与元学习策略相结合来处理小样本学习设置。</p>
-<p>#致谢。</p>
-<p>这项研究的部分资金来自微软研究院的学术资助，以及由 Mila - Quebec AI
-研究所的 Hamilton 教授担任的Canada CIFAR AI 主席。此外，IVADO
-通过本科生研究奖学金为 Etienne 提供支持。</p>
+<p>我们提出了一个基于 GNN 的框架 GraIL，用于归纳式知识图推理。与基于嵌入的方法不同，GraIL 模型能够预测在训练期间没有的节点之间的关系，并在这种归纳式设置中实现最先进的结果。此外，我们展示了 GraIL 带来了与当前最先进的知识图谱补全方法之间互补的归纳偏差。特别是，我们通过一组完整的实验证明了与 GraIL 集成时各种知识图谱嵌入方法的性能提升。此外，我们还从理论上了解了关于GNN在编码有用的逻辑规则子集方面的表达能力。</p>
+<p>这项工作通过一组新的基准数据集与对现有归纳关系预测方法的全面研究，为知识图谱背景下的归纳式推理探索开辟了一个新方向。例如，进一步探索的明显方向包括从 GraIL 中提取可解释的规则和结构模式，分析关系分布的变化如何影响归纳性能，以及将 GraIL 与元学习策略相结合来处理小样本学习设置。</p>
+<h1 id="致谢">致谢</h1>
+<p>这项研究的部分资金来自微软研究院的学术资助，以及由 Mila - Quebec AI 研究所的 Hamilton 教授担任的Canada CIFAR AI 主席。此外，IVADO 通过本科生研究奖学金为 Etienne 提供支持。</p>
 <h1 id="reference">Reference</h1>
-<p>[1] 刘峤, 等.知识图谱构建技术综述[J]. 计算机研究与发展, 2016, 53
-(3):582-600. [2] 漆桂林, 高桓, 吴天星. 知识图谱研究进展[J]. 情报工程,
-2017, 3(1): 4-25 [3] Teru, Komal K. Inductive Relation Prediction by
-Subgraph Reasoning, ProQuest Dissertations Publishing, 2020.</p>
+<p>[1] 刘峤, 等.知识图谱构建技术综述[J]. 计算机研究与发展, 2016, 53 (3):582-600. [2] 漆桂林, 高桓, 吴天星. 知识图谱研究进展[J]. 情报工程, 2017, 3(1): 4-25 [3] Teru, Komal K. Inductive Relation Prediction by Subgraph Reasoning, ProQuest Dissertations Publishing, 2020.</p>
 
     </div>
 

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/mimikyu_sprite-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/mimikyu_sprite-16.png">
+  <link rel="mask-icon" href="/images/mimikyu1.png" color="#222">
+  <meta name="google-site-verification" content="google-site-verification=ck4DTybsJf_iilhTQ_VvtDffi3o9LMPMY1YCnCcrexc">
+  <meta name="baidu-site-verification" content="code-g0DzkvvtMn">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"willkyu.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="记录LATEX的一些知识点. 大部分内容来自中国 CTEX 用户小组译制的一份不太简短的 LATEX 2ε 介绍. 封面 [ID:##].">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LATEX笔记">
+<meta property="og:url" content="http://willkyu.github.io/Learning/Notes/LATEX/index.html">
+<meta property="og:site_name" content="丘丘Blog">
+<meta property="og:description" content="记录LATEX的一些知识点. 大部分内容来自中国 CTEX 用户小组译制的一份不太简短的 LATEX 2ε 介绍. 封面 [ID:##].">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://willkyu.github.io/images/cover/LATEX.jpg">
+<meta property="article:published_time" content="2022-05-24T03:05:38.000Z">
+<meta property="article:modified_time" content="2022-05-24T06:00:57.648Z">
+<meta property="article:author" content="willkyu">
+<meta property="article:tag" content="Learning">
+<meta property="article:tag" content="LATEX">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://willkyu.github.io/images/cover/LATEX.jpg">
+
+
+<link rel="canonical" href="http://willkyu.github.io/Learning/Notes/LATEX/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://willkyu.github.io/Learning/Notes/LATEX/","path":"Learning/Notes/LATEX/","title":"LATEX笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>LATEX笔记 | 丘丘Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="丘丘Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">丘丘Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">willkyu's blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86"><span class="nav-text">基本知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#latex%E6%BA%90%E6%96%87%E4%BB%B6"><span class="nav-text">LATEX源文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E7%99%BD%E8%B7%9D%E7%A6%BB"><span class="nav-text">空白距离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6"><span class="nav-text">特殊字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#latex%E5%91%BD%E4%BB%A4"><span class="nav-text">LATEX命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-text">注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-text">源文件的结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E5%B8%83%E5%B1%80"><span class="nav-text">文档布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E7%B1%BB"><span class="nav-text">文档类</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="willkyu"
+      src="/images/avatar_.png">
+  <p class="site-author-name" itemprop="name">willkyu</p>
+  <div class="site-description" itemprop="description">爱你所爱 求你所求 得你所得</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button site-overview-item animated">
+    <button class="js-gitter-toggle-chat-button"><i class="fa fa-comment"></i>
+      Chat Room
+    </button>
+  </div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dpbGxreXU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;willkyu"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjQ5NjM3MzE1OEBxcS5jb20=" title="E-Mail → mailto:496373158@qq.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS93aWxsa3l1" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;willkyu"><i class="fab fa-twitter fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93b2thbm4uZ2l0aHViLmlv" title="https:&#x2F;&#x2F;wokann.github.io">WoKann Blog</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cDovL21pZmFuLXV4LmdpdGh1Yi5pbw==" title="http:&#x2F;&#x2F;mifan-ux.github.io">MiFan Blog</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93dWx1bjAxMDIuZ2l0aHViLmlv" title="https:&#x2F;&#x2F;wulun0102.github.io">WuLun Blog</span>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dpbGxreXU=" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+    
+    <div class="post-gallery-image">
+      <img src="/images/cover/LATEX.jpg" itemprop="contentUrl">
+    </div>
+    </div>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://willkyu.github.io/Learning/Notes/LATEX/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_.png">
+      <meta itemprop="name" content="willkyu">
+      <meta itemprop="description" content="爱你所爱 求你所求 得你所得">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="丘丘Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LATEX笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-05-24 11:05:38 / Modified: 14:00:57" itemprop="dateCreated datePublished" datetime="2022-05-24T11:05:38+08:00">2022-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>记录LATEX的一些知识点.</p>
+<p>大部分内容来自中国 CTEX 用户小组译制的<em>一份不太简短的 LATEX 2ε 介绍</em>.</p>
+<p>封面 [ID:##].</p>
+<span id="more"></span>
+<h1 id="基本知识">基本知识</h1>
+<h2 id="latex源文件">LATEX源文件</h2>
+<p>LATEX 源文件的格式为普通的 ASCII 文件，你可以使用任何文本编辑器来创建。</p>
+<h3 id="空白距离">空白距离</h3>
+<p>LATEX 将空格和制表符等空白字符视为相同的空白距离（space）。<strong>多个连续的空白字符等同为一个空白字符。</strong>在 LATEX 文件中，每行开始的空白字符将被忽略，而单个的回车符被视为一空格。</p>
+<p>LATEX 使用空行来结束段落，两行文本中的空行标志上一段落的结束和新段落的开始。如同空格一样，多个空行所起的作用和一个空行的作用是相同的。</p>
+<h3 id="特殊字符">特殊字符</h3>
+<p>下面的这些字符是 LATEX 的保留字符:</p>
+<p># $ % ^ &amp; _ { } ~ \</p>
+<p>在这些字符（除' \ '）前加上' \ '就可以在文本中得到，而' \ '为断行命令.</p>
+<p>命令<code>$\backslash$</code>将生成 ' \ '。</p>
+<h3 id="latex命令">LATEX命令</h3>
+<p>LATEX 命令（commands）是大小写敏感的并有下面两种格式：</p>
+<ul>
+<li>以一反斜线' \ '开始，加上只包含字母字符命令名组成。命令名后的空格符、数字或其它非字母字符标志该命令的结束。</li>
+<li>由一反斜线和一特殊字符组成。</li>
+</ul>
+<p>LATEX 忽略命令后面的空格。如果你希望在命令后面得到一空格，可以在命令后面加上 {} 和一个空格，或者加上一个特殊的空白距离命令。{} 将阻止 LATEX 吞噬掉命令后面的空格。例如: <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">I read that Knuth divides the people working with \TeX&#123;&#125; into \TeX&#123;&#125;nicians and \TeX perts.\\ Today is \today.</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>得到</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">I read that Knuth divides the people working with TEX into TEXnicians and EXperts. </span><br><span class="line">Today is 8th March 2003.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>许多命令需要一个参数（parameter）并用一对大括号（curly braces）{ }将其括起来置于命令名称的后面。也有一些命令支持用方括号（square brace）括起来的可选参数。</p>
+<h3 id="注释">注释</h3>
+<p>当 LATEX 在处理源文件时，如果遇到一个百分号字符 %，那么 LATEX将忽略 % 后的该行文本，分行符以及下一行开始的空白字符。这样，我们就可以在源文件中写一些注释，而不会担心他们会出现在最后的排版结果中。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">This is an % stupid</span><br><span class="line">% Better: instructive &lt;----</span><br><span class="line">example: Supercal%</span><br><span class="line">             ifragilist%</span><br><span class="line">      icexpialidocious</span><br></pre></td></tr></table></figure>
+<p>得到</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">This is an example: Supercalifragilisticexpialidocious</span><br></pre></td></tr></table></figure>
+<p>% 也可以用来分割不允许有空格或分行的较长输入文本。</p>
+<h2 id="源文件的结构">源文件的结构</h2>
+<p>LATEX 需要所处理的源文件遵从一定的结构，每个 LATEX 文档必须以如下的命令开始： <code>\documentclass&#123;...&#125;</code></p>
+<p>这个命令指定了你所写的文档的类别。在此之后，你可以加入控制文档式 样的命令，或者使用命令 <code>\usepackage&#123;...&#125;</code> 来调入一些宏集，进而为 LATEX 系统增添 一些新的功能。</p>
+<p>当完成所有的设置后，你可利用命令<code>\begin&#123;document&#125;</code>来开始你的文档.<code>\documentclass</code> 和 <code>\begin&#123;document&#125;</code> 之间的区域称作导言区。</p>
+<p>现在你可以输入你所希望排版的文本和所使用的一些 LATEX 命令。在文档的最后键入命令<code>\end&#123;document&#125;</code>来告诉 LATEX 你的文档到此结束，从而使 LATEX忽略文档在此命令之后的部分。</p>
+<h2 id="文档布局">文档布局</h2>
+<h3 id="文档类">文档类</h3>
+<p>当 LATEX 处理源文件时，首先需要知道的是作者所要创建的文档类型。该信息可以通过命令<code>\documentclass[options]&#123;class&#125;</code>来提供给 LATEX。例如，一个 LATEX 源文件以下面一行开始：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\documentclass[11pt,twoside,a4paper]&#123;article&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>给我买杯奶茶呗 ♪( ´▽｀)</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="willkyu WeChatpay">
+        <span>WeChatpay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="willkyu Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Written by:  </strong>willkyu
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://willkyu.github.io/Learning/Notes/LATEX/" title="LATEX笔记">http://willkyu.github.io/Learning/Notes/LATEX/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Learning/" rel="tag"><i class="fa fa-tag"></i> Learning</a>
+              <a href="/tags/LATEX/" rel="tag"><i class="fa fa-tag"></i> LATEX</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Learning/Notes/Sparse-Matrix/" rel="prev" title="稀疏矩阵及其存储格式（COO、CSR、CSC）">
+                  <i class="fa fa-chevron-left"></i> 稀疏矩阵及其存储格式（COO、CSR、CSC）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/test/" rel="next" title="test">
+                  test <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-infinity"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">willkyu</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+<script class="next-config" data-name="gitter" type="application/json">{"enable":true,"room":"willkyu-github-io/community"}</script>
+<script src="/js/third-party/chat/gitter.js"></script>
+<script src="/js/third-party/chat/sidecar.v1.js" async defer></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"http://willkyu.github.io/Learning/Notes/LATEX/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"willkyu","repo":"Hexo-Gitalk","client_id":"4d181641d25dd938916f","client_secret":"225a2edcdc643bb02ca476ce92f4b386a924b99a","admin_user":"willkyu","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"d496948f1a7e33c6c5c250917bb25f50"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+
+  <!--动态线条背景-->
+  <script type="text/javascript"  opacity='0.6' zIndex="-2" count="110"
+  src="/js/DIY/canvas-nest.min.js">
+  </script>
+
+  <!-- 页面点击特效-->
+  <script type="text/javascript" src="/js/DIY/click.js"></script>
+</body>
+</html>
