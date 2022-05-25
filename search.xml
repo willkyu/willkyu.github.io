@@ -444,6 +444,7 @@
 <h2 id="第一世代与第二世代">第一世代与第二世代</h2>
 <ul>
 <li><strong>梦幻</strong>（存在争议）</li>
+<li>第二世代<strong>所有性别比7：1中，性别为母的宝可梦</strong></li>
 </ul>
 <h2 id="第三世代">第三世代</h2>
 <ul>
@@ -514,7 +515,7 @@
 <li>La湖之传说的宝可梦<strong>由克希</strong>、<strong>艾姆利多</strong>与<strong>亚克诺姆</strong></li>
 <li>La神话的宝可梦<strong>帝牙卢卡</strong>、<strong>帕路奇亚</strong>与<strong>骑拉帝纳</strong></li>
 <li>La的<strong>席多蓝恩</strong>、<strong>克雷色利亚</strong>与<strong>雷吉奇卡斯</strong></li>
-<li>La海边小洞副任务66的<strong>霏欧纳</strong>与<strong>玛纳霏</strong></li>
+<li>La海边小洞副任务66的<strong>霏欧纳</strong>与<strong>玛纳霏</strong>，以及之后刷新的<strong>霏欧纳</strong></li>
 <li>La的化身宝可梦<strong>龙卷云</strong>、<strong>雷电云</strong>、<strong>土地云</strong>和<strong>眷恋云</strong></li>
 <li>La的<strong>阿尔宙斯</strong></li>
 </ul>
@@ -577,6 +578,9 @@
 <h3 id="文档类">文档类</h3>
 <p>当 LATEX 处理源文件时，首先需要知道的是作者所要创建的文档类型。该信息可以通过命令<code>\documentclass[options]&#123;class&#125;</code>来提供给 LATEX。例如，一个 LATEX 源文件以下面一行开始：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\documentclass[11pt,twoside,a4paper]&#123;article&#125;</span><br></pre></td></tr></table></figure>
+<p><code>&#123;class&#125;</code>可以是： - article 排版科技期刊、短报告、程序文档、邀请函等。 - report 排版多章节的长报告、短篇的书籍、博士论文等。 - book 排版书籍。 - slides 排版幻灯片。其中使用了较大的 sans serif 字体。也可以考虑使用 FoilTEX 来得到相同的效果。</p>
+<p><code>options</code>可以包含： - 10pt, 11pt, 12pt 设置文档所使用的字体的大小。如果没有声明任何选项，缺省将使用 10pt 字体。 - a4paper, letterpaper, . . . 定义纸张的大小，缺省的设置为letterpaper。此外，还可以使用a5paper，b5paper，executivepaper 和 legalpaper。 - fleqn 设置该选项将使数学公式左对齐，而不是中间对齐。 - leqno 设置该选项将使数学公式的编号放置于左侧。 - titlepage, notitlepage 指定是否在文档标题（document title）后开始一新页。article 文档类缺省不开始新页，而 book 文档类则相反。 - onecolumn, twocolumn 指定 LATEX 以单列（one column）或双列（two column）方式排版文档。 - twoside, oneside 指定 LATEX 排版的文档为双面或单面格式。article 和 report 缺省使用单面格式，而 book 则缺省使用双面格式。需要注意的是该选项仅作用于文档的式样。twoside选项不会通知你的打印机让以得到双面的打印输出。 - openright, openany 此选项决定新的章是仅仅在右边页（奇数页）还是在下一可用页开始。该选项对 article 文档类不起作用，因为该类中并没有定义“章”（Chapter）。report 类中新的一章开始于下一可用页，而 book 类中新的一章总是开始于右边页。</p>
+<h3 id="宏包">宏包</h3>
 ]]></content>
       <categories>
         <category>Learning</category>
