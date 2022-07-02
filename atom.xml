@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2022-05-26T04:47:03.325Z</updated>
+  <updated>2022-07-02T12:33:33.329Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Nintendo Memo</title>
+    <link href="http://willkyu.github.io/Game/Nintendo_Memo/"/>
+    <id>http://willkyu.github.io/Game/Nintendo_Memo/</id>
+    <published>2022-07-02T09:56:01.000Z</published>
+    <updated>2022-07-02T12:33:33.329Z</updated>
+    
+    
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    
+    
+    
+    <category term="Memo" scheme="http://willkyu.github.io/categories/Memo/"/>
+    
+    
+    <category term="Game" scheme="http://willkyu.github.io/tags/Game/"/>
+    
+    <category term="Memo" scheme="http://willkyu.github.io/tags/Memo/"/>
+    
+    <category term="Nintendo" scheme="http://willkyu.github.io/tags/Nintendo/"/>
+    
+  </entry>
   
   <entry>
     <title>锁闪宝可梦汇总</title>
@@ -40,31 +63,17 @@
   </entry>
   
   <entry>
-    <title>test</title>
-    <link href="http://willkyu.github.io/test/"/>
-    <id>http://willkyu.github.io/test/</id>
-    <published>2022-05-24T03:18:01.000Z</published>
-    <updated>2022-05-24T03:18:01.202Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;封面 [ID:##].&lt;/p&gt;</summary>
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>LATEX笔记</title>
     <link href="http://willkyu.github.io/Learning/Notes/LATEX/"/>
     <id>http://willkyu.github.io/Learning/Notes/LATEX/</id>
     <published>2022-05-24T03:05:38.000Z</published>
-    <updated>2022-05-25T07:59:51.250Z</updated>
+    <updated>2022-07-02T14:26:00.437Z</updated>
     
     
     <summary type="html">&lt;p&gt;记录LATEX的一些知识点.&lt;/p&gt;
-&lt;p&gt;大部分内容来自中国 CTEX 用户小组译制的&lt;em&gt;一份不太简短的 LATEX 2ε 介绍&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;封面 [ID:##].&lt;/p&gt;</summary>
+&lt;p&gt;大部分内容来自中国 CTEX 用户小组译制的&lt;em&gt;一份不太简短的 LATEX 2ε
+介绍&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;已弃.&lt;/p&gt;</summary>
     
     
     

@@ -432,6 +432,30 @@
       </tags>
   </entry>
   <entry>
+    <title>Nintendo Memo</title>
+    <url>/Game/Nintendo_Memo/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Invalid Password. Check And Try Again(♯｀∧´)" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="59c9302b852217893c237fb4fb9dab2b3f494b844cc98a95dba9a938ecf38a93">2633670186e03fe56cbdcf75def3a431ccb4bec7a9f8262fd8620dab8fe120d35f2b4ee07c67cd40af23506d4355fc7b89b3ad2955f44a9160cd8bcbf9e23520322f8337124feef6296fda307c8117de26b82cc2033429431fcab7996a2fb2dedee5ed187d106892cf3a252b185080181d7dc5e8a267a039fd0bcc6c8a585ca0d1aeb1e41e4257bf459657bbd7cf34b9ed472f34cf09a75e405845139b5bbb299ae640f06cda0d451e039d9c30f02e28ae3aa77f91b1755db71b7e664305fd1ab6a393bcbb453eef3fe780a0d18f58249860def8f7305726272db7702dd02596c5a24b7c96aef3843f9690c37fe838c97a7698a8c0800649aa4cf3c9e521e6b5f8112c92de556266131e5119dfa9eba46d29ac3db0ae350ce2680ab228ef8f18656658fe324574d1c71a1ea4eeeba0efd702234ca75fd89edbdba8882aa326c56f49d0420db570f7e8329c1ea7178fbadf7203a90eb93530556ea1227f31792cbd13e91a05f2df8606ea715bc1154f7c766b3311c81d03b9a65eeb7fcde461d587111ab834372e3d25f716360fb927e9d6880aef64676a896a9bac48af132ec340ee25f205c153ab3bb12d0fd140fdfaaef87704b76f3633e1538f5fa98a1679661364c1decc2bfba6069bb68d213d28bbb46b1d96dc8c16ab1f675f452e0ac3c9adfd9e048f391ce42e812ab889e83f927725b7d25fa87d9f967b2747341fea1c16914bbb53d7853eaa1682a016d9420fd0e557b0f87cd5a89decab6ba783e5d6fddcac5d025928fdd6ad6f0f027b60ea00f67b6b78dec77ed2508c95095c46fda13b37160f9f8d78eebb8b3bb582b4b7b9d3faeed081533d569f78d9125bf99e3bdb82d4f2d414bfd4c091f94d3cb136e494d5146cbbd71fdbed8e66dd67bd4252b5483260fa7b7d5962ce08a9bd82522c2e4bf96ba6fec41ec149d0043284aea2fff6dfa59ad345f2858257b60b2f3d9257484b3e421446c1669268bac150774a6441dfa3a85c2de2f974ef8b09f157737e3c1b1011c727cecd6ed621de32473ab6a255133c9f8a271c78357a1777caa15a15b43d78ef342e5a2ff794e7ef49faa4c8097c4c6d39a1c30fc46ee1f97d33b407428eae37c21c7ddd6e22704fa6defcb10b32f5ecbfcf7dc3878b66d05054141a69713a715fde77d5bff57d74aae27dfc061f8fa341e1be3ecc6fd5533b7091bd3f4028119d7705cfea046fbafa7e755b2cea6bf874d8acac4b1ee47947136a65d7e7442b23936ee6534db3871a28a428dfdf72e047da3ca6e9766c2e280bf8aa82f00683ce0abbe87edba85122f27e0b28c195244bfce29a2f743cc6af0ca9ec7585a0c793698215704a489e5b6005284bf086f75b9eafc366d1a40af79f4ef489c1da5fb3d599496f08678089bcc7e6737682c20f554f79f1b57b8389794f7d941f7102eb7f878e3be436aedd7249077240b370b8be001d13183714dbf295427dadadc14709e6ed6776029745db1946823d2885017d886e3958605001bfe1856a7ec562d8aefa345a60019c95811a226fc74247bfcade03dd3635a3a2ae457e4161efcdab96b4ca1aebdcf70e8c77c938aeb7efecfcb820c3ef0ff9c4e76306568f181147a27b79cb5dd352434120a7d3a3e9246bc68af5c62f955291749686fec31644dc555d8948da0a204808fcfbdc6e1e8c8b2002483818f6f61779904f4d9d13dab3f992c46495baef2f0e14b79b9fcd31a5ac067491c118fa21f94264146b4562e5044f6e3e2a9458</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Memo</category>
+      </categories>
+      <tags>
+        <tag>Game</tag>
+        <tag>Memo</tag>
+        <tag>Nintendo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>锁闪宝可梦汇总</title>
     <url>/Pokemon/Shiny-Lock/</url>
     <content><![CDATA[<p>游戏内锁闪宝可梦汇总. 不包含配信的闪光宝可梦与联动的宝可梦(如SwSh伙伴皮卡丘伊布、BdSp首发特典等).</p>
@@ -531,58 +555,281 @@
       </tags>
   </entry>
   <entry>
-    <title>test</title>
-    <url>/test/</url>
-    <content><![CDATA[<p>封面 [ID:##].</p>
-<span id="more"></span>
-]]></content>
-  </entry>
-  <entry>
     <title>LATEX笔记</title>
     <url>/Learning/Notes/LATEX/</url>
     <content><![CDATA[<p>记录LATEX的一些知识点.</p>
-<p>大部分内容来自中国 CTEX 用户小组译制的<em>一份不太简短的 LATEX 2ε 介绍</em>.</p>
-<p>封面 [ID:##].</p>
+<p>大部分内容来自中国 CTEX 用户小组译制的<em>一份不太简短的 LATEX 2ε
+介绍</em>.</p>
+<p>已弃.</p>
 <span id="more"></span>
 <h1 id="基本知识">基本知识</h1>
 <h2 id="latex源文件">LATEX源文件</h2>
-<p>LATEX 源文件的格式为普通的 ASCII 文件，你可以使用任何文本编辑器来创建。</p>
+<p>LATEX 源文件的格式为普通的 ASCII
+文件，你可以使用任何文本编辑器来创建。</p>
 <h3 id="空白距离">空白距离</h3>
-<p>LATEX 将空格和制表符等空白字符视为相同的空白距离（space）。<strong>多个连续的空白字符等同为一个空白字符。</strong>在 LATEX 文件中，每行开始的空白字符将被忽略，而单个的回车符被视为一空格。</p>
-<p>LATEX 使用空行来结束段落，两行文本中的空行标志上一段落的结束和新段落的开始。如同空格一样，多个空行所起的作用和一个空行的作用是相同的。</p>
+<p>LATEX
+将空格和制表符等空白字符视为相同的空白距离（space）。<strong>多个连续的空白字符等同为一个空白字符。</strong>在
+LATEX
+文件中，每行开始的空白字符将被忽略，而单个的回车符被视为一空格。</p>
+<p>LATEX
+使用空行来结束段落，两行文本中的空行标志上一段落的结束和新段落的开始。如同空格一样，多个空行所起的作用和一个空行的作用是相同的。</p>
 <h3 id="特殊字符">特殊字符</h3>
 <p>下面的这些字符是 LATEX 的保留字符:</p>
 <p># $ % ^ &amp; _ { } ~ \</p>
-<p>在这些字符（除' \ '）前加上' \ '就可以在文本中得到，而' \ '为断行命令.</p>
+<p>在这些字符（除' \ '）前加上' \ '就可以在文本中得到，而'
+\ '为断行命令.</p>
 <p>命令<code>$\backslash$</code>将生成 ' \ '。</p>
 <h3 id="latex命令">LATEX命令</h3>
 <p>LATEX 命令（commands）是大小写敏感的并有下面两种格式：</p>
 <ul>
-<li>以一反斜线' \ '开始，加上只包含字母字符命令名组成。命令名后的空格符、数字或其它非字母字符标志该命令的结束。</li>
+<li>以一反斜线' \
+'开始，加上只包含字母字符命令名组成。命令名后的空格符、数字或其它非字母字符标志该命令的结束。</li>
 <li>由一反斜线和一特殊字符组成。</li>
 </ul>
-<p>LATEX 忽略命令后面的空格。如果你希望在命令后面得到一空格，可以在命令后面加上 {} 和一个空格，或者加上一个特殊的空白距离命令。{} 将阻止 LATEX 吞噬掉命令后面的空格。例如: <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">I read that Knuth divides the people working with \TeX&#123;&#125; into \TeX&#123;&#125;nicians and \TeX perts.\\ Today is \today.</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>LATEX
+忽略命令后面的空格。如果你希望在命令后面得到一空格，可以在命令后面加上
+{} 和一个空格，或者加上一个特殊的空白距离命令。{} 将阻止 LATEX
+吞噬掉命令后面的空格。例如: <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">I read that Knuth divides the people working with \TeX&#123;&#125; into \TeX&#123;&#125;nicians and \TeX perts.\\ Today is \today.</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
 <p>得到</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">I read that Knuth divides the people working with TEX into TEXnicians and EXperts. </span><br><span class="line">Today is 8th March 2003.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>许多命令需要一个参数（parameter）并用一对大括号（curly braces）{ }将其括起来置于命令名称的后面。也有一些命令支持用方括号（square brace）括起来的可选参数。</p>
+<p>许多命令需要一个参数（parameter）并用一对大括号（curly braces）{
+}将其括起来置于命令名称的后面。也有一些命令支持用方括号（square
+brace）括起来的可选参数。</p>
 <h3 id="注释">注释</h3>
-<p>当 LATEX 在处理源文件时，如果遇到一个百分号字符 %，那么 LATEX将忽略 % 后的该行文本，分行符以及下一行开始的空白字符。这样，我们就可以在源文件中写一些注释，而不会担心他们会出现在最后的排版结果中。</p>
+<p>当 LATEX 在处理源文件时，如果遇到一个百分号字符 %，那么 LATEX将忽略 %
+后的该行文本，分行符以及下一行开始的空白字符。这样，我们就可以在源文件中写一些注释，而不会担心他们会出现在最后的排版结果中。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">This is an % stupid</span><br><span class="line">% Better: instructive &lt;----</span><br><span class="line">example: Supercal%</span><br><span class="line">             ifragilist%</span><br><span class="line">      icexpialidocious</span><br></pre></td></tr></table></figure>
 <p>得到</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">This is an example: Supercalifragilisticexpialidocious</span><br></pre></td></tr></table></figure>
 <p>% 也可以用来分割不允许有空格或分行的较长输入文本。</p>
 <h2 id="源文件的结构">源文件的结构</h2>
-<p>LATEX 需要所处理的源文件遵从一定的结构，每个 LATEX 文档必须以如下的命令开始： <code>\documentclass&#123;...&#125;</code></p>
-<p>这个命令指定了你所写的文档的类别。在此之后，你可以加入控制文档式 样的命令，或者使用命令 <code>\usepackage&#123;...&#125;</code> 来调入一些宏集，进而为 LATEX 系统增添 一些新的功能。</p>
-<p>当完成所有的设置后，你可利用命令<code>\begin&#123;document&#125;</code>来开始你的文档.<code>\documentclass</code> 和 <code>\begin&#123;document&#125;</code> 之间的区域称作导言区。</p>
-<p>现在你可以输入你所希望排版的文本和所使用的一些 LATEX 命令。在文档的最后键入命令<code>\end&#123;document&#125;</code>来告诉 LATEX 你的文档到此结束，从而使 LATEX忽略文档在此命令之后的部分。</p>
+<p>LATEX 需要所处理的源文件遵从一定的结构，每个 LATEX
+文档必须以如下的命令开始： <code>\documentclass&#123;...&#125;</code></p>
+<p>这个命令指定了你所写的文档的类别。在此之后，你可以加入控制文档式
+样的命令，或者使用命令 <code>\usepackage&#123;...&#125;</code>
+来调入一些宏集，进而为 LATEX 系统增添 一些新的功能。</p>
+<p>当完成所有的设置后，你可利用命令<code>\begin&#123;document&#125;</code>来开始你的文档.<code>\documentclass</code>
+和 <code>\begin&#123;document&#125;</code> 之间的区域称作导言区。</p>
+<p>现在你可以输入你所希望排版的文本和所使用的一些 LATEX
+命令。在文档的最后键入命令<code>\end&#123;document&#125;</code>来告诉 LATEX
+你的文档到此结束，从而使 LATEX忽略文档在此命令之后的部分。</p>
 <h2 id="文档布局">文档布局</h2>
 <h3 id="文档类">文档类</h3>
-<p>当 LATEX 处理源文件时，首先需要知道的是作者所要创建的文档类型。该信息可以通过命令<code>\documentclass[options]&#123;class&#125;</code>来提供给 LATEX。例如，一个 LATEX 源文件以下面一行开始：</p>
+<p>当 LATEX
+处理源文件时，首先需要知道的是作者所要创建的文档类型。该信息可以通过命令<code>\documentclass[options]&#123;class&#125;</code>来提供给
+LATEX。例如，一个 LATEX 源文件以下面一行开始：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\documentclass[11pt,twoside,a4paper]&#123;article&#125;</span><br></pre></td></tr></table></figure>
-<p><code>&#123;class&#125;</code>可以是： - article 排版科技期刊、短报告、程序文档、邀请函等。 - report 排版多章节的长报告、短篇的书籍、博士论文等。 - book 排版书籍。 - slides 排版幻灯片。其中使用了较大的 sans serif 字体。也可以考虑使用 FoilTEX 来得到相同的效果。</p>
-<p><code>options</code>可以包含： - 10pt, 11pt, 12pt 设置文档所使用的字体的大小。如果没有声明任何选项，缺省将使用 10pt 字体。 - a4paper, letterpaper, . . . 定义纸张的大小，缺省的设置为letterpaper。此外，还可以使用a5paper，b5paper，executivepaper 和 legalpaper。 - fleqn 设置该选项将使数学公式左对齐，而不是中间对齐。 - leqno 设置该选项将使数学公式的编号放置于左侧。 - titlepage, notitlepage 指定是否在文档标题（document title）后开始一新页。article 文档类缺省不开始新页，而 book 文档类则相反。 - onecolumn, twocolumn 指定 LATEX 以单列（one column）或双列（two column）方式排版文档。 - twoside, oneside 指定 LATEX 排版的文档为双面或单面格式。article 和 report 缺省使用单面格式，而 book 则缺省使用双面格式。需要注意的是该选项仅作用于文档的式样。twoside选项不会通知你的打印机让以得到双面的打印输出。 - openright, openany 此选项决定新的章是仅仅在右边页（奇数页）还是在下一可用页开始。该选项对 article 文档类不起作用，因为该类中并没有定义“章”（Chapter）。report 类中新的一章开始于下一可用页，而 book 类中新的一章总是开始于右边页。</p>
+<p><code>&#123;class&#125;</code>可以是： - article
+排版科技期刊、短报告、程序文档、邀请函等。 - report
+排版多章节的长报告、短篇的书籍、博士论文等。 - book 排版书籍。 - slides
+排版幻灯片。其中使用了较大的 sans serif 字体。也可以考虑使用 FoilTEX
+来得到相同的效果。</p>
+<p><code>options</code>可以包含： - 10pt, 11pt, 12pt
+设置文档所使用的字体的大小。如果没有声明任何选项，缺省将使用 10pt 字体。
+- a4paper, letterpaper, . . .
+定义纸张的大小，缺省的设置为letterpaper。此外，还可以使用a5paper，b5paper，executivepaper
+和 legalpaper。 - fleqn 设置该选项将使数学公式左对齐，而不是中间对齐。 -
+leqno 设置该选项将使数学公式的编号放置于左侧。 - titlepage, notitlepage
+指定是否在文档标题（document title）后开始一新页。article
+文档类缺省不开始新页，而 book 文档类则相反。 - onecolumn, twocolumn 指定
+LATEX 以单列（one column）或双列（two column）方式排版文档。 - twoside,
+oneside 指定 LATEX 排版的文档为双面或单面格式。article 和 report
+缺省使用单面格式，而 book
+则缺省使用双面格式。需要注意的是该选项仅作用于文档的式样。twoside选项不会通知你的打印机让以得到双面的打印输出。
+- openright, openany
+此选项决定新的章是仅仅在右边页（奇数页）还是在下一可用页开始。该选项对
+article 文档类不起作用，因为该类中并没有定义“章”（Chapter）。report
+类中新的一章开始于下一可用页，而 book 类中新的一章总是开始于右边页。</p>
 <h3 id="宏包">宏包</h3>
+<p>如果你想插入图形、彩色文本或源代码文件，你需要使用宏包来增强 LATEX
+的功能。调入宏包使用如下的命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\usepackage[options]&#123;package&#125;</span><br></pre></td></tr></table></figure>
+<p>这里 package 是宏包的名称，options
+是用来触发宏包中的特殊功能的一组关键词。</p>
+<h2 id="各类latex文件">各类LATEX文件</h2>
+<ul>
+<li>.tex LATEX 或 TEX 源文件。可以用 latex 处理。</li>
+<li>.sty LATEX 宏包文件。可使用命令
+将其加载到你的 LATEX 文件中。</li>
+<li>.dtx 文档化 TEX 文件。这也是 LATEX 宏包发布的主要格式。通过处理一个
+dtx 文件就可以得到该 LATEX 宏中所包括的宏代码文档。</li>
+<li>.ins 为相应的 .dtx 文件的安装文件。如果你在网络上下载了一 LATEX
+宏包，你通常会发现会有一个 .dtx 和一个 .ins 文件。使用 LATEX 对 .ins
+文件进行处理，可以从 .dtx 文件中提取出宏包。</li>
+</ul>
+<p>当你运行 LATEX 处理你的源文件时，会得到下列文件：</p>
+<ul>
+<li>.dvi 与设备无关文件。这是 LATEX 编译运行的主要结果。你可以使用
+DVI预览器浏览其内容，或者使用像 dvips 这样的应用程序输出到打印机。</li>
+<li>.log 记录了上次编译运行时的详细信息。</li>
+<li>.toc
+存储了所有章节标题。该文件将在下次编译运行时被读入并生成目录。</li>
+<li>.lof 类似 .toc 文件，可生成图形目录。</li>
+<li>.lot 类似 .toc 文件，可生成表格目录。</li>
+<li>.aux
+另一个用来向下次编译运行传递信息的辅助文件。除了其它信息外，.aux
+文件通常包含交叉引用信息。</li>
+<li>.idx 如果你的文件中包含有索引，LATEX
+使用此文件存储所有的索引词条。此文件需要使用 makeindex 处理。</li>
+<li>.ind 经过处理后的 .idx
+文件。可在下次编译运行时加入到你的文档中。</li>
+<li>.ilg 运行 makeindex 时生成的记录文件。</li>
+</ul>
+<h3 id="页面式样">页面式样</h3>
+<p>LATEX
+支持三种预定的页眉、页脚（header/footer）格式，称为页面式样（page
+styles）。命令 <code>\pagestyle&#123;style&#125;</code>
+中的参数定义了所使用页面式样。</p>
+<ul>
+<li>plain 页眉为空，页脚由居中的的页码组成。这是默认的页面式样。</li>
+<li>headings 页眉由当前的章节标题和页码组成，页脚为空。</li>
+<li>empty 设置页眉、页脚均为空。</li>
+</ul>
+<p>可以使用下面的命令改变当前页的页面式样：
+<code>\thispagestyle&#123;style&#125;</code></p>
+<h2 id="大型文档">大型文档</h2>
+<p>当处理大型文档时，最好将源文件分成几个部分。LATEX
+有两条命令来处理这种情况。</p>
+<p>在文档的正文中使用命令 <code>\include&#123;filename&#125;</code> 可将文件名为
+<strong>filename.tex</strong> 的内容包括进来。注意 LATEX 在开始处理
+<strong>filename.tex</strong> 的内容之前将会开始一新页。</p>
+<p>第二个命令 <code>\includeonly&#123;filename,filename,. . . &#125;</code>
+可用在文档的导言区，它允许你指导 LATEX 仅仅读入某些 <strong>*
+文件。这条命令在导言区被 LATEX 读入执行后，在所有的 </strong>*
+命令中，只有 <strong>*
+命令参数中列出的文件才会被执行。</strong><em>注意在参数中，文件名和逗号之间不能有空格</em>**。</p>
+<p><strong>* 命令在新页上排版包括进来的文本，这对于使用
+</strong>*命令很有帮助。应为即使一些包括的文件被忽略，分页处也不会变更。如果不想在新页排版包括进来的文本，可使用下面的命令：<strong></strong>
+该命令只是简单地将指定的文件包括进来，并没有其它限制。</p>
+<p>使用 <em>syntonly</em> 宏包可以让 LATEX 快速的检查你的文档：LATEX
+浏览你的文档，仅仅检查语法和所使用的命令是否正确，不会产生 DVI
+输出。在这种模式下，LATEX
+运行的非常快，可以节省可观的时间。使用方法非常简 单：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\usepackage&#123;syntonly&#125;</span><br><span class="line">\syntaxonly</span><br></pre></td></tr></table></figure>
+<hr />
+<h1 id="文档排版">文档排版</h1>
+<h2 id="文档和语言的结构">文档和语言的结构</h2>
+<p>在 LATEX
+中段落是最重要的文档单位。我们之所以称之为“文档单位”，因为段落是反映一个连贯思想或观点的排版风格形式。在下面的章节中你将学习如何用
+<code>\\</code>
+强行断行，通过在源文件中留一空行强行转段。所以，<strong>如果开始一个新思想，就另起一段，否则，只应使用断行</strong>。如果还犹豫是否应转段，可以把文档想象为观点和思想的传递者。如果旧的思路还在继续，就不应转段。如果同一段中出现了全新的思路，就应该另起一段。</p>
+<p>下一个较小的文档单位是句子。在英语文档中，在一个句子结尾处句号后的空间大于缩写词句号后的空间。LATEX
+试图分辨出你需要那一个。如果 LATEX 分辨错了，你必须告诉 LATEX
+你到底需要什么。</p>
+<p>句子也有结构。大多数语言具有非常复杂的标点符号系统，但是在很多语言中（包括德语和英语）只要你记住它表示什么：语言流中的短暂停顿，你就能近乎完美地使用逗号。如果你不肯定在哪里使用逗号，就大声地朗读这个句子，在每个逗号处做一短呼吸。在什么地方如果你感到别扭，就删掉这个逗号；如果在什么地方，你感到必须呼吸（或做了短暂停顿）就插入一个逗号。</p>
+最后，通过分成章、节、子节等形式，文档中的段落应该按逻辑在更高的层次进行组织。但是，使用
+<p>的排版效果是如此明显，以致如何使用这些高水平的结构几乎是不证自明的。</p>
+<h2 id="断行和分页">断行和分页</h2>
+<h3 id="段落整理">段落整理</h3>
+<p>通常书籍是用等长的行来排版的。为了优化整个段落的内容，LATEX
+在单词之间插入必要的断行点（linebreak）和间隔。如果一行的单词排不下，LATEX
+也会进行必要的断字。段落如何排版依赖于文档类别。通常，每一段的第一行有缩进，在两段之间没有额外的间隔。</p>
+<p>在特殊情形下，有必要命令 LATEX 断行：</p>
+<ul>
+<li><code>\\</code> 或 <code>\newline</code>
+另起一行，而不另起一段。</li>
+<li><code>\\*</code> 在强行断行后，还禁止分页。</li>
+<li><code>\newpage</code> 另起一新页。</li>
+<li><code>\linebreak[n], \nolinebreak[n], \pagebreak[n] and \nopagebreak[n]</code>上述命令的效果可以从它们的名称看出来。通过可选参数
+n，作者可以影响这些命令的效果。n 可以置为 0 和 4
+之间的数。如果命令的效果看起来非常差，把 n 取为小于 4 的数，可以让 LATEX
+选择忽略这个命令。不要这些“break” 命令与 “new” 命令混淆。即使你给出了
+“break” 命令，LATEX
+仍然试图对齐页面的右边界。如果你真想另起一行，就使用相应的命令。</li>
+</ul>
+<p>LATEX 总是尽可能产生最好的断行效果。如果断行无法达到 LATEX
+的高标准，就让这一行在段落的右侧溢出。然后在处理输入文件的同时，报告溢出的消息（“overfull
+hbox”）。这最可能发生在 LATEX 找不到合适的地方断字时候。你可以使用
+<code>\sloppy</code> 命令，告诉 LATEX
+降低一点儿标准。虽然最终的输出结果不是最优的，它通过增加单词之间的间隔，以防止出现过长的行。在这种情况下给出警告（“underfull
+hbox”）。在大多数情况下得到的结果看起来不会非常好。<code>\fussy</code>
+命令把 LATEX 恢复为缺省状态。</p>
+<p>当发生（“overfull hbox”）时，虽然 LATEX
+给出一个警告并显示溢出的那一行，但是不太容易发现溢出的行。如果你在
+<strong>\documentclass</strong> 命令中使用选项 <em>draft</em>，LATEX
+就在溢出行的右边标以粗黑线。</p>
+<h3 id="断字">断字</h3>
+<p>必要时就会出现断字。如果断字算法不能确定正确的断字点，可以使用如下命令告诉
+TEX 如何弥补这个缺憾。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\hyphenation&#123;word list&#125;</span><br></pre></td></tr></table></figure>
+<p>使列于参量中的单词仅在注有 “-”
+的点断字。命令的参量仅由正常字母构成的单词，或由激活文本中视为正常字母的符号组成。应用于（特殊）语言的已存好，当断字命令出现时，就为激活的语言储存断字可选点。这意
+味着如果你在文档导言中设置了断字命令，它将影响英文的断字。如果断字命令置于
+\begin{document} 后面，而且你正使用类似 babel
+的国际语言支持宏包，那么断字可选点在由 babel
+激活的语言中就处于活动状态。</p>
+<p>下面的例子允许对 “hyphenation” 和 “Hyphenation”
+进行断字，却根本不允许 “FORTRAN”, “Fortran” 和 “fortran”
+进行断字。在参量中不允许出现特殊的字符和符号。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\hyphenation&#123;FORTRAN Hy-phen-a-tion&#125;</span><br></pre></td></tr></table></figure>
+<p>命令 <code>\-</code>
+在单词中插入一个自主的断字点。它也就成为这个单词中允许出现的唯一断字点。对于包含特殊字符（注音字符）的单词，这个命令是特别有用的，因为对于包含特殊字符的单词
+LATEX 不自动断字。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">I think this is: su\-per\-cal\-%</span><br><span class="line">i\-frag\-i\-lis\-tic\-ex\-pi\-%</span><br><span class="line">al\-i\-do\-cious</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">I think this is: supercalifragilisticexpialido-</span><br><span class="line">cious</span><br></pre></td></tr></table></figure>
+<p>命令 <code>\mbox&#123;text&#125;</code>
+保证把几个单词排在同一行上。在任何情况下，这个命令把它的参量排在一起（同一行上）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">My phone number will change soon.</span><br><span class="line">It will be \mbox&#123;0116 291 2319&#125;.</span><br><span class="line">The parameter</span><br><span class="line">\mbox&#123;\emph&#123;filename&#125;&#125; should</span><br><span class="line">contain the name of the file.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">My phone number will change soon. It will</span><br><span class="line">be 0116 291 2319.</span><br><span class="line">The parameter *filename* should contain the</span><br><span class="line">name of the file.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上述两星号之间为斜体</p>
+</blockquote>
+<p>命令 和 类似，此外它还能围绕内容画一个框。</p>
+<h2 id="特殊字符串和符号">特殊字符串和符号</h2>
+<h3 id="引号">引号</h3>
+<p>不要像在打字机上那样，把 " 用作引号。在 LATEX
+中有专门的左引号和右引号。在 LATEX 中，用两个 ‘ 产生左引号，用两个 ’
+产生右引号。一个 ‘ 和一个 ’ 产生一个单引号。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">‘‘Please press the ‘x’ key.’’</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">“Please press the ‘x’ key.”</span><br></pre></td></tr></table></figure>
+<h3 id="破折号和连字号">破折号和连字号</h3>
+<p>LATEX
+中有四种短划标点符号。连续用不同数目的短划，可以得到其中的三种。第四个实际不是标点符号，它是数学中的减号：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">daughter-in-law, X-rated\\</span><br><span class="line">pages 13--67\\</span><br><span class="line">yes---or no? \\</span><br><span class="line">$0$, $1$ and $-1$</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">daughter-in-law, X-rated</span><br><span class="line">pages 13–67</span><br><span class="line">yes—or no?</span><br><span class="line">0, 1 and −1</span><br></pre></td></tr></table></figure>
+<p>这些短划线的名称是: ‘-’ 连字号，‘--’ 短破折号，‘---’ 长破折号和 ‘−’
+减号。</p>
+<h3 id="波浪号">波浪号</h3>
+<p>波浪号经常和网址用在一起。它在 LATEX 中，可用 ~ 产生，但其结果：˜
+却不是你真正想要的。试一下这个：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://www.rich.edu/\~&#123;&#125;bush \\</span><br><span class="line">http://www.clever.edu/$\sim$demo</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://www.rich.edu/˜bush</span><br><span class="line">http://www.clever.edu/∼demo</span><br></pre></td></tr></table></figure>
+<h3 id="度的符号">度的符号 (◦)</h3>
+<p>在LATEX中如何排度的符号？</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Its $-30\,^&#123;\circ&#125;\mathrm&#123;C&#125;$,</span><br><span class="line">I will soon start to</span><br><span class="line">super-conduct.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Its −30 ◦C, I will soon start to super-conduct.</span><br></pre></td></tr></table></figure>
+<h3 id="省略号">省略号</h3>
+<p>在打字机上，逗号或句号占据的空间和其他字母相等。在书籍印刷中，这些字符仅占据一点儿空间，并且与前一个字母贴得非常紧。所以不能只键入三个点来输出‘省略号’，因为间隔划分得不对。我们使用专门的命令
+<code>\ldots</code> 输出省略号。</p>
+<h3 id="连字">连字</h3>
+<p>一些字母组合不是简单键入一个个字母得到得的，而实际上用到了一些特殊符号。
+在两个字母之间插入一个
+，可以禁止连字。对于由两个词构成的单词，这可能是必要的。</p>
+<h3 id="注音符号和特殊字符">注音符号和特殊字符</h3>
+<p>LATEX 支持来自许多语言中的注音符号和特殊字符。在字母 i 和 j
+上标一个注音符号，它的点儿必须去掉。这个可由 <code>\i</code> 和
+<code>\j</code> 做到。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">H\^otel, na\&quot;\i ve, \’el\‘eve,\\</span><br><span class="line">sm\o rrebr\o d, !‘Se\~norita!,\\</span><br><span class="line">Sch\&quot;onbrunner Schlo\ss&#123;&#125;</span><br><span class="line">Stra\ss e</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Hˆotel, na¨ıve, ´el`eve,</span><br><span class="line">smørrebrød, ¡Se˜norita!,</span><br><span class="line">Sch¨onbrunner Schloß Straße</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上述为注音符号</p>
+</blockquote>
+<h2 id="支持使用国际语言">支持使用国际语言</h2>
+<p>略</p>
+<h2 id="单词的间隔">单词的间隔</h2>
+<p>为了使输出的右边界对齐，LATEX
+在单词间插入不等的间隔。在句子的末尾插入的空间稍多一些，因为这使得文本更具可读性。<strong>LATEX
+假定句子以句号、问号或惊叹号结尾</strong>。<strong>如果句号紧跟一个大写字母，它就不视为句子的结尾</strong>。因为一般在有缩写地方，才出现句号紧跟大写字母的情况。</p>
+<p>作者必须详细说明，这些假设中的任何一个例外。空格前的反斜线符号产生一个不能伸长的空格。波浪字符
+‘~’ 也产生一个不能伸长的空格，并且禁止断行。句号前的命令 @
+说明这个句号是句子的末尾，即使它紧跟一个大写字母。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mr.~Smith was happy to see her\\</span><br><span class="line">cf.~Fig.~5\\</span><br><span class="line">I like BASIC\@. What about you?</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Mr. Smith was happy to see her</span><br><span class="line">cf. Fig. 5</span><br><span class="line">I like BASIC. What about you?</span><br></pre></td></tr></table></figure>
+<p>命令 <code>\frenchspacing</code> 能禁止在句号后插入额外的空间，它告诉
+LATEX
+在句号后不要插入比正常字母更多的空间。除了参考文献，这在非英语语言中非常普遍。如果使用了
+<code>\frenchspacing</code>，命令 <code>\@</code> 就不必要了。</p>
+<h2 id="标题章和节">标题，章和节</h2>
 ]]></content>
       <categories>
         <category>Learning</category>
@@ -4200,10 +4447,17 @@ alt="SPL-2020-10-05" />
     <url>/Pokemon/See-My-Loving-Pokemons/</url>
     <content><![CDATA[<p>以此博客纪念我爱的宝可梦们~~ 封面 [ID:79498766].</p>
 <span id="more"></span>
-<h1 id="チュチュ-丘丘">チュチュ （丘丘）</h1>
+<h1 id="写在这里">写在这里：</h1>
+<p>希望大家都能喜爱并珍惜与自己相遇的那些宝可梦！
+享受宝可梦带来的快乐！</p>
+<p><br><br></p>
+<hr />
+<hr />
+<h1 id="チュチュ">チュチュ</h1>
 <figure>
-<img data-src="/images/body/See-My-Loving-Pokemons/kyukyu.png" alt="丘丘" />
-<figcaption aria-hidden="true">丘丘</figcaption>
+<img data-src="/images/body/See-My-Loving-Pokemons/kyukyu.png"
+alt="チュチュ" />
+<figcaption aria-hidden="true">チュチュ</figcaption>
 </figure>
 <h2 id="about">About</h2>
 <p><img data-src="/images/body/See-My-Loving-Pokemons/kyukyu-Summary.png"
@@ -4312,11 +4566,28 @@ alt="Evolution2" /> ## Plans - 集齐3代奖章.</p>
 </blockquote>
 <p><br><br></p>
 <hr />
-<hr />
-<p><br></p>
-<h1 id="写在这里">写在这里：</h1>
-<p>希望大家都能喜爱并珍惜与自己相遇的那些宝可梦！
-享受宝可梦带来的快乐！</p>
+<p><br><br></p>
+<h1 id="ditto">DITTO</h1>
+<figure>
+<img data-src="/images/body/See-My-Loving-Pokemons/DITTO.jpg" alt="DITTO" />
+<figcaption aria-hidden="true">DITTO</figcaption>
+</figure>
+<h2 id="about-5">About</h2>
+<p><img data-src="/images/body/See-My-Loving-Pokemons/DITTO-Summary.jpg"
+alt="Summary" /> - 种类：#132 <a
+href="https://wiki.52poke.com/wiki/%E7%99%BE%E5%8F%98%E6%80%AA">百变怪</a>
+- 相遇时间：2022-05-07 - 相遇地点：关都地区红莲镇宝可梦屋<img
+src="/images/body/See-My-Loving-Pokemons/Pokémon_Mansion.webp"
+alt="Pokémon_Mansion" /> - 相遇版本：Pokemon Leaf Green</p>
+<figure>
+<img data-src="/images/body/See-My-Loving-Pokemons/DITTO-Encounter1.png"
+alt="Encounter1" />
+<figcaption aria-hidden="true">Encounter1</figcaption>
+</figure>
+<h2 id="plans-1">Plans</h2>
+<ul>
+<li>集齐全奖章.</li>
+</ul>
 <p><br><br></p>
 <hr />
 <hr />
@@ -4337,7 +4608,12 @@ src="/images/body/See-My-Loving-Pokemons/More/G3/G3(11).png" /> <img
 src="/images/body/See-My-Loving-Pokemons/More/G3/G3(12).png" /> <img
 src="/images/body/See-My-Loving-Pokemons/More/G3/G3(13).png" /> <img
 src="/images/body/See-My-Loving-Pokemons/More/G3/G3(14).png" /> <img
-src="/images/body/See-My-Loving-Pokemons/More/G3/G3(15).png" /></p>
+src="/images/body/See-My-Loving-Pokemons/More/G3/G3(15).png" /> <img
+src="/images/body/See-My-Loving-Pokemons/More/G3/G3(16).png" /> <img
+src="/images/body/See-My-Loving-Pokemons/More/G3/G3(17).png" /> <img
+src="/images/body/See-My-Loving-Pokemons/More/G3/G3(18).png" /> <img
+src="/images/body/See-My-Loving-Pokemons/More/G3/G3(19).png" /> <img
+src="/images/body/See-My-Loving-Pokemons/More/G3/G3(20).png" /></p>
 <p><br><br></p>
 <hr />
 <p><br><br></p>
