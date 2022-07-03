@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2022-07-02T12:33:33.329Z</updated>
+  <updated>2022-07-03T02:48:24.216Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基础知识01</title>
+    <link href="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/"/>
+    <id>http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/</id>
+    <published>2022-07-03T02:33:40.000Z</published>
+    <updated>2022-07-03T02:48:24.216Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Zheng. w/ his five DADs</title>
+    <link href="http://willkyu.github.io/Life/Zheng-with-his-five-dads/"/>
+    <id>http://willkyu.github.io/Life/Zheng-with-his-five-dads/</id>
+    <published>2022-07-03T02:01:21.000Z</published>
+    <updated>2022-07-03T02:50:04.002Z</updated>
+    
+    
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    
+    
+    
+    <category term="Life" scheme="http://willkyu.github.io/categories/Life/"/>
+    
+    
+    <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
+    
+    <category term="529" scheme="http://willkyu.github.io/tags/529/"/>
+    
+    <category term="Suda" scheme="http://willkyu.github.io/tags/Suda/"/>
+    
+  </entry>
   
   <entry>
     <title>Nintendo Memo</title>
@@ -44,10 +88,11 @@
     <link href="http://willkyu.github.io/Pokemon/Shiny-Lock/"/>
     <id>http://willkyu.github.io/Pokemon/Shiny-Lock/</id>
     <published>2022-05-24T04:58:32.000Z</published>
-    <updated>2022-05-26T04:47:03.325Z</updated>
+    <updated>2022-05-26T04:47:04.000Z</updated>
     
     
-    <summary type="html">&lt;p&gt;游戏内锁闪宝可梦汇总. 不包含配信的闪光宝可梦与联动的宝可梦(如SwSh伙伴皮卡丘伊布、BdSp首发特典等).&lt;/p&gt;
+    <summary type="html">&lt;p&gt;游戏内锁闪宝可梦汇总.
+不包含配信的闪光宝可梦与联动的宝可梦(如SwSh伙伴皮卡丘伊布、BdSp首发特典等).&lt;/p&gt;
 &lt;p&gt;如有纰漏请在下方留言或&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;封面 [ID:57993916].&lt;/p&gt;</summary>
     
@@ -91,7 +136,7 @@
     <link href="http://willkyu.github.io/Learning/Notes/Sparse-Matrix/"/>
     <id>http://willkyu.github.io/Learning/Notes/Sparse-Matrix/</id>
     <published>2022-01-30T03:36:27.000Z</published>
-    <updated>2022-01-30T04:13:21.489Z</updated>
+    <updated>2022-01-30T04:13:22.000Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -115,10 +160,13 @@
     <link href="http://willkyu.github.io/Learning/Notes/GraIL/"/>
     <id>http://willkyu.github.io/Learning/Notes/GraIL/</id>
     <published>2022-01-18T03:34:44.000Z</published>
-    <updated>2022-05-24T03:32:52.239Z</updated>
+    <updated>2022-05-24T03:32:54.000Z</updated>
     
     
-    <summary type="html">&lt;p&gt;论文 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MTEuMDY5NjI=&quot;&gt;Inductive relation prediction by subgraph reasoning&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 阅读笔记. 译文可见&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMUlYdElaaFlKRmtFY2lxRVBmbFdLdVE=&quot;&gt;https://pan.baidu.com/s/1IXtIZhYJFkEciqEPflWKuQ&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;，提取码&lt;em&gt;will&lt;/em&gt;.&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;论文 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MTEuMDY5NjI=&quot;&gt;Inductive relation
+prediction by subgraph reasoning&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 阅读笔记. 译文可见&lt;a
+href=&quot;https://pan.baidu.com/s/1IXtIZhYJFkEciqEPflWKuQ&quot;
+class=&quot;uri&quot;&gt;https://pan.baidu.com/s/1IXtIZhYJFkEciqEPflWKuQ&lt;/a&gt;，提取码&lt;em&gt;will&lt;/em&gt;.&lt;/p&gt;</summary>
     
     
     
@@ -138,7 +186,7 @@
     <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen6/"/>
     <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen6/</id>
     <published>2022-01-15T08:32:56.000Z</published>
-    <updated>2022-01-18T04:32:44.388Z</updated>
+    <updated>2022-01-18T04:32:46.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文内容不涉及3ds/2ds系列的破解过程，本篇内容均建立在读者已经将3ds/2ds系列破解了的基础上.&lt;/p&gt;
@@ -164,10 +212,11 @@
     <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen4/"/>
     <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen4/</id>
     <published>2022-01-14T02:01:15.000Z</published>
-    <updated>2022-03-26T02:16:34.338Z</updated>
+    <updated>2022-03-26T02:16:36.000Z</updated>
     
     
-    <summary type="html">&lt;p&gt;这是宝可梦四代的实机乱数教程. 包含 ID 与 Egg 的乱数教程. 如有纰漏，请&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
+    <summary type="html">&lt;p&gt;这是宝可梦四代的实机乱数教程. 包含 ID 与 Egg 的乱数教程.
+如有纰漏，请&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
 &lt;p&gt;封面 [ID:92026700].&lt;/p&gt;</summary>
     
     
@@ -188,7 +237,7 @@
     <link href="http://willkyu.github.io/Game/Undercover-Brella-Diary/"/>
     <id>http://willkyu.github.io/Game/Undercover-Brella-Diary/</id>
     <published>2022-01-07T15:54:32.000Z</published>
-    <updated>2022-05-24T03:08:49.222Z</updated>
+    <updated>2022-05-24T03:08:50.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;记录间谍伞的心路历程与领悟，希望早日上&lt;strong&gt;X&lt;/strong&gt;！&lt;/p&gt;
@@ -210,7 +259,7 @@
     <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/Battle-Pyramid-Shiny/"/>
     <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/Battle-Pyramid-Shiny/</id>
     <published>2022-01-02T14:33:57.000Z</published>
-    <updated>2022-02-08T03:36:41.439Z</updated>
+    <updated>2022-02-08T03:36:42.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;对战金字塔中会出现很多平时抓不到的（闪光）宝可梦，但却没有办法抓，是不是很不甘心呢？这篇攻略为你带来了捕捉方法！（&lt;strong&gt;当然很难也有副作用&lt;/strong&gt;）&lt;/p&gt;
@@ -235,7 +284,7 @@
     <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part3/"/>
     <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part3/</id>
     <published>2021-12-24T12:55:41.000Z</published>
-    <updated>2022-02-08T03:53:13.096Z</updated>
+    <updated>2022-02-08T03:53:14.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;这是宝可梦火红叶绿的实机乱数教程. 不包含 ID 与 Egg 的乱数教程.
@@ -260,7 +309,7 @@
     <link href="http://willkyu.github.io/Pokemon/PokeSchedule/"/>
     <id>http://willkyu.github.io/Pokemon/PokeSchedule/</id>
     <published>2021-12-24T00:36:44.000Z</published>
-    <updated>2022-02-08T07:52:11.491Z</updated>
+    <updated>2022-02-08T07:52:12.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;使用 &lt;em&gt;CheckBox&lt;/em&gt; 记录宝可梦各世代的目标以及完成情况.
@@ -284,7 +333,7 @@
     <link href="http://willkyu.github.io/Learning/Blog/Blog-Personalization/"/>
     <id>http://willkyu.github.io/Learning/Blog/Blog-Personalization/</id>
     <published>2021-12-19T10:56:54.000Z</published>
-    <updated>2022-01-30T13:33:32.593Z</updated>
+    <updated>2022-01-30T13:33:34.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;记录博客在使用 &lt;a
@@ -315,7 +364,7 @@ href=&quot;/Archive/The-First-Blog/&quot;&gt;置顶◇代办◇与更新记录&l
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch10/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch10/</id>
     <published>2021-12-17T03:34:44.000Z</published>
-    <updated>2022-01-19T15:12:01.991Z</updated>
+    <updated>2022-01-19T15:12:02.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;梯度下降，激活函数，与常见Loss&lt;/p&gt;</summary>
@@ -336,7 +385,7 @@ href=&quot;/Archive/The-First-Blog/&quot;&gt;置顶◇代办◇与更新记录&l
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch09/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch09/</id>
     <published>2021-12-16T12:59:16.000Z</published>
-    <updated>2022-01-19T15:11:56.534Z</updated>
+    <updated>2022-01-19T15:11:58.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;记录了PyTorch中两个高阶操作：&lt;code&gt;Where&lt;/code&gt;与&lt;code&gt;Gather&lt;/code&gt;&lt;/p&gt;</summary>
@@ -357,7 +406,7 @@ href=&quot;/Archive/The-First-Blog/&quot;&gt;置顶◇代办◇与更新记录&l
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch08/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch08/</id>
     <published>2021-12-16T12:59:12.000Z</published>
-    <updated>2022-01-19T15:11:51.743Z</updated>
+    <updated>2022-01-19T15:11:52.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;记录了PyTorch一些常见统计属性.&lt;/p&gt;</summary>
@@ -378,7 +427,7 @@ href=&quot;/Archive/The-First-Blog/&quot;&gt;置顶◇代办◇与更新记录&l
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch07/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch07/</id>
     <published>2021-12-16T06:36:32.000Z</published>
-    <updated>2022-01-19T15:11:45.436Z</updated>
+    <updated>2022-01-19T15:11:46.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;PyTorch的一些基本运算&lt;/p&gt;</summary>
@@ -399,7 +448,7 @@ href=&quot;/Archive/The-First-Blog/&quot;&gt;置顶◇代办◇与更新记录&l
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch06/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch06/</id>
     <published>2021-12-16T06:36:05.000Z</published>
-    <updated>2022-01-19T15:11:37.473Z</updated>
+    <updated>2022-01-19T15:11:38.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;Tensor的拼接与拆分操作&lt;/p&gt;</summary>
@@ -420,58 +469,10 @@ href=&quot;/Archive/The-First-Blog/&quot;&gt;置顶◇代办◇与更新记录&l
     <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch05/"/>
     <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch05/</id>
     <published>2021-12-16T02:55:29.000Z</published>
-    <updated>2022-01-19T15:11:31.594Z</updated>
+    <updated>2022-01-19T15:11:32.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;PyTorch的自动扩展&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
-    
-    
-    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
-    
-    <category term="PyTorch" scheme="http://willkyu.github.io/tags/PyTorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何自制宝可梦Gen4与Gen5的配信器</title>
-    <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/WCD-Distribution-Patch/"/>
-    <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/WCD-Distribution-Patch/</id>
-    <published>2021-12-15T14:52:38.000Z</published>
-    <updated>2022-02-08T03:29:15.772Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这是宝可梦自制四五代配信器的教程. 如有纰漏，请&lt;a
-href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
-&lt;p&gt;封面 [ID:84354949].&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
-    
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
-    
-    <category term="Pokemon-Distribution" scheme="http://willkyu.github.io/tags/Pokemon-Distribution/"/>
-    
-    <category term="Pokemon-Gen4" scheme="http://willkyu.github.io/tags/Pokemon-Gen4/"/>
-    
-    <category term="Pokemon-Gen5" scheme="http://willkyu.github.io/tags/Pokemon-Gen5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PyTorch笔记04----Tensor维度变换</title>
-    <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch04/"/>
-    <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch04/</id>
-    <published>2021-12-15T12:17:23.000Z</published>
-    <updated>2022-01-19T15:11:23.468Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;PyTorch的一些Tensor维度变换方式&lt;/p&gt;</summary>
     
     
     

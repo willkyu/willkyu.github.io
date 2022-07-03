@@ -31,7 +31,7 @@
 <meta property="og:description" content="梯度下降，激活函数，与常见Loss">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-12-17T03:34:44.000Z">
-<meta property="article:modified_time" content="2022-01-19T15:12:01.991Z">
+<meta property="article:modified_time" content="2022-01-19T15:12:02.000Z">
 <meta property="article:author" content="willkyu">
 <meta property="article:tag" content="Learning">
 <meta property="article:tag" content="PyTorch">
@@ -169,7 +169,7 @@ Error）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -180,7 +180,7 @@ Error）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -288,7 +288,7 @@ Error）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-19 23:12:01" itemprop="dateModified" datetime="2022-01-19T23:12:01+08:00">2022-01-19</time>
+      <time title="Modified: 2022-01-19 23:12:02" itemprop="dateModified" datetime="2022-01-19T23:12:02+08:00">2022-01-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -337,8 +337,7 @@ Error）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav
 <ul>
 <li>使用很多，奠基石</li>
 <li>减少了梯度弥散和梯度爆炸的出现</li>
-<li>使用<code>torch.relu(a)</code>或<code>F.relu(a)</code>（<code>import
-torch.nn.functional as F</code>）</li>
+<li>使用<code>torch.relu(a)</code>或<code>F.relu(a)</code>（<code>import torch.nn.functional as F</code>）</li>
 </ul>
 <h2 id="softmaxsoft-version-of-max">Softmax（soft version of max）</h2>
 <p>输入y: [y1, y2, ..., yn] ，输出p: [p1, p2, ..., pn]且sum(p) = 1
@@ -350,10 +349,10 @@ p: [0.7, 0.2, 0.1] 会让大的更大，小的压缩在一个更密集的空间
 <h1 id="loss及其梯度">Loss及其梯度</h1>
 <h2 id="均方差msemean-squared-error">均方差MSE（Mean Squared
 Error）</h2>
-<p><code>loss = sum((y - y_pred) ** 2)</code> 不是L2-norm <code>L2-norm
-= sqrt(sum((y - y+pred) ** 2))</code> 可以使用norm()函数 <code>loss =
-norm.norm(y - y_pred, 2).pow(2)</code> 梯度：<code>dloss_dx = 2 * sum(y
-- y_pred) * dy_pred_dx</code></p>
+<p><code>loss = sum((y - y_pred) ** 2)</code> 不是L2-norm
+<code>L2-norm = sqrt(sum((y - y+pred) ** 2))</code> 可以使用norm()函数
+<code>loss = norm.norm(y - y_pred, 2).pow(2)</code>
+梯度：<code>dloss_dx = 2 * sum(y - y_pred) * dy_pred_dx</code></p>
 <p>使用PyTorch求导 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">x = torch.ones(1)</span><br><span class="line">w = torch.full([1], 2)</span><br><span class="line">mse = F.mse_loss(x * w, torch.ones(1))  #第一个参数为predict值，第二个参数为label</span><br><span class="line">#tensor(1.)</span><br><span class="line"></span><br><span class="line">torch.autograd.grad(mse, [w])</span><br><span class="line">#第一个参数y，第二个参数[x1, x2, ...]</span><br><span class="line">#tensor定义时默认不需要求导信息，所以w无法求导 </span><br><span class="line">--------ERROR--------</span><br><span class="line"></span><br><span class="line">#对w进行更新或者在定义w时加入参数requires_grad = True</span><br><span class="line">w.requires_grad_()</span><br><span class="line">    #tensor([2.], requires_grad = True)</span><br><span class="line">    #这时求梯度仍然会报错，因为PyTorch是动态图（做一步计算一步图），要先更新一下mse</span><br><span class="line">mse = F.mse_loss(x * w, torch.ones(1))</span><br><span class="line"></span><br><span class="line">torch.autograd.grad(mse, [w])   #tensor([2.])                                                                                                                 </span><br><span class="line"></span><br><span class="line">mse.backward()</span><br><span class="line">mse.grad            #tensor([2.])</span><br></pre></td></tr></table></figure></p>
 <h1 id="cross-entropy-loss">Cross Entropy Loss</h1>
 <p>之后介绍</p>
