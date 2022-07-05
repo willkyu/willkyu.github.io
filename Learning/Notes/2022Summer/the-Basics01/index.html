@@ -23,15 +23,26 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"willkyu.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="是什么（如定义、有哪些实例或者公式等等） 优缺点 应用场景 知识点实例之间的对比（如，relu和tanh有什么联系、区别）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基础知识01">
 <meta property="og:url" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/index.html">
 <meta property="og:site_name" content="丘丘Blog">
+<meta property="og:description" content="是什么（如定义、有哪些实例或者公式等等） 优缺点 应用场景 知识点实例之间的对比（如，relu和tanh有什么联系、区别）">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics/third-order-tensor.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics/three-fitting-curve.jpg">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics/different-local-minimum.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics/gradient-descent.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics/Adagrad.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics/RMSProp.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics/RMSProp-Nesterov.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics/Adam.png">
 <meta property="article:published_time" content="2022-07-03T02:33:40.000Z">
-<meta property="article:modified_time" content="2022-07-03T02:48:24.216Z">
+<meta property="article:modified_time" content="2022-07-05T03:18:15.048Z">
 <meta property="article:author" content="willkyu">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics/third-order-tensor.png">
 
 
 <link rel="canonical" href="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/">
@@ -136,7 +147,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -149,6 +160,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%A0%E9%87%8F"><span class="nav-text">张量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%A0%E9%87%8F%E7%9A%84%E8%8C%83%E6%95%B0"><span class="nav-text">张量的范数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%A0%E9%87%8F%E7%9A%84%E5%86%85%E7%A7%AF"><span class="nav-text">张量的内积</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E5%88%9D%E5%A7%8B%E5%8C%96%E7%AD%96%E7%95%A5"><span class="nav-text">参数初始化策略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%BA%E5%B8%B8%E6%95%B0%E8%BF%87%E5%A4%A7%E6%88%96%E8%BF%87%E5%B0%8F"><span class="nav-text">初始化为常数、过大或过小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%98%AF%E5%A5%BD%E7%9A%84"><span class="nav-text">什么样的初始化是好的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xavier%E5%88%9D%E5%A7%8B%E5%8C%96%E7%AD%96%E7%95%A5"><span class="nav-text">Xavier初始化策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kaiming%E5%88%9D%E5%A7%8B%E5%8C%96%E7%AD%96%E7%95%A5"><span class="nav-text">Kaiming初始化策略</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%8C%83%E6%95%B0%E4%B8%8E%E6%AD%A3%E5%88%99%E5%8C%96"><span class="nav-text">参数范数与正则化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8C%83%E6%95%B0"><span class="nav-text">范数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E6%95%B0%E5%80%BC%E5%81%87%E8%AE%BE%E5%88%86%E6%9E%90"><span class="nav-text">简单数值假设分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95"><span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8%E4%B8%8E%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1"><span class="nav-text">梯度爆炸与梯度消失</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8"><span class="nav-text">梯度爆炸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1"><span class="nav-text">梯度消失</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A7%E7%94%9F%E5%8E%9F%E5%9B%A0"><span class="nav-text">产生原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E5%B9%B6%E5%BE%AE%E8%B0%83"><span class="nav-text">预训练并微调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E5%89%AA%E5%88%87%E4%B8%8E%E6%AD%A3%E5%88%99%E5%8C%96"><span class="nav-text">梯度剪切与正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8reluleakreluelu%E7%AD%89%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">使用relu、leakrelu、elu等激活函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%B9%E8%A7%84%E8%8C%83%E5%8C%96"><span class="nav-text">批规范化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%AE%8B%E5%B7%AE%E7%BB%93%E6%9E%84"><span class="nav-text">使用残差结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lstm%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C"><span class="nav-text">LSTM（长短期记忆网络）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E9%80%82%E5%BA%94%E5%AD%A6%E4%B9%A0%E7%8E%87%E7%AE%97%E6%B3%95"><span class="nav-text">自适应学习率算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#adagrad"><span class="nav-text">AdaGrad</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rmsprop"><span class="nav-text">RMSProp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adam"><span class="nav-text">Adam</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87"><span class="nav-text">评估指标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">归一化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dropout"><span class="nav-text">Dropout</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">激活函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">损失函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC"><span class="nav-text">反向传播算法（公式推导）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="nav-text">过拟合、欠拟合</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -274,9 +286,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-07-03 10:33:40 / Modified: 10:48:24" itemprop="dateCreated datePublished" datetime="2022-07-03T10:33:40+08:00">2022-07-03</time>
+      <time title="Created: 2022-07-03 10:33:40" itemprop="dateCreated datePublished" datetime="2022-07-03T10:33:40+08:00">2022-07-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-05 11:18:15" itemprop="dateModified" datetime="2022-07-05T11:18:15+08:00">2022-07-05</time>
     </span>
 
   
@@ -296,7 +314,316 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <span id="more"></span>
+        <p>是什么（如定义、有哪些实例或者公式等等）</p>
+<p>优缺点</p>
+<p>应用场景</p>
+<p>知识点实例之间的对比（如，relu和tanh有什么联系、区别）</p>
+<span id="more"></span>
+<h1 id="张量">张量</h1>
+<p>张量（tensor）是一个<strong>多维数组</strong>，张量的<strong>阶数（order）</strong>也称为维度（dimensions）。</p>
+<p>一阶张量是一个<strong>矢量</strong>，二阶张量是一个<strong>矩阵</strong>，三阶或更高阶的张量叫做<strong>高阶张量</strong>。</p>
+<!--
+![三阶张量](/images/body/the-Basics01/third-order-tensor.png "A third-order tensor")
+-->
+<figure>
+<img data-src="pics/third-order-tensor.png" title="A third-order tensor"
+alt="三阶张量" />
+<figcaption aria-hidden="true">三阶张量</figcaption>
+</figure>
+<h2 id="张量的范数">张量的范数</h2>
+<p>张量 <span class="math inline">\(\mathscr{X} \in \mathbb{R}^{I_1
+\times I_2 \times \cdots \times I_N}\)</span>
+的范数（norm）是其<strong>所有元素平方和的平方根</strong>，即</p>
+<p><span class="math display">\[
+\Vert \mathscr{X} \Vert =
+\sqrt{\sum_{i_1=1}^{I_1}{\sum_{i_2=1}^{I_2}{\cdots
+\sum_{i_N=1}^{I_N}{x_{i_1i_2 \cdots i_N}^2}}}}
+\]</span></p>
+<h2 id="张量的内积">张量的内积</h2>
+<p>两个相同大小的张量 <span class="math inline">\(\mathscr{X} ,
+\mathscr{Y} \in \mathbb{R}^{I_1 \times I_2 \times \cdots \times
+I_N}\)</span> 的内积（inner product）为</p>
+<p><span class="math display">\[
+\langle \mathscr{X} , \mathscr{Y} \rangle =
+\sum_{i_1=1}^{I_1}{\sum_{i_2=1}^{I_2} {\cdots
+\sum_{i_N=1}^{I_N}{x_{i_1i_2 \cdots i_N} y_{i_1i_2 \cdots i_N}}}}
+\]</span></p>
+<p>且有 <span class="math inline">\(\langle \mathscr{X} , \mathscr{X}
+\rangle = \Vert \mathscr{X} \Vert^2\)</span></p>
+<h1 id="参数初始化策略">参数初始化策略</h1>
+<p>深度学习中，神经网络的参数初始化策略对模型的收敛速度及性能有至关重要的影响。在神经网络中，随着层数的增多，在梯度下降的过程中极易出现<a
+href="#梯度爆炸梯度消失">梯度消失或梯度爆炸</a>的问题，一个好的参数初始化对于处理这两个问题有着很大帮助。</p>
+<h2 id="初始化为常数过大或过小">初始化为常数、过大或过小</h2>
+<p>这些初始化策略都是不可取的，常数初始化会使得每层所有神经元相等，效果等效于一个神经元，极大限制了神经网络的学习能力。而参数过大过小会导致模型出现梯度爆炸或梯度消失的问题。</p>
+<p>具体推导过程可见：<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xMzgwNjQxODg=">https://zhuanlan.zhihu.com/p/138064188<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="什么样的初始化是好的">什么样的初始化是好的？</h2>
+<ul>
+<li>因为对参数 <span class="math inline">\(w\)</span>
+的大小和正负缺乏先验知识，<span class="math inline">\(w\)</span>
+应为随机数，且期望 <span class="math inline">\(E(w) = 0\)</span> 。</li>
+<li>为了防止梯度爆炸和梯度消失，权重不宜过大或过小，要对权重的方差 <span
+class="math inline">\(Var(w)\)</span> 有所控制。</li>
+<li>由于 <span class="math inline">\(dW_{l} = \frac{1}{m}dZ_{l}\cdot
+A_{l-1}^T\)</span>，<span class="math inline">\(dW_{l}\)</span> 还与
+<span class="math inline">\(A_{l-1}^T\)</span>
+有关，所以我们希望不同激活层输出的方差相同，即 <span
+class="math inline">\(Var(a_l) = Var(a_{l-1})\)</span>
+，也就意味着不同激活层输入的方差相同，即 <span
+class="math inline">\(Var(z_l) = Var(z_{l-1})\)</span> 。</li>
+<li>权重的数值范围应考虑到前向与后向两个过程，不能过大或过小。</li>
+</ul>
+<h2 id="xavier初始化策略">Xavier初始化策略</h2>
+<p>论文地址：<a
+href="https://link.zhihu.com/?target=http%3A//jmlr.org/proceedings/papers/v9/glorot10a/glorot10a.pdf">Understanding
+the difficulty of training deep feedforward neural networks</a></p>
+<p><strong>核心思想：正向传播时，激活值的方差保持不变；反向传播时，关于状态值的梯度的方差保持不变</strong></p>
+<p>Xavier初始化将每层权重设置在有界的随即均匀分布中选择的值</p>
+<p><span class="math display">\[
+\pm \frac{\sqrt{6}}{\sqrt{n_i+n_{i+1}}}
+\]</span></p>
+<p>其正态分布形式为</p>
+<p><span class="math display">\[
+(u, \sigma^2) = (0, \frac{2}{n_{i-1}+n_{i}})
+\]</span></p>
+<p>Xavier初始化策略对<strong>使用关于零对称且在[-1,
+1]内有输出的激活函数（如softsign和tanh）</strong>效果较好，而如果使用ReLU激活函数则会产生梯度消失。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def Xavier(m, h):</span><br><span class="line">    return torch.Tensor(m, h).uniform_(-1, 1) * math.sqrt(6. / (m + h))</span><br><span class="line"></span><br><span class="line">x = torch.randn(512)</span><br><span class="line">for i in range(100):</span><br><span class="line">    a = Xavier(512, 512)</span><br><span class="line">    x = torch.tanh(a @ x)</span><br><span class="line">print(x.mean(), x.std())</span><br><span class="line"></span><br><span class="line">x = torch.randn(512)</span><br><span class="line">for i in range(100):</span><br><span class="line">    a = Xavier(512, 512)</span><br><span class="line">    x = torch.relu(a @ x)</span><br><span class="line">print(x.mean(), x.std())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tensor(0.0072) tensor(0.0723)</span><br><span class="line">tensor(5.5722e-16) tensor(8.1033e-16)</span><br></pre></td></tr></table></figure>
+<h2 id="kaiming初始化策略">Kaiming初始化策略</h2>
+<p>论文地址：<span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE1MDIuMDE4NTI=">Delving Deep
+into Rectifiers: Surpassing Human-Level Performance on ImageNet
+Classification<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>核心思想：正向传播时，状态值的方差保持不变；反向传播时，关于激活值的梯度的方差保持不变</strong></p>
+<p>Kaiming初始化（也称he初始化）是针对Relu激活函数的初始化方法，作者证明了如果采用一下输入权重初始化策略，深层网络会更早收敛：</p>
+<ul>
+<li>使用适合给定图层的权重矩阵创建张量，并使用从标准正态分布中随机选择的数字填充它。</li>
+<li>将每个随机选择的数字乘以<span
+class="math inline">\(\frac{\sqrt{2}}{\sqrt{n}}\)</span>，其中n是从前一层输出到指定层的连接数（fan-in）</li>
+<li>偏差张量初始化为零。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def Kaiming(m, h):</span><br><span class="line">    return torch.randn(m, h) * math.sqrt(2. / m)</span><br><span class="line"></span><br><span class="line">x = torch.randn(512)</span><br><span class="line">for i in range(100):</span><br><span class="line">    a = Kaiming(512, 512)</span><br><span class="line">    x = torch.relu(a @ x)</span><br><span class="line">print(x.mean(), x.std())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tensor(0.7144) tensor(1.0703)</span><br></pre></td></tr></table></figure>
+<h1 id="参数范数与正则化">参数范数与正则化</h1>
+<p>正则化（regularization）技术广泛应用在机器学习和深度学习算法中，其<strong>本质作用是防止过拟合、提高模型泛化能力</strong>。在早期的机器学习领域一般只是将范数惩罚叫做正则化技术，而在深度学习领域认为：能够显著减少方差，而不过度增加偏差的策略都可以认为是正则化技术，故推广的正则化技术还有：扩增样本集、早停止、Dropout、集成学习、多任务学习、对抗训练、参数共享等</p>
+<h2 id="范数">范数</h2>
+<ol type="1">
+<li>P范数：</li>
+</ol>
+<p><span class="math display">\[
+L_p = (\sum_{i = 1}^n\vert x_i\vert^p)^{\frac{1}{p}}
+\]</span></p>
+<ol start="2" type="1">
+<li>L0范数：表示向量中非零元素的个数</li>
+<li>L1范数：为向量元素绝对值之和</li>
+</ol>
+<p><span class="math display">\[
+\Vert x\Vert _1 = \sum_{i = 1}^n\vert x_i\vert
+\]</span></p>
+<ol start="4" type="1">
+<li>L2范数：向量元素的平方和再开方，也称欧几里得距离</li>
+</ol>
+<p><span class="math display">\[
+\Vert x\Vert _2 = \sqrt{\sum_{i = 1}^nx_i^2}
+\]</span></p>
+<ol start="5" type="1">
+<li><span class="math inline">\(\infty\)</span>
+范数：即所有向量元素绝对值中的最大值</li>
+</ol>
+<p><span class="math display">\[
+\Vert x\Vert _\infty = \max_i\vert x_i\vert
+\]</span></p>
+<ol start="6" type="1">
+<li><span class="math inline">\(-\infty\)</span>
+范数：即所有向量元素绝对值中的最小值</li>
+</ol>
+<p><span class="math display">\[
+\Vert x\Vert _{-\infty} = \min_i\vert x_i\vert
+\]</span></p>
+<h2 id="简单数值假设分析">简单数值假设分析</h2>
+<!--
+![不同参数下的曲线拟合结果(左欠拟合，右过拟合)](/images/body/the-Basics01/three-fitting-curve.jpg "Three fitting curve")
+-->
+<figure>
+<img data-src="pics/three-fitting-curve.jpg" title="Three fitting curve"
+alt="不同参数下的曲线拟合结果(左欠拟合，右过拟合)" />
+<figcaption
+aria-hidden="true">不同参数下的曲线拟合结果(左欠拟合，右过拟合)</figcaption>
+</figure>
+<p>对于右边的拟合曲线，有</p>
+<p><span class="math display">\[
+h_\theta(x) = \theta _0 + \theta _1x_1 + \theta _2x_2^2 + \theta _3x_3^3
++ \theta _4x_4^4
+\]</span></p>
+<p>由于 <span class="math inline">\(\theta _3\)</span> 和 <span
+class="math inline">\(\theta _4\)</span>
+对应了高阶，导致拟合曲线是4阶曲线，出现了过拟合。正则化的目的为适当缩减
+<span class="math inline">\(\theta _3\)</span> 和 <span
+class="math inline">\(\theta _4\)</span>
+的值，例如都为0.0001，则上述曲线本质上等价于</p>
+<p><span class="math display">\[
+h_\theta(x) = \theta _0 + \theta _1x_1 + \theta _2x_2^2
+\]</span></p>
+<p>也就是变成了中间的刚好合适的拟合曲线。对 <span
+class="math inline">\(\theta _3\)</span> 和 <span
+class="math inline">\(\theta _4\)</span>
+增加L2正则项后的代价函数表达式为</p>
+<p><span class="math display">\[
+J(\theta) = \min_\theta \frac{1}{n} \sum_{i = 1}^n{((h_\theta(x^i) -
+y^i)^2 + 1000\theta_3^2 + 1000\theta_4^2)}
+\]</span></p>
+<p>从上式可以看出， <span class="math inline">\(\theta _3\)</span> 和
+<span class="math inline">\(\theta _4\)</span>
+均大于0，其乘上了1000，要是 <span
+class="math inline">\(J(\theta)\)</span> 最小，则会迫使模型学习到的
+<span class="math inline">\(\theta _3\)</span> 和 <span
+class="math inline">\(\theta _4\)</span> 会非常小，因为只有在 <span
+class="math inline">\(\theta _3\)</span> 和 <span
+class="math inline">\(\theta _4\)</span>
+非常小的情况下整个代价函数值才会取的较小值。在实际开发中，是对所有参数进行正则化，为了使代价函数尽可能的小，所有的参数
+<span class="math inline">\(\theta\)</span> 的值（不包括 <span
+class="math inline">\(\theta_0\)</span>
+）都会在一定程度上减小，但是减少程度会不一样，从而实现了权重衰减、简化模型复杂度的作用。</p>
+<h1 id="梯度下降法">梯度下降法</h1>
+<p>优化算法的功能是通过改善训练方法，来最小化（或最大化）损失函数 <span
+class="math inline">\(J(\theta)\)</span>。</p>
+<p>梯度下降背后的思想是：开始时我们随机选择一个参数的组合 <span
+class="math inline">\((\theta _0, \theta _1, \theta _2, \dots, \theta
+_n)\)</span>
+，计算损失函数，然后我们寻找下一个能让损失函数值下降最多的参数组合。我们持续这么做直到到一个局部最小值（local
+minimum），因为我们并没有尝试完所有的参数组合，所以不能确定我们得到的局部最小值是否便是全局最小值（global
+minimum），选择不同的初始参数组合，可能会找到不同的局部最小值。</p>
+<!--
+![不同初始参数组合找到不同的极小值](/images/body/the-Basics01/different-local-minimum.png "Different local minimum")
+-->
+<figure>
+<img data-src="pics/different-local-minimum.png"
+title="Different local minimum"
+alt="不同初始参数组合找到不同的极小值" />
+<figcaption
+aria-hidden="true">不同初始参数组合找到不同的极小值</figcaption>
+</figure>
+<p>梯度下降算法如下：</p>
+<p><span class="math display">\[
+\theta _j := \theta _j - \alpha\frac{\partial}{\partial\theta
+_j}J(\theta)
+\]</span></p>
+<p>其中 <span class="math inline">\(\alpha\)</span> 是学习率（learning
+rate），它决定了我们沿着该方向迈出的步子有多大。<span
+class="math inline">\(\alpha\)</span>
+太大或太小都不好，太小会导致收敛速度很慢，而太大可能会越过最低点，甚至无法收敛。</p>
+<!--
+![梯度下降法](/images/body/the-Basics01/different-local-minimum.png "Gradient descent")
+-->
+<figure>
+<img data-src="pics/gradient-descent.png" title="Gradient descent"
+alt="梯度下降法" />
+<figcaption aria-hidden="true">梯度下降法</figcaption>
+</figure>
+<p>传统的批量梯度下降法计算整个数据集梯度，但只进行一次更新，这在处理大型数据集时速度很慢且难以控制，甚至导致内存溢出。</p>
+<p>权重的更新速度由学习率 <span class="math inline">\(\alpha\)</span>
+决定，并且可以在凸面误差曲线中收敛到全局最优值，在非凸曲面中可能趋于局部最优值。</p>
+<p>此外，标准形式的批量梯度下降法在训练大型数据集时存在冗杂的权重更新。</p>
+<h1 id="梯度爆炸与梯度消失">梯度爆炸与梯度消失</h1>
+<h2 id="梯度爆炸">梯度爆炸</h2>
+<p>误差梯度是神经网络训练过程中计算的方向和数量，用于以正确的方向和合适的量更新网络权重。
+在深层网络或循环神经网络中，误差梯度可在更新中累积，变成非常大的梯度，然后导致网络权重的大幅更新，并因此使网络变得不稳定。在极端情况下，权重的值变得非常大，以至于溢出，导致
+NaN 值。 网络层之间的梯度（值大于
+1.0）重复相乘导致的指数级增长会产生梯度爆炸。在深度多层感知机网络中，梯度爆炸会引起网络不稳定，最好的结果是无法从训练数据中学习，而最坏的结果是出现无法再更新的NaN权重值。</p>
+<h2 id="梯度消失">梯度消失</h2>
+<p>在某些情况下，梯度会变得非常小，有效地阻止了权重值的变化。在最坏的情况下，这可能会完全停止神经网络的进一步训练。例如，传统的激活函数(如双曲正切函数)具有范围(0,1)内的梯度，反向传播通过链式法则计算梯度。这样做的效果是，用这些小数字的n乘以n来计算n层网络中“前端”层的梯度，这意味着梯度(误差信号)随n呈指数递减，而前端层的训练非常缓慢。</p>
+<h2 id="产生原因">产生原因</h2>
+<p>主要是采用了不合适的损失函数,
+如果我们使用标准化初始w，那么各个层次的相乘都是0-1之间的小数，而激活函数f的导数也是0-1之间的数，其连乘后，结果会变的很小，导致梯度消失。若我们初始化的w是很大的数，w大到乘以激活函数的导数都大于1，那么连乘后，可能会导致求导的结果很大，形成梯度爆炸。</p>
+<h2 id="解决方法">解决方法</h2>
+<h3 id="预训练并微调">预训练并微调</h3>
+<p>基本思想是每次训练一层隐节点，训练时将上一层隐节点的输出作为输入，而本层隐节点的输出作为下一层隐节点的输入，此过程就是逐层“预训练”（pre-training）；在预训练完成后，再对整个网络进行“微调”（fine-tunning）。</p>
+<h3 id="梯度剪切与正则化">梯度剪切与正则化</h3>
+<p>梯度剪切这个方案主要是针对梯度爆炸提出的，其思想是设置一个梯度剪切阈值，然后更新梯度的时候，如果梯度超过这个阈值，那么就将其强制限制在这个范围之内。这可以防止梯度爆炸。</p>
+<p>另外一种解决梯度爆炸的手段是采用权重正则化（weithts
+regularization）比较常见的是L1正则化，和L2正则化，在各个深度框架中都有相应的API可以使用正则化。</p>
+<h3
+id="使用reluleakreluelu等激活函数">使用relu、leakrelu、elu等激活函数</h3>
+<p>Relu:思想也很简单，如果激活函数的导数为1，那么就不存在梯度消失爆炸的问题了，每层的网络都可以得到相同的更新速度，relu就这样应运而生。详见<a
+href="#激活函数">激活函数</a>。</p>
+<h3 id="批规范化">批规范化</h3>
+<p>Batchnorm是深度学习发展以来提出的最重要的成果之一，目前已经被广泛的应用到了各大网络中，具有加速网络收敛速度，提升训练稳定性的效果，Batchnorm本质上是解决反向传播过程中的梯度问题。batchnorm全名是batch
+normalization，简称BN，即批规范化，通过规范化操作将输出信号x规范化到均值为0，方差为1保证网络的稳定性。</p>
+<h3 id="使用残差结构">使用残差结构</h3>
+<p>自从残差提出后，几乎所有的深度网络都离不开残差的身影，相比较之前的几层，几十层的深度网络，在残差网络面前都不值一提，残差可以很轻松的构建几百层，一千多层的网络而不用担心梯度消失过快的问题，原因就在于残差的捷径（shortcut）部分。</p>
+<h3 id="lstm长短期记忆网络">LSTM（长短期记忆网络）</h3>
+<p>在RNN网络结构中，由于使用Logistic或者Tanh函数，所以很容易导致梯度消失的问题，即在相隔很远的时刻时，前者对后者的影响几乎不存在了，LSTM的机制正是为了解决这种长期依赖问题。</p>
+<h1 id="自适应学习率算法">自适应学习率算法</h1>
+<p>学习率对模型的性能有显著的影响，是难以设置的超参数之一。损失通常高度敏感于参数空间中的某些方向，而不敏感于其他。动量算法可以在一定程度缓解这些问题，但这样做的代价是引入了另一个超参数。</p>
+<p>Delta-bar-delta 算法 (Jacobs, 1988)
+是一个早期的在训练时适应模型参数各自学习率的启发式方法。该方法基于一个很简单的想法，如果损失对于某个给定模型参数的偏导保持相同的符号，那么学习率应该增加。如果对于该参数的偏导变化了符号，那么学习率应减小。当然，这种方法只能应用于全批量优化中。最近，提出了一些增量（或者基于小批量）的算法来自适应模型参数的学习率。</p>
+<h2 id="adagrad">AdaGrad</h2>
+<p>Adagrad方法是在每个时间步中，根据过往已计算的参数梯度，来为每个参数修改对应的学习率。能独立地适应所有模型参数的学习率，当参数损失偏导值比较大时，有一个较大的学习率；当参数的损失偏导值较小时，有一个较小的学习率。</p>
+<p>Adagrad方法的主要好处是，不需要手工来调整学习率。大多数参数使用了默认值0.01，且保持不变。</p>
+<p>Adagrad方法的主要缺点是，学习率总是在降低和衰减。</p>
+<p>因为每个附加项都是正的，在分母中累积了多个平方梯度值，故累积的总和在训练期间保持增长。这反过来又导致学习率下降，变为很小数量级的数字，该模型完全停止学习，停止获取新的额外知识。</p>
+<p>因为随着学习速度的越来越小，模型的学习能力迅速降低，而且收敛速度非常慢，需要很长的训练和学习，即学习速度降低。</p>
+<!--
+![Adagrad算法](/images/body/the-Basics01/Adagrad.png "Adagrad")
+-->
+<figure>
+<img data-src="pics/Adagrad.png" title="Adagrad" alt="Adagrad算法" />
+<figcaption aria-hidden="true">Adagrad算法</figcaption>
+</figure>
+<h2 id="rmsprop">RMSProp</h2>
+<p>RMSProp 算法 (Hinton, 2012) 修改 AdaGrad
+以在非凸设定下效果更好，改变梯度积累为指数加权的移动平均。</p>
+<p>AdaGrad
+旨在应用于凸问题时快速收敛。当应用于非凸函数训练神经网络时，学习轨迹可能穿过了很多不同的结构，最终到达一个局部是凸碗的区域。
+AdaGrad
+根据平方梯度的整个历史收缩学习率，可能使得学习率在达到这样的凸结构前就变得太小了。</p>
+<p>RMSProp
+使用指数衰减平均以丢弃遥远过去的历史，使其能够在找到凸碗状结构后快速收敛，它就像一个初始化于该碗状结构的
+AdaGrad 算法实例。相比于 AdaGrad，使用移动平均引入了一个新的超参数 <span
+class="math inline">\(\rho\)</span>，用来控制移动平均的长度范围。经验上，RMSProp
+已被证明是一种有效且实用的深度神经网络优化算法，是深度学习从业者经常采用的优化方法之一。</p>
+<!--
+![RMSProp算法](/images/body/the-Basics01/RMSProp.png "RMSProp")
+-->
+<figure>
+<img data-src="pics/RMSProp.png" title="RMSProp" alt="RMSProp算法" />
+<figcaption aria-hidden="true">RMSProp算法</figcaption>
+</figure>
+<!--
+![使用Nesterov动量的RMSProp算法](/images/body/the-Basics01/RMSProp-Nesterov.png "RMSProp Nesterov")
+-->
+<figure>
+<img data-src="pics/RMSProp-Nesterov.png" title="RMSProp Nesterov"
+alt="使用Nesterov动量的RMSProp算法" />
+<figcaption
+aria-hidden="true">使用Nesterov动量的RMSProp算法</figcaption>
+</figure>
+<h2 id="adam">Adam</h2>
+<p>Adam (Kingma and Ba, 2014)
+是另一种学习率自适应的优化算法，它可以被看作结合 RMSProp
+和具有一些重要区别的动量的变种。</p>
+<p>首先，在 Adam
+中，动量直接并入了梯度一阶矩（指数加权）的估计。将动量加入 RMSProp
+最直观的方法是将动量应用于缩放后的梯度。结合缩放的动量使用没有明确的理论动机。</p>
+<p>其次， Adam
+包括偏置修正，修正从原点初始化的一阶矩（动量项）和（非中心的）二阶矩的估计。
+RMSProp 也采用了（非中心的）二阶矩估计，然而缺失了修正因子。因此，不像
+Adam，RMSProp 二阶矩估计可能在训练初期有很高的偏置。</p>
+<p>Adam
+通常被认为对超参数的选择相当鲁棒，尽管学习率有时需要自行从默认值修改。</p>
+<!--
+![Adam算法](/images/body/the-Basics01/Adam.png "Adam")
+-->
+<figure>
+<img data-src="pics/Adam.png" title="Adam" alt="Adam算法" />
+<figcaption aria-hidden="true">Adam算法</figcaption>
+</figure>
+<h1 id="评估指标">评估指标</h1>
+<h1 id="归一化">归一化</h1>
+<h1 id="dropout">Dropout</h1>
+<h1 id="激活函数">激活函数</h1>
+<h1 id="损失函数">损失函数</h1>
+<h1 id="反向传播算法公式推导">反向传播算法（公式推导）</h1>
+<h1 id="过拟合欠拟合">过拟合、欠拟合</h1>
 
     </div>
 
