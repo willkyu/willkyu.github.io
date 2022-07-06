@@ -533,7 +533,12 @@ Edition相关资源整理</a></li>
 </blockquote>
 <p>封面 [ID:71672001].</p>
 <span id="more"></span>
-<h1 id="none.">None.</h1>
+<h1 id="overview.">Overview.</h1>
+<figure>
+<img data-src="/images/body/Collection/Overview.jpg" title="Overview"
+alt="总览" />
+<figcaption aria-hidden="true">总览</figcaption>
+</figure>
 ]]></content>
       <categories>
         <category>Collection</category>
@@ -558,7 +563,7 @@ Edition相关资源整理</a></li>
 ![三阶张量](/images/body/the-Basics01/third-order-tensor.png "A third-order tensor")
 -->
 <figure>
-<img data-src="pics/third-order-tensor.png" title="A third-order tensor"
+<img data-src="pics01/third-order-tensor.png" title="A third-order tensor"
 alt="三阶张量" />
 <figcaption aria-hidden="true">三阶张量</figcaption>
 </figure>
@@ -676,7 +681,7 @@ L_p = (\sum_{i = 1}^n\vert x_i\vert^p)^{\frac{1}{p}}
 ![不同参数下的曲线拟合结果(左欠拟合，右过拟合)](/images/body/the-Basics01/three-fitting-curve.jpg "Three fitting curve")
 -->
 <figure>
-<img data-src="pics/three-fitting-curve.jpg" title="Three fitting curve"
+<img data-src="pics01/three-fitting-curve.jpg" title="Three fitting curve"
 alt="不同参数下的曲线拟合结果(左欠拟合，右过拟合)" />
 <figcaption
 aria-hidden="true">不同参数下的曲线拟合结果(左欠拟合，右过拟合)</figcaption>
@@ -728,7 +733,7 @@ minimum），选择不同的初始参数组合，可能会找到不同的局部�
 ![不同初始参数组合找到不同的极小值](/images/body/the-Basics01/different-local-minimum.png "Different local minimum")
 -->
 <figure>
-<img data-src="pics/different-local-minimum.png"
+<img data-src="pics01/different-local-minimum.png"
 title="Different local minimum"
 alt="不同初始参数组合找到不同的极小值" />
 <figcaption
@@ -747,7 +752,7 @@ class="math inline">\(\alpha\)</span>
 ![梯度下降法](/images/body/the-Basics01/different-local-minimum.png "Gradient descent")
 -->
 <figure>
-<img data-src="pics/gradient-descent.png" title="Gradient descent"
+<img data-src="pics01/gradient-descent.png" title="Gradient descent"
 alt="梯度下降法" />
 <figcaption aria-hidden="true">梯度下降法</figcaption>
 </figure>
@@ -798,7 +803,7 @@ normalization，简称BN，即批规范化，通过规范化操作将输出信�
 ![Adagrad算法](/images/body/the-Basics01/Adagrad.png "Adagrad")
 -->
 <figure>
-<img data-src="pics/Adagrad.png" title="Adagrad" alt="Adagrad算法" />
+<img data-src="pics01/Adagrad.png" title="Adagrad" alt="Adagrad算法" />
 <figcaption aria-hidden="true">Adagrad算法</figcaption>
 </figure>
 <h2 id="rmsprop">RMSProp</h2>
@@ -817,14 +822,14 @@ class="math inline">\(\rho\)</span>，用来控制移动平均的长度范围。
 ![RMSProp算法](/images/body/the-Basics01/RMSProp.png "RMSProp")
 -->
 <figure>
-<img data-src="pics/RMSProp.png" title="RMSProp" alt="RMSProp算法" />
+<img data-src="pics01/RMSProp.png" title="RMSProp" alt="RMSProp算法" />
 <figcaption aria-hidden="true">RMSProp算法</figcaption>
 </figure>
 <!--
 ![使用Nesterov动量的RMSProp算法](/images/body/the-Basics01/RMSProp-Nesterov.png "RMSProp Nesterov")
 -->
 <figure>
-<img data-src="pics/RMSProp-Nesterov.png" title="RMSProp Nesterov"
+<img data-src="pics01/RMSProp-Nesterov.png" title="RMSProp Nesterov"
 alt="使用Nesterov动量的RMSProp算法" />
 <figcaption
 aria-hidden="true">使用Nesterov动量的RMSProp算法</figcaption>
@@ -846,11 +851,294 @@ Adam，RMSProp 二阶矩估计可能在训练初期有很高的偏置。</p>
 ![Adam算法](/images/body/the-Basics01/Adam.png "Adam")
 -->
 <figure>
-<img data-src="pics/Adam.png" title="Adam" alt="Adam算法" />
+<img data-src="pics01/Adam.png" title="Adam" alt="Adam算法" />
 <figcaption aria-hidden="true">Adam算法</figcaption>
 </figure>
 <h1 id="评估指标">评估指标</h1>
+<h2 id="分类指标">分类指标</h2>
+<p><strong>混淆矩阵（confusion
+matrix）</strong>是一个评估分类问题常用的工具，对于 k
+元分类，其实它就是一个 k*k
+的表格，用来记录分类器的预测结果。对于常见的二分类，它的混淆矩阵是 2*2
+的。</p>
+<p>在二分类问题中，可以将样例根据其真实类别和预测类别的组合划分为：</p>
+<ul>
+<li>真正例（true positive）TP</li>
+<li>假正例（false positive）FP</li>
+<li>真反例（true negative）TN</li>
+<li>假反例（false negative）FN</li>
+</ul>
+<p>显然 TP + FP + TN + FN = 样例总数。分类结果的混淆矩阵如下:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">真实情况</th>
+<th style="text-align: center;">预测</th>
+<th style="text-align: center;">结果</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">正例</td>
+<td style="text-align: center;">反例</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">正例</td>
+<td style="text-align: center;">TP(真正例)</td>
+<td style="text-align: center;">FN(假反例)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">反例</td>
+<td style="text-align: center;">FP(假正例)</td>
+<td style="text-align: center;">TN(真反例)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="准确率精度accuracy">准确率（精度，Accuracy）</h3>
+<p>精度Accurac是指模型预测正确（包括真正例TP、真反例TN）的样本数与总体样本数的占比，即：</p>
+<p><span class="math display">\[
+Accuracy = \frac{Count(correct)}{Count(total)}
+\]</span></p>
+<p>在二分类问题中：</p>
+<p><span class="math display">\[
+Accuracy = \frac{TP + TN}{TP + FP + FN + TN}
+\]</span></p>
+<p>准确率是分类问题中最简单直观的指标，但是在实际中应用不多。原因是：当样本标签分布不均衡时，比如：正样本占比99%，只要模型把所有样本都预测为正样本，则准确率达到99%，但是实际上模型根本没有预测能力。</p>
+<h3 id="查准率精确率precision">查准率（精确率，Precision）</h3>
+<p>查准率是从预测正例的角度出发（分子分母都是关于Positive）：</p>
+<p><span class="math display">\[
+Precision = \frac{TP}{TP + FP}
+\]</span></p>
+<p>假设我们用模型预测了一批西瓜，预测100个瓜为好瓜，其中60个为好瓜，40个坏瓜，则查准率就是60/100=60%.</p>
+<p>查准率评估了模型预测的正例中的精度--准确更重要。</p>
+<p>假设我们提高阈值，使得预测为正例的数量变少，预测精度更高，那么查准率就变得更高，因此单一查准率指标依然没法对模型性能进行准确评估。因为模型遗漏了大量正例，使得大量正例被误判为负例。</p>
+<h3 id="查全率召回率recall">查全率（召回率，Recall）</h3>
+<p>召回率从实际正例的角度出发（真正例、假反例）</p>
+<p><span class="math display">\[
+Recall = \frac{TP}{TP + FN}
+\]</span></p>
+<p>假设80个好瓜，模型预测出60个好瓜，20个好瓜未被正确预测，则查全率就是60/(60+20)=75%。</p>
+<p>召回率评估了针对正例样本，表示样本中的正例有多少被预测正确--少漏更重要，要全。</p>
+<p>假设我们降低阈值，就会使得预测为正例的样本数量增多，但查准率会降低。</p>
+<p>所以查准率和查全率的矛盾，跟阈值相关。</p>
+<h3 id="p-r曲线平衡点和f1衡量">P-R曲线、平衡点和F1衡量</h3>
+<h4 id="p-r曲线">P-R曲线</h4>
+<p>在上面分析查准率P，查全率R的时候，我们得到了不同阈值下对P、R的影响。那么当我们预测100的样本后（假设样本预测结果以概率形式输出），我们对样本结果进行排序，排在最前面（概率最大）的模型认为“最可能是”正例的样本，排在最后的是模型认为”最不可能“是正例的样本。按此顺序设置不同的阈值（阈值可以是排序后的概率值，或者固定划分点），在不同的阈值下，计算出当前阈值下的查准率P和查全率R。以查准率为纵轴，查全率为横轴作图，就可以得到查准率-查全率曲线，简称P-R曲线，显示改曲线的图称为”P-R图“。</p>
+<!--
+![P-R曲线与平衡点示意图](/images/body/the-Basics01/P-R-Curve.png "P-R Curve")
+-->
+<figure>
+<img data-src="pics01/P-R-Curve.png" title="P-R Curve"
+alt="P-R曲线与平衡点示意图" />
+<figcaption aria-hidden="true">P-R曲线与平衡点示意图</figcaption>
+</figure>
+<p>P-R图直观地显示出学习器在样本总体上的查全率，查准率。在进行比较时，<strong>若一个学习期的P-R曲线被另一个学习器完全”包住“，则可以断言后者的性能优于前者</strong>。例如图中，学习器A的性能优于学习器C；如果两个学习器的P-R曲线发生了交叉，例如图中的A和B，则难以一般性地断言两者优劣，只能在具体地查准率或者查全率条件下进行比较。</p>
+<p>然而，在很多情况下，人们往往仍然希望把A和B比出个高低。这时，一个比较合理地判断依据是<strong>比较P-R曲线下面积的大小（Area
+under curve
+P-R，AUC-PR）</strong>，它在一定程度上表征了学习器在查准率和查全率上取得相对”双高“的比例。但这个值不太容易估算，因此，人们设计了一些综合考虑查准率，查全率的性能度量，比如BEP度量，F1度量。</p>
+<h4 id="平衡点break-even-pointbep">平衡点（Break-Even-Point，BEP）</h4>
+<p>平衡点（Break-Even-Point），它是”查准率=查全率“时的取值，例如图1中的学习器C的BEP是0.64，基于BEP的比较，可认为A优于B。</p>
+<h4 id="f1度量">F1度量</h4>
+<p>BEP过于简单，这个平衡点是建立在”查准率=查全率“的前提下，无法满足实际不同场景的应用。我们引入加权调和平均
+<span class="math inline">\(F_\beta\)</span> ：</p>
+<p><span class="math display">\[
+\frac{1}{F_\beta} = \frac{1}{1 + \beta ^2}(\frac{1}{P} + \frac{\beta
+^2}{R})
+\]</span></p>
+<p>当 <span class="math inline">\(\beta = 1\)</span> 时，有 <span
+class="math inline">\(\frac{1}{F_1} = \frac{1}{2}(\frac{1}{P} +
+\frac{1}{R})\)</span>，即</p>
+<p><span class="math display">\[
+F_1 = \frac{2 * P * R}{P + R}
+\]</span></p>
+<p>在一些应用中，对查准率和查全率的重视程度不同。例如在商品推荐中，为了尽可能少打扰用户，更希望推荐的内容确实是用户感兴趣的，此时查准率更重要；而在罪犯信息检索或者病人检查系统中，更希望尽可能少的漏判，此时查全率更重要。F1度量的一般形式是
+<span
+class="math inline">\(F_\beta\)</span>，能让我们自定义对查准率/查全率的不同偏好：</p>
+<p><span class="math display">\[
+F_\beta = \frac{(1 + \beta ^2) * P * R}{(\beta ^2 * P) + R}
+\]</span></p>
+<p>其中，<span class="math inline">\(\beta &gt; 0\)</span>
+度量了查全率对查准率的相对重要性，<span class="math inline">\(\beta =
+1\)</span> 时退化为标准F1，<span class="math inline">\(\beta &gt;
+1\)</span> 时查全率有更大影响；<span class="math inline">\(\beta &lt;
+1\)</span> 时，查准率有更大影响。</p>
+<h4 id="多分类情况">多分类情况</h4>
+<p>很多时候我们有多个二分类混淆矩阵，例如进行多次训练/测试，每次得到一个混淆矩阵；或是在多个数据集上进行训练/测试，希望估计算法的全局性能；或者是执行分类任务，每两两类别的组合都对应一个混淆矩阵；总之是在n个二分类混淆矩阵上综合考察查准率和查全率。</p>
+<p>一种直接的做法是现在各个混淆矩阵上分别计算出查准率和查全率，记为(P1,R1)，(P2,R2),...(Pn,Rn)，在计算平均值，这样就得到“宏观查准率”(macro-P)，“宏观查全率”(macro-R)、“宏观F1”(macro-F1)：</p>
+<p><span class="math display">\[
+macroP = \frac{1}{n}\sum^n_{i = 1} P_i\\
+macroR = \frac{1}{n}\sum^n_{i = 1} R_i\\
+macroF1 = \frac{2 * macroP * macroR}{macroP + macroR}
+\]</span></p>
+<p>另一种方法可以将个混淆矩阵对应的元素进行平均，得到TP、FP、TN、FN的平均值，分别记为
+<span class="math inline">\(\overline{TP}\)</span>、<span
+class="math inline">\(\overline{FP}\)</span>、<span
+class="math inline">\(\overline{FN}\)</span>、<span
+class="math inline">\(\overline{TN}\)</span>，再基于这些平均值计算出“微观查准率”(micro-P)，“微观查全率”(micro-R)、“微观F1”(micro-F1)：</p>
+<p><span class="math display">\[
+microP = \frac{\overline{TP}}{\overline{TP} + \overline{FP}}\\
+microR = \frac{\overline{TP}}{\overline{TP} + \overline{FN}}\\
+microF1 = \frac{2 * microP * microR}{microP + microR}
+\]</span></p>
+<h3 id="roc与auc">ROC与AUC</h3>
+<p>根据上面混淆矩阵的一系列指标计算，可以发现，将样本预测为正例或者负例是与一个分类阈值相关的。若大于阈值则分为正类，否则为反类。</p>
+<p>实际上，根据概率预测结果，我们可以将测试样本进行排序，“最可能”是正例的排在最前面，“最不可能”是正例的排在最后面。这样，分类过程就相当于在这个排序中以某个“截断点”(cut
+point)将样本分为两部分，前一部分作为正例，后一部分作为反例。</p>
+<p>在不同的任务中，我们可以根据任务需求采用不同的阈值，若我们更重视查准率，则选择排序中靠前的位置，若更重视查全率，则可以选择靠后的位置进行截。因此，排序本身的好坏，提现了综合考虑学习器在不同任务下的“期望泛化性能”的好坏。ROC曲线则是从这个角度出发来研究学习器泛化性能的有效工具。</p>
+<p>ROC全称是“受试者工作特性”(Receiver Operating
+Characteristic)曲线。与上述介绍的P-R曲线相似，我们根据预测结果对样例进行排序，按此顺序逐个将样本预测结果作为阈值进行划分。之后计算两个指标：真正例率（True
+Positive Rate，简称TPR），假正例率（False Positive
+Rate，简称FPR），公式如下：</p>
+<p><span class="math display">\[
+TPR = \frac{TP}{TP + FN}\\
+FPR = \frac{FP}{FP + TN}
+\]</span></p>
+<p>以TPR为纵轴，FPR为横轴，得到ROC曲线。在现实任务中通常只有有限个样本来绘制ROC图，此时无法产生图a中光滑的曲线，只能绘制出图b所示的近似曲线。绘制过程如介绍公式时所描述的一样，对样本预测结果进行排序，然后取第一个结果作为阈值，此时所有样本均预测为反例，此时真正例率和假正例率均为0，在坐标(0,0)处标记一个点。随后将第二个样本预测结果作为阈值，得到坐标点，依次类推。</p>
+<!--
+![ROC曲线与AUC示意图](/images/body/the-Basics01/ROC-AUC.png "ROC AUC")
+-->
+<figure>
+<img data-src="pics01/ROC-AUC.png" title="ROC AUC"
+alt="ROC曲线与AUC示意图" />
+<figcaption aria-hidden="true">ROC曲线与AUC示意图</figcaption>
+</figure>
+<p>当要比较两个学习器的性能优劣时，与P-R曲线相似，若一个学习器的ROC曲线被另一个学习器的曲线完全“包住”，则可断言后者的性能优于前者；若两个学习器的ROC曲线发生交叉，则一般难以断言两者优劣。此时可以比较ROC曲线下的面积，即AUC(Area
+under ROC Curve)。</p>
+<p>很明显，AUC的结果不会超过 1，通常ROC曲线都在 y = x
+这条直线上面，所以，AUC的值一般在 0.5 ~ 1 之间。</p>
+<p>从定义可知，AUC可以通过对ROC曲线下各部分的面积求和而得。假定ROC曲线是由坐标{(x1,y1),(x2,y2)...}的点连接而成。AUC可估算为</p>
+<p><span class="math display">\[
+AUC = \frac{1}{2}\sum^{m - 1}_{i = 1}(x_{i + 1} - x_i)(y_i + y_{i + 1})
+\]</span></p>
+<h3 id="ks图kolomogorov-smirnov-chart">KS图（Kolomogorov Smirnov
+chart）</h3>
+<p>KS值是在模型中用于<strong>区分预测正负样本分隔程度的评价指标</strong>，一般应用于金融风控领域。如果将人口划分为两个独立的组，其中一组包含所有正例而另一组包含所有负例，则K-S值为100。</p>
+<p>与ROC曲线相似，ROC是以FPR作为横坐标，TPR作为纵坐标，通过改变不同阈值，从而得到ROC曲线。而在KS曲线中，则是以阈值作为横坐标，以FPR和TPR作为纵坐标，ks曲线则为TPR-FPR，ks曲线的最大值通常为ks值。</p>
+<p>为什么这样求KS值呢？我们知道，当阈值减小时，TPR和FPR会同时减小，当阈值增大时，TPR和FPR会同时增大。而在实际工程中，我们希望TPR更大一些，FPR更小一些，即TPR-FPR越大越好，即ks值越大越好。</p>
+<p>可以理解TPR是收益，FPR是代价，ks值是收益最大。图中绿色线是TPR、蓝色线是FPR。</p>
+<!--
+![KS](/images/body/the-Basics01/KS.jpg "KS")
+-->
+<figure>
+<img data-src="pics01/KS.jpg" title="KS" alt="KS" />
+<figcaption aria-hidden="true">KS</figcaption>
+</figure>
+<p>在实际应用中，比如风控模型中，往往单一指标并不能真正比较两个学习器之间的优劣，比如A学习器KS：40，B学习器KS：39。并不能保证A学习器一定比B学习器表现好，就像考试100的同学一定比99分的同学优秀一样。在实际中，通常结合单一指标（比如KS）和图表，综合判断模型在实际应用中，哪一个模型更加有优势。</p>
+<h2 id="回归指标">回归指标</h2>
+<h3
+id="均方误差mean-squared-errormse与均方根误差root-mean-squared-errorrmse">均方误差（Mean
+Squared Error，MSE）与均方根误差（Root Mean Squared Error，RMSE）</h3>
+<p>MSE计算的是拟合数据和原始数据对应样本点的误差的平方和的均值，其值越小说明拟合效果越好。</p>
+<p><span class="math display">\[
+MSE = \frac{1}{N}\sum^N_{i = 1}(y^2_i - \^y^2_i)
+\]</span></p>
+<p>由于MSE与我们的目标变量的量纲不一致，为了保证量纲一致性，我们需要对MSE进行开方，即均方根误差：</p>
+<p><span class="math display">\[
+RMSE = \sqrt{\frac{1}{N}\sum^N_{i = 1}(y^2_i - \^y^2_i)}
+\]</span></p>
+<p>以下是RMSE需要考虑的要点：</p>
+<ul>
+<li>“平方根”使该指标能够显示大的偏差。</li>
+<li>此度量标准的“平方”特性有助于提供更强大的结果，从而防止取消正负误差值。换句话说，该度量恰当地显示了错误的合理幅度。</li>
+<li>它避免使用绝对误差值，这在数学计算中是非常不希望的。</li>
+<li>当我们有更多样本时，使用RMSE重建误差分布被认为更可靠。</li>
+<li>RMSE受到异常值的影响很大。因此，请确保在使用此指标之前已从数据集中删除了异常值。</li>
+<li>与平均绝对误差( mean absolute
+error)相比，RMSE提供更高的权重并惩罚大的错误。</li>
+</ul>
+<h3 id="平均绝对误差mean-absolute-errormae">平均绝对误差（Mean Absolute
+Error，MAE）</h3>
+<p>和 MSE 一样，这种度量方法也是在不考虑方向的情况下衡量误差大小。但和
+MSE 的不同之处在于，MAE
+需要像线性规划这样更复杂的工具来计算梯度。此外，MAE
+对异常值更加稳健，因为它不使用平方。</p>
+<p><span class="math display">\[
+MAE = \frac{1}{N}\sum^N_{i = 1}\vert y_i - \^y_i\vert
+\]</span></p>
+<h3 id="决定系数-r方r-squarded">决定系数 R方（R-squarded）</h3>
+<p>判定系数，其含义是也是解释回归模型的方差得分，其值取值范围是[0,1]，越接近于1说明自变量越能解释因变量的方差变化，值越小则说明效果越差。又称为the
+coefficient of
+determination。判断的是预测模型和真实数据的拟合程度，最佳值为1，同时可为负值。如果结果是0，就说明我们的模型跟瞎猜差不多。如果结果是1。就说明我们模型无错误。如果结果是0-1之间的数，就是我们模型的好坏程度。如果结果是负数。说明我们的模型还不如瞎猜。</p>
+<p>R方可以理解为因变量y中的变异性能能够被估计的多元回归方程解释的比例，它衡量各个自变量对因变量变动的解释程度，<strong>其取值在0与1之间，其值越接近1，则变量的解释程度就越高，其值越接近0，其解释程度就越弱</strong>。</p>
+<p>一般来说，增加自变量的个数，回归平方和会增加，残差平方和会减少，所以R方会增大；反之，减少自变量的个数，回归平方和减少，残差平方和增加。为了消除自变量的数目的影响，引入了调整的R方。</p>
+<p><span class="math display">\[
+R^2 &amp; = 1- \frac{\sum^m_{i = 1}(f_i - y_i)^2}{\sum^m_{i =
+1}(\overline{y_i} - y_i)^2}\\
+&amp; = \frac{\frac{1}{m}\sum^m_{i = 1}(f_i -
+y_i)^2}{\frac{1}{m}\sum^m_{i = 1}(\overline{y_i} - y_i)^2}\\
+&amp; = 1 - \frac{MSE(f, y)}{Var(y)}
+\]</span></p>
 <h1 id="归一化">归一化</h1>
+<p>不同评价指标（即特征向量中的不同特征就是所述的不同评价指标）往往具有不同的量纲和量纲单位，这样的情况会影响到数据分析的结果，</p>
+<p>为了消除指标之间的量纲影响，需要进行数据标准化处理，以解决数据指标之间的可比性。原始数据经过数据标准化处理后，各指标处于同一数量级，适合进行综合对比评价。其中，最典型的就是数据的归一化处理。</p>
+<p>简而言之，归一化的目的就是使得预处理的数据被限定在一定的范围内（比如[0,1]或者[-1,1]），从而消除奇异样本数据导致的不良影响。</p>
+<blockquote>
+<p>奇异样本数据是指相对于其他输入样本特别大或特别小的样本矢量（即特征向量）</p>
+</blockquote>
+<p>奇异样本数据的存在会引起训练时间增大，同时也可能导致无法收敛，因此，当存在奇异样本数据时，在进行训练之前需要对预处理数据进行归一化；反之，不存在奇异样本数据时，则可以不进行归一化。</p>
+<h2 id="归一化的好处">归一化的好处</h2>
+<ol type="1">
+<li>归一化后加快了梯度下降求最优解的速度，也即加快训练网络的收敛性；</li>
+<li>归一化有可能提高精度</li>
+</ol>
+<h2 id="归一化的方法">归一化的方法</h2>
+<h3 id="最大最小标准化min-max-normalization">最大最小标准化（Min-Max
+Normalization）</h3>
+<p><span class="math display">\[
+x&#39; = \frac{x - \min{(x)}}{\max{(x)} - \min{(x)}}
+\]</span></p>
+<ol type="1">
+<li><p>线性函数将原始数据线性化的方法转换到[0 1]的范围,
+计算结果为归一化后的数据，X为原始数据；</p></li>
+<li><p>本归一化方法比较适用在数值比较集中的情况；</p></li>
+<li><p>缺陷：如果max和min不稳定，很容易使得归一化结果不稳定，使得后续使用效果也不稳定。实际使用中可以用经验常量来替代max和min。</p></li>
+</ol>
+<p><strong>应用场景</strong>：在不涉及距离度量、协方差计算、数据不符合正态分布的时候，如图像处理中，将RGB图像转换为灰度图像后将其值限定在[0
+255]的范围。</p>
+<h3 id="z-score标准化">z-score标准化</h3>
+<p><span class="math display">\[
+x^* = \frac{x - \mu}{\sigma}
+\]</span></p>
+<p>其中，<span class="math inline">\(\mu\)</span>、<span
+class="math inline">\(\sigma\)</span> 分别为原始数据集的均值和方差。</p>
+<ol type="1">
+<li><p>将原始数据集归一化为均值为0、方差1的数据集。</p></li>
+<li><p>该种归一化方式要求原始数据的分布可以近似为高斯分布，否则归一化的效果会变得很糟糕。</p></li>
+</ol>
+<p>应用场景：在分类、聚类算法中，需要使用距离来度量相似性的时候、或者使用PCA技术进行降维的时候，Z-score
+standardization表现更好。</p>
+<h3 id="神经网络归一化">神经网络归一化</h3>
+<p>本归一化方法经常用在数据分化比较大的场景，有些数值很大，有些很小。通过一些数学函数，将原始值进行映射。</p>
+<p>该方法包括对数、正切等，需要根据数据分布的情况，决定非线性函数的曲线：</p>
+<h4 id="对数函数归一化">对数函数归一化</h4>
+<p><span class="math display">\[
+y = \log_{10}(x)
+\]</span></p>
+<p>以10为底的对数转换函数，对应的归一化方法为：</p>
+<p><span class="math display">\[
+x&#39; = \frac{\log_{10}(x)}{\log_{10}(max)}
+\]</span></p>
+<p>其中max表示样本数据的最大值，并且所有样本数据均要大于等于1.</p>
+<h4 id="反正切函数归一化">反正切函数归一化</h4>
+<p><span class="math display">\[
+x&#39; = \frac{2}{\pi}\arctan(x)
+\]</span></p>
+<p>使用这个方法需要注意的是如果想映射的区间为[0，1]，则数据都应该大于等于0，小于0的数据将被映射到[－1，0]区间上.</p>
+<h3 id="l2范数归一化">L2范数归一化</h3>
+<p>特征向量中每个元素均除以向量的L2范数：</p>
+<p><span class="math display">\[
+x&#39;_i = \frac{x_i}{norm(x)}
+\]</span></p>
+<h2 id="什么时候使用归一化">什么时候使用归一化</h2>
+<ol type="1">
+<li><p>如果对输出结果范围有要求，用归一化。</p></li>
+<li><p>如果数据较为稳定，不存在极端的最大最小值，用归一化。</p></li>
+<li><p>如果数据存在异常值和较多噪音，用标准化，可以间接通过中心化避免异常值和极端值的影响。</p></li>
+</ol>
+<blockquote>
+<p><strong>归一化与标准化不同</strong></p>
+</blockquote>
 <h1 id="dropout">Dropout</h1>
 <h1 id="激活函数">激活函数</h1>
 <h1 id="损失函数">损失函数</h1>
