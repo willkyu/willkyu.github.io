@@ -23,12 +23,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"willkyu.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="是什么（如定义、有哪些实例或者公式等等） 优缺点 应用场景 知识点实例之间的对比（如，relu和tanh有什么联系、区别）">
+<meta name="description" content="张量 参数初始化策略 参数范数与正则化 梯度下降法 梯度爆炸与梯度消失 自适应学习率算法 评估指标 归一化 Dropout 激活函数 损失函数 反向传播算法（公式推导） 过拟合与欠拟合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基础知识01">
 <meta property="og:url" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/index.html">
 <meta property="og:site_name" content="丘丘Blog">
-<meta property="og:description" content="是什么（如定义、有哪些实例或者公式等等） 优缺点 应用场景 知识点实例之间的对比（如，relu和tanh有什么联系、区别）">
+<meta property="og:description" content="张量 参数初始化策略 参数范数与正则化 梯度下降法 梯度爆炸与梯度消失 自适应学习率算法 评估指标 归一化 Dropout 激活函数 损失函数 反向传播算法（公式推导） 过拟合与欠拟合">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/third-order-tensor.png">
 <meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/three-fitting-curve.jpg">
@@ -41,8 +41,19 @@
 <meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/P-R-Curve.png">
 <meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/ROC-AUC.png">
 <meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/KS.jpg">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/Dropout.jpg">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/NN-no-activation-function.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/NN-with-activation-function.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/Sigmoid.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/dSigmoid.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/Tanh.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/ReLU.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/Leaky-ReLU.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/RReLU.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/contrast.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/NN.png">
 <meta property="article:published_time" content="2022-07-03T02:33:40.000Z">
-<meta property="article:modified_time" content="2022-07-06T08:58:15.065Z">
+<meta property="article:modified_time" content="2022-07-09T02:54:20.424Z">
 <meta property="article:author" content="willkyu">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/third-order-tensor.png">
@@ -167,7 +178,7 @@
 chart）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E5%BD%92%E6%8C%87%E6%A0%87"><span class="nav-text">回归指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%87%E6%96%B9%E8%AF%AF%E5%B7%AEmean-squared-errormse%E4%B8%8E%E5%9D%87%E6%96%B9%E6%A0%B9%E8%AF%AF%E5%B7%AEroot-mean-squared-errorrmse"><span class="nav-text">均方误差（Mean
 Squared Error，MSE）与均方根误差（Root Mean Squared Error，RMSE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E5%9D%87%E7%BB%9D%E5%AF%B9%E8%AF%AF%E5%B7%AEmean-absolute-errormae"><span class="nav-text">平均绝对误差（Mean Absolute
 Error，MAE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%B3%E5%AE%9A%E7%B3%BB%E6%95%B0-r%E6%96%B9r-squarded"><span class="nav-text">决定系数 R方（R-squarded）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">归一化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-text">归一化的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">归一化的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E6%A0%87%E5%87%86%E5%8C%96min-max-normalization"><span class="nav-text">最大最小标准化（Min-Max
-Normalization）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#z-score%E6%A0%87%E5%87%86%E5%8C%96"><span class="nav-text">z-score标准化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">神经网络归一化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%95%B0%E5%87%BD%E6%95%B0%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">对数函数归一化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E6%AD%A3%E5%88%87%E5%87%BD%E6%95%B0%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">反正切函数归一化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#l2%E8%8C%83%E6%95%B0%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">L2范数归一化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BD%BF%E7%94%A8%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">什么时候使用归一化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dropout"><span class="nav-text">Dropout</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">激活函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">损失函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC"><span class="nav-text">反向传播算法（公式推导）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="nav-text">过拟合、欠拟合</span></a></li></ol></div>
+Normalization）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#z-score%E6%A0%87%E5%87%86%E5%8C%96"><span class="nav-text">z-score标准化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">神经网络归一化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%95%B0%E5%87%BD%E6%95%B0%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">对数函数归一化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E6%AD%A3%E5%88%87%E5%87%BD%E6%95%B0%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">反正切函数归一化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#l2%E8%8C%83%E6%95%B0%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">L2范数归一化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BD%BF%E7%94%A8%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">什么时候使用归一化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dropout"><span class="nav-text">Dropout</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A5%B1%E5%92%8C%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">饱和激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sigmoid"><span class="nav-text">Sigmoid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tanh"><span class="nav-text">Tanh</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E9%A5%B1%E5%92%8C%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">非饱和激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#relu"><span class="nav-text">ReLU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leaky-relu"><span class="nav-text">Leaky ReLU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rrelu"><span class="nav-text">RReLU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#elu"><span class="nav-text">ELU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maxout"><span class="nav-text">Maxout</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">如何选择合适的激活函数?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">基于距离度量的损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#msel1l2"><span class="nav-text">MSE、L1、L2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#smooth-l1%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">Smooth L1损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#huber%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">Huber损失函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83%E5%BA%A6%E9%87%8F%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">基于概率分布度量的损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#kl%E6%95%A3%E5%BA%A6%E5%87%BD%E6%95%B0%E7%9B%B8%E5%AF%B9%E7%86%B5"><span class="nav-text">KL散度函数（相对熵）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1"><span class="nav-text">交叉熵损失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#softmax%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">Softmax损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#focal-loss"><span class="nav-text">Focal loss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">如何选择损失函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC"><span class="nav-text">反向传播算法（公式推导）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%AE%9A%E4%B9%89"><span class="nav-text">变量定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0"><span class="nav-text">代价函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E5%8F%8A%E5%85%B6%E6%8E%A8%E5%AF%BC"><span class="nav-text">公式及其推导</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BA%A7%E7%94%9F%E7%9A%84%E9%94%99%E8%AF%AF"><span class="nav-text">计算最后一次神经网络产生的错误：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E5%90%8E%E5%90%91%E5%89%8D%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%80%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BA%A7%E7%94%9F%E7%9A%84%E9%94%99%E8%AF%AF"><span class="nav-text">从后向前，计算每一层神经网络产生的错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9D%83%E9%87%8D%E7%9A%84%E6%A2%AF%E5%BA%A6"><span class="nav-text">计算权重的梯度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E5%81%8F%E7%BD%AE%E7%9A%84%E6%A2%AF%E5%BA%A6"><span class="nav-text">计算偏置的梯度</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%E4%B8%8E%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="nav-text">过拟合与欠拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88"><span class="nav-text">过拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A7%E7%94%9F%E8%BF%87%E6%8B%9F%E5%90%88%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-text">产生过拟合的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-text">过拟合的解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%A7%92%E5%BA%A6"><span class="nav-text">数据角度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%A7%92%E5%BA%A6"><span class="nav-text">模型角度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ensemble"><span class="nav-text">ensemble：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="nav-text">欠拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A7%E7%94%9F%E6%AC%A0%E6%8B%9F%E5%90%88%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-text">产生欠拟合的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AC%A0%E6%8B%9F%E5%90%88%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-text">欠拟合的解决办法</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -301,7 +312,7 @@ Normalization）</span></a></li><li class="nav-item nav-level-3"><a class="nav-l
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-06 16:58:15" itemprop="dateModified" datetime="2022-07-06T16:58:15+08:00">2022-07-06</time>
+      <time title="Modified: 2022-07-09 10:54:20" itemprop="dateModified" datetime="2022-07-09T10:54:20+08:00">2022-07-09</time>
     </span>
 
   
@@ -321,10 +332,21 @@ Normalization）</span></a></li><li class="nav-item nav-level-3"><a class="nav-l
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>是什么（如定义、有哪些实例或者公式等等）</p>
-<p>优缺点</p>
-<p>应用场景</p>
-<p>知识点实例之间的对比（如，relu和tanh有什么联系、区别）</p>
+        <ul>
+<li>张量</li>
+<li>参数初始化策略</li>
+<li>参数范数与正则化</li>
+<li>梯度下降法</li>
+<li>梯度爆炸与梯度消失</li>
+<li>自适应学习率算法</li>
+<li>评估指标</li>
+<li>归一化</li>
+<li>Dropout</li>
+<li>激活函数</li>
+<li>损失函数</li>
+<li>反向传播算法（公式推导）</li>
+<li>过拟合与欠拟合</li>
+</ul>
 <span id="more"></span>
 <h1 id="张量">张量</h1>
 <p>张量（tensor）是一个<strong>多维数组</strong>，张量的<strong>阶数（order）</strong>也称为维度（dimensions）。</p>
@@ -359,7 +381,7 @@ I_N}\)</span> 的内积（inner product）为</p>
 \rangle = \Vert \mathscr{X} \Vert^2\)</span></p>
 <h1 id="参数初始化策略">参数初始化策略</h1>
 <p>深度学习中，神经网络的参数初始化策略对模型的收敛速度及性能有至关重要的影响。在神经网络中，随着层数的增多，在梯度下降的过程中极易出现<a
-href="#梯度爆炸梯度消失">梯度消失或梯度爆炸</a>的问题，一个好的参数初始化对于处理这两个问题有着很大帮助。</p>
+href="#梯度爆炸与梯度消失">梯度消失或梯度爆炸</a>的问题，一个好的参数初始化对于处理这两个问题有着很大帮助。</p>
 <h2 id="初始化为常数过大或过小">初始化为常数、过大或过小</h2>
 <p>这些初始化策略都是不可取的，常数初始化会使得每层所有神经元相等，效果等效于一个神经元，极大限制了神经网络的学习能力。而参数过大过小会导致模型出现梯度爆炸或梯度消失的问题。</p>
 <p>具体推导过程可见：<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xMzgwNjQxODg=">https://zhuanlan.zhihu.com/p/138064188<i class="fa fa-external-link-alt"></i></span></p>
@@ -833,11 +855,13 @@ determination。判断的是预测模型和真实数据的拟合程度，最佳�
 <p>R方可以理解为因变量y中的变异性能能够被估计的多元回归方程解释的比例，它衡量各个自变量对因变量变动的解释程度，<strong>其取值在0与1之间，其值越接近1，则变量的解释程度就越高，其值越接近0，其解释程度就越弱</strong>。</p>
 <p>一般来说，增加自变量的个数，回归平方和会增加，残差平方和会减少，所以R方会增大；反之，减少自变量的个数，回归平方和减少，残差平方和增加。为了消除自变量的数目的影响，引入了调整的R方。</p>
 <p><span class="math display">\[
+\begin{aligned}
 R^2 &amp; = 1- \frac{\sum^m_{i = 1}(f_i - y_i)^2}{\sum^m_{i =
 1}(\overline{y_i} - y_i)^2}\\
 &amp; = \frac{\frac{1}{m}\sum^m_{i = 1}(f_i -
 y_i)^2}{\frac{1}{m}\sum^m_{i = 1}(\overline{y_i} - y_i)^2}\\
 &amp; = 1 - \frac{MSE(f, y)}{Var(y)}
+\end{aligned}
 \]</span></p>
 <h1 id="归一化">归一化</h1>
 <p>不同评价指标（即特征向量中的不同特征就是所述的不同评价指标）往往具有不同的量纲和量纲单位，这样的情况会影响到数据分析的结果，</p>
@@ -910,10 +934,563 @@ x&#39;_i = \frac{x_i}{norm(x)}
 <p><strong>归一化与标准化不同</strong></p>
 </blockquote>
 <h1 id="dropout">Dropout</h1>
+<p>想要提高CNN的表达或分类能力，最直接的方法就是采用更深的网络和更多的神经元，即deeper
+and
+wider。但是，复杂的网络也意味着更加容易过拟合。于是就有了Dropout，大部分实验表明其具有一定的防止过拟合的能力。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvcGRmLzEyMDcuMDU4MC5wZGY=">Improving neural
+networks by preventing co-adaptation of feature Detectors<i class="fa fa-external-link-alt"></i></span></p>
+<!--
+![Dropout](/images/body/the-Basics01/Dropout.jpg "Dropout")
+-->
+<figure>
+<img data-src="pics01/Dropout.jpg" title="Dropout" alt="Dropout" />
+<figcaption aria-hidden="true">Dropout</figcaption>
+</figure>
+<p>如上图左，为没有Dropout的普通2层全连接结构，记为 <span
+class="math inline">\(r = a(Wv)\)</span> ，其中 <span
+class="math inline">\(a\)</span> 为激活函数。</p>
+<p>如上图右，为在第2层全连接后添加Dropout层的示意图。即在模型训练时，随机让网络的某些节点不工作（输出置0），其它过程不变。</p>
+<p>由于随机的让一些节点不工作了，因此可以避免某些特征只在固定组合下才生效，有意识地让网络去学习一些普遍的共性（而不是某些训练样本的一些特性）。</p>
+<p>Bagging方法通过对训练数据有放回的采样来训练多个模型。而Dropout的随机意味着每次训练时只训练了一部分，而且其中大部分参数还是共享的，因此和Bagging有点相似。因此，Dropout可以看做训练了多个模型，实际使用时采用了模型平均作为输出。</p>
+<p>训练时，我们通常设定一个dropout ratio <span
+class="math inline">\(p\)</span>，即每一个输出节点以概率 <span
+class="math inline">\(p\)</span>
+置0(不工作)。假设每一个输出都是相互独立的，每个输出都服从二项伯努利分布
+<span class="math inline">\(B(1 - p)\)</span>，则大约认为训练时只使用了
+<span class="math inline">\((1-p)\)</span> 比例的输出。</p>
+<p>测试时，最直接的方法就是保留Dropout层的同时，将一张图片重复测试 M
+次，取 M 次结果的平均作为最终结果。假如有 N 个节点，则可能的情况为 <span
+class="math inline">\(R = 2^N\)</span>，如果 M 远小于
+R，则显然平均效果不好；如果M ≈
+N，那么计算量就太大了。因此作者做了一个近似：可以直接去掉Dropout层，将所有输出都使用起来，为此需要将尺度对齐，即比例缩小输出
+$ r = r * (1 - p)$。即如下公式：</p>
+<p><span class="math display">\[
+E_M[a(M * W)v] \approx a(E_M[(M * W)v]) = a((1 - p)Wv)
+\]</span></p>
+<p>特别的，
+为了使用方便，我们不在测试时再缩小输出，而在训练时直接将输出放大1/(1-p)倍。</p>
+<p>Dropout得到了广泛的使用，但具体用到哪里、训练一开始就用还是后面才用、dropout_ratio取多大，还要自己多多尝试。有时添加Dropout反而会降低性能。</p>
 <h1 id="激活函数">激活函数</h1>
+<p>神经网络中的每个神经元节点接受上一层神经元的输出值作为本神经元的输入值，并将输入值传递给下一层，输入层神经元节点会将输入属性值直接传递给下一层（隐层或输出层）。在多层神经网络中，上层节点的输出和下层节点的输入之间具有一个函数关系，这个函数称为激活函数。</p>
+<p>不使用激活函数的话，神经网络的每层都只是做线性变换，多层输入叠加后也还是线性变换。因为线性模型的表达能力通常不够，所以这时候就体现了激活函数的作用了，<strong>激活函数可以引入非线性因素</strong>。</p>
+<!--
+![不使用激活函数的神经网络](/images/body/the-Basics01/NN-no-activation-function.png "NN without activation function")
+-->
+<figure>
+<img data-src="pics01/NN-no-activation-function.png"
+title="NN without activation function" alt="不使用激活函数的神经网络" />
+<figcaption aria-hidden="true">不使用激活函数的神经网络</figcaption>
+</figure>
+<!--
+![使用激活函数的神经网络](/images/body/the-Basics01/NN-with-activation-function.png "NN with activation function")
+-->
+<figure>
+<img data-src="pics01/NN-with-activation-function.png"
+title="NN with activation function" alt="使用激活函数的神经网络" />
+<figcaption aria-hidden="true">使用激活函数的神经网络</figcaption>
+</figure>
+<p>加入非线性激励函数后，神经网络就有可能学习到滑的曲线来分割面，而不是用复杂的线性组合逼滑曲线来分割面，使神经网络的表示能力更强了，能够更好的拟合目标函数。</p>
+<p>sigmoid和tanh是“饱和激活函数”，而ReLU及其变体则是“非饱和激活函数”。使用“非饱和激活函数”的优势在于两点：</p>
+<ol type="1">
+<li>"非饱和激活函数”能解决所谓的“梯度消失”问题。</li>
+<li>它能加快收敛速度。</li>
+</ol>
+<h2 id="饱和激活函数">饱和激活函数</h2>
+<p>假设 <span class="math inline">\(h(x)\)</span> 是一个激活函数， -
+若当n趋向于正无穷，激活函数的导数趋近于0，那么我们称之为<strong>右饱和</strong></p>
+<p><span class="math display">\[
+\lim\limits_{n\to + \infty}h&#39;(x) = 0
+\]</span></p>
+<ul>
+<li>若当n趋向于负无穷，激活函数的导数趋近于0，那么我们称之为<strong>左饱和</strong></li>
+</ul>
+<p><span class="math display">\[
+\lim\limits_{n\to - \infty}h&#39;(x) = 0
+\]</span></p>
+<p>当函数既满足左饱和也满足右饱和时，我们称之为饱和。典型的函数有Sigmoid、Tanh函数。</p>
+<h3 id="sigmoid">Sigmoid</h3>
+<p><span class="math display">\[
+Sigmoid(x) = \frac{1}{1 + e^{- x}}
+\]</span></p>
+<!--
+![Sigmoid函数图像](/images/body/the-Basics01/Sigmoid.png "Sigmoid")
+-->
+<figure>
+<img data-src="pics01/Sigmoid.png" title="Sigmoid" alt="Sigmoid函数图像" />
+<figcaption aria-hidden="true">Sigmoid函数图像</figcaption>
+</figure>
+<!--
+![Sigmoid导函数图像](/images/body/the-Basics01/dSigmoid.png "dSigmoid")
+-->
+<figure>
+<img data-src="pics01/dSigmoid.png" title="dSigmoid"
+alt="Sigmoid导函数图像" />
+<figcaption aria-hidden="true">Sigmoid导函数图像</figcaption>
+</figure>
+<p>Sigmoid函数在历史上曾经非常的常用，输出值范围为[0,1]之间的实数。但是现在它已经不太受欢迎，实际中很少使用。原因是sigmoid存在3个问题：</p>
+<ol type="1">
+<li>sigmoid函数饱和使梯度消失(Sigmoidsaturate and kill
+gradients)。我们从导函数图像中可以看出sigmoid的导数都是小于0.25的，那么在进行反向传播的时候，梯度相乘结果会慢慢的趋于0导致梯度消失。除此之外，为了防止饱和，必须对于权重矩阵的初始化特别留意。如果初始化权重过大，可能很多神经元得到一个比较小的梯度，致使神经元不能很好的更新权重提前饱和，神经网络就几乎不学习。</li>
+<li>sigmoid函数输出不是“零为中心”(zero-centered)。一个多层的sigmoid神经网络，如果你的输入x都是正数，那么在反向传播中w的梯度传播到网络的某一处时，权值的变化是要么全正要么全负。</li>
+<li>指数函数的计算是比较消耗计算资源的。</li>
+</ol>
+<h3 id="tanh">Tanh</h3>
+<p>实际上，tanh是sigmoid的变形。</p>
+<p><span class="math display">\[
+\begin{aligned}
+Tanh(x) &amp; = 2 Sigmoid(2x) - 1\\
+&amp; = \frac{1 - e^{-2x}}{1 + e^{-2x}}
+\end{aligned}
+\]</span></p>
+<!--
+![Tanh函数图像](/images/body/the-Basics01/Tanh.png "Tanh")
+-->
+<figure>
+<img data-src="pics01/Tanh.png" title="Tanh" alt="Tanh函数图像" />
+<figcaption aria-hidden="true">Tanh函数图像</figcaption>
+</figure>
+<p>tanh与sigmoid不同的是，tanh是“零为中心”的。因此，实际应用中，tanh会比sigmoid更好一些。但是在饱和神经元的情况下，tanh还是没有解决梯度消失问题。</p>
+<p>优点：tanh解决了sigmoid的输出非“零为中心”的问题</p>
+<p>缺点：依然有sigmoid函数过饱和的问题，且依然进行的是指数运算</p>
+<h2 id="非饱和激活函数">非饱和激活函数</h2>
+<h3 id="relu">ReLU</h3>
+<p>近年来，ReLU函数变得越来越受欢迎。全称是Rectified Linear
+Unit，修正线性单元。ReLU是Krizhevsky、Hinton等人在2012年《ImageNet
+Classification with Deep Convolutional Neural
+Networks》论文中提出的一种线性且不饱和的激活函数。</p>
+<p><span class="math display">\[
+ReLU(x) = \max(0, x)
+\]</span></p>
+<!--
+![ReLU函数图像](/images/body/the-Basics01/ReLU.png "ReLU")
+-->
+<figure>
+<img data-src="pics01/ReLU.png" title="ReLU" alt="ReLU函数图像" />
+<figcaption aria-hidden="true">ReLU函数图像</figcaption>
+</figure>
+<p>优点：</p>
+<ol type="1">
+<li>ReLU解决了梯度消失的问题，至少x在正区间内，神经元不会饱和；</li>
+<li>由于ReLU线性、非饱和的形式，在SGD中能够快速收敛；</li>
+<li>运算速度要快很多。ReLU函数只有线性关系，不需要指数计算，不管在前向传播还是反向传播，计算速度都比sigmoid和tanh快</li>
+</ol>
+<p>缺点：</p>
+<ol type="1">
+<li>ReLU的输出不是“零为中心”(Notzero-centered output)。</li>
+<li>随着训练的进行，可能会出现神经元死亡，权重无法更新的情况。这种神经元的死亡是不可逆转的死亡</li>
+</ol>
+<p>训练神经网络的时候，一旦学习率没有设置好，第一次更新权重的时候，输入是负值，那么这个含有ReLU的神经节点就会死亡，再也不会被激活。设置一个合适的较小的学习率，会降低这种情况的发生。</p>
+<p>为了解决神经元节点死亡的情况，有人提出了Leaky
+ReLU、P-ReLu、R-ReLU、ELU等激活函数。</p>
+<h3 id="leaky-relu">Leaky ReLU</h3>
+<p>ReLU是将所有的负值设置为0，造成神经元节点死亡情况。相反，Leaky
+ReLU是给所有负值赋予一个非零的斜率。Leaky
+ReLU激活函数是在声学模型(2013)中首次提出来的。</p>
+<p><span class="math display">\[
+LeakyReLU(x) = \begin{cases}x,\ if\ x \geq 0\\
+                            \alpha x,\ if\ x &lt; 0
+               \end{cases}
+\]</span></p>
+<!--
+![Leaky ReLU函数图像](/images/body/the-Basics01/Leaky-ReLU.png "Leaky ReLU")
+-->
+<figure>
+<img data-src="pics01/Leaky-ReLU.png" title="Leaky ReLU"
+alt="Leaky ReLU函数图像" />
+<figcaption aria-hidden="true">Leaky ReLU函数图像</figcaption>
+</figure>
+<p>优点：</p>
+<ol type="1">
+<li>神经元不会出现死亡的情况。</li>
+<li>对于所有的输入，不管是大于等于0还是小于0，神经元不会饱和。</li>
+<li>由于Leaky ReLU线性、非饱和的形式，在SGD中能够快速收敛。</li>
+<li>计算速度要快很多。Leaky
+ReLU函数只有线性关系，不需要指数计算，不管在前向传播还是反向传播，计算速度都比sigmoid和tanh快。</li>
+</ol>
+<p>缺点：Leaky ReLU函数中的参数 <span
+class="math inline">\(\alpha\)</span>，需要通过先验知识人工赋值。</p>
+<p>Leaky ReLU很好地解决了“dead ReLU”的问题。因为Leaky
+ReLU保留了x小于0时的梯度，在x小于0时，不会出现神经元死亡的问题。对于Leaky
+ReLU给出了一个很小的负数梯度值α，这个值是很小的常数。比如：0.01。这样即修正了数据分布，又保留了一些负轴的值，使得负轴信息不会全部丢失。</p>
+<h3 id="rrelu">RReLU</h3>
+<p>RReLU的英文全称是“Randomized Leaky
+ReLU”，中文名字叫“随机修正线性单元”。RReLU是Leaky ReLU的随机版本。</p>
+<p><span class="math display">\[
+y_{ji} = \begin{cases}x_{ji},\ if\ x_{ji} \geq 0\\
+                            \alpha_{ji} x_{ji},\ if\ x_{ji} &lt; 0
+               \end{cases}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\alpha_{ji} \sim U(l, u),\ l &lt; u\ and\ l,\ u \in [0, 1)
+\]</span></p>
+<p><!--
+![RReLU函数图像](/images/body/the-Basics01/RReLU.png "RReLU")
+--></p>
+<figure>
+<img data-src="pics01/RReLU.png" title="RReLU" alt="RReLU函数图像" />
+<figcaption aria-hidden="true">RReLU函数图像</figcaption>
+</figure>
+<p>RReLU的核心思想是，在训练过程中，<span
+class="math inline">\(\alpha\)</span> 是从一个高斯分布 <span
+class="math inline">\(U(l, u)\)</span>
+中随机出来的值，然后再在测试过程中进行修正。在测试阶段，把训练过程中所有的
+<span class="math inline">\(\alpha_{ij}\)</span> 取个平均值。</p>
+<ol type="1">
+<li><p>RReLU是Leaky
+ReLU的random版本，在训练过程中，α是从一个高斯分布中随机出来的，然后再测试过程中进行修正。</p></li>
+<li><p>数学形式与PReLU类似，但RReLU是一种非确定性激活函数，其参数是随机的</p></li>
+</ol>
+<h3 id="elu">ELU</h3>
+<p>ELU的英文全称是“Exponential Linear
+Units”，中文全称是“指数线性单元”。它试图将激活函数的输出<em>均值接</em>零，从而加快学习速度。同时，它还能通过正值的标识来避免梯度消失的问题。根据一些研究显示，ELU分类精确度是高于ReLU的。</p>
+<p><span class="math display">\[
+ELU(x) = \begin{cases}x,\ if\ x &gt; 0\\
+                \alpha(e^x - 1),\ if\ x \leq 0
+               \end{cases}
+\]</span></p>
+<p><!--
+![ReLU及其变种对比](/images/body/the-Basics01/contrast.png "contrast")
+--></p>
+<figure>
+<img data-src="pics01/contrast.png" title="contrast"
+alt="ReLU及其变种对比" />
+<figcaption aria-hidden="true">ReLU及其变种对比</figcaption>
+</figure>
+<p>优点：</p>
+<ol type="1">
+<li>ELU包含了ReLU的所有优点。</li>
+<li>神经元不会出现死亡的情况。</li>
+<li>ELU激活函数的输出均值是接*于零的。</li>
+</ol>
+<p>缺点：计算的时候是需要计算指数的，存在计算效率低的问题。</p>
+<h3 id="maxout">Maxout</h3>
+<p>Maxout “Neuron”
+是由Goodfellow等人在2013年提出的一种很有特点的神经元，它的激活函数、计算的变量、计算方式和普通的神经元完全不同，并有两组权重。先得到两个超平面，再进行最大值计算。激活函数是对ReLU和Leaky
+ReLU的一般化归纳，没有ReLU函数的缺点，不会出现激活函数饱和神经元死亡的情况。Maxout出现在ICML2013上，作者Goodfellow将maxout和dropout结合，称在MNIST，CIFAR-10，CIFAR-100，SVHN这4个数据集上都取得了start-of-art的识别率。</p>
+<p><span class="math display">\[
+f_i(x) = \max_{j\in [1, k]}z_{ij}
+\]</span></p>
+<p>其中，<span class="math inline">\(z_{ij} = x^TW_{\ldots ij} +
+b_{ij}\)</span>，假设 <span class="math inline">\(W\)</span>
+是二维的，那么我们有</p>
+<p><span class="math display">\[
+f(x) = \max(w^T_1x + b_1, w^T_2x + b_2)
+\]</span></p>
+<p>Maxout的拟合能力非常强，它可以拟合任意的凸函数。Goodfellow在论文中从数学的角度上也证明了这个结论，只需要2个Maxout节点就可以拟合任意的凸函数，前提是“隐含层”节点的个数足够多。</p>
+<p>优点：</p>
+<ol type="1">
+<li>Maxout具有ReLU的所有优点，线性、不饱和性。</li>
+<li>同时没有ReLU的一些缺点。如：神经元的死亡。</li>
+</ol>
+<p>缺点：从这个激活函数的公式中可以看出，每个neuron将有两组 <span
+class="math inline">\(w\)</span>，那么参数就增加了一倍。这就导致了整体参数的数量激增。</p>
+<h2 id="如何选择合适的激活函数">如何选择合适的激活函数?</h2>
+<p>在实践过程中更多还是需要结合实际情况，考虑不同激活函数的优缺点综合使用。</p>
+<ol type="1">
+<li><p>通常来说，不能把各种激活函数串起来在一个网络中使用。</p></li>
+<li><p>如果使用ReLU，那么一定要小心设置学习率(learning
+rate)，并且要注意不要让网络中出现很多死亡神经元。如果死亡神经元过多的问题不好解决，可以试试Leaky
+ReLU、PReLU、或者Maxout。</p></li>
+<li><p>尽量不要使用sigmoid激活函数，可以试试tanh，不过还是建议非饱和激活函数。</p></li>
+</ol>
 <h1 id="损失函数">损失函数</h1>
+<p>损失函数使用主要是在模型的训练阶段，每个批次的训练数据送入模型后，通过前向传播输出预测值，然后损失函数会计算出预测值和真实值之间的差异值，也就是损失值。得到损失值之后，模型通过反向传播去更新各个参数，来降低真实值与预测值之间的损失，使得模型生成的预测值往真实值方向靠拢，从而达到学习的目的。</p>
+<h2 id="基于距离度量的损失函数">基于距离度量的损失函数</h2>
+<h3 id="msel1l2">MSE、L1、L2</h3>
+<p>见<a href="#mse">相应部分</a>。</p>
+<h3 id="smooth-l1损失函数">Smooth L1损失函数</h3>
+<p>Smooth L1损失是由Girshick R在Fast
+R-CNN中提出的，主要用在目标检测中防止梯度爆炸。</p>
+<p><span class="math display">\[
+L(Y|f(x)) = \begin{cases}\frac{1}{2}(Y - f(x))^2,\ if\ \vert Y -
+f(x)\vert &lt; 1\\
+                \vert Y - f(x)\vert - \frac{1}{2},\ if\ x\vert Y -
+f(x)\vert \geq 1
+               \end{cases}
+\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def Smooth_L1(x,y):</span><br><span class="line">    assert len(x)==len(y)</span><br><span class="line">    loss=0</span><br><span class="line">    for i_x,i_y in zip(x,y):</span><br><span class="line">        tmp = abs(i_y-i_x)</span><br><span class="line">        if tmp&lt;1:</span><br><span class="line">            loss+=0.5*(tmp**2)</span><br><span class="line">        else:</span><br><span class="line">            loss+=tmp-0.5</span><br><span class="line">    return loss</span><br></pre></td></tr></table></figure>
+<h3 id="huber损失函数">Huber损失函数</h3>
+<p>huber损失是平方损失和绝对损失的综合，它克服了平方损失和绝对损失的缺点，不仅使损失函数具有连续的导数，而且利用MSE梯度随误差减小的特性，可取得更精确的最小值。尽管huber损失对异常点具有更好的鲁棒性，但是，它不仅引入了额外的参数，而且选择合适的参数比较困难，这也增加了训练和调试的工作量。</p>
+<p><span class="math display">\[
+L(Y|f(x)) = \begin{cases}\frac{1}{2}(Y - f(x))^2,\ if\ \vert Y -
+f(x)\vert \leq \delta\\
+                \delta\vert Y - f(x)\vert - \frac{1}{2}\delta^2,\ if\
+x\vert Y - f(x)\vert &gt; \delta
+               \end{cases}
+\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">delta=1.0  # 先定义超参数</span><br><span class="line"></span><br><span class="line">def huber_loss(x,y):</span><br><span class="line">    assert len(x)==len(y)</span><br><span class="line">    loss=0</span><br><span class="line">    for i_x,i_y in zip(x,y):</span><br><span class="line">        tmp = abs(i_y-i_x)</span><br><span class="line">        if tmp&lt;=delta:</span><br><span class="line">            loss+=0.5*(tmp**2)</span><br><span class="line">        else:</span><br><span class="line">            loss+=tmp*delta-0.5*delta**2</span><br><span class="line">    return loss</span><br></pre></td></tr></table></figure>
+<h2 id="基于概率分布度量的损失函数">基于概率分布度量的损失函数</h2>
+<p>基于概率分布度量的损失函数是将样本间的相似性转化为随机事件出现的可能性，即通过度量样本的真实分布与它估计的分布之间的距离，判断两者的相似度，一般用于涉及概率分布或预测类别出现的概率的应用问题中，在分类问题中尤为常用。</p>
+<h3 id="kl散度函数相对熵">KL散度函数（相对熵）</h3>
+<p>KL散度（ Kullback-Leibler
+divergence）也被称为相对熵，是一种非对称度量方法，常用于度量两个概率分布之间的距离。KL散度也可以衡量两个随机分布之间的距离，两个随机分布的相似度越高的，它们的KL散度越小，当两个随机分布的差别增大时，它们的KL散度也会增大，因此KL散度可以用于比较文本标签或图像的相似性。基于KL散度的演化损失函数有JS散度函数。JS散度也称JS距离，用于衡量两个概率分布之间的相似度，它是基于KL散度的一种变形，消除了KL散度非对称的问题，与KL散度相比，它使得相似度判别更加准确。</p>
+<p>相对熵是恒大于等于0的。当且仅当两分布相同时，相对熵等于0。</p>
+<p><span class="math display">\[
+L(Y|f(x)) = \sum^n_{i = 1}Y_i \times \log(\frac{Y_i}{f(x_i)})
+\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def kl_loss(y_true:list,y_pred:list):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    y_true,y_pred，分别是两个概率分布</span><br><span class="line">    比如：px=[0.1,0.2,0.8]</span><br><span class="line">          py=[0.3,0.3,0.4]</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    assert len(y_true)==len(y_pred)</span><br><span class="line">    KL=0</span><br><span class="line">    for y,fx in zip(y_true,y_pred):</span><br><span class="line">        KL+=y*np.log(y/fx)</span><br><span class="line">    return KL</span><br></pre></td></tr></table></figure>
+<h3 id="交叉熵损失">交叉熵损失</h3>
+<p>交叉熵是信息论中的一个概念，最初用于估算平均编码长度，引入机器学习后，用于评估当前训练得到的概率分布与真实分布的差异情况。为了使神经网络的每一层输出从线性组合转为非线性逼近，以提高模型的预测精度，在以交叉熵为损失函数的神经网络模型中一般选用tanh、sigmoid、softmax或ReLU作为激活函数。</p>
+<p>交叉熵损失函数刻画了实际输出概率与期望输出概率之间的相似度，也就是交叉熵的值越小，两个概率分布就越接近，特别是在正负样本不均衡的分类问题中，常用交叉熵作为损失函数。目前，交叉熵损失函数是卷积神经网络中最常使用的分类损失函数，它可以有效避免梯度消散。在二分类情况下也叫做<strong>对数损失函数</strong>。</p>
+<p><span class="math display">\[
+L(Y|f(x)) = - \sum^n_{i = 1}Y_i\log f(x_i)
+\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def CrossEntropy_loss(y_true:list,y_pred:list):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    y_true,y_pred，分别是两个概率分布</span><br><span class="line">    比如：px=[0.1,0.2,0.8]</span><br><span class="line">          py=[0.3,0.3,0.4]</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    assert len(y_true)==len(y_pred)</span><br><span class="line">    loss=0</span><br><span class="line">    for y,fx in zip(y_true,y_pred):</span><br><span class="line">        loss+=-y * np.log(fx)</span><br><span class="line">    return loss</span><br></pre></td></tr></table></figure>
+<p>当正负样本不均衡的时候，通常会在交叉熵损失函数类别前面加个参数α</p>
+<p><span class="math display">\[
+CE = \begin{cases} -\alpha\log(p),\ y = 1\\
+                   -(1 - \alpha)\log(1 - p),\ y = 0
+     \end{cases}
+\]</span></p>
+<h3 id="softmax损失函数">Softmax损失函数</h3>
+<p>从标准形式上看，softmax损失函数应归到对数损失的范畴，在监督学习中，由于它被广泛使用，所以单独形成一个类别。softmax损失函数本质上是逻辑回归模型在多分类任务上的一种延伸，常作为CNN模型的损失函数。softmax损失函数的本质是将一个k维的任意实数向量x映射成另一个k维的实数向量，其中，输出向量中的每个元素的取值范围都是(0,1)，即softmax损失函数输出每个类别的预测概率。由于softmax损失函数具有类间可分性，被广泛用于分类、分割、人脸识别、图像自动标注和人脸验证等问题中，其特点是类间距离的优化效果非常好，但类内距离的优化效果比较差。</p>
+<p>softmax损失函数具有类间可分性，在多分类和图像标注问题中，常用它解决特征分离问题。在基于卷积神经网络的分类问题中，一般使用softmax损失函数作为损失函数，但是softmax损失函数学习到的特征不具有足够的区分性，因此它常与对比损失或中心损失组合使用，以增强区分能力。</p>
+<p><span class="math display">\[
+L(Y|f(x)) = - \frac{1}{n}\sum^n_{i = 1}\log\frac{e^{f_{Y_i}}}{\sum^c_{j
+= 1}e^{f_j}}
+\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def softmax(x):</span><br><span class="line">    x_exp = np.exp(x)</span><br><span class="line">    x_sum = np.sum(x_exp, axis=1, keepdims=True)</span><br><span class="line">    s = x_exp / x_sum</span><br><span class="line">    return s</span><br><span class="line"></span><br><span class="line"># Tensorflow2.0版</span><br><span class="line">softmax_fc = tf.keras.activations.softmax(x)</span><br><span class="line"># pytorch版</span><br><span class="line">softmax_fc = torch.nn.Softmax()</span><br><span class="line">output = softmax_fc(x)</span><br></pre></td></tr></table></figure>
+<h3 id="focal-loss">Focal loss</h3>
+<p>focal
+loss的引入主要是为了解决难易样本不均衡的问题，注意有区别于正负样本不均衡的问题。难易样本分为四个类型：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">难</th>
+<th style="text-align: center;">易</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">正</td>
+<td style="text-align: center;">正难</td>
+<td style="text-align: center;">正易</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">负</td>
+<td style="text-align: center;">负难</td>
+<td style="text-align: center;">负易</td>
+</tr>
+</tbody>
+</table>
+<p>易分样本虽然损失很低，但是数量太多，对模型的效果提升贡献很小，模型应该重点关注那些难分样本，因此需要把置信度高的损失再降低一些。</p>
+<p><span class="math display">\[
+FE = \begin{cases}-\alpha(1 - p)^\gamma\log(p),\ y = 1\\
+                  -(1 - \alpha)p^\gamma\log(1 - p),\ y = 0
+     \end{cases}
+\]</span></p>
+<h2 id="如何选择损失函数">如何选择损失函数</h2>
+<p>通常情况下，损失函数的选取应从以下方面考虑：</p>
+<ol type="1">
+<li>选择最能表达数据的主要特征来构建基于距离或基于概率分布度量的特征空间。</li>
+<li>选择合理的特征归一化方法，使特征向量转换后仍能保持原来数据的核心内容。</li>
+<li>选取合理的损失函数，在实验的基础上，依据损失不断调整模型的参数，使其尽可能实现类别区分。</li>
+<li>合理组合不同的损失函数，发挥每个损失函数的优点，使它们能更好地度量样本间的相似性。</li>
+<li>将数据的主要特征嵌入损失函数，提升基于特定任务的模型预测精确度。</li>
+</ol>
 <h1 id="反向传播算法公式推导">反向传播算法（公式推导）</h1>
-<h1 id="过拟合欠拟合">过拟合、欠拟合</h1>
+<p>反向传播算法（Backpropagation）是目前用来训练人工神经网络（Artificial
+Neural Network，ANN）的最常用且最有效的算法。其主要思想是：</p>
+<ol type="1">
+<li>将训练集数据输入到ANN的输入层，经过隐藏层，最后达到输出层并输出结果，这是ANN的前向传播过程；</li>
+<li>由于ANN的输出结果与实际结果有误差，则计算估计值与实际值之间的误差，并将该误差从输出层向隐藏层反向传播，直至传播到输入层；</li>
+<li>在反向传播的过程中，根据误差调整各种参数的值；不断迭代上述过程，直至收敛。</li>
+</ol>
+<h2 id="变量定义">变量定义</h2>
+<p><!--
+![神经网络](/images/body/the-Basics01/NN.png "NN")
+--></p>
+<figure>
+<img data-src="pics01/NN.png" title="NN" alt="神经网络" />
+<figcaption aria-hidden="true">神经网络</figcaption>
+</figure>
+<p>上图是一个三层人工神经网络，layer1至layer3分别是输入层、隐藏层和输出层。</p>
+<p>定义变量：</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">变量</th>
+<th style="text-align: center;">表示</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(w^l_{jk}\)</span></td>
+<td style="text-align: center;">第 <span class="math inline">\((l -
+1)\)</span> 层的第 <span class="math inline">\(k\)</span>
+个神经元连接到第 <span class="math inline">\(l\)</span> 层的第 <span
+class="math inline">\(j\)</span> 个神经元的权重</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(b^l_j\)</span></td>
+<td style="text-align: center;">第 <span
+class="math inline">\(l\)</span> 层的第 <span
+class="math inline">\(j\)</span> 个神经元的偏置</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(z^l_j\)</span></td>
+<td style="text-align: center;">第 <span
+class="math inline">\(l\)</span> 层的第 <span
+class="math inline">\(j\)</span> 个神经元的输入，即：<span
+class="math inline">\(z^l_j = \sum_kw^l_{jk}a^{l - 1}_k +
+b^l_j\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(a^l_j\)</span></td>
+<td style="text-align: center;">第 <span
+class="math inline">\(l\)</span> 层的第 <span
+class="math inline">\(j\)</span> 个神经元的输出，即：<span
+class="math inline">\(a^l_j = \sigma(z^l_j)\)</span>，其中 <span
+class="math inline">\(\sigma\)</span> 表示激活函数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="代价函数">代价函数</h2>
+<p>代价函数被用来计算ANN输出值与实际值之间的误差。常用的代价函数是二次代价函数（Quadratic
+cost function）：</p>
+<p><span class="math display">\[
+C = \frac{1}{2n}\sum_x\Vert y(x) - a^L(x)\Vert^2
+\]</span></p>
+<p>其中，<span class="math inline">\(x\)</span> 表示输入的样本，<span
+class="math inline">\(y\)</span> 表示实际的分类，<span
+class="math inline">\(a^L\)</span> 表示预测的输出，<span
+class="math inline">\(L\)</span>表示神经网络的最大层数。</p>
+<h2 id="公式及其推导">公式及其推导</h2>
+<p>首先，将第 <span class="math inline">\(l\)</span> 层第 <span
+class="math inline">\(j\)</span>
+个神经元中产生的错误(即实际值与预测值之间的误差)定义为:</p>
+<p><span class="math display">\[
+\delta^l_j = \frac{\partial C}{\partial z^l_j}
+\]</span></p>
+<p>以一个输入样本为例,此时代价函数为：</p>
+<p><span class="math display">\[
+C = \frac{1}{2}\Vert y - a^L\Vert^2 = \frac{1}{2}\sum_j(y_j - a^L_j)^2
+\]</span></p>
+<h3
+id="计算最后一次神经网络产生的错误">计算最后一次神经网络产生的错误：</h3>
+<p><span class="math display">\[
+\delta^L = \nabla_a C \odot \sigma&#39;(z^L)
+\]</span></p>
+<p>其中，<span class="math inline">\(\cdot\)</span>
+表示Hadamard乘积，用于矩阵或向量之间点对点的乘法运算。推导过程如下：</p>
+<p><span class="math display">\[
+\because \delta^L_j = \frac{\partial C}{\partial z^L_j} = \frac{\partial
+C}{\partial a^L_j}\cdot\frac{\partial a^L_j}{\partial z^L_j}\\
+\therefore \delta^L = \frac{\partial C}{\partial a^L}\odot\frac{\partial
+a^L}{\partial z^L} = \nabla_a C \odot \sigma&#39;(z^L)\\
+\]</span></p>
+<h3
+id="从后向前计算每一层神经网络产生的错误">从后向前，计算每一层神经网络产生的错误</h3>
+<p><span class="math display">\[
+\delta^l = ((w^{l + 1})^T\delta^{l+1})\odot\sigma&#39;(z^l)
+\]</span></p>
+<p>推导过程：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\because \delta^l_j = \frac{\partial C}{\partial z^l_j} &amp; =
+\sum_k\frac{\partial C}{\partial z^{l+1}_k}\cdot\frac{\partial
+z^{l+1}_k}{\partial a^l_j}\cdot\frac{\partial a^l_j}{\partial z^l_j}\\
+&amp; = \sum_k\delta^{l+1}_k\cdot\frac{\partial(w^(l+1)_{kj}a^l_j +
+b^{l+1}_k)}{\partial a^l_j}\cdot\sigma&#39;(z^l_j)\\
+&amp; = \sum_k\delta^{l+1}_k\cdot w^{l+1}_{kj}\cdot\sigma&#39;(z^l_j)\\
+\therefore \delta^l = ((w^{l + 1})^T\delta^{l+1})\odot\sigma&#39;(z^l)
+\end{aligned}
+\]</span></p>
+<h3 id="计算权重的梯度">计算权重的梯度</h3>
+<p><span class="math display">\[
+\frac{\partial C}{\partial w^l_{jk}} = a^{l-1}_k\delta^l_j
+\]</span></p>
+<p>推导过程：</p>
+<p><span class="math display">\[
+\frac{\partial C}{\partial w^l_{jk}} = \frac{\partial C}{\partial
+z^l_j}\cdot\frac{\partial z^l_j}{\partial w^l_{jk}} =
+\delta^l_j\cdot\frac{\partial(w^l_{jk}a^{l-1}_k + b^l_j)}{\partial
+w^l_{jk}} = a^{l-1}_k\delta^l_j
+\]</span></p>
+<h3 id="计算偏置的梯度">计算偏置的梯度</h3>
+<p><span class="math display">\[
+\frac{\partial C}{\partial b^l_j} = \delta^l_j
+\]</span></p>
+<p>推导过程：</p>
+<p><span class="math display">\[
+\frac{\partial C}{\partial b^l_j} = \frac{\partial C}{\partial
+z^l_j}\cdot\frac{\partial z^l_j}{\partial b^l_j} =
+\delta^l_j\cdot\frac{\partial(w^l_{jk}a^{l-1}_k + b^l_j)}{\partial
+b^l_j} = \delta^l_j
+\]</span></p>
+<h1 id="过拟合与欠拟合">过拟合与欠拟合</h1>
+<h2 id="过拟合">过拟合</h2>
+<p>定义1（摘自周志华机器学习）：当学习器把训练样本学的“太好”了的时候，很可能已经把训练样本自身的一些特点当作了所有潜在样本都会具有的一般性质，这样就会导致泛化性能下降，这种现象称为过拟合。</p>
+<p>定义2：具体表现就是最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱。</p>
+<p>具体表现就是最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱。</p>
+<h3 id="产生过拟合的原因">产生过拟合的原因</h3>
+<ol type="1">
+<li>训练数据中噪音干扰过大，使得学习器认为部分噪音是特征从而扰乱学习规则。</li>
+<li>建模样本选取有误，例如训练数据太少，抽样方法错误，样本label错误等，导致样本不能代表整体。</li>
+<li>模型不合理，或假设成立的条件与实际不符。</li>
+<li>特征维度/参数太多，导致模型复杂度太高。</li>
+</ol>
+<h3 id="过拟合的解决办法">过拟合的解决办法</h3>
+<p>过拟合无法彻底避免，只能缓解。</p>
+<h4 id="数据角度">数据角度</h4>
+<ul>
+<li>从数据源头获取更多数据</li>
+<li>数据增强（Data
+Augmentation）:通过一定规则扩充数据。如物体在图像中的位置、姿态、尺度、整体图片明暗度等都不会影响分类结果。我们可以通过图像平移、反转、缩放、切割等手段将数据库成倍扩充。</li>
+<li>保留验证集</li>
+<li>获取额外数据进行交叉验证</li>
+</ul>
+<h4 id="模型角度">模型角度</h4>
+<ul>
+<li>降低模型复杂度：
+<ul>
+<li>对于神经网络：减少网络的层数、神经元个数等均可以限制网络的拟合能力。dropout，在向前传播的时候，让某个神经元的激活值以一定的概率p停止工作，这样可以使模型的泛化性更强，因为它不会太依赖某些局部的特征。</li>
+<li>对于决策树：限制树深，剪枝，限制叶节点数量。</li>
+<li>增大分割平面间隔</li>
+</ul></li>
+<li>特征选择、特征降维</li>
+<li>early stopping</li>
+<li>正则化（限制权值weight-decay）：将权值的大小作为惩罚项加入到损失函数里。</li>
+<li>增加噪声：
+<ul>
+<li>在输入中加噪声。噪声会随着网络传播，按照权值的平方放大，并传播到输出层，会在输出中生成
+<span class="math inline">\(\sum_iw^2_i\cdot\sigma^2_i\)</span>
+的干扰项。训练时减小损失函数时也会减小权值，与L2正则化有类似效果。</li>
+<li>在权值上加噪声。在初始化网络的时候，用0均值的高斯分布作为初始化。</li>
+<li>对网络等响应加噪声。在前向传播的过程中，让某些神经元的输出变为random，从而打乱网络的训练过程，让训练更慢。</li>
+</ul></li>
+</ul>
+<h4 id="ensemble">ensemble：</h4>
+<ul>
+<li>Bagging:从训练集中自助采样，训练多个相互独立的弱学习器，通过一定结合策略形成一个强学习器。</li>
+<li>Boosting:
+初始化训练一个基学习器→根据表现调整样本分布（预测错误的样本在后续收到更多关注）→训练下一个基学习器→多个学习器加权结合。</li>
+</ul>
+<h2 id="欠拟合">欠拟合</h2>
+<p>定义：欠拟合是指对训练样本的一般性质尚未学好。在训练集及测试集上的表现都不好。</p>
+<h3 id="产生欠拟合的原因">产生欠拟合的原因</h3>
+<ol type="1">
+<li>模型复杂度过低</li>
+<li>特征量过少</li>
+</ol>
+<h3 id="欠拟合的解决办法">欠拟合的解决办法</h3>
+<ul>
+<li>增加特征数；当特征不足或者现有特征与样本标签的相关性不强时，模型易出现欠拟合。可以通过挖掘上下文特征，ID类特征，组合特征等新的特征，可以取得较好的效果。这属于特征工程相关的内容，如因子分解机，梯度提升决策树，deep_crossing都可以丰富特征。</li>
+<li>增加模型复杂度；模型简单时其表达能力较差，容易导致欠拟合，因此可以适当地增加模型复杂度，使模型拥有更强的拟合能力。如线性模型中添加高次项，神经网络中增加网络层数或神经元个数。尝试非线性模型，比如核SVM
+、决策树、DNN等模型。</li>
+<li>减小正则化系数。正则化是用于防止过拟合的，但是当出现欠拟合时，就有必要针对性地减小正则化系数。</li>
+<li>Boosting，Boosting 往往会有较小的 Bias。</li>
+</ul>
 
     </div>
 

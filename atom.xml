@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2022-07-06T08:58:15.065Z</updated>
+  <updated>2022-07-09T02:54:20.424Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -21,13 +21,24 @@
     <link href="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/"/>
     <id>http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/</id>
     <published>2022-07-03T02:33:40.000Z</published>
-    <updated>2022-07-06T08:58:15.065Z</updated>
+    <updated>2022-07-09T02:54:20.424Z</updated>
     
     
-    <summary type="html">&lt;p&gt;是什么（如定义、有哪些实例或者公式等等）&lt;/p&gt;
-&lt;p&gt;优缺点&lt;/p&gt;
-&lt;p&gt;应用场景&lt;/p&gt;
-&lt;p&gt;知识点实例之间的对比（如，relu和tanh有什么联系、区别）&lt;/p&gt;</summary>
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;张量&lt;/li&gt;
+&lt;li&gt;参数初始化策略&lt;/li&gt;
+&lt;li&gt;参数范数与正则化&lt;/li&gt;
+&lt;li&gt;梯度下降法&lt;/li&gt;
+&lt;li&gt;梯度爆炸与梯度消失&lt;/li&gt;
+&lt;li&gt;自适应学习率算法&lt;/li&gt;
+&lt;li&gt;评估指标&lt;/li&gt;
+&lt;li&gt;归一化&lt;/li&gt;
+&lt;li&gt;Dropout&lt;/li&gt;
+&lt;li&gt;激活函数&lt;/li&gt;
+&lt;li&gt;损失函数&lt;/li&gt;
+&lt;li&gt;反向传播算法（公式推导）&lt;/li&gt;
+&lt;li&gt;过拟合与欠拟合&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
