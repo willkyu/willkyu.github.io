@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2022-07-09T02:54:20.424Z</updated>
+  <updated>2022-10-15T16:08:54.888Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -17,11 +17,26 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Suda-charging-monitor</title>
+    <link href="http://willkyu.github.io/Life/Suda-charging-monitor/"/>
+    <id>http://willkyu.github.io/Life/Suda-charging-monitor/</id>
+    <published>2022-10-15T16:01:30.000Z</published>
+    <updated>2022-10-15T16:08:54.888Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;苏州大学充电桩监控&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>基础知识01</title>
     <link href="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/"/>
     <id>http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/</id>
     <published>2022-07-03T02:33:40.000Z</published>
-    <updated>2022-07-09T02:54:20.424Z</updated>
+    <updated>2022-07-12T08:26:35.988Z</updated>
     
     
     <summary type="html">&lt;ul&gt;
@@ -460,27 +475,6 @@ href=&quot;/Archive/The-First-Blog/&quot;&gt;置顶◇代办◇与更新记录&l
     
     
     <summary type="html">&lt;p&gt;Tensor的拼接与拆分操作&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
-    
-    
-    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
-    
-    <category term="PyTorch" scheme="http://willkyu.github.io/tags/PyTorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PyTorch笔记05----Broadcast自动扩展</title>
-    <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch05/"/>
-    <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch05/</id>
-    <published>2021-12-16T02:55:29.000Z</published>
-    <updated>2022-01-19T15:11:32.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;PyTorch的自动扩展&lt;/p&gt;</summary>
     
     
     

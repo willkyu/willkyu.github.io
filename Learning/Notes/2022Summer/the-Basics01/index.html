@@ -42,6 +42,10 @@
 <meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/ROC-AUC.png">
 <meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/KS.jpg">
 <meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/Dropout.jpg">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/Dropout-DropConnect.jpg">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/DropConnect.jpg">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/DropConnect-A.jpg">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/DropConnect-figure.jpg">
 <meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/NN-no-activation-function.png">
 <meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/NN-with-activation-function.png">
 <meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/Sigmoid.png">
@@ -53,7 +57,7 @@
 <meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/contrast.png">
 <meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/NN.png">
 <meta property="article:published_time" content="2022-07-03T02:33:40.000Z">
-<meta property="article:modified_time" content="2022-07-09T02:54:20.424Z">
+<meta property="article:modified_time" content="2022-07-12T08:26:35.988Z">
 <meta property="article:author" content="willkyu">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/third-order-tensor.png">
@@ -174,11 +178,11 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%A0%E9%87%8F"><span class="nav-text">张量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%A0%E9%87%8F%E7%9A%84%E8%8C%83%E6%95%B0"><span class="nav-text">张量的范数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%A0%E9%87%8F%E7%9A%84%E5%86%85%E7%A7%AF"><span class="nav-text">张量的内积</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E5%88%9D%E5%A7%8B%E5%8C%96%E7%AD%96%E7%95%A5"><span class="nav-text">参数初始化策略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%BA%E5%B8%B8%E6%95%B0%E8%BF%87%E5%A4%A7%E6%88%96%E8%BF%87%E5%B0%8F"><span class="nav-text">初始化为常数、过大或过小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%98%AF%E5%A5%BD%E7%9A%84"><span class="nav-text">什么样的初始化是好的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xavier%E5%88%9D%E5%A7%8B%E5%8C%96%E7%AD%96%E7%95%A5"><span class="nav-text">Xavier初始化策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kaiming%E5%88%9D%E5%A7%8B%E5%8C%96%E7%AD%96%E7%95%A5"><span class="nav-text">Kaiming初始化策略</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%8C%83%E6%95%B0%E4%B8%8E%E6%AD%A3%E5%88%99%E5%8C%96"><span class="nav-text">参数范数与正则化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8C%83%E6%95%B0"><span class="nav-text">范数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E6%95%B0%E5%80%BC%E5%81%87%E8%AE%BE%E5%88%86%E6%9E%90"><span class="nav-text">简单数值假设分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95"><span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8%E4%B8%8E%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1"><span class="nav-text">梯度爆炸与梯度消失</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8"><span class="nav-text">梯度爆炸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1"><span class="nav-text">梯度消失</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A7%E7%94%9F%E5%8E%9F%E5%9B%A0"><span class="nav-text">产生原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E5%B9%B6%E5%BE%AE%E8%B0%83"><span class="nav-text">预训练并微调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E5%89%AA%E5%88%87%E4%B8%8E%E6%AD%A3%E5%88%99%E5%8C%96"><span class="nav-text">梯度剪切与正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8reluleakreluelu%E7%AD%89%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">使用relu、leakrelu、elu等激活函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%B9%E8%A7%84%E8%8C%83%E5%8C%96"><span class="nav-text">批规范化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%AE%8B%E5%B7%AE%E7%BB%93%E6%9E%84"><span class="nav-text">使用残差结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lstm%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C"><span class="nav-text">LSTM（长短期记忆网络）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E9%80%82%E5%BA%94%E5%AD%A6%E4%B9%A0%E7%8E%87%E7%AE%97%E6%B3%95"><span class="nav-text">自适应学习率算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#adagrad"><span class="nav-text">AdaGrad</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rmsprop"><span class="nav-text">RMSProp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adam"><span class="nav-text">Adam</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87"><span class="nav-text">评估指标</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E6%8C%87%E6%A0%87"><span class="nav-text">分类指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E7%A1%AE%E7%8E%87%E7%B2%BE%E5%BA%A6accuracy"><span class="nav-text">准确率（精度，Accuracy）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E5%87%86%E7%8E%87%E7%B2%BE%E7%A1%AE%E7%8E%87precision"><span class="nav-text">查准率（精确率，Precision）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E5%85%A8%E7%8E%87%E5%8F%AC%E5%9B%9E%E7%8E%87recall"><span class="nav-text">查全率（召回率，Recall）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#p-r%E6%9B%B2%E7%BA%BF%E5%B9%B3%E8%A1%A1%E7%82%B9%E5%92%8Cf1%E8%A1%A1%E9%87%8F"><span class="nav-text">P-R曲线、平衡点和F1衡量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#p-r%E6%9B%B2%E7%BA%BF"><span class="nav-text">P-R曲线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E7%82%B9break-even-pointbep"><span class="nav-text">平衡点（Break-Even-Point，BEP）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#f1%E5%BA%A6%E9%87%8F"><span class="nav-text">F1度量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E5%88%86%E7%B1%BB%E6%83%85%E5%86%B5"><span class="nav-text">多分类情况</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#roc%E4%B8%8Eauc"><span class="nav-text">ROC与AUC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ks%E5%9B%BEkolomogorov-smirnov-chart"><span class="nav-text">KS图（Kolomogorov Smirnov
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%A0%E9%87%8F"><span class="nav-text">张量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%A0%E9%87%8F%E7%9A%84%E8%8C%83%E6%95%B0"><span class="nav-text">张量的范数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%A0%E9%87%8F%E7%9A%84%E5%86%85%E7%A7%AF"><span class="nav-text">张量的内积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-text">一些代码实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E5%88%9D%E5%A7%8B%E5%8C%96%E7%AD%96%E7%95%A5"><span class="nav-text">参数初始化策略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%BA%E5%B8%B8%E6%95%B0%E8%BF%87%E5%A4%A7%E6%88%96%E8%BF%87%E5%B0%8F"><span class="nav-text">初始化为常数、过大或过小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%98%AF%E5%A5%BD%E7%9A%84"><span class="nav-text">什么样的初始化是好的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xavier%E5%88%9D%E5%A7%8B%E5%8C%96%E7%AD%96%E7%95%A5"><span class="nav-text">Xavier初始化策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kaiming%E5%88%9D%E5%A7%8B%E5%8C%96%E7%AD%96%E7%95%A5"><span class="nav-text">Kaiming初始化策略</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%8C%83%E6%95%B0%E4%B8%8E%E6%AD%A3%E5%88%99%E5%8C%96"><span class="nav-text">参数范数与正则化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8C%83%E6%95%B0"><span class="nav-text">范数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E6%95%B0%E5%80%BC%E5%81%87%E8%AE%BE%E5%88%86%E6%9E%90"><span class="nav-text">简单数值假设分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%8C%83%E6%95%B0%E4%B8%8E%E6%AD%A3%E5%88%99%E5%8C%96%E7%9A%84%E8%81%94%E7%B3%BB"><span class="nav-text">参数范数与正则化的联系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95"><span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8%E4%B8%8E%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1"><span class="nav-text">梯度爆炸与梯度消失</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8"><span class="nav-text">梯度爆炸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1"><span class="nav-text">梯度消失</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A7%E7%94%9F%E5%8E%9F%E5%9B%A0"><span class="nav-text">产生原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E5%B9%B6%E5%BE%AE%E8%B0%83"><span class="nav-text">预训练并微调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E5%89%AA%E5%88%87%E4%B8%8E%E6%AD%A3%E5%88%99%E5%8C%96"><span class="nav-text">梯度剪切与正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8reluleakreluelu%E7%AD%89%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">使用relu、leakrelu、elu等激活函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%B9%E8%A7%84%E8%8C%83%E5%8C%96"><span class="nav-text">批规范化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%AE%8B%E5%B7%AE%E7%BB%93%E6%9E%84"><span class="nav-text">使用残差结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lstm%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C"><span class="nav-text">LSTM（长短期记忆网络）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E9%80%82%E5%BA%94%E5%AD%A6%E4%B9%A0%E7%8E%87%E7%AE%97%E6%B3%95"><span class="nav-text">自适应学习率算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#adagrad"><span class="nav-text">AdaGrad</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rmsprop"><span class="nav-text">RMSProp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adam"><span class="nav-text">Adam</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87"><span class="nav-text">评估指标</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E6%8C%87%E6%A0%87"><span class="nav-text">分类指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E7%A1%AE%E7%8E%87%E7%B2%BE%E5%BA%A6accuracy"><span class="nav-text">准确率（精度，Accuracy）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E5%87%86%E7%8E%87%E7%B2%BE%E7%A1%AE%E7%8E%87precision"><span class="nav-text">查准率（精确率，Precision）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E5%85%A8%E7%8E%87%E5%8F%AC%E5%9B%9E%E7%8E%87recall"><span class="nav-text">查全率（召回率，Recall）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#p-r%E6%9B%B2%E7%BA%BF%E5%B9%B3%E8%A1%A1%E7%82%B9%E5%92%8Cf1%E8%A1%A1%E9%87%8F"><span class="nav-text">P-R曲线、平衡点和F1衡量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#p-r%E6%9B%B2%E7%BA%BF"><span class="nav-text">P-R曲线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E7%82%B9break-even-pointbep"><span class="nav-text">平衡点（Break-Even-Point，BEP）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#f1%E5%BA%A6%E9%87%8F"><span class="nav-text">F1度量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E5%88%86%E7%B1%BB%E6%83%85%E5%86%B5"><span class="nav-text">多分类情况</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#roc%E4%B8%8Eauc"><span class="nav-text">ROC与AUC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ks%E5%9B%BEkolomogorov-smirnov-chart"><span class="nav-text">KS图（Kolomogorov Smirnov
 chart）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E5%BD%92%E6%8C%87%E6%A0%87"><span class="nav-text">回归指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%87%E6%96%B9%E8%AF%AF%E5%B7%AEmean-squared-errormse%E4%B8%8E%E5%9D%87%E6%96%B9%E6%A0%B9%E8%AF%AF%E5%B7%AEroot-mean-squared-errorrmse"><span class="nav-text">均方误差（Mean
 Squared Error，MSE）与均方根误差（Root Mean Squared Error，RMSE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E5%9D%87%E7%BB%9D%E5%AF%B9%E8%AF%AF%E5%B7%AEmean-absolute-errormae"><span class="nav-text">平均绝对误差（Mean Absolute
-Error，MAE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%B3%E5%AE%9A%E7%B3%BB%E6%95%B0-r%E6%96%B9r-squarded"><span class="nav-text">决定系数 R方（R-squarded）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">归一化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-text">归一化的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">归一化的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E6%A0%87%E5%87%86%E5%8C%96min-max-normalization"><span class="nav-text">最大最小标准化（Min-Max
-Normalization）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#z-score%E6%A0%87%E5%87%86%E5%8C%96"><span class="nav-text">z-score标准化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">神经网络归一化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%95%B0%E5%87%BD%E6%95%B0%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">对数函数归一化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E6%AD%A3%E5%88%87%E5%87%BD%E6%95%B0%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">反正切函数归一化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#l2%E8%8C%83%E6%95%B0%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">L2范数归一化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BD%BF%E7%94%A8%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">什么时候使用归一化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dropout"><span class="nav-text">Dropout</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A5%B1%E5%92%8C%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">饱和激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sigmoid"><span class="nav-text">Sigmoid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tanh"><span class="nav-text">Tanh</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E9%A5%B1%E5%92%8C%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">非饱和激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#relu"><span class="nav-text">ReLU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leaky-relu"><span class="nav-text">Leaky ReLU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rrelu"><span class="nav-text">RReLU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#elu"><span class="nav-text">ELU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maxout"><span class="nav-text">Maxout</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">如何选择合适的激活函数?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">基于距离度量的损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#msel1l2"><span class="nav-text">MSE、L1、L2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#smooth-l1%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">Smooth L1损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#huber%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">Huber损失函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83%E5%BA%A6%E9%87%8F%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">基于概率分布度量的损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#kl%E6%95%A3%E5%BA%A6%E5%87%BD%E6%95%B0%E7%9B%B8%E5%AF%B9%E7%86%B5"><span class="nav-text">KL散度函数（相对熵）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1"><span class="nav-text">交叉熵损失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#softmax%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">Softmax损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#focal-loss"><span class="nav-text">Focal loss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">如何选择损失函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC"><span class="nav-text">反向传播算法（公式推导）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%AE%9A%E4%B9%89"><span class="nav-text">变量定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0"><span class="nav-text">代价函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E5%8F%8A%E5%85%B6%E6%8E%A8%E5%AF%BC"><span class="nav-text">公式及其推导</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BA%A7%E7%94%9F%E7%9A%84%E9%94%99%E8%AF%AF"><span class="nav-text">计算最后一次神经网络产生的错误：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E5%90%8E%E5%90%91%E5%89%8D%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%80%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BA%A7%E7%94%9F%E7%9A%84%E9%94%99%E8%AF%AF"><span class="nav-text">从后向前，计算每一层神经网络产生的错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9D%83%E9%87%8D%E7%9A%84%E6%A2%AF%E5%BA%A6"><span class="nav-text">计算权重的梯度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E5%81%8F%E7%BD%AE%E7%9A%84%E6%A2%AF%E5%BA%A6"><span class="nav-text">计算偏置的梯度</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%E4%B8%8E%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="nav-text">过拟合与欠拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88"><span class="nav-text">过拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A7%E7%94%9F%E8%BF%87%E6%8B%9F%E5%90%88%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-text">产生过拟合的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-text">过拟合的解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%A7%92%E5%BA%A6"><span class="nav-text">数据角度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%A7%92%E5%BA%A6"><span class="nav-text">模型角度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ensemble"><span class="nav-text">ensemble：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="nav-text">欠拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A7%E7%94%9F%E6%AC%A0%E6%8B%9F%E5%90%88%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-text">产生欠拟合的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AC%A0%E6%8B%9F%E5%90%88%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-text">欠拟合的解决办法</span></a></li></ol></li></ol></li></ol></div>
+Error，MAE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%B3%E5%AE%9A%E7%B3%BB%E6%95%B0-r%E6%96%B9r-squarded"><span class="nav-text">决定系数 R方（R-squarded）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E7%99%BE%E5%88%86%E6%AF%94%E8%AF%AF%E5%B7%AEmape"><span class="nav-text">对百分比误差（MAPE）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">归一化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-text">归一化的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">归一化的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E6%A0%87%E5%87%86%E5%8C%96min-max-normalization"><span class="nav-text">最大最小标准化（Min-Max
+Normalization）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#z-score%E6%A0%87%E5%87%86%E5%8C%96"><span class="nav-text">z-score标准化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">神经网络归一化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%95%B0%E5%87%BD%E6%95%B0%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">对数函数归一化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E6%AD%A3%E5%88%87%E5%87%BD%E6%95%B0%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">反正切函数归一化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#l2%E8%8C%83%E6%95%B0%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">L2范数归一化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BD%BF%E7%94%A8%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">什么时候使用归一化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E5%8C%96%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E5%AF%B9%E6%AF%94%E5%88%86%E6%9E%90"><span class="nav-text">标准化&#x2F;归一化的对比分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dropout"><span class="nav-text">Dropout</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%88%9D%E7%9A%84dropout"><span class="nav-text">最初的Dropout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dropconnect"><span class="nav-text">DropConnect</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A5%B1%E5%92%8C%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">饱和激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sigmoid"><span class="nav-text">Sigmoid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tanh"><span class="nav-text">Tanh</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E9%A5%B1%E5%92%8C%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">非饱和激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#relu"><span class="nav-text">ReLU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leaky-relu"><span class="nav-text">Leaky ReLU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rrelu"><span class="nav-text">RReLU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#elu"><span class="nav-text">ELU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maxout"><span class="nav-text">Maxout</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">如何选择合适的激活函数?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">基于距离度量的损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#msel1l2"><span class="nav-text">MSE、L1、L2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#smooth-l1%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">Smooth L1损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#huber%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">Huber损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#log-cosh%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">Log-Cosh损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E4%BD%8D%E6%95%B0%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">分位数损失函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83%E5%BA%A6%E9%87%8F%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">基于概率分布度量的损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#kl%E6%95%A3%E5%BA%A6%E5%87%BD%E6%95%B0%E7%9B%B8%E5%AF%B9%E7%86%B5"><span class="nav-text">KL散度函数（相对熵）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1"><span class="nav-text">交叉熵损失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#softmax%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">Softmax损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#focal-loss"><span class="nav-text">Focal loss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">如何选择损失函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC"><span class="nav-text">反向传播算法（公式推导）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%AE%9A%E4%B9%89"><span class="nav-text">变量定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0"><span class="nav-text">代价函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E5%8F%8A%E5%85%B6%E6%8E%A8%E5%AF%BC"><span class="nav-text">公式及其推导</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BA%A7%E7%94%9F%E7%9A%84%E9%94%99%E8%AF%AF"><span class="nav-text">计算最后一次神经网络产生的错误：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E5%90%8E%E5%90%91%E5%89%8D%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%80%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BA%A7%E7%94%9F%E7%9A%84%E9%94%99%E8%AF%AF"><span class="nav-text">从后向前，计算每一层神经网络产生的错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9D%83%E9%87%8D%E7%9A%84%E6%A2%AF%E5%BA%A6"><span class="nav-text">计算权重的梯度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E5%81%8F%E7%BD%AE%E7%9A%84%E6%A2%AF%E5%BA%A6"><span class="nav-text">计算偏置的梯度</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%E4%B8%8E%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="nav-text">过拟合与欠拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88"><span class="nav-text">过拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A7%E7%94%9F%E8%BF%87%E6%8B%9F%E5%90%88%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-text">产生过拟合的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-text">过拟合的解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%A7%92%E5%BA%A6"><span class="nav-text">数据角度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%A7%92%E5%BA%A6"><span class="nav-text">模型角度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ensemble"><span class="nav-text">ensemble：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="nav-text">欠拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A7%E7%94%9F%E6%AC%A0%E6%8B%9F%E5%90%88%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-text">产生欠拟合的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AC%A0%E6%8B%9F%E5%90%88%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-text">欠拟合的解决办法</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -187,13 +191,13 @@ Normalization）</span></a></li><li class="nav-item nav-level-3"><a class="nav-l
     <img class="site-author-image" itemprop="image" alt="willkyu"
       src="/images/avatar_.png">
   <p class="site-author-name" itemprop="name">willkyu</p>
-  <div class="site-description" itemprop="description">爱你所爱 求你所求 得你所得</div>
+  <div class="site-description" itemprop="description">我的思念将追随你进入梦乡</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -235,6 +239,9 @@ Normalization）</span></a></li><li class="nav-item nav-level-3"><a class="nav-l
       Links
     </div>
     <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9zdGVhbWNvbW11bml0eS5jb20vaWQvd2lsbGt5dS8=" title="https:&#x2F;&#x2F;steamcommunity.com&#x2F;id&#x2F;willkyu&#x2F;">Steam Page</span>
+        </li>
         <li class="links-of-blogroll-item">
           <span class="exturl" data-url="aHR0cHM6Ly93b2thbm4uZ2l0aHViLmlv" title="https:&#x2F;&#x2F;wokann.github.io">WoKann Blog</span>
         </li>
@@ -286,7 +293,7 @@ Normalization）</span></a></li><li class="nav-item nav-level-3"><a class="nav-l
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_.png">
       <meta itemprop="name" content="willkyu">
-      <meta itemprop="description" content="爱你所爱 求你所求 得你所得">
+      <meta itemprop="description" content="我的思念将追随你进入梦乡">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -312,7 +319,7 @@ Normalization）</span></a></li><li class="nav-item nav-level-3"><a class="nav-l
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-09 10:54:20" itemprop="dateModified" datetime="2022-07-09T10:54:20+08:00">2022-07-09</time>
+      <time title="Modified: 2022-07-12 16:26:35" itemprop="dateModified" datetime="2022-07-12T16:26:35+08:00">2022-07-12</time>
     </span>
 
   
@@ -379,7 +386,26 @@ I_N}\)</span> 的内积（inner product）为</p>
 \]</span></p>
 <p>且有 <span class="math inline">\(\langle \mathscr{X} , \mathscr{X}
 \rangle = \Vert \mathscr{X} \Vert^2\)</span></p>
+<h2 id="一些代码实现">一些代码实现</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 生成一个随机的(n,m)的矩阵，其中的每个元素都从均值为0、标准差为1的标准高斯分布（正态</span><br><span class="line">x=torch.randn(3, 4)</span><br><span class="line"></span><br><span class="line"># 使用 arange 创建一个行向量 x。这个行向量包含以0开始的前n个整数，它们默认创建为整数</span><br><span class="line">x = torch.arange(12)</span><br><span class="line"></span><br><span class="line"># 查看x的形状</span><br><span class="line">x.shape</span><br><span class="line"></span><br><span class="line"># 改变x的形状 元素的个数总和不能改变</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">view和reshape都是用来重塑tensor的shape的。</span><br><span class="line">view只适合对满足连续性条件（contiguous）的tensor进行操作，</span><br><span class="line">而reshape同时还可以对不满足连续性条件的tensor进行操作，具有更好的鲁棒性。</span><br><span class="line">view能干的reshape都能干，如果view不能干就可以用reshape来处理</span><br><span class="line">参考连接：https://blog.csdn.net/Flag_ing/article/details/109129752</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">x.reshape(3,4)</span><br><span class="line"></span><br><span class="line"># 查看设备是否能使用cuda</span><br><span class="line">torch.cuda.is_available()</span><br><span class="line"></span><br><span class="line"># 把张量移动到GPU上</span><br><span class="line"># DEVICE=&#x27;cuda:0&#x27;</span><br><span class="line">DEVICE=&#x27;cpu&#x27;</span><br><span class="line">x.to(DEVICE)</span><br><span class="line"># 或者</span><br><span class="line"># x.cuda()</span><br><span class="line"></span><br><span class="line"># 查看张量所在的设备</span><br><span class="line">x.device</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 基本的加减乘除</span><br><span class="line">x = torch.tensor([1.0, 2, 4, 8])</span><br><span class="line">y = torch.tensor([2, 2, 2, 2])</span><br><span class="line">x + y, x - y, x * y, x / y, x ** y</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 两个向量在同一维度上的拼接</span><br><span class="line">X = torch.arange(12, dtype=torch.float32).reshape((3,4))</span><br><span class="line">Y = torch.tensor([[2.0, 1, 4, 3], [1, 2, 3, 4], [4, 3, 2, 1]])</span><br><span class="line">torch.cat((X, Y), dim=0), torch.cat((X, Y), dim=1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 两个向量在新维度上的堆叠</span><br><span class="line">X = torch.arange(12, dtype=torch.float32).reshape((3,4))</span><br><span class="line">Y = torch.tensor([[2.0, 1, 4, 3], [1, 2, 3, 4], [4, 3, 2, 1]])</span><br><span class="line">torch.stack((X, Y), dim=0)</span><br></pre></td></tr></table></figure>
+<p>索引切片和广播机制
+就像在任何其他Python数组中一样，张量中的元素可以通过索引和切片访问。
+张量的广播机制和numpy的广播机制一样 切片和python内置的数组一样
+两个张量形状不一样时进行运算，有两种情况能够进行广播</p>
+<ol type="1">
+<li><p>A.ndim &gt; B.ndim, 并且A.shape最后几个元素包含B.shape,
+A.shape=(2,3,4,5), B.shape=(3,4,5) A.shape=(2,3,4,5), B.shape=(4,5)
+A.shape=(2,3,4,5), B.shape=(5)</p></li>
+<li><p>A.ndim == B.ndim,
+并且A.shape和B.shape对应位置的元素要么相同要么其中一个是1,
+A.shape=(1,9,4), B.shape=(15,1,4) A.shape=(1,9,4),
+B.shape=(15,1,1)</p></li>
+</ol>
 <h1 id="参数初始化策略">参数初始化策略</h1>
+<p>参数初始化指的是网络模型在进行训练之前，对各个节点的权重和偏置进行初始化赋值的过程。</p>
 <p>深度学习中，神经网络的参数初始化策略对模型的收敛速度及性能有至关重要的影响。在神经网络中，随着层数的增多，在梯度下降的过程中极易出现<a
 href="#梯度爆炸与梯度消失">梯度消失或梯度爆炸</a>的问题，一个好的参数初始化对于处理这两个问题有着很大帮助。</p>
 <h2 id="初始化为常数过大或过小">初始化为常数、过大或过小</h2>
@@ -512,6 +538,23 @@ class="math inline">\(\theta _4\)</span>
 <span class="math inline">\(\theta\)</span> 的值（不包括 <span
 class="math inline">\(\theta_0\)</span>
 ）都会在一定程度上减小，但是减少程度会不一样，从而实现了权重衰减、简化模型复杂度的作用。</p>
+<h2 id="参数范数与正则化的联系">参数范数与正则化的联系</h2>
+<p>如果有一批数据输入指数为50的函数分布，我们至少需要输入50组数据来记录所有的函数对应的参
+数。但对于深度学习这种拥有百万级参数规模的学习模型来说，那简直是不可想象的。</p>
+<ol type="1">
+<li>因此我们放松限制，仅仅控制参数的数目，而不是从高到低的顺序限制参数。我们将不为0的参数数
+量限制再 c 以内来达到限制模型的目的(L0范数惩罚)。</li>
+<li>虽然我们已经放松了限制，但是以上表达式并不完美，对于实际应用并不是太友好，那么我们不妨再
+放松一下限制，不要求非零的参数个数控制再 c
+以内，但要求参数绝对值数值的和控制再 c 以内。这种
+参数数值总和的限制被称之为L1范数惩罚，也被成为参数稀疏性惩罚</li>
+<li>虽然我们已经更加放松了限制，但是这还是不完美，因为带有绝对值，我们都知道，绝对值函数再求
+梯度时不可导，因此我们再次放宽限制，将求绝对值和变为求平方和，如下式所示，这就是L2范数惩
+罚，也就是我们熟悉的权重衰减惩罚。我们可以通过控制 c
+值的大小来限制模型的学习能力，c 越大， 模型能力就越强（过拟合），c
+越小，模型能力就越弱（欠拟合）。该条件极值可以通过拉格朗日乘子
+法来进行求解。</li>
+</ol>
 <h1 id="梯度下降法">梯度下降法</h1>
 <p>优化算法的功能是通过改善训练方法，来最小化（或最大化）损失函数 <span
 class="math inline">\(J(\theta)\)</span>。</p>
@@ -863,6 +906,14 @@ y_i)^2}{\frac{1}{m}\sum^m_{i = 1}(\overline{y_i} - y_i)^2}\\
 &amp; = 1 - \frac{MSE(f, y)}{Var(y)}
 \end{aligned}
 \]</span></p>
+<h3 id="对百分比误差mape">对百分比误差（MAPE）</h3>
+<p>MAPE（平均绝对百分比误差）MAPE 为0%表示完美模型，MAPE 大于 100
+%则表示劣质模型。</p>
+<p>MAPE是衡量预测准确性的统计指标，是百分比值，一般认为MAPE小于10时，预测精度较高</p>
+<p>如果存在某个实际值At为0，那么MAPE则无法进行计算；</p>
+<p><span class="math display">\[
+MAPE = \frac{100\sum^n_{i = 1}\vert\frac{y_i - y&#39;_i}{y_i}\vert}{n}
+\]</span></p>
 <h1 id="归一化">归一化</h1>
 <p>不同评价指标（即特征向量中的不同特征就是所述的不同评价指标）往往具有不同的量纲和量纲单位，这样的情况会影响到数据分析的结果，</p>
 <p>为了消除指标之间的量纲影响，需要进行数据标准化处理，以解决数据指标之间的可比性。原始数据经过数据标准化处理后，各指标处于同一数量级，适合进行综合对比评价。其中，最典型的就是数据的归一化处理。</p>
@@ -933,10 +984,17 @@ x&#39;_i = \frac{x_i}{norm(x)}
 <blockquote>
 <p><strong>归一化与标准化不同</strong></p>
 </blockquote>
+<h3 id="标准化归一化的对比分析">标准化/归一化的对比分析</h3>
+<p>首先明确，在机器学习中，标准化是更常用的手段，归一化的应用场景是有限的。原因有两点：</p>
+<ol type="1">
+<li>标准化更好保持了样本间距。当样本中有异常点时，归一化有可能将正常的样本“挤”到一起去。比如三个样本，某个特征的值为1,2,10000，假设10000这个值是异常值，用归一化的方法后，正常的1,2就会被“挤”到一起去。如果不幸的是1和2的分类标签还是相反的，那么，当我们用梯度下降来做分类模型训练时，模型会需要更长的时间收敛，因为将样本分开需要更大的努力！而标准化在这方面就做得很好，至少它不会将样本“挤到一起”。</li>
+<li>标准化更符合统计学假设对一个数值特征来说，很大可能它是服从正态分布的。标准化其实是基于这个隐含假设，只不过是略施小技，将这个正态分布调整为均值为0，方差为1的标准正态分布而已。</li>
+</ol>
 <h1 id="dropout">Dropout</h1>
 <p>想要提高CNN的表达或分类能力，最直接的方法就是采用更深的网络和更多的神经元，即deeper
 and
 wider。但是，复杂的网络也意味着更加容易过拟合。于是就有了Dropout，大部分实验表明其具有一定的防止过拟合的能力。</p>
+<h2 id="最初的dropout">最初的Dropout</h2>
 <p><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvcGRmLzEyMDcuMDU4MC5wZGY=">Improving neural
 networks by preventing co-adaptation of feature Detectors<i class="fa fa-external-link-alt"></i></span></p>
 <!--
@@ -970,6 +1028,71 @@ E_M[a(M * W)v] \approx a(E_M[(M * W)v]) = a((1 - p)Wv)
 <p>特别的，
 为了使用方便，我们不在测试时再缩小输出，而在训练时直接将输出放大1/(1-p)倍。</p>
 <p>Dropout得到了广泛的使用，但具体用到哪里、训练一开始就用还是后面才用、dropout_ratio取多大，还要自己多多尝试。有时添加Dropout反而会降低性能。</p>
+<h2 id="dropconnect">DropConnect</h2>
+<p><span class="exturl" data-url="aHR0cDovL2NzLm55dS5lZHUvfndhbmxpL2Ryb3BjLw==">Regularization of Neural
+Networks using DropConnect<i class="fa fa-external-link-alt"></i></span></p>
+<!--
+![Dropout-DropConnect](/images/body/the-Basics01/Dropout-DropConnect.jpg "Dropout-DropConnect")
+-->
+<figure>
+<img data-src="pics01/Dropout-DropConnect.jpg" title="Dropout-DropConnect"
+alt="Dropout-DropConnect" />
+<figcaption aria-hidden="true">Dropout-DropConnect</figcaption>
+</figure>
+<p>由图可知，DropConnect与Dropout的区别很明显：Dropout是将输出随机置0，而DropConnect是将权重随机置0。
+文章说之所以这么干是因为原来的Dropout进行的不够充分，随机采样不够合理。这可以从下图进行理
+解：</p>
+<!--
+![DropConnect](/images/body/the-Basics01/DropConnect.jpg "DropConnect")
+-->
+<figure>
+<img data-src="pics01/DropConnect.jpg" title="DropConnect"
+alt="DropConnect" />
+<figcaption aria-hidden="true">DropConnect</figcaption>
+</figure>
+<p>如上图所示，a表示不加任何Drop时的一层网络模型。添加Drop相当于给权重再乘以一个随机掩膜矩阵
+<span class="math inline">\(M\)</span>。</p>
+<p><span class="math display">\[
+r = a(Wv)\ \ \ No-Drop\\
+r = a((M\ldotp\times W)v)\ \ \ Drop\\
+M_{ij}\sim Bernoulli(p)
+\]</span></p>
+<p>不同的是，DropConnect由于直接对权重随机置0，因此其掩膜显得更加具有随机性，如b所示。而Dropout仅对输出进行随机置0,因此其掩膜相当于是对随机的行和列进行置0，如c所示。</p>
+<p>训练的时候，训练过程与Dropout基本相同。测试的时候，我们同样需要一种近似的方法。</p>
+<p><span class="math display">\[
+r = a((M\ldotp\times W)v)\\
+r_i = a(u_i)\\
+u_i = \sum_j(W_{ij}v_j)M_{ij} \sim \mathcal{N}(\mu, \sigma^2)\\
+\mu = pWv\\
+\sigma = p(1 - p)(W \ast W)(v \ast v)
+\]</span></p>
+<p>注意： 掩膜矩阵M的每一个元素都满足二项伯努利分布。假如M的维度为 <span
+class="math inline">\(m\ast n\)</span>，则可能的掩膜有 <span
+class="math inline">\(2^{m + n}\)</span>
+种，之前提到过我们可以粗暴的遍历所有的掩膜然后计算结果最后求平均。中心极限定理：和分布渐进于正态分布。
+于是，我们可以不去遍历，而是通过计算每一维的均值与方差，确定每一维的正态分布，最后在此正态分布上做多次采样后求平均即可获得最终的近似结果。</p>
+<p>具体测试时的算法流程如下：</p>
+<!--
+![DropConnect算法](/images/body/the-Basics01/DropConnect-A.jpg "DropConnect Algorithm")
+-->
+<figure>
+<img data-src="pics01/DropConnect-A.jpg" title="DropConnect Algorithm"
+alt="DropConnect算法" />
+<figcaption aria-hidden="true">DropConnect算法</figcaption>
+</figure>
+<p>其中，Z是在正态分布上的采样次数，一般来说越大越好，但会使得计算变慢。</p>
+<p>实验：
+作者当然要做很多对比试验，但其实发现效果并不比Dropout优秀太多，反而计算量要大很多，因此到目前DropConnect并没有得到广泛的应用。具体的对比，可以参看原文，这里贴一张图来说明对于Drop
+ratio的看法：</p>
+<!--
+![DropConnect实验结果](/images/body/the-Basics01/DropConnect-figure.jpg "DropConnect figure")
+-->
+<figure>
+<img data-src="pics01/DropConnect-figure.jpg" title="DropConnect figure"
+alt="DropConnect实验结果" />
+<figcaption aria-hidden="true">DropConnect实验结果</figcaption>
+</figure>
+<p>由此可以看出，drop ratio并不是越大越好，具体需要多做实验体会。</p>
 <h1 id="激活函数">激活函数</h1>
 <p>神经网络中的每个神经元节点接受上一层神经元的输出值作为本神经元的输入值，并将输入值传递给下一层，输入层神经元节点会将输入属性值直接传递给下一层（隐层或输出层）。在多层神经网络中，上层节点的输出和下层节点的输入之间具有一个函数关系，这个函数称为激活函数。</p>
 <p>不使用激活函数的话，神经网络的每层都只是做线性变换，多层输入叠加后也还是线性变换。因为线性模型的表达能力通常不够，所以这时候就体现了激活函数的作用了，<strong>激活函数可以引入非线性因素</strong>。</p>
@@ -1220,6 +1343,27 @@ x\vert Y - f(x)\vert &gt; \delta
                \end{cases}
 \]</span></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">delta=1.0  # 先定义超参数</span><br><span class="line"></span><br><span class="line">def huber_loss(x,y):</span><br><span class="line">    assert len(x)==len(y)</span><br><span class="line">    loss=0</span><br><span class="line">    for i_x,i_y in zip(x,y):</span><br><span class="line">        tmp = abs(i_y-i_x)</span><br><span class="line">        if tmp&lt;=delta:</span><br><span class="line">            loss+=0.5*(tmp**2)</span><br><span class="line">        else:</span><br><span class="line">            loss+=tmp*delta-0.5*delta**2</span><br><span class="line">    return loss</span><br></pre></td></tr></table></figure>
+<h3 id="log-cosh损失函数">Log-Cosh损失函数</h3>
+<p>Log-Cosh是应用于回归任务中的另一种损失函数，它比L2损失更平滑。Log-cosh是预测误差的双曲余弦的对数。</p>
+<p>log-cosh损失函数比均方损失函数更加光滑，具有huber损失函数的所有优点，且二阶可导。因此可以使用牛顿法来优化计算，但是在误差很大情况下，一阶梯度和Hessian会变成定值，导致牛顿法失效。</p>
+<p><span class="math display">\[
+L(y, y^p) = \sum^n_{i = 1}\log(\cosh(y^p_i - y_i))
+\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># log cosh 损失</span><br><span class="line">def logcosh(true, pred):</span><br><span class="line">    loss = np.log(np.cosh(pred - true))return np.sum(loss)</span><br></pre></td></tr></table></figure>
+<h3 id="分位数损失函数">分位数损失函数</h3>
+<p>预测的是目标的取值范围而不是值。<span
+class="math inline">\(\gamma\)</span>
+是所需的分位数，其值介于0和1之间，<span
+class="math inline">\(\gamma\)</span> 等于0.5时，相当于MAE。 设置多个
+<span class="math inline">\(\gamma\)</span>
+值，得到多个预测模型，然后绘制成图表，即可知道预测范围及对应概率(两个
+<span class="math inline">\(\gamma\)</span> 值相减)</p>
+<p><span class="math display">\[
+L_\gamma(y, y^p) = \sum_{i = y_i &lt; y^p_i}(\gamma - 1)\ldotp\vert y_i
+- y^p_i\vert + \sum_{i = y_i\geq y^p_i}(\gamma)\ldotp\vert y_i -
+y^p_i\vert
+\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def quantile_loss(y_pred, y_true, r=0.5):</span><br><span class="line">    greater_mask = K.cast((y_true &lt;= y_pred), &#x27;float32&#x27;)</span><br><span class="line">    smaller_mask = K.cast((y_true &gt; y_pred), &#x27;float32&#x27;)</span><br><span class="line">    loss = K.sum((r-1)*K.abs(smaller_mask*(y_true-y_pred)), -1) +\</span><br><span class="line">           K.sum(r*K.abs(greater_mask*(y_true-y_pred)), -1)</span><br><span class="line">    return loss</span><br></pre></td></tr></table></figure>
 <h2 id="基于概率分布度量的损失函数">基于概率分布度量的损失函数</h2>
 <p>基于概率分布度量的损失函数是将样本间的相似性转化为随机事件出现的可能性，即通过度量样本的真实分布与它估计的分布之间的距离，判断两者的相似度，一般用于涉及概率分布或预测类别出现的概率的应用问题中，在分类问题中尤为常用。</p>
 <h3 id="kl散度函数相对熵">KL散度函数（相对熵）</h3>
@@ -1439,6 +1583,9 @@ b^l_j} = \delta^l_j
 <li>建模样本选取有误，例如训练数据太少，抽样方法错误，样本label错误等，导致样本不能代表整体。</li>
 <li>模型不合理，或假设成立的条件与实际不符。</li>
 <li>特征维度/参数太多，导致模型复杂度太高。</li>
+<li>对于决策树模型，如果我们对于其生长没有合理的限制，其自由生长有可能使节点只包含单纯的事件数据(event)或非事件数据(no
+event)，使其虽然可以完美匹配（拟合）训练数据，但是无法适应其他数据集。</li>
+<li>对于神经网络模型：a)对样本数据可能存在分类决策面不唯一，随着学习的进行,，BP算法使权值可能收敛过于复杂的决策面；b)权值学习迭代次数足够多(Overtraining)，拟合了训练数据中的噪声和训练样例中没有代表性的特征。</li>
 </ol>
 <h3 id="过拟合的解决办法">过拟合的解决办法</h3>
 <p>过拟合无法彻底避免，只能缓解。</p>
@@ -1459,7 +1606,7 @@ Augmentation）:通过一定规则扩充数据。如物体在图像中的位置�
 <li>增大分割平面间隔</li>
 </ul></li>
 <li>特征选择、特征降维</li>
-<li>early stopping</li>
+<li>early stopping、Dropout</li>
 <li>正则化（限制权值weight-decay）：将权值的大小作为惩罚项加入到损失函数里。</li>
 <li>增加噪声：
 <ul>
@@ -1490,6 +1637,7 @@ Augmentation）:通过一定规则扩充数据。如物体在图像中的位置�
 、决策树、DNN等模型。</li>
 <li>减小正则化系数。正则化是用于防止过拟合的，但是当出现欠拟合时，就有必要针对性地减小正则化系数。</li>
 <li>Boosting，Boosting 往往会有较小的 Bias。</li>
+<li>调整参数和超参数</li>
 </ul>
 
     </div>
@@ -1544,6 +1692,9 @@ Augmentation）:通过一定规则扩充数据。如物体在图像中的位置�
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/Life/Suda-charging-monitor/" rel="next" title="Suda-charging-monitor">
+                  Suda-charging-monitor <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
