@@ -543,14 +543,14 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Schedule/</loc>
+    <loc>http://willkyu.github.io/tags/Draw/</loc>
     <lastmod>2022-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Draw/</loc>
+    <loc>http://willkyu.github.io/tags/Schedule/</loc>
     <lastmod>2022-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -606,13 +606,6 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/LATEX/</loc>
-    <lastmod>2022-10-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://willkyu.github.io/tags/Knowledage-Graphs/</loc>
     <lastmod>2022-10-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -627,7 +620,21 @@
   </url>
   
   <url>
+    <loc>http://willkyu.github.io/tags/LATEX/</loc>
+    <lastmod>2022-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://willkyu.github.io/tags/Solutions/</loc>
+    <lastmod>2022-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/Magi-Cup/</loc>
     <lastmod>2022-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -641,7 +648,14 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Magi-Cup/</loc>
+    <loc>http://willkyu.github.io/tags/Pomeg-Glitch/</loc>
+    <lastmod>2022-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/Double-Corruption/</loc>
     <lastmod>2022-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -663,20 +677,6 @@
   
   <url>
     <loc>http://willkyu.github.io/tags/Pokemon-Gen5/</loc>
-    <lastmod>2022-10-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/Pomeg-Glitch/</loc>
-    <lastmod>2022-10-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/Double-Corruption/</loc>
     <lastmod>2022-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -556,6 +556,8 @@ alt="总览" />
 <h1 id="suda-charging-piles-monitor">SUDA Charging Piles Monitor</h1>
 <p>苏州大学充电桩监控</p>
 <p>捐赠请点击文末<strong>Donate</strong>按钮，感谢！</p>
+<p>代码已开源至<a
+href="https://github.com/willkyu/SUDA_Charging_Piles_Monitor">我的GitHub仓库</a>。</p>
 <h2 id="使用说明">使用说明</h2>
 <ul>
 <li><p>打开网站 &lt;yayan.xyz&gt;，填写相关信息。</p></li>
@@ -577,6 +579,7 @@ alt="总览" />
 </ul>
 <h2 id="其他的话">其他的话</h2>
 <p>邮件全部采用英文是因为采用不同邮箱接收可能会导致中文的乱码问题。</p>
+<p>如果你要自己搭建属于自己的监控，请将<strong>util.py</strong>中的一些邮件相关配置替换为自己的发件箱。</p>
 <h2 id="致谢">致谢</h2>
 <p>感谢室友<a
 href="https://github.com/Gladduck">gladdduck</a>写的前端与一些改进，服务器、域名也由他提供！</p>
