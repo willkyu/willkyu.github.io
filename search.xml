@@ -308,8 +308,8 @@ github markdown emoji markup<i class="fa fa-external-link-alt"></i></span></li>
         <category>Life</category>
       </categories>
       <tags>
-        <tag>Life</tag>
         <tag>Archive</tag>
+        <tag>Life</tag>
       </tags>
   </entry>
   <entry>
@@ -521,8 +521,8 @@ Edition相关资源整理</a></li>
         <category>Game</category>
       </categories>
       <tags>
-        <tag>Game</tag>
         <tag>Archive</tag>
+        <tag>Game</tag>
       </tags>
   </entry>
   <entry>
@@ -544,8 +544,8 @@ alt="总览" />
         <category>Collection</category>
       </categories>
       <tags>
-        <tag>Archive</tag>
         <tag>Collection</tag>
+        <tag>Archive</tag>
       </tags>
   </entry>
   <entry>
@@ -579,7 +579,7 @@ href="https://github.com/willkyu/SUDA_Charging_Piles_Monitor">我的GitHub仓库
 </ul>
 <h2 id="其他的话">其他的话</h2>
 <p>邮件全部采用英文是因为采用不同邮箱接收可能会导致中文的乱码问题。</p>
-<p>如果你要自己搭建属于自己的监控，请将<strong>util.py</strong>中的一些邮件相关配置替换为自己的发件箱。</p>
+<p>如果你要自己搭建属于自己的监控，请将<strong>util.py</strong>中的一些邮件相关配置替换为自己的发件箱，运行<strong>flaskapp.py</strong>与<strong>chargingmonitor.py</strong>。</p>
 <h2 id="致谢">致谢</h2>
 <p>感谢苏大的<a
 href="http://sudacharge.haoxiaoren.com/">充电助手网站</a>，该项目就是基于这个网页写的。</p>
@@ -6410,8 +6410,8 @@ alt="BigYellow" />
         <category>Pokemon</category>
       </categories>
       <tags>
-        <tag>Pokemon</tag>
         <tag>Collection</tag>
+        <tag>Pokemon</tag>
       </tags>
   </entry>
   <entry>
