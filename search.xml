@@ -308,8 +308,8 @@ github markdown emoji markup<i class="fa fa-external-link-alt"></i></span></li>
         <category>Life</category>
       </categories>
       <tags>
-        <tag>Archive</tag>
         <tag>Life</tag>
+        <tag>Archive</tag>
       </tags>
   </entry>
   <entry>
@@ -521,8 +521,8 @@ Edition相关资源整理</a></li>
         <category>Game</category>
       </categories>
       <tags>
-        <tag>Archive</tag>
         <tag>Game</tag>
+        <tag>Archive</tag>
       </tags>
   </entry>
   <entry>
@@ -544,8 +544,8 @@ alt="总览" />
         <category>Collection</category>
       </categories>
       <tags>
-        <tag>Collection</tag>
         <tag>Archive</tag>
+        <tag>Collection</tag>
       </tags>
   </entry>
   <entry>
@@ -581,6 +581,8 @@ href="https://github.com/willkyu/SUDA_Charging_Piles_Monitor">我的GitHub仓库
 <p>邮件全部采用英文是因为采用不同邮箱接收可能会导致中文的乱码问题。</p>
 <p>如果你要自己搭建属于自己的监控，请将<strong>util.py</strong>中的一些邮件相关配置替换为自己的发件箱。</p>
 <h2 id="致谢">致谢</h2>
+<p>感谢苏大的<a
+href="http://sudacharge.haoxiaoren.com/">充电助手网站</a>，该项目就是基于这个网页写的。</p>
 <p>感谢室友<a
 href="https://github.com/Gladduck">gladdduck</a>写的前端与一些改进，服务器、域名也由他提供！</p>
 <p>感谢别的室友为我们测试并发现一些bug！</p>
@@ -6408,8 +6410,8 @@ alt="BigYellow" />
         <category>Pokemon</category>
       </categories>
       <tags>
-        <tag>Collection</tag>
         <tag>Pokemon</tag>
+        <tag>Collection</tag>
       </tags>
   </entry>
   <entry>
