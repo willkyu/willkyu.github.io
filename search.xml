@@ -555,7 +555,7 @@ alt="总览" />
 <span id="more"></span>
 <h1 id="suda-charging-piles-monitor">SUDA Charging Piles Monitor</h1>
 <p>苏州大学充电桩监控</p>
-<p>捐赠请点击文末<strong>Donate</strong>按钮，感谢！</p>
+<p>项目因某些原因已废弃！</p>
 <p>代码已开源至<a
 href="https://github.com/willkyu/SUDA_Charging_Piles_Monitor">我的GitHub仓库</a>。</p>
 <h2 id="使用说明">使用说明</h2>
@@ -586,8 +586,6 @@ href="http://sudacharge.haoxiaoren.com/">充电助手网站</a>，该项目就�
 <p>感谢室友<a
 href="https://github.com/Gladduck">gladdduck</a>写的前端与一些改进，服务器、域名也由他提供！</p>
 <p>感谢别的室友为我们测试并发现一些bug！</p>
-<h2 id="捐赠">捐赠</h2>
-<p>如果该项目对你有帮助，可以考虑为我们捐赠，捐赠的钱将优先维护服务器的运行，万分感谢！</p>
 <p>如果你有任何建议或反馈，可以通过GitHub账号内的联系方式联系我们！</p>
 ]]></content>
   </entry>
