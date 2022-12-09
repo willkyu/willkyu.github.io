@@ -549,6 +549,28 @@ alt="总览" />
       </tags>
   </entry>
   <entry>
+    <title>MMKG-Survey</title>
+    <url>/Learning/Notes/Papers/MMKG-Survey/</url>
+    <content><![CDATA[<h1 id="简介">简介</h1>
+<ul>
+<li>Tittle:</li>
+<li>Author:</li>
+<li>Time:</li>
+<li>Journal:</li>
+</ul>
+<span id="more"></span>
+<h1 id="主旨">主旨</h1>
+<h2 id="背景">背景</h2>
+<h2 id="核心问题">核心问题</h2>
+<h2 id="创新贡献">创新/贡献</h2>
+<h1 id="模型">模型</h1>
+<h1 id="实验">实验</h1>
+<h2 id="下游任务">下游任务</h2>
+<h2 id="评估指标">评估指标</h2>
+<h1 id="总结分析">总结/分析</h1>
+]]></content>
+  </entry>
+  <entry>
     <title>Suda-charging-monitor</title>
     <url>/Life/Suda-charging-monitor/</url>
     <content><![CDATA[<p>苏州大学充电桩监控</p>
@@ -1897,7 +1919,7 @@ Augmentation）:通过一定规则扩充数据。如物体在图像中的位置�
   <entry>
     <title>Zheng. w/ his five DADs</title>
     <url>/Life/Zheng-with-his-five-dads/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Invalid Password. Check And Try Again(♯｀∧´)" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Invalid Password. Check And Try Again! (♯｀∧´)" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
   <script id="hbeData" type="hbeData" data-hmacdigest="829dc106f00c1fccc50f3c3896421b07f1d55067ab91d6cf050486eb3e50c8a5">0009b526956f94ef03d39ae6245de4b0df62b63f810ef18ffb43c6d81bdca6991be1f6e0866728f514015e28f5044dd4ac2f1795ab3bd0116158934acf82b72bd25dcda50818f8d4cf33a37357c9374c723876b61a498860ee8fdf1b12077043fcd6b404272af65618fedf26cd30b6a69779d185c4384f8ae27aded4c0256986c9ef47dbab462ee421a50e8d638bd825692ca8c88398e10aec78ad2760785fe0c0456d699da3235a3fa08cab02bf249d233ffa3f5fa3020663eacb74c4d20c242cc5ba696dec7c3cd0b1d20dc794e17b85767b027f33d8cca1f58dbbbf9e2e29cda4ba686efed03445c5e350787d813fee5a587572d1ef414dbcac1d6281fcd49b1504cd7be104b854274c578f010bb957d830841333a1504ff8eb82147a071a4a898d366e0c86d32d191b74ec2ab4d8b274289945603309db9e952a7cc58b5c900b5bd83a758db3790f329379a536ed295ff04a16c4ec327e21081a88fd0bb73a639445e25a01a52fe83a52d34bacc5c1b9389c4a30e42736516c0702eba18cdda59b840d7b3749301e382d09f130db66ec9934d2dd1d3afa1c3416627e2c31031aa1e438f71b11a3c36beed4e3c1f8238cfc4190cefeebd4100b51ad179226e544295c1518d69a2a1fae2da133c5b3babeb3712fb8234c1ce2a2450656b38f8e5b9eeb5b59303aebdcdc974180ace91f30d0cde5c343cb57ee780692fc76982432686cc0e485c5685f268e262c085b79e44af526317f2dbd98134dddd15e31d7588d1e91ad0ed1862f2edcbbe639207e5a3866544e6df0dd1ca61dfe4ab17985b61e5c1ab88c0744dd7dba3d4a72dd05e9380a0f19de47f2e82c5c16e6db31a28132b44e39fa3ed4b752d87eb86ad94192e75056a40c2fb76f0acf409fb3ca569a2c760565c01ddc59c035c4f9ef7f019f311439047de63e96d971b86548cb7e1f18503de2de073e330abeac6b5f67e8dfab3495d842388d560bf8cf5e2cc488609444d9f87813c3faa1067c0ea09a257b89626c9180613a2e7d20658647408b19b72df90f4a79668966890e35371e78f1ef0927db62d8db5fe7ba629dd3f405c0e405a2391728dd5a7a8840b324d65b3e9ab135f50844dc38e5cc5ea5a9729d2b4d53174cdca391bd5bf684adbe089f4ab6a50a505d30c6e0618134ac56ea47cf6b600bf8507180f656cce16c6dc538dc6778f9f20901c50a6a9b14cb695d1fe5a8ff5987594c435274bc163129c321476c6b6c8c9257b06e14eb4f159fa5dbf070fede9d71bf7ebe417a6236518a44c39f9e2389591a333442ef7173160cc54944bc1597cff439278db5054dbc9770a7f806131d8cde31607157e2550a7082570fd1190a39547506c36b44b47095eb24459419bf2a0fe879553407117d1f727f1d504cfe48b2aaa7d5d9b808884c79ed34992ae5931f8f039267790efe2a8405151ba0f4840b2d9add8dffb99c94a255648e193eba7774ff845891533ec64bb2c7af32a71ab1a97c81d8ff5ae5839f04029da00ea0ba8c510ea52807c30b3abd4101da2cf6b11a433a9e8b1809ac2108aa433ecebb0707c02eb4a3978867f9fdcab4f66415b6c9a386a9cd795cfd5e867463f683419f0e6724a9949e100a846ecd70472642635eb6095b5efaebb91a840e9d5e62e26342101c80bcc21f57fde6916edba81156df70c9a10374083eb0c0ecb9003392536b5f5fbfde9e1634d738d9416a3bfb781f624ed5da7594d818c1b98d8c4771d6cf0b6c2c0c7580d78490e3dea05419061289ebe8d8a53d7421fa29a65b070b43d120c41295e7ad1342763ba435e73d276e20a4a4c3bbb1541c2aedbdaa3631d65a7c643514af1e534577c635d5983e253a53c81edfd41a2c84a57be2b40aafa071f45b5f66eef3f1729482eb882f7f332f3eb4cf4e4e1e61655e14896745d50d5e6cacdaf7441e3b93a8f532eb1836705b8050b2d694a3cc28580da4e606f1acddb69f593aa9b614c6e394bdf14d39194527c23f44a9fec05b4c0b8eb13200b91a456e1d5382d79837306ad8f4a6ced669f16a5248e71ec5d967235ea11d4fa292dec74c6be65e98e054ce3648b8b51a2414567cdcebd87d845c12aa8fc62d8d30c27b2b589ebf5bacc21d6cba77efbe8e060f64ea3aa36caecdd7e967794dd70c559c2760f1105380d9cd7a5a4b3bab2806e9a65d01be4332375240a136c4012d4e01a08baca807201b345cdcea61758c546ef1c01be0030c76ef728eacb1d8766bef9b0e74c4f4a86f5b9674756b1bf4e0f47977b8f9386d07b3650bc98c1ecb4854459bdb4236c8e649b8ce78bb5d78c6b2f1ba817d21a7ce6e69636947ac6630ced3301a775b057fde8e523ac09fd4f42ba77351246df76b900a2c0a5c68f6f657bb4426f23f704bdc9be2b259677e9c935bcfaf6065534d154cf28af0b64ce8eb5d76b85e31</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
@@ -1925,35 +1947,35 @@ Augmentation）:通过一定规则扩充数据。如物体在图像中的位置�
 <span id="more"></span>
 <h1 id="switch-pro-.jpn">Switch pro .jpn</h1>
 <ul>
-<li>SW changing......</li>
+<li>SW <kbd>6096-3331-7333</kbd></li>
 </ul>
 <h1 id="clear-black-2ds-.jpn">Clear Black 2DS .jpn</h1>
 <ul>
-<li>FC 2638-6497-9254</li>
+<li>FC <kbd>2638-6497-9254</kbd></li>
 <li>NNID zx-will</li>
 <li>E-mail <span class="exturl" data-url="bWFpbHRvOno0OTYzNzMxNThAMTYzLmNvbQ==">z496373158@163.com<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <h1 id="pikachu-new-3ds-xl-.usa">Pikachu New 3DS xl .usa</h1>
 <ul>
-<li>FC 1221-3439-8867</li>
+<li>FC <kbd>1221-3439-8867</kbd></li>
 <li>NNID willkyu</li>
 <li>E-mail <span class="exturl" data-url="bWFpbHRvOjQ5NjM3MzE1OEBxcS5jb20=">496373158@qq.com<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <h1 id="colourful-star-new-3ds-.jpn">Colourful Star New 3DS .jpn</h1>
 <ul>
-<li>FC 1049-5610-3284</li>
+<li>FC <kbd>1049-5610-3284</kbd></li>
 <li>NNID willQkyu</li>
 <li>E-mail <span class="exturl" data-url="bWFpbHRvOndpbGwxMjMzMjEwQDE2My5jb20=">will1233210@163.com<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <h1 id="ambassador-new-3ds-.eur">Ambassador New 3DS .eur</h1>
 <ul>
-<li>FC 1264-3252-0970</li>
+<li>FC <kbd>1264-3252-0970</kbd></li>
 <li>NNID willkyu13</li>
 <li>E-mail <span class="exturl" data-url="bWFpbHRvOndpbGxxa3l1QGdtYWlsLmNvbQ==">willqkyu@gmail.com<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <h1 id="pearl-white-new-3ds-ll-.jpn">Pearl White New 3DS ll .jpn</h1>
 <ul>
-<li>FC 1135-2937-9812</li>
+<li>FC <kbd>1135-2937-9812</kbd></li>
 <li>NNID willQQ</li>
 <li>E-mail <span class="exturl" data-url="bWFpbHRvOjIxMzY3MDc2NjJAcXEuY29t">2136707662@qq.com<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
@@ -3741,94 +3763,18 @@ href="https://tieba.baidu.com/p/6552613197?pid=130747309042&amp;cid=0#1307473090
   <entry>
     <title>间谍伞日记</title>
     <url>/Game/Undercover-Brella-Diary/</url>
-    <content><![CDATA[<p>记录间谍伞的心路历程与领悟，希望早日上<strong>X</strong>！</p>
-<p>封面 [ID:68572483].</p>
-<span id="more"></span>
-<h1 id="undercover-brella">Undercover Brella</h1>
-<p><del>老婆！</del></p>
-<figure>
-<img data-src="/images/body/Undercover-Brella-Diary/Undercover-Brella.png"
-alt="Undercover Brella" />
-<figcaption aria-hidden="true">Undercover Brella</figcaption>
-</figure>
-<ul>
-<li><p>Class: Brella</p></li>
-<li><p>Sub:
-<img no-lazy data-src="/images/body/Undercover-Brella-Diary/Ink-Mine.png"  align=left />Ink
-Mine</p></li>
-<li><p>Special:
-<img no-lazy data-src="/images/body/Undercover-Brella-Diary/Splashdown.png" align=left />Splashdown</p></li>
-<li><p>Base Damage:</p>
-<ul>
-<li>12 per pellet (Cap: 40)</li>
-<li>15 (Contact)</li>
-</ul></li>
-<li><p>Ink consumption: 4%</p></li>
-<li><p>Special Points: 150p</p></li>
-<li><p>Range: 50 / 100</p></li>
-<li><p>Damage: 30 / 100</p></li>
-<li><p>Durability: 25 / 100</p></li>
-<li><p>Other variants:</p>
-<ul>
-<li><p><img no-lazy data-src="/images/body/Undercover-Brella-Diary/Undercover-Sorella-Brella.png"  align=left />Undercover
-Sorella Brella</p></li>
-<li><p><img no-lazy data-src="/images/body/Undercover-Brella-Diary/Kensa-Undercover-Brella.png"  align=left />Kensa
-Undercover Brella</p></li>
-</ul></li>
-</ul>
-<h1 id="preface">Preface</h1>
-<p>从我的段位如下开始记录.
-一开始配装会在意一些，后面就是主要是吐槽了///. - 区域:
-<strong>S</strong> - 塔: <strong>A-</strong> - 鱼: <strong>S+0</strong>
-- 蛤蜊: <strong>A</strong></p>
-<p><br></p>
-<p>当前配置： <img data-src="/images/body/Undercover-Brella-Diary/Share.png"
-alt="Share0" /></p>
-<p><br></p>
-<h1 id="diary">Diary</h1>
-<h2 id="section">~2022-01-06</h2>
-<p>在这之前一直用的如下配置: <img
-src="/images/body/Undercover-Brella-Diary/Share1.png"
-alt="Share1" /></p>
-<p>以干扰埋雷补刀为主，加上砸地rush（不是）.
-实际效果用起来机动性不够，伞面恢复也慢了点（太脆了）.
-看了X佬的间谍伞无双思考要不要改变战术.</p>
-<h2 id="section-1">2021-01-07</h2>
-<p>乌乌，打不过. 我对不起伞伞.</p>
-<h2 id="section-2">2022-01-08</h2>
-<p>配置改为： <img data-src="/images/body/Undercover-Brella-Diary/Share.png"
-alt="Share0" /></p>
-<p>机动性与存活能力明显改善，砸地虽然慢了不少但这个配置依赖主武器更多一些.
-好用！</p>
-<h2 id="section-3">2022-01-10</h2>
-<p>sendou.ink上别人的伞伞评价: <img
-src="/images/body/Undercover-Brella-Diary/SenDou.png"
-alt="SenDou" /></p>
-<p>伞伞那么乖,怎么可以这样!</p>
-<p><br></p>
-<p>打了一把好厉害的真格蛤蜊！ <img
-src="/images/body/Undercover-Brella-Diary/Battle1.png"
-alt="Battle1" /></p>
-<h2 id="section-4">2022-01-11</h2>
-<p>摸到了极黑的可爱走速衣！kwii！ <img
-src="/images/body/Undercover-Brella-Diary/Pink-Easy-Stripe-Shirt.png"
-alt="Pink Easy-Stripe Shirt" /></p>
-<p>狗绿桶.</p>
-<p><strong>S+</strong>的鱼过了OK线！开心！ 蛤蜊: <strong>A</strong>
---&gt; <strong>A+</strong></p>
-<p>今天一直在划水，立回还是不太行55.</p>
-<h2 id="section-5">2022-01-13</h2>
-<p>鱼: <strong>S+0</strong> --&gt; <strong>S+1</strong></p>
-<h2 id="section-6">2022-01-14</h2>
-<p>区域: <strong>S</strong> --&gt; <strong>S+0</strong></p>
-<h2 id="section-7">2022-01-24</h2>
-<p>看了<strong>X</strong>段的间谍伞，好帅55555.
-<strong><em>多埋地雷</em></strong></p>
-<h2 id="section-8">2022-03-12</h2>
-<p>我不行了.</p>
-<h2 id="section-9">2022-05-24</h2>
-<p>删了档，新号区域打到了<strong>S+6</strong>，感受到了aim的重要.</p>
-]]></content>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Invalid Password. Check And Try Again! (♯｀∧´)" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="ee1d2eeb4aae9d53e5241d3b782e2073b909260145eedd012aa2bc99b685d959">bbb16d5eb5d590483619b745c2ff015e5bbdb9d16a931534ef63064b108c46faf5563aecf220e5d82ee06593fed8d58555699f90faed43797181c1c86add51c7e5c75a62160bd96fc51afe33b3030fb61d4ed9e713d5be5ff3d1e607e56fdd19f3fb1079853e775d841c1dafbc2ec9d8e432c65bf2dc94596270dd85cf20a3fc186604e987b307e2863e314dfdf84c9773a5cb28a824d77ce229733e3093448de1f81d8c7d233bb4aaf4000b1a4f9f890b854d4d9ee1478c6a0cdde50e607841d7f8b3d0576b628050994ebacdd9a377ed7edaec25d9c9ab5f2d8789cda4b0cd5057553f078f249dfa4066b63a040d58a8e84573b81b85d39a8e5963c9444d5c19551a26dbe7c5107f83b11017ff76f5ed9581a78e7f7301e864be54517105c74f64a780b1b32c7a9de2f32f051965cb27eaac2b62e898cd169944fef675439f3b27e5709b6942b0b94e7f32df8bda7eff2e17e3494cd25d7d86105542cb3f5a62726082cf2ce9106561eec05cacbb7ac04d73fb5460ce48e8d073e7b4924164d4dee79cf7f5129c654282700db028043b1a9b716c9d69718c01c9c9c905d2398295566b751b6062daed3a2be618e4d4f52f1fdf3a1b6d50dc75f619a4e5acaeea2befa621c7603138410f4b3fe216fba1832fc1ff5611ee57bfcb0e60f8bce00557bc5971895c3e54915c4f55511678443c34c16eec1a575dda2ea5193ac10bde12df35287959f7fc9263e247ef28ce25805b56bc14415c83f1728de247330fdaa1436da12fe8d73ef2acecf20b69620f1d080246e1539b095ee975b6ee9a9c4f1c95d3b7301e43d0732210f6fdd344c357b6d24c00007c519f493b25a14031898202a61fd0272afeb015fdd5c24e7476e898a27df919a5393250a1527eb75bbfe334e4582a26ac827f8b59fc6eeb40c80f58fe457b922661b4182fe0a7bc7d356d7bc469ae8e6b5baf2b07109670a05dae254a3bd421f0a3b7e452adc061e2272a318a393936b9748eb69ed198b443f0ef187f825dcff3ebc00f9f71216e99a47233fdaad198331b29aefef53fb2894a8b8bae82838b067a261247914d3a19878a62937f1932f485c645b08e892fca35483c345896b50e9cc66cf7d712faaa2e6ffacce60bbba2d08560890766ccb20eff6415a5bae05ba007569e5198d08d5721e0806fccb4ea0b5566a26db3807a85d6dd1ba2ed7f3b4a8a1327055323523afd0d354b61e20a381abf85d5a87ab17f7add5fe714aa1c0fb34dfbb0fd7fdf0ede075b49737821362846e6e03bea9262b7ada1696d841004a57ae805296df951f9ce9076fa5068702a7e62bf5aacd5cdd47f9ed1e6150c4a145a80c6e33db80d98e6cbe4539918a8a04ef4121e540c97a6b4f399dcbc9dc069d523cc0d2c463398156952c9362b8b47a4776a16fed3703d2d62572f2a953663d350de8d3a735aa56f2fd675c465a72873dae149862db6644ec751144779ffd7bc07e13977dccb782135258e99343a81317189deb74dfc47060f2d91fb56c9abe04c02a1f005516091678f481a531259749540911f0c464d799ced56399ddd24312b486854d692a7e9062e1bac61d5313bce59944736fd9cff69a1c794c0bde2fbf2ff63a444afc4da935d52555470714fbdbc0f9de376fbd51d561fd96718cab52b55a7f70c5987af3a52bdb0476a6cbe8d28d1f5a4900b089a1f909bda4a898debe02d6a3e33427551dde5571954035546d8d553d0110e813b1f4459c81c1be61992d8dd7ef79d6372a389924e41d4f4d74d26124ad60b418dfb2adf6e5668ea2bfe6772056b9a699ba44961fbf343da43df1edc52a866a9b2e19f7c74c49a7eefd60f351503c7a4f5f8ed2bb7de8cc0dc965056c8d832b750e6ce91ec895be1d1e0bee306bbb08d2b9a90e365e76e1d196e1c01c6d8410dfd61c3508bc3a192d03312b6ff9883f4053e94aa1b8f8c3c0ca399aa6e958dc0a0612990f8daec5d31bd98d66f7995b12a4cc6b300b6285eb96ad1e37579aa84854c6978024cd86dad11f2ed456e80ef876e8229ae35a15895551f83d8b2174b9c8e15a7df996420b7a7735b92a4eb0c3074d0c05e4d51f50ac49d53a7a75ce092345404eb8e09a6dd22ea88b1d8be33131e44784102cade57457a811287438394cf69a68f809e04319c085b2f58f193bb179e34bab17d929c2a46f0d3bdf90a879dc4d15327fce5537bd6de10deb9d31f45a8de866eb83117bc16398ad287e5d17b71853212aa69ab4396cd4d961d9ac0189c65a10af2c098e2e07dfc72667da3e531e936f1cde5f5e03d63a98eaded3e910da448d88fb369bdb1a752e79e96c130be5416cd709f188102e7bf20b20e61eadaee3d7a7e9ca84f96aed92c5ee3f349752bdaee38146040a7cff2a7fae48f7c2c38262102fa32f37c2041205dbce37f0f33c1b169bc0d38de65282fba322e526aacb42eb25ec1320cf334f50caa0623402a71a73bda2de022443b171fcf9232a83e45ab05c16ebb39c593451cc5db25bc20d9d91b7c97c17ae264607bf4f9a8ffc23bb275932b811ac91cc0edad6adc976f9a744cb6ef31d3ebc7e06239e9a156658027daf63bf094fbdfea5b43acd6b60d71b1f78034cb1e2e9c37ad157647e4e0135419c21a66f76af7c6cab283397b8ff09a10a837d0cbd0c51a063c53dea50a225352a2213461d7c056a94f413d3ed74147297e0225087fafa536d11f6adf3fb8c60c6c2d0b5fb4153d74f0ff2bdf76cb13744249e212ed14c51aa197afb3f1a15efbc54f647bd430c4ae89486505c826b22d903160ad070034158a5a6e01ac1201020b3561e024c78e022270ab49ab219f6c680d3ff0a0f361710081056046fea20c76185859c22c2609e93a6ed1a373d3aa7abaab1b5d6021ad7a5de69fc1247c9bf81bd13a574df86a1cfdcc9283b0b6c36cd0596d5138ba19a3e1df83846cac61f7e24e1a7285a3d9179c631028fa5ea6f7df136660a2f8b4a12a037ec4073c14b42ab9830cb28ef82f17907d869bb2b00e67ac0e25da232c8ae9035c4465eba482312eada62a676150132bd35fef6ad4fea1ab41104bc5de8f4a973cce0bf4f3efd7285d123d0f8e5d7ae7af7b99caefe2b37f4810a028560d5883ca1d2ee6959d75454ef0d289b0b60d5fb61909a3f16b9a41030cbaf95450937545620bf56b592b96f9488a0d939c012569e86544c35affb1e859650f60545fa25fd26d85be66f37c5851fd6834fb10eed61ff645b30b39534a4ca40aafe33000426c5c2701818e0baba9a509559632fde257439e0c35f36eed141f8d58d2cbb44cef1cc5bc0ec6641f1222b5b4819c96adc6f69031acc57da5fcb934e551a8bfaddeb8eb238fe911ce4ab751355899c1d851c4dab348f7cb31e3b90a439cba0dd3bb977603c25ff39ab5b1a2a2110a477b6c4e0370eb7ccfa1f1c71c045cd3cf7d61f5677b55ea6c0dafe2c5c7759ab3fbfa3d2b7330c149a6e20541d837d7d7161b87b4ccf77a90ac0fb4923290261e887c7638792846971567e9873bae97cd17e9b036116fb834b0cdf67192d6a3b34e77f159670d0f0e26f78b6012b96bf443c8e56d4c79a374ec6e67e1a1ee99c3572cc48dc3081e4ea8feca0f2ef1e80aa934bba20f9b68f285d354c7832a3f95373781a29fe827cbb02d72ece63bc298ab197c35e1cfdd46581feb73b8c5be928af52a9b4da8f5780b7469544f968b1c64d10ed11127afbd6e65f5f468cf9651be91bc9d85601b99fcf5dc680f6d1c5dc0416c418d1fe439a255f8062801df12b0371803d35122ed7cc0c988a7b0140aec956e9b95d1603bc5fb553a617107ddbf4d6785800f62f8a57c8d3fb70d98c89095decde9196650136f7b525a65466bb775cd51a65e4b27a57442db48435d37454d7782cd88aea8e50d3ea16b9a0b9eb6812852f5b6911a3241a8f301b39ebb22d0ccc2eff9e9130d915c5d37d65df619cb5b004490c0beba2605ebc56114d963549b263783ab12a1e104acdc4d4ccb9fb82a4c9c1c43850f21fb40ac3e9ef4f7b1baac2f5550960807bb57715580f4db525911cd389f7c7ec3656adfeb1b946c66ebdad8fbb808f0ee29cd36b99554017beb651bc74b7594d9ba4c9ff99876a900fa9ac4e86bf8afe075b3a4e4033acafabf70dd98d3684d41f875483f633546444eea80bedea85b98d553a22de7698548b50cc11e8a94affd978eb9440e6797ce021d2c4f86a8b750d40b1759c70d11e38e05d9a9a1a8c2d19435e1b7155aa4eedf05e87d50cfc5ca39759180be90b450e11529cc5119b1c087d0163c5c5d926689a3ee21b7fb30796eff59fe9a4dca0f4a5794b43f1254aa1276c042876a7a321a415df7bcabb4777afde11b87bef31eb54b8622c6c2fae6806418a9f967c2a56912d0a9138de9940ae51629e2fa11b15c7f14980764c78762f61a03adf847466ab42b1d4c0855ab5239d3e39912094498f1a8ae9dbbfdadfeed7c5f62ceb534628604e29df6cfd5d01b03a1919ae2d48a8ae6033fb5e44e0a9f2a687b625749b3ba76e59a32410eaf6581dc491397c29351ff83588a174eb149f0f282bc8fb3d8546ae378af26597dd76160cf4efcc28cbe01b646f080de58512531234c538f5e03b1ebb0ec19d8869ae341e5621d8aef99471d5cd2ffe2733bbf8b33dcd23c7fd5eb5f62c324ebf2b7871ff2edf0813fcbe6e3e73c29466c3b0509c0c37e24e1a0291c239f13bb9e7319d57599585f88091983746f4583ebf32964734a4823d9563af15d099b5fa5bf2ed32db0939d9ba9467788de02a36d63e80eca37dbfcf189ec6b9539e9a97104ac3c1702ac6d9a14542531a25ef64dfd7f130dbe9252ee4625e93d846f09b86ae3a39b09fe101c851905391f58f94bd3c2a04424513ba101c97f8b373c3ca0ba570eef1a98ffa86e7af027caf9394b3d59990b5b043819805add34a38c9240dd9d5250e0a21b747e9a17edb1568a213a37bea2a2c850b69ba076f8a42b54b9e45afae2911441621877504d6c3ab8ca2bd5ce8dae5302744e485aa3a8fdba5a634d31a0870f44fe75a66ef9709d8089a067810bc78122302465346d40b603be01f360e6ecb591d0b11350be65ed9bf480f876ad454ebc22ecfda553cc3754211424575e9d0e5f43a784a0591482557a171fdcafa26feebe45d347e9fe4b7bda681fea1ef219db27e2cd4fc1d11349bfcc9db65e33a0dc324674eea8d706782aacbc6e024d3341ae5ef47a40881684c20dc71b67be5f82314c5a36d0cc3d5989</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>Game</category>
       </categories>

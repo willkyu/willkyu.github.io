@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://willkyu.github.io/Learning/Notes/Papers/MMKG-Survey/</loc>
+    <lastmod>2022-12-09</lastmod>
+  </url>
+  <url>
+    <loc>http://willkyu.github.io/Game/Nintendo_Memo/</loc>
+    <lastmod>2022-12-09</lastmod>
+  </url>
+  <url>
+    <loc>http://willkyu.github.io/Game/Undercover-Brella-Diary/</loc>
+    <lastmod>2022-12-09</lastmod>
+  </url>
+  <url>
     <loc>http://willkyu.github.io/Life/Suda-charging-monitor/</loc>
     <lastmod>2022-10-18</lastmod>
   </url>
@@ -11,10 +23,6 @@
   <url>
     <loc>http://willkyu.github.io/Archive/1-Collection/</loc>
     <lastmod>2022-07-06</lastmod>
-  </url>
-  <url>
-    <loc>http://willkyu.github.io/Game/Nintendo_Memo/</loc>
-    <lastmod>2022-07-05</lastmod>
   </url>
   <url>
     <loc>http://willkyu.github.io/Archive/1-Learning/</loc>
@@ -54,10 +62,6 @@
   </url>
   <url>
     <loc>http://willkyu.github.io/Game/Share-Splatoon2-Happiness/</loc>
-    <lastmod>2022-05-24</lastmod>
-  </url>
-  <url>
-    <loc>http://willkyu.github.io/Game/Undercover-Brella-Diary/</loc>
     <lastmod>2022-05-24</lastmod>
   </url>
   <url>
