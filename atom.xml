@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2022-12-11T09:17:07.858Z</updated>
+  <updated>2022-12-11T09:39:29.756Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://willkyu.github.io/Learning/Notes/Papers/MMKG-Survey/"/>
     <id>http://willkyu.github.io/Learning/Notes/Papers/MMKG-Survey/</id>
     <published>2022-12-09T09:26:36.000Z</published>
-    <updated>2022-12-11T09:17:07.858Z</updated>
+    <updated>2022-12-11T09:39:29.756Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;简介&lt;/h1&gt;
@@ -273,9 +273,9 @@ class=&quot;uri&quot;&gt;https://pan.baidu.com/s/1IXtIZhYJFkEciqEPflWKuQ&lt;/a&g
     
     <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
     
-    <category term="Pokemon-Gen4" scheme="http://willkyu.github.io/tags/Pokemon-Gen4/"/>
-    
     <category term="Pokemon-RNG-Abuse" scheme="http://willkyu.github.io/tags/Pokemon-RNG-Abuse/"/>
+    
+    <category term="Pokemon-Gen4" scheme="http://willkyu.github.io/tags/Pokemon-Gen4/"/>
     
   </entry>
   
