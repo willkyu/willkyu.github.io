@@ -23,17 +23,19 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"willkyu.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="简介  Tittle: Author: Time: Journal:">
+<meta name="description" content="简介  Tittle: Multi-Modal Knowledge Graph Construction and Application: A Survey Author: Xiangru Zhu, Zhixu Li Member, IEEE, Xiaodan Wang, Xueyao Jiang, Penglei Sun, Xuwu Wang, Yanghua Xiao Member,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MMKG-Survey">
 <meta property="og:url" content="http://willkyu.github.io/Learning/Notes/Papers/MMKG-Survey/index.html">
 <meta property="og:site_name" content="丘丘Blog">
-<meta property="og:description" content="简介  Tittle: Author: Time: Journal:">
+<meta property="og:description" content="简介  Tittle: Multi-Modal Knowledge Graph Construction and Application: A Survey Author: Xiangru Zhu, Zhixu Li Member, IEEE, Xiaodan Wang, Xueyao Jiang, Penglei Sun, Xuwu Wang, Yanghua Xiao Member,">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://willkyu.github.io/images/body/Papers/MMKG-Survey/Fig1.png">
 <meta property="article:published_time" content="2022-12-09T09:26:36.000Z">
-<meta property="article:modified_time" content="2022-12-09T09:26:36.904Z">
+<meta property="article:modified_time" content="2022-12-11T07:26:35.710Z">
 <meta property="article:author" content="willkyu">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://willkyu.github.io/images/body/Papers/MMKG-Survey/Fig1.png">
 
 
 <link rel="canonical" href="http://willkyu.github.io/Learning/Notes/Papers/MMKG-Survey/">
@@ -151,7 +153,13 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BB%E6%97%A8"><span class="nav-text">主旨</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E9%97%AE%E9%A2%98"><span class="nav-text">核心问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E6%96%B0%E8%B4%A1%E7%8C%AE"><span class="nav-text">创新&#x2F;贡献</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B"><span class="nav-text">模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1"><span class="nav-text">下游任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87"><span class="nav-text">评估指标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E5%88%86%E6%9E%90"><span class="nav-text">总结&#x2F;分析</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BB%E6%97%A8"><span class="nav-text">主旨</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rdf"><span class="nav-text">RDF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#traditional-kg"><span class="nav-text">Traditional KG</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#two-ways-for-representing-mmkg"><span class="nav-text">Two Ways for representing
+MMKG</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-modal-tasks"><span class="nav-text">Multi-Modal Tasks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fundamental-challenges-of-multi-modal-learning"><span class="nav-text">Fundamental
+challenges of Multi-Modal Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-modal-pretrained-language-model"><span class="nav-text">Multi-Modal Pretrained
+Language Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mmkg-benefit-downstream-tasks"><span class="nav-text">MMKG benefit downstream
+tasks</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mmkg-construction.-mmkg%E7%9A%84%E6%9E%84%E5%BB%BA"><span class="nav-text">MMKG Construction.
+MMKG的构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#from-images-to-symbols-labeling-images"><span class="nav-text">From Images to Symbols:
+Labeling Images</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E6%96%B0%E8%B4%A1%E7%8C%AE"><span class="nav-text">创新&#x2F;贡献</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B"><span class="nav-text">模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1"><span class="nav-text">下游任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87"><span class="nav-text">评估指标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E5%88%86%E6%9E%90"><span class="nav-text">总结&#x2F;分析</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -283,6 +291,13 @@
 
       <time title="Created: 2022-12-09 17:26:36" itemprop="dateCreated datePublished" datetime="2022-12-09T17:26:36+08:00">2022-12-09</time>
     </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-12-11 15:26:35" itemprop="dateModified" datetime="2022-12-11T15:26:35+08:00">2022-12-11</time>
+    </span>
 
   
     <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
@@ -303,15 +318,177 @@
     <div class="post-body" itemprop="articleBody">
         <h1 id="简介">简介</h1>
 <ul>
-<li>Tittle:</li>
-<li>Author:</li>
-<li>Time:</li>
-<li>Journal:</li>
+<li>Tittle: <strong>Multi-Modal Knowledge Graph Construction and
+Application: A Survey</strong></li>
+<li>Author: Xiangru Zhu, Zhixu Li Member, IEEE, Xiaodan Wang, Xueyao
+Jiang, Penglei Sun, Xuwu Wang, Yanghua Xiao Member, IEEE, Nicholas Jing
+Yuan Member, IEEE</li>
+<li>Time: 11 Feb 2022</li>
+<li>Journal: IEEE</li>
 </ul>
 <span id="more"></span>
 <h1 id="主旨">主旨</h1>
 <h2 id="背景">背景</h2>
-<h2 id="核心问题">核心问题</h2>
+<h3 id="rdf">RDF</h3>
+<p>RDF(Resource Description
+Framework)，即资源描述框架，其本质是一个数据模型（Data
+Model）。它提供了一个统一的标准，用于描述实体/资源。可以类比知识图谱的三元组。</p>
+<h3 id="traditional-kg">Traditional KG</h3>
+<p>Traditional KG is defined as a directed graph <span
+class="math inline">\(\mathcal{G}=\{\mathcal{E,R,A,V,T_R,T_A}\}\)</span>.</p>
+<ul>
+<li><span class="math inline">\(\mathcal{E}\)</span>: entities</li>
+<li><span class="math inline">\(\mathcal{R}\)</span>: relations</li>
+<li><span class="math inline">\(\mathcal{A}\)</span>: attributes</li>
+<li><span class="math inline">\(\mathcal{V}\)</span>: literal attribute
+values</li>
+<li><span class="math inline">\(\mathcal{T_R=E\times R\times
+E}\)</span>, <span class="math inline">\(\mathcal{T_A=E\times A\times
+V}\)</span> are sets of relation triples and attribute triples
+respectively.</li>
+</ul>
+<h3 id="two-ways-for-representing-mmkg">Two Ways for representing
+MMKG</h3>
+<p>MMKG (Multi-Modal Knowledge Graph，多模态知识图谱)</p>
+<figure>
+<img data-src="/images/body/Papers/MMKG-Survey/Fig1.png" alt="Fig.1" />
+<figcaption aria-hidden="true">Fig.1</figcaption>
+</figure>
+<ul>
+<li><p><strong>A-MMKG</strong>: Taking multi-model data as particular
+attribute values of entities or concepts, as shown in Fig.1(a).<br>
+Denote as <span
+class="math inline">\(\mathcal{G}=\{\mathcal{E,R,A,V,T_R,T_A}\}\)</span>
+where <span class="math inline">\(\mathcal{T_A=E\times A\times
+(V_{KG}\cup V_{MM})}\)</span> is the set of attribute triples,<br> <span
+class="math inline">\(\mathcal{V_{KG}}\)</span> is the set of the KG’s
+attribute values and <span
+class="math inline">\(\mathcal{V_{MM}}\)</span> is the set of
+multi-modal data.<br> 就是将原来的 <span
+class="math inline">\(\mathcal{T_A}\)</span> 中的 <span
+class="math inline">\(V\)</span> 并上多模态的数据。</p></li>
+<li><p><strong>N-MMKG</strong>: Taking multi-model data as entities in
+KGs as the example shown in Fig.1(b).<br> Denote as <span
+class="math inline">\(\mathcal{G}=\{\mathcal{E,R,A,V,T_R,T_A}\}\)</span>
+where<br> <span class="math inline">\(\mathcal{T_R=(E_{KG}\cup
+E_{MM})\times R\times (E_{KG}\cup E_{MM})}\)</span> is the set of
+relation triples,<br> <span
+class="math inline">\(\mathcal{E_{KG}}\)</span> is the set of KG
+entities and <span class="math inline">\(\mathcal{E_{MM}}\)</span> is
+the set of multi-modal data.<br>
+将多模态数据拓展到实体集，当作实体考虑。<br> Two images can also be
+associated in one of the following relations:</p>
+<ul>
+<li>contain: One image entity visually contains another image entity by
+the relative position of images.</li>
+<li>nearBy: One image entity is visually nearby another image entity in
+an image.</li>
+<li>sameAs: Two different image entities refer to the same entity.</li>
+<li>similar: Two image entities are visually similar to each other.</li>
+</ul>
+<p><br> In addition, in N-MMKGs an image is usually abstracted into a
+number of image descriptors, which are usually summarized into feature
+vectors of the image entity at pixel level, such as GHD
+(灰度直方图描述符, Gray Histogram Descriptor), HOG (定向梯度直方图,
+Histogram of Oriented Gradients Descriptor), CLD (颜色布局描述符, Color
+Layout Descriptor) and so on.<br>
+简单来说，N-MMKG中的图像是经过某些方法处理过后的特征向量。</p></li>
+</ul>
+<h3 id="multi-modal-tasks">Multi-Modal Tasks</h3>
+<ul>
+<li><em>Image Captioning. 图像描述.</em> Image captioning aims at
+generating the descriptive caption for a given image.</li>
+<li><em>Visual Grounding. 视觉定位.</em> Visual grounding aims at
+locating an object with designated description in a given image.</li>
+<li><em>Visual Question Answering (VQA). 视觉问答.</em> VQA aims at
+generating a textual answer for a textual question with the help of a
+relevant image.</li>
+<li><em>Cross-Modal Retrieval. 跨模态检索.</em> There are two classic
+cross-modal retrieval tasks including searching for images through a
+text, and searching for texts through an image.</li>
+</ul>
+<h3 id="fundamental-challenges-of-multi-modal-learning">Fundamental
+challenges of Multi-Modal Learning</h3>
+<ul>
+<li><p><em>Multi-modal Representation.</em> The multi-modal
+representation uses the potential complementary of multi-modality to
+learn feature representation.<br>
+主要是两种方法，拼接和融合。拼接是将每种模态投射到各自的向量空间，如<strong>linear
+correlation</strong>，再通过一些别的方法来将各个模态进行交融。融合是将所有模态全部投射到一个统一的空间，如<strong>VGG</strong>、<strong>ResNet</strong>。<br>
+potential complementary:
+指模态的潜在互补，每种模态都有一些别的模态没有的信息，如文字“这有一个男孩”，在图片中可以看出男孩的肤色是黑色，那么实际上我们知道这是一个黑人男孩。</p></li>
+<li><p><em>Multi-Model Translation.</em> Multi-modal translation learns
+to translate from a source instance in one modality to a target instance
+in another. <br> The example-based translation models build bridges
+between different modality through dictionary, <br> while the generative
+translation models build a more flexible model which can transform one
+modal to another.</p></li>
+<li><p><em>Multi-Model Alignment.</em> Multi-modal alignment aims to
+find the correspondences between different modalities. <br> It can
+either be directly applied in some multi-modal tasks such as visual
+grounding, or be taken as a pre-training task in multi-modal pretrained
+language models.</p></li>
+<li><p><em>Multi-modal Fusion.</em> Multi-modal fusion refers to the
+process of joining information from different modalities to perform a
+prediction, <br> where various attention mechanism such as <strong>gated
+cross-modality attention</strong>, <strong>bottom up attention</strong>
+etc. are applied to model the interaction between different kinds of
+features in the cross-modal module.</p></li>
+<li><p><em>Multi-modal Co-Learning.</em> Multi-modal co-learning aims to
+alleviate the low-resource problems in a certain modality by leveraging
+the resources of other modalities through the alignment between
+them.<br>
+多模态联合学习通过多模态对齐利用其他类型的模态来缓解某一low-resource的模块。</p></li>
+</ul>
+<h3 id="multi-modal-pretrained-language-model">Multi-Modal Pretrained
+Language Model</h3>
+<p>Based on a large-scale unsupervised multi-modal data set with
+text-image pairs, 许多工作都在学习多模态预训练语言模型 with designed
+预训练自监督任务, including <strong>masked language model</strong>,
+<strong>sentence image alignment</strong>, <strong>masked region label
+classification</strong>, <strong>masked region feature
+regression</strong>, <strong>masked object prediction</strong>, etc.
+多模态预训练语言模型在下游任务中确实有效。</p>
+<p>Can be divided into 1. <strong>single-stream models</strong> and 2.
+<strong>two-stream models</strong>, in terms of the
+<em>Transformer-based</em> fusion process of different modality.</p>
+<ul>
+<li><p>单流模型 Single-stream models, such as <strong>VL-BERT</strong>,
+<strong>ViLT</strong>, input <em>all</em> modal information into
+<em>a</em> single Transformer encoder for fusion by self-attention
+modules.</p></li>
+<li><p>双流模型 Two-stream models, such as <strong>LXMERT</strong>,
+input <em>different</em> modal information into their <em>own</em>
+encoders and fuse these representation from <em>different</em> modal
+encoder by an additional cross-attention module.<br> The final output
+representation not only contains the cross-modal interaction, but also
+preserves the interaction within each modality.<br>
+不仅包含了每个模块之间的交互，还保留了每个模块内部的交互。</p></li>
+</ul>
+<h3 id="mmkg-benefit-downstream-tasks">MMKG benefit downstream
+tasks</h3>
+<ol type="1">
+<li>MMKG为实体与概念的表达补充足够丰富的background
+knowledge，特别是那些long-tail ones 长尾问题。<br> long-tail: a few
+classes(a.k.a. head class) occupy most of the data, while most
+classes(a.k.a. tail class) have rarely few samples.
+少数类(头类)占用大部分数据，而大多数类(尾类)只有少量的数据。</li>
+<li>MMKG可以提升模型对图像中看不见的的物体的理解能力。Unseen object pose
+great challenge for statistic based models.
+这主要是利用符号知识提供的在视觉上看不见物体的符号信息，或在看不见物体和看不见物体之间建立语义关系。</li>
+<li>MMKG支持多模态推理。Multi-modal reasoning.</li>
+<li>MMKG在一些NLP任务中，可以提供多模态数据作为附加特征来帮助弥合信息鸿沟。Take
+entity recognition for example, an image could provide sufficient
+infomation to identify whether "Rocky" is the name of a dog or a
+person.</li>
+</ol>
+<h2 id="mmkg-construction.-mmkg的构建">MMKG Construction.
+MMKG的构建</h2>
+<p>MMKG构建的实质是将KG中的符号知识（实体、概念、关系等）与他们对应的图像相关联。有两种相反的方式来完成：1.
+From images to symbols: Labeling images; 2. From symbols to images:
+Symbol grounding.</p>
+<h3 id="from-images-to-symbols-labeling-images">From Images to Symbols:
+Labeling Images</h3>
 <h2 id="创新贡献">创新/贡献</h2>
 <h1 id="模型">模型</h1>
 <h1 id="实验">实验</h1>

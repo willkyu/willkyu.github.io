@@ -553,15 +553,177 @@ alt="总览" />
     <url>/Learning/Notes/Papers/MMKG-Survey/</url>
     <content><![CDATA[<h1 id="简介">简介</h1>
 <ul>
-<li>Tittle:</li>
-<li>Author:</li>
-<li>Time:</li>
-<li>Journal:</li>
+<li>Tittle: <strong>Multi-Modal Knowledge Graph Construction and
+Application: A Survey</strong></li>
+<li>Author: Xiangru Zhu, Zhixu Li Member, IEEE, Xiaodan Wang, Xueyao
+Jiang, Penglei Sun, Xuwu Wang, Yanghua Xiao Member, IEEE, Nicholas Jing
+Yuan Member, IEEE</li>
+<li>Time: 11 Feb 2022</li>
+<li>Journal: IEEE</li>
 </ul>
 <span id="more"></span>
 <h1 id="主旨">主旨</h1>
 <h2 id="背景">背景</h2>
-<h2 id="核心问题">核心问题</h2>
+<h3 id="rdf">RDF</h3>
+<p>RDF(Resource Description
+Framework)，即资源描述框架，其本质是一个数据模型（Data
+Model）。它提供了一个统一的标准，用于描述实体/资源。可以类比知识图谱的三元组。</p>
+<h3 id="traditional-kg">Traditional KG</h3>
+<p>Traditional KG is defined as a directed graph <span
+class="math inline">\(\mathcal{G}=\{\mathcal{E,R,A,V,T_R,T_A}\}\)</span>.</p>
+<ul>
+<li><span class="math inline">\(\mathcal{E}\)</span>: entities</li>
+<li><span class="math inline">\(\mathcal{R}\)</span>: relations</li>
+<li><span class="math inline">\(\mathcal{A}\)</span>: attributes</li>
+<li><span class="math inline">\(\mathcal{V}\)</span>: literal attribute
+values</li>
+<li><span class="math inline">\(\mathcal{T_R=E\times R\times
+E}\)</span>, <span class="math inline">\(\mathcal{T_A=E\times A\times
+V}\)</span> are sets of relation triples and attribute triples
+respectively.</li>
+</ul>
+<h3 id="two-ways-for-representing-mmkg">Two Ways for representing
+MMKG</h3>
+<p>MMKG (Multi-Modal Knowledge Graph，多模态知识图谱)</p>
+<figure>
+<img data-src="/images/body/Papers/MMKG-Survey/Fig1.png" alt="Fig.1" />
+<figcaption aria-hidden="true">Fig.1</figcaption>
+</figure>
+<ul>
+<li><p><strong>A-MMKG</strong>: Taking multi-model data as particular
+attribute values of entities or concepts, as shown in Fig.1(a).<br>
+Denote as <span
+class="math inline">\(\mathcal{G}=\{\mathcal{E,R,A,V,T_R,T_A}\}\)</span>
+where <span class="math inline">\(\mathcal{T_A=E\times A\times
+(V_{KG}\cup V_{MM})}\)</span> is the set of attribute triples,<br> <span
+class="math inline">\(\mathcal{V_{KG}}\)</span> is the set of the KG’s
+attribute values and <span
+class="math inline">\(\mathcal{V_{MM}}\)</span> is the set of
+multi-modal data.<br> 就是将原来的 <span
+class="math inline">\(\mathcal{T_A}\)</span> 中的 <span
+class="math inline">\(V\)</span> 并上多模态的数据。</p></li>
+<li><p><strong>N-MMKG</strong>: Taking multi-model data as entities in
+KGs as the example shown in Fig.1(b).<br> Denote as <span
+class="math inline">\(\mathcal{G}=\{\mathcal{E,R,A,V,T_R,T_A}\}\)</span>
+where<br> <span class="math inline">\(\mathcal{T_R=(E_{KG}\cup
+E_{MM})\times R\times (E_{KG}\cup E_{MM})}\)</span> is the set of
+relation triples,<br> <span
+class="math inline">\(\mathcal{E_{KG}}\)</span> is the set of KG
+entities and <span class="math inline">\(\mathcal{E_{MM}}\)</span> is
+the set of multi-modal data.<br>
+将多模态数据拓展到实体集，当作实体考虑。<br> Two images can also be
+associated in one of the following relations:</p>
+<ul>
+<li>contain: One image entity visually contains another image entity by
+the relative position of images.</li>
+<li>nearBy: One image entity is visually nearby another image entity in
+an image.</li>
+<li>sameAs: Two different image entities refer to the same entity.</li>
+<li>similar: Two image entities are visually similar to each other.</li>
+</ul>
+<p><br> In addition, in N-MMKGs an image is usually abstracted into a
+number of image descriptors, which are usually summarized into feature
+vectors of the image entity at pixel level, such as GHD
+(灰度直方图描述符, Gray Histogram Descriptor), HOG (定向梯度直方图,
+Histogram of Oriented Gradients Descriptor), CLD (颜色布局描述符, Color
+Layout Descriptor) and so on.<br>
+简单来说，N-MMKG中的图像是经过某些方法处理过后的特征向量。</p></li>
+</ul>
+<h3 id="multi-modal-tasks">Multi-Modal Tasks</h3>
+<ul>
+<li><em>Image Captioning. 图像描述.</em> Image captioning aims at
+generating the descriptive caption for a given image.</li>
+<li><em>Visual Grounding. 视觉定位.</em> Visual grounding aims at
+locating an object with designated description in a given image.</li>
+<li><em>Visual Question Answering (VQA). 视觉问答.</em> VQA aims at
+generating a textual answer for a textual question with the help of a
+relevant image.</li>
+<li><em>Cross-Modal Retrieval. 跨模态检索.</em> There are two classic
+cross-modal retrieval tasks including searching for images through a
+text, and searching for texts through an image.</li>
+</ul>
+<h3 id="fundamental-challenges-of-multi-modal-learning">Fundamental
+challenges of Multi-Modal Learning</h3>
+<ul>
+<li><p><em>Multi-modal Representation.</em> The multi-modal
+representation uses the potential complementary of multi-modality to
+learn feature representation.<br>
+主要是两种方法，拼接和融合。拼接是将每种模态投射到各自的向量空间，如<strong>linear
+correlation</strong>，再通过一些别的方法来将各个模态进行交融。融合是将所有模态全部投射到一个统一的空间，如<strong>VGG</strong>、<strong>ResNet</strong>。<br>
+potential complementary:
+指模态的潜在互补，每种模态都有一些别的模态没有的信息，如文字“这有一个男孩”，在图片中可以看出男孩的肤色是黑色，那么实际上我们知道这是一个黑人男孩。</p></li>
+<li><p><em>Multi-Model Translation.</em> Multi-modal translation learns
+to translate from a source instance in one modality to a target instance
+in another. <br> The example-based translation models build bridges
+between different modality through dictionary, <br> while the generative
+translation models build a more flexible model which can transform one
+modal to another.</p></li>
+<li><p><em>Multi-Model Alignment.</em> Multi-modal alignment aims to
+find the correspondences between different modalities. <br> It can
+either be directly applied in some multi-modal tasks such as visual
+grounding, or be taken as a pre-training task in multi-modal pretrained
+language models.</p></li>
+<li><p><em>Multi-modal Fusion.</em> Multi-modal fusion refers to the
+process of joining information from different modalities to perform a
+prediction, <br> where various attention mechanism such as <strong>gated
+cross-modality attention</strong>, <strong>bottom up attention</strong>
+etc. are applied to model the interaction between different kinds of
+features in the cross-modal module.</p></li>
+<li><p><em>Multi-modal Co-Learning.</em> Multi-modal co-learning aims to
+alleviate the low-resource problems in a certain modality by leveraging
+the resources of other modalities through the alignment between
+them.<br>
+多模态联合学习通过多模态对齐利用其他类型的模态来缓解某一low-resource的模块。</p></li>
+</ul>
+<h3 id="multi-modal-pretrained-language-model">Multi-Modal Pretrained
+Language Model</h3>
+<p>Based on a large-scale unsupervised multi-modal data set with
+text-image pairs, 许多工作都在学习多模态预训练语言模型 with designed
+预训练自监督任务, including <strong>masked language model</strong>,
+<strong>sentence image alignment</strong>, <strong>masked region label
+classification</strong>, <strong>masked region feature
+regression</strong>, <strong>masked object prediction</strong>, etc.
+多模态预训练语言模型在下游任务中确实有效。</p>
+<p>Can be divided into 1. <strong>single-stream models</strong> and 2.
+<strong>two-stream models</strong>, in terms of the
+<em>Transformer-based</em> fusion process of different modality.</p>
+<ul>
+<li><p>单流模型 Single-stream models, such as <strong>VL-BERT</strong>,
+<strong>ViLT</strong>, input <em>all</em> modal information into
+<em>a</em> single Transformer encoder for fusion by self-attention
+modules.</p></li>
+<li><p>双流模型 Two-stream models, such as <strong>LXMERT</strong>,
+input <em>different</em> modal information into their <em>own</em>
+encoders and fuse these representation from <em>different</em> modal
+encoder by an additional cross-attention module.<br> The final output
+representation not only contains the cross-modal interaction, but also
+preserves the interaction within each modality.<br>
+不仅包含了每个模块之间的交互，还保留了每个模块内部的交互。</p></li>
+</ul>
+<h3 id="mmkg-benefit-downstream-tasks">MMKG benefit downstream
+tasks</h3>
+<ol type="1">
+<li>MMKG为实体与概念的表达补充足够丰富的background
+knowledge，特别是那些long-tail ones 长尾问题。<br> long-tail: a few
+classes(a.k.a. head class) occupy most of the data, while most
+classes(a.k.a. tail class) have rarely few samples.
+少数类(头类)占用大部分数据，而大多数类(尾类)只有少量的数据。</li>
+<li>MMKG可以提升模型对图像中看不见的的物体的理解能力。Unseen object pose
+great challenge for statistic based models.
+这主要是利用符号知识提供的在视觉上看不见物体的符号信息，或在看不见物体和看不见物体之间建立语义关系。</li>
+<li>MMKG支持多模态推理。Multi-modal reasoning.</li>
+<li>MMKG在一些NLP任务中，可以提供多模态数据作为附加特征来帮助弥合信息鸿沟。Take
+entity recognition for example, an image could provide sufficient
+infomation to identify whether "Rocky" is the name of a dog or a
+person.</li>
+</ol>
+<h2 id="mmkg-construction.-mmkg的构建">MMKG Construction.
+MMKG的构建</h2>
+<p>MMKG构建的实质是将KG中的符号知识（实体、概念、关系等）与他们对应的图像相关联。有两种相反的方式来完成：1.
+From images to symbols: Labeling images; 2. From symbols to images:
+Symbol grounding.</p>
+<h3 id="from-images-to-symbols-labeling-images">From Images to Symbols:
+Labeling Images</h3>
 <h2 id="创新贡献">创新/贡献</h2>
 <h1 id="模型">模型</h1>
 <h1 id="实验">实验</h1>
@@ -6406,8 +6568,8 @@ alt="SPL-2020-10-05" />
 <p><br></p>
 ]]></content>
       <tags>
-        <tag>Life</tag>
         <tag>Pokemon</tag>
+        <tag>Life</tag>
       </tags>
   </entry>
   <entry>
@@ -6655,8 +6817,8 @@ src="/images/body/See-My-Loving-Pokemons/More/G6/G6(11).png" /></p>
 <p>No Hurry.</p>
 ]]></content>
       <tags>
-        <tag>Life</tag>
         <tag>Pokemon</tag>
+        <tag>Life</tag>
       </tags>
   </entry>
   <entry>
