@@ -792,6 +792,11 @@ Extraction</h4>
 fine-grained extraction model without a large-scale, fine-grained,
 well-annotated concept and entity image dataset. <br>
 CV中虽然有丰富的标注良好的图像数据，但这些数据集几乎都是粗粒度coarse-grained的概念图像，无法满足MMKG构建对细粒度概念和实体图像标注数据的要求。</p>
+<blockquote>
+<p>CV图像分类中的细粒度/粗粒度(fine-grained/coarse-grained):
+粗粒度指类别之间差异大，如人、汽车、树；细粒度指类别之间差异小，如200种鸟的分类、100种花的分类。<br>
+由于细粒度类别属于同一个大类，所以各类别之间的差距很小，这些细微的差距容易被光照、颜色、背景、形状和位置等变化因素覆盖，导致细粒度图像分类相对困难。</p>
+</blockquote>
 <h2 id="创新贡献">创新/贡献</h2>
 <h1 id="模型">模型</h1>
 <h1 id="实验">实验</h1>
