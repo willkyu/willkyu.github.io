@@ -308,8 +308,8 @@ github markdown emoji markup<i class="fa fa-external-link-alt"></i></span></li>
         <category>Life</category>
       </categories>
       <tags>
-        <tag>Life</tag>
         <tag>Archive</tag>
+        <tag>Life</tag>
       </tags>
   </entry>
   <entry>
@@ -521,8 +521,8 @@ Edition相关资源整理</a></li>
         <category>Game</category>
       </categories>
       <tags>
-        <tag>Game</tag>
         <tag>Archive</tag>
+        <tag>Game</tag>
       </tags>
   </entry>
   <entry>
@@ -544,8 +544,8 @@ alt="总览" />
         <category>Collection</category>
       </categories>
       <tags>
-        <tag>Archive</tag>
         <tag>Collection</tag>
+        <tag>Archive</tag>
       </tags>
   </entry>
   <entry>
@@ -599,9 +599,11 @@ where <span class="math inline">\(\mathcal{T_A=E\times A\times
 class="math inline">\(\mathcal{V_{KG}}\)</span> is the set of the KG’s
 attribute values and <span
 class="math inline">\(\mathcal{V_{MM}}\)</span> is the set of
-multi-modal data.<br> 就是将原来的 <span
-class="math inline">\(\mathcal{T_A}\)</span> 中的 <span
-class="math inline">\(V\)</span> 并上多模态的数据。</p></li>
+multi-modal data.<br></p>
+<blockquote>
+<p>就是将原来的 <span class="math inline">\(\mathcal{T_A}\)</span> 中的
+<span class="math inline">\(V\)</span> 并上多模态的数据。</p>
+</blockquote></li>
 <li><p><strong>N-MMKG</strong>: Taking multi-model data as entities in
 KGs as the example shown in Fig.1(b).<br> Denote as <span
 class="math inline">\(\mathcal{G}=\{\mathcal{E,R,A,V,T_R,T_A}\}\)</span>
@@ -610,9 +612,12 @@ E_{MM})\times R\times (E_{KG}\cup E_{MM})}\)</span> is the set of
 relation triples,<br> <span
 class="math inline">\(\mathcal{E_{KG}}\)</span> is the set of KG
 entities and <span class="math inline">\(\mathcal{E_{MM}}\)</span> is
-the set of multi-modal data.<br>
-将多模态数据拓展到实体集，当作实体考虑。<br> Two images can also be
-associated in one of the following relations:</p>
+the set of multi-modal data.<br></p>
+<blockquote>
+<p>将多模态数据拓展到实体集，当作实体考虑。</p>
+</blockquote>
+<p>Two images can also be associated in one of the following
+relations:</p>
 <ul>
 <li>contain: One image entity visually contains another image entity by
 the relative position of images.</li>
@@ -626,8 +631,10 @@ number of image descriptors, which are usually summarized into feature
 vectors of the image entity at pixel level, such as GHD
 (灰度直方图描述符, Gray Histogram Descriptor), HOG (定向梯度直方图,
 Histogram of Oriented Gradients Descriptor), CLD (颜色布局描述符, Color
-Layout Descriptor) and so on.<br>
-简单来说，N-MMKG中的图像是经过某些方法处理过后的特征向量。</p></li>
+Layout Descriptor) and so on.<br></p>
+<blockquote>
+<p>简单来说，N-MMKG中的图像是经过某些方法处理过后的特征向量。</p>
+</blockquote></li>
 </ul>
 <p>Examples of A-MMKG and N-MMKG illustrated in Table.1.</p>
 <figure>
@@ -654,9 +661,11 @@ challenges of Multi-Modal Learning</h3>
 representation uses the potential complementary of multi-modality to
 learn feature representation.<br>
 主要是两种方法，拼接和融合。拼接是将每种模态投射到各自的向量空间，如<strong>linear
-correlation</strong>，再通过一些别的方法来将各个模态进行交融。融合是将所有模态全部投射到一个统一的空间，如<strong>VGG</strong>、<strong>ResNet</strong>。<br>
-potential complementary:
-指模态的潜在互补，每种模态都有一些别的模态没有的信息，如文字“这有一个男孩”，在图片中可以看出男孩的肤色是黑色，那么实际上我们知道这是一个黑人男孩。</p></li>
+correlation</strong>，再通过一些别的方法来将各个模态进行交融。融合是将所有模态全部投射到一个统一的空间，如<strong>VGG</strong>、<strong>ResNet</strong>。<br></p>
+<blockquote>
+<p>potential complementary:
+指模态的潜在互补，每种模态都有一些别的模态没有的信息，如文字“这有一个男孩”，在图片中可以看出男孩的肤色是黑色，那么实际上我们知道这是一个黑人男孩。</p>
+</blockquote></li>
 <li><p><em>Multi-Model Translation.</em> Multi-modal translation learns
 to translate from a source instance in one modality to a target instance
 in another. <br> The example-based translation models build bridges
@@ -727,6 +736,10 @@ MMKG的构建</h2>
 <p>MMKG构建的实质是将KG中的符号知识（实体、概念、关系等）与他们对应的图像相关联。有两种相反的方式来完成：1.
 From images to symbols: Labeling images; 2. From symbols to images:
 Symbol grounding.</p>
+<figure>
+<img data-src="/images/body/Papers/MMKG-Survey/Table2.png" alt="Table.2" />
+<figcaption aria-hidden="true">Table.2</figcaption>
+</figure>
 <h3 id="from-images-to-symbols-labeling-images">From Images to Symbols:
 Labeling Images</h3>
 <p>The CV community has developed many <em>image labeling
@@ -740,10 +753,11 @@ annotated data set, seen Fig.2.</p>
 <img data-src="/images/body/Papers/MMKG-Survey/Fig2.png" alt="Fig.2" />
 <figcaption aria-hidden="true">Fig.2</figcaption>
 </figure>
-<p>Table.2 lists some well-known image-based visual knowledge extraction
-systems constructed. 这些系统可以通过图像标注来构建MMKG。<br> According
-to <em>the category of symbols to be linked</em>, the process of linking
-images to symbols could be divided into several fractionized tasks:</p>
+<p>Table.2(a) lists some well-known image-based visual knowledge
+extraction systems constructed. 这些系统可以通过图像标注来构建MMKG。
+According to <em>the category of symbols to be linked</em>, the process
+of linking images to symbols could be divided into several fractionized
+tasks:</p>
 <ol type="1">
 <li><strong>visual entity/concept extraction</strong>: Aim to detect and
 locate target visual objects in images, and then label these objects
@@ -765,11 +779,19 @@ event.</li>
 <li>Argument role: the semantic relation between an event and an
 argument such as <em>Time</em>, <em>Person</em>, <em>Place</em>.</li>
 </ul>
-如“我在十点半睡觉”是一个event，睡觉是trigger，argument是十点半，argument
-role是Time，另外我也可以是argument，这时argument role就是Person。</li>
+<blockquote>
+<p>如“我在十点半睡觉”是一个event，<em>睡觉</em>是trigger，argument是<em>十点半</em>，argument
+role是Time，另外<em>我</em>也可以是argument，这时argument
+role就是Person。</p>
+</blockquote></li>
 </ol>
 <h4 id="visual-entityconcept-extraction">Visual Entity/Concept
 Extraction</h4>
+<h5 id="challanges">Challanges</h5>
+<p>The main challenge with this task lies on how to learn an effective
+fine-grained extraction model without a large-scale, fine-grained,
+well-annotated concept and entity image dataset. <br>
+CV中虽然有丰富的标注良好的图像数据，但这些数据集几乎都是粗粒度coarse-grained的概念图像，无法满足MMKG构建对细粒度概念和实体图像标注数据的要求。</p>
 <h2 id="创新贡献">创新/贡献</h2>
 <h1 id="模型">模型</h1>
 <h1 id="实验">实验</h1>
@@ -6614,8 +6636,8 @@ alt="SPL-2020-10-05" />
 <p><br></p>
 ]]></content>
       <tags>
-        <tag>Life</tag>
         <tag>Pokemon</tag>
+        <tag>Life</tag>
       </tags>
   </entry>
   <entry>
@@ -6647,8 +6669,8 @@ src="/images/body/Share-Splatoon2-Happiness/S(9).png" /></p>
         <category>Game</category>
       </categories>
       <tags>
-        <tag>Splatoon</tag>
         <tag>Life</tag>
+        <tag>Splatoon</tag>
       </tags>
   </entry>
   <entry>
@@ -6863,8 +6885,8 @@ src="/images/body/See-My-Loving-Pokemons/More/G6/G6(11).png" /></p>
 <p>No Hurry.</p>
 ]]></content>
       <tags>
-        <tag>Life</tag>
         <tag>Pokemon</tag>
+        <tag>Life</tag>
       </tags>
   </entry>
   <entry>
