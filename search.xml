@@ -308,8 +308,8 @@ github markdown emoji markup<i class="fa fa-external-link-alt"></i></span></li>
         <category>Life</category>
       </categories>
       <tags>
-        <tag>Archive</tag>
         <tag>Life</tag>
+        <tag>Archive</tag>
       </tags>
   </entry>
   <entry>
@@ -521,8 +521,8 @@ Edition相关资源整理</a></li>
         <category>Game</category>
       </categories>
       <tags>
-        <tag>Archive</tag>
         <tag>Game</tag>
+        <tag>Archive</tag>
       </tags>
   </entry>
   <entry>
@@ -544,8 +544,8 @@ alt="总览" />
         <category>Collection</category>
       </categories>
       <tags>
-        <tag>Collection</tag>
         <tag>Archive</tag>
+        <tag>Collection</tag>
       </tags>
   </entry>
   <entry>
@@ -764,10 +764,10 @@ several arguments with their corresponding argument roles.</li>
 event.</li>
 <li>Argument role: the semantic relation between an event and an
 argument such as <em>Time</em>, <em>Person</em>, <em>Place</em>.</li>
-</ul></li>
+</ul>
+如“我在十点半睡觉”是一个event，睡觉是trigger，argument是十点半，argument
+role是Time，另外我也可以是argument，这时argument role就是Person。</li>
 </ol>
-<p>如“我在十点半睡觉”是一个event，睡觉是trigger，argument是十点半，argument
-role是Time，另外我也可以是argument，这时argument role就是Person。</p>
 <h4 id="visual-entityconcept-extraction">Visual Entity/Concept
 Extraction</h4>
 <h2 id="创新贡献">创新/贡献</h2>
@@ -6647,8 +6647,8 @@ src="/images/body/Share-Splatoon2-Happiness/S(9).png" /></p>
         <category>Game</category>
       </categories>
       <tags>
-        <tag>Life</tag>
         <tag>Splatoon</tag>
+        <tag>Life</tag>
       </tags>
   </entry>
   <entry>
