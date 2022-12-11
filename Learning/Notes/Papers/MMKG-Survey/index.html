@@ -31,8 +31,10 @@
 <meta property="og:description" content="简介  Tittle: Multi-Modal Knowledge Graph Construction and Application: A Survey Author: Xiangru Zhu, Zhixu Li Member, IEEE, Xiaodan Wang, Xueyao Jiang, Penglei Sun, Xuwu Wang, Yanghua Xiao Member,">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://willkyu.github.io/images/body/Papers/MMKG-Survey/Fig1.png">
+<meta property="og:image" content="http://willkyu.github.io/images/body/Papers/MMKG-Survey/Table1.png">
+<meta property="og:image" content="http://willkyu.github.io/images/body/Papers/MMKG-Survey/Fig2.png">
 <meta property="article:published_time" content="2022-12-09T09:26:36.000Z">
-<meta property="article:modified_time" content="2022-12-11T07:26:35.710Z">
+<meta property="article:modified_time" content="2022-12-11T09:17:07.858Z">
 <meta property="article:author" content="willkyu">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://willkyu.github.io/images/body/Papers/MMKG-Survey/Fig1.png">
@@ -159,7 +161,8 @@ challenges of Multi-Modal Learning</span></a></li><li class="nav-item nav-level-
 Language Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mmkg-benefit-downstream-tasks"><span class="nav-text">MMKG benefit downstream
 tasks</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mmkg-construction.-mmkg%E7%9A%84%E6%9E%84%E5%BB%BA"><span class="nav-text">MMKG Construction.
 MMKG的构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#from-images-to-symbols-labeling-images"><span class="nav-text">From Images to Symbols:
-Labeling Images</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E6%96%B0%E8%B4%A1%E7%8C%AE"><span class="nav-text">创新&#x2F;贡献</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B"><span class="nav-text">模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1"><span class="nav-text">下游任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87"><span class="nav-text">评估指标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E5%88%86%E6%9E%90"><span class="nav-text">总结&#x2F;分析</span></a></li></ol></div>
+Labeling Images</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#visual-entityconcept-extraction"><span class="nav-text">Visual Entity&#x2F;Concept
+Extraction</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E6%96%B0%E8%B4%A1%E7%8C%AE"><span class="nav-text">创新&#x2F;贡献</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B"><span class="nav-text">模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1"><span class="nav-text">下游任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87"><span class="nav-text">评估指标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E5%88%86%E6%9E%90"><span class="nav-text">总结&#x2F;分析</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -296,7 +299,7 @@ Labeling Images</span></a></li></ol></li><li class="nav-item nav-level-2"><a cla
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-12-11 15:26:35" itemprop="dateModified" datetime="2022-12-11T15:26:35+08:00">2022-12-11</time>
+      <time title="Modified: 2022-12-11 17:17:07" itemprop="dateModified" datetime="2022-12-11T17:17:07+08:00">2022-12-11</time>
     </span>
 
   
@@ -394,6 +397,11 @@ Histogram of Oriented Gradients Descriptor), CLD (颜色布局描述符, Color
 Layout Descriptor) and so on.<br>
 简单来说，N-MMKG中的图像是经过某些方法处理过后的特征向量。</p></li>
 </ul>
+<p>Examples of A-MMKG and N-MMKG illustrated in Table.1.</p>
+<figure>
+<img data-src="/images/body/Papers/MMKG-Survey/Table1.png" alt="Table.1" />
+<figcaption aria-hidden="true">Table.1</figcaption>
+</figure>
 <h3 id="multi-modal-tasks">Multi-Modal Tasks</h3>
 <ul>
 <li><em>Image Captioning. 图像描述.</em> Image captioning aims at
@@ -489,6 +497,41 @@ From images to symbols: Labeling images; 2. From symbols to images:
 Symbol grounding.</p>
 <h3 id="from-images-to-symbols-labeling-images">From Images to Symbols:
 Labeling Images</h3>
+<p>The CV community has developed many <em>image labeling
+solutions</em>, which could be leveraged in labeling images with
+knowledge symbols in KG. Most image labeling solutions learn the
+<strong>mapping</strong> from image content to a wide varity of label
+sets (including objects, sences, entities, attributes, relations, events
+and other symbols).<br> The learning procedure is supervised by a human
+annotated data set, seen Fig.2.</p>
+<figure>
+<img data-src="/images/body/Papers/MMKG-Survey/Fig2.png" alt="Fig.2" />
+<figcaption aria-hidden="true">Fig.2</figcaption>
+</figure>
+<p>Table.2 lists some well-known image-based visual knowledge extraction
+systems constructed. 这些系统可以通过图像标注来构建MMKG。<br> According
+to <em>the category of symbols to be linked</em>, the process of linking
+images to symbols could be divided into several fractionized tasks: 1.
+<strong>visual entity/concept extraction</strong>: Aim to detect and
+locate target visual objects in images, and then label these objects
+with entity/concept symbols in KGs.
+从图像中识别实体并用KG中的entity标记; 2. <strong>visual relation
+extracion</strong>: Aim at identifying semantic relations among detected
+visual entities/concepts in images, and then labeling them with the
+relations in KGs. 识别已识别的实体之间的语义关系并用KG中的relation标记;
+3. <strong>visual event extraction</strong>: Aim at 1) predicting the
+visual event types and 2) locating and exacting objects in source images
+or videos as visual arguments.
+预测视觉事件类型，定位并提取对象作为可视参数。 - EVENT: dynamic
+interaction among arguments, including a trigger and several arguments
+with their corresponding argument roles. - Trigger: a verb or a noun
+indicating the occurrence of an event. - Argument role: the semantic
+relation between an event and an argument such as <em>Time</em>,
+<em>Person</em>, <em>Place</em>.</p>
+<p>如“我在十点半睡觉”是一个event，睡觉是trigger，argument是十点半，argument
+role是Time，另外我也可以是argument，这时argument role就是Person。</p>
+<h4 id="visual-entityconcept-extraction">Visual Entity/Concept
+Extraction</h4>
 <h2 id="创新贡献">创新/贡献</h2>
 <h1 id="模型">模型</h1>
 <h1 id="实验">实验</h1>

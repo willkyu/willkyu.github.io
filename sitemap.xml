@@ -461,7 +461,7 @@
 
   
   <url>
-    <loc>http://willkyu.github.io/tags/Collection/</loc>
+    <loc>http://willkyu.github.io/tags/Game/</loc>
     <lastmod>2022-12-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -475,7 +475,14 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Pokemon/</loc>
+    <loc>http://willkyu.github.io/tags/Collection/</loc>
+    <lastmod>2022-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/Learning/</loc>
     <lastmod>2022-12-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -496,21 +503,7 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Game/</loc>
-    <lastmod>2022-12-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/Learning/</loc>
-    <lastmod>2022-12-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/Schedule/</loc>
+    <loc>http://willkyu.github.io/tags/Pokemon/</loc>
     <lastmod>2022-12-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -538,7 +531,21 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Shiny/</loc>
+    <loc>http://willkyu.github.io/tags/Flash-Card/</loc>
+    <lastmod>2022-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/DSTWO/</loc>
+    <lastmod>2022-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/EZODE/</loc>
     <lastmod>2022-12-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -559,20 +566,6 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Flash-Card/</loc>
-    <lastmod>2022-12-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/DSTWO/</loc>
-    <lastmod>2022-12-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://willkyu.github.io/tags/Splatoon/</loc>
     <lastmod>2022-12-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -580,7 +573,14 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/EZODE/</loc>
+    <loc>http://willkyu.github.io/tags/Schedule/</loc>
+    <lastmod>2022-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/Shiny/</loc>
     <lastmod>2022-12-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -622,6 +622,13 @@
   </url>
   
   <url>
+    <loc>http://willkyu.github.io/tags/Solutions/</loc>
+    <lastmod>2022-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://willkyu.github.io/tags/Knowledage-Graphs/</loc>
     <lastmod>2022-12-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -636,21 +643,7 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Solutions/</loc>
-    <lastmod>2022-12-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://willkyu.github.io/tags/Magi-Cup/</loc>
-    <lastmod>2022-12-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/PyTorch/</loc>
     <lastmod>2022-12-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -692,6 +685,13 @@
   </url>
   
   <url>
+    <loc>http://willkyu.github.io/tags/PyTorch/</loc>
+    <lastmod>2022-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://willkyu.github.io/tags/Pokemon-RNG-Abuse/</loc>
     <lastmod>2022-12-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -715,6 +715,13 @@
 
   
   <url>
+    <loc>http://willkyu.github.io/categories/Game/</loc>
+    <lastmod>2022-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://willkyu.github.io/categories/Collection/</loc>
     <lastmod>2022-12-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -722,7 +729,7 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/categories/Pokemon/</loc>
+    <loc>http://willkyu.github.io/categories/Learning/</loc>
     <lastmod>2022-12-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -743,14 +750,7 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/categories/Game/</loc>
-    <lastmod>2022-12-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/categories/Learning/</loc>
+    <loc>http://willkyu.github.io/categories/Pokemon/</loc>
     <lastmod>2022-12-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
