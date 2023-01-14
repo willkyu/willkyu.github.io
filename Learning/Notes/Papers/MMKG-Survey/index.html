@@ -34,8 +34,15 @@
 <meta property="og:image" content="http://willkyu.github.io/images/body/Papers/MMKG-Survey/Table1.png">
 <meta property="og:image" content="http://willkyu.github.io/images/body/Papers/MMKG-Survey/Table2.png">
 <meta property="og:image" content="http://willkyu.github.io/images/body/Papers/MMKG-Survey/Fig2.png">
+<meta property="og:image" content="http://willkyu.github.io/images/body/Papers/MMKG-Survey/Fig4.png">
+<meta property="og:image" content="http://willkyu.github.io/images/body/Papers/MMKG-Survey/Fig5.png">
+<meta property="og:image" content="http://willkyu.github.io/images/body/Papers/MMKG-Survey/Fig6.png">
+<meta property="og:image" content="http://willkyu.github.io/images/body/Papers/MMKG-Survey/Table3.png">
+<meta property="og:image" content="http://willkyu.github.io/images/body/Papers/MMKG-Survey/Fig7.png">
+<meta property="og:image" content="http://willkyu.github.io/images/body/Papers/MMKG-Survey/Fig8.png">
+<meta property="og:image" content="http://willkyu.github.io/images/body/Papers/MMKG-Survey/Fig9.png">
 <meta property="article:published_time" content="2022-12-09T09:26:36.000Z">
-<meta property="article:modified_time" content="2022-12-11T13:35:35.431Z">
+<meta property="article:modified_time" content="2023-01-14T10:32:03.207Z">
 <meta property="article:author" content="willkyu">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://willkyu.github.io/images/body/Papers/MMKG-Survey/Fig1.png">
@@ -162,8 +169,17 @@ challenges of Multi-Modal Learning</span></a></li><li class="nav-item nav-level-
 Language Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mmkg-benefit-downstream-tasks"><span class="nav-text">MMKG benefit downstream
 tasks</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mmkg-construction.-mmkg%E7%9A%84%E6%9E%84%E5%BB%BA"><span class="nav-text">MMKG Construction.
 MMKG的构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#from-images-to-symbols-labeling-images"><span class="nav-text">From Images to Symbols:
-Labeling Images</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#visual-entityconcept-extraction"><span class="nav-text">Visual Entity&#x2F;Concept
-Extraction</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#challanges"><span class="nav-text">Challanges</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E6%96%B0%E8%B4%A1%E7%8C%AE"><span class="nav-text">创新&#x2F;贡献</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B"><span class="nav-text">模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1"><span class="nav-text">下游任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87"><span class="nav-text">评估指标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E5%88%86%E6%9E%90"><span class="nav-text">总结&#x2F;分析</span></a></li></ol></div>
+Labeling Images</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#visual-entityconcept-extraction-%E8%A7%86%E8%A7%89%E5%AE%9E%E4%BD%93%E6%A6%82%E5%BF%B5%E6%8F%90%E5%8F%96"><span class="nav-text">Visual
+Entity&#x2F;Concept Extraction 视觉实体&#x2F;概念提取</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#challanges"><span class="nav-text">Challanges</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#progresses"><span class="nav-text">Progresses</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#object-recognition-methods"><span class="nav-text">Object Recognition methods</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#visual-grounding-method"><span class="nav-text">Visual Grounding Method</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#opportunities"><span class="nav-text">Opportunities</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#visual-relation-extraction-%E8%A7%86%E8%A7%89%E5%85%B3%E7%B3%BB%E6%8F%90%E5%8F%96"><span class="nav-text">Visual Relation
+Extraction 视觉关系提取</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#challanges-1"><span class="nav-text">Challanges</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#progresses-1"><span class="nav-text">Progresses</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#rule-based-relation-extration"><span class="nav-text">Rule-based Relation
+Extration</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#statistic-based-general-relation-extration"><span class="nav-text">Statistic-based
+General Relation Extration</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#long-tail-and-fine-grained-relation-extraction"><span class="nav-text">Long-tail and
+Fine-grained Relation Extraction</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#opportunitiies"><span class="nav-text">Opportunitiies</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#visual-event-extraction-%E8%A7%86%E8%A7%89%E4%BA%8B%E4%BB%B6%E6%8F%90%E5%8F%96"><span class="nav-text">Visual Event Extraction
+视觉事件提取</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#challenges"><span class="nav-text">Challenges</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#progresses-2"><span class="nav-text">Progresses</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#visual-event-schema-mining"><span class="nav-text">Visual Event Schema Mining</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#visual-event-arguments-extraction"><span class="nav-text">Visual Event Arguments
+Extraction</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#opportunities-1"><span class="nav-text">Opportunities</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#from-symbols-to-images-symbol-grounding"><span class="nav-text">From Symbols to Images:
+Symbol Grounding</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#entity-grounding"><span class="nav-text">Entity Grounding</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#challenges-1"><span class="nav-text">Challenges</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#progresses-3"><span class="nav-text">Progresses</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#from-online-encyclopedia-such-as-wikipedia"><span class="nav-text">From Online
+Encyclopedia (such as Wikipedia)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#from-the-internet-through-web-search-engines"><span class="nav-text">From The Internet
+Through Web Search Engines</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#opportunities-2"><span class="nav-text">Opportunities</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#concept-grounding"><span class="nav-text">Concept Grounding</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#challenges-2"><span class="nav-text">Challenges</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#progresses-4"><span class="nav-text">Progresses</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E6%A6%82%E5%BF%B5%E5%88%A4%E6%96%AD"><span class="nav-text">可视化概念判断</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%A3%E8%A1%A8%E6%80%A7%E5%9B%BE%E5%83%8F%E9%80%89%E6%8B%A9"><span class="nav-text">代表性图像选择</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E6%A0%B7%E5%8C%96%E5%9B%BE%E5%83%8F%E9%80%89%E6%8B%A9"><span class="nav-text">多样化图像选择</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#opportunities-3"><span class="nav-text">Opportunities</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E6%A6%82%E5%BF%B5%E5%AE%9A%E4%BD%8D"><span class="nav-text">抽象概念定位。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8A%A8%E5%90%8D%E8%AF%8D%E6%A6%82%E5%BF%B5%E5%9F%BA%E7%A1%80"><span class="nav-text">动名词概念基础。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E5%AE%9E%E4%BD%93%E5%AE%9A%E4%BD%8D%E7%9A%84%E9%9D%9E%E5%8F%AF%E8%A7%86%E5%8C%96%E6%A6%82%E5%BF%B5%E5%AE%9A%E4%BD%8D"><span class="nav-text">通过实体定位的非可视化概念定位。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#relation-grounding"><span class="nav-text">Relation Grounding</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#challenges-3"><span class="nav-text">Challenges</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#progresses-5"><span class="nav-text">Progresses</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E5%9B%BE%E5%83%8F%E5%8C%B9%E9%85%8D"><span class="nav-text">文本图像匹配</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9B%BE%E5%8C%B9%E9%85%8D"><span class="nav-text">图匹配</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#opportunities-4"><span class="nav-text">Opportunities</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E5%88%86%E6%9E%90"><span class="nav-text">总结&#x2F;分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E7%BB%BC%E8%BF%B0%E9%93%BE%E6%8E%A5%E9%A2%84%E6%B5%8B%E9%83%A8%E5%88%86%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-text">多模态知识图谱综述链接预测部分参考文献：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">多模态知识图谱数据集：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F"><span class="nav-text">推荐系统</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -300,7 +316,7 @@ Extraction</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a c
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-12-11 21:35:35" itemprop="dateModified" datetime="2022-12-11T21:35:35+08:00">2022-12-11</time>
+      <time title="Modified: 2023-01-14 18:32:03" itemprop="dateModified" datetime="2023-01-14T18:32:03+08:00">2023-01-14</time>
     </span>
 
   
@@ -491,9 +507,9 @@ knowledge，特别是那些long-tail ones 长尾问题。<br> long-tail: a few
 classes(a.k.a. head class) occupy most of the data, while most
 classes(a.k.a. tail class) have rarely few samples.
 少数类(头类)占用大部分数据，而大多数类(尾类)只有少量的数据。</li>
-<li>MMKG可以提升模型对图像中看不见的的物体的理解能力。Unseen object pose
+<li>MMKG可以提升模型对图像中隐藏的物体的理解能力。Unseen object pose
 great challenge for statistic based models.
-这主要是利用符号知识提供的在视觉上看不见物体的符号信息，或在看不见物体和看不见物体之间建立语义关系。</li>
+这主要是利用符号知识提供的在视觉上不可见物体的符号信息，或在可见物体和不可见物体之间建立语义关系。</li>
 <li>MMKG支持多模态推理。Multi-modal reasoning.</li>
 <li>MMKG在一些NLP任务中，可以提供多模态数据作为附加特征来帮助弥合信息鸿沟。Take
 entity recognition for example, an image could provide sufficient
@@ -554,8 +570,8 @@ role是Time，另外<em>我</em>也可以是argument，这时argument
 role就是Person。</p>
 </blockquote></li>
 </ol>
-<h4 id="visual-entityconcept-extraction">Visual Entity/Concept
-Extraction</h4>
+<h4 id="visual-entityconcept-extraction-视觉实体概念提取">Visual
+Entity/Concept Extraction 视觉实体/概念提取</h4>
 <h5 id="challanges">Challanges</h5>
 <p>The main challenge with this task lies on how to learn an effective
 fine-grained extraction model without a large-scale, fine-grained,
@@ -566,12 +582,360 @@ CV中虽然有丰富的标注良好的图像数据，但这些数据集几乎都
 粗粒度指类别之间差异大，如人、汽车、树；细粒度指类别之间差异小，如200种鸟的分类、100种花的分类。<br>
 由于细粒度类别属于同一个大类，所以各类别之间的差距很小，这些细微的差距容易被光照、颜色、背景、形状和位置等变化因素覆盖，导致细粒度图像分类相对困难。</p>
 </blockquote>
-<h2 id="创新贡献">创新/贡献</h2>
-<h1 id="模型">模型</h1>
-<h1 id="实验">实验</h1>
-<h2 id="下游任务">下游任务</h2>
-<h2 id="评估指标">评估指标</h2>
+<h5 id="progresses">Progresses</h5>
+<p>Existing efforts could be roughly divided into two categories: <br>
+1) object recognition methods, which label a visual entity/concept by
+classifying the region of a detected object; and<br> 2) visual grounding
+methods, which label a visual entity/concept by mapping a word or phrase
+in a caption to the most relevant region.</p>
+<p>对象识别方法对检测到对象的区域进行分类，来标记视觉实体/概念；视觉定位是将标题中的单词或短语映射到图像中最相关的区域。这两个的侧重点分别是<strong>从图像区域到实体</strong>，一个是<strong>从实体到图像区域</strong>。</p>
+<h6 id="object-recognition-methods">Object Recognition methods</h6>
+<p>早期工作中，提供的图片基本都只有一个物体，但现实生活中的图像往往十分复杂，以至于无法用仅仅一个label来表示。为了识别多个视觉实体，我们需要预训练的检测器和分类器来标注视觉实体（以及属性及场景）及其在图像中的位置。<br>
+检测器的训练数据都是有监督数据，主要来自public image-text datasets(such
+as <strong>MSCOCO</strong>, <strong>Flickr30k</strong>, <strong>Flick30k
+Entities</strong> and <strong>OpenImages</strong>)或预标注的种子图像
+pre-labeled seed images.</p>
+<p>在检测过程中，检测器捕获一组可能对象的候选区域region
+proposals，并挑出实际包含对象的候选。在检测到的区域中，预先训练的分类器识别具有entity-level(例如BMW
+320)或concept-level(例如Car)标签的候选视觉对象。</p>
+<p>被识别出来的实体一般不会直接被认为是visual
+entities，这是因为一般会有大量重复的实例 at different view points,
+positions, poses and appearances. 因此我们一般会选择最具有代表性的
+visual object 作为 visual entitiy。<br>
+最常用的方法是对选出来的图像区域进行聚类，每个聚类的中心就被认为是一个新的
+visual entity。</p>
+<p>缺点：当该方案需要生成大量labels时，需要很多的预处理工作，比如预训练的规则、预确定的实体列表、预训练的细粒度检测器和分类器等，这会导致该方案的鲁棒性scalability下降。</p>
+<h6 id="visual-grounding-method">Visual Grounding Method</h6>
+<p>视觉实体提取问题简化为开域视觉定位问题，即定位标题中的每个短语对应的图像区域，从而获得图像中的视觉对象及其标签。</p>
+<blockquote>
+<p>一般在visual entity extraction中，训练用的 labeled data 需要 with
+bounding boxes and pre-defined schema with a fixed set of concept, which
+is difficult to be used for large-scale visual knowledge
+acquisition.<br> 幸运的是，Web上有很多image-captions pairs，来为visual
+knowledge extraction提供<strong>弱监督weakly supervise</strong> without
+relying on the labeled bounding boxes.</p>
+</blockquote>
+<blockquote>
+<p>As illustrated in Fig.3 below, weakly supervised learning mainly
+includs three classical categories:<br> 1) 不完全监督 Incomplete
+supervision:
+训练数据中只有一部分数据被给了标签，有一些数据是没有标签的。<br> 2)
+不确切监督 Inexact supervision: 训练数据只给出了粗粒度标签。<br> 3)
+不精确监督 Inaccurate supervision: 给出的标签不总是正确的。<br> <img
+src="/images/body/Papers/MMKG-Survey/Fig3.png" alt="Fig.3" />
+在实际操作中，这三类经常同时发生。</p>
+</blockquote>
+<blockquote>
+<p>关于弱监督学习可以参考周志华 《A Brief Introduction to Weakly
+Supervised Learning》（2018.1）</p>
+</blockquote>
+<p>当从弱监督的图像标题对重提取信息时，通常根据<strong>空间热力图</strong>(shown
+as Fig.4)直接选择给定单词的活动像素作为视觉对象的区域。</p>
+<figure>
+<img data-src="/images/body/Papers/MMKG-Survey/Fig4.png" alt="Fig.4" />
+<figcaption aria-hidden="true">Fig.4</figcaption>
+</figure>
+<p>在同一语义空间中的文本、图像表示，每个短语的热图可以通过<strong>基于注意力的方法</strong>和<strong>基于显著性的方法</strong>作为跨模态权重来学习，shown
+as Fig.5。</p>
+<figure>
+<img data-src="/images/body/Papers/MMKG-Survey/Fig5.png" alt="Fig.5" />
+<figcaption aria-hidden="true">Fig.5</figcaption>
+</figure>
+<ol type="1">
+<li>在训练时，基于显著性的方法通过梯度计算，直接将像素对给定短语的敏感度视为热力图的值。</li>
+<li>基于注意力的方法将跨模态相关性视为热力图的值，与基于显著性的方法相比，其更受欢迎。</li>
+</ol>
+<blockquote>
+<p>有的热图是根据标题中提到的每个实体的图像区域之间的相似性生成的，
+而有的热图是根据图像区域与可能的事件参数角色类型之间的相似性生成的。</p>
+</blockquote>
+<blockquote>
+<p>在测试时，对热图进行阈值设置，以获得可视对象的合适包围框。如果kg中已有视觉实体/概念的边界框与新的边界框没有重叠，则将该边界框创建为新的视觉实体或概念。</p>
+</blockquote>
+<p>尽管视觉定位方法不依赖于带有边界框的标记数据，但实际上仍需要人工验证。
+一些工作试图在训练阶段增加对常识、关系和事件参数的约束，以增加监督信息。
+在与MMKG的构建相关的工作中，视觉定位的精确度低于 70%。</p>
+<p>通过视觉定位的视觉对象可以是实体（例如 Barack Hussein
+Obama）、概念（例如地点、汽车、石头）、属性（例如红色、短）。然而，图像和文本的语义尺度不一致可能导致不正确的匹配。例如，<strong>troops</strong>可能会映射到<strong>several
+individuals wearing military uniforms</strong>，而<strong>Ukraine
+(country)</strong>可能会映射到<strong>Ukrainian
+flag</strong>，这两者都是相关的但并不等同。</p>
+<h5 id="opportunities">Opportunities</h5>
+<p>随着多模态预训练语言模型的出现，多模态预训练语言模型强大的表示能力增强了提取实体和概念的能力。
+图像块和单词的映射可以直接在模型的自注意力图中可视化，而无需额外的训练。
+ViLT 的预测示例如图 6 所示。多模态预训练语言模型如
+CLIP，在数亿网络规模的图像-文本数据上进行了预训练，在著名人物和地标建筑上具有很高的准确性，这将在构建一个MMKG人物或建筑时减少大量的数据收集和模型训练工作量。一些预训练的视觉转换器模型已经具有很强的视觉对象分割能力，即使在高度模糊的情况下也能聚焦于前景对象，例如
+DINO ，这将提高定位视觉对象和对齐跨模态知识的性能。</p>
+<figure>
+<img data-src="/images/body/Papers/MMKG-Survey/Fig6.png" alt="Fig.6" />
+<figcaption aria-hidden="true">Fig.6</figcaption>
+</figure>
+<h4 id="visual-relation-extraction-视觉关系提取">Visual Relation
+Extraction 视觉关系提取</h4>
+<h5 id="challanges-1">Challanges</h5>
+<p>虽然视觉关系检测在CV社区已经得到了广泛的研究，但大多数检测到的关系都是视觉对象之间的表面视觉关系，如(person,
+standing on,
+beach)。不同的是，为了构建MMKG，视觉关系提取任务旨在识别在kg中定义的更一般的语义关系类型，如(Jack,
+spouse, Rose)。</p>
+<h5 id="progresses-1">Progresses</h5>
+<p>现有的工作大致可分为<strong>基于规则的关系抽取</strong>和<strong>基于统计的关系抽取</strong>，其余的一些工作主要集中在长尾关系和细粒度关系上。</p>
+<h6 id="rule-based-relation-extration">Rule-based Relation
+Extration</h6>
+<p>传统的基于规则的方法主要关注一些特定类型的关系，如空间关系和动作关系。这些规则通常由专家预先定义，判别特征通过启发式方法进行评分和选择。</p>
+<p>在基于规则的方法中，要检测的关系是根据标签的类型和区域的相对位置来定义的。例如，如果一个对象的边界框总是在另一个对象的边界框内，则它们之间可能存在
+PartOf 关系。表 3
+列出了在NEIL中检测到的几种视觉关系。提取过程中，检测到的一对对象之间的关系反过来又会对新实例标记的附加约束。例如，“Wheel
+is a part of Car”表示 Wheel 更有可能出现在 Car
+的边界框中。基于规则的方法提供高度准确的视觉关系，但它们依赖于大量的手动工作。所以在大规模MMKG建设中是不实用的。</p>
+<figure>
+<img data-src="/images/body/Papers/MMKG-Survey/Table3.png" alt="Table.3" />
+<figcaption aria-hidden="true">Table.3</figcaption>
+</figure>
+<h6 id="statistic-based-general-relation-extration">Statistic-based
+General Relation Extration</h6>
+<p>基于统计的方法将检测到的对象的视觉特征、空间特征和统计等特征编码为分布式向量，并通过分类模型预测给定对象之间的关系。与基于规则的方法相比，基于统计的方法能够检测到训练集中出现的所有关系。</p>
+<p>一些工作证明谓词在很大程度上依赖于主客体的类别，但主客体不依赖于谓词，主客体之间也没有依赖关系。
+例如，在三元组（人、骑、大象）中，人和大象表示关系可能是骑而不是穿。因此，为了利用依赖关系，一些工作通过对象的标签将语言模型的语言先验添加到统计模型中，设置了一个更严格的约束，即三元组的隐藏层表示应满足主语
++ 谓词 <span class="math inline">\(\approx\)</span>
+宾语。令人尴尬的是，语言模型带来很大的改进，但视觉信息的贡献却很小。</p>
+<p>图像中检测到的对象和关系可以表示为图。图结构使边能够从其他节点和边中获得更多消息，从而以更高的精度对关系进行分类。例如，对象和关系可以表示为两个互补的子图，其中节点根据周围边的值迭代更新，反之亦然。
+一些工作使用注意力图卷积神经网络来学习上下文对象和边。</p>
+<h6 id="long-tail-and-fine-grained-relation-extraction">Long-tail and
+Fine-grained Relation Extraction</h6>
+<p>尽管基于统计的方法能够检测一般关系，但很难检测长尾关系。原因是具有大量样本的有偏差的数据集使得预测关系更加困难。为了消除训练集中不平衡样本的影响，为了消除训练集中不平衡样本的影响，学者提出了一种新的无偏度量(Mean
+Recall@K)来平均所有类型关系的召回率，而不是所有样本的召回率，避免忽略只有少量样本的关系。还有很多其他的工作，主要是通过迁移学习、少镜头学习和对比学习来检测少量样本的关系，但仍然局限于隐层的特征融合。</p>
+<p>细粒度关系是一种长尾关系。现有的从特征融合角度对长尾关系问题的研究未能很好地区分细粒度的关系。例如，例如，模型倾向于预测“on”而不是细粒度的关系“sit
+on”/"walk on"/"lay on"。</p>
+<p>检测更复杂和细粒度的关系更困难，例如人与对象交互和动作检测。因为一个人的姿势是由身体的许多组成部分决定的。例如，(person,
+play, violin) 和 (person, hold, violin)
+的图像之间存在细微差别。在早期研究中，动作被定义为身体不同部位的一系列姿态，并通过启发式方法挖掘识别特征。在目前基于统计量的检测中，判别特征采用更严格的对比损失函数滤波，但显然仍过于粗糙。</p>
+<h5 id="opportunitiies">Opportunitiies</h5>
+<p>尽管现有的工作很多，但仍有许多具有挑战性的问题没有解决。例如：</p>
+<ol type="1">
+<li><p><strong>视觉知识关​​系判断</strong>
+许多从图像中提取的视觉三元组只描述了图像的场景，由于它们不是被广泛接受的事实，因此不能被视为视觉知识。难点在于我们如何从场景信息的三元组中识别视觉知识的三元组。</p></li>
+<li><p><strong>基于推理的关系检测</strong>
+现有的关系检测方法通过融合视觉特征和语言先验的隐藏统一表示来预测关系。例如，如果一个图像中有一个人和一个足球，并且(head,
+look at, sth) (arm, swing, -) (foot, kick, sth)
+同时满足，则该动作将被判断为(person, kick,
+football)。不幸的是，这个数据集是手动构建的。我们需要自动总结关系检测的推理链。</p></li>
+</ol>
+<h4 id="visual-event-extraction-视觉事件提取">Visual Event Extraction
+视觉事件提取</h4>
+<p>视觉事件提取可以分为两个子任务:</p>
+<ol type="1">
+<li>预测视觉事件类型;以及</li>
+<li>定位和提取源图像或视频中的对象作为可视参数</li>
+</ol>
+<h5 id="challenges">Challenges</h5>
+<p>该任务面临以下几个挑战:</p>
+<ol type="1">
+<li>视觉事件提取需要对不同的事件类型预先定义模式，但大量的视觉事件还没有被专家定义。如何将视觉模式自动挖掘为事件模式?</li>
+<li>如何从图像或视频中提取视觉事件的视觉论据?</li>
+</ol>
+<h5 id="progresses-2">Progresses</h5>
+<p>当前工作主要focuses on两个方面: 1)
+视觉事件模式挖掘，将最相关的视觉实体（或概念）检测并标记为新模式； 2)
+视觉事件参数提取，根据事件模式从视觉数据中提取参数角色区域。</p>
+<h6 id="visual-event-schema-mining">Visual Event Schema Mining</h6>
+<p>例如，事件 Clipping 具有诸如 Agent、Source、Tool、Item、Place
+等参数角色，并且在剪羊毛的图像中它们分别是
+Man、Sheep、Shears、Wool、Field。该任务主要旨在识别视觉事件，而不是定位和提取其视觉参数。</p>
+<p>然而，在大规模的可视化事件提取中（如新闻），许多事件的视觉图式还没有被手动定义，这需要大量专家的工作。</p>
+<p>来自Internet的大量图像标题对使得挖掘和标记事件模式的视觉模式成为可能。因此，此任务简化为从给定事件的图像中查找指示正确事件类型的视觉模式的频繁项集。可以从带有事件触发器的图像标题对中检索事件的图像集合作为查询。通过视觉定位的方法，将候选图像补丁用文字或短语标注在字幕中。可以利用启发式方法(如Apriori算法)挖掘频繁的视觉图像补丁，找到关联规则，通过视觉模式预测事件类型。</p>
+<h6 id="visual-event-arguments-extraction">Visual Event Arguments
+Extraction</h6>
+<p>视觉事件参数提取实际上是提取一组具有关系约束的视觉对象的任务。视觉参数可以通过完全监督方法(如对象识别)或弱监督方法(如视觉基础)进行标记。根据视觉事件提取的两个子任务，根据事件图像的全局特征对事件类型进行分类，并将事件参数提取为对事件类型最敏感的局部区域。</p>
+<p>但是，在弱监督方法中，我们不能确定所提取的视觉对象之间的关系是否与文本中的关系一致。因此，视觉参数和文本参数的关系也应该分别对齐。有的工作将从一个事件的图像中提取的情景图与抽象意义表示图(AMR图)对齐，AMR图根据跨模态参数的语义和类别表示该事件标题的语义结构。联合提取中还增加了语义、事件类型、事件参数角色、视觉信息和文本信息一致性等诸多约束条件。</p>
+<p>与图像相比，视频更适合于事件提取，因为一个事件的时间包围框可能跨越整个视频，所有的参数可能不会在一帧中显示。为了简化任务，可以从只包含一个事件的短视频片段中提取了三个关键帧的参数，这些关键帧是与视频标题最匹配的帧。</p>
+<h5 id="opportunities-1">Opportunities</h5>
+<p>这一课题的研究还处于早期阶段，还有很多问题值得探索。例如:</p>
+<ol type="1">
+<li>从包含多个事件的长视频中提取连续事件的问题还没有解决。</li>
+<li>多子事件视频事件提取。例如，将“煮咖啡”事件分为清洁咖啡机→倒入咖啡豆→打开咖啡机等一系列步骤，每一步也可以视为一个事件。顺序步骤需要按照步骤的时间轴进行提取和列出，这是目前方法难以解决的问题。</li>
+</ol>
+<h3 id="from-symbols-to-images-symbol-grounding">From Symbols to Images:
+Symbol Grounding</h3>
+<p>符号定位是指寻找合适的多模态数据项(如图像)来表示传统KG中存在符号知识的过程。与图像标注方式相比，符号接地方式在MMKG施工中应用更为广泛。大多数现有的MMKG都是这样构造的。</p>
+<p>We cover the process of grounding symbols to images in several
+fractionized tasks: <strong>Entity Grounding</strong>, <strong>Concept
+Grounding</strong>, <strong>Relation Grounding</strong>.</p>
+<h4 id="entity-grounding">Entity Grounding</h4>
+<p>实体定位旨在将知识图谱中的文本实体定位到其相应的多模态数据，例如图像、视频和音频。</p>
+<h5 id="challenges-1">Challenges</h5>
+<ol type="1">
+<li>如何以低成本为实体找到足够多的高质量图像？</li>
+<li>如何从大量噪声中选择最匹配实体的图像？</li>
+</ol>
+<h5 id="progresses-3">Progresses</h5>
+<h6 id="from-online-encyclopedia-such-as-wikipedia">From Online
+Encyclopedia (such as Wikipedia)</h6>
+<p>在维基百科中，一篇文章通常用图像和其他多模态数据来描述一个实体。
+Wikipedia 和 DBpedia 提供了许多工具（例如 Wikimedia Commons ）来帮助在
+DBpedia 中的实体与 Wikipedia
+中的相应图像或其他模态数据之间建立连接。研究人员很容易使用像维基百科这样的在线百科全书来构建大规模
+MMKG 的第一个版本。</p>
+<p>然而，基于百科全书的方法有三个主要缺点：</p>
+<ol type="1">
+<li>首先，每个实体的图像数量是有限的。维基百科中每个实体的平均图像数量为
+1.16。</li>
+<li>其次，维基百科中的许多实体图像仅与其对应的实体相关，而不是与实体完全相关。例如，维基百科中北京动物园的图片中存在动物、建筑、牌匾、雕刻等多张图片，很容易导致语义漂移。</li>
+<li>最后，基于维基百科构建的MMKG的覆盖范围仍有待提高。英文维基百科有600万个实体（文章），这是从英文维基百科收获的MMKG容量的上限。根据我们的调查，近
+80%的英文维基百科文章没有对应的图像，其中只有 8.6 %有超过 2
+个图像。</li>
+</ol>
+<h6 id="from-the-internet-through-web-search-engines">From The Internet
+Through Web Search Engines</h6>
+<p>为了提高 MMKG
+的覆盖率，提出了基于搜索引擎的解决方案。通过查询实体名称从搜索引擎的搜索结果中找到图像。一般来说，排名靠前的结果图像很有可能是要搜索的实体的正确图像。然而，基于搜索引擎的方法很容易将错误的事实引入
+MMKG。众所周知，搜索引擎结果可能是嘈杂的。另一个原因是指定搜索关键字并非易事。例如，搜索查询“Bank”不足以找到
+Commercial Bank 的图像，因为它也产生了 River Bank
+的图像。因此，已经有很多清理候选图像的工作。通常通过添加父同义词集或实体类型来扩展查询词以消除歧义。在为实体选择最佳图像时，多样性也是不可忽视的问题。训练图像多样性检索模型以去除冗余的相似图像，使图像尽可能多样化。</p>
+<p>由于在构建过程中实体及其视觉特征的解耦，基于实体接地的MMKG具有区分视觉相似实体的能力，如图7所示。实体定位方法使得构建面向领域的细粒度MMKG成为可能。</p>
+<figure>
+<img data-src="/images/body/Papers/MMKG-Survey/Fig7.png" alt="Fig.7" />
+<figcaption aria-hidden="true">Fig.7</figcaption>
+</figure>
+<p>与基于百科全书的方法相比，基于搜索引擎的方法覆盖面更好，但质量更差，因此这两种方法经常一起使用。例如，可以通过从搜索引擎为每个实体收集更多图像或将每个图像映射到它包含的所有实体以扩大实体图像的数量来提高从维基百科获取的
+MMKG 的覆盖范围。</p>
+<h5 id="opportunities-2">Opportunities</h5>
+<p>这个方向还有很多未解决的问题。 1)
+实体被定位成几个图像，每个图像只是实体的一个方面。例如，一个人的图像集合可以是不同年龄的图像、生活照片、事件照片、单人照片和家庭照片。如何确定最典型的图像？图8以特朗普为例。</p>
+<figure>
+<img data-src="/images/body/Papers/MMKG-Survey/Fig8.png" alt="Fig.8" />
+<figcaption aria-hidden="true">Fig.8</figcaption>
+</figure>
+<ol start="2" type="1">
+<li>现实世界的实体是多角度的，在不同的上下文中将一个实体与多个图像相关联是合理的。这促使我们提出一项新的多定位任务，该任务从给定特定上下文的实体中选择最相关的图像。例如，美国第
+45 任和现任总统唐纳德·特朗普 (Donald Trump)
+拥有许多可以从网络上收集的不同图像。但如图 8
+所示，任何单个图像都不适用于所有不同的上下文。然而，将实体的不同方面映射到不同上下文中最相关的图像并非易事。首先，实体的图像池很难建立，因为图像池的完整性无法保证，在某些上下文中很容易漏掉一些相关的图像。其次，为特定上下文的实体消歧图像具有挑战性，因为上下文通常是嘈杂的并且包含稀疏信息，并且需要更多的背景信息来指导语义信息的获取。最后，作为一项新任务，标记数据的缺乏是一个大问题。</li>
+</ol>
+<h3 id="concept-grounding">Concept Grounding</h3>
+<p>概念定位旨在为视觉概念找到具有代表性的、有区别的和多样化的图像。</p>
+<h4 id="challenges-2">Challenges</h4>
+<p>虽然一些视觉上统一的概念（如男人、女人、卡车和狗）也可以使用实体定位方法连接到图像。然而</p>
+<p>1）并非所有的概念都可以正确可视化。例如，irreligionist（非宗教主义者）不能指定某种具体醒醒。因此，如何区分可视化概念和非可视化概念成为一个难点</p>
+<p>2）如何从一组相关图像中找到一个可视化概念的代表性图像？请注意，可视化概念的图像可能非常多样化。例如，一提到公主，人们往往会想到几种不同的形象，迪士尼公主、历史电影中的古代公主或新闻中的现代公主。因此，我们必须考虑图像的多样性。</p>
+<h4 id="progresses-4">Progresses</h4>
+<p>针对上述挑战，相关研究分为三个任务：<strong>可视化概念判断</strong>、<strong>代表性图像选择</strong>和<strong>图像多样化</strong>。</p>
+<h5 id="可视化概念判断">可视化概念判断</h5>
+<p>该任务旨在判断概念是否可视化，研究人员发现只有 12.8 %的 Person
+子树的同义词集具有公认的可视化性。并且许多其余同义词集没有相应的视觉描述。例如，摇滚明星是可视化的，而求职者是不可视化的。手动注释在构建大规模
+MMKG 时明显不实用。</p>
+<p>为了自动判断视觉概念，研究人员构建了以下方法，比如：认为抽象名词概念是非可视化的，只收集非抽象名词概念的图像。但是，这些方法都不是很准确。例如，愤怒或快乐可以指定为一个人感到愤怒或快乐的形象。由于图像来自互联网，因此可以使用搜索引擎点击来识别视觉概念。例如，如果谷歌图片点击的数量大于谷歌网络点击的数量，可以表明一个实体可能是可视化的。</p>
+<p>此外，可视化的高质量图像的一些特征可以用来识别视觉概念，例如代表性和辨别性。
+一些研究人员认为具有代表性图像的前景是相似的，前景易于与背景分离，并且具有较小的类间方差。因此，因此考虑反过来训练分类器来选择其图像集合具有这些特征的概念。</p>
+<h5 id="代表性图像选择">代表性图像选择</h5>
+<p>该任务本质上旨在根据图像的代表性重新排列图像。图像的代表性是根据基于聚类的方法的结果来评分的，例如
+K-means、谱聚类等。聚类内的方差越小，聚类中图像的得分越高。在对图像的代表性得分重新排序后，排在前面的可能是代表性图像。此外，图像也受到规则的约束，以区分不同的簇。例如，一些工作添加了一个新的度量标准来对图像和聚类内的相似度进行排序，即类间距离和类内距离的比率，比率越大，图像的判别力越强。</p>
+<p>来自搜索引擎的图像的标题和标签也可以用来评估图像在语义层面的代表性和区分性。标题和标签提供图像没有的语义信息。例如，一张冰岛风景的照片和一张英国风景的照片可能看起来很相似，但文本标签可以帮助我们区分它们的概念差异。一些工作中，标签基于语义特征进行聚类，图像根据标签的语义聚类重新分配到每个聚类中。</p>
+<h5 id="多样化图像选择">多样化图像选择</h5>
+<p>该任务要求以概念为基础的图像应平衡多样性和相关性。图像也应该在聚类后重新排序，但与代表性图像选择的区别在于，我们想展示尽可能多的集群的结果。
+具体来说，在每次选择中，尽量从聚类中选择没有被选择的图像。</p>
+<p>这些研究集中在文本图像检索领域，很少有与多模态知识图谱相关的研究。来自互联网的关于性别、种族、肤色和年龄的概念图像的多样性仍然存在许多未解决的偏见，现在这个问题在很大程度上依赖于众包。</p>
+<h4 id="opportunities-3">Opportunities</h4>
+<h5 id="抽象概念定位">抽象概念定位。</h5>
+<p>以前关于概念可视化判断的工作很少考虑抽象概念。但抽象的概念也可以以图像为基础。例如，快乐通常与微笑联系在一起，而愤怒通常与愤怒的脸联系在一起。一些抽象名词具有多样而固定的视觉联想，如自然、人、行为等。例如，“美”的图像与以下词群相关:女人/女孩、水/海滩/海洋、花/玫瑰、天空/云/日落。同样，爱的形象与以下词群相关:婴儿/可爱/新生儿，狗/宠物，心/红/情人节，海滩/海/情侣，天空/云/日落，花/玫瑰。可以看出，一些抽象名词在情感上往往具有一般的、固定的意象，在语义上往往具有辨别性的意象。</p>
+<h5 id="动名词概念基础">动名词概念基础。</h5>
+<p>动名词是一类特殊的名词，可以转化为动词，如singing→sing。通过众包将许多动名词与图片联系起来，例如争吵、摔跤和跳舞。这些涉及人际交往的动词对人的身体角度、注视角度、关节位置和表情等特征较为敏感。</p>
+<h5
+id="通过实体定位的非可视化概念定位">通过实体定位的非可视化概念定位。</h5>
+<p>如果一个概念是非可视化的，但这个概念的实体是可以可视化的，那么这个概念也可以通过它的实体来建立基础。例如，合理选择这样一个概念的接地图像是使用该概念最典型实体的图像。如使用一张爱因斯坦的照片作为物理学家这个概念的基础。这是合理的，因为当我们提到物理学家时，我们大多数人都会想到爱因斯坦。但是，目前还存在许多未解决的问题:(a)一般来说，不同的人对一个概念的思考具有不同的典型实体，因此在概念的基础上要解决这种主观性。一个实体在其概念的约束下是否是一个典型的实体?(b)我们应该选择几个典型实体的图像来表达这个概念。如何总结和选择典型实体来表示概念?(c)我们是否应该从多个实体图像中提取共同的视觉特征?</p>
+<h3 id="relation-grounding">Relation Grounding</h3>
+<p>关系定位是从图像数据语料库或互联网中找到可以表示特定关系的图像。输入可以是这个关系的一个或多个三元组，输出应该是这个关系中最具代表性的图像。</p>
+<h4 id="challenges-3">Challenges</h4>
+<p>当我们将三元组作为查询来检索关系的图像时，排名靠前的图像通常与三元组的主题和对象更相关，但与关系本身无关。如何找到能够反映输入三元组语义关系的图像？</p>
+<h4 id="progresses-5">Progresses</h4>
+<p>现有的关系指定研究侧重于空间或动作关系，例如left of、on、ride
+和eat。</p>
+<p>虽然文本问询可以通过抽象语义表示图（主题、关系、对象）的格式表示为结构化数据，但候选图像也可以结构化为场景图。然后，通过文本-图像匹配或图形匹配，可以将结构化文本和结构化图像进行细粒度匹配，下面将具体展开。</p>
+<h5 id="文本图像匹配">文本图像匹配</h5>
+<p>在文本-图像匹配任务中，文本和图像通常表示为统一语义嵌入空间中的向量。通过跨模态表示的相似度得分找到与查询最匹配的图像。跨模态表示通常由注意力机制融合，因此全局表示的缺点是缺乏显式细粒度关系的语义。除了基于表示的检索之外，一种更方便的方法是基于标题的检索，如互联网上的搜索引擎。基于标题的检索的缺点是没有使用视觉特征进行匹配。</p>
+<p>为了表示对象之间的明确关系，许多研究集中在考虑图像局部结构的图像编码器上。最终的图像表示是全局视觉特征、局部结构特征和文本对齐嵌入的融合。一些工作将所有一阶（实体或概念）、二阶（属性或动作）、三阶（三元组）事实均统一遵循
+建模，分别由多层图像编码器的不同分支的输出来表示。
+一些研究使用场景图来表示图像中的所有三元组
+，并使用图卷积神经网络来学习视觉关系。最后，每张图像学习到的​​所有具有关系特征的视觉表示都必须接近。因此，可以通过使用三元组作为查询而不是句子来直接检索匹配的图像。</p>
+<p>多模态预训练语言模型是考虑对象（实体或概念）和三元组的图像编码器的新替代方案。对于每个图像-标题对，使用场景图解析器从图像的标题中生成包含对象、属性和关系的场景图，然后将场景图的对象、属性和关系节点随机替换为与对应的词汇表不同的对象、属性或关系来生成大量的硬负样本。
+ERNIEViL通过增加三个预训练任务，对象预测、属性预测和关系预测来增强视觉和语言模型的能力。</p>
+<h5 id="图匹配">图匹配</h5>
+<p>我们期望通过对象和关系的显式匹配而不是统一的跨模态嵌入的隐式匹配来建立关系基础。一种更方便的方法是基于标题的检索，如
+Internet 上的搜索引擎，匹配实体的标记与
+问询与标题之间的关系。基于标题的检索的缺点是没有使用视觉特征进行匹配。例如，Richpedida
+提出了一个非常强的假设，即如果 Wikipedia
+描述中的两个实体之间存在预定义的关系（例如 nearBy 和
+contains），则两个实体对应的视觉实体之间也存在相同的关系。但实际上，这两个对象更有可能不会同时出现在一张图像中。如果我们将文本查询和候选图像表示为图形，则关系指定任务变成了图形匹配任务，如图
+9
+所示。可以将图像结构化为图形，其中节点是对象，边是关系。文本问询中的依赖关系可以建模为依赖分析树，它也是一个图。一个简单的解决方案是只匹配两个图中的对象和共现关系而不预测关系类型，即假设如果两个实体之间存在关系，则该关系被认为是匹配的，这也是一个强假设。显然，关系预测模块是必不可少的。
+一些研究用GCN分别表示两个场景图，其中对象自己进行更新，关系节点从其邻居的聚合更新。预测时，分别测量两个不同形式的图的相似度：对象节点匹配和关系节点匹配。</p>
+<figure>
+<img data-src="/images/body/Papers/MMKG-Survey/Fig9.png" alt="Fig.9" />
+<figcaption aria-hidden="true">Fig.9</figcaption>
+</figure>
+<h4 id="opportunities-4">Opportunities</h4>
+<p>现有研究主要集中在空间关系和动作关系的基础上，这些关系可以在图像中直观地观察到。但是，大多数其他关系例如isA,
+Occupation, Team and
+Spouse在图像中可能并不明显。这些关系通常缺乏训练数据，因此很难用上述两种解决方案训练模型来检索图像。</p>
 <h1 id="总结分析">总结/分析</h1>
+<h2
+id="多模态知识图谱综述链接预测部分参考文献">多模态知识图谱综述链接预测部分参考文献：</h2>
+<ul>
+<li>134 Translating embeddings for modeling multi-relational data
+<strong>2013</strong> 就是TransE。</li>
+<li>136 Learning entity and relation embeddings for knowledge graph
+completion <strong>2015</strong> 是TransR。</li>
+<li>141 Representation learning of knowledge graphs with entity
+descriptions <strong>2016</strong> 具有实体描述的知识图谱表示学习。</li>
+<li>142 Modeling relation paths for representation learning of knowledge
+bases <strong>2015</strong> PTransE 对多跳关系的建模。</li>
+<li>143 Reasoning with neural tensor networks for knowledge base
+completion <strong>2013</strong>
+如果两实体名字中有相同的字符串，比如apple pie和apple
+cake，以往的工作中他们的嵌入是没有什么关系的，这篇以全新的方式（词向量的平均值）来嵌入实体，并且提出了新的神经网络结构ntn。</li>
+</ul>
+<p>以上都是单一模态知识图谱的工作，下面的才是多模态的：</p>
+<ul>
+<li><p>138 A multimodal translation-based approach for knowledge graph
+representation learning <strong>2018</strong>
+有点像是多模态的transE，主要将多模态信息与图谱结构相结合，三种融合方式，将文本信息与多模态信息拼接，将文本信息映射到多模态信息空间中，将多模态信息映射到文本信息空间中。设计了一个打分（能量）函数。别的没有什么特殊的地方。</p></li>
+<li><p>144 Image-embodied knowledge representation learning
+<strong>2016</strong>
+IKRL是第一个将图像中的视觉信息显式编码为知识表示的尝试。</p></li>
+<li><p>140 Embedding multimodal relational data for knowledge base
+completion <strong>2018</strong>
+提出了多模态知识库嵌入（MKBE），它对这些观察数据使用不同的神经编码器，并将它们与现有的关系模型相结合，以学习实体和多模态数据的嵌入。使用这些学习的嵌入和不同的神经解码器，引入了一种新的多模态插补模型，以从知识库中的信息生成缺失的多模态值，如文本和图像。</p></li>
+<li><p>23 Answering visual-relational queries in web-extracted knowledge
+graphs <strong>2017</strong>
+基于FB15k构建了一个ImageGraph，使用卷积提取视觉特征然后和知识图谱嵌入相结合。<strong>给定一个不属于已知kg的图像，该模型可以给出其与另一个给定图像的关系，但我们并不知道他们对应的实体是什么</strong></p>
+<ol type="1">
+<li>给定一对不可见的图像，我们不知道它们的KG实体，确定潜在实体之间的未知关系。</li>
+<li>给定一个不可见的图像(我们不知道其底层KG实体)和一个关系类型，确定完成查询的可见图像</li>
+<li>给定一个不属于KG的全新实体的不可见图像，以及一个我们不知道底层KG实体的不可见图像，确定两个底层实体之间未知的关系。</li>
+<li>给定一个不属于KG的全新实体的不可见图像和一个已知的KG实体，确定两个实体之间未知的关系。
+对于这些查询类型中的每一个，在训练期间都没有观察到底层实体之间的关系。
+查询类型(3)和(4)是zero-shot学习的一种形式。因为在训练过程中，新实体与其他实体的关系以及它的图像都没有被观察到。这些考虑说明了可视化查询类型的新颖特性。机器学习模型必须能够学习KG的关系语义，而不是简单地将图像分配给实体的分类器。</li>
+</ol></li>
+<li><p>24 Mmkg: Multi-modal knowledge graphs <strong>2019</strong>
+MMKG数据集将三个知识图谱数据集Freebase15k、DBpedia15k和YAGO15k使用sameAs关系连接起来，该文章只学习了sameAs关系，证明了不同模态对同一链接预测任务是互补的。</p></li>
+</ul>
+<h2 id="多模态知识图谱数据集">多模态知识图谱数据集：</h2>
+<p>DBpedia</p>
+<p>DBpedia作为近十年来语义网研究的中心领域，其丰富的语义信息也将会成为今后多模态知识图谱的链接端点，其完整的本体结构对于构建多模态知识图谱提供了很大的便利。DBpedia项目是一个社区项目，旨在从维基百科中提取结构化信息，并使其可在网络上访问。DBpedia知识库目前描述了超过260万个实体。对于每个实体，DBpedia定义了一个唯一的全局标识符，可以将其解引用为网络上一个RDF描述的实体。DBpedia提供了30种人类可读的语言版本，与其他资源形成关系。在过去的几年里，越来越多的数据发布者开始建立数据集链接到DBpedia资源，使DBpedia成为一个新的数据web互联中心。目前，围绕DBpedia的互联网数据源网络提供了约47亿条信息，涵盖地理信息、人、公司、电影、音乐、基因、药物、图书、科技出版社等领域。</p>
+<p>Wikidata</p>
+<p>Wikidata中也存在大量的多模态资源，Wikidata是维基媒体基金会(WMF)联合策划的一个知识图谱，是维基媒体数据管理策略的核心项目。充分利用Wikidata的资源，主要挑战之一是提供可靠并且强大的数据共享查询服务，维基媒体基金会选择使用语义技术。活动的SPARQL端点、常规的RDF转储和链接的数据api是目前Wikidata的核心技术，Wikidata的目标是通过创造维基百科全球管理数据的新方法来克服数据不一致性。Wikidata的主要成就包括:Wikidata提供了一个可由所有人共享的免费协作知识库;Wikidata已经成为维基媒体最活跃的项目之一;越来越多的网站在浏览页面时都从Wikidata获取内容，以增加大数据的可见性和实用性。</p>
+<p>IMGpedia</p>
+<p>IMGpedia是一个大型的链接数据集，它从Wikimedia
+Commons数据集中的图像中收集大量的可视化信息。它构建并生成了1500万个视觉内容描述符，图像之间有4.5亿个视觉相似关系，此外，在IMGpedia中单个图像与DBpedia之间还有链接。IMGpedia旨在从维基百科发布的图片中提取相关的视觉信息，从Wikimedia中收集所有术语和所有多模态数据(包括作者、日期、大小等)的图像，并为每张图像生成相应的图像描述符。链接数据很少考虑多模态数据，但多模态数据也是语义网络的重要组成部分。为了探索链接数据和多模态数据的结合，构建了IMGpedia，计算Wikipedia条目中使用的图像描述符，然后将这些图像及其描述与百科知识图谱链接起来。</p>
+<p>IMGpedia是一个多模态知识图谱的先例。将语义知识图谱与多模态数据相结合，面对多种任务下的挑战和机遇。IMGpedia使用四种图像描述符进行基准测试，这些描述符的引用和实现是公开的。IMGpedia提供了Wikidata的链接。由于DBpedia中的分类对一些可视化语义查询不方便，所以IMGpedia旨在提供一个更好的语义查询平台。IMGpedia在多模态方向上是一个很好的先例，但也存在一些问题，比如关系类型稀疏，关系数量少，图像分类不清晰等，也是之后需要集中解决的问题。</p>
+<p>MMKG</p>
+<p>MMKG主要用于联合不同知识图谱中的不同实体和图像执行关系推理，MMKG是一个包含所有实体的数字特征和(链接到)图像的三个知识图谱的集合，以及对知识图谱之间的实体对齐。因此，多关系链接预测和实体匹配社区可以从该资源中受益。MMKG有潜力促进知识图谱的新型多模态学习方法的发展，作者通过大量的实验验证了MMKG在同一链路预测任务中的有效性。</p>
+<p>MMKG选择在知识图谱补全文献中广泛使用的数据集FREEBASE-15K
+(FB15K)作为创建多模态知识图谱的起点。知识图谱三元组是基于N-Triples格式的，这是一种用于编码RDF图的基于行的纯文本格式。MMKG同时也创建了基于DBpedia和YAGO的版本，称为DBpedia-15K(DB15K)和YAGO15K，通过将FB15K中的实体与其他知识图谱中的实体对齐。其中对于基于DBpedia的版本，主要构建了sameAs关系，为了创建DB15K，提取了FB15K和DBpedia实体之间的对齐，通过sameAs关系链接FB15K和DBpedia中的对齐实体；构建关系图谱，来自FB15K的很大比例的实体可以与DBpedia中的实体对齐。但是，为了使这两个知识图谱拥有大致相同数量的实体，并且拥有不能跨知识图谱对齐的实体，在DB15K中包括了额外的实体；构建图像关系，MMKG从三大搜索引擎中获取相应文本实体的图像实体，生成对应的文本-图像关系。但是，它是专门为文本知识图谱的完成而构建的，主要针对小数据集(FB15K,
+DBPEDIA15K,
+YAGO15K)。MMKG在将图像分发给相关文本实体时也没有考虑图像的多样性。</p>
+<p>还有之前提到的ImageGraph应该也算。</p>
+<h2 id="推荐系统">推荐系统</h2>
+<p>将时序信息引入知识图谱可能效果会更好，因为每个人的兴趣很有可能因为时间而改变，用户链接任务也可以通过引入时序的知识图谱完成？</p>
 
     </div>
 
@@ -646,7 +1010,7 @@ CV中虽然有丰富的标注良好的图像数据，但这些数据集几乎都
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-infinity"></i>
   </span>
