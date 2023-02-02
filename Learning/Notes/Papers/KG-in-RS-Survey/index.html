@@ -32,7 +32,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://willkyu.github.io/images/body/KG-in-RS-Survey/Table01.png">
 <meta property="article:published_time" content="2023-02-02T04:57:11.000Z">
-<meta property="article:modified_time" content="2023-02-02T05:09:47.532Z">
+<meta property="article:modified_time" content="2023-02-02T06:31:16.089Z">
 <meta property="article:author" content="willkyu">
 <meta property="article:tag" content="Papers">
 <meta name="twitter:card" content="summary">
@@ -162,7 +162,7 @@ Based Method 基于元结构的方法</span></a></li><li class="nav-item nav-lev
 Based methods 基于路径嵌入的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#propagation-based-method"><span class="nav-text">Propagation-based Method</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#refinement-of-user-representation-%E4%B8%B0%E5%AF%8C%E7%94%A8%E6%88%B7%E8%A1%A8%E7%A4%BA"><span class="nav-text">Refinement of
 User Representation 丰富用户表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#refinement-of-item-representation-%E4%B8%B0%E5%AF%8C%E7%89%A9%E5%93%81%E8%A1%A8%E7%A4%BA"><span class="nav-text">Refinement of
 Item Representation 丰富物品表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#refinement-of-both-user-and-item-representation-%E4%B8%B0%E5%AF%8C%E7%94%A8%E6%88%B7%E4%B8%8E%E7%89%A9%E5%93%81%E8%A1%A8%E7%A4%BA"><span class="nav-text">Refinement
-of both User and Item Representation 丰富用户与物品表示</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#datasets"><span class="nav-text">Datasets</span></a></li></ol></li></ol></div>
+of both User and Item Representation 丰富用户与物品表示</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#datasets"><span class="nav-text">Datasets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#future-directions"><span class="nav-text">Future Directions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E6%8E%A8%E8%8D%90"><span class="nav-text">动态推荐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0"><span class="nav-text">多任务学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%A8%E9%A2%86%E5%9F%9F%E6%8E%A8%E8%8D%90"><span class="nav-text">跨领域推荐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E5%A2%9E%E5%BC%BA%E7%9A%84%E8%AF%AD%E8%A8%80%E8%A1%A8%E7%A4%BA"><span class="nav-text">知识增强的语言表示</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -293,7 +293,7 @@ of both User and Item Representation 丰富用户与物品表示</span></a></li>
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-02-02 12:57:11 / Modified: 13:09:47" itemprop="dateCreated datePublished" datetime="2023-02-02T12:57:11+08:00">2023-02-02</time>
+      <time title="Created: 2023-02-02 12:57:11 / Modified: 14:31:16" itemprop="dateCreated datePublished" datetime="2023-02-02T12:57:11+08:00">2023-02-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -421,6 +421,19 @@ KG中的传播机制，user、item和他们相关联的实体都在一张图中�
 <img data-src="/images/body/KG-in-RS-Survey/Table01.png" alt="Table.1" />
 <figcaption aria-hidden="true">Table.1</figcaption>
 </figure>
+<h2 id="future-directions">Future Directions</h2>
+<h3 id="动态推荐">动态推荐</h3>
+<p>GNN或GCN架构的KG-based推荐系统效果很好但是很耗时，因此可以被视作静态推荐。但在某些场景中，用户的兴趣会被社会事件或是朋友快速影响，这种情况下静态推荐无法理解实时的兴趣。可以利用动态图网络，来捕捉动态倾向。</p>
+<h3 id="多任务学习">多任务学习</h3>
+<p>KG-based推荐系统可以自然地视为图中的链接预测，所以考虑知识图谱的特性可能可以提升基于知识图谱的推荐性能。比如，kg中可能存在缺失事实，导致缺失关系或缺失实体，然而用户的倾向可能会因为这些事实的缺失而被忽略，这可能是推荐结果的决定性因素。Papers
+[54], [71]
+显示训练知识图谱补全后的推荐系统会有更好的结果。其他工作利用多任务学习，通过用kge任务[53]和item关系规范任务[55]来训练推荐模块。充分利用其他kg任务如实体分类与分解来将知识转移从而提升推荐效果会很有趣。</p>
+<h3 id="跨领域推荐">跨领域推荐</h3>
+<p>跨领域的交互数据是不均衡的，比如亚马逊平台的书的集合是大于别的领域的。通过迁移学习技术，源领域的交互数据可以被目标领域所利用，从而更好地推荐。Zhang
+et al. [110]提出了基于矩阵的方法来跨领域推荐，Zhao et al.
+[111]提出了PPGN，将不同领域的user和products放在一种图中，然后利用useritem交互图来跨领域推荐。尽管PPGN效果很好，但useritem图只包含了交互信息，没有考虑其他的关系。合并不同类型的useritem数据来进行跨领域推荐的前景不错。</p>
+<h3 id="知识增强的语言表示">知识增强的语言表示</h3>
+<p>将额外的知识集成到语言表示模型中来提升各种nlp任务，这样可以人为增强知识表示和文本表示。在新闻推荐系统或是其他基于文本的推荐任务中采用知识增强的文本表示很有前景，能有更好的表示学习，促进更准确的推荐。</p>
 
     </div>
 
