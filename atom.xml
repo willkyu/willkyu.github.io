@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2023-01-14T10:32:03.207Z</updated>
+  <updated>2023-02-02T05:09:47.532Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -17,11 +17,57 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>KG-in-RS-Survey</title>
+    <link href="http://willkyu.github.io/Learning/Notes/Papers/KG-in-RS-Survey/"/>
+    <id>http://willkyu.github.io/Learning/Notes/Papers/KG-in-RS-Survey/</id>
+    <published>2023-02-02T04:57:11.000Z</published>
+    <updated>2023-02-02T05:09:47.532Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;简介&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Tittle: &lt;strong&gt;A Survey on Knowledge Graph-Based Recommender
+Systems&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Author: Qingyu Guo, Fuzhen Zhuang, Chuan Qin, Hengshu Zhu, Senior
+Member, IEEE, Xing Xie, Senior Member, IEEE, Hui Xiong, Fellow, IEEE,
+and Qing He&lt;/li&gt;
+&lt;li&gt;Time: 7 October 2020&lt;/li&gt;
+&lt;li&gt;Journal: IEEE Transactions on Knowledge and Data Engineering&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;20年利用知识图谱的推荐系统综述。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Notes" scheme="http://willkyu.github.io/categories/Notes/"/>
+    
+    
+    <category term="Papers" scheme="http://willkyu.github.io/tags/Papers/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Top 70 Common Flutter Widgets</title>
+    <link href="http://willkyu.github.io/Learning/Notes/CommonFlutterWidgets/"/>
+    <id>http://willkyu.github.io/Learning/Notes/CommonFlutterWidgets/</id>
+    <published>2023-01-22T03:08:56.000Z</published>
+    <updated>2023-01-22T07:04:37.468Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;CommonFlutterWidgets&quot;&gt;///&lt;/a&gt;: 封面 [ID:##].&lt;/p&gt;
+&lt;p&gt;From &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly95b3V0dS5iZS9HMUxHT0g0MjRsbw==&quot;&gt;Best Flutter Widgets
+EVER!&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>MMKG-Survey</title>
     <link href="http://willkyu.github.io/Learning/Notes/Papers/MMKG-Survey/"/>
     <id>http://willkyu.github.io/Learning/Notes/Papers/MMKG-Survey/</id>
     <published>2022-12-09T09:26:36.000Z</published>
-    <updated>2023-01-14T10:32:03.207Z</updated>
+    <updated>2023-02-02T05:07:38.213Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;简介&lt;/h1&gt;
@@ -32,11 +78,16 @@ Application: A Survey&lt;/strong&gt;&lt;/li&gt;
 Jiang, Penglei Sun, Xuwu Wang, Yanghua Xiao Member, IEEE, Nicholas Jing
 Yuan Member, IEEE&lt;/li&gt;
 &lt;li&gt;Time: 11 Feb 2022&lt;/li&gt;
-&lt;li&gt;Journal: IEEE&lt;/li&gt;
-&lt;/ul&gt;</summary>
+&lt;li&gt;Journal: IEEE Transactions on Knowledge and Data Engineering&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;22年多模态知识图谱综述。&lt;/p&gt;</summary>
     
     
     
+    <category term="Notes" scheme="http://willkyu.github.io/categories/Notes/"/>
+    
+    
+    <category term="Papers" scheme="http://willkyu.github.io/tags/Papers/"/>
     
   </entry>
   
@@ -45,10 +96,10 @@ Yuan Member, IEEE&lt;/li&gt;
     <link href="http://willkyu.github.io/Life/Suda-charging-monitor/"/>
     <id>http://willkyu.github.io/Life/Suda-charging-monitor/</id>
     <published>2022-10-15T16:01:30.000Z</published>
-    <updated>2022-10-18T05:12:14.209Z</updated>
+    <updated>2023-01-14T10:35:35.788Z</updated>
     
     
-    <summary type="html">&lt;p&gt;苏州大学充电桩监控&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;苏州大学充电桩监控（已弃用！）&lt;/p&gt;</summary>
     
     
     
@@ -435,48 +486,6 @@ href=&quot;/Archive/The-First-Blog/&quot;&gt;置顶◇代办◇与更新记录&l
     
     
     <summary type="html">&lt;p&gt;记录了PyTorch中两个高阶操作：&lt;code&gt;Where&lt;/code&gt;与&lt;code&gt;Gather&lt;/code&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
-    
-    
-    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
-    
-    <category term="PyTorch" scheme="http://willkyu.github.io/tags/PyTorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PyTorch笔记08----统计属性</title>
-    <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch08/"/>
-    <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch08/</id>
-    <published>2021-12-16T12:59:12.000Z</published>
-    <updated>2022-01-19T15:11:52.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;记录了PyTorch一些常见统计属性.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
-    
-    
-    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
-    
-    <category term="PyTorch" scheme="http://willkyu.github.io/tags/PyTorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PyTorch笔记07----基本运算</title>
-    <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch07/"/>
-    <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch07/</id>
-    <published>2021-12-16T06:36:32.000Z</published>
-    <updated>2022-01-19T15:11:46.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;PyTorch的一些基本运算&lt;/p&gt;</summary>
     
     
     
