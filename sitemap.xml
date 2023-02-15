@@ -2,34 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://willkyu.github.io/Archive/1-Life/</loc>
-    
-    <lastmod>2023-02-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/Life/foods/ZeTian/</loc>
-    
-    <lastmod>2023-02-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/Life/foods/XiaoChuan/</loc>
-    
-    <lastmod>2023-02-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://willkyu.github.io/Life/foods/GuangLianShen/</loc>
+    
+    <lastmod>2023-02-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/Life/foods/BeFineTea/</loc>
     
     <lastmod>2023-02-15</lastmod>
     
@@ -47,7 +29,25 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/Life/foods/BeFineTea/</loc>
+    <loc>http://willkyu.github.io/Life/foods/XiaoChuan/</loc>
+    
+    <lastmod>2023-02-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/Archive/1-Life/</loc>
+    
+    <lastmod>2023-02-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/Life/foods/ZeTian/</loc>
     
     <lastmod>2023-02-15</lastmod>
     
