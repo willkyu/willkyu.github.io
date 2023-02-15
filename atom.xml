@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2023-02-02T07:58:33.815Z</updated>
+  <updated>2023-02-15T10:37:39.270Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -17,11 +17,58 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>KG-in-RS-Survey</title>
+    <title>Shake Shake</title>
+    <link href="http://willkyu.github.io/Life/food/shakeshake/"/>
+    <id>http://willkyu.github.io/Life/food/shakeshake/</id>
+    <published>2023-02-15T10:12:38.000Z</published>
+    <updated>2023-02-15T10:37:39.270Z</updated>
+    
+    
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;Location: 苏州中心L1层&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="Life" scheme="http://willkyu.github.io/categories/Life/"/>
+    
+    
+    <category term="Delicacies" scheme="http://willkyu.github.io/tags/Delicacies/"/>
+    
+    <category term="Hamburger" scheme="http://willkyu.github.io/tags/Hamburger/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>时序知识图谱笔记与知识图谱推理的机遇挑战</title>
+    <link href="http://willkyu.github.io/Learning/Notes/Papers/TKG-Note/"/>
+    <id>http://willkyu.github.io/Learning/Notes/Papers/TKG-Note/</id>
+    <published>2023-02-13T05:20:21.000Z</published>
+    <updated>2023-02-14T14:42:21.409Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;简介&lt;/h1&gt;
+&lt;p&gt;主要来自： - Tittle: &lt;strong&gt;Reasoning over Different Types of
+Knowledge Graphs: Static, Temporal and Multi-Modal&lt;/strong&gt; - Author: Ke
+Liang, Lingyuan Meng, Meng Liu, Yue Liu, Wenxuan Tu, Siwei Wang, Sihang
+Zhou, Xinwang Liu , Senior Member, IEEE, Fuchun Sun, Fellow, IEEE -
+Time: 24 Jan 2023 - Journal:&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Notes" scheme="http://willkyu.github.io/categories/Notes/"/>
+    
+    
+    <category term="Papers" scheme="http://willkyu.github.io/tags/Papers/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于知识图谱的推荐系统综述笔记</title>
     <link href="http://willkyu.github.io/Learning/Notes/Papers/KG-in-RS-Survey/"/>
     <id>http://willkyu.github.io/Learning/Notes/Papers/KG-in-RS-Survey/</id>
     <published>2023-02-02T04:57:11.000Z</published>
-    <updated>2023-02-02T07:58:33.815Z</updated>
+    <updated>2023-02-15T05:33:00.645Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;简介&lt;/h1&gt;
@@ -62,11 +109,11 @@ EVER!&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&
   </entry>
   
   <entry>
-    <title>MMKG-Survey</title>
+    <title>多模态知识图谱综述笔记</title>
     <link href="http://willkyu.github.io/Learning/Notes/Papers/MMKG-Survey/"/>
     <id>http://willkyu.github.io/Learning/Notes/Papers/MMKG-Survey/</id>
     <published>2022-12-09T09:26:36.000Z</published>
-    <updated>2023-02-02T05:07:38.213Z</updated>
+    <updated>2023-02-15T05:33:09.157Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;简介&lt;/h1&gt;
@@ -209,13 +256,13 @@ Yuan Member, IEEE&lt;/li&gt;
     <link href="http://willkyu.github.io/Learning/Notes/LATEX/"/>
     <id>http://willkyu.github.io/Learning/Notes/LATEX/</id>
     <published>2022-05-24T03:05:38.000Z</published>
-    <updated>2022-07-02T14:26:00.437Z</updated>
+    <updated>2023-02-15T05:26:51.328Z</updated>
     
     
     <summary type="html">&lt;p&gt;记录LATEX的一些知识点.&lt;/p&gt;
 &lt;p&gt;大部分内容来自中国 CTEX 用户小组译制的&lt;em&gt;一份不太简短的 LATEX 2ε
 介绍&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;已弃.&lt;/p&gt;</summary>
+&lt;p&gt;未完待续.&lt;/p&gt;</summary>
     
     
     
@@ -254,8 +301,8 @@ Yuan Member, IEEE&lt;/li&gt;
   
   <entry>
     <title>GraIL相关论文阅读笔记</title>
-    <link href="http://willkyu.github.io/Learning/Notes/GraIL/"/>
-    <id>http://willkyu.github.io/Learning/Notes/GraIL/</id>
+    <link href="http://willkyu.github.io/Learning/Notes/Papers/GraIL/"/>
+    <id>http://willkyu.github.io/Learning/Notes/Papers/GraIL/</id>
     <published>2022-01-18T03:34:44.000Z</published>
     <updated>2022-05-24T03:32:54.000Z</updated>
     
@@ -452,48 +499,6 @@ href=&quot;/Archive/The-First-Blog/&quot;&gt;置顶◇代办◇与更新记录&l
     <category term="Hexo" scheme="http://willkyu.github.io/tags/Hexo/"/>
     
     <category term="Ocean" scheme="http://willkyu.github.io/tags/Ocean/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PyTorch笔记10----激活函数与常见Loss</title>
-    <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch10/"/>
-    <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch10/</id>
-    <published>2021-12-17T03:34:44.000Z</published>
-    <updated>2022-01-19T15:12:02.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;梯度下降，激活函数，与常见Loss&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
-    
-    
-    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
-    
-    <category term="PyTorch" scheme="http://willkyu.github.io/tags/PyTorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PyTorch笔记09----高阶OP</title>
-    <link href="http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch09/"/>
-    <id>http://willkyu.github.io/Learning/Notes/PyTorch/PyTorch09/</id>
-    <published>2021-12-16T12:59:16.000Z</published>
-    <updated>2022-01-19T15:11:58.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;记录了PyTorch中两个高阶操作：&lt;code&gt;Where&lt;/code&gt;与&lt;code&gt;Gather&lt;/code&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
-    
-    
-    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
-    
-    <category term="PyTorch" scheme="http://willkyu.github.io/tags/PyTorch/"/>
     
   </entry>
   
