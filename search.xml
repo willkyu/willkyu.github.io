@@ -202,29 +202,24 @@ Edition相关资源整理</a></li>
 <p>只要留存在什么人的记忆里......</p>
 <p>那就是曾经存在过的证明.</p>
 </blockquote>
-<h2 id="delicacies">Delicacies</h2>
-<blockquote>
-<p>疏八珍之谱，以为知味，不如庖丁之一啜。</p>
-</blockquote>
-<h3 id="beverages">Beverages</h3>
-<ul>
-<li><a href="/Life/foods/BeFineTea/">百分茶 BeFineTea</a></li>
-<li><a href="/Life/foods/LeLeTea/">乐乐茶 LeLeTea</a></li>
-</ul>
-<h3 id="dessert-bread">Dessert &amp; Bread</h3>
-<ul>
-<li><a href="/Life/foods/GuangLianShen/">广莲申</a></li>
-<li><a href="/Life/foods/ZeTian/">泽田</a></li>
-</ul>
-<h3 id="hamburger">Hamburger</h3>
-<ul>
-<li><a href="/Life/foods/shakeshake/">Shake Shake</a></li>
-</ul>
-<h3 id="staple-food">Staple Food</h3>
-<ul>
-<li><a href="/Life/foods/XiaoChuan/">小川洋风料理</a></li>
-</ul>
-<h3 id="snacks">Snacks</h3>
+<!-- ## Delicacies
+> 疏八珍之谱，以为知味，不如庖丁之一啜。
+
+### Beverages
+- [百分茶 BeFineTea](/Life/foods/BeFineTea/)
+- [乐乐茶 LeLeTea](/Life/foods/LeLeTea/)
+
+### Dessert & Bread
+- [广莲申](/Life/foods/GuangLianShen/)
+- [泽田](/Life/foods/ZeTian/)
+
+### Hamburger
+- [Shake Shake](/Life/foods/shakeshake/)
+
+### Staple Food
+- [小川洋风料理](/Life/foods/XiaoChuan/)
+
+### Snacks -->
 <p><br></p>
 <hr />
 <p><br></p>
@@ -8185,187 +8180,6 @@ Subgraph Reasoning, ProQuest Dissertations Publishing, 2020.</p>
         <tag>Learning</tag>
         <tag>Knowledage-Graphs</tag>
         <tag>GraIL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>乐乐茶</title>
-    <url>/Life/foods/LeLeTea/</url>
-    <content><![CDATA[<ul>
-<li>Location: 苏州中心</li>
-</ul>
-<span id="more"></span>
-<h1 id="菜单">菜单</h1>
-<figure>
-<img data-src="/images/foods/leletea01.png" alt="葡萄酪酪" />
-<figcaption aria-hidden="true">葡萄酪酪</figcaption>
-</figure>
-<ul>
-<li>葡萄酪酪 芝士酪酪正常冰糖正常甜茉莉翠峰 28r<br>
-果肉很多，奶盖味道和奈雪比比较淡，是我喜欢的程度，就是贵了点（奈雪也贵）。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Life</category>
-      </categories>
-      <tags>
-        <tag>Delicacies</tag>
-        <tag>Hamburger</tag>
-        <tag>Beverages</tag>
-        <tag>Dessert</tag>
-        <tag>Staple Food</tag>
-        <tag>Snacks</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>广莲申</title>
-    <url>/Life/foods/GuangLianShen/</url>
-    <content><![CDATA[<p>一家日本的甜点店。</p>
-<ul>
-<li>Location: 苏州中心</li>
-</ul>
-<span id="more"></span>
-<h1 id="菜单">菜单</h1>
-<p><img data-src="/images/foods/guanglianshen01.png" alt="巧克力哈斗" /> <img
-src="/images/foods/guanglianshen02.png" alt="土王" /></p>
-<ul>
-<li>巧克力哈斗 忘了多少钱<br>
-<del>很像土王啊！</del>蛮好吃的，里面的巧克力流心很饱满，很浓郁，但是吃完还是比较腻的，过了一个多小时都不想吃别的。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Life</category>
-      </categories>
-      <tags>
-        <tag>Delicacies</tag>
-        <tag>Hamburger</tag>
-        <tag>Beverages</tag>
-        <tag>Dessert</tag>
-        <tag>Staple Food</tag>
-        <tag>Snacks</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>百分茶</title>
-    <url>/Life/foods/BeFineTea/</url>
-    <content><![CDATA[<ul>
-<li>Location: 苏州万科美好广场</li>
-</ul>
-<span id="more"></span>
-<h1 id="菜单">菜单</h1>
-<figure>
-<img data-src="/images/foods/befinetea01.png" alt="喵桑莓莓" />
-<figcaption aria-hidden="true">喵桑莓莓</figcaption>
-</figure>
-<ul>
-<li>喵桑莓莓 半糖标准冰 18r<br>
-虽然我承认我买它有部分原因是它好看，但是酸甜正好，不像很多桑葚饮品很酸。但是里面有波霸我不太喜欢。总体来说很不错。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Life</category>
-      </categories>
-      <tags>
-        <tag>Delicacies</tag>
-        <tag>Hamburger</tag>
-        <tag>Beverages</tag>
-        <tag>Dessert</tag>
-        <tag>Staple Food</tag>
-        <tag>Snacks</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小川洋风料理</title>
-    <url>/Life/foods/XiaoChuan/</url>
-    <content><![CDATA[<ul>
-<li>Location: 苏州中心 好像是五楼</li>
-</ul>
-<span id="more"></span>
-<h1 id="菜单">菜单</h1>
-<p><img data-src="/images/foods/xiaochuan01.png" alt="炸鸡故意染黑" /> <img
-src="/images/foods/xiaochuan02.png"
-alt="炸鸡故意染黑 咬了一口Ver." /></p>
-<ul>
-<li>忘记叫什么了就叫炸鸡故意染黑吧 大份 忘记多少钱<br>
-黑色是墨鱼汁和的面，鸡肉相当入味，面衣额基本没有面衣，大份还是有点少。总体来说很好吃，但小贵。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Life</category>
-      </categories>
-      <tags>
-        <tag>Delicacies</tag>
-        <tag>Hamburger</tag>
-        <tag>Beverages</tag>
-        <tag>Dessert</tag>
-        <tag>Staple Food</tag>
-        <tag>Snacks</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Shake Shake</title>
-    <url>/Life/foods/shakeshake/</url>
-    <content><![CDATA[<ul>
-<li>Location: 苏州中心L1层</li>
-</ul>
-<span id="more"></span>
-<figure>
-<img data-src="/images/foods/shakeshake00.png" alt="大菜单" />
-<figcaption aria-hidden="true">大菜单</figcaption>
-</figure>
-<h1 id="菜单">菜单</h1>
-<figure>
-<img data-src="/images/foods/shakeshake02.png" alt="单层招牌牛肉堡" />
-<figcaption aria-hidden="true">单层招牌牛肉堡</figcaption>
-</figure>
-<ul>
-<li>招牌牛肉堡 ShakeBurger 单层49r<br>
-面包很软很香，菜很新鲜，肉感觉和麦当劳的安格斯差不多，总体不算大，和麦麦的汉堡比起来提升的量不值多出来的那么多钱，但是整体味道还不错。自制shake酱感觉没什么特点，普普通通。</li>
-</ul>
-<figure>
-<img data-src="/images/foods/shakeshake03.png" alt="薯条" />
-<figcaption aria-hidden="true">薯条</figcaption>
-</figure>
-<ul>
-<li>薯条 Fries 27r<br>
-波浪纹薯条，本身是椒盐味的。蜂蜜芥末酱可能是我不习惯，不喜欢。番茄酱的番茄酱味比较大，不是自然的番茄味，不太喜欢。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Life</category>
-      </categories>
-      <tags>
-        <tag>Delicacies</tag>
-        <tag>Hamburger</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>泽田</title>
-    <url>/Life/foods/ZeTian/</url>
-    <content><![CDATA[<p>专门卖铜锣烧的店。bd后来又给我推了北野铜锣烧，说更好吃，下次试试。</p>
-<ul>
-<li>Location: 苏州中心</li>
-</ul>
-<span id="more"></span>
-<h1 id="菜单">菜单</h1>
-<figure>
-<img data-src="/images/foods/zetian01.png" alt="椰子脆脆铜锣烧" />
-<figcaption aria-hidden="true">椰子脆脆铜锣烧</figcaption>
-</figure>
-<ul>
-<li>椰子脆脆铜锣烧 忘记多少钱了<br>
-人很多，等没什么人的时候只剩几种了。不过这个还蛮好吃。椰子味浓淡正好，面包也很香，最中间是椰子脆，层次分明。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Life</category>
-      </categories>
-      <tags>
-        <tag>Delicacies</tag>
-        <tag>Hamburger</tag>
-        <tag>Beverages</tag>
-        <tag>Dessert</tag>
-        <tag>Staple Food</tag>
-        <tag>Snacks</tag>
       </tags>
   </entry>
 </search>
