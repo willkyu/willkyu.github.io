@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://willkyu.github.io/Archive/1-Pokemon%20-%20%E5%89%AF%E6%9C%AC/</loc>
+    <loc>http://willkyu.github.io/TRPG/Mods/Third-Spiral-Grey-Sea/</loc>
     
     <lastmod>2024-02-16</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/TRPG/Mods/Third-Spiral-Grey-Sea/</loc>
+    <loc>http://willkyu.github.io/Archive/1-Pokemon%20-%20%E5%89%AF%E6%9C%AC/</loc>
     
     <lastmod>2024-02-16</lastmod>
     
@@ -766,6 +766,13 @@
   
   <url>
     <loc>http://willkyu.github.io/tags/TRPG/</loc>
+    <lastmod>2024-02-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/Mods/</loc>
     <lastmod>2024-02-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

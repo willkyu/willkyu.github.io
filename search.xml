@@ -626,10 +626,27 @@ alt="总览" />
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>第三螺旋：灰海</title>
     <url>/TRPG/Mods/Third-Spiral-Grey-Sea/</url>
-    <content><![CDATA[
-]]></content>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Invalid Password. Check And Try Again! (♯｀∧´)" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="97319c94efac28417d9320b3dd47128d6ea9321bd540c453521913eecaaa99de">a9154d246928e9e831e6545b33e2d3386fd120119228a405fcd316f4a77f0d9ed16869148bdaef9d382d9486957d6653d73b7041547ff3898089e451c1b7133ed2f1df2ef8019261e2e64fe509af0e5cabcc6933b4cb59abb968fc89b1f3c390a14b971b4e62cde95594f7b68f0212a5a826baec7dff3b1a596c8f32f55c6c5e2fa21d664958df669cdb45add72ac69e473bb55753b7b34c53d4376f39e40b848444aa9233dc4c5607c96f1846a86c47ba256841028f411f59e975488275cb8d06f2fc173388b0aff8da7ccf555cd37a0fcfab93d78583a9096bbc0c2f21908adb02d9891dea6f90f7f6f52f5e172047ebb3cf5aae68f026fc9231f1d10d90c5fab5db9d3072c3816f759dee39175ff65aea0756f196fea1702fe1e527560e20</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>TRPG</category>
+      </categories>
+      <tags>
+        <tag>TRPG</tag>
+        <tag>Mods</tag>
+      </tags>
   </entry>
   <entry>
     <title>时序知识图谱笔记与知识图谱推理的机遇挑战</title>
