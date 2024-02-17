@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://willkyu.github.io/Archive/The-First-Blog/</loc>
+    <lastmod>2024-02-17</lastmod>
+  </url>
+  <url>
+    <loc>http://willkyu.github.io/TRPG/Tools/UTLov/</loc>
+    <lastmod>2024-02-17</lastmod>
+  </url>
+  <url>
     <loc>http://willkyu.github.io/Archive/1-TRPG/</loc>
     <lastmod>2024-02-17</lastmod>
   </url>
@@ -9,16 +17,8 @@
     <lastmod>2024-02-17</lastmod>
   </url>
   <url>
-    <loc>http://willkyu.github.io/TRPG/Tools/UTLov/</loc>
-    <lastmod>2024-02-17</lastmod>
-  </url>
-  <url>
     <loc>http://willkyu.github.io/Pokemon/Shiny-Lock/</loc>
     <lastmod>2023-12-28</lastmod>
-  </url>
-  <url>
-    <loc>http://willkyu.github.io/Archive/The-First-Blog/</loc>
-    <lastmod>2023-07-07</lastmod>
   </url>
   <url>
     <loc>http://willkyu.github.io/Archive/1-Life/</loc>

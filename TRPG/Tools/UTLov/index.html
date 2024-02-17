@@ -32,7 +32,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://willkyu.github.io/images/cover/UTLov.png">
 <meta property="article:published_time" content="2024-02-17T05:44:43.000Z">
-<meta property="article:modified_time" content="2024-02-17T05:55:03.179Z">
+<meta property="article:modified_time" content="2024-02-17T06:13:57.771Z">
 <meta property="article:author" content="willkyu">
 <meta property="article:tag" content="TRPG">
 <meta property="article:tag" content="Tools">
@@ -286,7 +286,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-02-17 13:44:43 / Modified: 13:55:03" itemprop="dateCreated datePublished" datetime="2024-02-17T13:44:43+08:00">2024-02-17</time>
+      <time title="Created: 2024-02-17 13:44:43 / Modified: 14:13:57" itemprop="dateCreated datePublished" datetime="2024-02-17T13:44:43+08:00">2024-02-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -401,20 +401,26 @@ target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV144421c7pP
 <h2 id="背景图片文件夹">背景图片文件夹</h2>
 <p>请至少放入一张名为<code>bg</code>的图片文件, 其他的背景随意命名.</p>
 <h2 id="npc文件夹">npc文件夹</h2>
-<p>npc文件夹里面包含: - 若干以NPC名字命名的文件夹,
-用于存放各个重要NPC的资源文件, 其与PL文件夹内容类似. -
-一个名为<code>avatar</code>的图片, 它是该NPC的头像. -
-一个名为<code>fig</code>的图片, 它是该NPC的立绘. -
-一个名为<code>audio</code>的配置文件. -
-一张名为<code>default_avatar</code>的图片, 它是不重要NPC的头像. -
-一张名为<code>default_female</code>的图片, 它是不重要女NPC的立绘. -
-一个名为<code>default_female</code>的配置文件,
+<p>npc文件夹里面包含:</p>
+<ul>
+<li>若干以NPC名字命名的文件夹, 用于存放各个重要NPC的资源文件,
+其与PL文件夹内容类似.
+<ul>
+<li>一个名为<code>avatar</code>的图片, 它是该NPC的头像.</li>
+<li>一个名为<code>fig</code>的图片, 它是该NPC的立绘.</li>
+<li>一个名为<code>audio</code>的配置文件.</li>
+</ul></li>
+<li>一张名为<code>default_avatar</code>的图片, 它是不重要NPC的头像.</li>
+<li>一张名为<code>default_female</code>的图片,
+它是不重要女NPC的立绘.</li>
+<li>一个名为<code>default_female</code>的配置文件,
 它的内容与npc文件夹里的配置文件<code>audio</code>一致,
-它是不重要女NPC的声音配置文件. -
-一张名为<code>default_male</code>的图片, 它是不重要男NPC的立绘. -
-一个名为<code>default_male</code>的配置文件,
+它是不重要女NPC的声音配置文件.</li>
+<li>一张名为<code>default_male</code>的图片, 它是不重要男NPC的立绘.</li>
+<li>一个名为<code>default_male</code>的配置文件,
 它的内容与npc文件夹里的配置文件<code>audio</code>一致,
-它是不重要男NPC的声音配置文件.</p>
+它是不重要男NPC的声音配置文件.</li>
+</ul>
 <blockquote>
 <p>所有没有单独文件夹(以名字命名)的NPC都是不重要NPC</p>
 </blockquote>
@@ -450,9 +456,16 @@ Group_id是运行该插件的群号. Opening是插件启动时自动用KP配置�
 <p>在配置的群聊中使用<code>.utlov</code>命令即可开始.
 使用<code>.utlov end</code>命令即可结束. <strong>注意,
 结束后如果要再次使用请重载一次插件</strong>(这是bug懒得修了).</p>
-<p>支持的命令: - rd - rb - rp - ra - rh - st hp或san或mp + 运算表达式
-(如果掉了1血就<code>.st hp-1</code>, 不要直接<code>.st hp 数值</code>
-这会无法识别从而不能同步进窗口)</p>
+<p>支持的命令:</p>
+<ul>
+<li>rd</li>
+<li>rb</li>
+<li>rp</li>
+<li>ra</li>
+<li>rh</li>
+<li>st hp或san或mp + 运算表达式 (如果掉了1血就<code>.st hp-1</code>,
+不要直接<code>.st hp 数值</code> 这会无法识别从而不能同步进窗口)</li>
+</ul>
 <p>特别的命令: -
 以<code>(</code>(中英文皆可)开头的PL或KP的发言会进入窗口的meta区(超游区),
 并且不会进行语音合成. - <code>.sset PC名字 状态</code>
