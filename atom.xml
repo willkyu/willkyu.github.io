@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2024-02-16T07:33:06.000Z</updated>
+  <updated>2024-02-17T05:55:03.179Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>UTLov for OlivOS | 像看replay一样跑团</title>
+    <link href="http://willkyu.github.io/TRPG/Tools/UTLov/"/>
+    <id>http://willkyu.github.io/TRPG/Tools/UTLov/</id>
+    <published>2024-02-17T05:44:43.000Z</published>
+    <updated>2024-02-17T05:55:03.179Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;封面 [ID:99703082].&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="TRPG" scheme="http://willkyu.github.io/categories/TRPG/"/>
+    
+    
+    <category term="TRPG" scheme="http://willkyu.github.io/tags/TRPG/"/>
+    
+    <category term="Tools" scheme="http://willkyu.github.io/tags/Tools/"/>
+    
+  </entry>
+  
+  <entry>
     <title>第三螺旋：灰海</title>
     <link href="http://willkyu.github.io/TRPG/Mods/Third-Spiral-Grey-Sea/"/>
     <id>http://willkyu.github.io/TRPG/Mods/Third-Spiral-Grey-Sea/</id>
     <published>2024-02-16T07:30:00.000Z</published>
-    <updated>2024-02-16T07:33:06.000Z</updated>
+    <updated>2024-02-17T05:55:09.160Z</updated>
     
     
     <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
@@ -39,10 +60,10 @@
   
   <entry>
     <title>跑团◇泛神化◇与观察者效应</title>
-    <link href="http://willkyu.github.io/Archive/1-Pokemon%20-%20%E5%89%AF%E6%9C%AC/"/>
-    <id>http://willkyu.github.io/Archive/1-Pokemon%20-%20%E5%89%AF%E6%9C%AC/</id>
+    <link href="http://willkyu.github.io/Archive/1-TRPG/"/>
+    <id>http://willkyu.github.io/Archive/1-TRPG/</id>
     <published>2024-02-16T07:00:00.000Z</published>
-    <updated>2024-02-16T07:25:58.359Z</updated>
+    <updated>2024-02-17T05:56:26.271Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -468,30 +489,6 @@ class=&quot;uri&quot;&gt;https://pan.baidu.com/s/1IXtIZhYJFkEciqEPflWKuQ&lt;/a&g
     <category term="Pokemon-RNG-Abuse" scheme="http://willkyu.github.io/tags/Pokemon-RNG-Abuse/"/>
     
     <category term="Pokemon-Gen3" scheme="http://willkyu.github.io/tags/Pokemon-Gen3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>willkyu的宝可梦计划</title>
-    <link href="http://willkyu.github.io/Pokemon/PokeSchedule/"/>
-    <id>http://willkyu.github.io/Pokemon/PokeSchedule/</id>
-    <published>2021-12-24T00:36:44.000Z</published>
-    <updated>2022-02-08T07:52:12.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;使用 &lt;em&gt;CheckBox&lt;/em&gt; 记录宝可梦各世代的目标以及完成情况.
-你可以将这篇当作&lt;strong&gt;各版本要素整理&lt;/strong&gt;.
-如果还有什么有意思的要素欢迎&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;封面 [ID:94230956].&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
-    
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
-    
-    <category term="Schedule" scheme="http://willkyu.github.io/tags/Schedule/"/>
     
   </entry>
   
