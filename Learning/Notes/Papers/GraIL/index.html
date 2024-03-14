@@ -31,7 +31,7 @@
 <meta property="og:description" content="论文 Inductive relation prediction by subgraph reasoning 阅读笔记. 译文可见https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1IXtIZhYJFkEciqEPflWKuQ，提取码will.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-01-18T03:34:44.000Z">
-<meta property="article:modified_time" content="2022-05-24T03:32:54.000Z">
+<meta property="article:modified_time" content="2024-03-14T08:52:43.254Z">
 <meta property="article:author" content="willkyu">
 <meta property="article:tag" content="Learning">
 <meta property="article:tag" content="Knowledage-Graphs">
@@ -169,7 +169,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -286,7 +286,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-05-24 11:32:54" itemprop="dateModified" datetime="2022-05-24T11:32:54+08:00">2022-05-24</time>
+      <time title="Modified: 2024-03-14 16:52:43" itemprop="dateModified" datetime="2024-03-14T16:52:43+08:00">2024-03-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -445,9 +445,12 @@ Network（2020-CIKM)</li>
 GraIL 仅从结构学习和泛化的能力。由于 GraIL
 只接受结构信息(即子图结构和结构节点特征)作为输入，因此学习知识图谱背后的结构语义是完成关系预测任务的唯一途径。总体任务是对三元组<span
 class="math inline">\({u, r_t,
-v}\)</span>进行评分，即预测KG中头节点u和尾节点v之间可能的关系rt的可能性，其中我们将节点u和v称为目标节点，并将rt称为目标关系。我们对这样的三元组进行评分的方法可以大致分为三个子任务：
-- (I)提取目标节点周围的包围子图 - (II)标记提取的子图中的节点 -
-(III)使用GNN对标记的子图进行评分</p>
+v}\)</span>进行评分，即预测KG中头节点u和尾节点v之间可能的关系rt的可能性，其中我们将节点u和v称为目标节点，并将rt称为目标关系。我们对这样的三元组进行评分的方法可以大致分为三个子任务：</p>
+<ul>
+<li>(I)提取目标节点周围的包围子图</li>
+<li>(II)标记提取的子图中的节点</li>
+<li>(III)使用GNN对标记的子图进行评分</li>
+</ul>
 <h2 id="模型算法">模型算法</h2>
 <h3 id="子图提取">子图提取</h3>
 <p>我们假设<em>KG中特定三元组的局部图邻域包含推导目标节点之间关系所需的逻辑证据</em>。特别地，我们假设连接两个目标节点的路径包含可能隐含目标关系的信息。因此，作为第一步，我们提取目标节点周围的封闭子图。我们将节点u和v之间的封闭子图定义为出现在u和v之间的路径上的所有节点所得到的图，它是两个目标节点相邻节点的交集。随后进行剪枝。即，设<span
@@ -614,7 +617,9 @@ NELL-995（以及其他由他们衍生而来的数据集）。我们的实证研
 <li>灵敏度分析。我们提出的框架的各个组成部分有多重要？比如，定理 1
 依赖于注意力和节点标记方案的使用，但这些模型方面在实践中有多重要？</li>
 </ol>
-<p>所有提及的实验代码与数据都在：https://github.com/kkteru/grail。</p>
+<p>所有提及的实验代码与数据都在：<a
+target="_blank" rel="noopener" href="https://github.com/kkteru/grail。"
+class="uri">https://github.com/kkteru/grail。</a></p>
 <h2 id="归纳式关系预测">归纳式关系预测</h2>
 <p>如图 1c
 所示，归纳式设置评估模型泛化到新实体的能力。完全归纳式的设置中，在训练和测试期间看到的实体集是没有交集的。更一般地，新实体的数量范围可以从仅引入几个新实体到完全的归纳设置（图

@@ -23,31 +23,30 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"willkyu.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="简介 主要来自：  Tittle: Reasoning over Different Types of Knowledge Graphs: Static, Temporal and Multi-Modal Author: Ke Liang, Lingyuan Meng, Meng Liu, Yue Liu, Wenxuan Tu, Siwei Wang, Sihang Zhou, Xi">
+<meta name="description" content="简介  Tittle: A Comprehensive Survey on Multimodal Recommender Systems: Taxonomy, Evaluation, and Future Directions Author: HONGYUZHOU, XIN ZHOU, ZHIWEI ZENG, LINGZI ZHANG, ZHIQI SHEN Time: Feb 20">
 <meta property="og:type" content="article">
-<meta property="og:title" content="时序知识图谱笔记与知识图谱推理的机遇挑战">
-<meta property="og:url" content="http://willkyu.github.io/Learning/Notes/Papers/TKG-Note/index.html">
+<meta property="og:title" content="多模态推荐系统综述笔记">
+<meta property="og:url" content="http://willkyu.github.io/Learning/Notes/Papers/MMRS-Survey/index.html">
 <meta property="og:site_name" content="丘丘Blog">
-<meta property="og:description" content="简介 主要来自：  Tittle: Reasoning over Different Types of Knowledge Graphs: Static, Temporal and Multi-Modal Author: Ke Liang, Lingyuan Meng, Meng Liu, Yue Liu, Wenxuan Tu, Siwei Wang, Sihang Zhou, Xi">
+<meta property="og:description" content="简介  Tittle: A Comprehensive Survey on Multimodal Recommender Systems: Taxonomy, Evaluation, and Future Directions Author: HONGYUZHOU, XIN ZHOU, ZHIWEI ZENG, LINGZI ZHANG, ZHIQI SHEN Time: Feb 20">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://willkyu.github.io/images/body/Papers/TKG-Note/Fig1.png">
-<meta property="og:image" content="http://willkyu.github.io/images/body/Papers/TKG-Note/Fig2.png">
-<meta property="article:published_time" content="2023-02-13T05:20:21.000Z">
-<meta property="article:modified_time" content="2024-03-14T03:32:06.779Z">
+<meta property="og:image" content="http://willkyu.github.io/images/body/Papers/MMRS-Survey/Fig1.png">
+<meta property="article:published_time" content="2024-03-14T04:10:41.000Z">
+<meta property="article:modified_time" content="2024-03-14T09:11:42.441Z">
 <meta property="article:author" content="willkyu">
 <meta property="article:tag" content="Papers">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://willkyu.github.io/images/body/Papers/TKG-Note/Fig1.png">
+<meta name="twitter:image" content="http://willkyu.github.io/images/body/Papers/MMRS-Survey/Fig1.png">
 
 
-<link rel="canonical" href="http://willkyu.github.io/Learning/Notes/Papers/TKG-Note/">
+<link rel="canonical" href="http://willkyu.github.io/Learning/Notes/Papers/MMRS-Survey/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://willkyu.github.io/Learning/Notes/Papers/TKG-Note/","path":"Learning/Notes/Papers/TKG-Note/","title":"时序知识图谱笔记与知识图谱推理的机遇挑战"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://willkyu.github.io/Learning/Notes/Papers/MMRS-Survey/","path":"Learning/Notes/Papers/MMRS-Survey/","title":"多模态推荐系统综述笔记"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>时序知识图谱笔记与知识图谱推理的机遇挑战 | 丘丘Blog</title>
+<title>多模态推荐系统综述笔记 | 丘丘Blog</title>
   
 
 
@@ -155,10 +154,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-text">定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B"><span class="nav-text">模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rnn-based-model"><span class="nav-text">RNN-based Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rnn-agnostic-model"><span class="nav-text">RNN-agnostic Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#time-vector-guided-model"><span class="nav-text">Time-Vector Guided Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#time-operation-guided-model"><span class="nav-text">Time-Operation Guided Model</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%BA%E9%81%87%E4%B8%8E%E6%8C%91%E6%88%98"><span class="nav-text">机遇与挑战</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%A4%96%E6%8E%A8%E7%90%86-out-of-distribution-reasoning"><span class="nav-text">分布外推理
-Out-of-distribution Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E5%B0%BA%E5%BA%A6%E6%8E%A8%E7%90%86-large-scale-reasoning"><span class="nav-text">大尺度推理 Large-scale
-Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%85%B3%E7%B3%BB%E6%8E%A8%E7%90%86-multi-relational-reasoning"><span class="nav-text">多关系推理
-Multi-relational Reasoning</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mmrs%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="nav-text">MMRS的流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -259,7 +255,7 @@ Multi-relational Reasoning</span></a></li></ol></li></ol></div>
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://willkyu.github.io/Learning/Notes/Papers/TKG-Note/">
+    <link itemprop="mainEntityOfPage" href="http://willkyu.github.io/Learning/Notes/Papers/MMRS-Survey/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_.png">
@@ -272,7 +268,7 @@ Multi-relational Reasoning</span></a></li></ol></li></ol></div>
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          时序知识图谱笔记与知识图谱推理的机遇挑战
+          多模态推荐系统综述笔记
         </h1>
 
         <div class="post-meta-container">
@@ -282,15 +278,9 @@ Multi-relational Reasoning</span></a></li></ol></li></ol></div>
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2023-02-13 13:20:21" itemprop="dateCreated datePublished" datetime="2023-02-13T13:20:21+08:00">2023-02-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-03-14 11:32:06" itemprop="dateModified" datetime="2024-03-14T11:32:06+08:00">2024-03-14</time>
+      <time title="Created: 2024-03-14 12:10:41 / Modified: 17:11:42" itemprop="dateCreated datePublished" datetime="2024-03-14T12:10:41+08:00">2024-03-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -320,72 +310,49 @@ Multi-relational Reasoning</span></a></li></ol></li></ol></div>
     
     <div class="post-body" itemprop="articleBody">
         <h1 id="简介">简介</h1>
-<p>主要来自：</p>
 <ul>
-<li>Tittle: <strong>Reasoning over Different Types of Knowledge Graphs:
-Static, Temporal and Multi-Modal</strong></li>
-<li>Author: Ke Liang, Lingyuan Meng, Meng Liu, Yue Liu, Wenxuan Tu,
-Siwei Wang, Sihang Zhou, Xinwang Liu , Senior Member, IEEE, Fuchun Sun,
-Fellow, IEEE</li>
-<li>Time: 24 Jan 2023</li>
-<li>Journal:</li>
+<li>Tittle: <strong>A Comprehensive Survey on Multimodal Recommender
+Systems: Taxonomy, Evaluation, and Future Directions</strong></li>
+<li>Author: HONGYUZHOU, XIN ZHOU, ZHIWEI ZENG, LINGZI ZHANG, ZHIQI
+SHEN</li>
+<li>Time: Feb 2023</li>
+<li>Journal: CoRR</li>
 </ul>
 <span id="more"></span>
-<h1 id="定义">定义</h1>
-<p>时序知识图谱推理（Temporal Knowledge Graph Reasoning）： Given a
-temporal knowledge graph</p>
-<p><span class="math display">\[
-\mathcal{TKG=\{SKG_1, SKG_2, SKG_3, \ldots, SKG_t\}}
-\]</span></p>
-<p>where <span
-class="math inline">\(\mathcal{SKG_t=\{E,R,F_t\}}\)</span> and timestamp
-<span class="math inline">\(t \in \mathcal{T}\)</span>. With the queried
-fact <span class="math inline">\((e^q_h, r^q, e^q_t, t^q)\)</span>,
-reasoning can be classified into three types, including entity
-reasoning, relation reasoning and timestamp reasoning.</p>
+<h1 id="introduction">Introduction</h1>
+<ul>
+<li>推荐系统解决: <em>信息过载</em>.</li>
+<li>推荐系统分为<em>协同过滤</em>、<em>基于内容过滤</em>以及<em>混合推荐</em>.</li>
+</ul>
+<blockquote>
+<p>不足：需要<strong>大量ui交互</strong>，否则会影响推荐准确性.
+因此引入多模态信息缓解<strong>数据稀疏</strong>问题和<strong>冷启动</strong>问题.</p>
+</blockquote>
+<ul>
+<li>多模态模型可以<strong>挖掘多模态之间互补的信息</strong>
+(这是单模态与隐式交互信息无法捕获的).</li>
+<li>多模态信息可以用于<strong>补充历史交互</strong>
+(这个补充是指模型可以不仅仅依赖ui交互吗?
+还是说可以从中提取出潜在的交互信息?).</li>
+<li>多模态数据还能<strong>反应用户在不同模态上的偏好</strong>
+(说白了就是更加个性化).</li>
+<li>不同物品的特定模态能反应他们之间的相似性和语义 (怎么理解?).</li>
+</ul>
+<p>当前方法如何做的呢? 从不同模态中提取特征, 再进行模态融合,
+将结果作为side information或者物品的表示 (一般用户是没有多模态信息的).
+VBPR作为第一个把视觉特征引入推荐系统的模型,
+把视觉嵌入与id嵌入concatenate之后作为物品表示.
+还有一些方法用GCN生成每个模态的表示再融合. 此外,
+也有方法把知识图谱作为一个模态引入推荐.</p>
+<h1 id="mmrs的流程">MMRS的流程</h1>
 <figure>
-<img data-src="/images/body/Papers/TKG-Note/Fig1.png" alt="Fig.1" />
-<figcaption aria-hidden="true">Fig.1</figcaption>
+<img data-src="/images/body/Papers/MMRS-Survey/Fig1.png"
+alt="Fig. 1. Pipeline of multimodal recommendation" />
+<figcaption aria-hidden="true">Fig. 1. Pipeline of multimodal
+recommendation</figcaption>
 </figure>
-<p>根据queried fact的时间，推理又分为两类：interpolation reasoning 和
-extrapolation reasoning（内推和外推）。详见Fig.1.</p>
-<h1 id="模型">模型</h1>
-<p>主要分为RNN-based Model和RNN-agnostic Model。</p>
-<h2 id="rnn-based-model">RNN-based Model</h2>
-<p>RNN很适合挖掘时间的变化，因此很多TKGR模型使用RNN来直接建模时序信息，称为RNN-based
-Model。 根据使用的RNN的变种，可以分为三类：RNN、LSTM和GRU。</p>
-<p>就先不细看了。</p>
-<h2 id="rnn-agnostic-model">RNN-agnostic Model</h2>
-<p>这些模型不适用RNN框架来采用时序信息，从而扩充原始的static
-KGR模型。时间信息如何指导模型，可以将其大致分为两类：time-vector guided
-models 和 time-operation guided models。</p>
-<h3 id="time-vector-guided-model">Time-Vector Guided Model</h3>
-<p>时间向量引导模型直接为时序信息生成附加时序嵌入t并将其作为附加信息与原始事实嵌入结合。虽然简单，但是模型效果主要依赖于时间编码器和嵌入融合模块是否合适。</p>
-<h3 id="time-operation-guided-model">Time-Operation Guided Model</h3>
-<p>时间操作引导模型利用一些特定的操作来组合时序信息到实体和关系嵌入中而不是直接生成时序嵌入t。比如将事实编码到设计的特定时间超平面中，并生成与时间相关的奖励。</p>
-<p>RNN-agnostic Model比起RNN-based Model更为灵活。但是RNN-based
-Model对时间信息建模的最好而且更容易使用在外推场景中。外推场景仍在早期阶段，有很大发展空间。</p>
-<h1 id="数据集">数据集</h1>
-<p>原文写的很多，可以直接看原文4.2节。</p>
-<h1 id="机遇与挑战">机遇与挑战</h1>
-<h2 id="分布外推理-out-of-distribution-reasoning">分布外推理
-Out-of-distribution Reasoning</h2>
-<p>使用增量对事实的推理叫做分布外推理，这对KGR模型的设计要求很高。最近一些尝试
-为<strong>推断不可见实体</strong>提供了潜在方案，被称为
-归纳推理模型。这些模型不考虑实体的具体含义，只挖掘图结构下的逻辑规则，取得了良好的性能。对于<strong>不可见关系推断</strong>，少镜头KGR模型倾向于提高模型的泛化能力，使训练后的模型能够很好地拓展到含有少量事实的不可见关系上。也就是说，少镜头KGR模型可以根据之前学习的相似知识快速学习新的任务。此外BERTRL试图根据语言模型计算出的文本语义来处理这种情况。而当语言模型没有得到很好的训练时，这些模型的性能会急剧下降。综上所述，分布外推理任务的KGR模型仍处于早期阶段，值得未来深入探索。</p>
-<h2 id="大尺度推理-large-scale-reasoning">大尺度推理 Large-scale
-Reasoning</h2>
-<p>工业知识图谱都相当的大，需要更加有效率的KGR模型。因此当前有些工作尝试以渐进的方式优化传播过程。</p>
-<h2 id="多关系推理-multi-relational-reasoning">多关系推理
-Multi-relational Reasoning</h2>
-<figure>
-<img data-src="/images/body/Papers/TKG-Note/Fig2.png" alt="Fig.2" />
-<figcaption aria-hidden="true">Fig.2</figcaption>
-</figure>
-<p>多关系在知识图谱中是很常见的，和uni-relational、bi-relational
-facts相比有更多样的结构和更复杂的语义，因此现今的KGR模型主要关注uni-relational、bi-relational
-facts，甚至常常将多关系简化视作uni-relational、bi-relational
-facts。这样的KGR模型不能准确地模拟真实情况，丢失了大量有意义的语义信息，导致表达能力不足。未来有必要研究如何利用多关系事实来提高推理能力。</p>
+<h1 id="reference">Reference</h1>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@article&#123;DBLP:journals/corr/abs-2302-04473,</span><br><span class="line">  author       = &#123;Hongyu Zhou and</span><br><span class="line">                  Xin Zhou and</span><br><span class="line">                  Zhiwei Zeng and</span><br><span class="line">                  Lingzi Zhang and</span><br><span class="line">                  Zhiqi Shen&#125;,</span><br><span class="line">  title        = &#123;A Comprehensive Survey on Multimodal Recommender Systems: Taxonomy,</span><br><span class="line">                  Evaluation, and Future Directions&#125;,</span><br><span class="line">  journal      = &#123;CoRR&#125;,</span><br><span class="line">  volume       = &#123;abs/2302.04473&#125;,</span><br><span class="line">  year         = &#123;2023&#125;,</span><br><span class="line">  url          = &#123;https://doi.org/10.48550/arXiv.2302.04473&#125;,</span><br><span class="line">  doi          = &#123;10.48550/ARXIV.2302.04473&#125;,</span><br><span class="line">  eprinttype    = &#123;arXiv&#125;,</span><br><span class="line">  eprint       = &#123;2302.04473&#125;,</span><br><span class="line">  timestamp    = &#123;Mon, 14 Aug 2023 16:36:56 +0200&#125;,</span><br><span class="line">  biburl       = &#123;https://dblp.org/rec/journals/corr/abs-2302-04473.bib&#125;,</span><br><span class="line">  bibsource    = &#123;dblp computer science bibliography, https://dblp.org&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -421,7 +388,7 @@ facts。这样的KGR模型不能准确地模拟真实情况，丢失了大量有
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="http://willkyu.github.io/Learning/Notes/Papers/TKG-Note/" title="时序知识图谱笔记与知识图谱推理的机遇挑战">http://willkyu.github.io/Learning/Notes/Papers/TKG-Note/</a>
+      <a href="http://willkyu.github.io/Learning/Notes/Papers/MMRS-Survey/" title="多模态推荐系统综述笔记">http://willkyu.github.io/Learning/Notes/Papers/MMRS-Survey/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -437,14 +404,11 @@ facts。这样的KGR模型不能准确地模拟真实情况，丢失了大量有
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/Learning/Notes/Papers/KG-in-RS-Survey/" rel="prev" title="基于知识图谱的推荐系统综述笔记">
-                  <i class="fa fa-chevron-left"></i> 基于知识图谱的推荐系统综述笔记
+                <a href="/TRPG/Tools/UTLov/" rel="prev" title="UTLov for OlivOS | 像看replay一样跑团">
+                  <i class="fa fa-chevron-left"></i> UTLov for OlivOS | 像看replay一样跑团
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/Archive/1-TRPG/" rel="next" title="跑团◇量子骰子◇与观察者效应">
-                  跑团◇量子骰子◇与观察者效应 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -518,16 +482,16 @@ facts。这样的KGR模型不能准确地模拟真实情况，丢失了大量有
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
   <script src="https://cdn.jsdelivr.net/npm/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"http://willkyu.github.io/Learning/Notes/Papers/TKG-Note/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"http://willkyu.github.io/Learning/Notes/Papers/MMRS-Survey/"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"willkyu","repo":"Hexo-Gitalk","client_id":"4d181641d25dd938916f","client_secret":"225a2edcdc643bb02ca476ce92f4b386a924b99a","admin_user":"willkyu","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"1cbc392375adb84e2a4bd5bf1fa51f92"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"willkyu","repo":"Hexo-Gitalk","client_id":"4d181641d25dd938916f","client_secret":"225a2edcdc643bb02ca476ce92f4b386a924b99a","admin_user":"willkyu","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"34f6a965d479542b06ee18f06ed4c95c"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 

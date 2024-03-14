@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://willkyu.github.io/Learning/Notes/Papers/MMRS-Survey/</loc>
+    <lastmod>2024-03-14</lastmod>
+  </url>
+  <url>
+    <loc>http://willkyu.github.io/Learning/Notes/Papers/GraIL/</loc>
+    <lastmod>2024-03-14</lastmod>
+  </url>
+  <url>
+    <loc>http://willkyu.github.io/Learning/Notes/Papers/MMKG-Survey/</loc>
+    <lastmod>2024-03-14</lastmod>
+  </url>
+  <url>
+    <loc>http://willkyu.github.io/Learning/Notes/Papers/TKG-Note/</loc>
+    <lastmod>2024-03-14</lastmod>
+  </url>
+  <url>
     <loc>http://willkyu.github.io/TRPG/Mods/Third-Spiral-Grey-Sea/</loc>
-    <lastmod>2024-03-07</lastmod>
+    <lastmod>2024-03-10</lastmod>
   </url>
   <url>
     <loc>http://willkyu.github.io/Pokemon/Shiny-Lock/</loc>
@@ -37,20 +53,12 @@
     <lastmod>2023-02-15</lastmod>
   </url>
   <url>
-    <loc>http://willkyu.github.io/Learning/Notes/Papers/MMKG-Survey/</loc>
-    <lastmod>2023-02-15</lastmod>
-  </url>
-  <url>
     <loc>http://willkyu.github.io/Learning/Notes/Papers/KG-in-RS-Survey/</loc>
     <lastmod>2023-02-15</lastmod>
   </url>
   <url>
     <loc>http://willkyu.github.io/Learning/Notes/LATEX/</loc>
     <lastmod>2023-02-15</lastmod>
-  </url>
-  <url>
-    <loc>http://willkyu.github.io/Learning/Notes/Papers/TKG-Note/</loc>
-    <lastmod>2023-02-14</lastmod>
   </url>
   <url>
     <loc>http://willkyu.github.io/Learning/Notes/CommonFlutterWidgets/</loc>
@@ -83,10 +91,6 @@
   <url>
     <loc>http://willkyu.github.io/Pokemon/See-My-Loving-Pokemons/</loc>
     <lastmod>2022-07-02</lastmod>
-  </url>
-  <url>
-    <loc>http://willkyu.github.io/Learning/Notes/Papers/GraIL/</loc>
-    <lastmod>2022-05-24</lastmod>
   </url>
   <url>
     <loc>http://willkyu.github.io/Archive/1-Game/</loc>
