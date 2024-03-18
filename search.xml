@@ -833,6 +833,40 @@ classification.</figcaption>
 <li>DRAGON 利用了物品语义图和用户共现图. (前两者的缝合???)</li>
 <li>HUIGN 构建了两种不同类型的信息聚合方法和一个共同交互的物品图,
 把用户意图传达给物品表示.</li>
+<li>LUDP 应该也算，但是综述没有在这里提及。</li>
+</ul>
+<p>从用户意图考虑：</p>
+<ul>
+<li>HGCL
+指出大部分GNN技术是为同质图设计的，但ui是异构数据。（其实我觉得当作同构没啥问题，u并不能说是用户嵌入，而是用户偏好的嵌入，向量空间上来看和物品嵌入同一空间也说得通）他用随机游走模型生成各自的同质图再用GNN技术。还使用了图对比框架。</li>
+<li>LATTICE
+指出模态特征可以用于构建物品之间的潜在结构，而不是仅仅用来融合到ui图中。</li>
+<li>FREEDOM
+指出LATTICE学习潜在结构效率低下，提前冻结ii图可以更好学习物品语义关系。他还基于度敏感边修剪技术对图进行去噪。</li>
+<li>HCGCN
+与LATTICE不同的是，额外引入了共聚类技术，在同一子图中学习ui表示。</li>
+<li>A2BM2GL
+也利用特征构建同质图。还学习了协同表示，并利用注意力机制来学习短程长程节点重要性权重。</li>
+<li>LUDP
+指出仅通过多模态特征丰富物品表示的模型学习用户偏好效果很差，因此设计了ii模态相似度图和用户偏好图分别捕获潜在物品关系和用户模态偏好。</li>
+</ul>
+<p>还有的GNN方法为每个节点采样子图，根据模态对节点分组。</p>
+<ul>
+<li>HHFAN
+构建了用户物品与多模态信息的异构图，通过随机游走采样邻居。用FC层把节点全映射到同一向量空间，并使用LSTM来聚合同一类型节点集的节点嵌入，最后对不同类型节点使用自注意力和邻居感知注意力。</li>
+<li>HCGCN 对ui图进行子图采样并划分为组，捕获用户行为模式。</li>
+<li>InvRL
+采样子图学习不变掩码，把多模态表示划分为不变和变异表示。（指出用表示关注语义意义而非影响用户偏好的因素的虚假相关问题。）</li>
+</ul>
+<p>还有的方法使用多模态信息来细化图结构。</p>
+<ul>
+<li>GRCN
+致力于识别和剪枝噪声边来细化ui图结构，使用了邻居路由机制。最后用图卷积层和预测层。</li>
+<li>综述把LATTICE这种利用多模态信息构建ii图的也算进来了，那DRAGON和LUDP也算？</li>
+</ul>
+<h4 id="自监督学习">自监督学习</h4>
+<ul>
+<li>SLMRec 将自监督学习</li>
 </ul>
 <h1 id="reference">Reference</h1>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@article&#123;DBLP:journals/corr/abs-2302-04473,</span><br><span class="line">  author       = &#123;Hongyu Zhou and</span><br><span class="line">                  Xin Zhou and</span><br><span class="line">                  Zhiwei Zeng and</span><br><span class="line">                  Lingzi Zhang and</span><br><span class="line">                  Zhiqi Shen&#125;,</span><br><span class="line">  title        = &#123;A Comprehensive Survey on Multimodal Recommender Systems: Taxonomy,</span><br><span class="line">                  Evaluation, and Future Directions&#125;,</span><br><span class="line">  journal      = &#123;CoRR&#125;,</span><br><span class="line">  volume       = &#123;abs/2302.04473&#125;,</span><br><span class="line">  year         = &#123;2023&#125;,</span><br><span class="line">  url          = &#123;https://doi.org/10.48550/arXiv.2302.04473&#125;,</span><br><span class="line">  doi          = &#123;10.48550/ARXIV.2302.04473&#125;,</span><br><span class="line">  eprinttype    = &#123;arXiv&#125;,</span><br><span class="line">  eprint       = &#123;2302.04473&#125;,</span><br><span class="line">  timestamp    = &#123;Mon, 14 Aug 2023 16:36:56 +0200&#125;,</span><br><span class="line">  biburl       = &#123;https://dblp.org/rec/journals/corr/abs-2302-04473.bib&#125;,</span><br><span class="line">  bibsource    = &#123;dblp computer science bibliography, https://dblp.org&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
