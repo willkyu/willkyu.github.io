@@ -659,7 +659,7 @@ SHEN</li>
 (针对的是用户行为)、<em>基于内容过滤</em>以及<em>混合推荐</em>.</li>
 </ul>
 <blockquote>
-<p>不足：需要<strong>大量ui交互</strong>，否则会影响推荐准确性.
+<p>不足：需要<strong>大量ui交互</strong>, 否则会影响推荐准确性.
 因此引入多模态信息缓解<strong>数据稀疏</strong>问题和<strong>冷启动</strong>问题.</p>
 </blockquote>
 <ul>
@@ -702,8 +702,8 @@ ResNet; 文本用GRU, BERT, Word2Vec等等)</li>
 <h2 id="模型分类-按照模型方法">模型分类 (按照模型方法)</h2>
 <figure>
 <img data-src="/images/body/Papers/MMRS-Survey/Table1.png"
-alt="Table1. Model classification." />
-<figcaption aria-hidden="true">Table1. Model
+alt="Table 1. Model classification." />
+<figcaption aria-hidden="true">Table 1. Model
 classification.</figcaption>
 </figure>
 <p>最早是基于矩阵分解 (MF) 和MLP的方法,
@@ -731,9 +731,10 @@ classification.</figcaption>
 <h4 id="mlp">MLP</h4>
 <p>不同的多模态特征可以体现用户偏好的不同方面.</p>
 <ul>
-<li>JRL把不同来源的信息使用MLP映射到统一空间，通过学习来将多模态特征转化为ui嵌入.
-(后面的很多方法也都这样处理) 使用特征重建损失, 学习相关的ui表示.
-(什么意思? 自己构建了一个损失函数?)</li>
+<li>JRL把不同来源的信息使用MLP映射到统一空间,
+通过学习来将多模态特征转化为ui嵌入. (后面的很多方法也都这样处理)
+使用特征重建损失, 学习相关的ui表示. (什么意思?
+自己构建了一个损失函数?)</li>
 </ul>
 <h4 id="cnn">CNN</h4>
 <p>大多数基于CNN的推荐模型利用其提取特征,
@@ -792,7 +793,8 @@ classification.</figcaption>
 </ul>
 <h4 id="变分自编码器">变分自编码器</h4>
 <blockquote>
-<p>变分自编码器把原始数据编码为隐空间中的分布，在解码时是从该分布中采样一个点来进行解码</p>
+<p>变分自编码器把原始数据编码为隐空间中的分布,
+在解码时是从该分布中采样一个点来进行解码</p>
 </blockquote>
 <ul>
 <li>ADDVAE 学习解耦表示来捕捉用户偏好, 通过最大化
@@ -805,7 +807,7 @@ classification.</figcaption>
 <ul>
 <li>PMGT 是利用融合的多模态特征和交互的预训练模型.</li>
 <li>MKGAT 创建多模态知识图谱来进行多模态推荐.
-(基于知识图谱的推荐利用重要的外部知识来提高性能。然而,它们经常忽略多模态特征的不同数据类型)</li>
+(基于知识图谱的推荐利用重要的外部知识来提高性能.然而,它们经常忽略多模态特征的不同数据类型)</li>
 <li>MMGCN 在ui图上对每个模态卷积. 但是平等地对待邻居信息聚合,
 会受到冗余甚至噪音信息的影响.</li>
 <li>MGAT 在MMGCN的基础上添加了门控注意力机制,
@@ -822,9 +824,9 @@ classification.</figcaption>
 并在图卷积中加入了用户情感信息来加权.</li>
 </ul>
 <p>上述基于GNN的微视频推荐方法只考虑用户和物品之间的关系,
-而忽略了同质数据之间丰富的关系。(DualGNN也用了)
+而忽略了同质数据之间丰富的关系.(DualGNN也用了)
 通过考虑每个模态的物品-物品关系构建了同质图; 或考虑用户共现频率构建图,
-这有助于捕获同类节点之间的关系。</p>
+这有助于捕获同类节点之间的关系.</p>
 <ul>
 <li>LATTICE 利用物品模态信息构建了ii关系图,
 还加入了注意力机制来融合多模态特征,
@@ -833,59 +835,101 @@ classification.</figcaption>
 <li>DRAGON 利用了物品语义图和用户共现图. (前两者的缝合???)</li>
 <li>HUIGN 构建了两种不同类型的信息聚合方法和一个共同交互的物品图,
 把用户意图传达给物品表示.</li>
-<li>LUDP 应该也算，但是综述没有在这里提及。</li>
+<li>LUDP 应该也算, 但是综述没有在这里提及.</li>
 </ul>
 <p>从用户意图考虑：</p>
 <ul>
-<li>HGCL
-指出大部分GNN技术是为同质图设计的，但ui是异构数据。（其实我觉得当作同构没啥问题，u并不能说是用户嵌入，而是用户偏好的嵌入，向量空间上来看和物品嵌入同一空间也说得通）他用随机游走模型生成各自的同质图再用GNN技术。还使用了图对比框架。</li>
-<li>LATTICE
-指出模态特征可以用于构建物品之间的潜在结构，而不是仅仅用来融合到ui图中。</li>
-<li>FREEDOM
-指出LATTICE学习潜在结构效率低下，提前冻结ii图可以更好学习物品语义关系。他还基于度敏感边修剪技术对图进行去噪。</li>
-<li>HCGCN
-与LATTICE不同的是，额外引入了共聚类技术，在同一子图中学习ui表示。</li>
-<li>A2BM2GL
-也利用特征构建同质图。还学习了协同表示，并利用注意力机制来学习短程长程节点重要性权重。</li>
-<li>LUDP
-指出仅通过多模态特征丰富物品表示的模型学习用户偏好效果很差，因此设计了ii模态相似度图和用户偏好图分别捕获潜在物品关系和用户模态偏好。</li>
+<li>HGCL 指出大部分GNN技术是为同质图设计的,
+但ui是异构数据.（其实我觉得当作同构没啥问题, u并不能说是用户嵌入,
+而是用户偏好的嵌入,
+向量空间上来看和物品嵌入同一空间也说得通）他用随机游走模型生成各自的同质图再用GNN技术.还使用了图对比框架.</li>
+<li>LATTICE 指出模态特征可以用于构建物品之间的潜在结构,
+而不是仅仅用来融合到ui图中.</li>
+<li>FREEDOM 指出LATTICE学习潜在结构效率低下,
+提前冻结ii图可以更好学习物品语义关系.他还基于度敏感边修剪技术对图进行去噪.</li>
+<li>HCGCN 与LATTICE不同的是, 额外引入了共聚类技术,
+在同一子图中学习ui表示.</li>
+<li>A2BM2GL 也利用特征构建同质图.还学习了协同表示,
+并利用注意力机制来学习短程长程节点重要性权重.</li>
+<li>LUDP 指出仅通过多模态特征丰富物品表示的模型学习用户偏好效果很差,
+因此设计了ii模态相似度图和用户偏好图分别捕获潜在物品关系和用户模态偏好.</li>
 </ul>
-<p>还有的GNN方法为每个节点采样子图，根据模态对节点分组。</p>
+<p>还有的GNN方法为每个节点采样子图, 根据模态对节点分组.</p>
 <ul>
-<li>HHFAN
-构建了用户物品与多模态信息的异构图，通过随机游走采样邻居。用FC层把节点全映射到同一向量空间，并使用LSTM来聚合同一类型节点集的节点嵌入，最后对不同类型节点使用自注意力和邻居感知注意力。</li>
-<li>HCGCN 对ui图进行子图采样并划分为组，捕获用户行为模式。</li>
-<li>InvRL
-采样子图学习不变掩码，把多模态表示划分为不变和变异表示。（指出用表示关注语义意义而非影响用户偏好的因素的虚假相关问题。）</li>
+<li>HHFAN 构建了用户物品与多模态信息的异构图,
+通过随机游走采样邻居.用FC层把节点全映射到同一向量空间,
+并使用LSTM来聚合同一类型节点集的节点嵌入,
+最后对不同类型节点使用自注意力和邻居感知注意力.</li>
+<li>HCGCN 对ui图进行子图采样并划分为组, 捕获用户行为模式.</li>
+<li>InvRL 采样子图学习不变掩码,
+把多模态表示划分为不变和变异表示.（指出用表示关注语义意义而非影响用户偏好的因素的虚假相关问题.）</li>
 </ul>
-<p>还有的方法使用多模态信息来细化图结构。</p>
+<p>还有的方法使用多模态信息来细化图结构.</p>
 <ul>
-<li>GRCN
-致力于识别和剪枝噪声边来细化ui图结构，使用了邻居路由机制。最后用图卷积层和预测层。</li>
-<li>综述把LATTICE这种利用多模态信息构建ii图的也算进来了，那DRAGON和LUDP也算？</li>
+<li>GRCN 致力于识别和剪枝噪声边来细化ui图结构,
+使用了邻居路由机制.最后用图卷积层和预测层.</li>
+<li>综述把LATTICE这种利用多模态信息构建ii图的也算进来了,
+那DRAGON和LUDP也算?</li>
 </ul>
 <h4 id="自监督学习">自监督学习</h4>
 <ul>
-<li>SLMRec
-把id嵌入视为具有视觉文本和听觉模态的特殊模态，和MMGCN一样构建各个模态的图然后用GNN技术获得模态表示。他将各个模态视作单独的特征，用自监督学习来产生物品不同视图，学习潜在的训练信号。</li>
-<li>BM3 用自监督学习方法来克服计算成本和噪声监督信号问题。</li>
+<li>SLMRec 把id嵌入视为具有视觉文本和听觉模态的特殊模态,
+和MMGCN一样构建各个模态的图然后用GNN技术获得模态表示.他将各个模态视作单独的特征,
+用自监督学习来产生物品不同视图, 学习潜在的训练信号.</li>
+<li>BM3 用自监督学习方法来克服计算成本和噪声监督信号问题.</li>
 <li>MMGCL
-使用模态边丢弃和模态掩蔽、扰动负样本的一种模态使得正负样本之间只有一种模态差异，通过这两个方法揭示模态之间的关系并确保每种模态都有贡献。</li>
-<li>还有新的MMSSL，指出多模态表示对标签有着强依赖性且在稀疏交互数据上鲁棒性很差。设计通过对抗扰动来进行数据增强的对比学习模型来学习交互与多模态信息之间的相互依赖关系。</li>
+使用模态边丢弃和模态掩蔽、扰动负样本的一种模态使得正负样本之间只有一种模态差异,
+通过这两个方法揭示模态之间的关系并确保每种模态都有贡献.</li>
+<li>还有新的MMSSL,
+指出多模态表示对标签有着强依赖性且在稀疏交互数据上鲁棒性很差.设计通过对抗扰动来进行数据增强的对比学习模型来学习交互与多模态信息之间的相互依赖关系.</li>
 </ul>
 <h4 id="预训练">预训练</h4>
-<p>预训练模型已被证明在自然语言和图像中很有用。图像和文本等辅助信息已被用于提高推荐系统的有效性。</p>
+<p>预训练模型已被证明在自然语言和图像中很有用.图像和文本等辅助信息已被用于提高推荐系统的有效性.</p>
 <ul>
 <li>PMGT
-考虑多模态特征和物品关系来学习物品表示。使用注意力机制按权重聚合多模态特征。它开发了一个小批量上下文邻居采样算法来采样负样本和正样本用于处理大规模图。完成预训练后可以获得节点表示，并使用它们来初始化下游任务的物品嵌入。</li>
-<li>MMCPR
-在同质图和异构图上预训练，对于用户考虑评论文本以及uu图，对于物品考虑文本图像和ii图。也使用了对比学习。</li>
+考虑多模态特征和物品关系来学习物品表示.使用注意力机制按权重聚合多模态特征.它开发了一个小批量上下文邻居采样算法来采样负样本和正样本用于处理大规模图.完成预训练后可以获得节点表示,
+并使用它们来初始化下游任务的物品嵌入.</li>
+<li>MMCPR 在同质图和异构图上预训练, 对于用户考虑评论文本以及uu图,
+对于物品考虑文本图像和ii图.也使用了对比学习.</li>
 <li>PAMD
-试图理解物品的共同和独特特征。使用解耦编码器将模态特征划分为共同和特定表示。然后对比学习执行跨模态对齐，将模态共同表示与原始表示对齐。</li>
-<li>Amazon数据集提供的多模态数据也都是ResNet之类的模型提取过的，应该也算是预训练？</li>
+试图理解物品的共同和独特特征.使用解耦编码器将模态特征划分为共同和特定表示.然后对比学习执行跨模态对齐,
+将模态共同表示与原始表示对齐.</li>
+<li>Amazon数据集提供的多模态数据也都是ResNet之类的模型提取过的,
+应该也算是预训练?</li>
 </ul>
 <h2 id="模型分类按模态融合方法">模型分类（按模态融合方法）</h2>
-<p>pass</p>
+<figure>
+<img data-src="/images/body/Papers/MMRS-Survey/Table2.png"
+alt="Table 2. Model classification (modality fusion)." />
+<figcaption aria-hidden="true">Table 2. Model classification (modality
+fusion).</figcaption>
+</figure>
+<p>此外还存在一些模型设计了自己的模态融合方法.</p>
+<ul>
+<li>MVGAE
+采用特定模块来区分具有多个不确定性水平的模态来解决拼接的问题.（??）</li>
+<li>IMRec 不进行模态融合, 把impression image作为整体进行编码.（??）</li>
+</ul>
+<h1 id="衡量与优化">衡量与优化</h1>
+<h2 id="评估指标">评估指标</h2>
+<ul>
+<li>accuracy</li>
+<li>precision</li>
+<li>recall 在实际情况下, 数据集中的正负样本是不平衡的. 通常,
+正样本不到10%, 这意味着即使将所有物品预测为负例,
+你也可以获得高于0.9的准确率. 我们的目标是衡量预测正例的能力.</li>
+<li>F1-score 结合了召回率和精确率的结果.</li>
+<li>hit rate 表示测试集中预测的前k列表中命中物品的比率.
+如果用户实际与我们推荐的前k个物品之一进行交互, 则认为是命中.</li>
+<li>Normalized Discounted Cumulative Gain, NDCG</li>
+<li>Mean Average Precision, MAP</li>
+</ul>
+<h2 id="目标函数">目标函数</h2>
+<figure>
+<img data-src="/images/body/Papers/MMRS-Survey/Table3.png"
+alt="Table 3. Loss Function." />
+<figcaption aria-hidden="true">Table 3. Loss Function.</figcaption>
+</figure>
 <h1 id="reference">Reference</h1>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@article&#123;DBLP:journals/corr/abs-2302-04473,</span><br><span class="line">  author       = &#123;Hongyu Zhou and</span><br><span class="line">                  Xin Zhou and</span><br><span class="line">                  Zhiwei Zeng and</span><br><span class="line">                  Lingzi Zhang and</span><br><span class="line">                  Zhiqi Shen&#125;,</span><br><span class="line">  title        = &#123;A Comprehensive Survey on Multimodal Recommender Systems: Taxonomy,</span><br><span class="line">                  Evaluation, and Future Directions&#125;,</span><br><span class="line">  journal      = &#123;CoRR&#125;,</span><br><span class="line">  volume       = &#123;abs/2302.04473&#125;,</span><br><span class="line">  year         = &#123;2023&#125;,</span><br><span class="line">  url          = &#123;https://doi.org/10.48550/arXiv.2302.04473&#125;,</span><br><span class="line">  doi          = &#123;10.48550/ARXIV.2302.04473&#125;,</span><br><span class="line">  eprinttype    = &#123;arXiv&#125;,</span><br><span class="line">  eprint       = &#123;2302.04473&#125;,</span><br><span class="line">  timestamp    = &#123;Mon, 14 Aug 2023 16:36:56 +0200&#125;,</span><br><span class="line">  biburl       = &#123;https://dblp.org/rec/journals/corr/abs-2302-04473.bib&#125;,</span><br><span class="line">  bibsource    = &#123;dblp computer science bibliography, https://dblp.org&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
