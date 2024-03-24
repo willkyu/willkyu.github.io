@@ -710,8 +710,7 @@ classification.</figcaption>
 直接将多模态特征与id嵌入拼接作为物品表示. 随后各类技术被引入MMRS.
 表1中的模型可能出现了多次, 因为用了不止一种方法.</p>
 <h3 id="mf">MF</h3>
-<p>MF把交互矩阵分解为低维矩阵的乘积.
-在之前评论评分已经被当作辅助信息帮助推荐了. (<strong>怎么用的?
+<p>在之前评论评分已经被当作辅助信息帮助推荐了. (<strong>怎么用的?
 需要去了解一下</strong>)</p>
 <ul>
 <li>VBPR 之前说了.</li>
@@ -807,7 +806,8 @@ classification.</figcaption>
 <ul>
 <li>PMGT 是利用融合的多模态特征和交互的预训练模型.</li>
 <li>MKGAT 创建多模态知识图谱来进行多模态推荐.
-(基于知识图谱的推荐利用重要的外部知识来提高性能.然而,它们经常忽略多模态特征的不同数据类型)</li>
+(基于知识图谱的推荐利用重要的外部知识来提高性能.
+然而,它们经常忽略多模态特征的不同数据类型)</li>
 <li>MMGCN 在ui图上对每个模态卷积. 但是平等地对待邻居信息聚合,
 会受到冗余甚至噪音信息的影响.</li>
 <li>MGAT 在MMGCN的基础上添加了门控注意力机制,
@@ -3496,6 +3496,7 @@ href="https://wiki.52poke.com/wiki/%E6%B8%B8%E6%88%8F%E5%86%85%E8%BF%9E%E6%8E%A5
 </ul>
 <h2 id="第三世代">第三世代</h2>
 <ul>
+<li>Co初始的<strong>太阳伊布</strong>与<strong>月亮伊布</strong></li>
 <li>日版Co特典盘的<strong>时拉比</strong>与<strong>皮卡丘</strong></li>
 <li>Co黄铁镇赠送的<strong>正电拍拍</strong></li>
 <li>XD所有黑暗宝可梦</li>

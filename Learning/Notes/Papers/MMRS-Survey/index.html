@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://willkyu.github.io/images/body/Papers/MMRS-Survey/Table2.png">
 <meta property="og:image" content="http://willkyu.github.io/images/body/Papers/MMRS-Survey/Table3.png">
 <meta property="article:published_time" content="2024-03-14T04:10:41.000Z">
-<meta property="article:modified_time" content="2024-03-19T05:09:16.393Z">
+<meta property="article:modified_time" content="2024-03-24T01:52:47.859Z">
 <meta property="article:author" content="willkyu">
 <meta property="article:tag" content="Papers">
 <meta name="twitter:card" content="summary">
@@ -292,7 +292,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-03-19 13:09:16" itemprop="dateModified" datetime="2024-03-19T13:09:16+08:00">2024-03-19</time>
+      <time title="Modified: 2024-03-24 09:52:47" itemprop="dateModified" datetime="2024-03-24T09:52:47+08:00">2024-03-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -389,8 +389,7 @@ classification.</figcaption>
 直接将多模态特征与id嵌入拼接作为物品表示. 随后各类技术被引入MMRS.
 表1中的模型可能出现了多次, 因为用了不止一种方法.</p>
 <h3 id="mf">MF</h3>
-<p>MF把交互矩阵分解为低维矩阵的乘积.
-在之前评论评分已经被当作辅助信息帮助推荐了. (<strong>怎么用的?
+<p>在之前评论评分已经被当作辅助信息帮助推荐了. (<strong>怎么用的?
 需要去了解一下</strong>)</p>
 <ul>
 <li>VBPR 之前说了.</li>
@@ -486,7 +485,8 @@ classification.</figcaption>
 <ul>
 <li>PMGT 是利用融合的多模态特征和交互的预训练模型.</li>
 <li>MKGAT 创建多模态知识图谱来进行多模态推荐.
-(基于知识图谱的推荐利用重要的外部知识来提高性能.然而,它们经常忽略多模态特征的不同数据类型)</li>
+(基于知识图谱的推荐利用重要的外部知识来提高性能.
+然而,它们经常忽略多模态特征的不同数据类型)</li>
 <li>MMGCN 在ui图上对每个模态卷积. 但是平等地对待邻居信息聚合,
 会受到冗余甚至噪音信息的影响.</li>
 <li>MGAT 在MMGCN的基础上添加了门控注意力机制,
