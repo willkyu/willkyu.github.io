@@ -821,6 +821,20 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>http://willkyu.github.io/tags/PokeBlock-Bug/</loc>
+    <lastmod>2024-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/Safari-Zone/</loc>
+    <lastmod>2024-04-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>

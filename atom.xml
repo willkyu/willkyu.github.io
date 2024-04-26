@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2024-04-26T11:33:51.455Z</updated>
+  <updated>2024-04-26T11:50:25.104Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -21,16 +21,24 @@
     <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/RSE-Safari-Zone/"/>
     <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/RSE-Safari-Zone/</id>
     <published>2024-04-26T05:10:12.000Z</published>
-    <updated>2024-04-26T11:33:51.455Z</updated>
+    <updated>2024-04-26T11:50:25.104Z</updated>
     
     
     <summary type="html">&lt;p&gt;本篇文章针对宝可梦三代宝石三作(红宝石、蓝宝石、绿宝石)的狩猎区机制/漏洞,
 开发出了不让宝可梦逃跑/让宝可梦逃跑概率变小的方法.&lt;/p&gt;
 &lt;p&gt;个人译制, 可能有些许地方措辞不当, 请多包涵！&lt;/p&gt;
-&lt;p&gt;封面 [ID:##].&lt;/p&gt;</summary>
+&lt;p&gt;封面 [ID:83989799].&lt;/p&gt;</summary>
     
     
     
+    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
+    
+    <category term="PokeBlock Bug" scheme="http://willkyu.github.io/tags/PokeBlock-Bug/"/>
+    
+    <category term="Safari Zone" scheme="http://willkyu.github.io/tags/Safari-Zone/"/>
     
   </entry>
   
