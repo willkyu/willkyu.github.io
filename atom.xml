@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2024-04-26T12:00:38.462Z</updated>
+  <updated>2024-04-28T05:45:52.376Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AutoPoke开发记录</title>
+    <link href="http://willkyu.github.io/Learning/Development/AutoPoke/"/>
+    <id>http://willkyu.github.io/Learning/Development/AutoPoke/</id>
+    <published>2024-04-28T04:55:31.000Z</published>
+    <updated>2024-04-28T05:45:52.376Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Auto hunting shiny pokemon using Playback(Epilogue GB operator),
+writing with Python. Only for Gen3.
+宝可梦三代自动化刷闪工具，使用Playback(Epilogue GB
+operator)。模拟器等也可参考使用。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>宝石狩猎区与宝可方块漏洞</title>
@@ -95,7 +113,7 @@ SHEN&lt;/li&gt;
     <link href="http://willkyu.github.io/TRPG/Mods/Third-Spiral-Grey-Sea/"/>
     <id>http://willkyu.github.io/TRPG/Mods/Third-Spiral-Grey-Sea/</id>
     <published>2024-02-16T07:30:00.000Z</published>
-    <updated>2024-04-21T07:50:01.162Z</updated>
+    <updated>2024-04-28T04:53:35.894Z</updated>
     
     
     <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
@@ -472,31 +490,6 @@ class=&quot;uri&quot;&gt;https://pan.baidu.com/s/1IXtIZhYJFkEciqEPflWKuQ&lt;/a&g
     <category term="Pokemon-RNG-Abuse" scheme="http://willkyu.github.io/tags/Pokemon-RNG-Abuse/"/>
     
     <category term="Pokemon-Gen6" scheme="http://willkyu.github.io/tags/Pokemon-Gen6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>宝可梦四代实机乱数</title>
-    <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen4/"/>
-    <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen4/</id>
-    <published>2022-01-14T02:01:15.000Z</published>
-    <updated>2024-04-10T00:59:28.406Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这是宝可梦四代的实机乱数教程. 包含 ID 与 Egg 的乱数教程.
-如有纰漏，请&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;，万分感谢！&lt;/p&gt;
-&lt;p&gt;封面 [ID:92026700].&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
-    
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
-    
-    <category term="Pokemon-Gen4" scheme="http://willkyu.github.io/tags/Pokemon-Gen4/"/>
-    
-    <category term="Pokemon-RNG-Abuse" scheme="http://willkyu.github.io/tags/Pokemon-RNG-Abuse/"/>
     
   </entry>
   
