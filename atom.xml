@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2024-04-28T05:45:52.376Z</updated>
+  <updated>2024-07-02T13:30:54.593Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LLM-in-RS.md</title>
+    <link href="http://willkyu.github.io/Learning/Notes/Papers/LLM-in-RS-md/"/>
+    <id>http://willkyu.github.io/Learning/Notes/Papers/LLM-in-RS-md/</id>
+    <published>2024-07-01T05:05:28.000Z</published>
+    <updated>2024-07-02T13:30:54.593Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;简介&lt;/h1&gt;
+&lt;p&gt;主要来自：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tittle: &lt;strong&gt;NoteLLM: A Retrievable Large Language Model for Note
+Recommendation&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Time: May 2024&lt;/li&gt;
+&lt;li&gt;Conference: WWW&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>AutoPoke开发记录</title>
@@ -464,32 +486,6 @@ class=&quot;uri&quot;&gt;https://pan.baidu.com/s/1IXtIZhYJFkEciqEPflWKuQ&lt;/a&g
     <category term="Knowledage-Graphs" scheme="http://willkyu.github.io/tags/Knowledage-Graphs/"/>
     
     <category term="GraIL" scheme="http://willkyu.github.io/tags/GraIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>宝可梦六代实机乱数（破解机插件辅助 &amp; 不包含蛋）</title>
-    <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen6/"/>
-    <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen6/</id>
-    <published>2022-01-15T08:32:56.000Z</published>
-    <updated>2022-01-18T04:32:46.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;本文内容不涉及3ds/2ds系列的破解过程，本篇内容均建立在读者已经将3ds/2ds系列破解了的基础上.&lt;/p&gt;
-&lt;p&gt;同时本文使用的是&lt;strong&gt;正版卡带 +
-辅助插件&lt;/strong&gt;，相应盗版软件无法正常操作.&lt;/p&gt;
-&lt;p&gt;封面 [ID:50105089].&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
-    
-    
-    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
-    
-    <category term="Pokemon-RNG-Abuse" scheme="http://willkyu.github.io/tags/Pokemon-RNG-Abuse/"/>
-    
-    <category term="Pokemon-Gen6" scheme="http://willkyu.github.io/tags/Pokemon-Gen6/"/>
     
   </entry>
   

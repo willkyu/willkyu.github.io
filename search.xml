@@ -628,6 +628,74 @@ alt="总览" />
       </tags>
   </entry>
   <entry>
+    <title>LLM-in-RS.md</title>
+    <url>/Learning/Notes/Papers/LLM-in-RS-md/</url>
+    <content><![CDATA[<h1 id="简介">简介</h1>
+<p>主要来自：</p>
+<ul>
+<li>Tittle: <strong>NoteLLM: A Retrievable Large Language Model for Note
+Recommendation</strong></li>
+<li>Time: May 2024</li>
+<li>Conference: WWW</li>
+</ul>
+<span id="more"></span>
+<h1 id="related-work">Related Work</h1>
+<p>LLM Rec的三篇综述：</p>
+<ul>
+<li>5 <em>Recommender systems in the era of large language models
+(llms)</em></li>
+<li>18 <em>How Can Recommender Systems Benefit from Large Language
+Models: A Survey</em></li>
+<li>50 <em>A Survey on Large Language Models for
+Recommendation.</em></li>
+</ul>
+<p>主要有三种利用LLM的方法：</p>
+<h2 id="用于数据增强">用于数据增强</h2>
+<p>由于LLM里包含丰富的世界知识，因而增强的数据比原始数据更突出与多样化。</p>
+<ul>
+<li>21 <em>A First Look at LLM-Powered Generative News
+Recommendation</em>
+利用原有的少量数据使用LLM生成大量额外数据进行下游任务。</li>
+<li>29 <em>Large Language Model Augmented Narrative Driven
+Recommendations</em> LLM用于叙事驱动推荐</li>
+<li>51 <em>Towards Open-World Recommendation with Knowledge Augmentation
+from Large Language Models</em>
+用LLM生成推理知识与事实知识，使用专家模型来融合嵌入</li>
+</ul>
+<p>缺点是需要持续对测试数据进行预处理以便与增强的训练数据保持一致，并且高度依赖于LLM的生成质量。</p>
+<h2 id="直接推荐">直接推荐</h2>
+<p>设计特殊的prompts或是使用有监督的微调来引入LLM回答给定的问题。</p>
+<h3 id="特殊的prompts">特殊的prompts</h3>
+<ul>
+<li>9 <em>Recommender AI Agent: Integrating Large Language Models for
+Interactive Recommendations</em></li>
+<li>20 <em>Is chatgpt a good recommender? a preliminary study.</em></li>
+<li>43 <em>RecMind: Large Language Model Powered Agent For
+Recommendation</em></li>
+</ul>
+<h3 id="有监督微调">有监督微调</h3>
+<ul>
+<li>1 <em>A Bi-Step Grounding Paradigm for Large Language Models in
+Recommendation Systems</em> 微调LLM来对齐推荐空间</li>
+<li>2 <em>TALLRec: An Effective and Efficient Tuning Framework to Align
+Large Language Model with Recommendation</em>
+也是用推荐数据来（微）调大模型</li>
+<li>59 <em>Recommendation as Instruction Following: A Large Language
+Model Empowered Recommendation Approach</em> 同上</li>
+</ul>
+<p>缺点是由于上下文长度限制，这些方法仅侧重于reranking阶段，只包含几十个候选项目。</p>
+<h2 id="作为编码器生成嵌入">作为编码器生成嵌入</h2>
+<ul>
+<li>15 <em>Exploring the Upper Limits of Text-Based Collaborative
+Filtering Using Large Language Models: Discoveries and Insights</em>
+主要针对TCF（Text-based CF）把文本的encoder换成了参数量更大的LLM</li>
+<li>49 <em>Empowering News Recommendation with Pre-trained Language
+Models</em> 也是新闻推荐，用于生成文本嵌入</li>
+</ul>
+<p>缺点是没有利用LLM的生成能力。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>AutoPoke开发记录</title>
     <url>/Learning/Development/AutoPoke/</url>
     <content><![CDATA[<p>Auto hunting shiny pokemon using Playback(Epilogue GB operator),

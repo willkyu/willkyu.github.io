@@ -23,30 +23,27 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"willkyu.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="来这里加任天堂系列掌机好友！">
+<meta name="description" content="简介 主要来自：  Tittle: NoteLLM: A Retrievable Large Language Model for Note Recommendation Time: May 2024 Conference: WWW">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nintendo Memo">
-<meta property="og:url" content="http://willkyu.github.io/Game/Nintendo_Memo/index.html">
+<meta property="og:title" content="LLM-in-RS.md">
+<meta property="og:url" content="http://willkyu.github.io/Learning/Notes/Papers/LLM-in-RS-md/index.html">
 <meta property="og:site_name" content="丘丘Blog">
-<meta property="og:description" content="来这里加任天堂系列掌机好友！">
+<meta property="og:description" content="简介 主要来自：  Tittle: NoteLLM: A Retrievable Large Language Model for Note Recommendation Time: May 2024 Conference: WWW">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-02T09:56:01.000Z">
-<meta property="article:modified_time" content="2022-12-09T09:05:44.300Z">
+<meta property="article:published_time" content="2024-07-01T05:05:28.000Z">
+<meta property="article:modified_time" content="2024-07-02T13:30:54.593Z">
 <meta property="article:author" content="willkyu">
-<meta property="article:tag" content="Game">
-<meta property="article:tag" content="Memo">
-<meta property="article:tag" content="Nintendo">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://willkyu.github.io/Game/Nintendo_Memo/">
+<link rel="canonical" href="http://willkyu.github.io/Learning/Notes/Papers/LLM-in-RS-md/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://willkyu.github.io/Game/Nintendo_Memo/","path":"Game/Nintendo_Memo/","title":"Nintendo Memo"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://willkyu.github.io/Learning/Notes/Papers/LLM-in-RS-md/","path":"Learning/Notes/Papers/LLM-in-RS-md/","title":"LLM-in-RS.md"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Nintendo Memo | 丘丘Blog</title>
+<title>LLM-in-RS.md | 丘丘Blog</title>
   
 
 
@@ -154,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#switch-pro-.jpn"><span class="nav-text">Switch pro .jpn</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#clear-black-2ds-.jpn"><span class="nav-text">Clear Black 2DS .jpn</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pikachu-new-3ds-xl-.usa"><span class="nav-text">Pikachu New 3DS xl .usa</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#colourful-star-new-3ds-.jpn"><span class="nav-text">Colourful Star New 3DS .jpn</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ambassador-new-3ds-.eur"><span class="nav-text">Ambassador New 3DS .eur</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pearl-white-new-3ds-ll-.jpn"><span class="nav-text">Pearl White New 3DS ll .jpn</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#related-work"><span class="nav-text">Related Work</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA"><span class="nav-text">用于数据增强</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E6%8E%A8%E8%8D%90"><span class="nav-text">直接推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84prompts"><span class="nav-text">特殊的prompts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83"><span class="nav-text">有监督微调</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%9C%E4%B8%BA%E7%BC%96%E7%A0%81%E5%99%A8%E7%94%9F%E6%88%90%E5%B5%8C%E5%85%A5"><span class="nav-text">作为编码器生成嵌入</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -258,7 +255,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://willkyu.github.io/Game/Nintendo_Memo/">
+    <link itemprop="mainEntityOfPage" href="http://willkyu.github.io/Learning/Notes/Papers/LLM-in-RS-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_.png">
@@ -271,7 +268,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Nintendo Memo
+          LLM-in-RS.md
         </h1>
 
         <div class="post-meta-container">
@@ -282,23 +279,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2022-07-02 17:56:01" itemprop="dateCreated datePublished" datetime="2022-07-02T17:56:01+08:00">2022-07-02</time>
+      <time title="Created: 2024-07-01 13:05:28" itemprop="dateCreated datePublished" datetime="2024-07-01T13:05:28+08:00">2024-07-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-12-09 17:05:44" itemprop="dateModified" datetime="2022-12-09T17:05:44+08:00">2022-12-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Memo/" itemprop="url" rel="index"><span itemprop="name">Memo</span></a>
-        </span>
+      <time title="Modified: 2024-07-02 21:30:54" itemprop="dateModified" datetime="2024-07-02T21:30:54+08:00">2024-07-02</time>
     </span>
 
   
@@ -318,42 +306,69 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>来这里加任天堂系列掌机好友！</p>
+        <h1 id="简介">简介</h1>
+<p>主要来自：</p>
+<ul>
+<li>Tittle: <strong>NoteLLM: A Retrievable Large Language Model for Note
+Recommendation</strong></li>
+<li>Time: May 2024</li>
+<li>Conference: WWW</li>
+</ul>
 <span id="more"></span>
-<h1 id="switch-pro-.jpn">Switch pro .jpn</h1>
+<h1 id="related-work">Related Work</h1>
+<p>LLM Rec的三篇综述：</p>
 <ul>
-<li>SW <kbd>6096-3331-7333</kbd></li>
+<li>5 <em>Recommender systems in the era of large language models
+(llms)</em></li>
+<li>18 <em>How Can Recommender Systems Benefit from Large Language
+Models: A Survey</em></li>
+<li>50 <em>A Survey on Large Language Models for
+Recommendation.</em></li>
 </ul>
-<h1 id="clear-black-2ds-.jpn">Clear Black 2DS .jpn</h1>
+<p>主要有三种利用LLM的方法：</p>
+<h2 id="用于数据增强">用于数据增强</h2>
+<p>由于LLM里包含丰富的世界知识，因而增强的数据比原始数据更突出与多样化。</p>
 <ul>
-<li>FC <kbd>2638-6497-9254</kbd></li>
-<li>NNID zx-will</li>
-<li>E-mail <span class="exturl" data-url="bWFpbHRvOno0OTYzNzMxNThAMTYzLmNvbQ==">z496373158@163.com<i class="fa fa-external-link-alt"></i></span></li>
+<li>21 <em>A First Look at LLM-Powered Generative News
+Recommendation</em>
+利用原有的少量数据使用LLM生成大量额外数据进行下游任务。</li>
+<li>29 <em>Large Language Model Augmented Narrative Driven
+Recommendations</em> LLM用于叙事驱动推荐</li>
+<li>51 <em>Towards Open-World Recommendation with Knowledge Augmentation
+from Large Language Models</em>
+用LLM生成推理知识与事实知识，使用专家模型来融合嵌入</li>
 </ul>
-<h1 id="pikachu-new-3ds-xl-.usa">Pikachu New 3DS xl .usa</h1>
+<p>缺点是需要持续对测试数据进行预处理以便与增强的训练数据保持一致，并且高度依赖于LLM的生成质量。</p>
+<h2 id="直接推荐">直接推荐</h2>
+<p>设计特殊的prompts或是使用有监督的微调来引入LLM回答给定的问题。</p>
+<h3 id="特殊的prompts">特殊的prompts</h3>
 <ul>
-<li>FC <kbd>1221-3439-8867</kbd></li>
-<li>NNID willkyu</li>
-<li>E-mail <span class="exturl" data-url="bWFpbHRvOjQ5NjM3MzE1OEBxcS5jb20=">496373158@qq.com<i class="fa fa-external-link-alt"></i></span></li>
+<li>9 <em>Recommender AI Agent: Integrating Large Language Models for
+Interactive Recommendations</em></li>
+<li>20 <em>Is chatgpt a good recommender? a preliminary study.</em></li>
+<li>43 <em>RecMind: Large Language Model Powered Agent For
+Recommendation</em></li>
 </ul>
-<h1 id="colourful-star-new-3ds-.jpn">Colourful Star New 3DS .jpn</h1>
+<h3 id="有监督微调">有监督微调</h3>
 <ul>
-<li>FC <kbd>1049-5610-3284</kbd></li>
-<li>NNID willQkyu</li>
-<li>E-mail <span class="exturl" data-url="bWFpbHRvOndpbGwxMjMzMjEwQDE2My5jb20=">will1233210@163.com<i class="fa fa-external-link-alt"></i></span></li>
+<li>1 <em>A Bi-Step Grounding Paradigm for Large Language Models in
+Recommendation Systems</em> 微调LLM来对齐推荐空间</li>
+<li>2 <em>TALLRec: An Effective and Efficient Tuning Framework to Align
+Large Language Model with Recommendation</em>
+也是用推荐数据来（微）调大模型</li>
+<li>59 <em>Recommendation as Instruction Following: A Large Language
+Model Empowered Recommendation Approach</em> 同上</li>
 </ul>
-<h1 id="ambassador-new-3ds-.eur">Ambassador New 3DS .eur</h1>
+<p>缺点是由于上下文长度限制，这些方法仅侧重于reranking阶段，只包含几十个候选项目。</p>
+<h2 id="作为编码器生成嵌入">作为编码器生成嵌入</h2>
 <ul>
-<li>FC <kbd>1264-3252-0970</kbd></li>
-<li>NNID willkyu13</li>
-<li>E-mail <span class="exturl" data-url="bWFpbHRvOndpbGxxa3l1QGdtYWlsLmNvbQ==">willqkyu@gmail.com<i class="fa fa-external-link-alt"></i></span></li>
+<li>15 <em>Exploring the Upper Limits of Text-Based Collaborative
+Filtering Using Large Language Models: Discoveries and Insights</em>
+主要针对TCF（Text-based CF）把文本的encoder换成了参数量更大的LLM</li>
+<li>49 <em>Empowering News Recommendation with Pre-trained Language
+Models</em> 也是新闻推荐，用于生成文本嵌入</li>
 </ul>
-<h1 id="pearl-white-new-3ds-ll-.jpn">Pearl White New 3DS ll .jpn</h1>
-<ul>
-<li>FC <kbd>1135-2937-9812</kbd></li>
-<li>NNID willQQ</li>
-<li>E-mail <span class="exturl" data-url="bWFpbHRvOjIxMzY3MDc2NjJAcXEuY29t">2136707662@qq.com<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
+<p>缺点是没有利用LLM的生成能力。</p>
 
     </div>
 
@@ -389,7 +404,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="http://willkyu.github.io/Game/Nintendo_Memo/" title="Nintendo Memo">http://willkyu.github.io/Game/Nintendo_Memo/</a>
+      <a href="http://willkyu.github.io/Learning/Notes/Papers/LLM-in-RS-md/" title="LLM-in-RS.md">http://willkyu.github.io/Learning/Notes/Papers/LLM-in-RS-md/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -397,24 +412,16 @@
 </ul>
 </div>
 
-          <div class="post-tags">
-              <a href="/tags/Game/" rel="tag"><i class="fa fa-tag"></i> Game</a>
-              <a href="/tags/Memo/" rel="tag"><i class="fa fa-tag"></i> Memo</a>
-              <a href="/tags/Nintendo/" rel="tag"><i class="fa fa-tag"></i> Nintendo</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/Pokemon/Shiny-Lock/" rel="prev" title="锁闪宝可梦汇总">
-                  <i class="fa fa-chevron-left"></i> 锁闪宝可梦汇总
+                <a href="/Learning/Development/AutoPoke/" rel="prev" title="AutoPoke开发记录">
+                  <i class="fa fa-chevron-left"></i> AutoPoke开发记录
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/Life/Zheng-with-his-five-dads/" rel="next" title="Zheng. w/ his five DADs">
-                  Zheng. w/ his five DADs <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -493,11 +500,11 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"http://willkyu.github.io/Game/Nintendo_Memo/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"http://willkyu.github.io/Learning/Notes/Papers/LLM-in-RS-md/"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"willkyu","repo":"Hexo-Gitalk","client_id":"4d181641d25dd938916f","client_secret":"225a2edcdc643bb02ca476ce92f4b386a924b99a","admin_user":"willkyu","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"841905121e05a17e86ddcd5b5550c42b"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"willkyu","repo":"Hexo-Gitalk","client_id":"4d181641d25dd938916f","client_secret":"225a2edcdc643bb02ca476ce92f4b386a924b99a","admin_user":"willkyu","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"a0dfdc3442b947d50848640365e606a6"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 
