@@ -3898,6 +3898,7 @@ href="https://pan.baidu.com/s/1pXdgWIyEFqwj_Q5PrgUGLA">配信文件下载</a>,
 <li>XY剧情赠送的<strong>路卡利欧</strong></li>
 <li>XY终结洞窟50%的<strong>基格尔德</strong></li>
 <li>XY密阿雷市旭日咖啡馆卡露妮赠送的<strong>拉鲁拉丝</strong></li>
+<li>XY二周目莎娜<strong>交换</strong>的另外一只御三家<strong>哈力栗</strong>、<strong>火狐狸</strong>和<strong>呱呱泡蛙</strong>（交换都锁了）</li>
 <li>OrAs捕捉教学<strong>土狼犬</strong></li>
 <li>OrAs<strong>换装皮卡丘</strong></li>
 <li>OrAs的<strong>古拉顿</strong>、<strong>盖欧卡</strong>与<strong>裂空座</strong></li>
@@ -3960,8 +3961,9 @@ href="https://pan.baidu.com/s/1pXdgWIyEFqwj_Q5PrgUGLA">配信文件下载</a>,
 </ul>
 <h1 id="thanks-to">Thanks to</h1>
 <ul>
-<li>Rai</li>
 <li>Hakuhiro</li>
+<li>Rai</li>
+<li>&amp; 贴吧吧友</li>
 </ul>
 ]]></content>
       <categories>
@@ -7730,6 +7732,12 @@ a.numel()   #4704 4704 = 2 * 3 * 28 * 28</code></pre>
 <p>封面 [ID:88418874].</p>
 <span id="more"></span>
 <p><strong>注意，本教程仅支持：有电的红蓝宝石.</strong></p>
+<blockquote>
+<p>2024.10.29 Update:
+<strong><em>RS</em></strong>的RTC2seed可以通过bcd数来转换，从而使得乱数更加方便了。可以替换掉下面步骤中的确定seed部分。<a
+href="https://github.com/Wokann/FeebasSpotCalculate/blob/main/src/rtc2seed.c#L81-L81">参考RTC2seed</a>。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">DayCounts = ConvertDateToDatCount(CurrentRtc.year, CurrentRtc.month, CurrentRtc.day);</span><br><span class="line">MinuteCounts = (<span class="number">24</span> * <span class="number">60</span>) * DayCounts + <span class="number">60</span> * CurrentRtc.hour_BCD + CurrentRtc.minute_BCD;</span><br><span class="line">seed = (MinuteCounts &gt;&gt; <span class="number">16</span>) ^ (MinuteCounts &amp; <span class="number">0xFFFF</span>);</span><br></pre></td></tr></table></figure>
 <p>如果你在找绿宝石及没电红蓝宝石的红蓝宝石实机乱数教程，请点击<a
 href="/Pokemon/Strategies/In-Game/RNG/Pokemon-RNG-Abuse-Gen3-Part1/">这里</a>.</p>
 <p>如果你在找火红叶绿的实机乱数，请点击<a
@@ -7816,6 +7824,10 @@ rtcread.</p>
 每分钟推进 1，但实际操作中发现并不是这样. 有时会推进
 1，有时会推进或者倒退很多（但不会太多，大约 2~16左右）. 因此 seed
 并不会变化太快.</p>
+</blockquote>
+<blockquote>
+<p>2024.10.29 Update:
+<strong><em>RS</em></strong>的RTC2seed可以通过bcd数来转换，从而使得乱数更加方便了。</p>
 </blockquote>
 <h2 id="确定乱数目标">确定乱数目标</h2>
 <p>与<a
