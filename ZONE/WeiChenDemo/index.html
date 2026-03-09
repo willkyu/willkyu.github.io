@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="./js/jquery.min.js"></script>
+		<link type="text/css" rel="styleSheet"  href="./css/index.css" />
+	</head>
+	<body>
+		<p> <br> 筛选： <input id="filterName" name="filterName"> <span class="search">搜索</span> <br> </p>
+		
+		<table>
+		    <thead>
+		    <tr><th>姓名</th><th>性别</th><th>暂住地</th></tr>
+		    </thead>
+		    <tbody>
+		    <tr><td>SYJ</td><td>男</td><td>河北秦皇岛市</td></tr>
+		    <tr><td>李四</td><td>女</td><td>北京北京市</td></tr>
+		    <tr><td>王五</td><td>男</td><td>河北秦皇岛市</td></tr>
+		    <tr><td>赵六</td><td>男</td><td>河北唐山市</td></tr>
+		    <tr><td>张三</td><td>男</td><td>内蒙古呼和浩特市</td></tr>
+		    <tr><td>王六</td><td>女</td><td>内蒙古包头市</td></tr>
+		    <tr><td>二狗</td><td>男</td><td>北京北京市</td></tr>
+		    <tr><td>李字</td><td>女</td><td>河北秦皇岛市</td></tr>
+		    <tr><td>二蛋</td><td>男</td><td>东北辽宁省</td></tr>
+		    </tbody>
+			
+		</table>
+		<div>
+				<div id="partHtml" style="width: 12.5rem;height: 1.875rem;"></div>
+		</div>
+		
+		<script>
+		 $(function() {
+			 $("#partHtml").load("https:www.baidu.com");
+			 $('table tbody tr').hide();
+		     $('.search').on('click', function() {
+		         // console.log($('#filterName').val());
+		         $('table tbody tr').hide()
+		             .filter(":contains('" + ($('#filterName').val()) + "')")
+		             .show();
+					 
+		     })
+		 })
+		</script>
+	
+	</body>
+</html>

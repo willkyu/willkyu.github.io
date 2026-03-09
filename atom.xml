@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>丘丘Blog</title>
+  
+  <subtitle>willkyu&#39;s blog</subtitle>
+  <link href="http://willkyu.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://willkyu.github.io/"/>
+  <updated>2024-07-02T13:30:54.593Z</updated>
+  <id>http://willkyu.github.io/</id>
+  
+  <author>
+    <name>willkyu</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LLM-in-RS.md</title>
+    <link href="http://willkyu.github.io/Learning/Notes/Papers/LLM-in-RS-md/"/>
+    <id>http://willkyu.github.io/Learning/Notes/Papers/LLM-in-RS-md/</id>
+    <published>2024-07-01T05:05:28.000Z</published>
+    <updated>2024-07-02T13:30:54.593Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;简介&lt;/h1&gt;
+&lt;p&gt;主要来自：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tittle: &lt;strong&gt;NoteLLM: A Retrievable Large Language Model for Note
+Recommendation&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Time: May 2024&lt;/li&gt;
+&lt;li&gt;Conference: WWW&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>AutoPoke开发记录</title>
+    <link href="http://willkyu.github.io/Learning/Development/AutoPoke/"/>
+    <id>http://willkyu.github.io/Learning/Development/AutoPoke/</id>
+    <published>2024-04-28T04:55:31.000Z</published>
+    <updated>2025-05-10T09:16:50.910Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Auto hunting shiny pokemon using Playback(Epilogue GB operator),
+writing with Python. Only for Gen3.
+宝可梦三代自动化刷闪工具，使用Playback(Epilogue GB
+operator)。模拟器等也可参考使用。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>宝石狩猎区与宝可方块漏洞</title>
+    <link href="http://willkyu.github.io/Pokemon/Strategies/In-Game/RSE-Safari-Zone/"/>
+    <id>http://willkyu.github.io/Pokemon/Strategies/In-Game/RSE-Safari-Zone/</id>
+    <published>2024-04-26T05:10:12.000Z</published>
+    <updated>2024-04-26T12:00:38.462Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本篇文章针对宝可梦三代宝石三作(红宝石、蓝宝石、绿宝石)的狩猎区机制/漏洞,
+开发出了不让宝可梦逃跑/让宝可梦逃跑概率变小的方法.&lt;/p&gt;
+&lt;p&gt;个人译制, 可能有些许地方措辞不当, 请多包涵！&lt;/p&gt;
+&lt;p&gt;封面 [ID:83989799].&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
+    
+    <category term="PokeBlock Bug" scheme="http://willkyu.github.io/tags/PokeBlock-Bug/"/>
+    
+    <category term="Safari Zone" scheme="http://willkyu.github.io/tags/Safari-Zone/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>多模态推荐系统综述笔记</title>
+    <link href="http://willkyu.github.io/Learning/Notes/Papers/MMRS-Survey/"/>
+    <id>http://willkyu.github.io/Learning/Notes/Papers/MMRS-Survey/</id>
+    <published>2024-03-14T04:10:41.000Z</published>
+    <updated>2024-03-24T01:52:47.859Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;简介&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Tittle: &lt;strong&gt;A Comprehensive Survey on Multimodal Recommender
+Systems: Taxonomy, Evaluation, and Future Directions&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Author: HONGYUZHOU, XIN ZHOU, ZHIWEI ZENG, LINGZI ZHANG, ZHIQI
+SHEN&lt;/li&gt;
+&lt;li&gt;Time: Feb 2023&lt;/li&gt;
+&lt;li&gt;Journal: CoRR&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="Notes" scheme="http://willkyu.github.io/categories/Notes/"/>
+    
+    
+    <category term="Papers" scheme="http://willkyu.github.io/tags/Papers/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UTLov for OlivOS | 像看replay一样跑团</title>
+    <link href="http://willkyu.github.io/TRPG/Tools/UTLov/"/>
+    <id>http://willkyu.github.io/TRPG/Tools/UTLov/</id>
+    <published>2024-02-17T05:44:43.000Z</published>
+    <updated>2024-02-17T06:13:57.771Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;封面 [ID:99703082].&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="TRPG" scheme="http://willkyu.github.io/categories/TRPG/"/>
+    
+    
+    <category term="TRPG" scheme="http://willkyu.github.io/tags/TRPG/"/>
+    
+    <category term="Tools" scheme="http://willkyu.github.io/tags/Tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的色彩</title>
+    <link href="http://willkyu.github.io/TRPG/Mods/The-Color-Of-My-Heart/"/>
+    <id>http://willkyu.github.io/TRPG/Mods/The-Color-Of-My-Heart/</id>
+    <published>2024-02-16T07:30:00.000Z</published>
+    <updated>2024-05-15T06:11:32.365Z</updated>
+    
+    
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    
+    
+    
+    <category term="TRPG" scheme="http://willkyu.github.io/categories/TRPG/"/>
+    
+    
+    <category term="TRPG" scheme="http://willkyu.github.io/tags/TRPG/"/>
+    
+    <category term="Mods" scheme="http://willkyu.github.io/tags/Mods/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第三螺旋：灰海</title>
+    <link href="http://willkyu.github.io/TRPG/Mods/Third-Spiral-Grey-Sea/"/>
+    <id>http://willkyu.github.io/TRPG/Mods/Third-Spiral-Grey-Sea/</id>
+    <published>2024-02-16T07:30:00.000Z</published>
+    <updated>2024-06-24T12:14:47.736Z</updated>
+    
+    
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    
+    
+    
+    <category term="TRPG" scheme="http://willkyu.github.io/categories/TRPG/"/>
+    
+    
+    <category term="TRPG" scheme="http://willkyu.github.io/tags/TRPG/"/>
+    
+    <category term="Mods" scheme="http://willkyu.github.io/tags/Mods/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>跑团◇量子骰子◇与观察者效应</title>
+    <link href="http://willkyu.github.io/Archive/1-TRPG/"/>
+    <id>http://willkyu.github.io/Archive/1-TRPG/</id>
+    <published>2024-02-16T07:00:00.000Z</published>
+    <updated>2024-02-17T09:47:45.499Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;毕宿星的歌无人听晓，国王的褴衣随风飘摇，歌声默默地消逝在那，昏暗的卡尔克萨。&lt;/p&gt;
+&lt;p&gt;我的灵魂已无法歌唱，我的歌像泪不再流淌，只有干涸和沉默在那，失落的卡尔克萨。&lt;/p&gt;
+&lt;p&gt;降临吧！我们衣衫褴褛的王。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;封面 [ID:98137168].&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="TRPG" scheme="http://willkyu.github.io/categories/TRPG/"/>
+    
+    
+    <category term="Archive" scheme="http://willkyu.github.io/tags/Archive/"/>
+    
+    <category term="TRPG" scheme="http://willkyu.github.io/tags/TRPG/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>时序知识图谱笔记与知识图谱推理的机遇挑战</title>
+    <link href="http://willkyu.github.io/Learning/Notes/Papers/TKG-Note/"/>
+    <id>http://willkyu.github.io/Learning/Notes/Papers/TKG-Note/</id>
+    <published>2023-02-13T05:20:21.000Z</published>
+    <updated>2024-03-14T03:32:06.779Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;简介&lt;/h1&gt;
+&lt;p&gt;主要来自：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tittle: &lt;strong&gt;Reasoning over Different Types of Knowledge Graphs:
+Static, Temporal and Multi-Modal&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Author: Ke Liang, Lingyuan Meng, Meng Liu, Yue Liu, Wenxuan Tu,
+Siwei Wang, Sihang Zhou, Xinwang Liu , Senior Member, IEEE, Fuchun Sun,
+Fellow, IEEE&lt;/li&gt;
+&lt;li&gt;Time: 24 Jan 2023&lt;/li&gt;
+&lt;li&gt;Journal:&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="Notes" scheme="http://willkyu.github.io/categories/Notes/"/>
+    
+    
+    <category term="Papers" scheme="http://willkyu.github.io/tags/Papers/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于知识图谱的推荐系统综述笔记</title>
+    <link href="http://willkyu.github.io/Learning/Notes/Papers/KG-in-RS-Survey/"/>
+    <id>http://willkyu.github.io/Learning/Notes/Papers/KG-in-RS-Survey/</id>
+    <published>2023-02-02T04:57:11.000Z</published>
+    <updated>2023-02-15T05:33:00.645Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;简介&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Tittle: &lt;strong&gt;A Survey on Knowledge Graph-Based Recommender
+Systems&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Author: Qingyu Guo, Fuzhen Zhuang, Chuan Qin, Hengshu Zhu, Senior
+Member, IEEE, Xing Xie, Senior Member, IEEE, Hui Xiong, Fellow, IEEE,
+and Qing He&lt;/li&gt;
+&lt;li&gt;Time: 7 October 2020&lt;/li&gt;
+&lt;li&gt;Journal: IEEE Transactions on Knowledge and Data Engineering&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;20年利用知识图谱的推荐系统综述。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Notes" scheme="http://willkyu.github.io/categories/Notes/"/>
+    
+    
+    <category term="Papers" scheme="http://willkyu.github.io/tags/Papers/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Top 70 Common Flutter Widgets</title>
+    <link href="http://willkyu.github.io/Learning/Notes/CommonFlutterWidgets/"/>
+    <id>http://willkyu.github.io/Learning/Notes/CommonFlutterWidgets/</id>
+    <published>2023-01-22T03:08:56.000Z</published>
+    <updated>2023-02-02T05:53:21.102Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;From &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly95b3V0dS5iZS9HMUxHT0g0MjRsbw==&quot;&gt;Best Flutter Widgets
+EVER!&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>多模态知识图谱综述笔记</title>
+    <link href="http://willkyu.github.io/Learning/Notes/Papers/MMKG-Survey/"/>
+    <id>http://willkyu.github.io/Learning/Notes/Papers/MMKG-Survey/</id>
+    <published>2022-12-09T09:26:36.000Z</published>
+    <updated>2024-03-14T07:39:42.799Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;简介&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Tittle: &lt;strong&gt;Multi-Modal Knowledge Graph Construction and
+Application: A Survey&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Author: Xiangru Zhu, Zhixu Li Member, IEEE, Xiaodan Wang, Xueyao
+Jiang, Penglei Sun, Xuwu Wang, Yanghua Xiao Member, IEEE, Nicholas Jing
+Yuan Member, IEEE&lt;/li&gt;
+&lt;li&gt;Time: 11 Feb 2022&lt;/li&gt;
+&lt;li&gt;Journal: IEEE Transactions on Knowledge and Data Engineering&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;22年多模态知识图谱综述。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Notes" scheme="http://willkyu.github.io/categories/Notes/"/>
+    
+    
+    <category term="Papers" scheme="http://willkyu.github.io/tags/Papers/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Suda-charging-monitor</title>
+    <link href="http://willkyu.github.io/Life/Suda-charging-monitor/"/>
+    <id>http://willkyu.github.io/Life/Suda-charging-monitor/</id>
+    <published>2022-10-15T16:01:30.000Z</published>
+    <updated>2023-01-14T10:35:35.788Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;苏州大学充电桩监控（已弃用！）&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>基础知识01</title>
+    <link href="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/"/>
+    <id>http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/</id>
+    <published>2022-07-03T02:33:40.000Z</published>
+    <updated>2022-07-12T08:26:35.988Z</updated>
+    
+    
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;张量&lt;/li&gt;
+&lt;li&gt;参数初始化策略&lt;/li&gt;
+&lt;li&gt;参数范数与正则化&lt;/li&gt;
+&lt;li&gt;梯度下降法&lt;/li&gt;
+&lt;li&gt;梯度爆炸与梯度消失&lt;/li&gt;
+&lt;li&gt;自适应学习率算法&lt;/li&gt;
+&lt;li&gt;评估指标&lt;/li&gt;
+&lt;li&gt;归一化&lt;/li&gt;
+&lt;li&gt;Dropout&lt;/li&gt;
+&lt;li&gt;激活函数&lt;/li&gt;
+&lt;li&gt;损失函数&lt;/li&gt;
+&lt;li&gt;反向传播算法（公式推导）&lt;/li&gt;
+&lt;li&gt;过拟合与欠拟合&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Zheng. w/ his five DADs</title>
+    <link href="http://willkyu.github.io/Life/Zheng-with-his-five-dads/"/>
+    <id>http://willkyu.github.io/Life/Zheng-with-his-five-dads/</id>
+    <published>2022-07-03T02:01:21.000Z</published>
+    <updated>2022-07-03T05:28:14.573Z</updated>
+    
+    
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    
+    
+    
+    <category term="Life" scheme="http://willkyu.github.io/categories/Life/"/>
+    
+    
+    <category term="Life" scheme="http://willkyu.github.io/tags/Life/"/>
+    
+    <category term="529" scheme="http://willkyu.github.io/tags/529/"/>
+    
+    <category term="Suda" scheme="http://willkyu.github.io/tags/Suda/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nintendo Memo</title>
+    <link href="http://willkyu.github.io/Game/Nintendo_Memo/"/>
+    <id>http://willkyu.github.io/Game/Nintendo_Memo/</id>
+    <published>2022-07-02T09:56:01.000Z</published>
+    <updated>2025-11-17T11:39:08.216Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;来这里加任天堂系列掌机好友！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Memo" scheme="http://willkyu.github.io/categories/Memo/"/>
+    
+    
+    <category term="Game" scheme="http://willkyu.github.io/tags/Game/"/>
+    
+    <category term="Memo" scheme="http://willkyu.github.io/tags/Memo/"/>
+    
+    <category term="Nintendo" scheme="http://willkyu.github.io/tags/Nintendo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>锁闪宝可梦汇总</title>
+    <link href="http://willkyu.github.io/Pokemon/Shiny-Lock/"/>
+    <id>http://willkyu.github.io/Pokemon/Shiny-Lock/</id>
+    <published>2022-05-24T04:58:32.000Z</published>
+    <updated>2026-03-09T01:07:27.171Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;游戏内锁闪宝可梦汇总.
+不包含配信的闪光宝可梦与联动的宝可梦(如SwSh伙伴皮卡丘伊布、BdSp首发特典等).&lt;/p&gt;
+&lt;p&gt;如有纰漏请在下方留言或&lt;a href=&quot;/about/&quot;&gt;与我联系&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;封面 [ID:57993916].&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/categories/Pokemon/"/>
+    
+    
+    <category term="Pokemon" scheme="http://willkyu.github.io/tags/Pokemon/"/>
+    
+    <category term="Shiny" scheme="http://willkyu.github.io/tags/Shiny/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LATEX笔记</title>
+    <link href="http://willkyu.github.io/Learning/Notes/LATEX/"/>
+    <id>http://willkyu.github.io/Learning/Notes/LATEX/</id>
+    <published>2022-05-24T03:05:38.000Z</published>
+    <updated>2023-02-15T05:26:51.328Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;记录LATEX的一些知识点.&lt;/p&gt;
+&lt;p&gt;大部分内容来自中国 CTEX 用户小组译制的&lt;em&gt;一份不太简短的 LATEX 2ε
+介绍&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;未完待续.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
+    
+    <category term="LATEX" scheme="http://willkyu.github.io/tags/LATEX/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>稀疏矩阵及其存储格式（COO、CSR、CSC）</title>
+    <link href="http://willkyu.github.io/Learning/Notes/Sparse-Matrix/"/>
+    <id>http://willkyu.github.io/Learning/Notes/Sparse-Matrix/</id>
+    <published>2022-01-30T03:36:27.000Z</published>
+    <updated>2022-01-30T04:13:22.000Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;在矩阵中，若数值为0的元素数目远远多于非0元素的数目，并且非0元素分布没有规律时，则称该矩阵为&lt;strong&gt;稀疏矩阵&lt;/strong&gt;；与之相反，若非0元素数目占大多数时，则称该矩阵为稠密矩阵。定义非零元素的总数比上矩阵所有元素的总数为矩阵的稠密度。简单来说,&lt;em&gt;稀疏矩阵就是绝大部分都是0的矩阵,只包含很少的非零值&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;封面 [ID:79498766].&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
+    
+    <category term="Knowledage-Graphs" scheme="http://willkyu.github.io/tags/Knowledage-Graphs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GraIL相关论文阅读笔记</title>
+    <link href="http://willkyu.github.io/Learning/Notes/Papers/GraIL/"/>
+    <id>http://willkyu.github.io/Learning/Notes/Papers/GraIL/</id>
+    <published>2022-01-18T03:34:44.000Z</published>
+    <updated>2024-03-14T08:52:43.254Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;论文 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MTEuMDY5NjI=&quot;&gt;Inductive relation
+prediction by subgraph reasoning&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 阅读笔记. 译文可见&lt;a
+href=&quot;https://pan.baidu.com/s/1IXtIZhYJFkEciqEPflWKuQ&quot;
+class=&quot;uri&quot;&gt;https://pan.baidu.com/s/1IXtIZhYJFkEciqEPflWKuQ&lt;/a&gt;，提取码&lt;em&gt;will&lt;/em&gt;.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
+    
+    
+    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
+    
+    <category term="Knowledage-Graphs" scheme="http://willkyu.github.io/tags/Knowledage-Graphs/"/>
+    
+    <category term="GraIL" scheme="http://willkyu.github.io/tags/GraIL/"/>
+    
+  </entry>
+  
+</feed>

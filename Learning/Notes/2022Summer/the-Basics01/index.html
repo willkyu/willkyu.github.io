@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/mimikyu_sprite-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/mimikyu_sprite-16.png">
+  <link rel="mask-icon" href="/images/mimikyu1.png" color="#222">
+  <meta name="google-site-verification" content="google-site-verification=ck4DTybsJf_iilhTQ_VvtDffi3o9LMPMY1YCnCcrexc">
+  <meta name="baidu-site-verification" content="code-g0DzkvvtMn">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"willkyu.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.9.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="张量 参数初始化策略 参数范数与正则化 梯度下降法 梯度爆炸与梯度消失 自适应学习率算法 评估指标 归一化 Dropout 激活函数 损失函数 反向传播算法（公式推导） 过拟合与欠拟合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基础知识01">
+<meta property="og:url" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/index.html">
+<meta property="og:site_name" content="丘丘Blog">
+<meta property="og:description" content="张量 参数初始化策略 参数范数与正则化 梯度下降法 梯度爆炸与梯度消失 自适应学习率算法 评估指标 归一化 Dropout 激活函数 损失函数 反向传播算法（公式推导） 过拟合与欠拟合">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/third-order-tensor.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/three-fitting-curve.jpg">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/different-local-minimum.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/gradient-descent.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/Adagrad.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/RMSProp.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/RMSProp-Nesterov.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/Adam.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/P-R-Curve.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/ROC-AUC.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/KS.jpg">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/Dropout.jpg">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/Dropout-DropConnect.jpg">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/DropConnect.jpg">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/DropConnect-A.jpg">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/DropConnect-figure.jpg">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/NN-no-activation-function.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/NN-with-activation-function.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/Sigmoid.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/dSigmoid.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/Tanh.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/ReLU.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/Leaky-ReLU.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/RReLU.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/contrast.png">
+<meta property="og:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/NN.png">
+<meta property="article:published_time" content="2022-07-03T02:33:40.000Z">
+<meta property="article:modified_time" content="2022-07-12T08:26:35.988Z">
+<meta property="article:author" content="willkyu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/pics01/third-order-tensor.png">
+
+
+<link rel="canonical" href="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/","path":"Learning/Notes/2022Summer/the-Basics01/","title":"基础知识01"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>基础知识01 | 丘丘Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="丘丘Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">丘丘Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">willkyu's blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%A0%E9%87%8F"><span class="nav-text">张量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%A0%E9%87%8F%E7%9A%84%E8%8C%83%E6%95%B0"><span class="nav-text">张量的范数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%A0%E9%87%8F%E7%9A%84%E5%86%85%E7%A7%AF"><span class="nav-text">张量的内积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-text">一些代码实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E5%88%9D%E5%A7%8B%E5%8C%96%E7%AD%96%E7%95%A5"><span class="nav-text">参数初始化策略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%BA%E5%B8%B8%E6%95%B0%E8%BF%87%E5%A4%A7%E6%88%96%E8%BF%87%E5%B0%8F"><span class="nav-text">初始化为常数、过大或过小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%98%AF%E5%A5%BD%E7%9A%84"><span class="nav-text">什么样的初始化是好的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xavier%E5%88%9D%E5%A7%8B%E5%8C%96%E7%AD%96%E7%95%A5"><span class="nav-text">Xavier初始化策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kaiming%E5%88%9D%E5%A7%8B%E5%8C%96%E7%AD%96%E7%95%A5"><span class="nav-text">Kaiming初始化策略</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%8C%83%E6%95%B0%E4%B8%8E%E6%AD%A3%E5%88%99%E5%8C%96"><span class="nav-text">参数范数与正则化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8C%83%E6%95%B0"><span class="nav-text">范数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E6%95%B0%E5%80%BC%E5%81%87%E8%AE%BE%E5%88%86%E6%9E%90"><span class="nav-text">简单数值假设分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%8C%83%E6%95%B0%E4%B8%8E%E6%AD%A3%E5%88%99%E5%8C%96%E7%9A%84%E8%81%94%E7%B3%BB"><span class="nav-text">参数范数与正则化的联系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95"><span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8%E4%B8%8E%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1"><span class="nav-text">梯度爆炸与梯度消失</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8"><span class="nav-text">梯度爆炸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1"><span class="nav-text">梯度消失</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A7%E7%94%9F%E5%8E%9F%E5%9B%A0"><span class="nav-text">产生原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E5%B9%B6%E5%BE%AE%E8%B0%83"><span class="nav-text">预训练并微调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E5%89%AA%E5%88%87%E4%B8%8E%E6%AD%A3%E5%88%99%E5%8C%96"><span class="nav-text">梯度剪切与正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8reluleakreluelu%E7%AD%89%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">使用relu、leakrelu、elu等激活函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%B9%E8%A7%84%E8%8C%83%E5%8C%96"><span class="nav-text">批规范化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%AE%8B%E5%B7%AE%E7%BB%93%E6%9E%84"><span class="nav-text">使用残差结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lstm%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C"><span class="nav-text">LSTM（长短期记忆网络）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E9%80%82%E5%BA%94%E5%AD%A6%E4%B9%A0%E7%8E%87%E7%AE%97%E6%B3%95"><span class="nav-text">自适应学习率算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#adagrad"><span class="nav-text">AdaGrad</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rmsprop"><span class="nav-text">RMSProp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adam"><span class="nav-text">Adam</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87"><span class="nav-text">评估指标</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E6%8C%87%E6%A0%87"><span class="nav-text">分类指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E7%A1%AE%E7%8E%87%E7%B2%BE%E5%BA%A6accuracy"><span class="nav-text">准确率（精度，Accuracy）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E5%87%86%E7%8E%87%E7%B2%BE%E7%A1%AE%E7%8E%87precision"><span class="nav-text">查准率（精确率，Precision）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E5%85%A8%E7%8E%87%E5%8F%AC%E5%9B%9E%E7%8E%87recall"><span class="nav-text">查全率（召回率，Recall）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#p-r%E6%9B%B2%E7%BA%BF%E5%B9%B3%E8%A1%A1%E7%82%B9%E5%92%8Cf1%E8%A1%A1%E9%87%8F"><span class="nav-text">P-R曲线、平衡点和F1衡量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#p-r%E6%9B%B2%E7%BA%BF"><span class="nav-text">P-R曲线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E7%82%B9break-even-pointbep"><span class="nav-text">平衡点（Break-Even-Point，BEP）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#f1%E5%BA%A6%E9%87%8F"><span class="nav-text">F1度量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E5%88%86%E7%B1%BB%E6%83%85%E5%86%B5"><span class="nav-text">多分类情况</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#roc%E4%B8%8Eauc"><span class="nav-text">ROC与AUC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ks%E5%9B%BEkolomogorov-smirnov-chart"><span class="nav-text">KS图（Kolomogorov Smirnov
+chart）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E5%BD%92%E6%8C%87%E6%A0%87"><span class="nav-text">回归指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%87%E6%96%B9%E8%AF%AF%E5%B7%AEmean-squared-errormse%E4%B8%8E%E5%9D%87%E6%96%B9%E6%A0%B9%E8%AF%AF%E5%B7%AEroot-mean-squared-errorrmse"><span class="nav-text">均方误差（Mean
+Squared Error，MSE）与均方根误差（Root Mean Squared Error，RMSE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E5%9D%87%E7%BB%9D%E5%AF%B9%E8%AF%AF%E5%B7%AEmean-absolute-errormae"><span class="nav-text">平均绝对误差（Mean Absolute
+Error，MAE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%B3%E5%AE%9A%E7%B3%BB%E6%95%B0-r%E6%96%B9r-squarded"><span class="nav-text">决定系数 R方（R-squarded）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E7%99%BE%E5%88%86%E6%AF%94%E8%AF%AF%E5%B7%AEmape"><span class="nav-text">对百分比误差（MAPE）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">归一化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-text">归一化的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">归一化的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E6%A0%87%E5%87%86%E5%8C%96min-max-normalization"><span class="nav-text">最大最小标准化（Min-Max
+Normalization）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#z-score%E6%A0%87%E5%87%86%E5%8C%96"><span class="nav-text">z-score标准化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">神经网络归一化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%95%B0%E5%87%BD%E6%95%B0%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">对数函数归一化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E6%AD%A3%E5%88%87%E5%87%BD%E6%95%B0%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">反正切函数归一化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#l2%E8%8C%83%E6%95%B0%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">L2范数归一化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BD%BF%E7%94%A8%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">什么时候使用归一化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E5%8C%96%E5%BD%92%E4%B8%80%E5%8C%96%E7%9A%84%E5%AF%B9%E6%AF%94%E5%88%86%E6%9E%90"><span class="nav-text">标准化&#x2F;归一化的对比分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dropout"><span class="nav-text">Dropout</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%88%9D%E7%9A%84dropout"><span class="nav-text">最初的Dropout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dropconnect"><span class="nav-text">DropConnect</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A5%B1%E5%92%8C%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">饱和激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sigmoid"><span class="nav-text">Sigmoid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tanh"><span class="nav-text">Tanh</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E9%A5%B1%E5%92%8C%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">非饱和激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#relu"><span class="nav-text">ReLU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leaky-relu"><span class="nav-text">Leaky ReLU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rrelu"><span class="nav-text">RReLU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#elu"><span class="nav-text">ELU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maxout"><span class="nav-text">Maxout</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">如何选择合适的激活函数?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">基于距离度量的损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#msel1l2"><span class="nav-text">MSE、L1、L2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#smooth-l1%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">Smooth L1损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#huber%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">Huber损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#log-cosh%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">Log-Cosh损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E4%BD%8D%E6%95%B0%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">分位数损失函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83%E5%BA%A6%E9%87%8F%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">基于概率分布度量的损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#kl%E6%95%A3%E5%BA%A6%E5%87%BD%E6%95%B0%E7%9B%B8%E5%AF%B9%E7%86%B5"><span class="nav-text">KL散度函数（相对熵）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1"><span class="nav-text">交叉熵损失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#softmax%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">Softmax损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#focal-loss"><span class="nav-text">Focal loss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">如何选择损失函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC"><span class="nav-text">反向传播算法（公式推导）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%AE%9A%E4%B9%89"><span class="nav-text">变量定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0"><span class="nav-text">代价函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E5%8F%8A%E5%85%B6%E6%8E%A8%E5%AF%BC"><span class="nav-text">公式及其推导</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BA%A7%E7%94%9F%E7%9A%84%E9%94%99%E8%AF%AF"><span class="nav-text">计算最后一次神经网络产生的错误：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E5%90%8E%E5%90%91%E5%89%8D%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%80%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BA%A7%E7%94%9F%E7%9A%84%E9%94%99%E8%AF%AF"><span class="nav-text">从后向前，计算每一层神经网络产生的错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9D%83%E9%87%8D%E7%9A%84%E6%A2%AF%E5%BA%A6"><span class="nav-text">计算权重的梯度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E5%81%8F%E7%BD%AE%E7%9A%84%E6%A2%AF%E5%BA%A6"><span class="nav-text">计算偏置的梯度</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%E4%B8%8E%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="nav-text">过拟合与欠拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88"><span class="nav-text">过拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A7%E7%94%9F%E8%BF%87%E6%8B%9F%E5%90%88%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-text">产生过拟合的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-text">过拟合的解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%A7%92%E5%BA%A6"><span class="nav-text">数据角度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%A7%92%E5%BA%A6"><span class="nav-text">模型角度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ensemble"><span class="nav-text">ensemble：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="nav-text">欠拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A7%E7%94%9F%E6%AC%A0%E6%8B%9F%E5%90%88%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-text">产生欠拟合的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AC%A0%E6%8B%9F%E5%90%88%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-text">欠拟合的解决办法</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="willkyu"
+      src="/images/avatar_.png">
+  <p class="site-author-name" itemprop="name">willkyu</p>
+  <div class="site-description" itemprop="description">我的思念将追随你进入梦乡</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dpbGxreXU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;willkyu"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjQ5NjM3MzE1OEBxcS5jb20=" title="E-Mail → mailto:496373158@qq.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS93aWxsa3l1" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;willkyu"><i class="fab fa-twitter fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zdGVhbWNvbW11bml0eS5jb20vaWQvd2lsbGt5dQ==" title="Steam → https:&#x2F;&#x2F;steamcommunity.com&#x2F;id&#x2F;willkyu"><i class="fab fa-steam fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9oYWt1NzYuZ2l0aHViLmlvLw==" title="https:&#x2F;&#x2F;haku76.github.io&#x2F;">Hakuhiro Blog</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93b2thbm4uZ2l0aHViLmlv" title="https:&#x2F;&#x2F;wokann.github.io">WoKann Blog</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cDovL21pZmFuLXV4LmdpdGh1Yi5pbw==" title="http:&#x2F;&#x2F;mifan-ux.github.io">MiFan Blog</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly93dWx1bjAxMDIuZ2l0aHViLmlv" title="https:&#x2F;&#x2F;wulun0102.github.io">WuLun Blog</span>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dpbGxreXU=" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_.png">
+      <meta itemprop="name" content="willkyu">
+      <meta itemprop="description" content="我的思念将追随你进入梦乡">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="丘丘Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          基础知识01
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-03 10:33:40" itemprop="dateCreated datePublished" datetime="2022-07-03T10:33:40+08:00">2022-07-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-12 16:26:35" itemprop="dateModified" datetime="2022-07-12T16:26:35+08:00">2022-07-12</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <ul>
+<li>张量</li>
+<li>参数初始化策略</li>
+<li>参数范数与正则化</li>
+<li>梯度下降法</li>
+<li>梯度爆炸与梯度消失</li>
+<li>自适应学习率算法</li>
+<li>评估指标</li>
+<li>归一化</li>
+<li>Dropout</li>
+<li>激活函数</li>
+<li>损失函数</li>
+<li>反向传播算法（公式推导）</li>
+<li>过拟合与欠拟合</li>
+</ul>
+<span id="more"></span>
+<h1 id="张量">张量</h1>
+<p>张量（tensor）是一个<strong>多维数组</strong>，张量的<strong>阶数（order）</strong>也称为维度（dimensions）。</p>
+<p>一阶张量是一个<strong>矢量</strong>，二阶张量是一个<strong>矩阵</strong>，三阶或更高阶的张量叫做<strong>高阶张量</strong>。</p>
+<!--
+![三阶张量](/images/body/the-Basics01/third-order-tensor.png "A third-order tensor")
+-->
+<figure>
+<img data-src="pics01/third-order-tensor.png" title="A third-order tensor"
+alt="三阶张量" />
+<figcaption aria-hidden="true">三阶张量</figcaption>
+</figure>
+<h2 id="张量的范数">张量的范数</h2>
+<p>张量 <span class="math inline">\(\mathscr{X} \in \mathbb{R}^{I_1
+\times I_2 \times \cdots \times I_N}\)</span>
+的范数（norm）是其<strong>所有元素平方和的平方根</strong>，即</p>
+<p><span class="math display">\[
+\Vert \mathscr{X} \Vert =
+\sqrt{\sum_{i_1=1}^{I_1}{\sum_{i_2=1}^{I_2}{\cdots
+\sum_{i_N=1}^{I_N}{x_{i_1i_2 \cdots i_N}^2}}}}
+\]</span></p>
+<h2 id="张量的内积">张量的内积</h2>
+<p>两个相同大小的张量 <span class="math inline">\(\mathscr{X} ,
+\mathscr{Y} \in \mathbb{R}^{I_1 \times I_2 \times \cdots \times
+I_N}\)</span> 的内积（inner product）为</p>
+<p><span class="math display">\[
+\langle \mathscr{X} , \mathscr{Y} \rangle =
+\sum_{i_1=1}^{I_1}{\sum_{i_2=1}^{I_2} {\cdots
+\sum_{i_N=1}^{I_N}{x_{i_1i_2 \cdots i_N} y_{i_1i_2 \cdots i_N}}}}
+\]</span></p>
+<p>且有 <span class="math inline">\(\langle \mathscr{X} , \mathscr{X}
+\rangle = \Vert \mathscr{X} \Vert^2\)</span></p>
+<h2 id="一些代码实现">一些代码实现</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 生成一个随机的(n,m)的矩阵，其中的每个元素都从均值为0、标准差为1的标准高斯分布（正态</span><br><span class="line">x=torch.randn(3, 4)</span><br><span class="line"></span><br><span class="line"># 使用 arange 创建一个行向量 x。这个行向量包含以0开始的前n个整数，它们默认创建为整数</span><br><span class="line">x = torch.arange(12)</span><br><span class="line"></span><br><span class="line"># 查看x的形状</span><br><span class="line">x.shape</span><br><span class="line"></span><br><span class="line"># 改变x的形状 元素的个数总和不能改变</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">view和reshape都是用来重塑tensor的shape的。</span><br><span class="line">view只适合对满足连续性条件（contiguous）的tensor进行操作，</span><br><span class="line">而reshape同时还可以对不满足连续性条件的tensor进行操作，具有更好的鲁棒性。</span><br><span class="line">view能干的reshape都能干，如果view不能干就可以用reshape来处理</span><br><span class="line">参考连接：https://blog.csdn.net/Flag_ing/article/details/109129752</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">x.reshape(3,4)</span><br><span class="line"></span><br><span class="line"># 查看设备是否能使用cuda</span><br><span class="line">torch.cuda.is_available()</span><br><span class="line"></span><br><span class="line"># 把张量移动到GPU上</span><br><span class="line"># DEVICE=&#x27;cuda:0&#x27;</span><br><span class="line">DEVICE=&#x27;cpu&#x27;</span><br><span class="line">x.to(DEVICE)</span><br><span class="line"># 或者</span><br><span class="line"># x.cuda()</span><br><span class="line"></span><br><span class="line"># 查看张量所在的设备</span><br><span class="line">x.device</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 基本的加减乘除</span><br><span class="line">x = torch.tensor([1.0, 2, 4, 8])</span><br><span class="line">y = torch.tensor([2, 2, 2, 2])</span><br><span class="line">x + y, x - y, x * y, x / y, x ** y</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 两个向量在同一维度上的拼接</span><br><span class="line">X = torch.arange(12, dtype=torch.float32).reshape((3,4))</span><br><span class="line">Y = torch.tensor([[2.0, 1, 4, 3], [1, 2, 3, 4], [4, 3, 2, 1]])</span><br><span class="line">torch.cat((X, Y), dim=0), torch.cat((X, Y), dim=1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 两个向量在新维度上的堆叠</span><br><span class="line">X = torch.arange(12, dtype=torch.float32).reshape((3,4))</span><br><span class="line">Y = torch.tensor([[2.0, 1, 4, 3], [1, 2, 3, 4], [4, 3, 2, 1]])</span><br><span class="line">torch.stack((X, Y), dim=0)</span><br></pre></td></tr></table></figure>
+<p>索引切片和广播机制
+就像在任何其他Python数组中一样，张量中的元素可以通过索引和切片访问。
+张量的广播机制和numpy的广播机制一样 切片和python内置的数组一样
+两个张量形状不一样时进行运算，有两种情况能够进行广播</p>
+<ol type="1">
+<li><p>A.ndim &gt; B.ndim, 并且A.shape最后几个元素包含B.shape,
+A.shape=(2,3,4,5), B.shape=(3,4,5) A.shape=(2,3,4,5), B.shape=(4,5)
+A.shape=(2,3,4,5), B.shape=(5)</p></li>
+<li><p>A.ndim == B.ndim,
+并且A.shape和B.shape对应位置的元素要么相同要么其中一个是1,
+A.shape=(1,9,4), B.shape=(15,1,4) A.shape=(1,9,4),
+B.shape=(15,1,1)</p></li>
+</ol>
+<h1 id="参数初始化策略">参数初始化策略</h1>
+<p>参数初始化指的是网络模型在进行训练之前，对各个节点的权重和偏置进行初始化赋值的过程。</p>
+<p>深度学习中，神经网络的参数初始化策略对模型的收敛速度及性能有至关重要的影响。在神经网络中，随着层数的增多，在梯度下降的过程中极易出现<a
+href="#梯度爆炸与梯度消失">梯度消失或梯度爆炸</a>的问题，一个好的参数初始化对于处理这两个问题有着很大帮助。</p>
+<h2 id="初始化为常数过大或过小">初始化为常数、过大或过小</h2>
+<p>这些初始化策略都是不可取的，常数初始化会使得每层所有神经元相等，效果等效于一个神经元，极大限制了神经网络的学习能力。而参数过大过小会导致模型出现梯度爆炸或梯度消失的问题。</p>
+<p>具体推导过程可见：<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xMzgwNjQxODg=">https://zhuanlan.zhihu.com/p/138064188<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="什么样的初始化是好的">什么样的初始化是好的？</h2>
+<ul>
+<li>因为对参数 <span class="math inline">\(w\)</span>
+的大小和正负缺乏先验知识，<span class="math inline">\(w\)</span>
+应为随机数，且期望 <span class="math inline">\(E(w) = 0\)</span> 。</li>
+<li>为了防止梯度爆炸和梯度消失，权重不宜过大或过小，要对权重的方差 <span
+class="math inline">\(Var(w)\)</span> 有所控制。</li>
+<li>由于 <span class="math inline">\(dW_{l} = \frac{1}{m}dZ_{l}\cdot
+A_{l-1}^T\)</span>，<span class="math inline">\(dW_{l}\)</span> 还与
+<span class="math inline">\(A_{l-1}^T\)</span>
+有关，所以我们希望不同激活层输出的方差相同，即 <span
+class="math inline">\(Var(a_l) = Var(a_{l-1})\)</span>
+，也就意味着不同激活层输入的方差相同，即 <span
+class="math inline">\(Var(z_l) = Var(z_{l-1})\)</span> 。</li>
+<li>权重的数值范围应考虑到前向与后向两个过程，不能过大或过小。</li>
+</ul>
+<h2 id="xavier初始化策略">Xavier初始化策略</h2>
+<p>论文地址：<a
+href="https://link.zhihu.com/?target=http%3A//jmlr.org/proceedings/papers/v9/glorot10a/glorot10a.pdf">Understanding
+the difficulty of training deep feedforward neural networks</a></p>
+<p><strong>核心思想：正向传播时，激活值的方差保持不变；反向传播时，关于状态值的梯度的方差保持不变</strong></p>
+<p>Xavier初始化将每层权重设置在有界的随即均匀分布中选择的值</p>
+<p><span class="math display">\[
+\pm \frac{\sqrt{6}}{\sqrt{n_i+n_{i+1}}}
+\]</span></p>
+<p>其正态分布形式为</p>
+<p><span class="math display">\[
+(u, \sigma^2) = (0, \frac{2}{n_{i-1}+n_{i}})
+\]</span></p>
+<p>Xavier初始化策略对<strong>使用关于零对称且在[-1,
+1]内有输出的激活函数（如softsign和tanh）</strong>效果较好，而如果使用ReLU激活函数则会产生梯度消失。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def Xavier(m, h):</span><br><span class="line">    return torch.Tensor(m, h).uniform_(-1, 1) * math.sqrt(6. / (m + h))</span><br><span class="line"></span><br><span class="line">x = torch.randn(512)</span><br><span class="line">for i in range(100):</span><br><span class="line">    a = Xavier(512, 512)</span><br><span class="line">    x = torch.tanh(a @ x)</span><br><span class="line">print(x.mean(), x.std())</span><br><span class="line"></span><br><span class="line">x = torch.randn(512)</span><br><span class="line">for i in range(100):</span><br><span class="line">    a = Xavier(512, 512)</span><br><span class="line">    x = torch.relu(a @ x)</span><br><span class="line">print(x.mean(), x.std())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tensor(0.0072) tensor(0.0723)</span><br><span class="line">tensor(5.5722e-16) tensor(8.1033e-16)</span><br></pre></td></tr></table></figure>
+<h2 id="kaiming初始化策略">Kaiming初始化策略</h2>
+<p>论文地址：<span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE1MDIuMDE4NTI=">Delving Deep
+into Rectifiers: Surpassing Human-Level Performance on ImageNet
+Classification<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>核心思想：正向传播时，状态值的方差保持不变；反向传播时，关于激活值的梯度的方差保持不变</strong></p>
+<p>Kaiming初始化（也称he初始化）是针对Relu激活函数的初始化方法，作者证明了如果采用一下输入权重初始化策略，深层网络会更早收敛：</p>
+<ul>
+<li>使用适合给定图层的权重矩阵创建张量，并使用从标准正态分布中随机选择的数字填充它。</li>
+<li>将每个随机选择的数字乘以<span
+class="math inline">\(\frac{\sqrt{2}}{\sqrt{n}}\)</span>，其中n是从前一层输出到指定层的连接数（fan-in）</li>
+<li>偏差张量初始化为零。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def Kaiming(m, h):</span><br><span class="line">    return torch.randn(m, h) * math.sqrt(2. / m)</span><br><span class="line"></span><br><span class="line">x = torch.randn(512)</span><br><span class="line">for i in range(100):</span><br><span class="line">    a = Kaiming(512, 512)</span><br><span class="line">    x = torch.relu(a @ x)</span><br><span class="line">print(x.mean(), x.std())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tensor(0.7144) tensor(1.0703)</span><br></pre></td></tr></table></figure>
+<h1 id="参数范数与正则化">参数范数与正则化</h1>
+<p>正则化（regularization）技术广泛应用在机器学习和深度学习算法中，其<strong>本质作用是防止过拟合、提高模型泛化能力</strong>。在早期的机器学习领域一般只是将范数惩罚叫做正则化技术，而在深度学习领域认为：能够显著减少方差，而不过度增加偏差的策略都可以认为是正则化技术，故推广的正则化技术还有：扩增样本集、早停止、Dropout、集成学习、多任务学习、对抗训练、参数共享等</p>
+<h2 id="范数">范数</h2>
+<ol type="1">
+<li>P范数：</li>
+</ol>
+<p><span class="math display">\[
+L_p = (\sum_{i = 1}^n\vert x_i\vert^p)^{\frac{1}{p}}
+\]</span></p>
+<ol start="2" type="1">
+<li>L0范数：表示向量中非零元素的个数</li>
+<li>L1范数：为向量元素绝对值之和</li>
+</ol>
+<p><span class="math display">\[
+\Vert x\Vert _1 = \sum_{i = 1}^n\vert x_i\vert
+\]</span></p>
+<ol start="4" type="1">
+<li>L2范数：向量元素的平方和再开方，也称欧几里得距离</li>
+</ol>
+<p><span class="math display">\[
+\Vert x\Vert _2 = \sqrt{\sum_{i = 1}^nx_i^2}
+\]</span></p>
+<ol start="5" type="1">
+<li><span class="math inline">\(\infty\)</span>
+范数：即所有向量元素绝对值中的最大值</li>
+</ol>
+<p><span class="math display">\[
+\Vert x\Vert _\infty = \max_i\vert x_i\vert
+\]</span></p>
+<ol start="6" type="1">
+<li><span class="math inline">\(-\infty\)</span>
+范数：即所有向量元素绝对值中的最小值</li>
+</ol>
+<p><span class="math display">\[
+\Vert x\Vert _{-\infty} = \min_i\vert x_i\vert
+\]</span></p>
+<h2 id="简单数值假设分析">简单数值假设分析</h2>
+<!--
+![不同参数下的曲线拟合结果(左欠拟合，右过拟合)](/images/body/the-Basics01/three-fitting-curve.jpg "Three fitting curve")
+-->
+<figure>
+<img data-src="pics01/three-fitting-curve.jpg" title="Three fitting curve"
+alt="不同参数下的曲线拟合结果(左欠拟合，右过拟合)" />
+<figcaption
+aria-hidden="true">不同参数下的曲线拟合结果(左欠拟合，右过拟合)</figcaption>
+</figure>
+<p>对于右边的拟合曲线，有</p>
+<p><span class="math display">\[
+h_\theta(x) = \theta _0 + \theta _1x_1 + \theta _2x_2^2 + \theta _3x_3^3
++ \theta _4x_4^4
+\]</span></p>
+<p>由于 <span class="math inline">\(\theta _3\)</span> 和 <span
+class="math inline">\(\theta _4\)</span>
+对应了高阶，导致拟合曲线是4阶曲线，出现了过拟合。正则化的目的为适当缩减
+<span class="math inline">\(\theta _3\)</span> 和 <span
+class="math inline">\(\theta _4\)</span>
+的值，例如都为0.0001，则上述曲线本质上等价于</p>
+<p><span class="math display">\[
+h_\theta(x) = \theta _0 + \theta _1x_1 + \theta _2x_2^2
+\]</span></p>
+<p>也就是变成了中间的刚好合适的拟合曲线。对 <span
+class="math inline">\(\theta _3\)</span> 和 <span
+class="math inline">\(\theta _4\)</span>
+增加L2正则项后的代价函数表达式为</p>
+<p><span class="math display">\[
+J(\theta) = \min_\theta \frac{1}{n} \sum_{i = 1}^n{((h_\theta(x^i) -
+y^i)^2 + 1000\theta_3^2 + 1000\theta_4^2)}
+\]</span></p>
+<p>从上式可以看出， <span class="math inline">\(\theta _3\)</span> 和
+<span class="math inline">\(\theta _4\)</span>
+均大于0，其乘上了1000，要是 <span
+class="math inline">\(J(\theta)\)</span> 最小，则会迫使模型学习到的
+<span class="math inline">\(\theta _3\)</span> 和 <span
+class="math inline">\(\theta _4\)</span> 会非常小，因为只有在 <span
+class="math inline">\(\theta _3\)</span> 和 <span
+class="math inline">\(\theta _4\)</span>
+非常小的情况下整个代价函数值才会取的较小值。在实际开发中，是对所有参数进行正则化，为了使代价函数尽可能的小，所有的参数
+<span class="math inline">\(\theta\)</span> 的值（不包括 <span
+class="math inline">\(\theta_0\)</span>
+）都会在一定程度上减小，但是减少程度会不一样，从而实现了权重衰减、简化模型复杂度的作用。</p>
+<h2 id="参数范数与正则化的联系">参数范数与正则化的联系</h2>
+<p>如果有一批数据输入指数为50的函数分布，我们至少需要输入50组数据来记录所有的函数对应的参
+数。但对于深度学习这种拥有百万级参数规模的学习模型来说，那简直是不可想象的。</p>
+<ol type="1">
+<li>因此我们放松限制，仅仅控制参数的数目，而不是从高到低的顺序限制参数。我们将不为0的参数数
+量限制再 c 以内来达到限制模型的目的(L0范数惩罚)。</li>
+<li>虽然我们已经放松了限制，但是以上表达式并不完美，对于实际应用并不是太友好，那么我们不妨再
+放松一下限制，不要求非零的参数个数控制再 c
+以内，但要求参数绝对值数值的和控制再 c 以内。这种
+参数数值总和的限制被称之为L1范数惩罚，也被成为参数稀疏性惩罚</li>
+<li>虽然我们已经更加放松了限制，但是这还是不完美，因为带有绝对值，我们都知道，绝对值函数再求
+梯度时不可导，因此我们再次放宽限制，将求绝对值和变为求平方和，如下式所示，这就是L2范数惩
+罚，也就是我们熟悉的权重衰减惩罚。我们可以通过控制 c
+值的大小来限制模型的学习能力，c 越大， 模型能力就越强（过拟合），c
+越小，模型能力就越弱（欠拟合）。该条件极值可以通过拉格朗日乘子
+法来进行求解。</li>
+</ol>
+<h1 id="梯度下降法">梯度下降法</h1>
+<p>优化算法的功能是通过改善训练方法，来最小化（或最大化）损失函数 <span
+class="math inline">\(J(\theta)\)</span>。</p>
+<p>梯度下降背后的思想是：开始时我们随机选择一个参数的组合 <span
+class="math inline">\((\theta _0, \theta _1, \theta _2, \dots, \theta
+_n)\)</span>
+，计算损失函数，然后我们寻找下一个能让损失函数值下降最多的参数组合。我们持续这么做直到到一个局部最小值（local
+minimum），因为我们并没有尝试完所有的参数组合，所以不能确定我们得到的局部最小值是否便是全局最小值（global
+minimum），选择不同的初始参数组合，可能会找到不同的局部最小值。</p>
+<!--
+![不同初始参数组合找到不同的极小值](/images/body/the-Basics01/different-local-minimum.png "Different local minimum")
+-->
+<figure>
+<img data-src="pics01/different-local-minimum.png"
+title="Different local minimum"
+alt="不同初始参数组合找到不同的极小值" />
+<figcaption
+aria-hidden="true">不同初始参数组合找到不同的极小值</figcaption>
+</figure>
+<p>梯度下降算法如下：</p>
+<p><span class="math display">\[
+\theta _j := \theta _j - \alpha\frac{\partial}{\partial\theta
+_j}J(\theta)
+\]</span></p>
+<p>其中 <span class="math inline">\(\alpha\)</span> 是学习率（learning
+rate），它决定了我们沿着该方向迈出的步子有多大。<span
+class="math inline">\(\alpha\)</span>
+太大或太小都不好，太小会导致收敛速度很慢，而太大可能会越过最低点，甚至无法收敛。</p>
+<!--
+![梯度下降法](/images/body/the-Basics01/different-local-minimum.png "Gradient descent")
+-->
+<figure>
+<img data-src="pics01/gradient-descent.png" title="Gradient descent"
+alt="梯度下降法" />
+<figcaption aria-hidden="true">梯度下降法</figcaption>
+</figure>
+<p>传统的批量梯度下降法计算整个数据集梯度，但只进行一次更新，这在处理大型数据集时速度很慢且难以控制，甚至导致内存溢出。</p>
+<p>权重的更新速度由学习率 <span class="math inline">\(\alpha\)</span>
+决定，并且可以在凸面误差曲线中收敛到全局最优值，在非凸曲面中可能趋于局部最优值。</p>
+<p>此外，标准形式的批量梯度下降法在训练大型数据集时存在冗杂的权重更新。</p>
+<h1 id="梯度爆炸与梯度消失">梯度爆炸与梯度消失</h1>
+<h2 id="梯度爆炸">梯度爆炸</h2>
+<p>误差梯度是神经网络训练过程中计算的方向和数量，用于以正确的方向和合适的量更新网络权重。
+在深层网络或循环神经网络中，误差梯度可在更新中累积，变成非常大的梯度，然后导致网络权重的大幅更新，并因此使网络变得不稳定。在极端情况下，权重的值变得非常大，以至于溢出，导致
+NaN 值。 网络层之间的梯度（值大于
+1.0）重复相乘导致的指数级增长会产生梯度爆炸。在深度多层感知机网络中，梯度爆炸会引起网络不稳定，最好的结果是无法从训练数据中学习，而最坏的结果是出现无法再更新的NaN权重值。</p>
+<h2 id="梯度消失">梯度消失</h2>
+<p>在某些情况下，梯度会变得非常小，有效地阻止了权重值的变化。在最坏的情况下，这可能会完全停止神经网络的进一步训练。例如，传统的激活函数(如双曲正切函数)具有范围(0,1)内的梯度，反向传播通过链式法则计算梯度。这样做的效果是，用这些小数字的n乘以n来计算n层网络中“前端”层的梯度，这意味着梯度(误差信号)随n呈指数递减，而前端层的训练非常缓慢。</p>
+<h2 id="产生原因">产生原因</h2>
+<p>主要是采用了不合适的损失函数,
+如果我们使用标准化初始w，那么各个层次的相乘都是0-1之间的小数，而激活函数f的导数也是0-1之间的数，其连乘后，结果会变的很小，导致梯度消失。若我们初始化的w是很大的数，w大到乘以激活函数的导数都大于1，那么连乘后，可能会导致求导的结果很大，形成梯度爆炸。</p>
+<h2 id="解决方法">解决方法</h2>
+<h3 id="预训练并微调">预训练并微调</h3>
+<p>基本思想是每次训练一层隐节点，训练时将上一层隐节点的输出作为输入，而本层隐节点的输出作为下一层隐节点的输入，此过程就是逐层“预训练”（pre-training）；在预训练完成后，再对整个网络进行“微调”（fine-tunning）。</p>
+<h3 id="梯度剪切与正则化">梯度剪切与正则化</h3>
+<p>梯度剪切这个方案主要是针对梯度爆炸提出的，其思想是设置一个梯度剪切阈值，然后更新梯度的时候，如果梯度超过这个阈值，那么就将其强制限制在这个范围之内。这可以防止梯度爆炸。</p>
+<p>另外一种解决梯度爆炸的手段是采用权重正则化（weithts
+regularization）比较常见的是L1正则化，和L2正则化，在各个深度框架中都有相应的API可以使用正则化。</p>
+<h3
+id="使用reluleakreluelu等激活函数">使用relu、leakrelu、elu等激活函数</h3>
+<p>Relu:思想也很简单，如果激活函数的导数为1，那么就不存在梯度消失爆炸的问题了，每层的网络都可以得到相同的更新速度，relu就这样应运而生。详见<a
+href="#激活函数">激活函数</a>。</p>
+<h3 id="批规范化">批规范化</h3>
+<p>Batchnorm是深度学习发展以来提出的最重要的成果之一，目前已经被广泛的应用到了各大网络中，具有加速网络收敛速度，提升训练稳定性的效果，Batchnorm本质上是解决反向传播过程中的梯度问题。batchnorm全名是batch
+normalization，简称BN，即批规范化，通过规范化操作将输出信号x规范化到均值为0，方差为1保证网络的稳定性。</p>
+<h3 id="使用残差结构">使用残差结构</h3>
+<p>自从残差提出后，几乎所有的深度网络都离不开残差的身影，相比较之前的几层，几十层的深度网络，在残差网络面前都不值一提，残差可以很轻松的构建几百层，一千多层的网络而不用担心梯度消失过快的问题，原因就在于残差的捷径（shortcut）部分。</p>
+<h3 id="lstm长短期记忆网络">LSTM（长短期记忆网络）</h3>
+<p>在RNN网络结构中，由于使用Logistic或者Tanh函数，所以很容易导致梯度消失的问题，即在相隔很远的时刻时，前者对后者的影响几乎不存在了，LSTM的机制正是为了解决这种长期依赖问题。</p>
+<h1 id="自适应学习率算法">自适应学习率算法</h1>
+<p>学习率对模型的性能有显著的影响，是难以设置的超参数之一。损失通常高度敏感于参数空间中的某些方向，而不敏感于其他。动量算法可以在一定程度缓解这些问题，但这样做的代价是引入了另一个超参数。</p>
+<p>Delta-bar-delta 算法 (Jacobs, 1988)
+是一个早期的在训练时适应模型参数各自学习率的启发式方法。该方法基于一个很简单的想法，如果损失对于某个给定模型参数的偏导保持相同的符号，那么学习率应该增加。如果对于该参数的偏导变化了符号，那么学习率应减小。当然，这种方法只能应用于全批量优化中。最近，提出了一些增量（或者基于小批量）的算法来自适应模型参数的学习率。</p>
+<h2 id="adagrad">AdaGrad</h2>
+<p>Adagrad方法是在每个时间步中，根据过往已计算的参数梯度，来为每个参数修改对应的学习率。能独立地适应所有模型参数的学习率，当参数损失偏导值比较大时，有一个较大的学习率；当参数的损失偏导值较小时，有一个较小的学习率。</p>
+<p>Adagrad方法的主要好处是，不需要手工来调整学习率。大多数参数使用了默认值0.01，且保持不变。</p>
+<p>Adagrad方法的主要缺点是，学习率总是在降低和衰减。</p>
+<p>因为每个附加项都是正的，在分母中累积了多个平方梯度值，故累积的总和在训练期间保持增长。这反过来又导致学习率下降，变为很小数量级的数字，该模型完全停止学习，停止获取新的额外知识。</p>
+<p>因为随着学习速度的越来越小，模型的学习能力迅速降低，而且收敛速度非常慢，需要很长的训练和学习，即学习速度降低。</p>
+<!--
+![Adagrad算法](/images/body/the-Basics01/Adagrad.png "Adagrad")
+-->
+<figure>
+<img data-src="pics01/Adagrad.png" title="Adagrad" alt="Adagrad算法" />
+<figcaption aria-hidden="true">Adagrad算法</figcaption>
+</figure>
+<h2 id="rmsprop">RMSProp</h2>
+<p>RMSProp 算法 (Hinton, 2012) 修改 AdaGrad
+以在非凸设定下效果更好，改变梯度积累为指数加权的移动平均。</p>
+<p>AdaGrad
+旨在应用于凸问题时快速收敛。当应用于非凸函数训练神经网络时，学习轨迹可能穿过了很多不同的结构，最终到达一个局部是凸碗的区域。
+AdaGrad
+根据平方梯度的整个历史收缩学习率，可能使得学习率在达到这样的凸结构前就变得太小了。</p>
+<p>RMSProp
+使用指数衰减平均以丢弃遥远过去的历史，使其能够在找到凸碗状结构后快速收敛，它就像一个初始化于该碗状结构的
+AdaGrad 算法实例。相比于 AdaGrad，使用移动平均引入了一个新的超参数 <span
+class="math inline">\(\rho\)</span>，用来控制移动平均的长度范围。经验上，RMSProp
+已被证明是一种有效且实用的深度神经网络优化算法，是深度学习从业者经常采用的优化方法之一。</p>
+<!--
+![RMSProp算法](/images/body/the-Basics01/RMSProp.png "RMSProp")
+-->
+<figure>
+<img data-src="pics01/RMSProp.png" title="RMSProp" alt="RMSProp算法" />
+<figcaption aria-hidden="true">RMSProp算法</figcaption>
+</figure>
+<!--
+![使用Nesterov动量的RMSProp算法](/images/body/the-Basics01/RMSProp-Nesterov.png "RMSProp Nesterov")
+-->
+<figure>
+<img data-src="pics01/RMSProp-Nesterov.png" title="RMSProp Nesterov"
+alt="使用Nesterov动量的RMSProp算法" />
+<figcaption
+aria-hidden="true">使用Nesterov动量的RMSProp算法</figcaption>
+</figure>
+<h2 id="adam">Adam</h2>
+<p>Adam (Kingma and Ba, 2014)
+是另一种学习率自适应的优化算法，它可以被看作结合 RMSProp
+和具有一些重要区别的动量的变种。</p>
+<p>首先，在 Adam
+中，动量直接并入了梯度一阶矩（指数加权）的估计。将动量加入 RMSProp
+最直观的方法是将动量应用于缩放后的梯度。结合缩放的动量使用没有明确的理论动机。</p>
+<p>其次， Adam
+包括偏置修正，修正从原点初始化的一阶矩（动量项）和（非中心的）二阶矩的估计。
+RMSProp 也采用了（非中心的）二阶矩估计，然而缺失了修正因子。因此，不像
+Adam，RMSProp 二阶矩估计可能在训练初期有很高的偏置。</p>
+<p>Adam
+通常被认为对超参数的选择相当鲁棒，尽管学习率有时需要自行从默认值修改。</p>
+<!--
+![Adam算法](/images/body/the-Basics01/Adam.png "Adam")
+-->
+<figure>
+<img data-src="pics01/Adam.png" title="Adam" alt="Adam算法" />
+<figcaption aria-hidden="true">Adam算法</figcaption>
+</figure>
+<h1 id="评估指标">评估指标</h1>
+<h2 id="分类指标">分类指标</h2>
+<p><strong>混淆矩阵（confusion
+matrix）</strong>是一个评估分类问题常用的工具，对于 k
+元分类，其实它就是一个 k*k
+的表格，用来记录分类器的预测结果。对于常见的二分类，它的混淆矩阵是 2*2
+的。</p>
+<p>在二分类问题中，可以将样例根据其真实类别和预测类别的组合划分为：</p>
+<ul>
+<li>真正例（true positive）TP</li>
+<li>假正例（false positive）FP</li>
+<li>真反例（true negative）TN</li>
+<li>假反例（false negative）FN</li>
+</ul>
+<p>显然 TP + FP + TN + FN = 样例总数。分类结果的混淆矩阵如下:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">真实情况</th>
+<th style="text-align: center;">预测</th>
+<th style="text-align: center;">结果</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">正例</td>
+<td style="text-align: center;">反例</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">正例</td>
+<td style="text-align: center;">TP(真正例)</td>
+<td style="text-align: center;">FN(假反例)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">反例</td>
+<td style="text-align: center;">FP(假正例)</td>
+<td style="text-align: center;">TN(真反例)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="准确率精度accuracy">准确率（精度，Accuracy）</h3>
+<p>精度Accurac是指模型预测正确（包括真正例TP、真反例TN）的样本数与总体样本数的占比，即：</p>
+<p><span class="math display">\[
+Accuracy = \frac{Count(correct)}{Count(total)}
+\]</span></p>
+<p>在二分类问题中：</p>
+<p><span class="math display">\[
+Accuracy = \frac{TP + TN}{TP + FP + FN + TN}
+\]</span></p>
+<p>准确率是分类问题中最简单直观的指标，但是在实际中应用不多。原因是：当样本标签分布不均衡时，比如：正样本占比99%，只要模型把所有样本都预测为正样本，则准确率达到99%，但是实际上模型根本没有预测能力。</p>
+<h3 id="查准率精确率precision">查准率（精确率，Precision）</h3>
+<p>查准率是从预测正例的角度出发（分子分母都是关于Positive）：</p>
+<p><span class="math display">\[
+Precision = \frac{TP}{TP + FP}
+\]</span></p>
+<p>假设我们用模型预测了一批西瓜，预测100个瓜为好瓜，其中60个为好瓜，40个坏瓜，则查准率就是60/100=60%.</p>
+<p>查准率评估了模型预测的正例中的精度--准确更重要。</p>
+<p>假设我们提高阈值，使得预测为正例的数量变少，预测精度更高，那么查准率就变得更高，因此单一查准率指标依然没法对模型性能进行准确评估。因为模型遗漏了大量正例，使得大量正例被误判为负例。</p>
+<h3 id="查全率召回率recall">查全率（召回率，Recall）</h3>
+<p>召回率从实际正例的角度出发（真正例、假反例）</p>
+<p><span class="math display">\[
+Recall = \frac{TP}{TP + FN}
+\]</span></p>
+<p>假设80个好瓜，模型预测出60个好瓜，20个好瓜未被正确预测，则查全率就是60/(60+20)=75%。</p>
+<p>召回率评估了针对正例样本，表示样本中的正例有多少被预测正确--少漏更重要，要全。</p>
+<p>假设我们降低阈值，就会使得预测为正例的样本数量增多，但查准率会降低。</p>
+<p>所以查准率和查全率的矛盾，跟阈值相关。</p>
+<h3 id="p-r曲线平衡点和f1衡量">P-R曲线、平衡点和F1衡量</h3>
+<h4 id="p-r曲线">P-R曲线</h4>
+<p>在上面分析查准率P，查全率R的时候，我们得到了不同阈值下对P、R的影响。那么当我们预测100的样本后（假设样本预测结果以概率形式输出），我们对样本结果进行排序，排在最前面（概率最大）的模型认为“最可能是”正例的样本，排在最后的是模型认为”最不可能“是正例的样本。按此顺序设置不同的阈值（阈值可以是排序后的概率值，或者固定划分点），在不同的阈值下，计算出当前阈值下的查准率P和查全率R。以查准率为纵轴，查全率为横轴作图，就可以得到查准率-查全率曲线，简称P-R曲线，显示改曲线的图称为”P-R图“。</p>
+<!--
+![P-R曲线与平衡点示意图](/images/body/the-Basics01/P-R-Curve.png "P-R Curve")
+-->
+<figure>
+<img data-src="pics01/P-R-Curve.png" title="P-R Curve"
+alt="P-R曲线与平衡点示意图" />
+<figcaption aria-hidden="true">P-R曲线与平衡点示意图</figcaption>
+</figure>
+<p>P-R图直观地显示出学习器在样本总体上的查全率，查准率。在进行比较时，<strong>若一个学习期的P-R曲线被另一个学习器完全”包住“，则可以断言后者的性能优于前者</strong>。例如图中，学习器A的性能优于学习器C；如果两个学习器的P-R曲线发生了交叉，例如图中的A和B，则难以一般性地断言两者优劣，只能在具体地查准率或者查全率条件下进行比较。</p>
+<p>然而，在很多情况下，人们往往仍然希望把A和B比出个高低。这时，一个比较合理地判断依据是<strong>比较P-R曲线下面积的大小（Area
+under curve
+P-R，AUC-PR）</strong>，它在一定程度上表征了学习器在查准率和查全率上取得相对”双高“的比例。但这个值不太容易估算，因此，人们设计了一些综合考虑查准率，查全率的性能度量，比如BEP度量，F1度量。</p>
+<h4 id="平衡点break-even-pointbep">平衡点（Break-Even-Point，BEP）</h4>
+<p>平衡点（Break-Even-Point），它是”查准率=查全率“时的取值，例如图1中的学习器C的BEP是0.64，基于BEP的比较，可认为A优于B。</p>
+<h4 id="f1度量">F1度量</h4>
+<p>BEP过于简单，这个平衡点是建立在”查准率=查全率“的前提下，无法满足实际不同场景的应用。我们引入加权调和平均
+<span class="math inline">\(F_\beta\)</span> ：</p>
+<p><span class="math display">\[
+\frac{1}{F_\beta} = \frac{1}{1 + \beta ^2}(\frac{1}{P} + \frac{\beta
+^2}{R})
+\]</span></p>
+<p>当 <span class="math inline">\(\beta = 1\)</span> 时，有 <span
+class="math inline">\(\frac{1}{F_1} = \frac{1}{2}(\frac{1}{P} +
+\frac{1}{R})\)</span>，即</p>
+<p><span class="math display">\[
+F_1 = \frac{2 * P * R}{P + R}
+\]</span></p>
+<p>在一些应用中，对查准率和查全率的重视程度不同。例如在商品推荐中，为了尽可能少打扰用户，更希望推荐的内容确实是用户感兴趣的，此时查准率更重要；而在罪犯信息检索或者病人检查系统中，更希望尽可能少的漏判，此时查全率更重要。F1度量的一般形式是
+<span
+class="math inline">\(F_\beta\)</span>，能让我们自定义对查准率/查全率的不同偏好：</p>
+<p><span class="math display">\[
+F_\beta = \frac{(1 + \beta ^2) * P * R}{(\beta ^2 * P) + R}
+\]</span></p>
+<p>其中，<span class="math inline">\(\beta &gt; 0\)</span>
+度量了查全率对查准率的相对重要性，<span class="math inline">\(\beta =
+1\)</span> 时退化为标准F1，<span class="math inline">\(\beta &gt;
+1\)</span> 时查全率有更大影响；<span class="math inline">\(\beta &lt;
+1\)</span> 时，查准率有更大影响。</p>
+<h4 id="多分类情况">多分类情况</h4>
+<p>很多时候我们有多个二分类混淆矩阵，例如进行多次训练/测试，每次得到一个混淆矩阵；或是在多个数据集上进行训练/测试，希望估计算法的全局性能；或者是执行分类任务，每两两类别的组合都对应一个混淆矩阵；总之是在n个二分类混淆矩阵上综合考察查准率和查全率。</p>
+<p>一种直接的做法是现在各个混淆矩阵上分别计算出查准率和查全率，记为(P1,R1)，(P2,R2),...(Pn,Rn)，在计算平均值，这样就得到“宏观查准率”(macro-P)，“宏观查全率”(macro-R)、“宏观F1”(macro-F1)：</p>
+<p><span class="math display">\[
+macroP = \frac{1}{n}\sum^n_{i = 1} P_i\\
+macroR = \frac{1}{n}\sum^n_{i = 1} R_i\\
+macroF1 = \frac{2 * macroP * macroR}{macroP + macroR}
+\]</span></p>
+<p>另一种方法可以将个混淆矩阵对应的元素进行平均，得到TP、FP、TN、FN的平均值，分别记为
+<span class="math inline">\(\overline{TP}\)</span>、<span
+class="math inline">\(\overline{FP}\)</span>、<span
+class="math inline">\(\overline{FN}\)</span>、<span
+class="math inline">\(\overline{TN}\)</span>，再基于这些平均值计算出“微观查准率”(micro-P)，“微观查全率”(micro-R)、“微观F1”(micro-F1)：</p>
+<p><span class="math display">\[
+microP = \frac{\overline{TP}}{\overline{TP} + \overline{FP}}\\
+microR = \frac{\overline{TP}}{\overline{TP} + \overline{FN}}\\
+microF1 = \frac{2 * microP * microR}{microP + microR}
+\]</span></p>
+<h3 id="roc与auc">ROC与AUC</h3>
+<p>根据上面混淆矩阵的一系列指标计算，可以发现，将样本预测为正例或者负例是与一个分类阈值相关的。若大于阈值则分为正类，否则为反类。</p>
+<p>实际上，根据概率预测结果，我们可以将测试样本进行排序，“最可能”是正例的排在最前面，“最不可能”是正例的排在最后面。这样，分类过程就相当于在这个排序中以某个“截断点”(cut
+point)将样本分为两部分，前一部分作为正例，后一部分作为反例。</p>
+<p>在不同的任务中，我们可以根据任务需求采用不同的阈值，若我们更重视查准率，则选择排序中靠前的位置，若更重视查全率，则可以选择靠后的位置进行截。因此，排序本身的好坏，提现了综合考虑学习器在不同任务下的“期望泛化性能”的好坏。ROC曲线则是从这个角度出发来研究学习器泛化性能的有效工具。</p>
+<p>ROC全称是“受试者工作特性”(Receiver Operating
+Characteristic)曲线。与上述介绍的P-R曲线相似，我们根据预测结果对样例进行排序，按此顺序逐个将样本预测结果作为阈值进行划分。之后计算两个指标：真正例率（True
+Positive Rate，简称TPR），假正例率（False Positive
+Rate，简称FPR），公式如下：</p>
+<p><span class="math display">\[
+TPR = \frac{TP}{TP + FN}\\
+FPR = \frac{FP}{FP + TN}
+\]</span></p>
+<p>以TPR为纵轴，FPR为横轴，得到ROC曲线。在现实任务中通常只有有限个样本来绘制ROC图，此时无法产生图a中光滑的曲线，只能绘制出图b所示的近似曲线。绘制过程如介绍公式时所描述的一样，对样本预测结果进行排序，然后取第一个结果作为阈值，此时所有样本均预测为反例，此时真正例率和假正例率均为0，在坐标(0,0)处标记一个点。随后将第二个样本预测结果作为阈值，得到坐标点，依次类推。</p>
+<!--
+![ROC曲线与AUC示意图](/images/body/the-Basics01/ROC-AUC.png "ROC AUC")
+-->
+<figure>
+<img data-src="pics01/ROC-AUC.png" title="ROC AUC"
+alt="ROC曲线与AUC示意图" />
+<figcaption aria-hidden="true">ROC曲线与AUC示意图</figcaption>
+</figure>
+<p>当要比较两个学习器的性能优劣时，与P-R曲线相似，若一个学习器的ROC曲线被另一个学习器的曲线完全“包住”，则可断言后者的性能优于前者；若两个学习器的ROC曲线发生交叉，则一般难以断言两者优劣。此时可以比较ROC曲线下的面积，即AUC(Area
+under ROC Curve)。</p>
+<p>很明显，AUC的结果不会超过 1，通常ROC曲线都在 y = x
+这条直线上面，所以，AUC的值一般在 0.5 ~ 1 之间。</p>
+<p>从定义可知，AUC可以通过对ROC曲线下各部分的面积求和而得。假定ROC曲线是由坐标{(x1,y1),(x2,y2)...}的点连接而成。AUC可估算为</p>
+<p><span class="math display">\[
+AUC = \frac{1}{2}\sum^{m - 1}_{i = 1}(x_{i + 1} - x_i)(y_i + y_{i + 1})
+\]</span></p>
+<h3 id="ks图kolomogorov-smirnov-chart">KS图（Kolomogorov Smirnov
+chart）</h3>
+<p>KS值是在模型中用于<strong>区分预测正负样本分隔程度的评价指标</strong>，一般应用于金融风控领域。如果将人口划分为两个独立的组，其中一组包含所有正例而另一组包含所有负例，则K-S值为100。</p>
+<p>与ROC曲线相似，ROC是以FPR作为横坐标，TPR作为纵坐标，通过改变不同阈值，从而得到ROC曲线。而在KS曲线中，则是以阈值作为横坐标，以FPR和TPR作为纵坐标，ks曲线则为TPR-FPR，ks曲线的最大值通常为ks值。</p>
+<p>为什么这样求KS值呢？我们知道，当阈值减小时，TPR和FPR会同时减小，当阈值增大时，TPR和FPR会同时增大。而在实际工程中，我们希望TPR更大一些，FPR更小一些，即TPR-FPR越大越好，即ks值越大越好。</p>
+<p>可以理解TPR是收益，FPR是代价，ks值是收益最大。图中绿色线是TPR、蓝色线是FPR。</p>
+<!--
+![KS](/images/body/the-Basics01/KS.jpg "KS")
+-->
+<figure>
+<img data-src="pics01/KS.jpg" title="KS" alt="KS" />
+<figcaption aria-hidden="true">KS</figcaption>
+</figure>
+<p>在实际应用中，比如风控模型中，往往单一指标并不能真正比较两个学习器之间的优劣，比如A学习器KS：40，B学习器KS：39。并不能保证A学习器一定比B学习器表现好，就像考试100的同学一定比99分的同学优秀一样。在实际中，通常结合单一指标（比如KS）和图表，综合判断模型在实际应用中，哪一个模型更加有优势。</p>
+<h2 id="回归指标">回归指标</h2>
+<h3
+id="均方误差mean-squared-errormse与均方根误差root-mean-squared-errorrmse">均方误差（Mean
+Squared Error，MSE）与均方根误差（Root Mean Squared Error，RMSE）</h3>
+<p>MSE计算的是拟合数据和原始数据对应样本点的误差的平方和的均值，其值越小说明拟合效果越好。</p>
+<p><span class="math display">\[
+MSE = \frac{1}{N}\sum^N_{i = 1}(y^2_i - \^y^2_i)
+\]</span></p>
+<p>由于MSE与我们的目标变量的量纲不一致，为了保证量纲一致性，我们需要对MSE进行开方，即均方根误差：</p>
+<p><span class="math display">\[
+RMSE = \sqrt{\frac{1}{N}\sum^N_{i = 1}(y^2_i - \^y^2_i)}
+\]</span></p>
+<p>以下是RMSE需要考虑的要点：</p>
+<ul>
+<li>“平方根”使该指标能够显示大的偏差。</li>
+<li>此度量标准的“平方”特性有助于提供更强大的结果，从而防止取消正负误差值。换句话说，该度量恰当地显示了错误的合理幅度。</li>
+<li>它避免使用绝对误差值，这在数学计算中是非常不希望的。</li>
+<li>当我们有更多样本时，使用RMSE重建误差分布被认为更可靠。</li>
+<li>RMSE受到异常值的影响很大。因此，请确保在使用此指标之前已从数据集中删除了异常值。</li>
+<li>与平均绝对误差( mean absolute
+error)相比，RMSE提供更高的权重并惩罚大的错误。</li>
+</ul>
+<h3 id="平均绝对误差mean-absolute-errormae">平均绝对误差（Mean Absolute
+Error，MAE）</h3>
+<p>和 MSE 一样，这种度量方法也是在不考虑方向的情况下衡量误差大小。但和
+MSE 的不同之处在于，MAE
+需要像线性规划这样更复杂的工具来计算梯度。此外，MAE
+对异常值更加稳健，因为它不使用平方。</p>
+<p><span class="math display">\[
+MAE = \frac{1}{N}\sum^N_{i = 1}\vert y_i - \^y_i\vert
+\]</span></p>
+<h3 id="决定系数-r方r-squarded">决定系数 R方（R-squarded）</h3>
+<p>判定系数，其含义是也是解释回归模型的方差得分，其值取值范围是[0,1]，越接近于1说明自变量越能解释因变量的方差变化，值越小则说明效果越差。又称为the
+coefficient of
+determination。判断的是预测模型和真实数据的拟合程度，最佳值为1，同时可为负值。如果结果是0，就说明我们的模型跟瞎猜差不多。如果结果是1。就说明我们模型无错误。如果结果是0-1之间的数，就是我们模型的好坏程度。如果结果是负数。说明我们的模型还不如瞎猜。</p>
+<p>R方可以理解为因变量y中的变异性能能够被估计的多元回归方程解释的比例，它衡量各个自变量对因变量变动的解释程度，<strong>其取值在0与1之间，其值越接近1，则变量的解释程度就越高，其值越接近0，其解释程度就越弱</strong>。</p>
+<p>一般来说，增加自变量的个数，回归平方和会增加，残差平方和会减少，所以R方会增大；反之，减少自变量的个数，回归平方和减少，残差平方和增加。为了消除自变量的数目的影响，引入了调整的R方。</p>
+<p><span class="math display">\[
+\begin{aligned}
+R^2 &amp; = 1- \frac{\sum^m_{i = 1}(f_i - y_i)^2}{\sum^m_{i =
+1}(\overline{y_i} - y_i)^2}\\
+&amp; = \frac{\frac{1}{m}\sum^m_{i = 1}(f_i -
+y_i)^2}{\frac{1}{m}\sum^m_{i = 1}(\overline{y_i} - y_i)^2}\\
+&amp; = 1 - \frac{MSE(f, y)}{Var(y)}
+\end{aligned}
+\]</span></p>
+<h3 id="对百分比误差mape">对百分比误差（MAPE）</h3>
+<p>MAPE（平均绝对百分比误差）MAPE 为0%表示完美模型，MAPE 大于 100
+%则表示劣质模型。</p>
+<p>MAPE是衡量预测准确性的统计指标，是百分比值，一般认为MAPE小于10时，预测精度较高</p>
+<p>如果存在某个实际值At为0，那么MAPE则无法进行计算；</p>
+<p><span class="math display">\[
+MAPE = \frac{100\sum^n_{i = 1}\vert\frac{y_i - y&#39;_i}{y_i}\vert}{n}
+\]</span></p>
+<h1 id="归一化">归一化</h1>
+<p>不同评价指标（即特征向量中的不同特征就是所述的不同评价指标）往往具有不同的量纲和量纲单位，这样的情况会影响到数据分析的结果，</p>
+<p>为了消除指标之间的量纲影响，需要进行数据标准化处理，以解决数据指标之间的可比性。原始数据经过数据标准化处理后，各指标处于同一数量级，适合进行综合对比评价。其中，最典型的就是数据的归一化处理。</p>
+<p>简而言之，归一化的目的就是使得预处理的数据被限定在一定的范围内（比如[0,1]或者[-1,1]），从而消除奇异样本数据导致的不良影响。</p>
+<blockquote>
+<p>奇异样本数据是指相对于其他输入样本特别大或特别小的样本矢量（即特征向量）</p>
+</blockquote>
+<p>奇异样本数据的存在会引起训练时间增大，同时也可能导致无法收敛，因此，当存在奇异样本数据时，在进行训练之前需要对预处理数据进行归一化；反之，不存在奇异样本数据时，则可以不进行归一化。</p>
+<h2 id="归一化的好处">归一化的好处</h2>
+<ol type="1">
+<li>归一化后加快了梯度下降求最优解的速度，也即加快训练网络的收敛性；</li>
+<li>归一化有可能提高精度</li>
+</ol>
+<h2 id="归一化的方法">归一化的方法</h2>
+<h3 id="最大最小标准化min-max-normalization">最大最小标准化（Min-Max
+Normalization）</h3>
+<p><span class="math display">\[
+x&#39; = \frac{x - \min{(x)}}{\max{(x)} - \min{(x)}}
+\]</span></p>
+<ol type="1">
+<li><p>线性函数将原始数据线性化的方法转换到[0 1]的范围,
+计算结果为归一化后的数据，X为原始数据；</p></li>
+<li><p>本归一化方法比较适用在数值比较集中的情况；</p></li>
+<li><p>缺陷：如果max和min不稳定，很容易使得归一化结果不稳定，使得后续使用效果也不稳定。实际使用中可以用经验常量来替代max和min。</p></li>
+</ol>
+<p><strong>应用场景</strong>：在不涉及距离度量、协方差计算、数据不符合正态分布的时候，如图像处理中，将RGB图像转换为灰度图像后将其值限定在[0
+255]的范围。</p>
+<h3 id="z-score标准化">z-score标准化</h3>
+<p><span class="math display">\[
+x^* = \frac{x - \mu}{\sigma}
+\]</span></p>
+<p>其中，<span class="math inline">\(\mu\)</span>、<span
+class="math inline">\(\sigma\)</span> 分别为原始数据集的均值和方差。</p>
+<ol type="1">
+<li><p>将原始数据集归一化为均值为0、方差1的数据集。</p></li>
+<li><p>该种归一化方式要求原始数据的分布可以近似为高斯分布，否则归一化的效果会变得很糟糕。</p></li>
+</ol>
+<p>应用场景：在分类、聚类算法中，需要使用距离来度量相似性的时候、或者使用PCA技术进行降维的时候，Z-score
+standardization表现更好。</p>
+<h3 id="神经网络归一化">神经网络归一化</h3>
+<p>本归一化方法经常用在数据分化比较大的场景，有些数值很大，有些很小。通过一些数学函数，将原始值进行映射。</p>
+<p>该方法包括对数、正切等，需要根据数据分布的情况，决定非线性函数的曲线：</p>
+<h4 id="对数函数归一化">对数函数归一化</h4>
+<p><span class="math display">\[
+y = \log_{10}(x)
+\]</span></p>
+<p>以10为底的对数转换函数，对应的归一化方法为：</p>
+<p><span class="math display">\[
+x&#39; = \frac{\log_{10}(x)}{\log_{10}(max)}
+\]</span></p>
+<p>其中max表示样本数据的最大值，并且所有样本数据均要大于等于1.</p>
+<h4 id="反正切函数归一化">反正切函数归一化</h4>
+<p><span class="math display">\[
+x&#39; = \frac{2}{\pi}\arctan(x)
+\]</span></p>
+<p>使用这个方法需要注意的是如果想映射的区间为[0，1]，则数据都应该大于等于0，小于0的数据将被映射到[－1，0]区间上.</p>
+<h3 id="l2范数归一化">L2范数归一化</h3>
+<p>特征向量中每个元素均除以向量的L2范数：</p>
+<p><span class="math display">\[
+x&#39;_i = \frac{x_i}{norm(x)}
+\]</span></p>
+<h2 id="什么时候使用归一化">什么时候使用归一化</h2>
+<ol type="1">
+<li><p>如果对输出结果范围有要求，用归一化。</p></li>
+<li><p>如果数据较为稳定，不存在极端的最大最小值，用归一化。</p></li>
+<li><p>如果数据存在异常值和较多噪音，用标准化，可以间接通过中心化避免异常值和极端值的影响。</p></li>
+</ol>
+<blockquote>
+<p><strong>归一化与标准化不同</strong></p>
+</blockquote>
+<h3 id="标准化归一化的对比分析">标准化/归一化的对比分析</h3>
+<p>首先明确，在机器学习中，标准化是更常用的手段，归一化的应用场景是有限的。原因有两点：</p>
+<ol type="1">
+<li>标准化更好保持了样本间距。当样本中有异常点时，归一化有可能将正常的样本“挤”到一起去。比如三个样本，某个特征的值为1,2,10000，假设10000这个值是异常值，用归一化的方法后，正常的1,2就会被“挤”到一起去。如果不幸的是1和2的分类标签还是相反的，那么，当我们用梯度下降来做分类模型训练时，模型会需要更长的时间收敛，因为将样本分开需要更大的努力！而标准化在这方面就做得很好，至少它不会将样本“挤到一起”。</li>
+<li>标准化更符合统计学假设对一个数值特征来说，很大可能它是服从正态分布的。标准化其实是基于这个隐含假设，只不过是略施小技，将这个正态分布调整为均值为0，方差为1的标准正态分布而已。</li>
+</ol>
+<h1 id="dropout">Dropout</h1>
+<p>想要提高CNN的表达或分类能力，最直接的方法就是采用更深的网络和更多的神经元，即deeper
+and
+wider。但是，复杂的网络也意味着更加容易过拟合。于是就有了Dropout，大部分实验表明其具有一定的防止过拟合的能力。</p>
+<h2 id="最初的dropout">最初的Dropout</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvcGRmLzEyMDcuMDU4MC5wZGY=">Improving neural
+networks by preventing co-adaptation of feature Detectors<i class="fa fa-external-link-alt"></i></span></p>
+<!--
+![Dropout](/images/body/the-Basics01/Dropout.jpg "Dropout")
+-->
+<figure>
+<img data-src="pics01/Dropout.jpg" title="Dropout" alt="Dropout" />
+<figcaption aria-hidden="true">Dropout</figcaption>
+</figure>
+<p>如上图左，为没有Dropout的普通2层全连接结构，记为 <span
+class="math inline">\(r = a(Wv)\)</span> ，其中 <span
+class="math inline">\(a\)</span> 为激活函数。</p>
+<p>如上图右，为在第2层全连接后添加Dropout层的示意图。即在模型训练时，随机让网络的某些节点不工作（输出置0），其它过程不变。</p>
+<p>由于随机的让一些节点不工作了，因此可以避免某些特征只在固定组合下才生效，有意识地让网络去学习一些普遍的共性（而不是某些训练样本的一些特性）。</p>
+<p>Bagging方法通过对训练数据有放回的采样来训练多个模型。而Dropout的随机意味着每次训练时只训练了一部分，而且其中大部分参数还是共享的，因此和Bagging有点相似。因此，Dropout可以看做训练了多个模型，实际使用时采用了模型平均作为输出。</p>
+<p>训练时，我们通常设定一个dropout ratio <span
+class="math inline">\(p\)</span>，即每一个输出节点以概率 <span
+class="math inline">\(p\)</span>
+置0(不工作)。假设每一个输出都是相互独立的，每个输出都服从二项伯努利分布
+<span class="math inline">\(B(1 - p)\)</span>，则大约认为训练时只使用了
+<span class="math inline">\((1-p)\)</span> 比例的输出。</p>
+<p>测试时，最直接的方法就是保留Dropout层的同时，将一张图片重复测试 M
+次，取 M 次结果的平均作为最终结果。假如有 N 个节点，则可能的情况为 <span
+class="math inline">\(R = 2^N\)</span>，如果 M 远小于
+R，则显然平均效果不好；如果M ≈
+N，那么计算量就太大了。因此作者做了一个近似：可以直接去掉Dropout层，将所有输出都使用起来，为此需要将尺度对齐，即比例缩小输出
+$ r = r * (1 - p)$。即如下公式：</p>
+<p><span class="math display">\[
+E_M[a(M * W)v] \approx a(E_M[(M * W)v]) = a((1 - p)Wv)
+\]</span></p>
+<p>特别的，
+为了使用方便，我们不在测试时再缩小输出，而在训练时直接将输出放大1/(1-p)倍。</p>
+<p>Dropout得到了广泛的使用，但具体用到哪里、训练一开始就用还是后面才用、dropout_ratio取多大，还要自己多多尝试。有时添加Dropout反而会降低性能。</p>
+<h2 id="dropconnect">DropConnect</h2>
+<p><span class="exturl" data-url="aHR0cDovL2NzLm55dS5lZHUvfndhbmxpL2Ryb3BjLw==">Regularization of Neural
+Networks using DropConnect<i class="fa fa-external-link-alt"></i></span></p>
+<!--
+![Dropout-DropConnect](/images/body/the-Basics01/Dropout-DropConnect.jpg "Dropout-DropConnect")
+-->
+<figure>
+<img data-src="pics01/Dropout-DropConnect.jpg" title="Dropout-DropConnect"
+alt="Dropout-DropConnect" />
+<figcaption aria-hidden="true">Dropout-DropConnect</figcaption>
+</figure>
+<p>由图可知，DropConnect与Dropout的区别很明显：Dropout是将输出随机置0，而DropConnect是将权重随机置0。
+文章说之所以这么干是因为原来的Dropout进行的不够充分，随机采样不够合理。这可以从下图进行理
+解：</p>
+<!--
+![DropConnect](/images/body/the-Basics01/DropConnect.jpg "DropConnect")
+-->
+<figure>
+<img data-src="pics01/DropConnect.jpg" title="DropConnect"
+alt="DropConnect" />
+<figcaption aria-hidden="true">DropConnect</figcaption>
+</figure>
+<p>如上图所示，a表示不加任何Drop时的一层网络模型。添加Drop相当于给权重再乘以一个随机掩膜矩阵
+<span class="math inline">\(M\)</span>。</p>
+<p><span class="math display">\[
+r = a(Wv)\ \ \ No-Drop\\
+r = a((M\ldotp\times W)v)\ \ \ Drop\\
+M_{ij}\sim Bernoulli(p)
+\]</span></p>
+<p>不同的是，DropConnect由于直接对权重随机置0，因此其掩膜显得更加具有随机性，如b所示。而Dropout仅对输出进行随机置0,因此其掩膜相当于是对随机的行和列进行置0，如c所示。</p>
+<p>训练的时候，训练过程与Dropout基本相同。测试的时候，我们同样需要一种近似的方法。</p>
+<p><span class="math display">\[
+r = a((M\ldotp\times W)v)\\
+r_i = a(u_i)\\
+u_i = \sum_j(W_{ij}v_j)M_{ij} \sim \mathcal{N}(\mu, \sigma^2)\\
+\mu = pWv\\
+\sigma = p(1 - p)(W \ast W)(v \ast v)
+\]</span></p>
+<p>注意： 掩膜矩阵M的每一个元素都满足二项伯努利分布。假如M的维度为 <span
+class="math inline">\(m\ast n\)</span>，则可能的掩膜有 <span
+class="math inline">\(2^{m + n}\)</span>
+种，之前提到过我们可以粗暴的遍历所有的掩膜然后计算结果最后求平均。中心极限定理：和分布渐进于正态分布。
+于是，我们可以不去遍历，而是通过计算每一维的均值与方差，确定每一维的正态分布，最后在此正态分布上做多次采样后求平均即可获得最终的近似结果。</p>
+<p>具体测试时的算法流程如下：</p>
+<!--
+![DropConnect算法](/images/body/the-Basics01/DropConnect-A.jpg "DropConnect Algorithm")
+-->
+<figure>
+<img data-src="pics01/DropConnect-A.jpg" title="DropConnect Algorithm"
+alt="DropConnect算法" />
+<figcaption aria-hidden="true">DropConnect算法</figcaption>
+</figure>
+<p>其中，Z是在正态分布上的采样次数，一般来说越大越好，但会使得计算变慢。</p>
+<p>实验：
+作者当然要做很多对比试验，但其实发现效果并不比Dropout优秀太多，反而计算量要大很多，因此到目前DropConnect并没有得到广泛的应用。具体的对比，可以参看原文，这里贴一张图来说明对于Drop
+ratio的看法：</p>
+<!--
+![DropConnect实验结果](/images/body/the-Basics01/DropConnect-figure.jpg "DropConnect figure")
+-->
+<figure>
+<img data-src="pics01/DropConnect-figure.jpg" title="DropConnect figure"
+alt="DropConnect实验结果" />
+<figcaption aria-hidden="true">DropConnect实验结果</figcaption>
+</figure>
+<p>由此可以看出，drop ratio并不是越大越好，具体需要多做实验体会。</p>
+<h1 id="激活函数">激活函数</h1>
+<p>神经网络中的每个神经元节点接受上一层神经元的输出值作为本神经元的输入值，并将输入值传递给下一层，输入层神经元节点会将输入属性值直接传递给下一层（隐层或输出层）。在多层神经网络中，上层节点的输出和下层节点的输入之间具有一个函数关系，这个函数称为激活函数。</p>
+<p>不使用激活函数的话，神经网络的每层都只是做线性变换，多层输入叠加后也还是线性变换。因为线性模型的表达能力通常不够，所以这时候就体现了激活函数的作用了，<strong>激活函数可以引入非线性因素</strong>。</p>
+<!--
+![不使用激活函数的神经网络](/images/body/the-Basics01/NN-no-activation-function.png "NN without activation function")
+-->
+<figure>
+<img data-src="pics01/NN-no-activation-function.png"
+title="NN without activation function" alt="不使用激活函数的神经网络" />
+<figcaption aria-hidden="true">不使用激活函数的神经网络</figcaption>
+</figure>
+<!--
+![使用激活函数的神经网络](/images/body/the-Basics01/NN-with-activation-function.png "NN with activation function")
+-->
+<figure>
+<img data-src="pics01/NN-with-activation-function.png"
+title="NN with activation function" alt="使用激活函数的神经网络" />
+<figcaption aria-hidden="true">使用激活函数的神经网络</figcaption>
+</figure>
+<p>加入非线性激励函数后，神经网络就有可能学习到滑的曲线来分割面，而不是用复杂的线性组合逼滑曲线来分割面，使神经网络的表示能力更强了，能够更好的拟合目标函数。</p>
+<p>sigmoid和tanh是“饱和激活函数”，而ReLU及其变体则是“非饱和激活函数”。使用“非饱和激活函数”的优势在于两点：</p>
+<ol type="1">
+<li>"非饱和激活函数”能解决所谓的“梯度消失”问题。</li>
+<li>它能加快收敛速度。</li>
+</ol>
+<h2 id="饱和激活函数">饱和激活函数</h2>
+<p>假设 <span class="math inline">\(h(x)\)</span> 是一个激活函数， -
+若当n趋向于正无穷，激活函数的导数趋近于0，那么我们称之为<strong>右饱和</strong></p>
+<p><span class="math display">\[
+\lim\limits_{n\to + \infty}h&#39;(x) = 0
+\]</span></p>
+<ul>
+<li>若当n趋向于负无穷，激活函数的导数趋近于0，那么我们称之为<strong>左饱和</strong></li>
+</ul>
+<p><span class="math display">\[
+\lim\limits_{n\to - \infty}h&#39;(x) = 0
+\]</span></p>
+<p>当函数既满足左饱和也满足右饱和时，我们称之为饱和。典型的函数有Sigmoid、Tanh函数。</p>
+<h3 id="sigmoid">Sigmoid</h3>
+<p><span class="math display">\[
+Sigmoid(x) = \frac{1}{1 + e^{- x}}
+\]</span></p>
+<!--
+![Sigmoid函数图像](/images/body/the-Basics01/Sigmoid.png "Sigmoid")
+-->
+<figure>
+<img data-src="pics01/Sigmoid.png" title="Sigmoid" alt="Sigmoid函数图像" />
+<figcaption aria-hidden="true">Sigmoid函数图像</figcaption>
+</figure>
+<!--
+![Sigmoid导函数图像](/images/body/the-Basics01/dSigmoid.png "dSigmoid")
+-->
+<figure>
+<img data-src="pics01/dSigmoid.png" title="dSigmoid"
+alt="Sigmoid导函数图像" />
+<figcaption aria-hidden="true">Sigmoid导函数图像</figcaption>
+</figure>
+<p>Sigmoid函数在历史上曾经非常的常用，输出值范围为[0,1]之间的实数。但是现在它已经不太受欢迎，实际中很少使用。原因是sigmoid存在3个问题：</p>
+<ol type="1">
+<li>sigmoid函数饱和使梯度消失(Sigmoidsaturate and kill
+gradients)。我们从导函数图像中可以看出sigmoid的导数都是小于0.25的，那么在进行反向传播的时候，梯度相乘结果会慢慢的趋于0导致梯度消失。除此之外，为了防止饱和，必须对于权重矩阵的初始化特别留意。如果初始化权重过大，可能很多神经元得到一个比较小的梯度，致使神经元不能很好的更新权重提前饱和，神经网络就几乎不学习。</li>
+<li>sigmoid函数输出不是“零为中心”(zero-centered)。一个多层的sigmoid神经网络，如果你的输入x都是正数，那么在反向传播中w的梯度传播到网络的某一处时，权值的变化是要么全正要么全负。</li>
+<li>指数函数的计算是比较消耗计算资源的。</li>
+</ol>
+<h3 id="tanh">Tanh</h3>
+<p>实际上，tanh是sigmoid的变形。</p>
+<p><span class="math display">\[
+\begin{aligned}
+Tanh(x) &amp; = 2 Sigmoid(2x) - 1\\
+&amp; = \frac{1 - e^{-2x}}{1 + e^{-2x}}
+\end{aligned}
+\]</span></p>
+<!--
+![Tanh函数图像](/images/body/the-Basics01/Tanh.png "Tanh")
+-->
+<figure>
+<img data-src="pics01/Tanh.png" title="Tanh" alt="Tanh函数图像" />
+<figcaption aria-hidden="true">Tanh函数图像</figcaption>
+</figure>
+<p>tanh与sigmoid不同的是，tanh是“零为中心”的。因此，实际应用中，tanh会比sigmoid更好一些。但是在饱和神经元的情况下，tanh还是没有解决梯度消失问题。</p>
+<p>优点：tanh解决了sigmoid的输出非“零为中心”的问题</p>
+<p>缺点：依然有sigmoid函数过饱和的问题，且依然进行的是指数运算</p>
+<h2 id="非饱和激活函数">非饱和激活函数</h2>
+<h3 id="relu">ReLU</h3>
+<p>近年来，ReLU函数变得越来越受欢迎。全称是Rectified Linear
+Unit，修正线性单元。ReLU是Krizhevsky、Hinton等人在2012年《ImageNet
+Classification with Deep Convolutional Neural
+Networks》论文中提出的一种线性且不饱和的激活函数。</p>
+<p><span class="math display">\[
+ReLU(x) = \max(0, x)
+\]</span></p>
+<!--
+![ReLU函数图像](/images/body/the-Basics01/ReLU.png "ReLU")
+-->
+<figure>
+<img data-src="pics01/ReLU.png" title="ReLU" alt="ReLU函数图像" />
+<figcaption aria-hidden="true">ReLU函数图像</figcaption>
+</figure>
+<p>优点：</p>
+<ol type="1">
+<li>ReLU解决了梯度消失的问题，至少x在正区间内，神经元不会饱和；</li>
+<li>由于ReLU线性、非饱和的形式，在SGD中能够快速收敛；</li>
+<li>运算速度要快很多。ReLU函数只有线性关系，不需要指数计算，不管在前向传播还是反向传播，计算速度都比sigmoid和tanh快</li>
+</ol>
+<p>缺点：</p>
+<ol type="1">
+<li>ReLU的输出不是“零为中心”(Notzero-centered output)。</li>
+<li>随着训练的进行，可能会出现神经元死亡，权重无法更新的情况。这种神经元的死亡是不可逆转的死亡</li>
+</ol>
+<p>训练神经网络的时候，一旦学习率没有设置好，第一次更新权重的时候，输入是负值，那么这个含有ReLU的神经节点就会死亡，再也不会被激活。设置一个合适的较小的学习率，会降低这种情况的发生。</p>
+<p>为了解决神经元节点死亡的情况，有人提出了Leaky
+ReLU、P-ReLu、R-ReLU、ELU等激活函数。</p>
+<h3 id="leaky-relu">Leaky ReLU</h3>
+<p>ReLU是将所有的负值设置为0，造成神经元节点死亡情况。相反，Leaky
+ReLU是给所有负值赋予一个非零的斜率。Leaky
+ReLU激活函数是在声学模型(2013)中首次提出来的。</p>
+<p><span class="math display">\[
+LeakyReLU(x) = \begin{cases}x,\ if\ x \geq 0\\
+                            \alpha x,\ if\ x &lt; 0
+               \end{cases}
+\]</span></p>
+<!--
+![Leaky ReLU函数图像](/images/body/the-Basics01/Leaky-ReLU.png "Leaky ReLU")
+-->
+<figure>
+<img data-src="pics01/Leaky-ReLU.png" title="Leaky ReLU"
+alt="Leaky ReLU函数图像" />
+<figcaption aria-hidden="true">Leaky ReLU函数图像</figcaption>
+</figure>
+<p>优点：</p>
+<ol type="1">
+<li>神经元不会出现死亡的情况。</li>
+<li>对于所有的输入，不管是大于等于0还是小于0，神经元不会饱和。</li>
+<li>由于Leaky ReLU线性、非饱和的形式，在SGD中能够快速收敛。</li>
+<li>计算速度要快很多。Leaky
+ReLU函数只有线性关系，不需要指数计算，不管在前向传播还是反向传播，计算速度都比sigmoid和tanh快。</li>
+</ol>
+<p>缺点：Leaky ReLU函数中的参数 <span
+class="math inline">\(\alpha\)</span>，需要通过先验知识人工赋值。</p>
+<p>Leaky ReLU很好地解决了“dead ReLU”的问题。因为Leaky
+ReLU保留了x小于0时的梯度，在x小于0时，不会出现神经元死亡的问题。对于Leaky
+ReLU给出了一个很小的负数梯度值α，这个值是很小的常数。比如：0.01。这样即修正了数据分布，又保留了一些负轴的值，使得负轴信息不会全部丢失。</p>
+<h3 id="rrelu">RReLU</h3>
+<p>RReLU的英文全称是“Randomized Leaky
+ReLU”，中文名字叫“随机修正线性单元”。RReLU是Leaky ReLU的随机版本。</p>
+<p><span class="math display">\[
+y_{ji} = \begin{cases}x_{ji},\ if\ x_{ji} \geq 0\\
+                            \alpha_{ji} x_{ji},\ if\ x_{ji} &lt; 0
+               \end{cases}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\alpha_{ji} \sim U(l, u),\ l &lt; u\ and\ l,\ u \in [0, 1)
+\]</span></p>
+<p><!--
+![RReLU函数图像](/images/body/the-Basics01/RReLU.png "RReLU")
+--></p>
+<figure>
+<img data-src="pics01/RReLU.png" title="RReLU" alt="RReLU函数图像" />
+<figcaption aria-hidden="true">RReLU函数图像</figcaption>
+</figure>
+<p>RReLU的核心思想是，在训练过程中，<span
+class="math inline">\(\alpha\)</span> 是从一个高斯分布 <span
+class="math inline">\(U(l, u)\)</span>
+中随机出来的值，然后再在测试过程中进行修正。在测试阶段，把训练过程中所有的
+<span class="math inline">\(\alpha_{ij}\)</span> 取个平均值。</p>
+<ol type="1">
+<li><p>RReLU是Leaky
+ReLU的random版本，在训练过程中，α是从一个高斯分布中随机出来的，然后再测试过程中进行修正。</p></li>
+<li><p>数学形式与PReLU类似，但RReLU是一种非确定性激活函数，其参数是随机的</p></li>
+</ol>
+<h3 id="elu">ELU</h3>
+<p>ELU的英文全称是“Exponential Linear
+Units”，中文全称是“指数线性单元”。它试图将激活函数的输出<em>均值接</em>零，从而加快学习速度。同时，它还能通过正值的标识来避免梯度消失的问题。根据一些研究显示，ELU分类精确度是高于ReLU的。</p>
+<p><span class="math display">\[
+ELU(x) = \begin{cases}x,\ if\ x &gt; 0\\
+                \alpha(e^x - 1),\ if\ x \leq 0
+               \end{cases}
+\]</span></p>
+<p><!--
+![ReLU及其变种对比](/images/body/the-Basics01/contrast.png "contrast")
+--></p>
+<figure>
+<img data-src="pics01/contrast.png" title="contrast"
+alt="ReLU及其变种对比" />
+<figcaption aria-hidden="true">ReLU及其变种对比</figcaption>
+</figure>
+<p>优点：</p>
+<ol type="1">
+<li>ELU包含了ReLU的所有优点。</li>
+<li>神经元不会出现死亡的情况。</li>
+<li>ELU激活函数的输出均值是接*于零的。</li>
+</ol>
+<p>缺点：计算的时候是需要计算指数的，存在计算效率低的问题。</p>
+<h3 id="maxout">Maxout</h3>
+<p>Maxout “Neuron”
+是由Goodfellow等人在2013年提出的一种很有特点的神经元，它的激活函数、计算的变量、计算方式和普通的神经元完全不同，并有两组权重。先得到两个超平面，再进行最大值计算。激活函数是对ReLU和Leaky
+ReLU的一般化归纳，没有ReLU函数的缺点，不会出现激活函数饱和神经元死亡的情况。Maxout出现在ICML2013上，作者Goodfellow将maxout和dropout结合，称在MNIST，CIFAR-10，CIFAR-100，SVHN这4个数据集上都取得了start-of-art的识别率。</p>
+<p><span class="math display">\[
+f_i(x) = \max_{j\in [1, k]}z_{ij}
+\]</span></p>
+<p>其中，<span class="math inline">\(z_{ij} = x^TW_{\ldots ij} +
+b_{ij}\)</span>，假设 <span class="math inline">\(W\)</span>
+是二维的，那么我们有</p>
+<p><span class="math display">\[
+f(x) = \max(w^T_1x + b_1, w^T_2x + b_2)
+\]</span></p>
+<p>Maxout的拟合能力非常强，它可以拟合任意的凸函数。Goodfellow在论文中从数学的角度上也证明了这个结论，只需要2个Maxout节点就可以拟合任意的凸函数，前提是“隐含层”节点的个数足够多。</p>
+<p>优点：</p>
+<ol type="1">
+<li>Maxout具有ReLU的所有优点，线性、不饱和性。</li>
+<li>同时没有ReLU的一些缺点。如：神经元的死亡。</li>
+</ol>
+<p>缺点：从这个激活函数的公式中可以看出，每个neuron将有两组 <span
+class="math inline">\(w\)</span>，那么参数就增加了一倍。这就导致了整体参数的数量激增。</p>
+<h2 id="如何选择合适的激活函数">如何选择合适的激活函数?</h2>
+<p>在实践过程中更多还是需要结合实际情况，考虑不同激活函数的优缺点综合使用。</p>
+<ol type="1">
+<li><p>通常来说，不能把各种激活函数串起来在一个网络中使用。</p></li>
+<li><p>如果使用ReLU，那么一定要小心设置学习率(learning
+rate)，并且要注意不要让网络中出现很多死亡神经元。如果死亡神经元过多的问题不好解决，可以试试Leaky
+ReLU、PReLU、或者Maxout。</p></li>
+<li><p>尽量不要使用sigmoid激活函数，可以试试tanh，不过还是建议非饱和激活函数。</p></li>
+</ol>
+<h1 id="损失函数">损失函数</h1>
+<p>损失函数使用主要是在模型的训练阶段，每个批次的训练数据送入模型后，通过前向传播输出预测值，然后损失函数会计算出预测值和真实值之间的差异值，也就是损失值。得到损失值之后，模型通过反向传播去更新各个参数，来降低真实值与预测值之间的损失，使得模型生成的预测值往真实值方向靠拢，从而达到学习的目的。</p>
+<h2 id="基于距离度量的损失函数">基于距离度量的损失函数</h2>
+<h3 id="msel1l2">MSE、L1、L2</h3>
+<p>见<a href="#mse">相应部分</a>。</p>
+<h3 id="smooth-l1损失函数">Smooth L1损失函数</h3>
+<p>Smooth L1损失是由Girshick R在Fast
+R-CNN中提出的，主要用在目标检测中防止梯度爆炸。</p>
+<p><span class="math display">\[
+L(Y|f(x)) = \begin{cases}\frac{1}{2}(Y - f(x))^2,\ if\ \vert Y -
+f(x)\vert &lt; 1\\
+                \vert Y - f(x)\vert - \frac{1}{2},\ if\ x\vert Y -
+f(x)\vert \geq 1
+               \end{cases}
+\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def Smooth_L1(x,y):</span><br><span class="line">    assert len(x)==len(y)</span><br><span class="line">    loss=0</span><br><span class="line">    for i_x,i_y in zip(x,y):</span><br><span class="line">        tmp = abs(i_y-i_x)</span><br><span class="line">        if tmp&lt;1:</span><br><span class="line">            loss+=0.5*(tmp**2)</span><br><span class="line">        else:</span><br><span class="line">            loss+=tmp-0.5</span><br><span class="line">    return loss</span><br></pre></td></tr></table></figure>
+<h3 id="huber损失函数">Huber损失函数</h3>
+<p>huber损失是平方损失和绝对损失的综合，它克服了平方损失和绝对损失的缺点，不仅使损失函数具有连续的导数，而且利用MSE梯度随误差减小的特性，可取得更精确的最小值。尽管huber损失对异常点具有更好的鲁棒性，但是，它不仅引入了额外的参数，而且选择合适的参数比较困难，这也增加了训练和调试的工作量。</p>
+<p><span class="math display">\[
+L(Y|f(x)) = \begin{cases}\frac{1}{2}(Y - f(x))^2,\ if\ \vert Y -
+f(x)\vert \leq \delta\\
+                \delta\vert Y - f(x)\vert - \frac{1}{2}\delta^2,\ if\
+x\vert Y - f(x)\vert &gt; \delta
+               \end{cases}
+\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">delta=1.0  # 先定义超参数</span><br><span class="line"></span><br><span class="line">def huber_loss(x,y):</span><br><span class="line">    assert len(x)==len(y)</span><br><span class="line">    loss=0</span><br><span class="line">    for i_x,i_y in zip(x,y):</span><br><span class="line">        tmp = abs(i_y-i_x)</span><br><span class="line">        if tmp&lt;=delta:</span><br><span class="line">            loss+=0.5*(tmp**2)</span><br><span class="line">        else:</span><br><span class="line">            loss+=tmp*delta-0.5*delta**2</span><br><span class="line">    return loss</span><br></pre></td></tr></table></figure>
+<h3 id="log-cosh损失函数">Log-Cosh损失函数</h3>
+<p>Log-Cosh是应用于回归任务中的另一种损失函数，它比L2损失更平滑。Log-cosh是预测误差的双曲余弦的对数。</p>
+<p>log-cosh损失函数比均方损失函数更加光滑，具有huber损失函数的所有优点，且二阶可导。因此可以使用牛顿法来优化计算，但是在误差很大情况下，一阶梯度和Hessian会变成定值，导致牛顿法失效。</p>
+<p><span class="math display">\[
+L(y, y^p) = \sum^n_{i = 1}\log(\cosh(y^p_i - y_i))
+\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># log cosh 损失</span><br><span class="line">def logcosh(true, pred):</span><br><span class="line">    loss = np.log(np.cosh(pred - true))return np.sum(loss)</span><br></pre></td></tr></table></figure>
+<h3 id="分位数损失函数">分位数损失函数</h3>
+<p>预测的是目标的取值范围而不是值。<span
+class="math inline">\(\gamma\)</span>
+是所需的分位数，其值介于0和1之间，<span
+class="math inline">\(\gamma\)</span> 等于0.5时，相当于MAE。 设置多个
+<span class="math inline">\(\gamma\)</span>
+值，得到多个预测模型，然后绘制成图表，即可知道预测范围及对应概率(两个
+<span class="math inline">\(\gamma\)</span> 值相减)</p>
+<p><span class="math display">\[
+L_\gamma(y, y^p) = \sum_{i = y_i &lt; y^p_i}(\gamma - 1)\ldotp\vert y_i
+- y^p_i\vert + \sum_{i = y_i\geq y^p_i}(\gamma)\ldotp\vert y_i -
+y^p_i\vert
+\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def quantile_loss(y_pred, y_true, r=0.5):</span><br><span class="line">    greater_mask = K.cast((y_true &lt;= y_pred), &#x27;float32&#x27;)</span><br><span class="line">    smaller_mask = K.cast((y_true &gt; y_pred), &#x27;float32&#x27;)</span><br><span class="line">    loss = K.sum((r-1)*K.abs(smaller_mask*(y_true-y_pred)), -1) +\</span><br><span class="line">           K.sum(r*K.abs(greater_mask*(y_true-y_pred)), -1)</span><br><span class="line">    return loss</span><br></pre></td></tr></table></figure>
+<h2 id="基于概率分布度量的损失函数">基于概率分布度量的损失函数</h2>
+<p>基于概率分布度量的损失函数是将样本间的相似性转化为随机事件出现的可能性，即通过度量样本的真实分布与它估计的分布之间的距离，判断两者的相似度，一般用于涉及概率分布或预测类别出现的概率的应用问题中，在分类问题中尤为常用。</p>
+<h3 id="kl散度函数相对熵">KL散度函数（相对熵）</h3>
+<p>KL散度（ Kullback-Leibler
+divergence）也被称为相对熵，是一种非对称度量方法，常用于度量两个概率分布之间的距离。KL散度也可以衡量两个随机分布之间的距离，两个随机分布的相似度越高的，它们的KL散度越小，当两个随机分布的差别增大时，它们的KL散度也会增大，因此KL散度可以用于比较文本标签或图像的相似性。基于KL散度的演化损失函数有JS散度函数。JS散度也称JS距离，用于衡量两个概率分布之间的相似度，它是基于KL散度的一种变形，消除了KL散度非对称的问题，与KL散度相比，它使得相似度判别更加准确。</p>
+<p>相对熵是恒大于等于0的。当且仅当两分布相同时，相对熵等于0。</p>
+<p><span class="math display">\[
+L(Y|f(x)) = \sum^n_{i = 1}Y_i \times \log(\frac{Y_i}{f(x_i)})
+\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def kl_loss(y_true:list,y_pred:list):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    y_true,y_pred，分别是两个概率分布</span><br><span class="line">    比如：px=[0.1,0.2,0.8]</span><br><span class="line">          py=[0.3,0.3,0.4]</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    assert len(y_true)==len(y_pred)</span><br><span class="line">    KL=0</span><br><span class="line">    for y,fx in zip(y_true,y_pred):</span><br><span class="line">        KL+=y*np.log(y/fx)</span><br><span class="line">    return KL</span><br></pre></td></tr></table></figure>
+<h3 id="交叉熵损失">交叉熵损失</h3>
+<p>交叉熵是信息论中的一个概念，最初用于估算平均编码长度，引入机器学习后，用于评估当前训练得到的概率分布与真实分布的差异情况。为了使神经网络的每一层输出从线性组合转为非线性逼近，以提高模型的预测精度，在以交叉熵为损失函数的神经网络模型中一般选用tanh、sigmoid、softmax或ReLU作为激活函数。</p>
+<p>交叉熵损失函数刻画了实际输出概率与期望输出概率之间的相似度，也就是交叉熵的值越小，两个概率分布就越接近，特别是在正负样本不均衡的分类问题中，常用交叉熵作为损失函数。目前，交叉熵损失函数是卷积神经网络中最常使用的分类损失函数，它可以有效避免梯度消散。在二分类情况下也叫做<strong>对数损失函数</strong>。</p>
+<p><span class="math display">\[
+L(Y|f(x)) = - \sum^n_{i = 1}Y_i\log f(x_i)
+\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def CrossEntropy_loss(y_true:list,y_pred:list):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    y_true,y_pred，分别是两个概率分布</span><br><span class="line">    比如：px=[0.1,0.2,0.8]</span><br><span class="line">          py=[0.3,0.3,0.4]</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    assert len(y_true)==len(y_pred)</span><br><span class="line">    loss=0</span><br><span class="line">    for y,fx in zip(y_true,y_pred):</span><br><span class="line">        loss+=-y * np.log(fx)</span><br><span class="line">    return loss</span><br></pre></td></tr></table></figure>
+<p>当正负样本不均衡的时候，通常会在交叉熵损失函数类别前面加个参数α</p>
+<p><span class="math display">\[
+CE = \begin{cases} -\alpha\log(p),\ y = 1\\
+                   -(1 - \alpha)\log(1 - p),\ y = 0
+     \end{cases}
+\]</span></p>
+<h3 id="softmax损失函数">Softmax损失函数</h3>
+<p>从标准形式上看，softmax损失函数应归到对数损失的范畴，在监督学习中，由于它被广泛使用，所以单独形成一个类别。softmax损失函数本质上是逻辑回归模型在多分类任务上的一种延伸，常作为CNN模型的损失函数。softmax损失函数的本质是将一个k维的任意实数向量x映射成另一个k维的实数向量，其中，输出向量中的每个元素的取值范围都是(0,1)，即softmax损失函数输出每个类别的预测概率。由于softmax损失函数具有类间可分性，被广泛用于分类、分割、人脸识别、图像自动标注和人脸验证等问题中，其特点是类间距离的优化效果非常好，但类内距离的优化效果比较差。</p>
+<p>softmax损失函数具有类间可分性，在多分类和图像标注问题中，常用它解决特征分离问题。在基于卷积神经网络的分类问题中，一般使用softmax损失函数作为损失函数，但是softmax损失函数学习到的特征不具有足够的区分性，因此它常与对比损失或中心损失组合使用，以增强区分能力。</p>
+<p><span class="math display">\[
+L(Y|f(x)) = - \frac{1}{n}\sum^n_{i = 1}\log\frac{e^{f_{Y_i}}}{\sum^c_{j
+= 1}e^{f_j}}
+\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def softmax(x):</span><br><span class="line">    x_exp = np.exp(x)</span><br><span class="line">    x_sum = np.sum(x_exp, axis=1, keepdims=True)</span><br><span class="line">    s = x_exp / x_sum</span><br><span class="line">    return s</span><br><span class="line"></span><br><span class="line"># Tensorflow2.0版</span><br><span class="line">softmax_fc = tf.keras.activations.softmax(x)</span><br><span class="line"># pytorch版</span><br><span class="line">softmax_fc = torch.nn.Softmax()</span><br><span class="line">output = softmax_fc(x)</span><br></pre></td></tr></table></figure>
+<h3 id="focal-loss">Focal loss</h3>
+<p>focal
+loss的引入主要是为了解决难易样本不均衡的问题，注意有区别于正负样本不均衡的问题。难易样本分为四个类型：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">难</th>
+<th style="text-align: center;">易</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">正</td>
+<td style="text-align: center;">正难</td>
+<td style="text-align: center;">正易</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">负</td>
+<td style="text-align: center;">负难</td>
+<td style="text-align: center;">负易</td>
+</tr>
+</tbody>
+</table>
+<p>易分样本虽然损失很低，但是数量太多，对模型的效果提升贡献很小，模型应该重点关注那些难分样本，因此需要把置信度高的损失再降低一些。</p>
+<p><span class="math display">\[
+FE = \begin{cases}-\alpha(1 - p)^\gamma\log(p),\ y = 1\\
+                  -(1 - \alpha)p^\gamma\log(1 - p),\ y = 0
+     \end{cases}
+\]</span></p>
+<h2 id="如何选择损失函数">如何选择损失函数</h2>
+<p>通常情况下，损失函数的选取应从以下方面考虑：</p>
+<ol type="1">
+<li>选择最能表达数据的主要特征来构建基于距离或基于概率分布度量的特征空间。</li>
+<li>选择合理的特征归一化方法，使特征向量转换后仍能保持原来数据的核心内容。</li>
+<li>选取合理的损失函数，在实验的基础上，依据损失不断调整模型的参数，使其尽可能实现类别区分。</li>
+<li>合理组合不同的损失函数，发挥每个损失函数的优点，使它们能更好地度量样本间的相似性。</li>
+<li>将数据的主要特征嵌入损失函数，提升基于特定任务的模型预测精确度。</li>
+</ol>
+<h1 id="反向传播算法公式推导">反向传播算法（公式推导）</h1>
+<p>反向传播算法（Backpropagation）是目前用来训练人工神经网络（Artificial
+Neural Network，ANN）的最常用且最有效的算法。其主要思想是：</p>
+<ol type="1">
+<li>将训练集数据输入到ANN的输入层，经过隐藏层，最后达到输出层并输出结果，这是ANN的前向传播过程；</li>
+<li>由于ANN的输出结果与实际结果有误差，则计算估计值与实际值之间的误差，并将该误差从输出层向隐藏层反向传播，直至传播到输入层；</li>
+<li>在反向传播的过程中，根据误差调整各种参数的值；不断迭代上述过程，直至收敛。</li>
+</ol>
+<h2 id="变量定义">变量定义</h2>
+<p><!--
+![神经网络](/images/body/the-Basics01/NN.png "NN")
+--></p>
+<figure>
+<img data-src="pics01/NN.png" title="NN" alt="神经网络" />
+<figcaption aria-hidden="true">神经网络</figcaption>
+</figure>
+<p>上图是一个三层人工神经网络，layer1至layer3分别是输入层、隐藏层和输出层。</p>
+<p>定义变量：</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">变量</th>
+<th style="text-align: center;">表示</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(w^l_{jk}\)</span></td>
+<td style="text-align: center;">第 <span class="math inline">\((l -
+1)\)</span> 层的第 <span class="math inline">\(k\)</span>
+个神经元连接到第 <span class="math inline">\(l\)</span> 层的第 <span
+class="math inline">\(j\)</span> 个神经元的权重</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(b^l_j\)</span></td>
+<td style="text-align: center;">第 <span
+class="math inline">\(l\)</span> 层的第 <span
+class="math inline">\(j\)</span> 个神经元的偏置</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(z^l_j\)</span></td>
+<td style="text-align: center;">第 <span
+class="math inline">\(l\)</span> 层的第 <span
+class="math inline">\(j\)</span> 个神经元的输入，即：<span
+class="math inline">\(z^l_j = \sum_kw^l_{jk}a^{l - 1}_k +
+b^l_j\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(a^l_j\)</span></td>
+<td style="text-align: center;">第 <span
+class="math inline">\(l\)</span> 层的第 <span
+class="math inline">\(j\)</span> 个神经元的输出，即：<span
+class="math inline">\(a^l_j = \sigma(z^l_j)\)</span>，其中 <span
+class="math inline">\(\sigma\)</span> 表示激活函数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="代价函数">代价函数</h2>
+<p>代价函数被用来计算ANN输出值与实际值之间的误差。常用的代价函数是二次代价函数（Quadratic
+cost function）：</p>
+<p><span class="math display">\[
+C = \frac{1}{2n}\sum_x\Vert y(x) - a^L(x)\Vert^2
+\]</span></p>
+<p>其中，<span class="math inline">\(x\)</span> 表示输入的样本，<span
+class="math inline">\(y\)</span> 表示实际的分类，<span
+class="math inline">\(a^L\)</span> 表示预测的输出，<span
+class="math inline">\(L\)</span>表示神经网络的最大层数。</p>
+<h2 id="公式及其推导">公式及其推导</h2>
+<p>首先，将第 <span class="math inline">\(l\)</span> 层第 <span
+class="math inline">\(j\)</span>
+个神经元中产生的错误(即实际值与预测值之间的误差)定义为:</p>
+<p><span class="math display">\[
+\delta^l_j = \frac{\partial C}{\partial z^l_j}
+\]</span></p>
+<p>以一个输入样本为例,此时代价函数为：</p>
+<p><span class="math display">\[
+C = \frac{1}{2}\Vert y - a^L\Vert^2 = \frac{1}{2}\sum_j(y_j - a^L_j)^2
+\]</span></p>
+<h3
+id="计算最后一次神经网络产生的错误">计算最后一次神经网络产生的错误：</h3>
+<p><span class="math display">\[
+\delta^L = \nabla_a C \odot \sigma&#39;(z^L)
+\]</span></p>
+<p>其中，<span class="math inline">\(\cdot\)</span>
+表示Hadamard乘积，用于矩阵或向量之间点对点的乘法运算。推导过程如下：</p>
+<p><span class="math display">\[
+\because \delta^L_j = \frac{\partial C}{\partial z^L_j} = \frac{\partial
+C}{\partial a^L_j}\cdot\frac{\partial a^L_j}{\partial z^L_j}\\
+\therefore \delta^L = \frac{\partial C}{\partial a^L}\odot\frac{\partial
+a^L}{\partial z^L} = \nabla_a C \odot \sigma&#39;(z^L)\\
+\]</span></p>
+<h3
+id="从后向前计算每一层神经网络产生的错误">从后向前，计算每一层神经网络产生的错误</h3>
+<p><span class="math display">\[
+\delta^l = ((w^{l + 1})^T\delta^{l+1})\odot\sigma&#39;(z^l)
+\]</span></p>
+<p>推导过程：</p>
+<p><span class="math display">\[
+\begin{aligned}
+\because \delta^l_j = \frac{\partial C}{\partial z^l_j} &amp; =
+\sum_k\frac{\partial C}{\partial z^{l+1}_k}\cdot\frac{\partial
+z^{l+1}_k}{\partial a^l_j}\cdot\frac{\partial a^l_j}{\partial z^l_j}\\
+&amp; = \sum_k\delta^{l+1}_k\cdot\frac{\partial(w^(l+1)_{kj}a^l_j +
+b^{l+1}_k)}{\partial a^l_j}\cdot\sigma&#39;(z^l_j)\\
+&amp; = \sum_k\delta^{l+1}_k\cdot w^{l+1}_{kj}\cdot\sigma&#39;(z^l_j)\\
+\therefore \delta^l = ((w^{l + 1})^T\delta^{l+1})\odot\sigma&#39;(z^l)
+\end{aligned}
+\]</span></p>
+<h3 id="计算权重的梯度">计算权重的梯度</h3>
+<p><span class="math display">\[
+\frac{\partial C}{\partial w^l_{jk}} = a^{l-1}_k\delta^l_j
+\]</span></p>
+<p>推导过程：</p>
+<p><span class="math display">\[
+\frac{\partial C}{\partial w^l_{jk}} = \frac{\partial C}{\partial
+z^l_j}\cdot\frac{\partial z^l_j}{\partial w^l_{jk}} =
+\delta^l_j\cdot\frac{\partial(w^l_{jk}a^{l-1}_k + b^l_j)}{\partial
+w^l_{jk}} = a^{l-1}_k\delta^l_j
+\]</span></p>
+<h3 id="计算偏置的梯度">计算偏置的梯度</h3>
+<p><span class="math display">\[
+\frac{\partial C}{\partial b^l_j} = \delta^l_j
+\]</span></p>
+<p>推导过程：</p>
+<p><span class="math display">\[
+\frac{\partial C}{\partial b^l_j} = \frac{\partial C}{\partial
+z^l_j}\cdot\frac{\partial z^l_j}{\partial b^l_j} =
+\delta^l_j\cdot\frac{\partial(w^l_{jk}a^{l-1}_k + b^l_j)}{\partial
+b^l_j} = \delta^l_j
+\]</span></p>
+<h1 id="过拟合与欠拟合">过拟合与欠拟合</h1>
+<h2 id="过拟合">过拟合</h2>
+<p>定义1（摘自周志华机器学习）：当学习器把训练样本学的“太好”了的时候，很可能已经把训练样本自身的一些特点当作了所有潜在样本都会具有的一般性质，这样就会导致泛化性能下降，这种现象称为过拟合。</p>
+<p>定义2：具体表现就是最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱。</p>
+<p>具体表现就是最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱。</p>
+<h3 id="产生过拟合的原因">产生过拟合的原因</h3>
+<ol type="1">
+<li>训练数据中噪音干扰过大，使得学习器认为部分噪音是特征从而扰乱学习规则。</li>
+<li>建模样本选取有误，例如训练数据太少，抽样方法错误，样本label错误等，导致样本不能代表整体。</li>
+<li>模型不合理，或假设成立的条件与实际不符。</li>
+<li>特征维度/参数太多，导致模型复杂度太高。</li>
+<li>对于决策树模型，如果我们对于其生长没有合理的限制，其自由生长有可能使节点只包含单纯的事件数据(event)或非事件数据(no
+event)，使其虽然可以完美匹配（拟合）训练数据，但是无法适应其他数据集。</li>
+<li>对于神经网络模型：a)对样本数据可能存在分类决策面不唯一，随着学习的进行,，BP算法使权值可能收敛过于复杂的决策面；b)权值学习迭代次数足够多(Overtraining)，拟合了训练数据中的噪声和训练样例中没有代表性的特征。</li>
+</ol>
+<h3 id="过拟合的解决办法">过拟合的解决办法</h3>
+<p>过拟合无法彻底避免，只能缓解。</p>
+<h4 id="数据角度">数据角度</h4>
+<ul>
+<li>从数据源头获取更多数据</li>
+<li>数据增强（Data
+Augmentation）:通过一定规则扩充数据。如物体在图像中的位置、姿态、尺度、整体图片明暗度等都不会影响分类结果。我们可以通过图像平移、反转、缩放、切割等手段将数据库成倍扩充。</li>
+<li>保留验证集</li>
+<li>获取额外数据进行交叉验证</li>
+</ul>
+<h4 id="模型角度">模型角度</h4>
+<ul>
+<li>降低模型复杂度：
+<ul>
+<li>对于神经网络：减少网络的层数、神经元个数等均可以限制网络的拟合能力。dropout，在向前传播的时候，让某个神经元的激活值以一定的概率p停止工作，这样可以使模型的泛化性更强，因为它不会太依赖某些局部的特征。</li>
+<li>对于决策树：限制树深，剪枝，限制叶节点数量。</li>
+<li>增大分割平面间隔</li>
+</ul></li>
+<li>特征选择、特征降维</li>
+<li>early stopping、Dropout</li>
+<li>正则化（限制权值weight-decay）：将权值的大小作为惩罚项加入到损失函数里。</li>
+<li>增加噪声：
+<ul>
+<li>在输入中加噪声。噪声会随着网络传播，按照权值的平方放大，并传播到输出层，会在输出中生成
+<span class="math inline">\(\sum_iw^2_i\cdot\sigma^2_i\)</span>
+的干扰项。训练时减小损失函数时也会减小权值，与L2正则化有类似效果。</li>
+<li>在权值上加噪声。在初始化网络的时候，用0均值的高斯分布作为初始化。</li>
+<li>对网络等响应加噪声。在前向传播的过程中，让某些神经元的输出变为random，从而打乱网络的训练过程，让训练更慢。</li>
+</ul></li>
+</ul>
+<h4 id="ensemble">ensemble：</h4>
+<ul>
+<li>Bagging:从训练集中自助采样，训练多个相互独立的弱学习器，通过一定结合策略形成一个强学习器。</li>
+<li>Boosting:
+初始化训练一个基学习器→根据表现调整样本分布（预测错误的样本在后续收到更多关注）→训练下一个基学习器→多个学习器加权结合。</li>
+</ul>
+<h2 id="欠拟合">欠拟合</h2>
+<p>定义：欠拟合是指对训练样本的一般性质尚未学好。在训练集及测试集上的表现都不好。</p>
+<h3 id="产生欠拟合的原因">产生欠拟合的原因</h3>
+<ol type="1">
+<li>模型复杂度过低</li>
+<li>特征量过少</li>
+</ol>
+<h3 id="欠拟合的解决办法">欠拟合的解决办法</h3>
+<ul>
+<li>增加特征数；当特征不足或者现有特征与样本标签的相关性不强时，模型易出现欠拟合。可以通过挖掘上下文特征，ID类特征，组合特征等新的特征，可以取得较好的效果。这属于特征工程相关的内容，如因子分解机，梯度提升决策树，deep_crossing都可以丰富特征。</li>
+<li>增加模型复杂度；模型简单时其表达能力较差，容易导致欠拟合，因此可以适当地增加模型复杂度，使模型拥有更强的拟合能力。如线性模型中添加高次项，神经网络中增加网络层数或神经元个数。尝试非线性模型，比如核SVM
+、决策树、DNN等模型。</li>
+<li>减小正则化系数。正则化是用于防止过拟合的，但是当出现欠拟合时，就有必要针对性地减小正则化系数。</li>
+<li>Boosting，Boosting 往往会有较小的 Bias。</li>
+<li>调整参数和超参数</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>给我买杯奶茶呗 ♪( ´▽｀)</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="willkyu WeChatpay">
+        <span>WeChatpay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="willkyu Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Written by:  </strong>willkyu
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/" title="基础知识01">http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Life/Zheng-with-his-five-dads/" rel="prev" title="Zheng. w/ his five DADs">
+                  <i class="fa fa-chevron-left"></i> Zheng. w/ his five DADs
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Life/Suda-charging-monitor/" rel="next" title="Suda-charging-monitor">
+                  Suda-charging-monitor <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-infinity"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">willkyu</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"http://willkyu.github.io/Learning/Notes/2022Summer/the-Basics01/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"willkyu","repo":"Hexo-Gitalk","client_id":"4d181641d25dd938916f","client_secret":"225a2edcdc643bb02ca476ce92f4b386a924b99a","admin_user":"willkyu","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"891d7bbefa86e08fc32739543c4465ef"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+
+  <!--动态线条背景-->
+  <script type="text/javascript"  opacity='0.6' zIndex="-2" count="110"
+  src="/js/DIY/canvas-nest.min.js">
+  </script>
+
+  <!-- 页面点击特效-->
+  <script type="text/javascript" src="/js/DIY/click.js"></script>
+</body>
+</html>
