@@ -578,7 +578,7 @@
 
   
   <url>
-    <loc>http://willkyu.github.io/tags/Game/</loc>
+    <loc>http://willkyu.github.io/tags/Collection/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -592,14 +592,7 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Collection/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/TRPG/</loc>
+    <loc>http://willkyu.github.io/tags/Life/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -613,7 +606,7 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Life/</loc>
+    <loc>http://willkyu.github.io/tags/Game/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -627,6 +620,13 @@
   </url>
   
   <url>
+    <loc>http://willkyu.github.io/tags/TRPG/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://willkyu.github.io/tags/Blog/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -634,7 +634,14 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Draw/</loc>
+    <loc>http://willkyu.github.io/tags/Shiny/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/Schedule/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -655,14 +662,14 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/529/</loc>
+    <loc>http://willkyu.github.io/tags/Memo/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Suda/</loc>
+    <loc>http://willkyu.github.io/tags/Nintendo/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -683,49 +690,21 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Memo/</loc>
+    <loc>http://willkyu.github.io/tags/Draw/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Nintendo/</loc>
+    <loc>http://willkyu.github.io/tags/529/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Schedule/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/Shiny/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/Knowledage-Graphs/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/LATEX/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/Mods/</loc>
+    <loc>http://willkyu.github.io/tags/Suda/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -746,6 +725,48 @@
   </url>
   
   <url>
+    <loc>http://willkyu.github.io/tags/Solutions/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/Development/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/Dexshelf/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/LATEX/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/Knowledage-Graphs/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/Magi-Cup/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://willkyu.github.io/tags/Hexo/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -760,21 +781,7 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/Magi-Cup/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/Solutions/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/GraIL/</loc>
+    <loc>http://willkyu.github.io/tags/Mods/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -789,6 +796,13 @@
   
   <url>
     <loc>http://willkyu.github.io/tags/Papers/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/GraIL/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -823,13 +837,6 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/tags/PyTorch/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://willkyu.github.io/tags/Pokemon-Distribution/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -845,6 +852,13 @@
   
   <url>
     <loc>http://willkyu.github.io/tags/Pokemon-Gen5/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/tags/PyTorch/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -871,45 +885,10 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>http://willkyu.github.io/tags/Development/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/tags/Dexshelf/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
-    <loc>http://willkyu.github.io/categories/Game/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://willkyu.github.io/categories/Collection/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/categories/TRPG/</loc>
-    <lastmod>2026-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://willkyu.github.io/categories/Learning/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -923,7 +902,28 @@
   </url>
   
   <url>
+    <loc>http://willkyu.github.io/categories/Learning/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/categories/Game/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://willkyu.github.io/categories/Pokemon/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/categories/TRPG/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -944,7 +944,7 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/categories/Blog/</loc>
+    <loc>http://willkyu.github.io/categories/Development/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -958,14 +958,14 @@
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/categories/Notes/</loc>
+    <loc>http://willkyu.github.io/categories/Blog/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://willkyu.github.io/categories/Development/</loc>
+    <loc>http://willkyu.github.io/categories/Notes/</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
