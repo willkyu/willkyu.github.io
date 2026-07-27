@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://willkyu.github.io/Development/MiMi/terms-of-service-en/</loc>
+    
+    <lastmod>2026-07-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://willkyu.github.io/Development/MiMi/terms-of-service/</loc>
+    
+    <lastmod>2026-07-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://willkyu.github.io/Development/MiMi/privacy-policy/</loc>
     
     <lastmod>2026-07-27</lastmod>
