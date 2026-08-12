@@ -6,7 +6,7 @@
   <link href="http://willkyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://willkyu.github.io/"/>
-  <updated>2024-07-02T13:30:54.593Z</updated>
+  <updated>2026-08-12T10:27:45.211Z</updated>
   <id>http://willkyu.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MiMi Roadmap</title>
+    <link href="http://willkyu.github.io/Development/MiMi/roadmap/"/>
+    <id>http://willkyu.github.io/Development/MiMi/roadmap/</id>
+    <published>2026-08-12T10:37:16.000Z</published>
+    <updated>2026-08-12T10:27:45.211Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;谜谜未来更新计划&quot;&gt;谜谜未来更新计划&lt;/h1&gt;
+&lt;ul class=&quot;task-list&quot;&gt;
+&lt;li&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot; /&gt;拍照录入功能&lt;/label&gt;&lt;/li&gt;
+&lt;li&gt;&lt;label&gt;&lt;input</summary>
+        
+      
+    
+    
+    
+    <category term="Development" scheme="http://willkyu.github.io/categories/Development/"/>
+    
+    
+    <category term="Development" scheme="http://willkyu.github.io/tags/Development/"/>
+    
+    <category term="MiMi" scheme="http://willkyu.github.io/tags/MiMi/"/>
+    
+  </entry>
   
   <entry>
     <title>LLM-in-RS.md</title>
@@ -460,32 +490,6 @@ Yuan Member, IEEE&lt;/li&gt;
     <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
     
     <category term="Knowledage-Graphs" scheme="http://willkyu.github.io/tags/Knowledage-Graphs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GraIL相关论文阅读笔记</title>
-    <link href="http://willkyu.github.io/Learning/Notes/Papers/GraIL/"/>
-    <id>http://willkyu.github.io/Learning/Notes/Papers/GraIL/</id>
-    <published>2022-01-18T03:34:44.000Z</published>
-    <updated>2024-03-14T08:52:43.254Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;论文 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MTEuMDY5NjI=&quot;&gt;Inductive relation
-prediction by subgraph reasoning&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 阅读笔记. 译文可见&lt;a
-href=&quot;https://pan.baidu.com/s/1IXtIZhYJFkEciqEPflWKuQ&quot;
-class=&quot;uri&quot;&gt;https://pan.baidu.com/s/1IXtIZhYJFkEciqEPflWKuQ&lt;/a&gt;，提取码&lt;em&gt;will&lt;/em&gt;.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Learning" scheme="http://willkyu.github.io/categories/Learning/"/>
-    
-    
-    <category term="Learning" scheme="http://willkyu.github.io/tags/Learning/"/>
-    
-    <category term="Knowledage-Graphs" scheme="http://willkyu.github.io/tags/Knowledage-Graphs/"/>
-    
-    <category term="GraIL" scheme="http://willkyu.github.io/tags/GraIL/"/>
     
   </entry>
   
