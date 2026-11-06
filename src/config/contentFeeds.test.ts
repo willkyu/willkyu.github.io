@@ -56,6 +56,8 @@ describe('homepage feeds', () => {
     const categories = new Set(['research', 'blog', 'pokemon', 'projects'])
     expect(validateHomepageFeed(feed('blog', [item()]), blogSource, categories).items).toHaveLength(1)
     expect(validateHomepageFeed(feed('blog', [item({ appearance: 'essay' })]), blogSource, categories).items[0].appearance).toBe('essay')
+    expect(validateHomepageFeed(feed('blog', [item({ summary: '第一段。\n第二段。' })]), blogSource, categories).items[0].summary).toContain('\n')
+    expect(() => validateHomepageFeed(feed('blog', [item({ summary: '  \n  ' })]), blogSource, categories)).toThrow(/summary/)
     expect(() => validateHomepageFeed(feed('blog', [item({ id: 'manual' })]), blogSource, categories)).toThrow(/不应包含 id/)
     expect(() => validateHomepageFeed(feed('blog', [item({ bind: 'missing' })]), blogSource, categories)).toThrow(/主页选项/)
     expect(() => validateHomepageFeed(feed('blog', [item({ appearance: 'disc' })]), blogSource, categories)).toThrow(/需要 cover/)

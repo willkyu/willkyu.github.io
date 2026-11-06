@@ -17,7 +17,14 @@
     "forbiddenFields": [
       "id"
     ],
-    "unknownFields": "reject"
+    "unknownFields": "reject",
+    "fieldRules": {
+      "summary": {
+        "multiline": true,
+        "paragraphSeparator": "\\n",
+        "recommendation": "发布时从链接对应的 Markdown 正文自动提取；手写值可作为覆盖。"
+      }
+    }
   },
   "itemTypes": [
     {
@@ -28,7 +35,7 @@
     {
       "appearance": "essay",
       "coverRequired": false,
-      "description": "向下展开的长文摘要卡片。"
+      "description": "按摘要长度向下展开的长文卡片，支持换行和段首缩进。"
     },
     {
       "appearance": "browser",

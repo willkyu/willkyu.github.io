@@ -40,16 +40,12 @@ function DiscCard({ content }: CardRendererProps) {
 
 export function CardRenderer({ content }: CardRendererProps) {
   if (content.appearance === 'essay') {
+    const paragraphs = content.description.split(/\r?\n+/).map((paragraph) => paragraph.trim()).filter(Boolean)
     return (
       <a className="card card--essay" {...linkProps(content)}>
-        <div className="essay-heading">
-          <h3>{content.title}</h3>
-          <span aria-hidden="true">↓</span>
-        </div>
-        <div className="essay-body">
-          <p>{content.description}</p>
-          <small>{content.tags.join(' / ')}</small>
-        </div>
+        <h3>{content.title}</h3>
+        {paragraphs.map((paragraph, index) => <p key={`${index}:${paragraph}`}>{paragraph}</p>)}
+        <div className="essay-fade" aria-hidden="true"><span>・・・</span></div>
       </a>
     )
   }

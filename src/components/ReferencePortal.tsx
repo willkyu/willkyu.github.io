@@ -49,7 +49,22 @@ interface ViewportSize {
 const appearanceSize: Record<ContentConfig['appearance'], [number, number]> = {
   text: [180, 64], essay: [280, 64], browser: [240, 150], book: [182, 257], disc: [220, 200], gallery: [250, 190],
 }
-const essayExpansion = 3.6
+
+export function essayExpandedHeight(description: string, width: number, baseHeight: number) {
+  const bodyFontSize = Math.min(17, Math.max(14, width * .048))
+  const lineCapacity = Math.max(1, (width - 28) / (bodyFontSize * .9))
+  const paragraphs = description.split(/\r?\n+/).map((paragraph) => paragraph.trim()).filter(Boolean)
+  const bodyLines = Math.max(1, paragraphs.reduce((lines, paragraph) => lines + Math.max(1, Math.ceil(titleUnits(paragraph) / lineCapacity)), 0))
+  const paragraphGaps = Math.max(0, paragraphs.length - 1) * 5
+  const contentHeight = baseHeight + 5 + bodyLines * bodyFontSize * 1.55 + paragraphGaps + 36
+  return Math.min(520, Math.max(baseHeight + 96, contentHeight))
+}
+
+function essayExpansion(item: SceneItem) {
+  if (item.content?.appearance !== 'essay') return 1
+  const expandedHeight = essayExpandedHeight(item.content.description, item.baseWidth, item.baseHeight)
+  return expandedHeight / item.baseHeight
+}
 
 function titleUnits(value: string) {
   return Array.from(value.trim()).reduce((total, character) => {
@@ -100,7 +115,7 @@ function clampPosition(item: SceneItem, viewport: ViewportSize, position = { x: 
   const minX = -viewport.width / 2 + margin + halfWidth
   const maxX = viewport.width / 2 - margin - halfWidth
   if (item.content?.appearance === 'essay') {
-    const maximumHeight = item.baseHeight * itemScale(item, viewport) * item.scale * essayExpansion
+    const maximumHeight = item.baseHeight * itemScale(item, viewport) * item.scale * essayExpansion(item)
     const minimumTop = -viewport.height / 2 + margin
     const maximumTop = viewport.height / 2 - margin - maximumHeight
     const requestedTop = position.y - halfHeight
@@ -430,7 +445,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
         ...item,
         hovered,
         targetScale: item.fixed || !hovered ? 1 : isEssay ? 1 : isExpandableText ? 1.35 : config.motion.hoverScale,
-        targetExpansion: hovered && isEssay ? essayExpansion : hovered && isExpandableText && config.motion.enabled ? 1.85 : 1,
+        targetExpansion: hovered && isEssay ? essayExpansion(item) : hovered && isExpandableText && config.motion.enabled ? 1.85 : 1,
       }
     }))
   }, [config.motion.enabled, config.motion.hoverScale, updateItems])
@@ -458,7 +473,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
         ...item,
         pressed: false,
         targetScale: item.fixed || !item.hovered ? 1 : isEssay ? 1 : isExpandableText ? 1.35 : config.motion.hoverScale,
-        targetExpansion: item.hovered && isEssay ? essayExpansion : item.hovered && isExpandableText && config.motion.enabled ? 1.85 : 1,
+        targetExpansion: item.hovered && isEssay ? essayExpansion(item) : item.hovered && isExpandableText && config.motion.enabled ? 1.85 : 1,
       }
     })), 0)
   }, [config.motion.enabled, config.motion.hoverScale, updateItems])
@@ -525,9 +540,10 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
               height: itemHeight,
               zIndex: item.kind === 'profile' ? 20 : item.scale > 1.01 || item.expansion > 1.01 ? 30 : 10,
               '--responsive-scale': 1,
+              '--disc-title-font-size': `${Math.min(26, Math.max(10, 16 * responsiveScale * item.scale))}px`,
+              '--disc-copy-font-size': `${Math.min(16, Math.max(9, 10 * responsiveScale * item.scale))}px`,
               '--popup-overshoot-scale': 1.08,
               '--popup-settle-scale': .96,
-              '--essay-header-height': `${item.baseHeight * item.scale * responsiveScale}px`,
             } as CSSProperties
             if (item.kind === 'profile') {
               const profileStyle = {

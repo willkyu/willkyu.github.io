@@ -21,8 +21,8 @@ bind:: research
 <!-- 卡片造型以 public/homepage-item-types.json 为准；essay 会在悬浮或聚焦时向下展开。 -->
 appearance:: text
 
-<!-- 主页卡片摘要；必填、单行，不要使用换行或 Markdown 块。 -->
-summary:: 用一句话说明这篇内容，建议控制在 20–60 个汉字。
+<!-- 主页卡片摘要；必填。清单中的手写覆盖保持单行；发布脚本从正文提取时，输出到 JSON 的 summary 可包含 \n 分段。 -->
+summary:: 展示摘要。建议由发布脚本从链接对应的 Markdown 正文自动提取，手写时可覆盖。essay 允许用换行分段，每段会自动首行缩进。
 
 <!-- 标签可选，使用英文逗号或中文逗号分隔。 -->
 tags:: 研究, 示例

@@ -60,3 +60,35 @@ test('capture disc cover loading state', async ({ page }) => {
   await page.screenshot({ path: resolve(output, 'portal-disc-loading.png') })
   await expect(discArt).toHaveAttribute('data-state', 'loaded')
 })
+
+test('capture reference-style essay expansion', async ({ page }) => {
+  await page.route('**/blog/homepage-feed.json', (route) => route.fulfill({
+    contentType: 'application/json',
+    body: JSON.stringify({ schemaVersion: 1, source: 'blog', generatedAt: '2026-11-06T01:00:00.000Z', items: [] }),
+  }))
+  await page.route('**/research/homepage-feed.json', (route) => route.fulfill({
+    contentType: 'application/json',
+    body: JSON.stringify({
+      schemaVersion: 1,
+      source: 'research',
+      generatedAt: '2026-11-06T01:00:00.000Z',
+      items: [{
+        bind: 'research',
+        title: 'SensorLM: Learning the Language of Wearable Sensors',
+        summary: '第一段展示可读的研究摘要。\n第二段用来检查换行、缩进和自适应高度。',
+        href: '/research/papers/sensorlm',
+        appearance: 'essay',
+        tags: ['论文'],
+        order: 10,
+      }],
+    }),
+  }))
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+  await page.getByRole('button', { name: /Research，2 条内容/ }).click()
+  const essay = page.locator('[data-content-id="feed:research:/research/papers/sensorlm"]')
+  await expect(essay).toBeVisible()
+  await essay.getByRole('link').focus()
+  await expect(essay.locator('.essay-fade')).toHaveCSS('height', '50px')
+  await page.screenshot({ path: resolve(output, 'portal-essay-reference-style.png') })
+})

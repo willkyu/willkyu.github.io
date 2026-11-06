@@ -78,20 +78,14 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .physics-content[data-content-id^="feed-error:"] .card--text { border-style: dashed; background: repeating-linear-gradient(-45deg, #fff 0 12px, #eee 12px 15px); }
 .physics-content[data-content-id^="feed-error:"] .card--text h3 { font-weight: 900; letter-spacing: .04em; }
 
-/* Reference essay object: a title strip whose body grows only below its original top edge. */
-.card--essay { display: flex; flex-direction: column; overflow: hidden; border: 4px solid #111; background: #fff; font-family: var(--font-body); }
-.essay-heading { flex: 0 0 var(--essay-header-height, 64px); min-height: 0; display: flex; align-items: center; gap: 10px; padding: 8px 11px; border-bottom: 3px solid transparent; background: #fff; }
-.essay-heading h3 { flex: 1; overflow: hidden; font-size: clamp(15px, 6.2cqw, 21px); line-height: 1.25; overflow-wrap: anywhere; }
-.essay-heading span { flex: 0 0 auto; font: 900 clamp(18px, 7cqw, 24px)/1 system-ui, sans-serif; transition: transform 120ms ease-out; }
-.essay-body { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 12px 14px 10px; overflow: hidden; color: #fff; background: #111; opacity: 0; transform: translateY(-8px); transition: opacity 120ms ease-out, transform 120ms ease-out; }
-.essay-body p { overflow: hidden; font-size: clamp(14px, 5.1cqw, 17px); line-height: 1.55; }
-.essay-body small { margin-top: auto; padding-top: 8px; font-size: clamp(9px, 3.6cqw, 12px); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-.physics-content[data-appearance="essay"]:hover .essay-heading,
-.physics-content[data-appearance="essay"]:focus-within .essay-heading { border-bottom-color: #111; }
-.physics-content[data-appearance="essay"]:hover .essay-heading span,
-.physics-content[data-appearance="essay"]:focus-within .essay-heading span { transform: rotate(180deg); }
-.physics-content[data-appearance="essay"]:hover .essay-body,
-.physics-content[data-appearance="essay"]:focus-within .essay-body { opacity: 1; transform: translateY(0); }
+/* Reference essay object: a white title strip grows downward to a paper-like page. */
+.card--essay { display: block; overflow: hidden; padding: 3px; border: 4px solid #111; background: #fff; color: #111; font-family: var(--font-body); }
+.card--essay > h3 { margin: 0; overflow: hidden; font-size: clamp(15px, 6.2cqw, 21px); font-weight: 800; line-height: 1.25; text-align: center; overflow-wrap: anywhere; }
+.card--essay > p { margin: 5px 0 0; overflow: hidden; font-size: clamp(14px, 4.8cqw, 17px); line-height: 1.55; overflow-wrap: anywhere; text-indent: 2em; }
+.essay-fade { position: absolute; z-index: 2; left: 4px; bottom: 4px; width: calc(100% - 8px); height: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; overflow: hidden; background: linear-gradient(to bottom, transparent 0%, #fff 60%); pointer-events: none; transition: height 300ms ease; }
+.essay-fade span { margin-bottom: 8px; font: 800 14px/1 var(--font-body); letter-spacing: -8px; writing-mode: vertical-rl; }
+.physics-content[data-appearance="essay"]:hover .essay-fade,
+.physics-content[data-appearance="essay"]:focus-within .essay-fade { height: 50px; }
 
 /* Reference web object: compact browser chrome and a full-bleed preview. */
 .card--browser { overflow: hidden; border: 4px solid #111; background: #fff; }
@@ -129,8 +123,8 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .physics-content[data-appearance="disc"]:hover .disc-image:not(.disc-image--shadow) { transform: translate(calc(clamp(24px, 18cqw, 40px) + var(--layer-near-x, 0px)), var(--layer-near-y, 0px)); }
 .physics-content[data-appearance="disc"]:hover .disc-image--shadow { transform: translate(calc(clamp(24px, 18cqw, 40px) + var(--layer-mid-x, 0px)), var(--layer-mid-y, 0px)); }
 .disc-spine { position: absolute; z-index: 3; top: 0; left: 0; width: 12%; height: 100%; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 5%; background: #fff; box-shadow: -4px 0 #ccc; transform: translate(var(--disc-spine-x, 0px), var(--disc-spine-y, 0px)); transition: transform 80ms linear; }
-.disc-spine strong { width: 100%; margin-top: 10%; margin-right: -20%; padding: 30% 0; color: #fff; background: #000; font: 700 clamp(10px, 7.27cqw, 16px)/1 var(--font-body); text-align: center; white-space: nowrap; writing-mode: vertical-rl; }
-.disc-spine span { flex: 1; width: 100%; padding: 1px; overflow: hidden; font: 600 clamp(9px, 4.55cqw, 10px)/1 var(--font-body); writing-mode: vertical-rl; }
+.disc-spine strong { width: 100%; margin-top: 10%; margin-right: -20%; padding: 30% 0; color: #fff; background: #000; font: 700 var(--disc-title-font-size, 16px)/1 var(--font-body); text-align: center; white-space: nowrap; writing-mode: vertical-rl; }
+.disc-spine span { flex: 1; width: 100%; padding: 1px; overflow: hidden; font: 600 var(--disc-copy-font-size, 10px)/1 var(--font-body); writing-mode: vertical-rl; }
 
 /* Fake-depth gallery: fixed 2D layers avoid perspective intersections and extra 3D compositing. */
 .card--gallery { overflow: visible; }

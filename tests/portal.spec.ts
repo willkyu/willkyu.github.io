@@ -94,7 +94,7 @@ test('loads published feeds before rendering and binds entries without authored 
       source: 'research',
       generatedAt: '2026-11-06T01:00:00.000Z',
       items: [
-        { bind: 'research', title: 'SensorLM: Learning the Language of Wearable Sensors', summary: '这是一段用于验证向下展开、正文可读性和物理碰撞尺寸的论文摘要。', href: '/research/papers/sensorlm', appearance: 'essay', tags: ['论文'], order: 10 },
+        { bind: 'research', title: 'SensorLM: Learning the Language of Wearable Sensors', summary: '这是一段用于验证向下展开的论文摘要。\n第二段用于验证换行、缩进与物理碰撞尺寸。', href: '/research/papers/sensorlm', appearance: 'essay', tags: ['论文'], order: 10 },
       ],
     }),
   }))
@@ -116,17 +116,21 @@ test('loads published feeds before rendering and binds entries without authored 
     link.focus({ preventScroll: true })
     return link.closest<HTMLElement>('.physics-content')!.getBoundingClientRect().top
   })
-  await expect.poll(async () => (await sensor.boundingBox())!.height).toBeGreaterThan(collapsedEssay!.height * 2.8)
+  await expect.poll(async () => (await sensor.boundingBox())!.height).toBeGreaterThan(collapsedEssay!.height * 1.6)
   const expandedEssay = await sensor.boundingBox()
   // Viewport clamping may shift a card spawned near the bottom edge. Its top
   // must still move much less than a vertically recentered expansion would.
   const essayHeightIncrease = expandedEssay!.height - collapsedEssay!.height
   expect(Math.abs(expandedEssay!.y - expansionTop)).toBeLessThan(essayHeightIncrease * .4)
-  expect(await sensor.locator('.essay-body p').evaluate((node) => parseFloat(getComputedStyle(node).fontSize))).toBeGreaterThanOrEqual(14)
+  expect(await sensor.locator('.card--essay > p').first().evaluate((node) => parseFloat(getComputedStyle(node).fontSize))).toBeGreaterThanOrEqual(14)
+  await expect(sensor.locator('.card--essay > p')).toHaveCount(2)
+  await expect(sensor.locator('.card--essay > p').first()).toHaveCSS('text-indent', /28|29|30|31|32|33|34px/)
+  await expect(sensor.locator('.essay-fade')).toHaveCSS('height', '50px')
+  await expect(sensor.locator('.card--essay')).toHaveCSS('background-color', 'rgb(255, 255, 255)')
   await page.mouse.move(expandedEssay!.x + expandedEssay!.width / 2, expandedEssay!.y + expandedEssay!.height / 2)
   await page.mouse.move(0, 0)
   await sensor.getByRole('link', { name: '打开 SensorLM: Learning the Language of Wearable Sensors' }).evaluate((link: HTMLAnchorElement) => link.blur())
-  await expect.poll(async () => (await sensor.boundingBox())!.height).toBeLessThan(expandedEssay!.height * .5)
+  await expect.poll(async () => (await sensor.boundingBox())!.height).toBeLessThan(expandedEssay!.height * .6)
 
   await page.getByRole('button', { name: /PM，1 条内容/ }).click()
   const remote = page.locator('[data-content-id="feed:blog:/blog/pokemon-note/"]')
@@ -379,8 +383,12 @@ test('items and centre options use layered parallax while the disc stays centred
   await expect(disc.locator('.disc-placeholder')).toBeVisible()
   await expect(disc.locator('.disc-art')).toHaveAttribute('data-state', 'loaded')
   await expect(disc.locator('.disc-image:not(.disc-image--shadow)')).toHaveCSS('opacity', '1')
+  await page.mouse.move(0, 0)
+  await expect.poll(async () => (await disc.boundingBox())!.width).toBeLessThan(250)
+  const collapsedDiscTitleSize = await disc.locator('.disc-spine strong').evaluate((node) => parseFloat(getComputedStyle(node).fontSize))
   await disc.hover()
   await expect.poll(async () => disc.locator('.disc-image:not(.disc-image--shadow)').evaluate((node) => new DOMMatrix(getComputedStyle(node).transform).m41)).toBeGreaterThan(20)
+  await expect.poll(async () => disc.locator('.disc-spine strong').evaluate((node) => parseFloat(getComputedStyle(node).fontSize))).toBeGreaterThan(collapsedDiscTitleSize * 1.3)
   await page.mouse.move(0, 0)
   await expect.poll(async () => disc.locator('.disc-image:not(.disc-image--shadow)').evaluate((node) => Math.abs(new DOMMatrix(getComputedStyle(node).transform).m41))).toBeLessThan(.5)
   await disc.evaluate((node) => {

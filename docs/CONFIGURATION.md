@@ -64,9 +64,9 @@ Blog 与 Research 可共同参考 `docs/homepage-manifest.annotated.md` 中的�
 https://raw.githubusercontent.com/willkyu/willkyu.github.io/main/public/homepage-item-types.json
 ```
 
-检查时在 `itemTypes` 中查找目标 `appearance`；找不到就终止构建。如果对应条目的 `coverRequired` 为 `true`，还必须检查 `_homepage.md` 条目包含有效 `cover`。同时应使用 `feedSchemaVersion` 写入最终 `homepage-feed.json` 的 `schemaVersion`。
+检查时在 `itemTypes` 中查找目标 `appearance`；找不到就终止构建。如果对应条目的 `coverRequired` 为 `true`，还必须检查 `_homepage.md` 条目包含有效 `cover`。同时应使用 `feedSchemaVersion` 写入最终 `homepage-feed.json` 的 `schemaVersion`。`fieldRules.summary` 说明了摘要可用 `\n` 分段；推荐在发布时从链接对应的 Markdown 正文自动提取，而不是由主页运行时抓取每个链接。
 
-- `essay` 默认显示标题条，悬浮或键盘聚焦后保持顶部位置不变并向下展开摘要；展开后的高度会参与物理碰撞。
+- `essay` 默认显示标题条，悬浮或键盘聚焦后保持顶部位置不变并向下展开摘要；展开高度按文字长度和强制换行计算，每段自动首行缩进，整体仍参与物理碰撞。
 - `gallery` 会把同一张 `cover` 分别裁切为后、中、前三张画框，以固定层级、缩放、明暗和不同幅度的二维位移形成伪 3D 景深；不使用 CSS 透视或 Z 轴。白框在前景画面位移之上叠加反向的远景位移，文字展签使用近景与中景位移之和，因此二者不会同步移动；悬浮时画框展开并显示摘要。
 
 ## 交互模式与槽位

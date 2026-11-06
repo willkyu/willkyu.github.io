@@ -38,6 +38,10 @@ function isSingleLine(value: unknown): value is string {
   return typeof value === 'string' && Boolean(value.trim()) && !/[\r\n]/.test(value)
 }
 
+function isNonEmptyText(value: unknown): value is string {
+  return typeof value === 'string' && Boolean(value.trim())
+}
+
 function validateFeedItem(
   value: unknown,
   index: number,
@@ -52,7 +56,7 @@ function validateFeedItem(
   if (unknown.length) throw new Error(`${label} 包含未知字段：${unknown.join(', ')}`)
   if (!isSingleLine(value.bind) || !categoryIds.has(value.bind)) throw new Error(`${label}.bind 没有对应的主页选项`)
   if (!isSingleLine(value.title)) throw new Error(`${label}.title 必须是非空单行文本`)
-  if (!isSingleLine(value.summary)) throw new Error(`${label}.summary 必须是非空单行文本`)
+  if (!isNonEmptyText(value.summary)) throw new Error(`${label}.summary 必须是非空文本`)
   if (!isSingleLine(value.href) || !value.href.startsWith(source.hrefPrefix)) {
     throw new Error(`${label}.href 必须以 ${source.hrefPrefix} 开头`)
   }
