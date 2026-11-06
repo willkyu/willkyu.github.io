@@ -18,7 +18,7 @@ homepageManifest: 1
 <!-- 绑定主页中心栏目：research / blog / pokemon / projects。 -->
 bind:: research
 
-<!-- 卡片造型：text / essay / gallery / book / browser / disc。essay 会在悬浮或聚焦时向下展开。 -->
+<!-- 卡片造型以 public/homepage-item-types.json 为准；essay 会在悬浮或聚焦时向下展开。 -->
 appearance:: text
 
 <!-- 主页卡片摘要；必填、单行，不要使用换行或 Markdown 块。 -->
@@ -34,7 +34,7 @@ order:: 10
 enabled:: true
 
 <!--
-cover 对 gallery / book / browser / disc 必填，对 text 可省略：
+cover 是否必填以 public/homepage-item-types.json 中的 coverRequired 为准：
 - 必须指向当前 Vault 中真实存在且会公开构建的附件。
 - Blog 构建后输出 /blog/ 开头的 URL。
 - Research 构建后输出 /research/ 开头的 URL。

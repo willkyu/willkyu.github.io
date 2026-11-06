@@ -29,6 +29,7 @@ Vite 开发地址通常为 `http://localhost:5173/`，生产预览为 `http://lo
 - 配置说明：[`docs/CONFIGURATION.md`](docs/CONFIGURATION.md)
 - 带逐项注释的配置模板：[`docs/portal.config.annotated.jsonc`](docs/portal.config.annotated.jsonc)
 - `_homepage.md` 带注释模板：[`docs/homepage-manifest.annotated.md`](docs/homepage-manifest.annotated.md)
+- Feed item 类型契约：[`public/homepage-item-types.json`](public/homepage-item-types.json)
 - 漫画素材说明：[`docs/ASSETS.md`](docs/ASSETS.md)
 - 参考拆解与差异：[`docs/REFERENCE.md`](docs/REFERENCE.md)
 - 验收记录：[`docs/ACCEPTANCE.md`](docs/ACCEPTANCE.md)
@@ -44,6 +45,7 @@ src/
   styles.css        漫画主题、响应式布局、动效
 public/
   assets/           临时人物素材和示例封面
+  homepage-item-types.json  Blog/Research 共用的 item 类型契约
   portal.config.*   主配置、最小配置和 JSON Schema
 tests/              Playwright 交互、布局与截图验收
 docs/               配置、素材、参考、验收和发布说明

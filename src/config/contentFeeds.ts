@@ -1,9 +1,13 @@
 import type { CardAppearance, ContentConfig, ContentSourceConfig, PortalConfig } from './types'
+import {
+  coverRequiredAppearances,
+  feedItemKeys,
+  forbiddenFeedItemFields,
+  homepageFeedSchemaVersion,
+  supportedAppearances,
+} from './itemTypes'
 
-const appearances = new Set<CardAppearance>(['text', 'essay', 'browser', 'book', 'disc', 'gallery'])
-const coverAppearances = new Set<CardAppearance>(['browser', 'book', 'disc', 'gallery'])
 const feedKeys = new Set(['schemaVersion', 'source', 'generatedAt', 'items'])
-const itemKeys = new Set(['bind', 'title', 'summary', 'href', 'appearance', 'tags', 'order', 'cover'])
 const feedTimeoutMs = import.meta.env.DEV ? 12_000 : 4_000
 
 interface FeedItem {
@@ -42,8 +46,9 @@ function validateFeedItem(
 ): FeedItem {
   const label = `${source.source}.items[${index}]`
   if (!isRecord(value)) throw new Error(`${label} 必须是对象`)
-  if ('id' in value) throw new Error(`${label} 不应包含 id`)
-  const unknown = Object.keys(value).filter((key) => !itemKeys.has(key))
+  const forbidden = Object.keys(value).filter((key) => forbiddenFeedItemFields.has(key))
+  if (forbidden.length) throw new Error(`${label} 不应包含 ${forbidden.join(', ')}`)
+  const unknown = Object.keys(value).filter((key) => !feedItemKeys.has(key))
   if (unknown.length) throw new Error(`${label} 包含未知字段：${unknown.join(', ')}`)
   if (!isSingleLine(value.bind) || !categoryIds.has(value.bind)) throw new Error(`${label}.bind 没有对应的主页选项`)
   if (!isSingleLine(value.title)) throw new Error(`${label}.title 必须是非空单行文本`)
@@ -51,7 +56,7 @@ function validateFeedItem(
   if (!isSingleLine(value.href) || !value.href.startsWith(source.hrefPrefix)) {
     throw new Error(`${label}.href 必须以 ${source.hrefPrefix} 开头`)
   }
-  if (typeof value.appearance !== 'string' || !appearances.has(value.appearance as CardAppearance)) {
+  if (typeof value.appearance !== 'string' || !supportedAppearances.has(value.appearance as CardAppearance)) {
     throw new Error(`${label}.appearance 无效`)
   }
   if (!Array.isArray(value.tags) || value.tags.some((tag) => !isSingleLine(tag))) {
@@ -63,7 +68,7 @@ function validateFeedItem(
   if (value.cover !== undefined && (!isSingleLine(value.cover) || !value.cover.startsWith(source.hrefPrefix))) {
     throw new Error(`${label}.cover 必须以 ${source.hrefPrefix} 开头`)
   }
-  if (coverAppearances.has(appearance) && !isSingleLine(value.cover)) {
+  if (coverRequiredAppearances.has(appearance) && !isSingleLine(value.cover)) {
     throw new Error(`${label} 的 ${appearance} 样式需要 cover`)
   }
 
@@ -87,7 +92,9 @@ export function validateHomepageFeed(
   if (!isRecord(value)) throw new Error(`${source.source} feed 根节点必须是对象`)
   const unknown = Object.keys(value).filter((key) => !feedKeys.has(key))
   if (unknown.length) throw new Error(`${source.source} feed 包含未知字段：${unknown.join(', ')}`)
-  if (value.schemaVersion !== 1) throw new Error(`${source.source} feed schemaVersion 必须为 1`)
+  if (value.schemaVersion !== homepageFeedSchemaVersion) {
+    throw new Error(`${source.source} feed schemaVersion 必须为 ${homepageFeedSchemaVersion}`)
+  }
   if (value.source !== source.source) throw new Error(`${source.source} feed 的 source 不匹配`)
   if (!isSingleLine(value.generatedAt)
     || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(value.generatedAt)

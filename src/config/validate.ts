@@ -1,7 +1,7 @@
-import type { CardAppearance, PortalConfig } from './types'
+import type { PortalConfig } from './types'
 import { loadHomepageFeeds } from './contentFeeds'
+import { supportedAppearances } from './itemTypes'
 
-const appearances: CardAppearance[] = ['text', 'essay', 'browser', 'book', 'disc', 'gallery']
 const anchors = ['top-left', 'center', 'top-right', 'bottom-left', 'bottom-right']
 const selectionModes = ['ordered', 'random']
 
@@ -55,7 +55,7 @@ export function validateConfig(value: unknown): PortalConfig {
 
   content.forEach((item) => {
     if (!categoryIds.has(item.categoryId)) issues.push(`内容 ${item.id} 引用了不存在的栏目 ${item.categoryId}`)
-    if (!appearances.includes(item.appearance)) issues.push(`内容 ${item.id} 的 appearance 无效：${item.appearance}`)
+    if (!supportedAppearances.has(item.appearance)) issues.push(`内容 ${item.id} 的 appearance 无效：${item.appearance}`)
     if (!item.href) issues.push(`内容 ${item.id} 缺少 href`)
   })
 

@@ -56,7 +56,15 @@ Blog 与 Research 可共同参考 `docs/homepage-manifest.annotated.md` 中的�
 
 `viewAllHref` 已保留在配置模型中，内容窗口的目标链接由每条 `content.href` 决定。固定入口应继续使用 `/blog/` 与 `/research/`。
 
-卡片 `appearance` 可为 `text`、`essay`、`browser`、`book`、`disc`、`gallery`。它只决定外观，不限制内容属于哪个栏目。
+卡片 `appearance` 的可用值与 `cover` 必填规则统一发布在 `public/homepage-item-types.json`。主页运行时校验也直接读取该文件，Blog 与 Research 不应再维护独立的硬编码列表。它只决定外观，不限制内容属于哪个栏目。
+
+其他仓库应在生成 feed 前读取下面的稳定地址：
+
+```text
+https://raw.githubusercontent.com/willkyu/willkyu.github.io/main/public/homepage-item-types.json
+```
+
+检查时在 `itemTypes` 中查找目标 `appearance`；找不到就终止构建。如果对应条目的 `coverRequired` 为 `true`，还必须检查 `_homepage.md` 条目包含有效 `cover`。同时应使用 `feedSchemaVersion` 写入最终 `homepage-feed.json` 的 `schemaVersion`。
 
 - `essay` 默认显示标题条，悬浮或键盘聚焦后保持顶部位置不变并向下展开摘要；展开后的高度会参与物理碰撞。
 - `gallery` 会把同一张 `cover` 分别裁切为后、中、前三张画框，以固定层级、缩放、明暗和不同幅度的二维位移形成伪 3D 景深；不使用 CSS 透视或 Z 轴。白框在前景画面位移之上叠加反向的远景位移，文字展签使用近景与中景位移之和，因此二者不会同步移动；悬浮时画框展开并显示摘要。

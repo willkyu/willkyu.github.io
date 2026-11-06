@@ -1,0 +1,54 @@
+{
+  "contractVersion": 1,
+  "feedSchemaVersion": 1,
+  "feedItem": {
+    "requiredFields": [
+      "bind",
+      "title",
+      "summary",
+      "href",
+      "appearance",
+      "tags",
+      "order"
+    ],
+    "optionalFields": [
+      "cover"
+    ],
+    "forbiddenFields": [
+      "id"
+    ],
+    "unknownFields": "reject"
+  },
+  "itemTypes": [
+    {
+      "appearance": "text",
+      "coverRequired": false,
+      "description": "紧凑文字卡片，悬浮时显示摘要。"
+    },
+    {
+      "appearance": "essay",
+      "coverRequired": false,
+      "description": "向下展开的长文摘要卡片。"
+    },
+    {
+      "appearance": "browser",
+      "coverRequired": true,
+      "description": "浏览器窗口样式，需要封面。"
+    },
+    {
+      "appearance": "book",
+      "coverRequired": true,
+      "description": "书籍样式，需要封面。"
+    },
+    {
+      "appearance": "disc",
+      "coverRequired": true,
+      "description": "唱片样式，需要封面。"
+    },
+    {
+      "appearance": "gallery",
+      "coverRequired": true,
+      "description": "伪 3D 画廊样式，需要封面。"
+    }
+  ]
+}
