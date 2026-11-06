@@ -1,0 +1,390 @@
+{
+  "$schema": "./portal.config.schema.json",
+  "configVersion": 1,
+  "site": {
+    "name": "willkyu",
+    "eyebrow": "PERSONAL PORTAL / 个人入口",
+    "title": "willkyu",
+    "description": "willkyu入口站",
+    "bubble": "在找什么？",
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/willkyu"
+      },
+      {
+        "label": "Blog",
+        "href": "/blog/"
+      },
+      {
+        "label": "Research",
+        "href": "/research/"
+      }
+    ]
+  },
+  "character": {
+    "mode": "layered",
+    "singleImage": "/assets/character/37.png",
+    "layers": [
+      {
+        "id": "body",
+        "src": "/assets/character/37.png",
+        "zIndex": 1,
+        "kind": "base"
+      },
+      {
+        "id": "eye-left",
+        "src": "/assets/character/37-eye-left.png",
+        "zIndex": 2,
+        "kind": "eye",
+        "followPointer": true,
+        "offsetX": 0,
+        "offsetY": -1.5
+      },
+      {
+        "id": "eye-right",
+        "src": "/assets/character/37-eye-right.png",
+        "zIndex": 3,
+        "kind": "eye",
+        "followPointer": true,
+        "offsetX": 0,
+        "offsetY": -1.5
+      },
+      {
+        "id": "cover",
+        "src": "/assets/character/37-cover-v2.png",
+        "zIndex": 4,
+        "kind": "foreground",
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    ],
+    "alt": "Thirty-seven",
+    "scale": 1,
+    "x": 0,
+    "y": 0,
+    "anchor": "bottom-left",
+    "crop": "contain",
+    "eyeFollow": {
+      "enabled": true,
+      "maxX": 5,
+      "maxY": 3.5
+    }
+  },
+  "categories": [
+    {
+      "id": "research",
+      "label": "Research",
+      "icon": "R",
+      "visible": true,
+      "order": 1,
+      "selection": "ordered",
+      "slots": [
+        "left-top",
+        "right-bottom"
+      ],
+      "viewAllHref": "/research/"
+    },
+    {
+      "id": "blog",
+      "label": "Blog",
+      "icon": "B",
+      "visible": true,
+      "order": 2,
+      "selection": "ordered",
+      "slots": [
+        "right-top",
+        "left-bottom"
+      ],
+      "viewAllHref": "/blog/"
+    },
+    {
+      "id": "pokemon",
+      "label": "PM",
+      "icon": "P",
+      "visible": true,
+      "order": 3,
+      "selection": "ordered",
+      "slots": [
+        "left-bottom",
+        "right-top"
+      ],
+      "viewAllHref": "/blog/categories/Pokemon/"
+    },
+    {
+      "id": "projects",
+      "label": "Projects",
+      "icon": "↗",
+      "visible": false,
+      "order": 4,
+      "selection": "ordered",
+      "slots": [
+        "right-bottom",
+        "left-top"
+      ],
+      "viewAllHref": "https://github.com/willkyu"
+    }
+  ],
+  "contentSources": [
+    {
+      "source": "blog",
+      "url": "/blog/homepage-feed.json",
+      "hrefPrefix": "/blog/"
+    },
+    {
+      "source": "research",
+      "url": "/research/homepage-feed.json",
+      "hrefPrefix": "/research/"
+    }
+  ],
+  "content": [
+    {
+      "id": "research-notes",
+      "categoryId": "research",
+      "title": "研究知识库",
+      "description": "前往由 Zotero 插件自动维护的 Quartz 研究库。",
+      "cover": "/assets/temporary/bookV.JPG",
+      "tags": [
+        "Quartz",
+        "Notes"
+      ],
+      "appearance": "book",
+      "href": "/research/",
+      "order": 1,
+      "spawnAngle": 35,
+      "example": false
+    },
+    {
+      "id": "blog-home",
+      "categoryId": "blog",
+      "title": "博客入口",
+      "description": "前往由 Hexo 构建的博客。",
+      "cover": "/assets/temporary/bookH.png",
+      "tags": [
+        "Hexo",
+        "Writing"
+      ],
+      "appearance": "gallery",
+      "href": "/blog/",
+      "order": 1,
+      "spawnAngle": 20,
+      "example": false
+    },
+    {
+      "id": "pokemon-disc",
+      "categoryId": "pokemon",
+      "title": "图鉴切片",
+      "description": "示例内容：为后续宝可梦收藏、队伍或图鉴页面预留。",
+      "cover": "/assets/temporary/disc_cover.png",
+      "tags": [
+        "示例",
+        "Collection"
+      ],
+      "appearance": "disc",
+      "href": "#pokemon",
+      "order": 1,
+      "spawnAngle": -10,
+      "example": true
+    },
+    {
+      "id": "github-projects",
+      "categoryId": "projects",
+      "title": "GitHub Projects",
+      "description": "查看 willkyu 的公开项目。",
+      "cover": "/assets/temporary/web.png",
+      "tags": [
+        "Code",
+        "GitHub"
+      ],
+      "appearance": "browser",
+      "href": "https://github.com/willkyu",
+      "order": 1,
+      "spawnAngle": -25,
+      "external": true,
+      "example": false
+    },
+    {
+      "id": "project-placeholder",
+      "categoryId": "projects",
+      "title": "AutoPoke",
+      "description": "一个三代宝可梦自动化刷闪工具。",
+      "tags": [
+        "示例",
+        "Project"
+      ],
+      "appearance": "essay",
+      "href": "https://github.com/willkyu/AutoPoke-Clover",
+      "order": 2,
+      "spawnAngle": 20,
+      "external": true,
+      "example": true
+    }
+  ],
+  "theme": {
+    "paper": "#ffffff",
+    "ink": "#111111",
+    "accent": "#111111",
+    "muted": "#dddddd",
+    "fontDisplay": "'Segoe Print', 'KaiTi', 'STKaiti', 'Microsoft YaHei UI', sans-serif",
+    "fontBody": "'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans CJK SC', sans-serif",
+    "lineWidth": 4,
+    "shadowOffset": 0,
+    "radius": 0,
+    "halftone": {
+      "enabled": true,
+      "density": 16,
+      "intensity": 0.72,
+      "fadeRadius": 75
+    }
+  },
+  "layout": {
+    "mode": "reference-physics",
+    "referenceWidth": 1440,
+    "referenceHeight": 900,
+    "breakpoints": {
+      "tablet": 1100,
+      "mobile": 700
+    },
+    "slots": [
+      {
+        "id": "left-top",
+        "zIndex": 10,
+        "angle": -4,
+        "enterFrom": "left",
+        "positions": {
+          "desktop": {
+            "x": 38,
+            "y": 28,
+            "width": 260,
+            "height": 280,
+            "maxContentHeight": 260,
+            "anchor": "center"
+          },
+          "tablet": {
+            "x": 34,
+            "y": 25,
+            "width": 260,
+            "height": 280,
+            "maxContentHeight": 260,
+            "anchor": "center"
+          },
+          "mobile": {
+            "x": 50,
+            "y": 73,
+            "width": 356,
+            "height": 304,
+            "maxContentHeight": 250,
+            "anchor": "center"
+          }
+        }
+      },
+      {
+        "id": "right-top",
+        "zIndex": 11,
+        "angle": 3,
+        "enterFrom": "right",
+        "positions": {
+          "desktop": {
+            "x": 64,
+            "y": 28,
+            "width": 260,
+            "height": 280,
+            "maxContentHeight": 260,
+            "anchor": "center"
+          },
+          "tablet": {
+            "x": 66,
+            "y": 25,
+            "width": 260,
+            "height": 280,
+            "maxContentHeight": 260,
+            "anchor": "center"
+          },
+          "mobile": {
+            "x": 50,
+            "y": 73,
+            "width": 356,
+            "height": 304,
+            "maxContentHeight": 250,
+            "anchor": "center"
+          }
+        }
+      },
+      {
+        "id": "left-bottom",
+        "zIndex": 12,
+        "angle": 3.5,
+        "enterFrom": "bottom",
+        "positions": {
+          "desktop": {
+            "x": 38,
+            "y": 72,
+            "width": 260,
+            "height": 280,
+            "maxContentHeight": 260,
+            "anchor": "center"
+          },
+          "tablet": {
+            "x": 34,
+            "y": 75,
+            "width": 260,
+            "height": 280,
+            "maxContentHeight": 260,
+            "anchor": "center"
+          },
+          "mobile": {
+            "x": 50,
+            "y": 73,
+            "width": 356,
+            "height": 304,
+            "maxContentHeight": 250,
+            "anchor": "center"
+          }
+        }
+      },
+      {
+        "id": "right-bottom",
+        "zIndex": 13,
+        "angle": -3,
+        "enterFrom": "bottom",
+        "positions": {
+          "desktop": {
+            "x": 64,
+            "y": 72,
+            "width": 260,
+            "height": 280,
+            "maxContentHeight": 260,
+            "anchor": "center"
+          },
+          "tablet": {
+            "x": 66,
+            "y": 75,
+            "width": 260,
+            "height": 280,
+            "maxContentHeight": 260,
+            "anchor": "center"
+          },
+          "mobile": {
+            "x": 50,
+            "y": 73,
+            "width": 356,
+            "height": 304,
+            "maxContentHeight": 250,
+            "anchor": "center"
+          }
+        }
+      }
+    ]
+  },
+  "motion": {
+    "enabled": true,
+    "duration": 420,
+    "fastDuration": 150,
+    "easing": "cubic-bezier(0.2, 0.85, 0.2, 1)",
+    "hoverScale": 1.6,
+    "hoverTilt": 0,
+    "pressScale": 0.97,
+    "enterDistance": 34,
+    "eyeFollow": true
+  }
+}

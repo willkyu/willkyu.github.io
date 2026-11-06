@@ -1,0 +1,49 @@
+{
+  "configVersion": 1,
+  "site": {
+    "name": "YOUR NAME",
+    "eyebrow": "PERSONAL PORTAL",
+    "title": "YOUR\nNAME",
+    "description": "一句简短介绍。",
+    "bubble": "想先去哪里？",
+    "links": []
+  },
+  "character": {
+    "mode": "single",
+    "singleImage": "/assets/character.png",
+    "layers": [],
+    "alt": "漫画人物",
+    "scale": 1,
+    "x": 0,
+    "y": 0,
+    "anchor": "bottom-left",
+    "crop": "contain",
+    "eyeFollow": { "enabled": false, "maxX": 0, "maxY": 0 }
+  },
+  "categories": [
+    { "id": "notes", "label": "笔记", "icon": "N", "visible": true, "order": 1, "selection": "ordered", "slots": ["slot-a"], "viewAllHref": "/notes/" }
+  ],
+  "contentSources": [],
+  "content": [
+    { "id": "note-home", "categoryId": "notes", "title": "笔记入口", "description": "第一条内容", "tags": ["Notes"], "appearance": "text", "href": "/notes/", "order": 1 }
+  ],
+  "theme": {
+    "paper": "#ffffff", "ink": "#111111", "accent": "#111111", "muted": "#dddddd",
+    "fontDisplay": "'Segoe Print', 'KaiTi', 'STKaiti', 'Microsoft YaHei UI', sans-serif", "fontBody": "'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', sans-serif",
+    "lineWidth": 4, "shadowOffset": 8, "radius": 3,
+    "halftone": { "enabled": true, "density": 16, "intensity": 0.72, "fadeRadius": 75 }
+  },
+  "layout": {
+    "mode": "reference-physics",
+    "referenceWidth": 1440, "referenceHeight": 900, "breakpoints": { "tablet": 1100, "mobile": 700 },
+    "slots": [{
+      "id": "slot-a", "zIndex": 10, "angle": -3, "enterFrom": "left",
+      "positions": {
+        "desktop": { "x": 8, "y": 12, "width": 320, "height": 240, "maxContentHeight": 200, "anchor": "top-left" },
+        "tablet": { "x": 3, "y": 6, "width": 280, "height": 220, "maxContentHeight": 180, "anchor": "top-left" },
+        "mobile": { "x": 50, "y": 73, "width": 356, "height": 304, "maxContentHeight": 250, "anchor": "center" }
+      }
+    }]
+  },
+  "motion": { "enabled": true, "duration": 420, "fastDuration": 150, "easing": "ease", "hoverScale": 1.03, "hoverTilt": 1, "pressScale": 0.97, "enterDistance": 32, "eyeFollow": false }
+}

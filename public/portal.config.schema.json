@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://willkyu.github.io/portal.config.schema.json",
+  "title": "Will Kyu Manga Portal configuration",
+  "type": "object",
+  "required": ["configVersion", "site", "character", "categories", "content", "theme", "layout", "motion"],
+  "properties": {
+    "configVersion": { "const": 1 },
+    "site": {
+      "type": "object",
+      "required": ["name", "eyebrow", "title", "description", "bubble", "links"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 }, "eyebrow": { "type": "string" }, "title": { "type": "string", "minLength": 1 },
+        "description": { "type": "string" }, "bubble": { "type": "string" },
+        "links": { "type": "array", "items": { "type": "object", "required": ["label", "href"], "properties": { "label": { "type": "string" }, "href": { "type": "string" } } } }
+      }
+    },
+    "character": {
+      "type": "object", "required": ["mode", "singleImage", "layers", "scale", "x", "y", "anchor", "crop", "eyeFollow"],
+      "properties": {
+        "mode": { "enum": ["single", "layered"] }, "singleImage": { "type": "string" }, "layers": { "type": "array" },
+        "scale": { "type": "number", "exclusiveMinimum": 0, "maximum": 4 }, "x": { "type": "number" }, "y": { "type": "number" },
+        "anchor": { "$ref": "#/$defs/anchor" }, "crop": { "enum": ["contain", "cover"] }, "eyeFollow": { "type": "object" }
+      }
+    },
+    "categories": { "type": "array", "items": { "$ref": "#/$defs/category" } },
+    "contentSources": { "type": "array", "items": { "$ref": "#/$defs/contentSource" } },
+    "content": { "type": "array", "items": { "$ref": "#/$defs/content" } },
+    "theme": { "type": "object", "required": ["paper", "ink", "accent", "muted", "fontDisplay", "fontBody", "lineWidth", "shadowOffset", "radius", "halftone"] },
+    "layout": { "type": "object", "required": ["mode", "referenceWidth", "referenceHeight", "breakpoints", "slots"], "properties": { "mode": { "enum": ["reference-physics", "fixed-slots"] }, "slots": { "type": "array", "items": { "$ref": "#/$defs/slot" } } } },
+    "motion": { "type": "object", "required": ["enabled", "duration", "fastDuration", "easing", "hoverScale", "hoverTilt", "pressScale", "enterDistance", "eyeFollow"] }
+  },
+  "$defs": {
+    "anchor": { "enum": ["top-left", "center", "top-right", "bottom-left", "bottom-right"] },
+    "category": {
+      "type": "object", "required": ["id", "label", "icon", "visible", "order", "selection", "slots"],
+      "properties": { "id": { "type": "string", "minLength": 1 }, "label": { "type": "string", "minLength": 1 }, "selection": { "enum": ["ordered", "random"] }, "slots": { "type": "array", "items": { "type": "string" } } }
+    },
+    "contentSource": {
+      "type": "object", "required": ["source", "url", "hrefPrefix"], "additionalProperties": false,
+      "properties": { "source": { "type": "string", "minLength": 1 }, "url": { "type": "string", "pattern": "^/" }, "hrefPrefix": { "type": "string", "pattern": "^/.+/$" } }
+    },
+    "content": {
+      "type": "object", "required": ["id", "categoryId", "title", "description", "tags", "appearance", "href", "order"],
+      "properties": { "id": { "type": "string", "minLength": 1 }, "categoryId": { "type": "string" }, "appearance": { "enum": ["text", "essay", "browser", "book", "disc", "gallery"] }, "href": { "type": "string" } }
+    },
+    "position": {
+      "type": "object", "required": ["x", "y", "width", "height", "maxContentHeight", "anchor"],
+      "properties": { "x": { "type": "number" }, "y": { "type": "number" }, "width": { "type": "number", "exclusiveMinimum": 0 }, "height": { "type": "number", "exclusiveMinimum": 0 }, "maxContentHeight": { "type": "number", "minimum": 120 }, "anchor": { "$ref": "#/$defs/anchor" } }
+    },
+    "slot": {
+      "type": "object", "required": ["id", "zIndex", "angle", "enterFrom", "positions"],
+      "properties": { "id": { "type": "string" }, "angle": { "type": "number", "minimum": -30, "maximum": 30 }, "enterFrom": { "enum": ["left", "right", "top", "bottom", "scale"] }, "positions": { "type": "object", "required": ["desktop", "tablet", "mobile"], "properties": { "desktop": { "$ref": "#/$defs/position" }, "tablet": { "$ref": "#/$defs/position" }, "mobile": { "$ref": "#/$defs/position" } } } }
+    }
+  }
+}

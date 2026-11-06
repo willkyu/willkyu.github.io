@@ -1,0 +1,240 @@
+// 说明模板：主页不会读取这个文件。
+// 实际运行配置是 public/portal.config.json；确认修改无误后，把对应值复制到运行配置。
+// JSON 本身不支持注释，因此不能直接把本文件的 // 注释复制进 portal.config.json。
+{
+  // 配置格式版本。当前只能是 1，升级格式时才会改变。
+  "configVersion": 1,
+
+  // 中心身份区和三个首屏外链。
+  "site": {
+    // 中心人物上方显示的名称。
+    "name": "willkyu",
+    // 备用固定槽位模式中的小标题；当前物理母版不直接显示。
+    "eyebrow": "PERSONAL PORTAL / 个人入口",
+    // 页面语义标题；建议与个人品牌一致。
+    "title": "WILLKYU",
+    // 页面和无障碍阅读使用的简介。
+    "description": "研究笔记、长文、项目与兴趣收藏的入口。",
+    // 人物右侧气泡文字，尽量控制在 4–8 个汉字。
+    "bubble": "想去哪？",
+    // 首屏的三个方形 block。label 是显示文字，href 是点击地址；可以增删。
+    "links": [
+      { "label": "GitHub", "href": "https://github.com/willkyu" },
+      { "label": "Blog", "href": "/blog/" },
+      { "label": "Research", "href": "/research/" }
+    ]
+  },
+
+  // 中心漫画人物。素材规格和分层规则见 docs/ASSETS.md。
+  "character": {
+    // single 使用 singleImage；layered 使用 layers。
+    "mode": "layered",
+    // single 模式的透明人物图路径。layered 模式下保留也不会显示。
+    "singleImage": "/assets/character/37.png",
+    // layered 模式的图层。所有图片必须使用相同画布、尺寸和原点。
+    "layers": [
+      // base 是人物主体；通常放在最底层。
+      { "id": "body", "src": "/assets/character/37.png", "zIndex": 1, "kind": "base" },
+      // eye 图层可随指针小幅移动；followPointer: false 可关闭单层跟随。
+      { "id": "eye-left", "src": "/assets/character/37-eye-left.png", "zIndex": 2, "kind": "eye", "followPointer": true, "offsetX": 0, "offsetY": -1.5 },
+      { "id": "eye-right", "src": "/assets/character/37-eye-right.png", "zIndex": 3, "kind": "eye", "followPointer": true, "offsetX": 0, "offsetY": -1.5 },
+      // foreground 始终盖在眼睛上方；这里用于遮住移动后本应藏在人物轮廓下的眼睛部分。
+      { "id": "cover", "src": "/assets/character/37-cover-v2.png", "zIndex": 4, "kind": "foreground", "offsetX": 0, "offsetY": 0 }
+    ],
+    // 图片无法显示时提供给屏幕阅读器的替代文字。
+    "alt": "willkyu 的漫画人物形象",
+    // 人物内部缩放；1 为原设计比例。建议每次以 0.05 为步长调整。
+    "scale": 1,
+    // 人物相对框体的水平、垂直像素偏移；正数分别向右、向下。
+    "x": 0,
+    "y": 0,
+    // 缩放和对齐锚点：top-left / center / top-right / bottom-left / bottom-right。
+    "anchor": "bottom-left",
+    // contain 显示完整人物；cover 会填满区域并裁切边缘。
+    "crop": "contain",
+    // 眼睛跟随总开关和最大像素位移。
+    "eyeFollow": { "enabled": true, "maxX": 5, "maxY": 3.5 }
+  },
+
+  // 中心的栏目按钮。id 会被 content.categoryId 和 feed 的 bind 引用，修改时必须同步。
+  "categories": [
+    // visible 控制显示；order 控制顺序；viewAllHref 是栏目总入口。
+    // reference-physics 模式一次弹出全部内容；selection 主要供 fixed-slots 模式使用。
+    { "id": "research", "label": "研究", "icon": "R", "visible": true, "order": 1, "selection": "ordered", "slots": ["left-top", "right-bottom"], "viewAllHref": "/research/" },
+    { "id": "blog", "label": "博客", "icon": "B", "visible": true, "order": 2, "selection": "ordered", "slots": ["right-top", "left-bottom"], "viewAllHref": "/blog/" },
+    { "id": "pokemon", "label": "宝可梦", "icon": "P", "visible": true, "order": 3, "selection": "ordered", "slots": ["left-bottom", "right-top"], "viewAllHref": "#pokemon" },
+    { "id": "projects", "label": "项目", "icon": "↗", "visible": true, "order": 4, "selection": "ordered", "slots": ["right-bottom", "left-top"], "viewAllHref": "https://github.com/willkyu" }
+  ],
+
+  // Blog 和 Research 发布时生成的运行时内容索引。
+  "contentSources": [
+    // source 必须与 feed 根节点的 source 相同。
+    // url 是 JSON 地址；hrefPrefix 限制该来源所有 href 和 cover 的路径前缀。
+    { "source": "blog", "url": "/blog/homepage-feed.json", "hrefPrefix": "/blog/" },
+    { "source": "research", "url": "/research/homepage-feed.json", "hrefPrefix": "/research/" }
+  ],
+
+  // 本地主页内容。远端 feed 成功时 example: true 的示例会被远端内容替换。
+  "content": [
+    {
+      // 本地内容必须有稳定且唯一的 id。
+      "id": "research-notes",
+      // 必须对应 categories 中的 id。
+      "categoryId": "research",
+      "title": "研究知识库",
+      "description": "前往独立维护的 Quartz 研究库。这里显示的是人工精选入口。",
+      // text 外观不需要 cover；其他四种外观必须提供封面。
+      "cover": "/assets/temporary/book-cover.png",
+      "tags": ["Quartz", "Notes"],
+      // 可选 text / essay / browser / book / disc / gallery；essay 会向下展开正文。
+      "appearance": "book",
+      "href": "/research/",
+      // 数字越小越靠前；运行时 popup 的空间方向仍会根据空白区域选择。
+      "order": 1,
+      // false 表示固定入口，不会被远端 feed 替换。
+      "example": false
+    },
+    {
+      "id": "research-index",
+      "categoryId": "research",
+      "title": "近期研究笔记",
+      "description": "示例内容：发布前可在配置中换成一条真实的精选研究笔记。",
+      "tags": ["示例", "Index"],
+      "appearance": "text",
+      "href": "/research/",
+      "order": 2,
+      // true 表示这是可被远端精选内容替换的本地示例。
+      "example": true
+    },
+    {
+      "id": "blog-home",
+      "categoryId": "blog",
+      "title": "博客入口",
+      "description": "前往独立 Hexo 博客。",
+      "cover": "/assets/temporary/room-cover.png",
+      "tags": ["Hexo", "Writing"],
+      "appearance": "gallery",
+      "href": "/blog/",
+      "order": 1,
+      "example": false
+    },
+    {
+      "id": "pokemon-disc",
+      "categoryId": "pokemon",
+      "title": "图鉴切片",
+      "description": "示例内容：为宝可梦收藏、队伍或图鉴页面预留。",
+      "cover": "/assets/temporary/disc_cover.png",
+      "tags": ["示例", "Collection"],
+      "appearance": "disc",
+      "href": "#pokemon",
+      "order": 1,
+      "example": true
+    },
+    {
+      "id": "github-projects",
+      "categoryId": "projects",
+      "title": "GitHub Projects",
+      "description": "查看 willkyu 的公开项目。",
+      "cover": "/assets/temporary/browser-cover.jpg",
+      "tags": ["Code", "GitHub"],
+      "appearance": "browser",
+      "href": "https://github.com/willkyu",
+      "order": 1,
+      // 外部链接使用新标签页打开。
+      "external": true,
+      "example": false
+    }
+  ],
+
+  // 全站漫画主题。颜色使用任意合法 CSS 颜色值，字体填写完整 CSS 字体栈。
+  "theme": {
+    "paper": "#ffffff", // 页面纸张色。
+    "ink": "#111111", // 主线条和文字色。
+    "accent": "#111111", // 强调色；当前保持黑白。
+    "muted": "#dddddd", // 非激活状态和浅灰块面。
+    "fontDisplay": "'Segoe Print', 'KaiTi', 'STKaiti', 'Microsoft YaHei UI', sans-serif", // 漫画标题字体，保留中文回退。
+    "fontBody": "'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans CJK SC', sans-serif", // 正文和栏目字体。
+    "lineWidth": 4, // 主要边框像素，允许 1–12。
+    "shadowOffset": 0, // 备用固定槽位模式的阴影偏移。
+    "radius": 0, // 普通窗口圆角；中心胶囊有自己的固定造型。
+    "halftone": {
+      "enabled": true, // 关闭后保留纯纸张背景。
+      "density": 16, // 网点间距；越小越密，允许 4–40。
+      "intensity": 0.72, // 网点整体强度，范围 0–1。
+      "fadeRadius": 75 // 中心留白半径百分比；越大，中央越空。
+    }
+  },
+
+  // 页面布局。当前使用 reference-physics；slots 是备用 fixed-slots 模式的数据。
+  "layout": {
+    "mode": "reference-physics", // 可选 reference-physics / fixed-slots。
+    "referenceWidth": 1440, // 设计参考宽度，用于固定槽位的百分比换算。
+    "referenceHeight": 900, // 设计参考高度。
+    "breakpoints": {
+      "tablet": 1100, // 宽度小于等于此值进入平板比例。
+      "mobile": 700 // 宽度小于等于此值进入手机比例。
+    },
+    "slots": [
+      {
+        "id": "left-top", // 唯一槽位 ID，供 category.slots 引用。
+        "zIndex": 10, // fixed-slots 模式的基础层级。
+        "angle": -4, // 装饰倾角，范围 -30 到 30 度。
+        "enterFrom": "left", // left / right / top / bottom / scale。
+        "positions": {
+          // x、y 是视口百分比；width、height、maxContentHeight 是像素。
+          // anchor 决定 x、y 对应窗口的哪个角或中心。
+          "desktop": { "x": 38, "y": 28, "width": 260, "height": 280, "maxContentHeight": 260, "anchor": "center" },
+          "tablet": { "x": 34, "y": 25, "width": 260, "height": 280, "maxContentHeight": 260, "anchor": "center" },
+          "mobile": { "x": 50, "y": 73, "width": 356, "height": 304, "maxContentHeight": 250, "anchor": "center" }
+        }
+      },
+      {
+        // 其他槽位字段含义完全相同；修改位置时三个断点都要保留。
+        "id": "right-top",
+        "zIndex": 11,
+        "angle": 3,
+        "enterFrom": "right",
+        "positions": {
+          "desktop": { "x": 64, "y": 28, "width": 260, "height": 280, "maxContentHeight": 260, "anchor": "center" },
+          "tablet": { "x": 66, "y": 25, "width": 260, "height": 280, "maxContentHeight": 260, "anchor": "center" },
+          "mobile": { "x": 50, "y": 73, "width": 356, "height": 304, "maxContentHeight": 250, "anchor": "center" }
+        }
+      },
+      {
+        "id": "left-bottom",
+        "zIndex": 12,
+        "angle": 3.5,
+        "enterFrom": "bottom",
+        "positions": {
+          "desktop": { "x": 38, "y": 72, "width": 260, "height": 280, "maxContentHeight": 260, "anchor": "center" },
+          "tablet": { "x": 34, "y": 75, "width": 260, "height": 280, "maxContentHeight": 260, "anchor": "center" },
+          "mobile": { "x": 50, "y": 73, "width": 356, "height": 304, "maxContentHeight": 250, "anchor": "center" }
+        }
+      },
+      {
+        "id": "right-bottom",
+        "zIndex": 13,
+        "angle": -3,
+        "enterFrom": "bottom",
+        "positions": {
+          "desktop": { "x": 64, "y": 72, "width": 260, "height": 280, "maxContentHeight": 260, "anchor": "center" },
+          "tablet": { "x": 66, "y": 75, "width": 260, "height": 280, "maxContentHeight": 260, "anchor": "center" },
+          "mobile": { "x": 50, "y": 73, "width": 356, "height": 304, "maxContentHeight": 250, "anchor": "center" }
+        }
+      }
+    ]
+  },
+
+  // 动效与交互强度。
+  "motion": {
+    "enabled": true, // 总开关；系统 prefers-reduced-motion 仍有更高优先级。
+    "duration": 420, // popup 和主要动画时长，单位毫秒。
+    "fastDuration": 150, // 悬停、按压等快速反馈时长。
+    "easing": "cubic-bezier(0.2, 0.85, 0.2, 1)", // 合法 CSS easing。
+    "hoverScale": 1.6, // item 悬浮目标倍数，允许 1–2；会参与物理碰撞。
+    "hoverTilt": 0, // 备用固定槽位模式的悬浮倾角。
+    "pressScale": 0.97, // 按下时的目标比例。
+    "enterDistance": 34, // fixed-slots 入场的临时位移像素。
+    "eyeFollow": true // 人物视线跟随总开关。
+  }
+}
