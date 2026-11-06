@@ -111,6 +111,19 @@ test('loads published feeds before rendering and binds entries without authored 
   expect(Number(await sensor.getAttribute('data-base-width'))).toBeGreaterThan(180)
   expect(Number(await sensor.getAttribute('data-base-height'))).toBeGreaterThan(64)
   await expect(sensor.getByRole('link', { name: '打开 SensorLM: Learning the Language of Wearable Sensors' })).toHaveAttribute('href', '/research/papers/sensorlm')
+  await expect(sensor.locator('.essay-preview')).toBeVisible()
+  await expect(sensor.locator('.essay-copy')).toBeHidden()
+  const collapsedPreviewMetrics = await sensor.locator('.essay-preview').evaluate((node) => {
+    const range = document.createRange()
+    range.selectNodeContents(node)
+    return {
+      renderedLines: range.getClientRects().length,
+      previewBottom: node.getBoundingClientRect().bottom,
+      cardBottom: node.closest('.card--essay')!.getBoundingClientRect().bottom,
+    }
+  })
+  expect(collapsedPreviewMetrics.renderedLines).toBe(1)
+  expect(collapsedPreviewMetrics.previewBottom).toBeLessThanOrEqual(collapsedPreviewMetrics.cardBottom)
   const collapsedEssay = await sensor.boundingBox()
   const expansionTop = await sensor.getByRole('link', { name: '打开 SensorLM: Learning the Language of Wearable Sensors' }).evaluate((link: HTMLAnchorElement) => {
     link.focus({ preventScroll: true })
@@ -122,9 +135,11 @@ test('loads published feeds before rendering and binds entries without authored 
   // must still move much less than a vertically recentered expansion would.
   const essayHeightIncrease = expandedEssay!.height - collapsedEssay!.height
   expect(Math.abs(expandedEssay!.y - expansionTop)).toBeLessThan(essayHeightIncrease * .4)
-  expect(await sensor.locator('.card--essay > p').first().evaluate((node) => parseFloat(getComputedStyle(node).fontSize))).toBeGreaterThanOrEqual(14)
-  await expect(sensor.locator('.card--essay > p')).toHaveCount(2)
-  await expect(sensor.locator('.card--essay > p').first()).toHaveCSS('text-indent', /28|29|30|31|32|33|34px/)
+  await expect(sensor.locator('.essay-preview')).toBeHidden()
+  await expect(sensor.locator('.essay-copy')).toBeVisible()
+  expect(await sensor.locator('.essay-copy > p').first().evaluate((node) => parseFloat(getComputedStyle(node).fontSize))).toBeGreaterThanOrEqual(14)
+  await expect(sensor.locator('.essay-copy > p')).toHaveCount(2)
+  await expect(sensor.locator('.essay-copy > p').first()).toHaveCSS('text-indent', /28|29|30|31|32|33|34px/)
   await expect(sensor.locator('.essay-fade')).toHaveCSS('height', '50px')
   await expect(sensor.locator('.card--essay')).toHaveCSS('background-color', 'rgb(255, 255, 255)')
   await page.mouse.move(expandedEssay!.x + expandedEssay!.width / 2, expandedEssay!.y + expandedEssay!.height / 2)

@@ -44,7 +44,10 @@ export function CardRenderer({ content }: CardRendererProps) {
     return (
       <a className="card card--essay" {...linkProps(content)}>
         <h3>{content.title}</h3>
-        {paragraphs.map((paragraph, index) => <p key={`${index}:${paragraph}`}>{paragraph}</p>)}
+        {paragraphs[0] && <p className="essay-preview" aria-hidden="true">{paragraphs[0]}</p>}
+        <div className="essay-copy">
+          {paragraphs.map((paragraph, index) => <p key={`${index}:${paragraph}`}>{paragraph}</p>)}
+        </div>
         <div className="essay-fade" aria-hidden="true"><span>・・・</span></div>
       </a>
     )

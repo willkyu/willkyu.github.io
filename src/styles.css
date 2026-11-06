@@ -79,9 +79,17 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .physics-content[data-content-id^="feed-error:"] .card--text h3 { font-weight: 900; letter-spacing: .04em; }
 
 /* Reference essay object: a white title strip grows downward to a paper-like page. */
-.card--essay { display: block; overflow: hidden; padding: 3px; border: 4px solid #111; background: #fff; color: #111; font-family: var(--font-body); }
+.card--essay { display: block; overflow: hidden; padding: 3px; border: 4px solid #111; background: #fff; color: #111; font-family: var(--font-body); container-type: size; }
 .card--essay > h3 { margin: 0; overflow: hidden; font-size: clamp(15px, 6.2cqw, 21px); font-weight: 800; line-height: 1.25; text-align: center; overflow-wrap: anywhere; }
-.card--essay > p { margin: 5px 0 0; overflow: hidden; font-size: clamp(14px, 4.8cqw, 17px); line-height: 1.55; overflow-wrap: anywhere; text-indent: 2em; }
+.essay-preview,
+.essay-copy > p { margin: 5px 0 0; overflow: hidden; font-size: clamp(14px, 4.8cqw, 17px); line-height: 1.55; overflow-wrap: anywhere; text-indent: 2em; }
+.essay-preview { display: none; text-overflow: ellipsis; white-space: nowrap; }
+.essay-copy { display: none; }
+@container (min-height: 92px) { .essay-preview { display: block; } }
+.physics-content[data-appearance="essay"]:hover .essay-preview,
+.physics-content[data-appearance="essay"]:focus-within .essay-preview { display: none; }
+.physics-content[data-appearance="essay"]:hover .essay-copy,
+.physics-content[data-appearance="essay"]:focus-within .essay-copy { display: block; }
 .essay-fade { position: absolute; z-index: 2; left: 4px; bottom: 4px; width: calc(100% - 8px); height: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; overflow: hidden; background: linear-gradient(to bottom, transparent 0%, #fff 60%); pointer-events: none; transition: height 300ms ease; }
 .essay-fade span { margin-bottom: 8px; font: 800 14px/1 var(--font-body); letter-spacing: -8px; writing-mode: vertical-rl; }
 .physics-content[data-appearance="essay"]:hover .essay-fade,
