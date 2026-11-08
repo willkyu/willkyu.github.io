@@ -74,7 +74,8 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .card--text { display: grid; place-items: center; padding: 5px 8px; overflow: hidden; border: 4px solid #111; background: #fff; font-family: var(--font-body); text-align: center; }
 .card--text h3 { max-width: 100%; font-size: clamp(15px, 6.5cqw, 22px); line-height: 1.3; overflow-wrap: anywhere; transform: translate(var(--layer-mid-x, 0), var(--layer-mid-y, 0)); transition: transform 80ms linear; }
 .card--text p { position: absolute; inset: 0; display: grid; place-items: center; padding: 14px; color: #fff; background: #111; font-size: clamp(14px, 7.78cqw, 20px); line-height: 1.6; opacity: 0; pointer-events: none; transform: translate(var(--layer-near-x, 0), var(--layer-near-y, 0)); transition: opacity .16s, transform 80ms linear; }
-.physics-content[data-appearance="text"]:hover .card--text p { opacity: 1; }
+.physics-content[data-appearance="text"]:hover .card--text p,
+.physics-content[data-appearance="text"][data-touch-expanded="true"] .card--text p { opacity: 1; }
 .physics-content[data-content-id^="feed-error:"] .card--text { border-style: dashed; background: repeating-linear-gradient(-45deg, #fff 0 12px, #eee 12px 15px); }
 .physics-content[data-content-id^="feed-error:"] .card--text h3 { font-weight: 900; letter-spacing: .04em; }
 
@@ -87,12 +88,15 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .essay-copy { display: none; }
 @container (min-height: 92px) { .essay-preview { display: block; } }
 .physics-content[data-appearance="essay"]:hover .essay-preview,
+.physics-content[data-appearance="essay"][data-touch-expanded="true"] .essay-preview,
 .physics-content[data-appearance="essay"]:focus-within .essay-preview { display: none; }
 .physics-content[data-appearance="essay"]:hover .essay-copy,
+.physics-content[data-appearance="essay"][data-touch-expanded="true"] .essay-copy,
 .physics-content[data-appearance="essay"]:focus-within .essay-copy { display: block; }
 .essay-fade { position: absolute; z-index: 2; left: 4px; bottom: 4px; width: calc(100% - 8px); height: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; overflow: hidden; background: linear-gradient(to bottom, transparent 0%, #fff 60%); pointer-events: none; transition: height 300ms ease; }
 .essay-fade span { margin-bottom: 8px; font: 800 14px/1 var(--font-body); letter-spacing: -8px; writing-mode: vertical-rl; }
 .physics-content[data-appearance="essay"]:hover .essay-fade,
+.physics-content[data-appearance="essay"][data-touch-expanded="true"] .essay-fade,
 .physics-content[data-appearance="essay"]:focus-within .essay-fade { height: 50px; }
 
 /* Reference web object: compact browser chrome and a full-bleed preview. */
@@ -108,7 +112,8 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .browser-overlay { position: absolute; left: 17%; right: 17%; bottom: 0; padding: 5px; color: #fff; background: linear-gradient(to top, #000 42%, transparent); text-align: center; transform: translate(var(--layer-near-x, 0), var(--layer-near-y, 0)); transition: transform 80ms linear; }
 .browser-overlay h3 { font: 400 8.33cqw/1 var(--font-display); }
 .browser-overlay p { max-height: 0; overflow: hidden; font: 400 clamp(11px, 4.58cqw, 17px)/1.45 var(--font-body); opacity: 0; transition: max-height .2s, opacity .2s; }
-.card--browser:hover .browser-overlay p { max-height: 20cqw; opacity: 1; }
+.card--browser:hover .browser-overlay p,
+.physics-content[data-touch-expanded="true"] .browser-overlay p { max-height: 20cqw; opacity: 1; }
 
 /* Reference book object: blurred cover, centered title and a white caption strip. */
 .card--book { overflow: hidden; border: 0; border-radius: 3% 0 0 3%; background: #000; }
@@ -128,8 +133,10 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .disc-image--shadow { filter: brightness(0) invert(1); transform: translate(var(--layer-mid-x, 0px), var(--layer-mid-y, 0px)); }
 .disc-art[data-state="loaded"] .disc-placeholder { opacity: 0; }
 .disc-art[data-state="loaded"] .disc-image { opacity: 1; }
-.physics-content[data-appearance="disc"]:hover .disc-image:not(.disc-image--shadow) { transform: translate(calc(clamp(24px, 18cqw, 40px) + var(--layer-near-x, 0px)), var(--layer-near-y, 0px)); }
-.physics-content[data-appearance="disc"]:hover .disc-image--shadow { transform: translate(calc(clamp(24px, 18cqw, 40px) + var(--layer-mid-x, 0px)), var(--layer-mid-y, 0px)); }
+.physics-content[data-appearance="disc"]:hover .disc-image:not(.disc-image--shadow),
+.physics-content[data-appearance="disc"][data-touch-expanded="true"] .disc-image:not(.disc-image--shadow) { transform: translate(calc(clamp(24px, 18cqw, 40px) + var(--layer-near-x, 0px)), var(--layer-near-y, 0px)); }
+.physics-content[data-appearance="disc"]:hover .disc-image--shadow,
+.physics-content[data-appearance="disc"][data-touch-expanded="true"] .disc-image--shadow { transform: translate(calc(clamp(24px, 18cqw, 40px) + var(--layer-mid-x, 0px)), var(--layer-mid-y, 0px)); }
 .disc-spine { position: absolute; z-index: 3; top: 0; left: 0; width: 12%; height: 100%; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 5%; background: #fff; box-shadow: -4px 0 #ccc; transform: translate(var(--disc-spine-x, 0px), var(--disc-spine-y, 0px)); transition: transform 80ms linear; }
 .disc-spine strong { width: 100%; margin-top: 10%; margin-right: -20%; padding: 30% 0; color: #fff; background: #000; font: 700 var(--disc-title-font-size, 16px)/1 var(--font-body); text-align: center; white-space: nowrap; writing-mode: vertical-rl; }
 .disc-spine span { flex: 1; width: 100%; padding: 1px; overflow: hidden; font: 600 var(--disc-copy-font-size, 10px)/1 var(--font-body); writing-mode: vertical-rl; }
@@ -153,10 +160,14 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .gallery-placard h3 { overflow: hidden; font: 800 clamp(14px, 6cqw, 20px)/1.05 var(--font-display); text-overflow: ellipsis; white-space: nowrap; }
 .gallery-placard small { display: block; margin-top: 3px; overflow: hidden; font: 700 clamp(8px, 3.6cqw, 11px)/1 var(--font-body); letter-spacing: .08em; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
 .gallery-placard p { max-height: 0; overflow: hidden; font: 600 clamp(10px, 4.2cqw, 13px)/1.35 var(--font-body); opacity: 0; transition: max-height .18s ease, margin-top .18s ease, opacity .18s ease; }
-.physics-content:hover .gallery-plane--back { transform: translate(calc(-20% + var(--layer-far-x, 0px)), calc(-13% + var(--layer-far-y, 0px))) rotate(-9deg) scale(.92); }
-.physics-content:hover .gallery-plane--middle { transform: translate(calc(20% + var(--layer-mid-x, 0px)), calc(-7% + var(--layer-mid-y, 0px))) rotate(8deg) scale(.96); }
-.physics-content:hover .gallery-plane--front { transform: translate(var(--layer-near-x, 0px), calc(-2% + var(--layer-near-y, 0px))) rotate(-1deg); }
-.physics-content:hover .gallery-placard p { max-height: 5.4em; margin-top: 5px; opacity: 1; }
+.physics-content:hover .gallery-plane--back,
+.physics-content[data-touch-expanded="true"] .gallery-plane--back { transform: translate(calc(-20% + var(--layer-far-x, 0px)), calc(-13% + var(--layer-far-y, 0px))) rotate(-9deg) scale(.92); }
+.physics-content:hover .gallery-plane--middle,
+.physics-content[data-touch-expanded="true"] .gallery-plane--middle { transform: translate(calc(20% + var(--layer-mid-x, 0px)), calc(-7% + var(--layer-mid-y, 0px))) rotate(8deg) scale(.96); }
+.physics-content:hover .gallery-plane--front,
+.physics-content[data-touch-expanded="true"] .gallery-plane--front { transform: translate(var(--layer-near-x, 0px), calc(-2% + var(--layer-near-y, 0px))) rotate(-1deg); }
+.physics-content:hover .gallery-placard p,
+.physics-content[data-touch-expanded="true"] .gallery-placard p { max-height: 5.4em; margin-top: 5px; opacity: 1; }
 
 .window-dock { display: none; }
 
@@ -166,7 +177,10 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .physics-item { position: absolute; transform: none; transform-origin: center; transition: filter var(--motion-fast) ease; }
 .popup-item { animation: item-popup var(--motion-duration) var(--motion-easing) backwards; }
 .profile-popup { animation: item-popup var(--motion-duration) var(--motion-easing) backwards; }
-.popup-item:hover { z-index: 30 !important; }
+.popup-item:hover,
+.popup-item[data-touch-expanded="true"] { z-index: 30 !important; }
+.reference-portal[data-input="touch"] .physics-content::after { content: '轻触'; position: absolute; z-index: 40; right: 0; top: -18px; padding: 2px 5px; color: #fff; border: 2px solid #111; background: #111; font: 800 9px/1 var(--font-body); letter-spacing: .06em; pointer-events: none; }
+.reference-portal[data-input="touch"] .physics-content[data-touch-expanded="true"]::after { content: '再点打开 ↗'; }
 @keyframes item-popup {
   0% { opacity: 0; filter: blur(8px); transform: scale(0); }
   68% { opacity: 1; filter: blur(0); transform: scale(var(--popup-overshoot-scale, 1.08)); }

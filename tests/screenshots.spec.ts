@@ -95,3 +95,30 @@ test('capture reference-style essay expansion', async ({ page }) => {
   await expect(essay.locator('.essay-fade')).toHaveCSS('height', '50px')
   await page.screenshot({ path: resolve(output, 'portal-essay-reference-style.png') })
 })
+
+test('capture mobile touch preview', async ({ browser }) => {
+  const context = await browser.newContext({ hasTouch: true, viewport: { width: 390, height: 844 } })
+  const page = await context.newPage()
+  await page.route('**/blog/homepage-feed.json', (route) => route.fulfill({
+    contentType: 'application/json',
+    body: JSON.stringify({ schemaVersion: 1, source: 'blog', generatedAt: '2026-11-08T01:00:00.000Z', items: [] }),
+  }))
+  await page.route('**/research/homepage-feed.json', (route) => route.fulfill({
+    contentType: 'application/json',
+    body: JSON.stringify({
+      schemaVersion: 1,
+      source: 'research',
+      generatedAt: '2026-11-08T01:00:00.000Z',
+      items: [{ bind: 'research', title: '手机端 Essay', summary: '第一次点按展开内容。\n第二次点按跳转链接。', href: '/research/mobile-essay/', appearance: 'essay', tags: ['Touch'], order: 10 }],
+    }),
+  }))
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+  await page.getByRole('button', { name: /Research，2 条内容/ }).tap()
+  const essay = page.locator('[data-content-id="feed:research:/research/mobile-essay/"]')
+  await expect(essay).toBeVisible()
+  await essay.getByRole('link').tap({ force: true })
+  await expect(essay).toHaveAttribute('data-touch-expanded', 'true')
+  await page.waitForTimeout(450)
+  await page.screenshot({ path: resolve(output, 'portal-mobile-touch-preview.png') })
+  await context.close()
+})

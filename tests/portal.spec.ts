@@ -281,6 +281,63 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
   await expect(page.locator('.window-dock')).toHaveCount(0)
 })
 
+test('touch devices preview content on the first tap and open it on the second', async ({ browser }) => {
+  const context = await browser.newContext({ hasTouch: true, viewport: { width: 390, height: 844 } })
+  const page = await context.newPage()
+  await page.route('**/blog/homepage-feed.json', (route) => route.fulfill({
+    contentType: 'application/json',
+    body: JSON.stringify({
+      schemaVersion: 1,
+      source: 'blog',
+      generatedAt: '2026-11-08T01:00:00.000Z',
+      items: [{ bind: 'blog', title: '触屏博客摘要', summary: '第一次点按显示摘要，第二次打开。', href: '/blog/touch-target/', appearance: 'text', tags: ['Touch'], order: 10 }],
+    }),
+  }))
+  await page.route('**/research/homepage-feed.json', (route) => route.fulfill({
+    contentType: 'application/json',
+    body: JSON.stringify({
+      schemaVersion: 1,
+      source: 'research',
+      generatedAt: '2026-11-08T01:00:00.000Z',
+      items: [{ bind: 'research', title: '触屏 Essay', summary: '第一段。\n第二段。', href: '/research/touch-essay/', appearance: 'essay', tags: ['Touch'], order: 10 }],
+    }),
+  }))
+  await page.route('**/blog/touch-target/', (route) => route.fulfill({ contentType: 'text/html', body: '<title>touch target</title>' }))
+
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+  await expect(page.locator('.reference-portal')).toHaveAttribute('data-input', 'touch')
+
+  await page.getByRole('button', { name: /Research，2 条内容/ }).tap()
+  const essay = page.locator('[data-content-id="feed:research:/research/touch-essay/"]')
+  await expect(essay).toBeVisible()
+  await page.waitForTimeout(650)
+  const collapsedHeight = (await essay.boundingBox())!.height
+  await essay.getByRole('link').tap({ force: true })
+  await expect(essay).toHaveAttribute('data-touch-expanded', 'true')
+  await expect(essay.locator('.essay-copy')).toBeVisible()
+  await expect.poll(async () => (await essay.boundingBox())!.height).toBeGreaterThan(collapsedHeight * 1.5)
+  await page.touchscreen.tap(5, 420)
+  await expect(essay).not.toHaveAttribute('data-touch-expanded', 'true')
+  await expect(essay.locator('.essay-copy')).toBeHidden()
+  await expect.poll(async () => (await essay.boundingBox())!.height).toBeLessThan(collapsedHeight * 1.15)
+
+  await page.setViewportSize({ width: 820, height: 1000 })
+  await page.getByRole('button', { name: /Blog，2 条内容/ }).tap()
+  const text = page.locator('[data-content-id="feed:blog:/blog/touch-target/"]')
+  await expect(text).toBeVisible()
+  await page.waitForTimeout(650)
+  const collapsedTextWidth = (await text.boundingBox())!.width
+  await text.getByRole('link').tap({ force: true })
+  await expect(text).toHaveAttribute('data-touch-expanded', 'true')
+  await expect(text.locator('.card--text p')).toHaveCSS('opacity', '1')
+  await expect.poll(async () => (await text.boundingBox())!.width).toBeGreaterThan(collapsedTextWidth * 1.15)
+  expect((await text.boundingBox())!.width).toBeLessThan(collapsedTextWidth * 1.34)
+  await expect(page).toHaveURL(/\/$/)
+  await text.getByRole('link').tap({ force: true })
+  await expect(page).toHaveURL(/\/blog\/touch-target\/$/)
+  await context.close()
+})
+
 test('items and centre options use layered parallax while the disc stays centred', async ({ page }) => {
   await page.route('**/assets/temporary/disc_cover.png', async (route) => {
     await new Promise((resolve) => setTimeout(resolve, 350))

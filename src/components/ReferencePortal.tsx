@@ -27,6 +27,7 @@ interface SceneItem {
   queued: boolean
   fixed: boolean
   hovered: boolean
+  touchExpanded: boolean
   pressed: boolean
   attractStrength: number
   baseWidth: number
@@ -100,6 +101,20 @@ function itemScale(item: SceneItem, viewport: ViewportSize) {
   return sceneBoost
 }
 
+function interactionScale(item: SceneItem, viewport: ViewportSize, hoverScale: number, touch = false) {
+  if (item.fixed || item.content?.appearance === 'essay') return 1
+  if (item.content?.appearance === 'text') return touch ? (viewport.width <= 700 ? 1.12 : 1.22) : 1.35
+  if (!touch) return hoverScale
+  return Math.min(hoverScale, viewport.width <= 700 ? 1.18 : 1.32)
+}
+
+function interactionExpansion(item: SceneItem, active: boolean, motionEnabled: boolean) {
+  if (!active) return 1
+  if (item.content?.appearance === 'essay') return essayExpansion(item)
+  if (item.content?.appearance === 'text' && motionEnabled) return 1.85
+  return 1
+}
+
 function visualSize(item: SceneItem, viewport: ViewportSize) {
   const scale = itemScale(item, viewport) * item.scale
   const labelWidth = item.kind === 'link' ? Math.max(item.baseWidth, (item.label?.length ?? 0) * 18) : item.baseWidth
@@ -133,9 +148,9 @@ function clampPosition(item: SceneItem, viewport: ViewportSize, position = { x: 
   }
 }
 
-function popupPosition(item: SceneItem, viewport: ViewportSize, items: SceneItem[]) {
-  const compactRadius = Math.min(viewport.width, viewport.height) * (viewport.width <= 700 ? .36 : .25)
-  const radius = Math.max(viewport.width <= 700 ? 145 : 165, compactRadius)
+export function popupPosition(item: SceneItem, viewport: ViewportSize, items: SceneItem[]) {
+  const margin = viewport.width <= 700 ? 10 : 18
+  const gap = viewport.width <= 700 ? 12 : 18
   const directions = [
     { x: 0, y: -1 },
     { x: 1, y: 0 },
@@ -144,13 +159,25 @@ function popupPosition(item: SceneItem, viewport: ViewportSize, items: SceneItem
   ].sort(() => Math.random() - .5)
   const occupied = items.filter((entry) => entry.spawned && entry.id !== item.id)
   const itemSize = visualSize(item, viewport)
+  const centreItem = occupied.find((entry) => entry.kind === 'profile')
+  const centreSize = centreItem ? visualSize(centreItem, viewport) : { width: 0, height: 0 }
 
-  return directions
+  const candidates = directions
     .map((direction) => {
-      const perpendicularJitter = (Math.random() - .5) * radius * .34
+      const horizontal = direction.x !== 0
+      const itemExtent = (horizontal ? itemSize.width : itemSize.height) / 2
+      const centreExtent = (horizontal ? centreSize.width : centreSize.height) / 2
+      const maximumDistance = (horizontal ? viewport.width : viewport.height) / 2 - margin - itemExtent
+      const minimumDistance = centreExtent + itemExtent + gap
+      const availableSpace = maximumDistance - minimumDistance
+      if (availableSpace < 0) return null
+
+      const distance = minimumDistance + Math.min(58, availableSpace * .34)
+      const perpendicularLimit = Math.max(0, (horizontal ? viewport.height : viewport.width) / 2 - margin - (horizontal ? itemSize.height : itemSize.width) / 2)
+      const perpendicularJitter = (Math.random() - .5) * Math.min(72, perpendicularLimit * .35)
       const position = clampPosition(item, viewport, {
-        x: direction.x * radius - direction.y * perpendicularJitter,
-        y: direction.y * radius + direction.x * perpendicularJitter,
+        x: direction.x * distance - direction.y * perpendicularJitter,
+        y: direction.y * distance + direction.x * perpendicularJitter,
       })
       const score = occupied.reduce((total, other) => {
         const otherSize = visualSize(other, viewport)
@@ -161,10 +188,15 @@ function popupPosition(item: SceneItem, viewport: ViewportSize, items: SceneItem
         }
         const edgeDistance = Math.hypot(Math.max(0, clearanceX), Math.max(0, clearanceY))
         return total + Math.min(edgeDistance, 320)
-      }, 0)
-      return { position, score }
+      }, Math.min(availableSpace, 320) * 2)
+      return { position, score, availableSpace }
     })
-    .sort((a, b) => b.score - a.score)[0].position
+    .filter((candidate): candidate is { position: { x: number; y: number }; score: number; availableSpace: number } => candidate !== null)
+
+  if (!candidates.length) {
+    return clampPosition(item, viewport, { x: 0, y: viewport.height > viewport.width ? viewport.height * .3 : 0 })
+  }
+  return candidates.sort((a, b) => b.score - a.score)[0].position
 }
 
 function radialPosition(item: SceneItem, viewport: ViewportSize, angle: number, radius: number) {
@@ -271,7 +303,7 @@ function createContentItem(entry: ContentConfig): SceneItem {
   const [width, height] = contentSize(entry)
   return {
     id: entry.id, kind: 'content', content: entry, categoryId: entry.categoryId,
-    spawned: false, queued: false, fixed: false, hovered: false, pressed: false, attractStrength: 0,
+    spawned: false, queued: false, fixed: false, hovered: false, touchExpanded: false, pressed: false, attractStrength: 0,
     baseWidth: width, baseHeight: height, x: 0, y: 0, vx: 0, vy: 0,
     scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
   }
@@ -279,14 +311,14 @@ function createContentItem(entry: ContentConfig): SceneItem {
 
 function createItems(config: PortalConfig, viewport: ViewportSize): SceneItem[] {
   const profile: SceneItem = {
-    id: 'profile', kind: 'profile', spawned: true, queued: false, fixed: true, hovered: false, pressed: false, attractStrength: 1,
+    id: 'profile', kind: 'profile', spawned: true, queued: false, fixed: true, hovered: false, touchExpanded: false, pressed: false, attractStrength: 1,
     baseWidth: 359, baseHeight: 259, x: 0, y: 0, vx: 0, vy: 0,
     scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
   }
   const links = config.site.links.map((link, index) => {
     const item: SceneItem = {
       id: `link-${index}-${link.label}`, kind: 'link', label: link.label, href: link.href,
-      spawned: false, queued: false, fixed: false, hovered: false, pressed: false, attractStrength: 0,
+      spawned: false, queued: false, fixed: false, hovered: false, touchExpanded: false, pressed: false, attractStrength: 0,
       baseWidth: 64, baseHeight: 64, x: 0, y: 0, vx: 0, vy: 0,
       scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
     }
@@ -296,7 +328,7 @@ function createItems(config: PortalConfig, viewport: ViewportSize): SceneItem[] 
   })
   const creditBase: SceneItem = {
     id: 'reference-credit', kind: 'credit', label: 'NIKUKIKAI.ART', href: 'https://nikukikai.art/',
-    spawned: false, queued: false, fixed: true, hovered: false, pressed: false, attractStrength: 0,
+    spawned: false, queued: false, fixed: true, hovered: false, touchExpanded: false, pressed: false, attractStrength: 0,
     baseWidth: 360, baseHeight: 54, x: 0, y: 0, vx: 0, vy: 0,
     scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
   }
@@ -319,11 +351,19 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const [viewport, setViewport] = useState<ViewportSize>(initialViewport)
   const [items, setItems] = useState<SceneItem[]>(initialItems)
   const [mouse, setMouse] = useState({ x: initialViewport.width / 2, y: initialViewport.height / 2 })
+  const [touchMode, setTouchMode] = useState(() => window.matchMedia('(hover: none), (pointer: coarse)').matches)
 
   const updateItems = useCallback((updater: (current: SceneItem[]) => SceneItem[]) => {
     const next = updater(itemsRef.current)
     itemsRef.current = next
     setItems(next)
+  }, [])
+
+  useEffect(() => {
+    const media = window.matchMedia('(hover: none), (pointer: coarse)')
+    const update = () => setTouchMode(media.matches)
+    media.addEventListener('change', update)
+    return () => media.removeEventListener('change', update)
   }, [])
 
   useEffect(() => {
@@ -438,17 +478,45 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const setHover = useCallback((id: string, hovered: boolean) => {
     updateItems((current) => current.map((item) => {
       if (item.id !== id) return item
+      if (touchMode) return item
       if (item.pressed) return { ...item, hovered }
-      const isExpandableText = item.content?.appearance === 'text'
-      const isEssay = item.content?.appearance === 'essay'
       return {
         ...item,
         hovered,
-        targetScale: item.fixed || !hovered ? 1 : isEssay ? 1 : isExpandableText ? 1.35 : config.motion.hoverScale,
-        targetExpansion: hovered && isEssay ? essayExpansion(item) : hovered && isExpandableText && config.motion.enabled ? 1.85 : 1,
+        targetScale: hovered ? interactionScale(item, viewportRef.current, config.motion.hoverScale) : 1,
+        targetExpansion: interactionExpansion(item, hovered, config.motion.enabled),
+      }
+    }))
+  }, [config.motion.enabled, config.motion.hoverScale, touchMode, updateItems])
+
+  const setTouchPreview = useCallback((id: string | null) => {
+    updateItems((current) => current.map((item) => {
+      if (item.kind !== 'content') return item
+      const active = item.id === id
+      return {
+        ...item,
+        hovered: active,
+        touchExpanded: active,
+        pressed: false,
+        targetScale: active ? interactionScale(item, viewportRef.current, config.motion.hoverScale, true) : 1,
+        targetExpansion: interactionExpansion(item, active, config.motion.enabled),
       }
     }))
   }, [config.motion.enabled, config.motion.hoverScale, updateItems])
+
+  const activateContent = useCallback((event: MouseEvent<HTMLDivElement>, item: SceneItem) => {
+    if (!touchMode) {
+      activateWrappedLink(event)
+      return
+    }
+    if (!item.touchExpanded) {
+      event.preventDefault()
+      event.stopPropagation()
+      setTouchPreview(item.id)
+      return
+    }
+    activateWrappedLink(event)
+  }, [setTouchPreview, touchMode])
 
   const pressItem = useCallback((id: string, event: PointerEvent<HTMLDivElement>) => {
     if (event.button !== 0) return
@@ -456,27 +524,27 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
     updateItems((current) => current.map((item) => item.id === id ? {
       ...item,
       pressed: true,
-      hovered: true,
+      hovered: touchMode ? item.touchExpanded : true,
       vx: 0,
       vy: 0,
       targetScale: item.scale,
       targetExpansion: item.expansion,
     } : item))
-  }, [updateItems])
+  }, [touchMode, updateItems])
 
   const releaseItem = useCallback((id: string) => {
     window.setTimeout(() => updateItems((current) => current.map((item) => {
       if (item.id !== id) return item
-      const isExpandableText = item.content?.appearance === 'text'
-      const isEssay = item.content?.appearance === 'essay'
+      const active = touchMode ? item.touchExpanded : item.hovered
       return {
         ...item,
         pressed: false,
-        targetScale: item.fixed || !item.hovered ? 1 : isEssay ? 1 : isExpandableText ? 1.35 : config.motion.hoverScale,
-        targetExpansion: item.hovered && isEssay ? essayExpansion(item) : item.hovered && isExpandableText && config.motion.enabled ? 1.85 : 1,
+        hovered: active,
+        targetScale: active ? interactionScale(item, viewportRef.current, config.motion.hoverScale, touchMode) : 1,
+        targetExpansion: interactionExpansion(item, active, config.motion.enabled),
       }
     })), 0)
-  }, [config.motion.enabled, config.motion.hoverScale, updateItems])
+  }, [config.motion.enabled, config.motion.hoverScale, touchMode, updateItems])
 
   const tiltCard = (event: PointerEvent<HTMLDivElement>) => {
     if (event.pointerType !== 'mouse' || event.currentTarget.dataset.pressed === 'true') return
@@ -525,8 +593,15 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const spawned = items.filter((item) => item.spawned)
 
   return (
-    <main className="portal reference-portal" style={style}>
-      <div className="reference-viewport" onPointerMove={(event) => setMouse({ x: event.clientX, y: event.clientY })} onPointerLeave={resetScenePointer}>
+    <main className="portal reference-portal" style={style} data-input={touchMode ? 'touch' : 'pointer'}>
+      <div
+        className="reference-viewport"
+        onPointerMove={(event) => setMouse({ x: event.clientX, y: event.clientY })}
+        onPointerLeave={resetScenePointer}
+        onPointerDown={(event) => {
+          if (touchMode && event.target instanceof Element && !event.target.closest('.physics-item')) setTouchPreview(null)
+        }}
+      >
         <HalftoneBackground paper={config.theme.paper} ink={config.theme.ink} config={config.theme.halftone} cameraX={0} cameraY={0} />
         <div className="reference-world">
           {spawned.map((item) => {
@@ -614,6 +689,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
               <div
                 className="physics-item physics-content popup-item"
                 data-pressed={item.pressed || undefined}
+                data-touch-expanded={item.touchExpanded || undefined}
                 data-appearance={item.content.appearance}
                 data-content-id={item.content.id}
                 data-base-width={item.baseWidth}
@@ -628,7 +704,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
                 onPointerDown={(event) => pressItem(item.id, event)}
                 onPointerUp={() => releaseItem(item.id)}
                 onPointerCancel={() => releaseItem(item.id)}
-                onClick={activateWrappedLink}
+                onClick={(event) => activateContent(event, item)}
               ><CardRenderer content={item.content} /></div>
             ) : null
           })}
