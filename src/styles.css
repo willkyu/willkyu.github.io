@@ -172,8 +172,9 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .window-dock { display: none; }
 
 /* Fixed camera, compact physics scene: items pop in near the centre, then push and settle. */
-.reference-viewport { position: relative; width: 100vw; height: 100dvh; min-height: min(480px, 100dvh); overflow: hidden; isolation: isolate; cursor: default; touch-action: manipulation; user-select: none; -webkit-user-select: none; }
-.reference-world { position: absolute; z-index: 1; left: 50%; top: 50%; width: 0; height: 0; }
+.reference-viewport { position: relative; width: 100vw; height: 100dvh; min-height: min(480px, 100dvh); overflow: hidden; isolation: isolate; cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; }
+.reference-portal[data-dragging="true"] .reference-viewport { cursor: grabbing; }
+.reference-world { position: absolute; z-index: 1; left: 50%; top: 50%; width: 0; height: 0; will-change: transform; }
 .physics-item { position: absolute; transform: none; transform-origin: center; transition: filter var(--motion-fast) ease; }
 .popup-item { animation: item-popup var(--motion-duration) var(--motion-easing) backwards; }
 .profile-popup { animation: item-popup var(--motion-duration) var(--motion-easing) backwards; }
@@ -250,5 +251,5 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
   .character-layer--eye { transform: none !important; }
 }
 
-/* Reference mode is a fixed, viewport-aware scene: no draggable camera. */
+/* Reference mode keeps a viewport-aware physics scene inside a bounded draggable camera. */
 html:has(.reference-portal), body:has(.reference-portal) { overflow: hidden; }

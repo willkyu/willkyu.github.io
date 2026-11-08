@@ -121,8 +121,7 @@ function interactionExpansion(item: SceneItem, active: boolean, motionEnabled: b
 
 function visualSize(item: SceneItem, viewport: ViewportSize) {
   const scale = itemScale(item, viewport) * item.scale
-  const labelWidth = item.kind === 'link' ? Math.max(item.baseWidth, (item.label?.length ?? 0) * 18) : item.baseWidth
-  const width = labelWidth * scale
+  const width = item.baseWidth * scale
   let height = item.baseHeight * scale * item.expansion
   if (item.content?.appearance === 'text' && item.expansion <= 1.01) {
     const fontSize = Math.min(22, Math.max(15, width * .065))
@@ -234,6 +233,15 @@ function creditPosition(item: SceneItem, viewport: ViewportSize) {
 function clampVector(x: number, y: number, max: number) {
   const magnitude = Math.hypot(x, y)
   return magnitude > max ? { x: x * max / magnitude, y: y * max / magnitude } : { x, y }
+}
+
+function clampCamera(position: { x: number; y: number }, viewport: ViewportSize) {
+  const maximumX = Math.max(120, viewport.width * .4)
+  const maximumY = Math.max(140, viewport.height * .34)
+  return {
+    x: Math.max(-maximumX, Math.min(maximumX, position.x)),
+    y: Math.max(-maximumY, Math.min(maximumY, position.y)),
+  }
 }
 
 function repel(distance: number, halfSize: number, gap: number) {
@@ -369,12 +377,16 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const orientationPermissionTried = useRef(false)
   const orientationBaseline = useRef<{ beta: number; gamma: number } | null>(null)
   const orientationValue = useRef({ x: 0, y: 0 })
+  const cameraRef = useRef({ x: 0, y: 0 })
+  const panRef = useRef<{ pointerId: number; startX: number; startY: number; originX: number; originY: number } | null>(null)
   const [viewport, setViewport] = useState<ViewportSize>(initialViewport)
   const [items, setItems] = useState<SceneItem[]>(initialItems)
   const [mouse, setMouse] = useState({ x: initialViewport.width / 2, y: initialViewport.height / 2 })
   const [touchMode, setTouchMode] = useState(() => window.matchMedia('(hover: none), (pointer: coarse)').matches)
   const [orientationActive, setOrientationActive] = useState(false)
   const [orientationPointer, setOrientationPointer] = useState({ x: 0, y: 0 })
+  const [camera, setCamera] = useState({ x: 0, y: 0 })
+  const [dragging, setDragging] = useState(false)
 
   const updateItems = useCallback((updater: (current: SceneItem[]) => SceneItem[]) => {
     const next = updater(itemsRef.current)
@@ -487,6 +499,9 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
       setOrientationPointer({ x: 0, y: 0 })
       viewportRef.current = nextViewport
       setViewport(nextViewport)
+      const nextCamera = clampCamera(cameraRef.current, nextViewport)
+      cameraRef.current = nextCamera
+      setCamera(nextCamera)
       updateItems((current) => {
         const projected = current.map((item) => {
           if (item.kind === 'profile' || item.kind === 'link' || !item.spawned) return item
@@ -529,6 +544,27 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const resetScenePointer = useCallback(() => {
     const current = viewportRef.current
     setMouse({ x: current.width / 2, y: current.height / 2 })
+  }, [])
+
+  const moveViewport = useCallback((event: PointerEvent<HTMLDivElement>) => {
+    const pan = panRef.current
+    if (pan?.pointerId === event.pointerId) {
+      const next = clampCamera({
+        x: pan.originX + event.clientX - pan.startX,
+        y: pan.originY + event.clientY - pan.startY,
+      }, viewportRef.current)
+      cameraRef.current = next
+      setCamera(next)
+      return
+    }
+    if (!touchMode) setMouse({ x: event.clientX, y: event.clientY })
+  }, [touchMode])
+
+  const endViewportPan = useCallback((event: PointerEvent<HTMLDivElement>) => {
+    if (panRef.current?.pointerId !== event.pointerId) return
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId)
+    panRef.current = null
+    setDragging(false)
   }, [])
 
   useEffect(() => {
@@ -619,6 +655,22 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
     activateWrappedLink(event)
   }, [setTouchPreview, touchMode])
 
+  const startViewportPan = useCallback((event: PointerEvent<HTMLDivElement>) => {
+    if (event.button !== 0) return
+    if (touchMode) void startOrientation(true)
+    if (!(event.target instanceof Element) || event.target.closest('.physics-item')) return
+    setTouchPreview(null)
+    event.currentTarget.setPointerCapture(event.pointerId)
+    panRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      originX: cameraRef.current.x,
+      originY: cameraRef.current.y,
+    }
+    setDragging(true)
+  }, [setTouchPreview, startOrientation, touchMode])
+
   const pressItem = useCallback((id: string, event: PointerEvent<HTMLDivElement>) => {
     if (event.button !== 0) return
     resetTilt(event)
@@ -696,18 +748,26 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const spawned = items.filter((item) => item.spawned)
 
   return (
-    <main className="portal reference-portal" style={style} data-input={touchMode ? 'touch' : 'pointer'} data-touch-parallax={touchMode ? orientationActive ? 'gyro' : 'off' : 'pointer'}>
+    <main
+      className="portal reference-portal"
+      style={style}
+      data-input={touchMode ? 'touch' : 'pointer'}
+      data-touch-parallax={touchMode ? orientationActive ? 'gyro' : 'off' : 'pointer'}
+      data-dragging={dragging || undefined}
+      data-camera-x={Math.round(camera.x)}
+      data-camera-y={Math.round(camera.y)}
+    >
       <div
         className="reference-viewport"
-        onPointerMove={(event) => { if (!touchMode) setMouse({ x: event.clientX, y: event.clientY }) }}
-        onPointerLeave={resetScenePointer}
-        onPointerDown={(event) => {
-          if (touchMode) void startOrientation(true)
-          if (touchMode && event.target instanceof Element && !event.target.closest('.physics-item')) setTouchPreview(null)
-        }}
+        onPointerMove={moveViewport}
+        onPointerLeave={() => { if (!dragging) resetScenePointer() }}
+        onPointerDown={startViewportPan}
+        onPointerUp={endViewportPan}
+        onPointerCancel={endViewportPan}
+        onLostPointerCapture={() => { panRef.current = null; setDragging(false) }}
       >
-        <HalftoneBackground paper={config.theme.paper} ink={config.theme.ink} config={config.theme.halftone} cameraX={0} cameraY={0} />
-        <div className="reference-world">
+        <HalftoneBackground paper={config.theme.paper} ink={config.theme.ink} config={config.theme.halftone} cameraX={-camera.x} cameraY={-camera.y} />
+        <div className="reference-world" style={{ transform: `translate3d(${camera.x}px, ${camera.y}px, 0)` }}>
           {spawned.map((item) => {
             const responsiveScale = itemScale(item, viewport)
             const size = visualSize(item, viewport)

@@ -33,6 +33,12 @@ test('introduces the centre, then entry blocks and the parallax reference credit
 
   const links = page.locator('.physics-link-card')
   await expect(links).toHaveCount(3, { timeout: 2_000 })
+  for (const box of await links.evaluateAll((nodes) => nodes.map((node) => {
+    const rect = node.getBoundingClientRect()
+    return { width: rect.width, height: rect.height }
+  }))) {
+    expect(Math.abs(box.width - box.height)).toBeLessThan(.5)
+  }
   await expect(links.first()).toHaveCSS('animation-name', 'none')
   await expect(page.locator('.physics-item.popup-item').filter({ has: page.locator('.physics-link-card') }).first()).toHaveCSS('animation-name', 'item-popup')
   await page.evaluate(() => window.dispatchEvent(new Event('blur')))
@@ -242,7 +248,7 @@ test('one click pops in the whole category and keeps physics active', async ({ p
   expect(await textItem.locator('p').evaluate((node) => getComputedStyle(node).fontFamily)).not.toContain('DotGothic16')
 })
 
-test('the scene has no draggable camera', async ({ page }) => {
+test('dragging blank canvas pans the scene without stealing item gestures', async ({ page }) => {
   await page.setViewportSize({ width: 1024, height: 768 })
   await page.goto('/', { waitUntil: 'domcontentloaded' })
 
@@ -251,12 +257,27 @@ test('the scene has no draggable camera', async ({ page }) => {
   const before = await profile.boundingBox()
   await page.mouse.move(60, 700)
   await page.mouse.down()
-  await page.mouse.move(300, 700, { steps: 8 })
+  await expect(page.locator('.reference-portal')).toHaveAttribute('data-dragging', 'true')
+  await expect(page.locator('.reference-viewport')).toHaveCSS('cursor', 'grabbing')
+  await page.mouse.move(300, 640, { steps: 8 })
   await page.mouse.up()
   const after = await profile.boundingBox()
-  expect(Math.abs(after!.x - before!.x)).toBeLessThan(.5)
-  expect(Math.abs(after!.y - before!.y)).toBeLessThan(.5)
-  await expect(page.locator('.reference-viewport')).toHaveCSS('cursor', 'default')
+  expect(after!.x - before!.x).toBeCloseTo(240, 0)
+  expect(after!.y - before!.y).toBeCloseTo(-60, 0)
+  await expect(page.locator('.reference-portal')).not.toHaveAttribute('data-dragging', 'true')
+  await expect(page.locator('.reference-viewport')).toHaveCSS('cursor', 'grab')
+
+  const cameraBeforeItemGesture = await page.locator('.reference-portal').evaluate((node) => ({
+    x: node.getAttribute('data-camera-x'),
+    y: node.getAttribute('data-camera-y'),
+  }))
+  const movedProfile = (await profile.boundingBox())!
+  await page.mouse.move(movedProfile.x + 24, movedProfile.y + 24)
+  await page.mouse.down()
+  await page.mouse.move(movedProfile.x + 80, movedProfile.y + 60, { steps: 4 })
+  await page.mouse.up()
+  await expect(page.locator('.reference-portal')).toHaveAttribute('data-camera-x', cameraBeforeItemGesture.x!)
+  await expect(page.locator('.reference-portal')).toHaveAttribute('data-camera-y', cameraBeforeItemGesture.y!)
 })
 
 test('narrow screens scale and contain the scene', async ({ page }) => {
