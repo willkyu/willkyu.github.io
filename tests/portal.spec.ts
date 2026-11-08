@@ -306,16 +306,16 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
   await page.goto('/', { waitUntil: 'domcontentloaded' })
   await page.waitForTimeout(500)
   const profile = await page.locator('.identity-panel').boundingBox()
-  expect(profile!.x).toBeCloseTo(10, 0)
-  expect(profile!.y).toBeCloseTo(10, 0)
-  expect(profile!.width).toBeCloseTo(370, 0)
-  expect(profile!.height).toBeCloseTo(164, 0)
+  expect(profile!.x + profile!.width / 2).toBeCloseTo(195, 0)
+  expect(profile!.y + profile!.height / 2).toBeCloseTo(422, 0)
+  expect(profile!.width).toBeCloseTo(323, 0)
+  expect(profile!.height).toBeCloseTo(233, 0)
   const navButtons = await page.locator('.identity-panel .category-button').evaluateAll((nodes) => nodes.map((node) => {
     const rect = node.getBoundingClientRect()
     return { x: rect.x, y: rect.y, width: rect.width, height: rect.height }
   }))
   expect(navButtons.length).toBeGreaterThanOrEqual(3)
-  expect(new Set(navButtons.map((button) => Math.round(button.y))).size).toBe(1)
+  expect(new Set(navButtons.map((button) => Math.round(button.y))).size).toBe(navButtons.length)
   const halftone = (await page.locator('.halftone-canvas').boundingBox())!
   expect(halftone.x).toBeLessThan(0)
   expect(halftone.y).toBeLessThan(0)
@@ -325,6 +325,12 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
   const items = page.locator('.physics-content')
   await expect(items).toHaveCount(1)
   await page.waitForTimeout(700)
+  const compactProfile = (await page.locator('.identity-panel').boundingBox())!
+  expect(compactProfile.x).toBeCloseTo(10, 0)
+  expect(compactProfile.y).toBeCloseTo(10, 0)
+  expect(compactProfile.width).toBeCloseTo(370, 0)
+  expect(compactProfile.height).toBeCloseTo(58, 0)
+  await expect(page.locator('.identity-panel')).toHaveAttribute('data-mobile-compact', 'true')
   for (const box of await items.evaluateAll((nodes) => nodes.map((node) => {
     const rect = node.getBoundingClientRect()
     return { x: rect.x, y: rect.y, width: rect.width, height: rect.height }
@@ -333,15 +339,20 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
     expect(box.y).toBeGreaterThanOrEqual(-1)
     expect(box.x + box.width).toBeLessThanOrEqual(391)
     expect(box.y + box.height).toBeLessThanOrEqual(845)
-    expect(box.y).toBeGreaterThanOrEqual(profile!.y + profile!.height + 10)
+    expect(box.y).toBeGreaterThanOrEqual(compactProfile.y + compactProfile.height + 10)
   }
+  const mobileObjects = await page.locator('.physics-item').filter({ has: page.locator('a') }).evaluateAll((nodes) => nodes.map((node) => {
+    const rect = node.getBoundingClientRect()
+    return rect.x + rect.width / 2
+  }))
+  expect(Math.max(...mobileObjects) - Math.min(...mobileObjects)).toBeGreaterThan(80)
   await page.setViewportSize({ width: 844, height: 390 })
   await page.waitForTimeout(500)
   const landscapeProfile = (await page.locator('.identity-panel').boundingBox())!
   expect(landscapeProfile.x).toBeCloseTo(10, 0)
   expect(landscapeProfile.y).toBeCloseTo(10, 0)
   expect(landscapeProfile.width).toBeCloseTo(824, 0)
-  expect(landscapeProfile.height).toBeCloseTo(120, 0)
+  expect(landscapeProfile.height).toBeCloseTo(52, 0)
   for (const box of await items.evaluateAll((nodes) => nodes.map((node) => {
     const rect = node.getBoundingClientRect()
     return { y: rect.y }
@@ -394,7 +405,7 @@ test('touch devices preview content on the first tap and open it on the second',
     return { top: rect.top, bottom: rect.bottom }
   }))
   expect(blockBoxes).toHaveLength(3)
-  for (const block of blockBoxes) expect(block.top).toBeGreaterThanOrEqual(profileBox.y + profileBox.height + 10)
+  for (const block of blockBoxes) expect(block.bottom <= profileBox.y - 10 || block.top >= profileBox.y + profileBox.height + 10).toBe(true)
   await expect(page.locator('.identity-panel')).toHaveCSS('--centre-option-x', '0px')
   await expect(page.locator('.physics-link-card').first()).toHaveCSS('--layer-near-x', '0px')
 

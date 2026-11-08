@@ -40,6 +40,7 @@ interface SceneItem {
   targetScale: number
   expansion: number
   targetExpansion: number
+  mobileCompact?: boolean
 }
 
 interface ViewportSize {
@@ -94,8 +95,8 @@ function usesMobileNavigation(viewport: ViewportSize) {
   return viewport.width <= 700 || (viewport.height <= 500 && viewport.width <= 900)
 }
 
-function mobileNavigationHeight(viewport: ViewportSize) {
-  return viewport.height <= 500 ? 120 : 164
+function mobileCompactHeight(viewport: ViewportSize) {
+  return viewport.height <= 500 ? 52 : 58
 }
 
 function itemScale(item: SceneItem, viewport: ViewportSize) {
@@ -128,8 +129,8 @@ function interactionExpansion(item: SceneItem, active: boolean, motionEnabled: b
 }
 
 function layoutSize(item: SceneItem, viewport: ViewportSize) {
-  if (item.kind === 'profile' && usesMobileNavigation(viewport)) {
-    return { width: Math.max(300, viewport.width - 20), height: mobileNavigationHeight(viewport) }
+  if (item.kind === 'profile' && usesMobileNavigation(viewport) && item.mobileCompact) {
+    return { width: Math.max(300, viewport.width - 20), height: mobileCompactHeight(viewport) }
   }
   const responsiveScale = itemScale(item, viewport)
   const width = item.baseWidth * responsiveScale
@@ -149,7 +150,7 @@ function visualSize(item: SceneItem, viewport: ViewportSize) {
 }
 
 function profilePosition(item: SceneItem, viewport: ViewportSize) {
-  if (!usesMobileNavigation(viewport)) return { x: 0, y: 0 }
+  if (!usesMobileNavigation(viewport) || !item.mobileCompact) return { x: 0, y: 0 }
   const size = layoutSize(item, viewport)
   return { x: 0, y: -viewport.height / 2 + 10 + size.height / 2 }
 }
@@ -163,7 +164,7 @@ function clampPosition(item: SceneItem, viewport: ViewportSize, position = { x: 
   const size = visualSize(item, viewport)
   const mobile = usesMobileNavigation(viewport)
   const margin = mobile ? 10 : 18
-  const mobileContentTop = mobile ? -viewport.height / 2 + 10 + mobileNavigationHeight(viewport) + 12 : -viewport.height / 2 + margin
+  const mobileContentTop = mobile && item.mobileCompact ? -viewport.height / 2 + 10 + mobileCompactHeight(viewport) + 12 : -viewport.height / 2 + margin
   const halfWidth = size.width / 2
   const halfHeight = size.height / 2
   const minX = -viewport.width / 2 + margin + halfWidth
@@ -191,15 +192,26 @@ export function popupPosition(item: SceneItem, viewport: ViewportSize, items: Sc
   const mobile = usesMobileNavigation(viewport)
   const margin = mobile ? 10 : 18
   const gap = mobile ? 12 : 18
-  const directions = (mobile
-    ? [{ x: 0, y: 1 }]
-    : [{ x: 0, y: -1 }, { x: 1, y: 0 }, { x: 0, y: 1 }, { x: -1, y: 0 }]
-  ).sort(() => Math.random() - .5)
+  const directions = [{ x: 0, y: -1 }, { x: 1, y: 0 }, { x: 0, y: 1 }, { x: -1, y: 0 }].sort(() => Math.random() - .5)
   const occupied = items.filter((entry) => entry.spawned && entry.kind !== 'credit' && entry.id !== item.id)
   const itemSize = visualSize(item, viewport)
   const centreItem = occupied.find((entry) => entry.kind === 'profile')
   const centreSize = centreItem ? collisionSize(centreItem, viewport) : { width: 0, height: 0 }
   const centre = centreItem ?? { x: 0, y: 0 }
+
+  if (mobile && item.mobileCompact) {
+    const halfWidth = itemSize.width / 2
+    const halfHeight = itemSize.height / 2
+    const contentTop = -viewport.height / 2 + 10 + mobileCompactHeight(viewport) + gap
+    const minY = contentTop + halfHeight
+    const maxY = viewport.height / 2 - margin - halfHeight
+    const maxX = Math.max(0, viewport.width / 2 - margin - halfWidth)
+    const verticalBand = Math.max(0, Math.min(maxY - minY, Math.max(90, itemSize.height * .7)))
+    return clampPosition(item, viewport, {
+      x: (Math.random() * 2 - 1) * maxX * .92,
+      y: minY + Math.random() * verticalBand,
+    })
+  }
 
   const candidates = directions
     .flatMap((direction) => {
@@ -346,13 +358,24 @@ function physicsStep(items: SceneItem[], viewport: ViewportSize) {
   return next
 }
 
-function createContentItem(entry: ContentConfig): SceneItem {
+function hasVisiblePhysicsChange(previous: SceneItem[], next: SceneItem[]) {
+  return next.some((item, index) => {
+    const before = previous[index]
+    return !before
+      || Math.abs(item.x - before.x) > .05
+      || Math.abs(item.y - before.y) > .05
+      || Math.abs(item.scale - before.scale) > .002
+      || Math.abs(item.expansion - before.expansion) > .002
+  })
+}
+
+function createContentItem(entry: ContentConfig, mobileCompact = false): SceneItem {
   const [width, height] = contentSize(entry)
   return {
     id: entry.id, kind: 'content', content: entry, categoryId: entry.categoryId,
     spawned: false, queued: false, fixed: false, hovered: false, touchExpanded: false, pressed: false, attractStrength: 0,
     baseWidth: width, baseHeight: height, x: 0, y: 0, vx: 0, vy: 0,
-    scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
+    scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1, mobileCompact,
   }
 }
 
@@ -360,14 +383,14 @@ function createItems(config: PortalConfig, viewport: ViewportSize): SceneItem[] 
   const profile: SceneItem = {
     id: 'profile', kind: 'profile', spawned: true, queued: false, fixed: true, hovered: false, touchExpanded: false, pressed: false, attractStrength: 1,
     baseWidth: 359, baseHeight: 259, x: 0, y: 0, vx: 0, vy: 0,
-    scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
+    scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1, mobileCompact: false,
   }
   Object.assign(profile, profilePosition(profile, viewport))
   const creditBase: SceneItem = {
     id: 'reference-credit', kind: 'credit', label: 'NIKUKIKAI.ART', href: 'https://nikukikai.art/',
     spawned: false, queued: false, fixed: true, hovered: false, touchExpanded: false, pressed: false, attractStrength: 0,
     baseWidth: 360, baseHeight: 54, x: 0, y: 0, vx: 0, vy: 0,
-    scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
+    scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1, mobileCompact: false,
   }
   const credit = { ...creditBase, ...creditPosition(creditBase, viewport) }
   const placementItems: SceneItem[] = [profile]
@@ -376,13 +399,13 @@ function createItems(config: PortalConfig, viewport: ViewportSize): SceneItem[] 
       id: `link-${index}-${link.label}`, kind: 'link', label: link.label, href: link.href,
       spawned: false, queued: false, fixed: false, hovered: false, touchExpanded: false, pressed: false, attractStrength: 0,
       baseWidth: 64, baseHeight: 64, x: 0, y: 0, vx: 0, vy: 0,
-      scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
+      scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1, mobileCompact: false,
     }
     const positioned = { ...item, ...popupPosition(item, viewport, placementItems) }
     placementItems.push({ ...positioned, spawned: true })
     return positioned
   })
-  const content = config.content.map(createContentItem)
+  const content = config.content.map((entry) => createContentItem(entry))
   return [profile, ...links, credit, ...content]
 }
 
@@ -395,12 +418,16 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const initialViewport = useMemo(() => ({ width: window.innerWidth, height: window.innerHeight }), [])
   const initialItems = useMemo(() => createItems(config, initialViewport), [config, initialViewport])
   const itemsRef = useRef<SceneItem[]>(initialItems)
+  const renderedItemsRef = useRef<SceneItem[]>(initialItems)
   const viewportRef = useRef<ViewportSize>(initialViewport)
   const spawnTimers = useRef<number[]>([])
   const orientationListening = useRef(false)
   const orientationPermissionTried = useRef(false)
   const orientationBaseline = useRef<{ beta: number; gamma: number } | null>(null)
   const orientationValue = useRef({ x: 0, y: 0 })
+  const pointerTimer = useRef(0)
+  const lastPointerCommit = useRef(0)
+  const pendingPointer = useRef<{ x: number; y: number } | null>(null)
   const [viewport, setViewport] = useState<ViewportSize>(initialViewport)
   const [items, setItems] = useState<SceneItem[]>(initialItems)
   const [mouse, setMouse] = useState({ x: initialViewport.width / 2, y: initialViewport.height / 2 })
@@ -411,6 +438,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const updateItems = useCallback((updater: (current: SceneItem[]) => SceneItem[]) => {
     const next = updater(itemsRef.current)
     itemsRef.current = next
+    renderedItemsRef.current = next
     setItems(next)
   }, [])
 
@@ -500,11 +528,12 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
     updateItems((current) => {
       const currentContent = new Map(current.filter((item) => item.kind === 'content').map((item) => [item.id, item]))
       const nonContent = current.filter((item) => item.kind !== 'content')
+      const mobileCompact = current.find((item) => item.kind === 'profile')?.mobileCompact ?? false
       const content = config.content.map((entry) => {
         const existing = currentContent.get(entry.id)
         return existing
           ? { ...existing, content: entry, categoryId: entry.categoryId }
-          : createContentItem(entry)
+          : createContentItem(entry, mobileCompact)
       })
       return [...nonContent, ...content]
     })
@@ -520,7 +549,10 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
       viewportRef.current = nextViewport
       setViewport(nextViewport)
       updateItems((current) => {
-        const projected = current.map((item) => {
+        const mobileCompact = usesMobileNavigation(nextViewport)
+          && current.some((item) => item.mobileCompact || (item.kind === 'content' && item.spawned))
+        const projected = current.map((currentItem) => {
+          const item = { ...currentItem, mobileCompact }
           if (item.kind === 'profile') return { ...item, ...profilePosition(item, nextViewport) }
           if (item.kind === 'link' || !item.spawned) return item
           if (item.kind === 'credit') return { ...item, ...creditPosition(item, nextViewport) }
@@ -547,10 +579,18 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
 
   useEffect(() => {
     let animation = 0
-    const tick = () => {
-      const next = physicsStep(itemsRef.current, viewportRef.current)
-      itemsRef.current = next
-      setItems(next)
+    let previousTime = 0
+    const frameDuration = 1000 / 30
+    const tick = (time: number) => {
+      if (time - previousTime >= frameDuration) {
+        previousTime = time - ((time - previousTime) % frameDuration)
+        const next = physicsStep(itemsRef.current, viewportRef.current)
+        itemsRef.current = next
+        if (hasVisiblePhysicsChange(renderedItemsRef.current, next)) {
+          renderedItemsRef.current = next
+          setItems(next)
+        }
+      }
       animation = window.requestAnimationFrame(tick)
     }
     animation = window.requestAnimationFrame(tick)
@@ -561,12 +601,27 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
 
   const resetScenePointer = useCallback(() => {
     const current = viewportRef.current
+    pendingPointer.current = null
+    if (pointerTimer.current) window.clearTimeout(pointerTimer.current)
+    pointerTimer.current = 0
     setMouse({ x: current.width / 2, y: current.height / 2 })
   }, [])
 
   const moveViewport = useCallback((event: PointerEvent<HTMLDivElement>) => {
-    if (!touchMode) setMouse({ x: event.clientX, y: event.clientY })
+    if (touchMode) return
+    pendingPointer.current = { x: event.clientX, y: event.clientY }
+    if (pointerTimer.current) return
+    const delay = Math.max(0, 33 - (performance.now() - lastPointerCommit.current))
+    pointerTimer.current = window.setTimeout(() => {
+      pointerTimer.current = 0
+      lastPointerCommit.current = performance.now()
+      if (pendingPointer.current) setMouse(pendingPointer.current)
+    }, delay)
   }, [touchMode])
+
+  useEffect(() => () => {
+    if (pointerTimer.current) window.clearTimeout(pointerTimer.current)
+  }, [])
 
   useEffect(() => {
     window.addEventListener('blur', resetScenePointer)
@@ -593,7 +648,12 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
       .sort(() => Math.random() - .5)
     if (!candidates.length) return
     const candidateIds = new Set(candidates.map((item) => item.id))
-    updateItems((current) => current.map((item) => candidateIds.has(item.id) ? { ...item, queued: true } : item))
+    const compactMobile = usesMobileNavigation(viewportRef.current)
+    updateItems((current) => current.map((currentItem) => {
+      let item = compactMobile ? { ...currentItem, mobileCompact: true } : currentItem
+      if (item.kind === 'profile' && compactMobile) item = { ...item, ...profilePosition(item, viewportRef.current) }
+      return candidateIds.has(item.id) ? { ...item, queued: true } : item
+    }))
 
     candidates.forEach((candidate, index) => {
       const timer = window.setTimeout(() => {
@@ -793,7 +853,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
                 '--profile-transform': 'none',
               } as CSSProperties
               return (
-              <section className="identity-panel physics-item profile-popup" style={profileStyle} aria-label="个人身份与分类导航" key={item.id}>
+              <section className="identity-panel physics-item profile-popup" data-mobile-compact={item.mobileCompact || undefined} style={profileStyle} aria-label="个人身份与分类导航" key={item.id}>
                 <div className="identity-black" aria-hidden="true" />
                 <h1 className="identity-name">{config.site.name}</h1>
                 <div className="speech-bubble">{config.site.bubble}</div>

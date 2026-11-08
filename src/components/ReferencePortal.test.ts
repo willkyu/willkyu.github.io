@@ -18,30 +18,30 @@ describe('popupPosition', () => {
   it('uses vertical space on a portrait phone when side gaps cannot fit the item', () => {
     const item = {
       id: 'mobile-card', kind: 'content', spawned: false, queued: false, fixed: false, hovered: false, touchExpanded: false, pressed: false,
-      attractStrength: 0, baseWidth: 220, baseHeight: 200, x: 0, y: 0, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
+      attractStrength: 0, baseWidth: 220, baseHeight: 200, x: 0, y: 0, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1, mobileCompact: true,
     }
     const profile = {
       id: 'profile', kind: 'profile', spawned: true, queued: false, fixed: true, hovered: false, touchExpanded: false, pressed: false,
-      attractStrength: 1, baseWidth: 359, baseHeight: 259, x: 0, y: -320, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
+      attractStrength: 1, baseWidth: 359, baseHeight: 259, x: 0, y: -383, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1, mobileCompact: true,
     }
     const position = popupPosition(item as Parameters<typeof popupPosition>[0], { width: 390, height: 844 }, [profile as Parameters<typeof popupPosition>[0]])
 
-    expect(position.y).toBeGreaterThan(profile.y + 82)
-    expect(Math.abs(position.x)).toBeLessThan(30)
+    expect(position.y).toBeGreaterThan(profile.y + 29)
+    expect(Math.abs(position.x)).toBeLessThan(85)
   })
 
   it('keeps popup content below the navigation bar after rotating a phone to landscape', () => {
     const item = {
       id: 'landscape-card', kind: 'content', spawned: false, queued: false, fixed: false, hovered: false, touchExpanded: false, pressed: false,
-      attractStrength: 0, baseWidth: 220, baseHeight: 200, x: 0, y: 0, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
+      attractStrength: 0, baseWidth: 220, baseHeight: 200, x: 0, y: 0, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1, mobileCompact: true,
     }
     const profile = {
       id: 'profile', kind: 'profile', spawned: true, queued: false, fixed: true, hovered: false, touchExpanded: false, pressed: false,
-      attractStrength: 1, baseWidth: 359, baseHeight: 259, x: 0, y: -125, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
+      attractStrength: 1, baseWidth: 359, baseHeight: 259, x: 0, y: -159, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1, mobileCompact: true,
     }
     const position = popupPosition(item as Parameters<typeof popupPosition>[0], { width: 844, height: 390 }, [profile as Parameters<typeof popupPosition>[0]])
 
-    expect(position.y).toBeGreaterThan(profile.y + 60)
-    expect(Math.abs(position.x)).toBeLessThan(40)
+    expect(position.y).toBeGreaterThan(profile.y + 26)
+    expect(Math.abs(position.x)).toBeLessThan(330)
   })
 })
