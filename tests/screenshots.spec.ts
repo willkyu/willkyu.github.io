@@ -125,7 +125,7 @@ test('capture mobile touch preview', async ({ browser }) => {
   await expect(essay).toHaveAttribute('data-touch-expanded', 'true')
   await page.waitForTimeout(450)
   await page.screenshot({ path: resolve(output, 'portal-mobile-touch-preview.png') })
-  await page.touchscreen.tap(5, 420)
+  await page.locator('.reference-viewport').dispatchEvent('pointerdown', { button: 0, pointerType: 'touch' })
   await page.getByRole('button', { name: /Blog，2 条内容/ }).tap()
   const text = page.locator('[data-content-id="feed:blog:/blog/kg-note/"]')
   await expect(text).toBeVisible()

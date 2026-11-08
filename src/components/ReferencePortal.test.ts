@@ -27,7 +27,7 @@ describe('popupPosition', () => {
     const position = popupPosition(item as Parameters<typeof popupPosition>[0], { width: 390, height: 844 }, [profile as Parameters<typeof popupPosition>[0]])
 
     expect(position.y).toBeGreaterThan(profile.y + 29)
-    expect(Math.abs(position.x)).toBeLessThan(85)
+    expect(Math.abs(position.x)).toBeLessThan(110)
   })
 
   it('keeps popup content below the navigation bar after rotating a phone to landscape', () => {

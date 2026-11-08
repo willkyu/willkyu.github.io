@@ -206,11 +206,29 @@ export function popupPosition(item: SceneItem, viewport: ViewportSize, items: Sc
     const minY = contentTop + halfHeight
     const maxY = viewport.height / 2 - margin - halfHeight
     const maxX = Math.max(0, viewport.width / 2 - margin - halfWidth)
-    const verticalBand = Math.max(0, Math.min(maxY - minY, Math.max(90, itemSize.height * .7)))
-    return clampPosition(item, viewport, {
-      x: (Math.random() * 2 - 1) * maxX * .92,
-      y: minY + Math.random() * verticalBand,
+    if (maxY <= minY) return clampPosition(item, viewport, { x: 0, y: minY })
+
+    const candidates = Array.from({ length: 20 }, (_, index) => {
+      const column = index % 4
+      const row = Math.floor(index / 4)
+      const gridX = -maxX + (maxX * 2 * column) / 3
+      const gridY = minY + ((maxY - minY) * row) / 4
+      return clampPosition(item, viewport, {
+        x: gridX + (Math.random() - .5) * Math.min(42, maxX * .24),
+        y: gridY + (Math.random() - .5) * Math.min(52, (maxY - minY) * .16),
+      })
     })
+    const obstacles = occupied.filter((entry) => entry.kind !== 'profile')
+    return candidates.map((position) => {
+      const clearance = obstacles.length ? Math.min(...obstacles.map((other) => {
+        const otherSize = collisionSize(other, viewport)
+        const overlapX = (itemSize.width + otherSize.width) / 2 - Math.abs(position.x - other.x)
+        const overlapY = (itemSize.height + otherSize.height) / 2 - Math.abs(position.y - other.y)
+        if (overlapX > 0 && overlapY > 0) return -Math.sqrt(overlapX * overlapY)
+        return Math.hypot(Math.max(0, -overlapX), Math.max(0, -overlapY))
+      })) : 120
+      return { position, score: clearance + Math.random() * 8 }
+    }).sort((a, b) => b.score - a.score)[0].position
   }
 
   const candidates = directions
@@ -304,7 +322,7 @@ function physicsStep(items: SceneItem[], viewport: ViewportSize) {
     }
   }
   const spawned = next.filter((item) => item.spawned && item.kind !== 'credit')
-  const gap = usesMobileNavigation(viewport) ? 10 : 16
+  const gap = usesMobileNavigation(viewport) && spawned.some((item) => item.mobileCompact) ? 20 : usesMobileNavigation(viewport) ? 10 : 16
 
   for (const item of spawned) {
     if (item.fixed || item.hovered || item.pressed) continue
@@ -325,8 +343,9 @@ function physicsStep(items: SceneItem[], viewport: ViewportSize) {
       const halfHeight = (itemSize.height + otherSize.height) / 2
       const gapX = Math.max(0, Math.abs(dx) - halfWidth)
       const gapY = Math.max(0, Math.abs(dy) - halfHeight)
-      attractionX += (dx >= 0 ? 1 : -1) * gapX * other.attractStrength
-      attractionY += (dy >= 0 ? 1 : -1) * gapY * other.attractStrength
+      const attractionStrength = item.mobileCompact && other.kind === 'profile' ? other.attractStrength * .2 : other.attractStrength
+      attractionX += (dx >= 0 ? 1 : -1) * gapX * attractionStrength
+      attractionY += (dy >= 0 ? 1 : -1) * gapY * attractionStrength
 
       const separationX = Math.abs(item.x - other.x) - halfWidth
       const separationY = Math.abs(item.y - other.y) - halfHeight
@@ -343,9 +362,13 @@ function physicsStep(items: SceneItem[], viewport: ViewportSize) {
 
     if (repelCountX) repelX /= repelCountX
     if (repelCountY) repelY /= repelCountY
+    if (item.mobileCompact) {
+      repelX *= 1.8
+      repelY *= 1.8
+    }
     if (attractionX * repelX < 0) attractionX = 0
     if (attractionY * repelY < 0) attractionY = 0
-    const velocity = clampVector(attractionX + repelX, attractionY + repelY, 320)
+    const velocity = clampVector(attractionX + repelX, attractionY + repelY, item.mobileCompact ? 460 : 320)
     item.vx = velocity.x
     item.vy = velocity.y
     const position = clampPosition(item, viewport, {
@@ -649,11 +672,21 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
     if (!candidates.length) return
     const candidateIds = new Set(candidates.map((item) => item.id))
     const compactMobile = usesMobileNavigation(viewportRef.current)
-    updateItems((current) => current.map((currentItem) => {
-      let item = compactMobile ? { ...currentItem, mobileCompact: true } : currentItem
-      if (item.kind === 'profile' && compactMobile) item = { ...item, ...profilePosition(item, viewportRef.current) }
-      return candidateIds.has(item.id) ? { ...item, queued: true } : item
-    }))
+    updateItems((current) => {
+      const compacted = current.map((currentItem) => {
+        let item = compactMobile ? { ...currentItem, mobileCompact: true } : currentItem
+        if (item.kind === 'profile' && compactMobile) item = { ...item, ...profilePosition(item, viewportRef.current) }
+        return candidateIds.has(item.id) ? { ...item, queued: true } : item
+      })
+      if (!compactMobile) return compacted
+      const occupied = compacted.filter((item) => item.kind === 'profile' || (item.kind === 'content' && item.spawned))
+      return compacted.map((item) => {
+        if (item.kind !== 'link') return item
+        const positioned = { ...item, ...popupPosition(item, viewportRef.current, occupied), vx: 0, vy: 0 }
+        occupied.push({ ...positioned, spawned: true })
+        return positioned
+      })
+    })
 
     candidates.forEach((candidate, index) => {
       const timer = window.setTimeout(() => {
@@ -720,6 +753,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
     if (event.button !== 0) return
     if (touchMode) void startOrientation(true)
     if (!(event.target instanceof Element) || event.target.closest('.physics-item')) return
+    if (touchMode && document.activeElement instanceof HTMLElement) document.activeElement.blur()
     setTouchPreview(null)
   }, [setTouchPreview, startOrientation, touchMode])
 

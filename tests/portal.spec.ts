@@ -324,13 +324,17 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
   await page.getByRole('button', { name: /PM，1 条内容/ }).click()
   const items = page.locator('.physics-content')
   await expect(items).toHaveCount(1)
-  await page.waitForTimeout(700)
+  await expect(page.locator('.identity-panel')).toHaveAttribute('data-mobile-compact', 'true')
+  await page.waitForTimeout(90)
+  const dockingProfile = (await page.locator('.identity-panel').boundingBox())!
+  expect(dockingProfile.y).toBeGreaterThan(10)
+  expect(dockingProfile.y).toBeLessThan(profile!.y)
+  await page.waitForTimeout(610)
   const compactProfile = (await page.locator('.identity-panel').boundingBox())!
   expect(compactProfile.x).toBeCloseTo(10, 0)
   expect(compactProfile.y).toBeCloseTo(10, 0)
   expect(compactProfile.width).toBeCloseTo(370, 0)
   expect(compactProfile.height).toBeCloseTo(58, 0)
-  await expect(page.locator('.identity-panel')).toHaveAttribute('data-mobile-compact', 'true')
   for (const box of await items.evaluateAll((nodes) => nodes.map((node) => {
     const rect = node.getBoundingClientRect()
     return { x: rect.x, y: rect.y, width: rect.width, height: rect.height }
@@ -426,7 +430,7 @@ test('touch devices preview content on the first tap and open it on the second',
   await expect(essay).toHaveAttribute('data-touch-expanded', 'true')
   await expect(essay.locator('.essay-copy')).toBeVisible()
   await expect.poll(async () => (await essay.boundingBox())!.height).toBeGreaterThan(collapsedHeight * 1.5)
-  await page.touchscreen.tap(5, 420)
+  await page.locator('.reference-viewport').dispatchEvent('pointerdown', { button: 0, pointerType: 'touch' })
   await expect(essay).not.toHaveAttribute('data-touch-expanded', 'true')
   await expect(essay.locator('.essay-copy')).toBeHidden()
   await expect.poll(async () => (await essay.boundingBox())!.height).toBeLessThan(collapsedHeight * 1.15)
