@@ -265,6 +265,11 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
   const profile = await page.locator('.identity-panel').boundingBox()
   expect(profile!.width).toBeLessThan(390)
   expect(profile!.height).toBeLessThan(240)
+  const halftone = (await page.locator('.halftone-canvas').boundingBox())!
+  expect(halftone.x).toBeLessThan(0)
+  expect(halftone.y).toBeLessThan(0)
+  expect(halftone.x + halftone.width).toBeGreaterThan(390)
+  expect(halftone.y + halftone.height).toBeGreaterThan(844)
   await page.getByRole('button', { name: /PM，1 条内容/ }).click()
   const items = page.locator('.physics-content')
   await expect(items).toHaveCount(1)
@@ -283,6 +288,18 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
 
 test('touch devices preview content on the first tap and open it on the second', async ({ browser }) => {
   const context = await browser.newContext({ hasTouch: true, viewport: { width: 390, height: 844 } })
+  await context.addInitScript(() => {
+    class TestDeviceOrientationEvent extends Event {
+      beta: number | null
+      gamma: number | null
+      constructor(type: string, init: { beta?: number; gamma?: number } = {}) {
+        super(type)
+        this.beta = init.beta ?? null
+        this.gamma = init.gamma ?? null
+      }
+    }
+    Object.defineProperty(window, 'DeviceOrientationEvent', { configurable: true, value: TestDeviceOrientationEvent })
+  })
   const page = await context.newPage()
   await page.route('**/blog/homepage-feed.json', (route) => route.fulfill({
     contentType: 'application/json',
@@ -290,7 +307,7 @@ test('touch devices preview content on the first tap and open it on the second',
       schemaVersion: 1,
       source: 'blog',
       generatedAt: '2026-11-08T01:00:00.000Z',
-      items: [{ bind: 'blog', title: '触屏博客摘要', summary: '第一次点按显示摘要，第二次打开。', href: '/blog/touch-target/', appearance: 'text', tags: ['Touch'], order: 10 }],
+      items: [{ bind: 'blog', title: '基于知识图谱的推荐系统综述笔记', summary: '第一次点按显示摘要，第二次打开。', href: '/blog/touch-target/', appearance: 'text', tags: ['Touch'], order: 10 }],
     }),
   }))
   await page.route('**/research/homepage-feed.json', (route) => route.fulfill({
@@ -306,6 +323,25 @@ test('touch devices preview content on the first tap and open it on the second',
 
   await page.goto('/', { waitUntil: 'domcontentloaded' })
   await expect(page.locator('.reference-portal')).toHaveAttribute('data-input', 'touch')
+  await expect(page.locator('.reference-portal')).toHaveAttribute('data-touch-parallax', 'off')
+  await page.waitForTimeout(950)
+  const profileBox = (await page.locator('.identity-panel').boundingBox())!
+  const blockBoxes = await page.locator('.physics-item').filter({ has: page.locator('.physics-link-card') }).evaluateAll((nodes) => nodes.map((node) => {
+    const rect = node.getBoundingClientRect()
+    return { top: rect.top, bottom: rect.bottom }
+  }))
+  expect(blockBoxes).toHaveLength(3)
+  for (const block of blockBoxes) expect(block.bottom <= profileBox.y - 20 || block.top >= profileBox.y + profileBox.height + 20).toBe(true)
+  await expect(page.locator('.identity-panel')).toHaveCSS('--centre-option-x', '0px')
+  await expect(page.locator('.physics-link-card').first()).toHaveCSS('--layer-near-x', '0px')
+
+  await page.evaluate(() => {
+    window.dispatchEvent(new DeviceOrientationEvent('deviceorientation', { beta: 0, gamma: 0 }))
+    window.dispatchEvent(new DeviceOrientationEvent('deviceorientation', { beta: 12, gamma: 14 }))
+  })
+  await expect(page.locator('.reference-portal')).toHaveAttribute('data-touch-parallax', 'gyro')
+  await expect.poll(async () => page.locator('.identity-panel').evaluate((node) => node instanceof HTMLElement ? node.style.getPropertyValue('--centre-option-x') : '')).not.toBe('0px')
+  await expect.poll(async () => page.locator('.physics-item').filter({ has: page.locator('.physics-link-card') }).first().evaluate((node) => node instanceof HTMLElement ? node.style.getPropertyValue('--layer-near-x') : '')).not.toBe('0px')
 
   await page.getByRole('button', { name: /Research，2 条内容/ }).tap()
   const essay = page.locator('[data-content-id="feed:research:/research/touch-essay/"]')
@@ -320,12 +356,26 @@ test('touch devices preview content on the first tap and open it on the second',
   await expect(essay).not.toHaveAttribute('data-touch-expanded', 'true')
   await expect(essay.locator('.essay-copy')).toBeHidden()
   await expect.poll(async () => (await essay.boundingBox())!.height).toBeLessThan(collapsedHeight * 1.15)
+  const settledProfile = (await page.locator('.identity-panel').boundingBox())!
+  const settledBlocks = await page.locator('.physics-item').filter({ has: page.locator('.physics-link-card') }).evaluateAll((nodes) => nodes.map((node) => {
+    const rect = node.getBoundingClientRect()
+    return { top: rect.top, bottom: rect.bottom }
+  }))
+  for (const block of settledBlocks) expect(block.bottom <= settledProfile.y - 18 || block.top >= settledProfile.y + settledProfile.height + 18).toBe(true)
 
   await page.setViewportSize({ width: 820, height: 1000 })
   await page.getByRole('button', { name: /Blog，2 条内容/ }).tap()
   const text = page.locator('[data-content-id="feed:blog:/blog/touch-target/"]')
   await expect(text).toBeVisible()
   await page.waitForTimeout(650)
+  const textSpacing = await text.evaluate((node) => {
+    const card = node.querySelector('.card--text')!.getBoundingClientRect()
+    const title = node.querySelector('.card--text h3')!.getBoundingClientRect()
+    return { top: title.top - card.top, bottom: card.bottom - title.bottom }
+  })
+  expect(textSpacing.top).toBeGreaterThan(4)
+  expect(textSpacing.bottom).toBeGreaterThan(4)
+  expect(Math.abs(textSpacing.top - textSpacing.bottom)).toBeLessThan(2)
   const collapsedTextWidth = (await text.boundingBox())!.width
   await text.getByRole('link').tap({ force: true })
   await expect(text).toHaveAttribute('data-touch-expanded', 'true')

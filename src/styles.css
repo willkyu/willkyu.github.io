@@ -8,9 +8,9 @@ a[href], button:not(:disabled) { cursor: pointer; }
 button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); outline-offset: 3px; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
-.portal { min-height: 100vh; color: var(--ink); background: var(--paper); font-family: var(--font-body); }
+.portal { min-height: 100dvh; color: var(--ink); background: var(--paper); font-family: var(--font-body); }
 .portal-scene { position: relative; width: 100vw; height: 100svh; min-height: 660px; overflow: clip; isolation: isolate; background: var(--paper); }
-.halftone-canvas { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
+.halftone-canvas { position: absolute; z-index: 0; pointer-events: none; }
 
 /* Reference-style 64×64 floating link objects. */
 .floating-links { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
@@ -172,7 +172,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .window-dock { display: none; }
 
 /* Fixed camera, compact physics scene: items pop in near the centre, then push and settle. */
-.reference-viewport { position: relative; width: 100vw; height: 100svh; min-height: 480px; overflow: hidden; isolation: isolate; cursor: default; touch-action: manipulation; user-select: none; -webkit-user-select: none; }
+.reference-viewport { position: relative; width: 100vw; height: 100dvh; min-height: min(480px, 100dvh); overflow: hidden; isolation: isolate; cursor: default; touch-action: manipulation; user-select: none; -webkit-user-select: none; }
 .reference-world { position: absolute; z-index: 1; left: 50%; top: 50%; width: 0; height: 0; }
 .physics-item { position: absolute; transform: none; transform-origin: center; transition: filter var(--motion-fast) ease; }
 .popup-item { animation: item-popup var(--motion-duration) var(--motion-easing) backwards; }

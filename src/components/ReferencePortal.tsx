@@ -47,6 +47,10 @@ interface ViewportSize {
   height: number
 }
 
+type OrientationPermissionEvent = typeof DeviceOrientationEvent & {
+  requestPermission?: () => Promise<'granted' | 'denied'>
+}
+
 const appearanceSize: Record<ContentConfig['appearance'], [number, number]> = {
   text: [180, 64], essay: [280, 64], browser: [240, 150], book: [182, 257], disc: [220, 200], gallery: [250, 190],
 }
@@ -118,7 +122,21 @@ function interactionExpansion(item: SceneItem, active: boolean, motionEnabled: b
 function visualSize(item: SceneItem, viewport: ViewportSize) {
   const scale = itemScale(item, viewport) * item.scale
   const labelWidth = item.kind === 'link' ? Math.max(item.baseWidth, (item.label?.length ?? 0) * 18) : item.baseWidth
-  return { width: labelWidth * scale, height: item.baseHeight * scale * item.expansion }
+  const width = labelWidth * scale
+  let height = item.baseHeight * scale * item.expansion
+  if (item.content?.appearance === 'text' && item.expansion <= 1.01) {
+    const fontSize = Math.min(22, Math.max(15, width * .065))
+    const lineCapacity = Math.max(1, (width - 24) / fontSize)
+    const lines = Math.max(1, Math.ceil(titleUnits(item.content.title) / lineCapacity))
+    height = Math.max(height, 18 + lines * fontSize * 1.3)
+  }
+  return { width, height }
+}
+
+function collisionSize(item: SceneItem, viewport: ViewportSize) {
+  const size = visualSize(item, viewport)
+  if (item.kind !== 'profile' || viewport.width > 700) return size
+  return { width: size.width + 20, height: size.height + 64 }
 }
 
 function clampPosition(item: SceneItem, viewport: ViewportSize, position = { x: item.x, y: item.y }) {
@@ -160,50 +178,48 @@ export function popupPosition(item: SceneItem, viewport: ViewportSize, items: Sc
   const occupied = items.filter((entry) => entry.spawned && entry.id !== item.id)
   const itemSize = visualSize(item, viewport)
   const centreItem = occupied.find((entry) => entry.kind === 'profile')
-  const centreSize = centreItem ? visualSize(centreItem, viewport) : { width: 0, height: 0 }
+  const centreSize = centreItem ? collisionSize(centreItem, viewport) : { width: 0, height: 0 }
 
   const candidates = directions
-    .map((direction) => {
+    .flatMap((direction) => {
       const horizontal = direction.x !== 0
       const itemExtent = (horizontal ? itemSize.width : itemSize.height) / 2
       const centreExtent = (horizontal ? centreSize.width : centreSize.height) / 2
       const maximumDistance = (horizontal ? viewport.width : viewport.height) / 2 - margin - itemExtent
       const minimumDistance = centreExtent + itemExtent + gap
       const availableSpace = maximumDistance - minimumDistance
-      if (availableSpace < 0) return null
+      if (availableSpace < 0) return []
 
-      const distance = minimumDistance + Math.min(58, availableSpace * .34)
       const perpendicularLimit = Math.max(0, (horizontal ? viewport.height : viewport.width) / 2 - margin - (horizontal ? itemSize.height : itemSize.width) / 2)
-      const perpendicularJitter = (Math.random() - .5) * Math.min(72, perpendicularLimit * .35)
-      const position = clampPosition(item, viewport, {
-        x: direction.x * distance - direction.y * perpendicularJitter,
-        y: direction.y * distance + direction.x * perpendicularJitter,
+      const firstDistance = minimumDistance + Math.min(48, availableSpace * .28)
+      const distanceStep = itemExtent * 2 + gap
+      const distances = [firstDistance]
+      for (let distance = firstDistance + distanceStep; distance <= maximumDistance + .5; distance += distanceStep) distances.push(distance)
+
+      return distances.map((distance) => {
+        const perpendicularJitter = (Math.random() - .5) * Math.min(72, perpendicularLimit * .35)
+        const position = clampPosition(item, viewport, {
+          x: direction.x * distance - direction.y * perpendicularJitter,
+          y: direction.y * distance + direction.x * perpendicularJitter,
+        })
+        const score = occupied.reduce((total, other) => {
+          const otherSize = collisionSize(other, viewport)
+          const clearanceX = Math.abs(position.x - other.x) - (itemSize.width + otherSize.width) / 2
+          const clearanceY = Math.abs(position.y - other.y) - (itemSize.height + otherSize.height) / 2
+          if (clearanceX < 0 && clearanceY < 0) {
+            return total - 100_000 - Math.abs(clearanceX * clearanceY)
+          }
+          const edgeDistance = Math.hypot(Math.max(0, clearanceX), Math.max(0, clearanceY))
+          return total + Math.min(edgeDistance, 320)
+        }, Math.min(availableSpace, 320) * 2 - (distance - minimumDistance) * 4)
+        return { position, score, availableSpace }
       })
-      const score = occupied.reduce((total, other) => {
-        const otherSize = visualSize(other, viewport)
-        const clearanceX = Math.abs(position.x - other.x) - (itemSize.width + otherSize.width) / 2
-        const clearanceY = Math.abs(position.y - other.y) - (itemSize.height + otherSize.height) / 2
-        if (clearanceX < 0 && clearanceY < 0) {
-          return total - 100_000 - Math.abs(clearanceX * clearanceY)
-        }
-        const edgeDistance = Math.hypot(Math.max(0, clearanceX), Math.max(0, clearanceY))
-        return total + Math.min(edgeDistance, 320)
-      }, Math.min(availableSpace, 320) * 2)
-      return { position, score, availableSpace }
     })
-    .filter((candidate): candidate is { position: { x: number; y: number }; score: number; availableSpace: number } => candidate !== null)
 
   if (!candidates.length) {
     return clampPosition(item, viewport, { x: 0, y: viewport.height > viewport.width ? viewport.height * .3 : 0 })
   }
   return candidates.sort((a, b) => b.score - a.score)[0].position
-}
-
-function radialPosition(item: SceneItem, viewport: ViewportSize, angle: number, radius: number) {
-  return clampPosition(item, viewport, {
-    x: Math.cos(angle) * radius,
-    y: Math.sin(angle) * radius,
-  })
 }
 
 function creditPosition(item: SceneItem, viewport: ViewportSize) {
@@ -248,8 +264,8 @@ function physicsStep(items: SceneItem[], viewport: ViewportSize) {
   const gap = viewport.width <= 700 ? 10 : 16
 
   for (const item of spawned) {
-    if (item.fixed || item.hovered) continue
-    const itemSize = visualSize(item, viewport)
+    if (item.fixed || item.hovered || item.pressed) continue
+    const itemSize = collisionSize(item, viewport)
     let attractionX = 0
     let attractionY = 0
     let repelX = 0
@@ -259,7 +275,7 @@ function physicsStep(items: SceneItem[], viewport: ViewportSize) {
 
     for (const other of spawned) {
       if (other.id === item.id) continue
-      const otherSize = visualSize(other, viewport)
+      const otherSize = collisionSize(other, viewport)
       const dx = other.x - item.x
       const dy = other.y - item.y
       const halfWidth = (itemSize.width + otherSize.width) / 2
@@ -315,17 +331,6 @@ function createItems(config: PortalConfig, viewport: ViewportSize): SceneItem[] 
     baseWidth: 359, baseHeight: 259, x: 0, y: 0, vx: 0, vy: 0,
     scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
   }
-  const links = config.site.links.map((link, index) => {
-    const item: SceneItem = {
-      id: `link-${index}-${link.label}`, kind: 'link', label: link.label, href: link.href,
-      spawned: false, queued: false, fixed: false, hovered: false, touchExpanded: false, pressed: false, attractStrength: 0,
-      baseWidth: 64, baseHeight: 64, x: 0, y: 0, vx: 0, vy: 0,
-      scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
-    }
-    const angle = -Math.PI / 2 + index / Math.max(config.site.links.length, 1) * Math.PI * 2 + (Math.random() - .5) * .35
-    const radius = Math.min(viewport.width, viewport.height) * (viewport.width <= 700 ? .35 : .27)
-    return { ...item, ...radialPosition(item, viewport, angle, Math.max(155, radius)) }
-  })
   const creditBase: SceneItem = {
     id: 'reference-credit', kind: 'credit', label: 'NIKUKIKAI.ART', href: 'https://nikukikai.art/',
     spawned: false, queued: false, fixed: true, hovered: false, touchExpanded: false, pressed: false, attractStrength: 0,
@@ -333,6 +338,18 @@ function createItems(config: PortalConfig, viewport: ViewportSize): SceneItem[] 
     scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
   }
   const credit = { ...creditBase, ...creditPosition(creditBase, viewport) }
+  const placementItems: SceneItem[] = [profile, { ...credit, spawned: true }]
+  const links = config.site.links.map((link, index) => {
+    const item: SceneItem = {
+      id: `link-${index}-${link.label}`, kind: 'link', label: link.label, href: link.href,
+      spawned: false, queued: false, fixed: false, hovered: false, touchExpanded: false, pressed: false, attractStrength: 0,
+      baseWidth: 64, baseHeight: 64, x: 0, y: 0, vx: 0, vy: 0,
+      scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
+    }
+    const positioned = { ...item, ...popupPosition(item, viewport, placementItems) }
+    placementItems.push({ ...positioned, spawned: true })
+    return positioned
+  })
   const content = config.content.map(createContentItem)
   return [profile, ...links, credit, ...content]
 }
@@ -348,10 +365,16 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const itemsRef = useRef<SceneItem[]>(initialItems)
   const viewportRef = useRef<ViewportSize>(initialViewport)
   const spawnTimers = useRef<number[]>([])
+  const orientationListening = useRef(false)
+  const orientationPermissionTried = useRef(false)
+  const orientationBaseline = useRef<{ beta: number; gamma: number } | null>(null)
+  const orientationValue = useRef({ x: 0, y: 0 })
   const [viewport, setViewport] = useState<ViewportSize>(initialViewport)
   const [items, setItems] = useState<SceneItem[]>(initialItems)
   const [mouse, setMouse] = useState({ x: initialViewport.width / 2, y: initialViewport.height / 2 })
   const [touchMode, setTouchMode] = useState(() => window.matchMedia('(hover: none), (pointer: coarse)').matches)
+  const [orientationActive, setOrientationActive] = useState(false)
+  const [orientationPointer, setOrientationPointer] = useState({ x: 0, y: 0 })
 
   const updateItems = useCallback((updater: (current: SceneItem[]) => SceneItem[]) => {
     const next = updater(itemsRef.current)
@@ -365,6 +388,70 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
     media.addEventListener('change', update)
     return () => media.removeEventListener('change', update)
   }, [])
+
+  const handleOrientation = useCallback((event: DeviceOrientationEvent) => {
+    if (event.beta === null || event.gamma === null) return
+    if (!orientationBaseline.current) {
+      orientationBaseline.current = { beta: event.beta, gamma: event.gamma }
+      orientationValue.current = { x: 0, y: 0 }
+      setOrientationActive(true)
+      setOrientationPointer({ x: 0, y: 0 })
+      return
+    }
+    const deltaBeta = event.beta - orientationBaseline.current.beta
+    const deltaGamma = event.gamma - orientationBaseline.current.gamma
+    const angle = window.screen.orientation?.angle ?? 0
+    const raw = angle === 90
+      ? { x: deltaBeta / 22, y: -deltaGamma / 18 }
+      : angle === 270
+        ? { x: -deltaBeta / 22, y: deltaGamma / 18 }
+        : angle === 180
+          ? { x: -deltaGamma / 18, y: -deltaBeta / 22 }
+          : { x: deltaGamma / 18, y: deltaBeta / 22 }
+    const target = {
+      x: Math.max(-1, Math.min(1, raw.x)),
+      y: Math.max(-1, Math.min(1, raw.y)),
+    }
+    const next = {
+      x: orientationValue.current.x * .82 + target.x * .18,
+      y: orientationValue.current.y * .82 + target.y * .18,
+    }
+    orientationValue.current = next
+    setOrientationActive(true)
+    setOrientationPointer(next)
+  }, [])
+
+  const startOrientation = useCallback(async (mayRequestPermission: boolean) => {
+    if (!touchMode || orientationListening.current || typeof DeviceOrientationEvent === 'undefined') return
+    const orientationEvent = DeviceOrientationEvent as OrientationPermissionEvent
+    if (typeof orientationEvent.requestPermission === 'function') {
+      if (!mayRequestPermission || orientationPermissionTried.current) return
+      orientationPermissionTried.current = true
+      try {
+        if (await orientationEvent.requestPermission() !== 'granted') return
+      } catch {
+        return
+      }
+    }
+    window.addEventListener('deviceorientation', handleOrientation)
+    orientationListening.current = true
+  }, [handleOrientation, touchMode])
+
+  useEffect(() => {
+    if (touchMode) void startOrientation(false)
+    else {
+      if (orientationListening.current) window.removeEventListener('deviceorientation', handleOrientation)
+      orientationListening.current = false
+      orientationBaseline.current = null
+      orientationValue.current = { x: 0, y: 0 }
+      setOrientationActive(false)
+      setOrientationPointer({ x: 0, y: 0 })
+    }
+    return () => {
+      if (orientationListening.current) window.removeEventListener('deviceorientation', handleOrientation)
+      orientationListening.current = false
+    }
+  }, [handleOrientation, startOrientation, touchMode])
 
   useEffect(() => {
     const delays = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -395,17 +482,31 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
     const update = () => {
       const previous = viewportRef.current
       const nextViewport = { width: window.innerWidth, height: window.innerHeight }
+      orientationBaseline.current = null
+      orientationValue.current = { x: 0, y: 0 }
+      setOrientationPointer({ x: 0, y: 0 })
       viewportRef.current = nextViewport
       setViewport(nextViewport)
-      updateItems((current) => current.map((item) => {
-        if (item.kind === 'profile' || !item.spawned) return item
-        if (item.kind === 'credit') return { ...item, ...creditPosition(item, nextViewport) }
-        const projected = {
-          x: item.x * nextViewport.width / Math.max(previous.width, 1),
-          y: item.y * nextViewport.height / Math.max(previous.height, 1),
-        }
-        return { ...item, ...clampPosition(item, nextViewport, projected) }
-      }))
+      updateItems((current) => {
+        const projected = current.map((item) => {
+          if (item.kind === 'profile' || item.kind === 'link' || !item.spawned) return item
+          if (item.kind === 'credit') return { ...item, ...creditPosition(item, nextViewport) }
+          return {
+            ...item,
+            ...clampPosition(item, nextViewport, {
+              x: item.x * nextViewport.width / Math.max(previous.width, 1),
+              y: item.y * nextViewport.height / Math.max(previous.height, 1),
+            }),
+          }
+        })
+        const occupied = projected.filter((item) => item.kind !== 'link' && item.spawned)
+        return projected.map((item) => {
+          if (item.kind !== 'link') return item
+          const positioned = { ...item, ...popupPosition(item, nextViewport, occupied) }
+          occupied.push({ ...positioned, spawned: true })
+          return positioned
+        })
+      })
     }
     window.addEventListener('resize', update)
     return () => window.removeEventListener('resize', update)
@@ -582,23 +683,26 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
     event.currentTarget.style.setProperty('--disc-spine-y', '0px')
   }
 
+  const centrePointer = touchMode
+    ? orientationActive ? orientationPointer : { x: 0, y: 0 }
+    : {
+        x: (mouse.x / Math.max(viewport.width, 1) - .5) * 2,
+        y: (mouse.y / Math.max(viewport.height, 1) - .5) * 2,
+      }
   const gaze = {
-    x: (mouse.x / Math.max(viewport.width, 1) * 2 - 1) * config.character.eyeFollow.maxX,
-    y: (mouse.y / Math.max(viewport.height, 1) * 2 - 1) * config.character.eyeFollow.maxY,
-  }
-  const centrePointer = {
-    x: (mouse.x / Math.max(viewport.width, 1) - .5) * 2,
-    y: (mouse.y / Math.max(viewport.height, 1) - .5) * 2,
+    x: centrePointer.x * config.character.eyeFollow.maxX,
+    y: centrePointer.y * config.character.eyeFollow.maxY,
   }
   const spawned = items.filter((item) => item.spawned)
 
   return (
-    <main className="portal reference-portal" style={style} data-input={touchMode ? 'touch' : 'pointer'}>
+    <main className="portal reference-portal" style={style} data-input={touchMode ? 'touch' : 'pointer'} data-touch-parallax={touchMode ? orientationActive ? 'gyro' : 'off' : 'pointer'}>
       <div
         className="reference-viewport"
-        onPointerMove={(event) => setMouse({ x: event.clientX, y: event.clientY })}
+        onPointerMove={(event) => { if (!touchMode) setMouse({ x: event.clientX, y: event.clientY }) }}
         onPointerLeave={resetScenePointer}
         onPointerDown={(event) => {
+          if (touchMode) void startOrientation(true)
           if (touchMode && event.target instanceof Element && !event.target.closest('.physics-item')) setTouchPreview(null)
         }}
       >
@@ -606,8 +710,9 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
         <div className="reference-world">
           {spawned.map((item) => {
             const responsiveScale = itemScale(item, viewport)
-            const itemWidth = item.baseWidth * item.scale * responsiveScale
-            const itemHeight = item.baseHeight * item.scale * item.expansion * responsiveScale
+            const size = visualSize(item, viewport)
+            const itemWidth = size.width
+            const itemHeight = size.height
             const itemStyle = {
               left: item.x - itemWidth / 2,
               top: item.y - itemHeight / 2,
@@ -619,7 +724,13 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
               '--disc-copy-font-size': `${Math.min(16, Math.max(9, 10 * responsiveScale * item.scale))}px`,
               '--popup-overshoot-scale': 1.08,
               '--popup-settle-scale': .96,
-            } as CSSProperties
+            } as CSSProperties & Record<`--${string}`, string | number | undefined>
+            if (touchMode && item.kind === 'link') {
+              itemStyle['--layer-far-x'] = `${Math.round(-centrePointer.x * 3)}px`
+              itemStyle['--layer-far-y'] = `${Math.round(-centrePointer.y * 2)}px`
+              itemStyle['--layer-near-x'] = `${Math.round(centrePointer.x * 6)}px`
+              itemStyle['--layer-near-y'] = `${Math.round(centrePointer.y * 4)}px`
+            }
             if (item.kind === 'profile') {
               const profileStyle = {
                 ...itemStyle,

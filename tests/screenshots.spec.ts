@@ -101,7 +101,12 @@ test('capture mobile touch preview', async ({ browser }) => {
   const page = await context.newPage()
   await page.route('**/blog/homepage-feed.json', (route) => route.fulfill({
     contentType: 'application/json',
-    body: JSON.stringify({ schemaVersion: 1, source: 'blog', generatedAt: '2026-11-08T01:00:00.000Z', items: [] }),
+    body: JSON.stringify({
+      schemaVersion: 1,
+      source: 'blog',
+      generatedAt: '2026-11-08T01:00:00.000Z',
+      items: [{ bind: 'blog', title: '基于知识图谱的推荐系统综述笔记', summary: '2020 年利用知识图谱的推荐系统综述笔记。', href: '/blog/kg-note/', appearance: 'text', tags: ['Touch'], order: 10 }],
+    }),
   }))
   await page.route('**/research/homepage-feed.json', (route) => route.fulfill({
     contentType: 'application/json',
@@ -120,5 +125,11 @@ test('capture mobile touch preview', async ({ browser }) => {
   await expect(essay).toHaveAttribute('data-touch-expanded', 'true')
   await page.waitForTimeout(450)
   await page.screenshot({ path: resolve(output, 'portal-mobile-touch-preview.png') })
+  await page.touchscreen.tap(5, 420)
+  await page.getByRole('button', { name: /Blog，2 条内容/ }).tap()
+  const text = page.locator('[data-content-id="feed:blog:/blog/kg-note/"]')
+  await expect(text).toBeVisible()
+  await page.waitForTimeout(850)
+  await page.screenshot({ path: resolve(output, 'portal-mobile-text-card.png') })
   await context.close()
 })

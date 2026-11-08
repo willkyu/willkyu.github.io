@@ -19,13 +19,17 @@ export function HalftoneBackground({ paper, ink, config, cameraX = 0, cameraY = 
     if (!context) return
 
     const draw = () => {
-      const width = window.innerWidth
-      const height = Math.max(window.innerHeight, 660)
+      const overscan = Math.max(2, config.density)
+      const width = window.innerWidth + overscan * 2
+      const viewportHeight = Math.max(window.innerHeight, window.visualViewport?.height ?? 0)
+      const height = Math.max(viewportHeight, 660) + overscan * 2
       const ratio = Math.min(window.devicePixelRatio || 1, 2)
       canvas.width = width * ratio
       canvas.height = height * ratio
       canvas.style.width = `${width}px`
       canvas.style.height = `${height}px`
+      canvas.style.left = `${-overscan}px`
+      canvas.style.top = `${-overscan}px`
       context.setTransform(ratio, 0, 0, ratio, 0, 0)
       context.fillStyle = paper
       context.fillRect(0, 0, width, height)
@@ -71,7 +75,11 @@ export function HalftoneBackground({ paper, ink, config, cameraX = 0, cameraY = 
 
     draw()
     window.addEventListener('resize', draw)
-    return () => window.removeEventListener('resize', draw)
+    window.visualViewport?.addEventListener('resize', draw)
+    return () => {
+      window.removeEventListener('resize', draw)
+      window.visualViewport?.removeEventListener('resize', draw)
+    }
   }, [cameraX, cameraY, config, ink, paper])
 
   return <canvas ref={canvasRef} className="halftone-canvas" aria-hidden="true" />
