@@ -73,7 +73,7 @@ https://raw.githubusercontent.com/willkyu/willkyu.github.io/main/public/homepage
 
 ## 交互模式与槽位
 
-- `layout.mode: "reference-physics"`：当前默认母版。从空白区域按下可拖拽平移画布，从 item 上按下仍触发预览、视差与跳转；内容在中心附近 popup 入场后参与物理排布，并根据桌面、平板和手机可视区域缩放与约束位置。
+- `layout.mode: "reference-physics"`：当前默认母版。从空白区域按下可拖拽平移画布，从 item 上按下仍触发预览、视差与跳转；内容在中心附近 popup 入场后参与物理排布，并根据桌面、平板和手机可视区域缩放与约束位置。底部参考网站致谢条是固定在视口上的最上层 HUD，不占用 popup 选位或物理碰撞空间，因此其他 item 可以从它后方通过。
 - `layout.mode: "fixed-slots"`：保留的后续个性化模式，启用下面的响应式槽位、关闭和重新打开规则。
 
 每个槽位必须在 `desktop`、`tablet`、`mobile` 三个断点提供：

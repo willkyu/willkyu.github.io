@@ -174,7 +174,7 @@ export function popupPosition(item: SceneItem, viewport: ViewportSize, items: Sc
     { x: 0, y: 1 },
     { x: -1, y: 0 },
   ].sort(() => Math.random() - .5)
-  const occupied = items.filter((entry) => entry.spawned && entry.id !== item.id)
+  const occupied = items.filter((entry) => entry.spawned && entry.kind !== 'credit' && entry.id !== item.id)
   const itemSize = visualSize(item, viewport)
   const centreItem = occupied.find((entry) => entry.kind === 'profile')
   const centreSize = centreItem ? collisionSize(centreItem, viewport) : { width: 0, height: 0 }
@@ -268,7 +268,7 @@ function physicsStep(items: SceneItem[], viewport: ViewportSize) {
       item.y = position.y
     }
   }
-  const spawned = next.filter((item) => item.spawned)
+  const spawned = next.filter((item) => item.spawned && item.kind !== 'credit')
   const gap = viewport.width <= 700 ? 10 : 16
 
   for (const item of spawned) {
@@ -346,7 +346,7 @@ function createItems(config: PortalConfig, viewport: ViewportSize): SceneItem[] 
     scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
   }
   const credit = { ...creditBase, ...creditPosition(creditBase, viewport) }
-  const placementItems: SceneItem[] = [profile, { ...credit, spawned: true }]
+  const placementItems: SceneItem[] = [profile]
   const links = config.site.links.map((link, index) => {
     const item: SceneItem = {
       id: `link-${index}-${link.label}`, kind: 'link', label: link.label, href: link.href,
@@ -773,12 +773,15 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
             const size = visualSize(item, viewport)
             const itemWidth = size.width
             const itemHeight = size.height
+            const renderedPosition = item.kind === 'credit' ? creditPosition(item, viewport) : item
+            const cameraCompensationX = item.kind === 'credit' ? camera.x : 0
+            const cameraCompensationY = item.kind === 'credit' ? camera.y : 0
             const itemStyle = {
-              left: item.x - itemWidth / 2,
-              top: item.y - itemHeight / 2,
+              left: renderedPosition.x - itemWidth / 2 - cameraCompensationX,
+              top: renderedPosition.y - itemHeight / 2 - cameraCompensationY,
               width: itemWidth,
               height: itemHeight,
-              zIndex: item.kind === 'profile' ? 20 : item.scale > 1.01 || item.expansion > 1.01 ? 30 : 10,
+              zIndex: item.kind === 'credit' ? 1000 : item.kind === 'profile' ? 20 : item.scale > 1.01 || item.expansion > 1.01 ? 30 : 10,
               '--responsive-scale': 1,
               '--disc-title-font-size': `${Math.min(26, Math.max(10, 16 * responsiveScale * item.scale))}px`,
               '--disc-copy-font-size': `${Math.min(16, Math.max(9, 10 * responsiveScale * item.scale))}px`,
