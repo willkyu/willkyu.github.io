@@ -22,26 +22,26 @@ describe('popupPosition', () => {
     }
     const profile = {
       id: 'profile', kind: 'profile', spawned: true, queued: false, fixed: true, hovered: false, touchExpanded: false, pressed: false,
-      attractStrength: 1, baseWidth: 359, baseHeight: 259, x: 0, y: 0, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
+      attractStrength: 1, baseWidth: 359, baseHeight: 259, x: 0, y: -320, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
     }
     const position = popupPosition(item as Parameters<typeof popupPosition>[0], { width: 390, height: 844 }, [profile as Parameters<typeof popupPosition>[0]])
 
-    expect(Math.abs(position.y)).toBeGreaterThan(Math.abs(position.x))
+    expect(position.y).toBeGreaterThan(profile.y + 82)
     expect(Math.abs(position.x)).toBeLessThan(30)
   })
 
-  it('can use side space on the same phone after rotating to landscape', () => {
+  it('keeps popup content below the navigation bar after rotating a phone to landscape', () => {
     const item = {
       id: 'landscape-card', kind: 'content', spawned: false, queued: false, fixed: false, hovered: false, touchExpanded: false, pressed: false,
       attractStrength: 0, baseWidth: 220, baseHeight: 200, x: 0, y: 0, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
     }
     const profile = {
       id: 'profile', kind: 'profile', spawned: true, queued: false, fixed: true, hovered: false, touchExpanded: false, pressed: false,
-      attractStrength: 1, baseWidth: 359, baseHeight: 259, x: 0, y: 0, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
+      attractStrength: 1, baseWidth: 359, baseHeight: 259, x: 0, y: -125, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
     }
     const position = popupPosition(item as Parameters<typeof popupPosition>[0], { width: 844, height: 390 }, [profile as Parameters<typeof popupPosition>[0]])
 
-    expect(Math.abs(position.x)).toBeGreaterThan(Math.abs(position.y))
-    expect(Math.abs(position.y)).toBeLessThan(30)
+    expect(position.y).toBeGreaterThan(profile.y + 60)
+    expect(Math.abs(position.x)).toBeLessThan(40)
   })
 })

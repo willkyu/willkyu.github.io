@@ -42,7 +42,7 @@ test('capture review states', async ({ page }) => {
   await page.screenshot({ path: resolve(output, 'portal-tablet-multi-window.png') })
 
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.waitForTimeout(120)
+  await page.waitForTimeout(800)
   await page.screenshot({ path: resolve(output, 'portal-mobile-expanded.png') })
 })
 
@@ -121,7 +121,7 @@ test('capture mobile touch preview', async ({ browser }) => {
   await page.getByRole('button', { name: /Research，2 条内容/ }).tap()
   const essay = page.locator('[data-content-id="feed:research:/research/mobile-essay/"]')
   await expect(essay).toBeVisible()
-  await essay.getByRole('link').tap({ force: true })
+  await essay.getByRole('link').evaluate((link: HTMLAnchorElement) => link.click())
   await expect(essay).toHaveAttribute('data-touch-expanded', 'true')
   await page.waitForTimeout(450)
   await page.screenshot({ path: resolve(output, 'portal-mobile-touch-preview.png') })

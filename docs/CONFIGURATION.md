@@ -73,7 +73,7 @@ https://raw.githubusercontent.com/willkyu/willkyu.github.io/main/public/homepage
 
 ## 交互模式与槽位
 
-- `layout.mode: "reference-physics"`：当前默认母版。从空白区域按下可拖拽平移画布，从 item 上按下仍触发预览、视差与跳转；内容在中心附近 popup 入场后参与物理排布，并根据桌面、平板和手机可视区域缩放与约束位置。底部参考网站致谢条是固定在视口上的最上层 HUD，不占用 popup 选位或物理碰撞空间，因此其他 item 可以从它后方通过。
+- `layout.mode: "reference-physics"`：当前默认母版。画布固定不平移，从 item 上按下仍触发预览、视差与跳转；内容 popup 入场后参与物理排布。桌面端围绕中心对象排布，手机端则把中心对象重排为顶部导航栏，所有入口和内容只在导航栏下方生成。底部参考网站致谢条是固定在视口上的最上层 HUD，不占用 popup 选位或物理碰撞空间，因此其他 item 可以从它后方通过。
 - `layout.mode: "fixed-slots"`：保留的后续个性化模式，启用下面的响应式槽位、关闭和重新打开规则。
 
 每个槽位必须在 `desktop`、`tablet`、`mobile` 三个断点提供：
@@ -93,7 +93,7 @@ https://raw.githubusercontent.com/willkyu/willkyu.github.io/main/public/homepage
 - 当前默认不加载网络字体：展示文字使用 `Segoe Print / KaiTi / STKaiti` 本机手写字体栈，正文使用 `Microsoft YaHei UI / PingFang SC` 系统黑体栈。
 - `lineWidth`、`shadowOffset`、`radius` 控制漫画框体。
 - `motion.enabled` 为总开关；`duration` 和 `fastDuration` 单位毫秒，主要用于固定槽位模式。
-- 默认模式中的普通 Item 通过实际宽高插值放大，字体使用带最小值的容器相对尺寸同步增长，以维持换行比例并避免整卡位图缩放造成模糊；`text` 外观会先根据中英文标题宽度和预计行数计算基础宽高，长标题不再塞入固定尺寸，悬浮时再同时扩宽和纵向展开到至少 14px 的正文状态。两者都会同步更新物理碰撞尺寸。
+- 默认模式中的普通 Item 使用保持内部排版尺寸的矢量缩放：卡片、文字和行高按同一比例增长，悬浮前后的断行位置不变，物理碰撞尺寸仍同步更新。`text` 外观会先根据中英文标题宽度和预计行数计算基础宽高，长标题不再塞入固定尺寸；展开时在保持原宽度排版的前提下纵向增加正文空间。
 - 卡片视差使用内部远/中/近景的整数像素位移；封面背景反向轻移，标题位于中层，底部白色说明条使用更强的近景位移。响应式比例直接计入对象实际宽高，不再对排版完成的整张卡片做长期缩放或零角度 3D 合成。整个视口的指针位置驱动中心黑底、标题、人物和栏目选项分层移动，中心外框始终固定；指针离开页面或窗口失焦时自动归中。
 - `hoverScale` 在母版模式控制内容和外链悬停目标缩放，默认 `1.6`；其余倾斜、按压和入场字段用于固定槽位模式。
 - 系统 `prefers-reduced-motion: reduce` 会覆盖配置，将动画缩到近乎即时，但不隐藏内容。

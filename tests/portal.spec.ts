@@ -59,10 +59,13 @@ test('introduces the centre, then entry blocks and the parallax reference credit
   await expect(credit).toBeVisible({ timeout: 2_000 })
   await expect(credit).toHaveAttribute('href', 'https://nikukikai.art/')
   const creditItem = page.locator('.physics-credit')
-  await creditItem.evaluate((node) => {
+  const creditBox = (await creditItem.boundingBox())!
+  await creditItem.hover()
+  expect(Number(await creditItem.evaluate((node) => getComputedStyle(node).zIndex))).toBeGreaterThanOrEqual(1000)
+  await creditItem.evaluate((node, position) => {
     const rect = node.getBoundingClientRect()
-    node.dispatchEvent(new PointerEvent('pointermove', { bubbles: true, pointerType: 'mouse', clientX: rect.left + rect.width * .85, clientY: rect.top + rect.height * .2 }))
-  })
+    node.dispatchEvent(new PointerEvent('pointermove', { bubbles: true, pointerType: 'mouse', clientX: rect.left + position.x, clientY: rect.top + position.y }))
+  }, { x: creditBox.width * .85, y: creditBox.height * .2 })
   await expect.poll(async () => credit.evaluate((node) => new DOMMatrix(getComputedStyle(node).transform).m41)).toBeGreaterThan(1)
   const creditLayers = await credit.evaluate((node) => ({
     surface: getComputedStyle(node).transform,
@@ -213,6 +216,15 @@ test('turns failed feeds into visible 404 fallback cards', async ({ page }) => {
 })
 
 test('one click pops in the whole category and keeps physics active', async ({ page }) => {
+  await page.route('**/research/homepage-feed.json', (route) => route.fulfill({
+    contentType: 'application/json',
+    body: JSON.stringify({
+      schemaVersion: 1,
+      source: 'research',
+      generatedAt: '2026-11-08T01:00:00.000Z',
+      items: [{ bind: 'research', title: '基于知识图谱的可穿戴传感器语言模型研究笔记', summary: '用于检查放大后文字保持原有换行。', href: '/research/wrap-test/', appearance: 'text', tags: ['Test'], order: 10 }],
+    }),
+  }))
   await page.setViewportSize({ width: 1440, height: 900 })
   await page.goto('/', { waitUntil: 'domcontentloaded' })
   const research = page.getByRole('button', { name: /Research，2 条内容/ })
@@ -225,30 +237,45 @@ test('one click pops in the whole category and keeps physics active', async ({ p
 
   const book = page.locator('[data-content-id="research-notes"]')
   const fontBefore = parseFloat(await book.locator('.book-spine strong').evaluate((node) => getComputedStyle(node).fontSize))
+  const titleHeightBefore = (await book.locator('.book-spine strong').boundingBox())!.height
   const transformBefore = await book.evaluate((node) => getComputedStyle(node).transform)
   const before = await book.boundingBox()
   await book.hover()
   await page.waitForTimeout(500)
   const after = await book.boundingBox()
   const fontAfter = parseFloat(await book.locator('.book-spine strong').evaluate((node) => getComputedStyle(node).fontSize))
+  const titleHeightAfter = (await book.locator('.book-spine strong').boundingBox())!.height
   expect(after!.width).toBeGreaterThan(before!.width * 1.35)
   expect(after!.height).toBeGreaterThan(before!.height * 1.35)
-  expect(fontAfter / fontBefore).toBeCloseTo(after!.width / before!.width, 1)
-  await expect(book).toHaveCSS('transform', transformBefore)
+  expect(fontAfter).toBeCloseTo(fontBefore, 1)
+  expect(titleHeightAfter / titleHeightBefore).toBeCloseTo(after!.width / before!.width, 1)
+  expect(await book.evaluate((node) => getComputedStyle(node).transform)).not.toBe(transformBefore)
 
-  const textItem = page.locator('[data-content-id="feed-error:research"]')
+  const textItem = page.locator('[data-content-id="feed:research:/research/wrap-test/"]')
   const textBefore = await textItem.boundingBox()
+  const lineCountBefore = await textItem.locator('h3').evaluate((node) => {
+    const range = document.createRange()
+    range.selectNodeContents(node)
+    return new Set([...range.getClientRects()].map((rect) => Math.round(rect.top))).size
+  })
   await textItem.hover({ position: { x: 5, y: textBefore!.height / 2 } })
   await page.waitForTimeout(450)
   const textAfter = await textItem.boundingBox()
-  expect(textAfter!.height).toBeGreaterThan(textBefore!.height * 2)
+  const lineCountAfter = await textItem.locator('h3').evaluate((node) => {
+    const range = document.createRange()
+    range.selectNodeContents(node)
+    return new Set([...range.getClientRects()].map((rect) => Math.round(rect.top))).size
+  })
+  expect(textAfter!.height).toBeGreaterThan(textBefore!.height * 1.8)
+  expect(textAfter!.height).toBeLessThan(textBefore!.height * 2.3)
   expect(textAfter!.width).toBeGreaterThan(textBefore!.width * 1.25)
+  expect(lineCountAfter).toBe(lineCountBefore)
   await expect(textItem.locator('p')).toHaveCSS('opacity', '1')
   expect(parseFloat(await textItem.locator('p').evaluate((node) => getComputedStyle(node).fontSize))).toBeGreaterThanOrEqual(14)
   expect(await textItem.locator('p').evaluate((node) => getComputedStyle(node).fontFamily)).not.toContain('DotGothic16')
 })
 
-test('dragging blank canvas pans the scene without stealing item gestures', async ({ page }) => {
+test('blank-canvas dragging leaves the fixed scene in place', async ({ page }) => {
   await page.setViewportSize({ width: 1024, height: 768 })
   await page.goto('/', { waitUntil: 'domcontentloaded' })
 
@@ -260,40 +287,35 @@ test('dragging blank canvas pans the scene without stealing item gestures', asyn
   const creditBefore = await credit.boundingBox()
   await page.mouse.move(60, 700)
   await page.mouse.down()
-  await expect(page.locator('.reference-portal')).toHaveAttribute('data-dragging', 'true')
-  await expect(page.locator('.reference-viewport')).toHaveCSS('cursor', 'grabbing')
   await page.mouse.move(300, 640, { steps: 8 })
   await page.mouse.up()
   const after = await profile.boundingBox()
   const creditAfter = await credit.boundingBox()
-  expect(after!.x - before!.x).toBeCloseTo(240, 0)
-  expect(after!.y - before!.y).toBeCloseTo(-60, 0)
+  expect(after!.x - before!.x).toBeCloseTo(0, 1)
+  expect(after!.y - before!.y).toBeCloseTo(0, 1)
   expect(creditAfter!.x - creditBefore!.x).toBeCloseTo(0, 1)
   expect(creditAfter!.y - creditBefore!.y).toBeCloseTo(0, 1)
   expect(768 - creditAfter!.y - creditAfter!.height).toBeCloseTo(24, 0)
   expect(Number(await credit.evaluate((node) => getComputedStyle(node).zIndex))).toBeGreaterThanOrEqual(1000)
-  await expect(page.locator('.reference-portal')).not.toHaveAttribute('data-dragging', 'true')
-  await expect(page.locator('.reference-viewport')).toHaveCSS('cursor', 'grab')
-
-  const cameraBeforeItemGesture = await page.locator('.reference-portal').evaluate((node) => ({
-    x: node.getAttribute('data-camera-x'),
-    y: node.getAttribute('data-camera-y'),
-  }))
-  const movedProfile = (await profile.boundingBox())!
-  await page.mouse.move(movedProfile.x + 24, movedProfile.y + 24)
-  await page.mouse.down()
-  await page.mouse.move(movedProfile.x + 80, movedProfile.y + 60, { steps: 4 })
-  await page.mouse.up()
-  await expect(page.locator('.reference-portal')).toHaveAttribute('data-camera-x', cameraBeforeItemGesture.x!)
-  await expect(page.locator('.reference-portal')).toHaveAttribute('data-camera-y', cameraBeforeItemGesture.y!)
+  await expect(page.locator('.reference-portal')).not.toHaveAttribute('data-dragging', /.+/)
+  await expect(page.locator('.reference-portal')).not.toHaveAttribute('data-camera-x', /.+/)
 })
 
 test('narrow screens scale and contain the scene', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/', { waitUntil: 'domcontentloaded' })
+  await page.waitForTimeout(500)
   const profile = await page.locator('.identity-panel').boundingBox()
-  expect(profile!.width).toBeLessThan(390)
-  expect(profile!.height).toBeLessThan(240)
+  expect(profile!.x).toBeCloseTo(10, 0)
+  expect(profile!.y).toBeCloseTo(10, 0)
+  expect(profile!.width).toBeCloseTo(370, 0)
+  expect(profile!.height).toBeCloseTo(164, 0)
+  const navButtons = await page.locator('.identity-panel .category-button').evaluateAll((nodes) => nodes.map((node) => {
+    const rect = node.getBoundingClientRect()
+    return { x: rect.x, y: rect.y, width: rect.width, height: rect.height }
+  }))
+  expect(navButtons.length).toBeGreaterThanOrEqual(3)
+  expect(new Set(navButtons.map((button) => Math.round(button.y))).size).toBe(1)
   const halftone = (await page.locator('.halftone-canvas').boundingBox())!
   expect(halftone.x).toBeLessThan(0)
   expect(halftone.y).toBeLessThan(0)
@@ -311,7 +333,19 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
     expect(box.y).toBeGreaterThanOrEqual(-1)
     expect(box.x + box.width).toBeLessThanOrEqual(391)
     expect(box.y + box.height).toBeLessThanOrEqual(845)
+    expect(box.y).toBeGreaterThanOrEqual(profile!.y + profile!.height + 10)
   }
+  await page.setViewportSize({ width: 844, height: 390 })
+  await page.waitForTimeout(500)
+  const landscapeProfile = (await page.locator('.identity-panel').boundingBox())!
+  expect(landscapeProfile.x).toBeCloseTo(10, 0)
+  expect(landscapeProfile.y).toBeCloseTo(10, 0)
+  expect(landscapeProfile.width).toBeCloseTo(824, 0)
+  expect(landscapeProfile.height).toBeCloseTo(120, 0)
+  for (const box of await items.evaluateAll((nodes) => nodes.map((node) => {
+    const rect = node.getBoundingClientRect()
+    return { y: rect.y }
+  }))) expect(box.y).toBeGreaterThanOrEqual(landscapeProfile.y + landscapeProfile.height + 10)
   await expect(page.locator('.window-dock')).toHaveCount(0)
 })
 
@@ -360,7 +394,7 @@ test('touch devices preview content on the first tap and open it on the second',
     return { top: rect.top, bottom: rect.bottom }
   }))
   expect(blockBoxes).toHaveLength(3)
-  for (const block of blockBoxes) expect(block.bottom <= profileBox.y - 20 || block.top >= profileBox.y + profileBox.height + 20).toBe(true)
+  for (const block of blockBoxes) expect(block.top).toBeGreaterThanOrEqual(profileBox.y + profileBox.height + 10)
   await expect(page.locator('.identity-panel')).toHaveCSS('--centre-option-x', '0px')
   await expect(page.locator('.physics-link-card').first()).toHaveCSS('--layer-near-x', '0px')
 
@@ -390,7 +424,7 @@ test('touch devices preview content on the first tap and open it on the second',
     const rect = node.getBoundingClientRect()
     return { top: rect.top, bottom: rect.bottom }
   }))
-  for (const block of settledBlocks) expect(block.bottom <= settledProfile.y - 18 || block.top >= settledProfile.y + settledProfile.height + 18).toBe(true)
+  for (const block of settledBlocks) expect(block.top).toBeGreaterThanOrEqual(settledProfile.y + settledProfile.height + 8)
 
   await page.setViewportSize({ width: 820, height: 1000 })
   await page.getByRole('button', { name: /Blog，2 条内容/ }).tap()
@@ -406,13 +440,13 @@ test('touch devices preview content on the first tap and open it on the second',
   expect(textSpacing.bottom).toBeGreaterThan(4)
   expect(Math.abs(textSpacing.top - textSpacing.bottom)).toBeLessThan(2)
   const collapsedTextWidth = (await text.boundingBox())!.width
-  await text.getByRole('link').tap({ force: true })
+  await text.getByRole('link').evaluate((link: HTMLAnchorElement) => link.click())
   await expect(text).toHaveAttribute('data-touch-expanded', 'true')
   await expect(text.locator('.card--text p')).toHaveCSS('opacity', '1')
   await expect.poll(async () => (await text.boundingBox())!.width).toBeGreaterThan(collapsedTextWidth * 1.15)
   expect((await text.boundingBox())!.width).toBeLessThan(collapsedTextWidth * 1.34)
   await expect(page).toHaveURL(/\/$/)
-  await text.getByRole('link').tap({ force: true })
+  await text.getByRole('link').evaluate((link: HTMLAnchorElement) => link.click())
   await expect(page).toHaveURL(/\/blog\/touch-target\/$/)
   await context.close()
 })
@@ -536,10 +570,10 @@ test('items and centre options use layered parallax while the disc stays centred
   await expect(disc.locator('.disc-image:not(.disc-image--shadow)')).toHaveCSS('opacity', '1')
   await page.mouse.move(0, 0)
   await expect.poll(async () => (await disc.boundingBox())!.width).toBeLessThan(250)
-  const collapsedDiscTitleSize = await disc.locator('.disc-spine strong').evaluate((node) => parseFloat(getComputedStyle(node).fontSize))
+  const collapsedDiscTitleHeight = (await disc.locator('.disc-spine strong').boundingBox())!.height
   await disc.hover()
   await expect.poll(async () => disc.locator('.disc-image:not(.disc-image--shadow)').evaluate((node) => new DOMMatrix(getComputedStyle(node).transform).m41)).toBeGreaterThan(20)
-  await expect.poll(async () => disc.locator('.disc-spine strong').evaluate((node) => parseFloat(getComputedStyle(node).fontSize))).toBeGreaterThan(collapsedDiscTitleSize * 1.3)
+  await expect.poll(async () => (await disc.locator('.disc-spine strong').boundingBox())!.height).toBeGreaterThan(collapsedDiscTitleHeight * 1.3)
   await page.mouse.move(0, 0)
   await expect.poll(async () => disc.locator('.disc-image:not(.disc-image--shadow)').evaluate((node) => Math.abs(new DOMMatrix(getComputedStyle(node).transform).m41))).toBeLessThan(.5)
   await disc.evaluate((node) => {
