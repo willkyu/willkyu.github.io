@@ -299,48 +299,66 @@ function repel(distance: number, halfSize: number, gap: number) {
   return separation < gap ? sign * (gap - separation) : 0
 }
 
-function resolveMobileCollisions(items: SceneItem[], viewport: ViewportSize, gap: number) {
+function applyMobileCollisionForces(items: SceneItem[], viewport: ViewportSize, gap: number) {
   const objects = items.filter((item) => item.kind !== 'profile')
   const movable = (item: SceneItem) => !item.fixed && !item.hovered && !item.pressed
-  for (let iteration = 0; iteration < 5; iteration += 1) {
-    for (let firstIndex = 0; firstIndex < objects.length; firstIndex += 1) {
-      const first = objects[firstIndex]
-      for (let secondIndex = firstIndex + 1; secondIndex < objects.length; secondIndex += 1) {
-        const second = objects[secondIndex]
-        const firstCanMove = movable(first)
-        const secondCanMove = movable(second)
-        if (!firstCanMove && !secondCanMove) continue
-        const firstSize = collisionSize(first, viewport)
-        const secondSize = collisionSize(second, viewport)
-        const dx = second.x - first.x
-        const dy = second.y - first.y
-        const requiredX = (firstSize.width + secondSize.width) / 2 + gap
-        const requiredY = (firstSize.height + secondSize.height) / 2 + gap
-        const overlapX = requiredX - Math.abs(dx)
-        const overlapY = requiredY - Math.abs(dy)
-        if (overlapX <= 0 || overlapY <= 0) continue
+  for (const item of objects) {
+    if (movable(item)) {
+      item.vx *= .68
+      item.vy *= .68
+    } else {
+      item.vx = 0
+      item.vy = 0
+    }
+  }
 
-        const useHorizontal = overlapX / requiredX <= overlapY / requiredY
-        const delta = (useHorizontal ? overlapX : overlapY) + .5
-        const rawDistance = useHorizontal ? dx : dy
-        const direction = Math.abs(rawDistance) > .5 ? Math.sign(rawDistance) : first.id.localeCompare(second.id) <= 0 ? 1 : -1
-        const firstShare = firstCanMove ? secondCanMove ? .5 : 1 : 0
-        const secondShare = secondCanMove ? firstCanMove ? .5 : 1 : 0
-        if (useHorizontal) {
-          first.x -= direction * delta * firstShare
-          second.x += direction * delta * secondShare
-        } else {
-          first.y -= direction * delta * firstShare
-          second.y += direction * delta * secondShare
-        }
-        if (firstCanMove) Object.assign(first, clampPosition(first, viewport))
-        if (secondCanMove) Object.assign(second, clampPosition(second, viewport))
+  for (let firstIndex = 0; firstIndex < objects.length; firstIndex += 1) {
+    const first = objects[firstIndex]
+    for (let secondIndex = firstIndex + 1; secondIndex < objects.length; secondIndex += 1) {
+      const second = objects[secondIndex]
+      const firstCanMove = movable(first)
+      const secondCanMove = movable(second)
+      if (!firstCanMove && !secondCanMove) continue
+      const firstSize = collisionSize(first, viewport)
+      const secondSize = collisionSize(second, viewport)
+      const dx = second.x - first.x
+      const dy = second.y - first.y
+      const requiredX = (firstSize.width + secondSize.width) / 2 + gap
+      const requiredY = (firstSize.height + secondSize.height) / 2 + gap
+      const overlapX = requiredX - Math.abs(dx)
+      const overlapY = requiredY - Math.abs(dy)
+      if (overlapX <= 0 || overlapY <= 0) continue
+
+      const pairHash = Array.from(`${first.id}:${second.id}`).reduce((value, character) => value + character.charCodeAt(0), 0)
+      const horizontalRatio = overlapX / requiredX
+      const verticalRatio = overlapY / requiredY
+      const exactOverlap = Math.abs(dx) < .5 && Math.abs(dy) < .5
+      const useHorizontal = exactOverlap ? pairHash % 2 === 0 : horizontalRatio <= verticalRatio
+      const penetration = useHorizontal ? overlapX : overlapY
+      const rawDistance = useHorizontal ? dx : dy
+      const direction = Math.abs(rawDistance) > .5 ? Math.sign(rawDistance) : pairHash % 4 < 2 ? 1 : -1
+      const impulse = Math.min(118, 12 + penetration * 1.06)
+      const firstShare = firstCanMove ? secondCanMove ? .5 : 1 : 0
+      const secondShare = secondCanMove ? firstCanMove ? .5 : 1 : 0
+      if (useHorizontal) {
+        first.vx -= direction * impulse * firstShare
+        second.vx += direction * impulse * secondShare
+      } else {
+        first.vy -= direction * impulse * firstShare
+        second.vy += direction * impulse * secondShare
       }
     }
   }
+
   for (const item of objects) {
-    item.vx = 0
-    item.vy = 0
+    if (!movable(item)) continue
+    const velocity = clampVector(item.vx, item.vy, 360)
+    const intended = { x: item.x + velocity.x * .033, y: item.y + velocity.y * .033 }
+    const position = clampPosition(item, viewport, intended)
+    item.x = position.x
+    item.y = position.y
+    item.vx = Math.abs(position.x - intended.x) > .1 ? 0 : Math.abs(velocity.x) < .35 ? 0 : velocity.x
+    item.vy = Math.abs(position.y - intended.y) > .1 ? 0 : Math.abs(velocity.y) < .35 ? 0 : velocity.y
   }
 }
 
@@ -368,7 +386,7 @@ function physicsStep(items: SceneItem[], viewport: ViewportSize) {
   const mobileCompact = usesMobileNavigation(viewport) && spawned.some((item) => item.mobileCompact)
   const gap = mobileCompact ? 20 : usesMobileNavigation(viewport) ? 10 : 16
   if (mobileCompact) {
-    resolveMobileCollisions(spawned, viewport, gap)
+    applyMobileCollisionForces(spawned, viewport, gap)
     return next
   }
 
@@ -487,6 +505,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const renderedItemsRef = useRef<SceneItem[]>(initialItems)
   const viewportRef = useRef<ViewportSize>(initialViewport)
   const spawnTimers = useRef<number[]>([])
+  const mobileDockTimer = useRef(0)
   const orientationListening = useRef(false)
   const orientationPermissionTried = useRef(false)
   const orientationBaseline = useRef<{ beta: number; gamma: number } | null>(null)
@@ -500,6 +519,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const [touchMode, setTouchMode] = useState(() => window.matchMedia('(hover: none), (pointer: coarse)').matches)
   const [orientationActive, setOrientationActive] = useState(false)
   const [orientationPointer, setOrientationPointer] = useState({ x: 0, y: 0 })
+  const [mobileDocking, setMobileDocking] = useState(false)
 
   const updateItems = useCallback((updater: (current: SceneItem[]) => SceneItem[]) => {
     const next = updater(itemsRef.current)
@@ -663,7 +683,10 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
     return () => window.cancelAnimationFrame(animation)
   }, [])
 
-  useEffect(() => () => spawnTimers.current.forEach((timer) => window.clearTimeout(timer)), [])
+  useEffect(() => () => {
+    spawnTimers.current.forEach((timer) => window.clearTimeout(timer))
+    if (mobileDockTimer.current) window.clearTimeout(mobileDockTimer.current)
+  }, [])
 
   const resetScenePointer = useCallback(() => {
     const current = viewportRef.current
@@ -715,6 +738,15 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
     if (!candidates.length) return
     const candidateIds = new Set(candidates.map((item) => item.id))
     const compactMobile = usesMobileNavigation(viewportRef.current)
+    const firstMobileDock = compactMobile && !itemsRef.current.find((item) => item.kind === 'profile')?.mobileCompact
+    if (firstMobileDock) {
+      setMobileDocking(true)
+      if (mobileDockTimer.current) window.clearTimeout(mobileDockTimer.current)
+      mobileDockTimer.current = window.setTimeout(() => {
+        mobileDockTimer.current = 0
+        setMobileDocking(false)
+      }, 520)
+    }
     updateItems((current) => {
       const compacted = current.map((currentItem) => {
         let item = compactMobile ? { ...currentItem, mobileCompact: true } : currentItem
@@ -731,6 +763,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
       })
     })
 
+    const dockDelay = firstMobileDock && !window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 380 : 0
     candidates.forEach((candidate, index) => {
       const timer = window.setTimeout(() => {
         updateItems((current) => current.map((item) => {
@@ -744,7 +777,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
             vy: 0,
           }
         }))
-      }, index * 170)
+      }, dockDelay + index * 170)
       spawnTimers.current.push(timer)
     })
   }, [updateItems])
@@ -882,6 +915,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
       style={style}
       data-input={touchMode ? 'touch' : 'pointer'}
       data-touch-parallax={touchMode ? orientationActive ? 'gyro' : 'off' : 'pointer'}
+      data-mobile-docking={mobileDocking || undefined}
     >
       <div
         className="reference-viewport"

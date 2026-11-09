@@ -323,13 +323,15 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
   expect(halftone.y + halftone.height).toBeGreaterThan(844)
   await page.getByRole('button', { name: /PM，1 条内容/ }).click()
   const items = page.locator('.physics-content')
-  await expect(items).toHaveCount(1)
   await expect(page.locator('.identity-panel')).toHaveAttribute('data-mobile-compact', 'true')
+  await expect(page.locator('.reference-portal')).toHaveAttribute('data-mobile-docking', 'true')
   await page.waitForTimeout(90)
   const dockingProfile = (await page.locator('.identity-panel').boundingBox())!
   expect(dockingProfile.y).toBeGreaterThan(10)
   expect(dockingProfile.y).toBeLessThan(profile!.y)
+  await expect(items).toHaveCount(1)
   await page.waitForTimeout(610)
+  await expect(page.locator('.reference-portal')).not.toHaveAttribute('data-mobile-docking', 'true')
   const compactProfile = (await page.locator('.identity-panel').boundingBox())!
   expect(compactProfile.x).toBeCloseTo(10, 0)
   expect(compactProfile.y).toBeCloseTo(10, 0)

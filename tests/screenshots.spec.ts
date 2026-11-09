@@ -119,6 +119,8 @@ test('capture mobile touch preview', async ({ browser }) => {
   }))
   await page.goto('/', { waitUntil: 'domcontentloaded' })
   await page.getByRole('button', { name: /Research，2 条内容/ }).tap()
+  await page.waitForTimeout(90)
+  await page.screenshot({ path: resolve(output, 'portal-mobile-docking.png') })
   const essay = page.locator('[data-content-id="feed:research:/research/mobile-essay/"]')
   await expect(essay).toBeVisible()
   await essay.getByRole('link').evaluate((link: HTMLAnchorElement) => link.click())
