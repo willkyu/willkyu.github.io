@@ -27,7 +27,8 @@ describe('popupPosition', () => {
     const position = popupPosition(item as Parameters<typeof popupPosition>[0], { width: 390, height: 844 }, [profile as Parameters<typeof popupPosition>[0]])
 
     expect(position.y).toBeGreaterThan(profile.y + 29)
-    expect(Math.abs(position.x)).toBeLessThan(110)
+    expect(position.x).toBeCloseTo(0, 5)
+    expect(position.y).toBeCloseTo(0, 5)
   })
 
   it('keeps popup content below the navigation bar after rotating a phone to landscape', () => {
@@ -42,7 +43,31 @@ describe('popupPosition', () => {
     const position = popupPosition(item as Parameters<typeof popupPosition>[0], { width: 844, height: 390 }, [profile as Parameters<typeof popupPosition>[0]])
 
     expect(position.y).toBeGreaterThan(profile.y + 26)
-    expect(Math.abs(position.x)).toBeLessThan(340)
+    expect(position.x).toBeCloseTo(0, 5)
+    expect(position.y).toBeCloseTo(0, 5)
+  })
+
+  it('uses the closest free mobile position when the viewport centre is occupied', () => {
+    const item = {
+      id: 'mobile-card', kind: 'content', spawned: false, queued: false, fixed: false, hovered: false, touchExpanded: false, pressed: false,
+      attractStrength: 0, baseWidth: 220, baseHeight: 200, x: 0, y: 0, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1, mobileCompact: true,
+    }
+    const profile = {
+      id: 'profile', kind: 'profile', spawned: true, queued: false, fixed: true, hovered: false, touchExpanded: false, pressed: false,
+      attractStrength: 1, baseWidth: 359, baseHeight: 259, x: 0, y: -390, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1, mobileCompact: true,
+    }
+    const centreObstacle = {
+      id: 'centre-link', kind: 'link', spawned: true, queued: false, fixed: false, hovered: false, touchExpanded: false, pressed: false,
+      attractStrength: 0, baseWidth: 64, baseHeight: 64, x: 0, y: 0, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1, mobileCompact: true,
+    }
+    const position = popupPosition(
+      item as Parameters<typeof popupPosition>[0],
+      { width: 390, height: 844 },
+      [profile, centreObstacle] as Parameters<typeof popupPosition>[2],
+    )
+
+    expect(Math.hypot(position.x, position.y)).toBeGreaterThan(90)
+    expect(Math.hypot(position.x, position.y)).toBeLessThan(230)
   })
 
   it('keeps desktop popup positions on the first ring around the centre profile', () => {

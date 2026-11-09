@@ -212,7 +212,22 @@ export function popupPosition(item: SceneItem, viewport: ViewportSize, items: Sc
     const maxX = Math.max(0, viewport.width / 2 - margin - halfWidth)
     if (maxY <= minY) return clampPosition(item, viewport, { x: 0, y: minY })
 
-    const candidates = Array.from({ length: 20 }, (_, index) => {
+    const preferred = clampPosition(item, viewport, {
+      x: 0,
+      y: Math.max(minY, Math.min(maxY, 0)),
+    })
+    const nearbyX = Math.min(maxX, itemSize.width * .72)
+    const nearbyY = Math.min((maxY - minY) / 2, itemSize.height * .72)
+    const nearby = [
+      preferred,
+      { x: preferred.x + nearbyX, y: preferred.y },
+      { x: preferred.x - nearbyX, y: preferred.y },
+      { x: preferred.x, y: preferred.y + nearbyY },
+      { x: preferred.x, y: preferred.y - nearbyY },
+      { x: preferred.x + nearbyX, y: preferred.y + nearbyY },
+      { x: preferred.x - nearbyX, y: preferred.y - nearbyY },
+    ].map((position) => clampPosition(item, viewport, position))
+    const grid = Array.from({ length: 20 }, (_, index) => {
       const column = index % 4
       const row = Math.floor(index / 4)
       const gridX = -maxX + (maxX * 2 * column) / 3
@@ -222,16 +237,26 @@ export function popupPosition(item: SceneItem, viewport: ViewportSize, items: Sc
         y: gridY + (Math.random() - .5) * Math.min(52, (maxY - minY) * .16),
       })
     })
+    const candidates = [...nearby, ...grid]
     const obstacles = occupied.filter((entry) => entry.kind !== 'profile')
     return candidates.map((position) => {
+      let overlapArea = 0
       const clearance = obstacles.length ? Math.min(...obstacles.map((other) => {
         const otherSize = collisionSize(other, viewport)
         const overlapX = (itemSize.width + otherSize.width) / 2 - Math.abs(position.x - other.x)
         const overlapY = (itemSize.height + otherSize.height) / 2 - Math.abs(position.y - other.y)
-        if (overlapX > 0 && overlapY > 0) return -Math.sqrt(overlapX * overlapY)
+        if (overlapX > 0 && overlapY > 0) {
+          overlapArea += overlapX * overlapY
+          return 0
+        }
         return Math.hypot(Math.max(0, -overlapX), Math.max(0, -overlapY))
       })) : 120
-      return { position, score: clearance + Math.random() * 8 }
+      const centreDistance = Math.hypot(position.x - preferred.x, position.y - preferred.y)
+      const centreBias = Math.max(0, 300 - centreDistance * 1.1)
+      const score = overlapArea > 0
+        ? -100_000 - overlapArea
+        : Math.min(40, clearance) + centreBias + Math.random() * 2
+      return { position, score }
     }).sort((a, b) => b.score - a.score)[0].position
   }
 
