@@ -238,7 +238,7 @@ test('one click pops in the whole category and keeps physics active', async ({ p
   const research = page.getByRole('button', { name: /Research，2 条内容/ })
 
   await research.click()
-  await expect(page.getByRole('button', { name: /Research，暂无内容/ })).toBeDisabled()
+  await expect(page.getByRole('button', { name: /Research，已选择/ })).toBeDisabled()
   await expect(page.locator('.physics-content')).toHaveCount(2)
   await expect(page.locator('.physics-content').first()).toHaveCSS('animation-name', 'item-popup')
   await page.waitForTimeout(1400)
@@ -281,6 +281,69 @@ test('one click pops in the whole category and keeps physics active', async ({ p
   await expect(textItem.locator('p')).toHaveCSS('opacity', '1')
   expect(parseFloat(await textItem.locator('p').evaluate((node) => getComputedStyle(node).fontSize))).toBeGreaterThanOrEqual(14)
   expect(await textItem.locator('p').evaluate((node) => getComputedStyle(node).fontFamily)).not.toContain('DotGothic16')
+})
+
+test('category buttons switch the visible popup group and restore the previous option', async ({ page }) => {
+  await page.route('**/blog/homepage-feed.json', (route) => route.fulfill({
+    contentType: 'application/json',
+    body: JSON.stringify({
+      schemaVersion: 1,
+      source: 'blog',
+      generatedAt: '2026-11-09T01:00:00.000Z',
+      items: [{ bind: 'blog', title: '切换测试博客', summary: '博客摘要。', href: '/blog/switch-test/', appearance: 'text', tags: ['Test'], order: 10 }],
+    }),
+  }))
+  await page.route('**/research/homepage-feed.json', (route) => route.fulfill({
+    contentType: 'application/json',
+    body: JSON.stringify({
+      schemaVersion: 1,
+      source: 'research',
+      generatedAt: '2026-11-09T01:00:00.000Z',
+      items: [{ bind: 'research', title: '切换测试研究', summary: '研究摘要。', href: '/research/switch-test/', appearance: 'text', tags: ['Test'], order: 10 }],
+    }),
+  }))
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+
+  await page.getByRole('button', { name: /Research，2 条内容/ }).click()
+  const researchItems = page.locator('.physics-content[data-category-id="research"]')
+  await expect(researchItems).toHaveCount(2)
+  const selectedResearch = page.getByRole('button', { name: /Research，已选择/ })
+  await expect(selectedResearch).toBeDisabled()
+  await expect(selectedResearch).toHaveAttribute('data-active', 'true')
+  await expect(page.locator('.reference-portal')).toHaveAttribute('data-active-category', 'research')
+
+  await page.getByRole('button', { name: /Blog，2 条内容/ }).click()
+  await expect(researchItems.first()).toHaveAttribute('data-exiting', 'true')
+  const selectedBlog = page.getByRole('button', { name: /Blog，已选择/ })
+  await expect(selectedBlog).toBeDisabled()
+  await expect(page.locator('.reference-portal')).toHaveAttribute('data-active-category', 'blog')
+  await expect(researchItems).toHaveCount(0)
+  await expect(page.locator('.physics-content[data-category-id="blog"]')).toHaveCount(2)
+  await expect(page.getByRole('button', { name: /Research，2 条内容/ })).toBeEnabled()
+
+  await page.getByRole('button', { name: /Research，2 条内容/ }).click()
+  await expect(page.locator('.physics-content[data-category-id="blog"]').first()).toHaveAttribute('data-exiting', 'true')
+  await expect(page.locator('.physics-content[data-category-id="blog"]')).toHaveCount(0)
+  await expect(researchItems).toHaveCount(2)
+  await expect(page.getByRole('button', { name: /Research，已选择/ })).toBeDisabled()
+})
+
+test('compact mobile navigation enlarges only the selected unavailable option', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+  await page.getByRole('button', { name: /PM，1 条内容/ }).click()
+  await expect(page.locator('.identity-panel')).toHaveAttribute('data-mobile-compact', 'true')
+
+  const selected = page.getByRole('button', { name: /PM，已选择/ })
+  const available = page.getByRole('button', { name: /Research，\d+ 条内容/ })
+  await expect(selected).toBeDisabled()
+  await expect(available).toBeEnabled()
+  await expect.poll(async () => {
+    const selectedWidth = (await selected.boundingBox())?.width ?? 0
+    const availableWidth = (await available.boundingBox())?.width ?? 1
+    return selectedWidth / availableWidth
+  }).toBeGreaterThan(1.2)
 })
 
 test('blank-canvas dragging leaves the fixed scene in place', async ({ page }) => {

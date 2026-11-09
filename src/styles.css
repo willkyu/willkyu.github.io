@@ -37,12 +37,13 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .category-nav { display: flex; flex-direction: column; justify-content: flex-end; gap: 2px; width: 100%; }
 .category-button { display: block; width: 90%; height: 29px; margin-left: 10%; padding: 0 7px; overflow: hidden; color: #000; border: 4px solid #000; border-radius: 16px 0 0 16px; background: #fff; font: 800 15px/21px var(--font-body); letter-spacing: .02em; text-align: center; white-space: nowrap; transform-origin: right center; transition: width .2s ease, margin-left .2s ease, background .2s ease, color .2s ease, transform .12s ease; }
 .category-button:hover { width: 100%; margin-left: 0; }
-.category-button[data-active="true"] { color: #111; background: #aaa; }
+.category-button[data-active="true"] { width: 100%; margin-left: 0; color: #111; background: #aaa; }
 .category-button:active { transform: scale(var(--press-scale)); }
 .category-button__number, .category-button__icon, .category-button__arrow { display: none; }
 .category-button__label { display: block; overflow: hidden; text-overflow: ellipsis; }
 .category-button[data-empty="true"] { opacity: .5; }
-.category-button:disabled { opacity: .35; pointer-events: none; }
+.category-button:disabled { pointer-events: none; }
+.category-button:disabled:not([data-active="true"]) { opacity: .35; }
 .category-nav:has(.category-button:nth-child(5)) { gap: 1px; }
 .category-nav:has(.category-button:nth-child(5)) .category-button { height: 23px; font-size: 12px; line-height: 15px; }
 
@@ -271,6 +272,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
   .reference-world .identity-panel[data-mobile-compact="true"] .category-button,
   .reference-world .identity-panel[data-mobile-compact="true"] .category-nav:has(.category-button:nth-child(5)) .category-button { flex: 1 1 0; width: auto; min-width: 0; height: 100%; margin: 0; padding: 0 3px; border-width: 3px; border-radius: 0; font-size: 12px; line-height: 1; }
   .reference-world .identity-panel[data-mobile-compact="true"] .category-button:hover { width: auto; margin-left: 0; }
+  .reference-world .identity-panel[data-mobile-compact="true"] .category-button[data-active="true"] { flex-grow: 1.32; width: auto; margin-left: 0; font-size: 14px; }
 }
 
 @keyframes mobile-nav-drop {

@@ -20,14 +20,9 @@ test('capture review states', async ({ page }) => {
   expect(profile.y).toBeCloseTo((900 - profile.height) / 2, 1)
   await page.screenshot({ path: resolve(output, 'portal-desktop-initial.png') })
 
-  await page.evaluate(() => {
-    for (const label of ['Research', 'Blog', 'PM']) {
-      const button = [...document.querySelectorAll('button')].find((item) => item.textContent?.includes(label))
-      if (button instanceof HTMLButtonElement) button.click()
-    }
-  })
+  await page.getByRole('button', { name: /PM，\d+ 条内容/ }).click()
   await page.waitForTimeout(1200)
-  await page.screenshot({ path: resolve(output, 'portal-desktop-multi-window.png') })
+  await page.screenshot({ path: resolve(output, 'portal-desktop-selected-category.png') })
 
   const disc = page.locator('[data-content-id="pokemon-disc"]')
   await expect(disc).toBeVisible()
@@ -39,7 +34,7 @@ test('capture review states', async ({ page }) => {
 
   await page.setViewportSize({ width: 1024, height: 768 })
   await page.waitForTimeout(120)
-  await page.screenshot({ path: resolve(output, 'portal-tablet-multi-window.png') })
+  await page.screenshot({ path: resolve(output, 'portal-tablet-selected-category.png') })
 
   await page.setViewportSize({ width: 390, height: 844 })
   await page.waitForTimeout(800)

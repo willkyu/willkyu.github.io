@@ -100,6 +100,8 @@ function mobileCompactHeight(viewport: ViewportSize) {
   return viewport.height <= 500 ? 52 : 58
 }
 
+const mobileContentClearance = 24
+
 function itemScale(item: SceneItem, viewport: ViewportSize) {
   const shortHeight = viewport.height < 650 ? .9 : 1
   const sceneBoost = 1.08
@@ -165,7 +167,7 @@ function clampPosition(item: SceneItem, viewport: ViewportSize, position = { x: 
   const size = visualSize(item, viewport)
   const mobile = usesMobileNavigation(viewport)
   const margin = mobile ? 10 : 18
-  const mobileContentTop = mobile && item.mobileCompact ? -viewport.height / 2 + 10 + mobileCompactHeight(viewport) + 12 : -viewport.height / 2 + margin
+  const mobileContentTop = mobile && item.mobileCompact ? -viewport.height / 2 + 10 + mobileCompactHeight(viewport) + mobileContentClearance : -viewport.height / 2 + margin
   const halfWidth = size.width / 2
   const halfHeight = size.height / 2
   const minX = -viewport.width / 2 + margin + halfWidth
@@ -203,7 +205,7 @@ export function popupPosition(item: SceneItem, viewport: ViewportSize, items: Sc
   if (mobile && item.mobileCompact) {
     const halfWidth = itemSize.width / 2
     const halfHeight = itemSize.height / 2
-    const contentTop = -viewport.height / 2 + 10 + mobileCompactHeight(viewport) + gap
+    const contentTop = -viewport.height / 2 + 10 + mobileCompactHeight(viewport) + mobileContentClearance
     const minY = contentTop + halfHeight
     const maxY = viewport.height / 2 - margin - halfHeight
     const maxX = Math.max(0, viewport.width / 2 - margin - halfWidth)
@@ -508,6 +510,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const renderedItemsRef = useRef<SceneItem[]>(initialItems)
   const viewportRef = useRef<ViewportSize>(initialViewport)
   const spawnTimers = useRef<number[]>([])
+  const activeCategoryRef = useRef<string | null>(null)
   const mobileDockTimers = useRef<number[]>([])
   const mobileDockingRef = useRef(false)
   const orientationListening = useRef(false)
@@ -524,6 +527,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const [orientationActive, setOrientationActive] = useState(false)
   const [orientationPointer, setOrientationPointer] = useState({ x: 0, y: 0 })
   const [mobileDockPhase, setMobileDockPhase] = useState<MobileDockPhase>('idle')
+  const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null)
 
   const updateItems = useCallback((updater: (current: SceneItem[]) => SceneItem[]) => {
     const next = updater(itemsRef.current)
@@ -743,14 +747,31 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
     return counts
   }, [items])
 
+  const activeCategoryIds = useMemo(
+    () => new Set(activeCategoryId ? [activeCategoryId] : []),
+    [activeCategoryId],
+  )
+
   const spawnCategory = useCallback((category: CategoryConfig) => {
+    if (activeCategoryRef.current === category.id) return
     const candidates = itemsRef.current
-      .filter((item) => item.kind === 'content' && item.categoryId === category.id && !item.spawned && !item.queued)
+      .filter((item) => item.kind === 'content' && item.categoryId === category.id && !item.spawned)
       .sort(() => Math.random() - .5)
-    if (!candidates.length) return
+    const hasCategoryContent = itemsRef.current.some((item) => item.kind === 'content' && item.categoryId === category.id)
+    if (!hasCategoryContent) return
+    spawnTimers.current.forEach((timer) => window.clearTimeout(timer))
+    spawnTimers.current = []
+    activeCategoryRef.current = category.id
+    setActiveCategoryId(category.id)
     const candidateIds = new Set(candidates.map((item) => item.id))
     const compactMobile = usesMobileNavigation(viewportRef.current)
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const hasVisiblePreviousCategory = itemsRef.current.some((item) => (
+      item.kind === 'content'
+      && item.spawned
+      && item.categoryId !== category.id
+    ))
+    const exitDelay = hasVisiblePreviousCategory && !reducedMotion ? 240 : 0
     const firstMobileDock = compactMobile
       && !mobileDockingRef.current
       && !itemsRef.current.find((item) => item.kind === 'profile')?.mobileCompact
@@ -785,15 +806,66 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
             ? { ...item, exiting: item.spawned }
             : { ...item, spawned: false, exiting: false }
         }
-        return candidateIds.has(item.id) ? { ...item, queued: true } : item
+        if (item.kind !== 'content') return item
+        if (item.categoryId === category.id) {
+          return {
+            ...item,
+            exiting: false,
+            queued: candidateIds.has(item.id),
+            hovered: item.spawned ? item.hovered : false,
+            touchExpanded: item.spawned ? item.touchExpanded : false,
+            pressed: false,
+            targetScale: item.spawned ? item.targetScale : 1,
+            targetExpansion: item.spawned ? item.targetExpansion : 1,
+          }
+        }
+        if (!item.spawned) return { ...item, queued: false, exiting: false }
+        return {
+          ...item,
+          queued: false,
+          exiting: true,
+          hovered: false,
+          touchExpanded: false,
+          pressed: false,
+          targetScale: 1,
+          targetExpansion: 1,
+          vx: 0,
+          vy: 0,
+        }
       })
     })
 
+    if (hasVisiblePreviousCategory) {
+      const hidePreviousTimer = window.setTimeout(() => {
+        updateItems((current) => current.map((item) => {
+          if (item.kind !== 'content' || item.categoryId === activeCategoryRef.current) return item
+          return {
+            ...item,
+            spawned: false,
+            queued: false,
+            exiting: false,
+            hovered: false,
+            touchExpanded: false,
+            pressed: false,
+            scale: 1,
+            targetScale: 1,
+            expansion: 1,
+            targetExpansion: 1,
+            vx: 0,
+            vy: 0,
+          }
+        }))
+      }, exitDelay)
+      spawnTimers.current.push(hidePreviousTimer)
+    }
+
     const dockDelay = mobileDockingRef.current ? 430 : 0
+    const appearanceDelay = Math.max(dockDelay, exitDelay)
     candidates.forEach((candidate, index) => {
       const timer = window.setTimeout(() => {
         updateItems((current) => current.map((item) => {
           if (item.id !== candidate.id) return item
+          if (item.categoryId !== activeCategoryRef.current) return { ...item, queued: false }
           return {
             ...item,
             ...popupPosition(item, viewportRef.current, current),
@@ -803,7 +875,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
             vy: 0,
           }
         }))
-      }, dockDelay + index * 170)
+      }, appearanceDelay + index * 170)
       spawnTimers.current.push(timer)
     })
   }, [updateItems])
@@ -941,6 +1013,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
       style={style}
       data-input={touchMode ? 'touch' : 'pointer'}
       data-touch-parallax={touchMode ? orientationActive ? 'gyro' : 'off' : 'pointer'}
+      data-active-category={activeCategoryId ?? undefined}
       data-mobile-docking={mobileDockPhase !== 'idle' || undefined}
       data-mobile-dock-phase={mobileDockPhase !== 'idle' ? mobileDockPhase : undefined}
     >
@@ -996,7 +1069,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
                 <h1 className="identity-name">{config.site.name}</h1>
                 <div className="speech-bubble">{config.site.bubble}</div>
                 <div className="character-frame"><Character config={config.character} motion={config.motion} externalGaze={config.motion.eyeFollow && config.character.eyeFollow.enabled ? gaze : { x: 0, y: 0 }} /></div>
-                <div className="identity-copy"><p className="sr-only">{config.site.description}</p><Navigation categories={config.categories} activeCategoryIds={new Set()} onSelect={spawnCategory} contentCounts={remainingCounts} /></div>
+                <div className="identity-copy"><p className="sr-only">{config.site.description}</p><Navigation categories={config.categories} activeCategoryIds={activeCategoryIds} onSelect={spawnCategory} contentCounts={remainingCounts} /></div>
               </section>
               )
             }
@@ -1051,6 +1124,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
                 data-exiting={item.exiting || undefined}
                 data-touch-expanded={item.touchExpanded || undefined}
                 data-appearance={item.content.appearance}
+                data-category-id={item.categoryId}
                 data-content-id={item.content.id}
                 data-base-width={item.baseWidth}
                 data-base-height={item.baseHeight}

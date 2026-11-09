@@ -12,17 +12,19 @@ export function Navigation({ categories, activeCategoryIds, onSelect, contentCou
     <nav className="category-nav" aria-label="内容分类">
       {categories.filter((item) => item.visible).sort((a, b) => a.order - b.order).map((category, index) => {
         const count = contentCounts.get(category.id) ?? 0
+        const active = activeCategoryIds.has(category.id)
+        const empty = count === 0 && !active
         return (
           <button
             className="category-button"
-            data-active={activeCategoryIds.has(category.id)}
-            data-empty={count === 0}
+            data-active={active}
+            data-empty={empty}
             type="button"
-            disabled={count === 0}
+            disabled={active || empty}
             key={category.id}
             onClick={() => onSelect(category)}
-            aria-pressed={activeCategoryIds.has(category.id)}
-            aria-label={`${category.label}，${count ? `${count} 条内容` : '暂无内容'}`}
+            aria-pressed={active}
+            aria-label={`${category.label}，${active ? '已选择' : count ? `${count} 条内容` : '暂无内容'}`}
           >
             <span className="category-button__number">0{index + 1}</span>
             <span className="category-button__icon" aria-hidden="true">{category.icon}</span>
