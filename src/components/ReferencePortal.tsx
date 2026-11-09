@@ -248,9 +248,7 @@ export function popupPosition(item: SceneItem, viewport: ViewportSize, items: Sc
 
       const perpendicularLimit = Math.max(0, (horizontal ? viewport.height : viewport.width) / 2 - margin - (horizontal ? itemSize.height : itemSize.width) / 2)
       const firstDistance = minimumDistance + Math.min(48, availableSpace * .28)
-      const distanceStep = itemExtent * 2 + gap
       const distances = [firstDistance]
-      for (let distance = firstDistance + distanceStep; distance <= maximumDistance + .5; distance += distanceStep) distances.push(distance)
 
       return distances.map((distance) => {
         const perpendicularJitter = (Math.random() - .5) * Math.min(72, perpendicularLimit * .35)
@@ -301,6 +299,51 @@ function repel(distance: number, halfSize: number, gap: number) {
   return separation < gap ? sign * (gap - separation) : 0
 }
 
+function resolveMobileCollisions(items: SceneItem[], viewport: ViewportSize, gap: number) {
+  const objects = items.filter((item) => item.kind !== 'profile')
+  const movable = (item: SceneItem) => !item.fixed && !item.hovered && !item.pressed
+  for (let iteration = 0; iteration < 5; iteration += 1) {
+    for (let firstIndex = 0; firstIndex < objects.length; firstIndex += 1) {
+      const first = objects[firstIndex]
+      for (let secondIndex = firstIndex + 1; secondIndex < objects.length; secondIndex += 1) {
+        const second = objects[secondIndex]
+        const firstCanMove = movable(first)
+        const secondCanMove = movable(second)
+        if (!firstCanMove && !secondCanMove) continue
+        const firstSize = collisionSize(first, viewport)
+        const secondSize = collisionSize(second, viewport)
+        const dx = second.x - first.x
+        const dy = second.y - first.y
+        const requiredX = (firstSize.width + secondSize.width) / 2 + gap
+        const requiredY = (firstSize.height + secondSize.height) / 2 + gap
+        const overlapX = requiredX - Math.abs(dx)
+        const overlapY = requiredY - Math.abs(dy)
+        if (overlapX <= 0 || overlapY <= 0) continue
+
+        const useHorizontal = overlapX / requiredX <= overlapY / requiredY
+        const delta = (useHorizontal ? overlapX : overlapY) + .5
+        const rawDistance = useHorizontal ? dx : dy
+        const direction = Math.abs(rawDistance) > .5 ? Math.sign(rawDistance) : first.id.localeCompare(second.id) <= 0 ? 1 : -1
+        const firstShare = firstCanMove ? secondCanMove ? .5 : 1 : 0
+        const secondShare = secondCanMove ? firstCanMove ? .5 : 1 : 0
+        if (useHorizontal) {
+          first.x -= direction * delta * firstShare
+          second.x += direction * delta * secondShare
+        } else {
+          first.y -= direction * delta * firstShare
+          second.y += direction * delta * secondShare
+        }
+        if (firstCanMove) Object.assign(first, clampPosition(first, viewport))
+        if (secondCanMove) Object.assign(second, clampPosition(second, viewport))
+      }
+    }
+  }
+  for (const item of objects) {
+    item.vx = 0
+    item.vy = 0
+  }
+}
+
 function physicsStep(items: SceneItem[], viewport: ViewportSize) {
   const next = items.map((item) => ({ ...item }))
   for (const item of next) {
@@ -322,7 +365,12 @@ function physicsStep(items: SceneItem[], viewport: ViewportSize) {
     }
   }
   const spawned = next.filter((item) => item.spawned && item.kind !== 'credit')
-  const gap = usesMobileNavigation(viewport) && spawned.some((item) => item.mobileCompact) ? 20 : usesMobileNavigation(viewport) ? 10 : 16
+  const mobileCompact = usesMobileNavigation(viewport) && spawned.some((item) => item.mobileCompact)
+  const gap = mobileCompact ? 20 : usesMobileNavigation(viewport) ? 10 : 16
+  if (mobileCompact) {
+    resolveMobileCollisions(spawned, viewport, gap)
+    return next
+  }
 
   for (const item of spawned) {
     if (item.fixed || item.hovered || item.pressed) continue
@@ -343,9 +391,8 @@ function physicsStep(items: SceneItem[], viewport: ViewportSize) {
       const halfHeight = (itemSize.height + otherSize.height) / 2
       const gapX = Math.max(0, Math.abs(dx) - halfWidth)
       const gapY = Math.max(0, Math.abs(dy) - halfHeight)
-      const attractionStrength = item.mobileCompact && other.kind === 'profile' ? other.attractStrength * .2 : other.attractStrength
-      attractionX += (dx >= 0 ? 1 : -1) * gapX * attractionStrength
-      attractionY += (dy >= 0 ? 1 : -1) * gapY * attractionStrength
+      attractionX += (dx >= 0 ? 1 : -1) * gapX * other.attractStrength
+      attractionY += (dy >= 0 ? 1 : -1) * gapY * other.attractStrength
 
       const separationX = Math.abs(item.x - other.x) - halfWidth
       const separationY = Math.abs(item.y - other.y) - halfHeight
@@ -362,13 +409,9 @@ function physicsStep(items: SceneItem[], viewport: ViewportSize) {
 
     if (repelCountX) repelX /= repelCountX
     if (repelCountY) repelY /= repelCountY
-    if (item.mobileCompact) {
-      repelX *= 1.8
-      repelY *= 1.8
-    }
     if (attractionX * repelX < 0) attractionX = 0
     if (attractionY * repelY < 0) attractionY = 0
-    const velocity = clampVector(attractionX + repelX, attractionY + repelY, item.mobileCompact ? 460 : 320)
+    const velocity = clampVector(attractionX + repelX, attractionY + repelY, 320)
     item.vx = velocity.x
     item.vy = velocity.y
     const position = clampPosition(item, viewport, {

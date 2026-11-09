@@ -15,7 +15,7 @@ describe('essayExpandedHeight', () => {
 })
 
 describe('popupPosition', () => {
-  it('uses vertical space on a portrait phone when side gaps cannot fit the item', () => {
+  it('uses the available area below compact navigation on a portrait phone', () => {
     const item = {
       id: 'mobile-card', kind: 'content', spawned: false, queued: false, fixed: false, hovered: false, touchExpanded: false, pressed: false,
       attractStrength: 0, baseWidth: 220, baseHeight: 200, x: 0, y: 0, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1, mobileCompact: true,
@@ -43,5 +43,20 @@ describe('popupPosition', () => {
 
     expect(position.y).toBeGreaterThan(profile.y + 26)
     expect(Math.abs(position.x)).toBeLessThan(330)
+  })
+
+  it('keeps desktop popup positions on the first ring around the centre profile', () => {
+    const item = {
+      id: 'desktop-card', kind: 'content', spawned: false, queued: false, fixed: false, hovered: false, touchExpanded: false, pressed: false,
+      attractStrength: 0, baseWidth: 250, baseHeight: 190, x: 0, y: 0, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
+    }
+    const profile = {
+      id: 'profile', kind: 'profile', spawned: true, queued: false, fixed: true, hovered: false, touchExpanded: false, pressed: false,
+      attractStrength: 1, baseWidth: 359, baseHeight: 259, x: 0, y: 0, vx: 0, vy: 0, scale: 1, targetScale: 1, expansion: 1, targetExpansion: 1,
+    }
+    const position = popupPosition(item as Parameters<typeof popupPosition>[0], { width: 1440, height: 900 }, [profile as Parameters<typeof popupPosition>[0]])
+
+    expect(Math.hypot(position.x, position.y)).toBeLessThan(410)
+    expect(Math.hypot(position.x, position.y)).toBeGreaterThan(250)
   })
 })

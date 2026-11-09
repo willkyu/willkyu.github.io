@@ -304,7 +304,7 @@ test('blank-canvas dragging leaves the fixed scene in place', async ({ page }) =
 test('narrow screens scale and contain the scene', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/', { waitUntil: 'domcontentloaded' })
-  await page.waitForTimeout(500)
+  await page.waitForTimeout(800)
   const profile = await page.locator('.identity-panel').boundingBox()
   expect(profile!.x + profile!.width / 2).toBeCloseTo(195, 0)
   expect(profile!.y + profile!.height / 2).toBeCloseTo(422, 0)
@@ -350,6 +350,18 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
     return rect.x + rect.width / 2
   }))
   expect(Math.max(...mobileObjects) - Math.min(...mobileObjects)).toBeGreaterThan(80)
+  await page.waitForTimeout(300)
+  const separatedObjects = await page.locator('.physics-item:not(.physics-credit)').filter({ has: page.locator('a') }).evaluateAll((nodes) => nodes.map((node) => {
+    const rect = node.getBoundingClientRect()
+    return { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom }
+  }))
+  for (let first = 0; first < separatedObjects.length; first += 1) {
+    for (let second = first + 1; second < separatedObjects.length; second += 1) {
+      const overlapX = Math.min(separatedObjects[first].right, separatedObjects[second].right) - Math.max(separatedObjects[first].left, separatedObjects[second].left)
+      const overlapY = Math.min(separatedObjects[first].bottom, separatedObjects[second].bottom) - Math.max(separatedObjects[first].top, separatedObjects[second].top)
+      expect(overlapX <= 2 || overlapY <= 2).toBe(true)
+    }
+  }
   await page.setViewportSize({ width: 844, height: 390 })
   await page.waitForTimeout(500)
   const landscapeProfile = (await page.locator('.identity-panel').boundingBox())!
