@@ -156,7 +156,7 @@ export function App() {
           <div className="identity-black" aria-hidden="true" />
           <h1 className="identity-name">{config.site.name}</h1>
           <div className="speech-bubble">{config.site.bubble}</div>
-          <div className="character-frame"><Character config={config.character} motion={config.motion} /></div>
+          <div className="character-frame"><Character config={config.character} motion={config.motion} preloadSources={config.content.map((item) => item.cover).filter((cover): cover is string => Boolean(cover))} /></div>
           <div className="identity-copy">
             <p className="sr-only">{config.site.description}</p>
             <Navigation categories={config.categories} activeCategoryIds={activeCategoryIds} onSelect={openCategory} contentCounts={contentCounts} />

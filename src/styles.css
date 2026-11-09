@@ -30,7 +30,8 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .speech-bubble { position: absolute; z-index: 7; top: 28%; right: 4%; width: 55%; height: 35px; padding: 0 7px; overflow: hidden; color: #fff; border: 4px solid #fff; border-radius: 16px; background: transparent; font: 700 16px/27px var(--font-display); text-align: right; white-space: nowrap; }
 .character-frame { position: absolute; z-index: 8; inset: 0; width: 61%; height: 100%; overflow: visible; pointer-events: none; }
 .character-stage { position: absolute; inset: 0; transform: translate(var(--character-x), var(--character-y)) scale(var(--character-scale)); transform-origin: var(--character-origin); pointer-events: auto; }
-.character-layer { position: absolute; inset: 0; width: 100%; height: 100%; padding: 4px 4px 4px 4px; object-fit: var(--character-fit); object-position: var(--character-position); user-select: none; pointer-events: none; transition: transform var(--motion-fast) ease-out; }
+.character-layer { position: absolute; inset: 0; width: 100%; height: 100%; padding: 4px 4px 4px 4px; object-fit: var(--character-fit); object-position: var(--character-position); opacity: 0; user-select: none; pointer-events: none; transition: transform var(--motion-fast) ease-out, opacity 90ms ease-out; }
+.character-stage[data-ready="true"] .character-layer { opacity: 1; }
 .character-fallback { position: absolute; inset: 20% 4px 4px; display: grid; place-items: center; color: var(--ink); border: 4px solid var(--ink); background: var(--paper); font: 900 70px/1 var(--font-display); }
 .identity-copy { position: absolute; z-index: 10; left: 55%; top: 46%; right: 0; bottom: 4%; display: flex; flex-direction: column; justify-content: flex-end; }
 
@@ -281,7 +282,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
   .reference-world .identity-panel[data-mobile-compact="true"] .category-nav:has(.category-button:nth-child(5)) .category-button { position: relative; flex: 1 1 0; display: grid; place-items: center; width: auto; min-width: 0; height: 100%; margin: 0; padding: 8px 6px 4px; border-width: 3px; border-radius: 0; background: linear-gradient(#fff 0 72%, #ddd 72% 100%); box-shadow: inset 0 0 0 1px #fff; font-size: 12px; line-height: 1.2; }
   .reference-world .identity-panel[data-mobile-compact="true"] .category-button:hover { width: auto; margin-left: 0; }
   .reference-world .identity-panel[data-mobile-compact="true"] .category-button[data-active="true"] { flex-grow: 1.32; width: auto; margin-left: 0; background: repeating-linear-gradient(-45deg, #bbb 0 6px, #999 6px 9px); box-shadow: inset 0 -8px 0 rgba(0, 0, 0, .12); font-size: 14px; }
-  .reference-world .identity-panel[data-mobile-compact="true"] .category-button__label { padding: 2px 8px 3px; overflow: visible; line-height: 1.25; }
+  .reference-world .identity-panel[data-mobile-compact="true"] .category-button__label { padding: 0 8px 2px; overflow: visible; line-height: 1.2; }
   .reference-world .identity-panel[data-mobile-compact="true"] .category-button__number { position: absolute; left: 3px; top: 2px; display: block; padding: 1px 2px; color: #fff; background: #111; font: 900 6px/1 var(--font-body); }
   .reference-world .identity-panel[data-mobile-compact="true"] .category-button__arrow { position: absolute; right: 3px; bottom: 1px; display: block; font: 900 8px/1 system-ui, sans-serif; }
   .reference-world .identity-panel[data-mobile-compact="true"] .category-button[data-active="true"] .category-button__arrow { display: none; }

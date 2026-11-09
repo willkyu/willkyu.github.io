@@ -1169,7 +1169,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
                 <div className="identity-black" aria-hidden="true" />
                 <h1 className="identity-name">{config.site.name}</h1>
                 <div className="speech-bubble">{config.site.bubble}</div>
-                <div className="character-frame"><Character config={config.character} motion={config.motion} externalGaze={config.motion.eyeFollow && config.character.eyeFollow.enabled ? gaze : { x: 0, y: 0 }} /></div>
+                <div className="character-frame"><Character config={config.character} motion={config.motion} externalGaze={config.motion.eyeFollow && config.character.eyeFollow.enabled ? gaze : { x: 0, y: 0 }} preloadSources={config.content.map((content) => content.cover).filter((cover): cover is string => Boolean(cover))} /></div>
                 <div className="identity-copy">
                   <p className="sr-only">{config.site.description}</p>
                   {item.mobileCompact && (

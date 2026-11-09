@@ -31,7 +31,17 @@ function DiscCard({ content }: CardRendererProps) {
           <small>{content.title}</small>
         </div>
         {content.cover && <img className="disc-image disc-image--shadow" src={content.cover} alt="" />}
-        {content.cover && <img className="disc-image" src={content.cover} alt="" decoding="async" onLoad={() => setImageState('loaded')} onError={() => setImageState('error')} />}
+        {content.cover && <img
+          className="disc-image"
+          src={content.cover}
+          alt=""
+          decoding="async"
+          ref={(image) => {
+            if (image?.complete) setImageState(image.naturalWidth > 0 ? 'loaded' : 'error')
+          }}
+          onLoad={() => setImageState('loaded')}
+          onError={() => setImageState('error')}
+        />}
       </div>
       <div className="disc-spine"><strong>{content.title}</strong><span>{content.description}</span></div>
     </a>

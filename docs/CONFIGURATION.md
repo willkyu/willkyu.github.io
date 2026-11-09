@@ -22,11 +22,11 @@
 
 - `mode`: `single` 或 `layered`。
 - `singleImage`: 单图模式使用的透明图片。
-- `layers`: 分层模式数组。`kind` 可为 `base`、`eye`、`foreground`；`zIndex` 控制次序；眼睛层可设置 `followPointer`。
+- `layers`: 分层模式数组。`kind` 可为 `base`、`eye`、`foreground`；`zIndex` 控制次序；眼睛层可设置 `followPointer`。所有图层会等待整组加载完成后同时显示，避免较小的眼睛或遮挡图先于人物底图出现。人物整组就绪后，主页会去重并以低优先级预加载当前 `content` 中的全部封面；异步 feed 后续加入的封面也会自动补充预加载。
 - `scale`、`x`、`y`: 整体缩放与像素偏移。
 - `anchor`: 决定素材的 `object-position` 与缩放原点。
 - `crop`: `contain` 或 `cover`。
-- `eyeFollow`: 是否开启及最大水平/垂直像素位移。缺图层时会自动隐藏失败层；基础层失败会显示占位符。
+- `eyeFollow`: 是否开启及最大水平/垂直像素位移。加载失败的可选图层会被忽略且不会阻塞整组显示；基础层失败会在其余图层结束加载后显示占位符。
 
 ## 栏目与内容选择
 

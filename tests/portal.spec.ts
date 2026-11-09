@@ -90,6 +90,35 @@ test('introduces the centre, then entry blocks and the parallax reference credit
   expect(creditLayers.far).not.toBe(creditLayers.near)
 })
 
+test('reveals all character layers together after the slow base image is ready', async ({ page }) => {
+  let releaseBase!: () => void
+  const baseGate = new Promise<void>((resolve) => { releaseBase = resolve })
+  let coverRequests = 0
+  await page.route('**/assets/character/37.png', async (route) => {
+    await baseGate
+    await route.continue()
+  })
+  await page.route('**/assets/temporary/disc_cover.png', async (route) => {
+    coverRequests += 1
+    await route.continue()
+  })
+
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+  const stage = page.locator('.character-stage')
+  const layers = stage.locator('.character-layer')
+  await expect(layers).toHaveCount(4)
+  await expect(stage).toHaveAttribute('aria-busy', 'true')
+  for (const layer of await layers.all()) await expect(layer).toHaveCSS('opacity', '0')
+  await page.waitForTimeout(100)
+  expect(coverRequests).toBe(0)
+
+  releaseBase()
+  await expect(stage).toHaveAttribute('data-ready', 'true')
+  await expect(stage).toHaveAttribute('aria-busy', 'false')
+  for (const layer of await layers.all()) await expect(layer).toHaveCSS('opacity', '1')
+  await expect.poll(() => coverRequests).toBeGreaterThan(0)
+})
+
 test('loads published feeds before rendering and binds entries without authored ids', async ({ page }) => {
   await page.route('**/blog/homepage-feed.json', (route) => route.fulfill({
     contentType: 'application/json',
@@ -344,6 +373,7 @@ test('compact mobile navigation enlarges the selection and returns to the centre
     const availableWidth = (await available.boundingBox())?.width ?? 1
     return selectedWidth / availableWidth
   }).toBeGreaterThan(1.2)
+  await expect(page.locator('.reference-portal')).not.toHaveAttribute('data-mobile-docking', 'true')
 
   const blogButton = page.getByRole('button', { name: /Blog，\d+ 条内容/ })
   const blogLabel = blogButton.locator('.category-button__label')
@@ -352,7 +382,6 @@ test('compact mobile navigation enlarges the selection and returns to the centre
   expect(labelBounds!.y + labelBounds!.height).toBeLessThan(blogBounds!.y + blogBounds!.height - 1)
   expect(labelBounds!.y).toBeGreaterThan(blogBounds!.y + 1)
 
-  await expect(page.locator('.reference-portal')).not.toHaveAttribute('data-mobile-docking', 'true')
   const returnBlock = page.getByRole('button', { name: '返回中心导航' })
   await expect(returnBlock).toBeVisible()
   await returnBlock.click()
@@ -725,8 +754,6 @@ test('items and centre options use layered parallax while the disc stays centred
   await page.getByRole('button', { name: /PM，1 条内容/ }).evaluate((button: HTMLButtonElement) => button.click())
   const disc = page.locator('[data-content-id="pokemon-disc"]')
   await expect(disc.locator('.disc-art')).toBeVisible()
-  await expect(disc.locator('.disc-art')).toHaveAttribute('data-state', 'loading')
-  await expect(disc.locator('.disc-placeholder')).toBeVisible()
   await expect(disc.locator('.disc-art')).toHaveAttribute('data-state', 'loaded')
   await expect(disc.locator('.disc-image:not(.disc-image--shadow)')).toHaveCSS('opacity', '1')
   await page.mouse.move(0, 0)
