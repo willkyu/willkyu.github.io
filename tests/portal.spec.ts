@@ -321,14 +321,27 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
   expect(halftone.y).toBeLessThan(0)
   expect(halftone.x + halftone.width).toBeGreaterThan(390)
   expect(halftone.y + halftone.height).toBeGreaterThan(844)
+  const initialBlockPositions = await page.locator('.physics-item').filter({ has: page.locator('.physics-link-card') }).evaluateAll((nodes) => nodes.map((node) => {
+    const rect = node.getBoundingClientRect()
+    return { x: rect.x + rect.width / 2, y: rect.y + rect.height / 2 }
+  }))
   await page.getByRole('button', { name: /PM，1 条内容/ }).click()
   const items = page.locator('.physics-content')
-  await expect(page.locator('.identity-panel')).toHaveAttribute('data-mobile-compact', 'true')
   await expect(page.locator('.reference-portal')).toHaveAttribute('data-mobile-docking', 'true')
+  await expect(page.locator('.reference-portal')).toHaveAttribute('data-mobile-dock-phase', 'fade')
+  await expect(page.locator('.identity-panel')).not.toHaveAttribute('data-mobile-compact', 'true')
   await page.waitForTimeout(90)
-  const dockingProfile = (await page.locator('.identity-panel').boundingBox())!
-  expect(dockingProfile.y).toBeGreaterThan(10)
-  expect(dockingProfile.y).toBeLessThan(profile!.y)
+  const fadingProfile = (await page.locator('.identity-panel').boundingBox())!
+  expect(fadingProfile.x + fadingProfile.width / 2).toBeCloseTo(195, 0)
+  expect(fadingProfile.y + fadingProfile.height / 2).toBeCloseTo(422, 0)
+  expect(Number(await page.locator('.identity-panel').evaluate((node) => getComputedStyle(node).opacity))).toBeLessThan(.8)
+  await expect(page.locator('.reference-portal')).toHaveAttribute('data-mobile-dock-phase', 'reveal')
+  await expect(page.locator('.identity-panel')).toHaveAttribute('data-mobile-compact', 'true')
+  const revealBlockShift = await page.locator('.physics-item').filter({ has: page.locator('.physics-link-card') }).evaluateAll((nodes, before) => nodes.map((node, index) => {
+    const rect = node.getBoundingClientRect()
+    return Math.hypot(rect.x + rect.width / 2 - before[index].x, rect.y + rect.height / 2 - before[index].y)
+  }), initialBlockPositions)
+  expect(Math.max(...revealBlockShift)).toBeLessThan(20)
   await expect(items).toHaveCount(1)
   await page.waitForTimeout(610)
   await expect(page.locator('.reference-portal')).not.toHaveAttribute('data-mobile-docking', 'true')
@@ -351,7 +364,7 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
     const rect = node.getBoundingClientRect()
     return rect.x + rect.width / 2
   }))
-  expect(Math.max(...mobileObjects) - Math.min(...mobileObjects)).toBeGreaterThan(80)
+  expect(Math.max(...mobileObjects) - Math.min(...mobileObjects)).toBeGreaterThan(50)
   await page.waitForTimeout(300)
   const separatedObjects = await page.locator('.physics-item:not(.physics-credit)').filter({ has: page.locator('a') }).evaluateAll((nodes) => nodes.map((node) => {
     const rect = node.getBoundingClientRect()
@@ -364,6 +377,21 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
       expect(overlapX <= 2 || overlapY <= 2).toBe(true)
     }
   }
+  const blockShift = await page.evaluate(async () => {
+    const blocks = [...document.querySelectorAll<HTMLElement>('.physics-item:has(.physics-link-card)')]
+    const before = blocks.map((node) => {
+      const rect = node.getBoundingClientRect()
+      return { x: rect.x + rect.width / 2, y: rect.y + rect.height / 2 }
+    })
+    const nextCategory = [...document.querySelectorAll<HTMLButtonElement>('.category-button')].find((button) => !button.disabled)
+    nextCategory?.click()
+    await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()))
+    return blocks.map((node, index) => {
+      const rect = node.getBoundingClientRect()
+      return Math.hypot(rect.x + rect.width / 2 - before[index].x, rect.y + rect.height / 2 - before[index].y)
+    })
+  })
+  expect(Math.max(...blockShift)).toBeLessThan(20)
   await page.setViewportSize({ width: 844, height: 390 })
   await page.waitForTimeout(500)
   const landscapeProfile = (await page.locator('.identity-panel').boundingBox())!

@@ -498,6 +498,8 @@ interface ReferencePortalProps {
   style: CSSProperties
 }
 
+type MobileDockPhase = 'idle' | 'fade' | 'reveal'
+
 export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const initialViewport = useMemo(() => ({ width: window.innerWidth, height: window.innerHeight }), [])
   const initialItems = useMemo(() => createItems(config, initialViewport), [config, initialViewport])
@@ -505,7 +507,8 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const renderedItemsRef = useRef<SceneItem[]>(initialItems)
   const viewportRef = useRef<ViewportSize>(initialViewport)
   const spawnTimers = useRef<number[]>([])
-  const mobileDockTimer = useRef(0)
+  const mobileDockTimers = useRef<number[]>([])
+  const mobileDockingRef = useRef(false)
   const orientationListening = useRef(false)
   const orientationPermissionTried = useRef(false)
   const orientationBaseline = useRef<{ beta: number; gamma: number } | null>(null)
@@ -519,7 +522,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const [touchMode, setTouchMode] = useState(() => window.matchMedia('(hover: none), (pointer: coarse)').matches)
   const [orientationActive, setOrientationActive] = useState(false)
   const [orientationPointer, setOrientationPointer] = useState({ x: 0, y: 0 })
-  const [mobileDocking, setMobileDocking] = useState(false)
+  const [mobileDockPhase, setMobileDockPhase] = useState<MobileDockPhase>('idle')
 
   const updateItems = useCallback((updater: (current: SceneItem[]) => SceneItem[]) => {
     const next = updater(itemsRef.current)
@@ -685,7 +688,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
 
   useEffect(() => () => {
     spawnTimers.current.forEach((timer) => window.clearTimeout(timer))
-    if (mobileDockTimer.current) window.clearTimeout(mobileDockTimer.current)
+    mobileDockTimers.current.forEach((timer) => window.clearTimeout(timer))
   }, [])
 
   const resetScenePointer = useCallback(() => {
@@ -738,32 +741,38 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
     if (!candidates.length) return
     const candidateIds = new Set(candidates.map((item) => item.id))
     const compactMobile = usesMobileNavigation(viewportRef.current)
-    const firstMobileDock = compactMobile && !itemsRef.current.find((item) => item.kind === 'profile')?.mobileCompact
-    if (firstMobileDock) {
-      setMobileDocking(true)
-      if (mobileDockTimer.current) window.clearTimeout(mobileDockTimer.current)
-      mobileDockTimer.current = window.setTimeout(() => {
-        mobileDockTimer.current = 0
-        setMobileDocking(false)
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const firstMobileDock = compactMobile
+      && !mobileDockingRef.current
+      && !itemsRef.current.find((item) => item.kind === 'profile')?.mobileCompact
+    const animateMobileDock = firstMobileDock && !reducedMotion
+    if (animateMobileDock) {
+      mobileDockingRef.current = true
+      setMobileDockPhase('fade')
+      const revealTimer = window.setTimeout(() => {
+        updateItems((current) => current.map((currentItem) => {
+          let item = { ...currentItem, mobileCompact: true }
+          if (item.kind === 'profile') item = { ...item, ...profilePosition(item, viewportRef.current) }
+          return item
+        }))
+        setMobileDockPhase('reveal')
+      }, 180)
+      const finishTimer = window.setTimeout(() => {
+        mobileDockingRef.current = false
+        setMobileDockPhase('idle')
       }, 520)
+      mobileDockTimers.current.push(revealTimer, finishTimer)
     }
     updateItems((current) => {
-      const compacted = current.map((currentItem) => {
-        let item = compactMobile ? { ...currentItem, mobileCompact: true } : currentItem
-        if (item.kind === 'profile' && compactMobile) item = { ...item, ...profilePosition(item, viewportRef.current) }
+      const compactNow = compactMobile && !mobileDockingRef.current
+      return current.map((currentItem) => {
+        let item = compactNow ? { ...currentItem, mobileCompact: true } : currentItem
+        if (item.kind === 'profile' && compactNow) item = { ...item, ...profilePosition(item, viewportRef.current) }
         return candidateIds.has(item.id) ? { ...item, queued: true } : item
-      })
-      if (!compactMobile) return compacted
-      const occupied = compacted.filter((item) => item.kind === 'profile' || (item.kind === 'content' && item.spawned))
-      return compacted.map((item) => {
-        if (item.kind !== 'link') return item
-        const positioned = { ...item, ...popupPosition(item, viewportRef.current, occupied), vx: 0, vy: 0 }
-        occupied.push({ ...positioned, spawned: true })
-        return positioned
       })
     })
 
-    const dockDelay = firstMobileDock && !window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 380 : 0
+    const dockDelay = mobileDockingRef.current ? 430 : 0
     candidates.forEach((candidate, index) => {
       const timer = window.setTimeout(() => {
         updateItems((current) => current.map((item) => {
@@ -915,7 +924,8 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
       style={style}
       data-input={touchMode ? 'touch' : 'pointer'}
       data-touch-parallax={touchMode ? orientationActive ? 'gyro' : 'off' : 'pointer'}
-      data-mobile-docking={mobileDocking || undefined}
+      data-mobile-docking={mobileDockPhase !== 'idle' || undefined}
+      data-mobile-dock-phase={mobileDockPhase !== 'idle' ? mobileDockPhase : undefined}
     >
       <div
         className="reference-viewport"
