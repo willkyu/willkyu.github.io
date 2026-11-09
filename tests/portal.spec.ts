@@ -329,7 +329,7 @@ test('category buttons switch the visible popup group and restore the previous o
   await expect(page.getByRole('button', { name: /Research，已选择/ })).toBeDisabled()
 })
 
-test('compact mobile navigation enlarges only the selected unavailable option', async ({ page }) => {
+test('compact mobile navigation enlarges the selection and returns to the centre scene', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/', { waitUntil: 'domcontentloaded' })
   await page.getByRole('button', { name: /PM，1 条内容/ }).click()
@@ -344,6 +344,32 @@ test('compact mobile navigation enlarges only the selected unavailable option', 
     const availableWidth = (await available.boundingBox())?.width ?? 1
     return selectedWidth / availableWidth
   }).toBeGreaterThan(1.2)
+
+  const blogButton = page.getByRole('button', { name: /Blog，\d+ 条内容/ })
+  const blogLabel = blogButton.locator('.category-button__label')
+  const blogBounds = await blogButton.boundingBox()
+  const labelBounds = await blogLabel.boundingBox()
+  expect(labelBounds!.y + labelBounds!.height).toBeLessThan(blogBounds!.y + blogBounds!.height - 1)
+  expect(labelBounds!.y).toBeGreaterThan(blogBounds!.y + 1)
+
+  await expect(page.locator('.reference-portal')).not.toHaveAttribute('data-mobile-docking', 'true')
+  const returnBlock = page.getByRole('button', { name: '返回中心导航' })
+  await expect(returnBlock).toBeVisible()
+  await returnBlock.click()
+  await expect(page.locator('.reference-portal')).toHaveAttribute('data-mobile-dock-phase', 'return-nav')
+  await expect(page.locator('.identity-panel')).toHaveCSS('animation-name', 'mobile-nav-exit-up')
+  await expect(page.locator('.physics-content').first()).toHaveAttribute('data-exiting', 'true')
+  await expect(page.locator('.reference-portal')).toHaveAttribute('data-mobile-dock-phase', 'return-profile')
+  await expect(page.locator('.identity-panel')).not.toHaveAttribute('data-mobile-compact', 'true')
+  await expect(page.locator('.physics-content')).toHaveCount(0)
+  const returnedCredit = page.locator('.physics-credit')
+  await expect(returnedCredit).toHaveAttribute('data-returned', 'true')
+  await expect(returnedCredit).toHaveCSS('animation-name', 'mobile-credit-enter-up')
+  await expect(page.getByRole('button', { name: '返回中心导航' })).toHaveCount(0)
+  await expect(page.locator('.reference-portal')).not.toHaveAttribute('data-mobile-docking', 'true')
+  const returnedProfile = await page.locator('.identity-panel').boundingBox()
+  expect(returnedProfile!.x + returnedProfile!.width / 2).toBeCloseTo(195, 0)
+  expect(returnedProfile!.y + returnedProfile!.height / 2).toBeCloseTo(422, 0)
 })
 
 test('blank-canvas dragging leaves the fixed scene in place', async ({ page }) => {
@@ -406,7 +432,7 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
   await page.waitForTimeout(60)
   await expect(page.locator('.identity-panel')).toHaveCSS('animation-name', 'item-shrink-out')
   await expect(mobileCredit).toHaveAttribute('data-exiting', 'true')
-  await expect(mobileCredit).toHaveCSS('animation-name', 'item-shrink-out')
+  await expect(mobileCredit).toHaveCSS('animation-name', 'mobile-credit-exit-down')
   await page.waitForTimeout(30)
   const fadingProfile = (await page.locator('.identity-panel').boundingBox())!
   expect(fadingProfile.x + fadingProfile.width / 2).toBeCloseTo(195, 0)
@@ -426,7 +452,7 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
   expect(compactProfile.x).toBeCloseTo(10, 0)
   expect(compactProfile.y).toBeCloseTo(10, 0)
   expect(compactProfile.width).toBeCloseTo(370, 0)
-  expect(compactProfile.height).toBeCloseTo(58, 0)
+  expect(compactProfile.height).toBeCloseTo(64, 0)
   for (const box of await items.evaluateAll((nodes) => nodes.map((node) => {
     const rect = node.getBoundingClientRect()
     return { x: rect.x, y: rect.y, width: rect.width, height: rect.height }
@@ -476,7 +502,7 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
   expect(landscapeProfile.x).toBeCloseTo(10, 0)
   expect(landscapeProfile.y).toBeCloseTo(10, 0)
   expect(landscapeProfile.width).toBeCloseTo(824, 0)
-  expect(landscapeProfile.height).toBeCloseTo(52, 0)
+  expect(landscapeProfile.height).toBeCloseTo(56, 0)
   for (const box of await items.evaluateAll((nodes) => nodes.map((node) => {
     const rect = node.getBoundingClientRect()
     return { y: rect.y }

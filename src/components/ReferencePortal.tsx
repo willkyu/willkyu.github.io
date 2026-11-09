@@ -26,6 +26,7 @@ interface SceneItem {
   spawned: boolean
   queued: boolean
   exiting?: boolean
+  returned?: boolean
   fixed: boolean
   hovered: boolean
   touchExpanded: boolean
@@ -97,7 +98,7 @@ function usesMobileNavigation(viewport: ViewportSize) {
 }
 
 function mobileCompactHeight(viewport: ViewportSize) {
-  return viewport.height <= 500 ? 52 : 58
+  return viewport.height <= 500 ? 56 : 64
 }
 
 const mobileContentClearance = 24
@@ -501,7 +502,7 @@ interface ReferencePortalProps {
   style: CSSProperties
 }
 
-type MobileDockPhase = 'idle' | 'fade' | 'reveal'
+type MobileDockPhase = 'idle' | 'fade' | 'reveal' | 'return-nav' | 'return-profile'
 
 export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const initialViewport = useMemo(() => ({ width: window.innerWidth, height: window.innerHeight }), [])
@@ -513,6 +514,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const activeCategoryRef = useRef<string | null>(null)
   const mobileDockTimers = useRef<number[]>([])
   const mobileDockingRef = useRef(false)
+  const mobileReturningRef = useRef(false)
   const orientationListening = useRef(false)
   const orientationPermissionTried = useRef(false)
   const orientationBaseline = useRef<{ beta: number; gamma: number } | null>(null)
@@ -753,6 +755,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   )
 
   const spawnCategory = useCallback((category: CategoryConfig) => {
+    if (mobileReturningRef.current) return
     if (activeCategoryRef.current === category.id) return
     const candidates = itemsRef.current
       .filter((item) => item.kind === 'content' && item.categoryId === category.id && !item.spawned)
@@ -878,6 +881,79 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
       }, appearanceDelay + index * 170)
       spawnTimers.current.push(timer)
     })
+  }, [updateItems])
+
+  const returnToProfile = useCallback(() => {
+    if (mobileReturningRef.current || !usesMobileNavigation(viewportRef.current)) return
+    const profile = itemsRef.current.find((item) => item.kind === 'profile')
+    if (!profile?.mobileCompact) return
+
+    spawnTimers.current.forEach((timer) => window.clearTimeout(timer))
+    spawnTimers.current = []
+    mobileDockTimers.current.forEach((timer) => window.clearTimeout(timer))
+    mobileDockTimers.current = []
+    mobileReturningRef.current = true
+    mobileDockingRef.current = true
+    activeCategoryRef.current = null
+    setActiveCategoryId(null)
+    setMobileDockPhase('return-nav')
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const revealDelay = reducedMotion ? 0 : 260
+    const finishDelay = reducedMotion ? 20 : 820
+
+    updateItems((current) => current.map((item) => {
+      if (item.kind !== 'content') return item
+      if (!item.spawned) return { ...item, queued: false, exiting: false }
+      return {
+        ...item,
+        queued: false,
+        exiting: true,
+        hovered: false,
+        touchExpanded: false,
+        pressed: false,
+        targetScale: 1,
+        targetExpansion: 1,
+        vx: 0,
+        vy: 0,
+      }
+    }))
+
+    const revealTimer = window.setTimeout(() => {
+      updateItems((current) => current.map((currentItem) => {
+        if (currentItem.kind === 'profile') {
+          const item = { ...currentItem, mobileCompact: false }
+          return { ...item, ...profilePosition(item, viewportRef.current) }
+        }
+        if (currentItem.kind === 'credit') {
+          const item = { ...currentItem, spawned: true, exiting: false, returned: true }
+          return { ...item, ...creditPosition(item, viewportRef.current) }
+        }
+        if (currentItem.kind !== 'content') return currentItem
+        return {
+          ...currentItem,
+          spawned: false,
+          queued: false,
+          exiting: false,
+          hovered: false,
+          touchExpanded: false,
+          pressed: false,
+          scale: 1,
+          targetScale: 1,
+          expansion: 1,
+          targetExpansion: 1,
+          vx: 0,
+          vy: 0,
+          mobileCompact: false,
+        }
+      }))
+      setMobileDockPhase('return-profile')
+    }, revealDelay)
+    const finishTimer = window.setTimeout(() => {
+      mobileReturningRef.current = false
+      mobileDockingRef.current = false
+      setMobileDockPhase('idle')
+    }, finishDelay)
+    mobileDockTimers.current.push(revealTimer, finishTimer)
   }, [updateItems])
 
   const setHover = useCallback((id: string, hovered: boolean) => {
@@ -1069,7 +1145,15 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
                 <h1 className="identity-name">{config.site.name}</h1>
                 <div className="speech-bubble">{config.site.bubble}</div>
                 <div className="character-frame"><Character config={config.character} motion={config.motion} externalGaze={config.motion.eyeFollow && config.character.eyeFollow.enabled ? gaze : { x: 0, y: 0 }} /></div>
-                <div className="identity-copy"><p className="sr-only">{config.site.description}</p><Navigation categories={config.categories} activeCategoryIds={activeCategoryIds} onSelect={spawnCategory} contentCounts={remainingCounts} /></div>
+                <div className="identity-copy">
+                  <p className="sr-only">{config.site.description}</p>
+                  {item.mobileCompact && (
+                    <button className="mobile-return-block" type="button" onClick={returnToProfile} aria-label="返回中心导航">
+                      <span aria-hidden="true">BACK</span><strong>返回</strong>
+                    </button>
+                  )}
+                  <Navigation categories={config.categories} activeCategoryIds={activeCategoryIds} onSelect={spawnCategory} contentCounts={remainingCounts} />
+                </div>
               </section>
               )
             }
@@ -1098,6 +1182,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
                 className="physics-item physics-credit popup-item"
                 data-pressed={item.pressed || undefined}
                 data-exiting={item.exiting || undefined}
+                data-returned={item.returned || undefined}
                 style={itemStyle}
                 key={item.id}
                 onPointerEnter={() => setHover(item.id, true)}
