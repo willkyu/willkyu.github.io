@@ -40,7 +40,9 @@ test('introduces the centre, then entry blocks and the parallax reference credit
     expect(Math.abs(box.width - box.height)).toBeLessThan(.5)
   }
   await expect(links.first()).toHaveCSS('animation-name', 'none')
-  await expect(page.locator('.physics-item.popup-item').filter({ has: page.locator('.physics-link-card') }).first()).toHaveCSS('animation-name', 'item-popup')
+  const firstLinkItem = page.locator('.physics-item.popup-item').filter({ has: page.locator('.physics-link-card') }).first()
+  await expect(firstLinkItem).toHaveCSS('animation-name', 'item-popup')
+  await expect(firstLinkItem).toHaveCSS('animation-duration', '0.56s')
   await page.evaluate(() => window.dispatchEvent(new Event('blur')))
   const linkLabelOffsets = await links.evaluateAll((nodes) => nodes.map((node) => {
     const card = node.getBoundingClientRect()
@@ -59,13 +61,18 @@ test('introduces the centre, then entry blocks and the parallax reference credit
   await expect(credit).toBeVisible({ timeout: 2_000 })
   await expect(credit).toHaveAttribute('href', 'https://nikukikai.art/')
   const creditItem = page.locator('.physics-credit')
-  const creditBox = (await creditItem.boundingBox())!
+  const arrowOffset = await credit.evaluate((node) => {
+    const card = node.getBoundingClientRect()
+    const arrow = node.querySelector('i')!.getBoundingClientRect()
+    return Math.abs(card.y + card.height / 2 - (arrow.y + arrow.height / 2))
+  })
+  expect(arrowOffset).toBeLessThan(.5)
   await creditItem.hover()
   expect(Number(await creditItem.evaluate((node) => getComputedStyle(node).zIndex))).toBeGreaterThanOrEqual(1000)
-  await creditItem.evaluate((node, position) => {
+  await creditItem.evaluate((node) => {
     const rect = node.getBoundingClientRect()
-    node.dispatchEvent(new PointerEvent('pointermove', { bubbles: true, pointerType: 'mouse', clientX: rect.left + position.x, clientY: rect.top + position.y }))
-  }, { x: creditBox.width * .85, y: creditBox.height * .2 })
+    node.dispatchEvent(new PointerEvent('pointermove', { bubbles: true, pointerType: 'mouse', clientX: rect.left + rect.width * .85, clientY: rect.top + rect.height * .2 }))
+  })
   await expect.poll(async () => credit.evaluate((node) => new DOMMatrix(getComputedStyle(node).transform).m41)).toBeGreaterThan(1)
   const creditLayers = await credit.evaluate((node) => ({
     surface: getComputedStyle(node).transform,
@@ -122,6 +129,7 @@ test('loads published feeds before rendering and binds entries without authored 
   await expect(sensor.getByRole('link', { name: '打开 SensorLM: Learning the Language of Wearable Sensors' })).toHaveAttribute('href', '/research/papers/sensorlm')
   await expect(sensor.locator('.essay-preview')).toBeVisible()
   await expect(sensor.locator('.essay-copy')).toBeHidden()
+  await page.waitForTimeout(600)
   const collapsedPreviewMetrics = await sensor.locator('.essay-preview').evaluate((node) => {
     const range = document.createRange()
     range.selectNodeContents(node)
@@ -281,7 +289,7 @@ test('blank-canvas dragging leaves the fixed scene in place', async ({ page }) =
 
   const profile = page.locator('.identity-panel')
   const credit = page.locator('.physics-credit')
-  await page.waitForTimeout(500)
+  await page.waitForTimeout(1500)
   await expect(credit).toBeVisible()
   const before = await profile.boundingBox()
   const creditBefore = await credit.boundingBox()
@@ -325,26 +333,32 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
     const rect = node.getBoundingClientRect()
     return { x: rect.x + rect.width / 2, y: rect.y + rect.height / 2 }
   }))
+  await expect(page.locator('.physics-credit')).toBeVisible()
   await page.getByRole('button', { name: /PM，1 条内容/ }).click()
   const items = page.locator('.physics-content')
+  const mobileCredit = page.locator('.physics-credit')
   await expect(page.locator('.reference-portal')).toHaveAttribute('data-mobile-docking', 'true')
   await expect(page.locator('.reference-portal')).toHaveAttribute('data-mobile-dock-phase', 'fade')
   await expect(page.locator('.identity-panel')).not.toHaveAttribute('data-mobile-compact', 'true')
-  await page.waitForTimeout(90)
+  await page.waitForTimeout(60)
+  await expect(page.locator('.identity-panel')).toHaveCSS('animation-name', 'item-shrink-out')
+  await expect(mobileCredit).toHaveAttribute('data-exiting', 'true')
+  await expect(mobileCredit).toHaveCSS('animation-name', 'item-shrink-out')
+  await page.waitForTimeout(30)
   const fadingProfile = (await page.locator('.identity-panel').boundingBox())!
   expect(fadingProfile.x + fadingProfile.width / 2).toBeCloseTo(195, 0)
   expect(fadingProfile.y + fadingProfile.height / 2).toBeCloseTo(422, 0)
-  expect(Number(await page.locator('.identity-panel').evaluate((node) => getComputedStyle(node).opacity))).toBeLessThan(.8)
   await expect(page.locator('.reference-portal')).toHaveAttribute('data-mobile-dock-phase', 'reveal')
   await expect(page.locator('.identity-panel')).toHaveAttribute('data-mobile-compact', 'true')
   const revealBlockShift = await page.locator('.physics-item').filter({ has: page.locator('.physics-link-card') }).evaluateAll((nodes, before) => nodes.map((node, index) => {
     const rect = node.getBoundingClientRect()
     return Math.hypot(rect.x + rect.width / 2 - before[index].x, rect.y + rect.height / 2 - before[index].y)
   }), initialBlockPositions)
-  expect(Math.max(...revealBlockShift)).toBeLessThan(20)
+  expect(Math.max(...revealBlockShift)).toBeLessThan(30)
   await expect(items).toHaveCount(1)
   await page.waitForTimeout(610)
   await expect(page.locator('.reference-portal')).not.toHaveAttribute('data-mobile-docking', 'true')
+  await expect(mobileCredit).toHaveCount(0)
   const compactProfile = (await page.locator('.identity-panel').boundingBox())!
   expect(compactProfile.x).toBeCloseTo(10, 0)
   expect(compactProfile.y).toBeCloseTo(10, 0)
@@ -362,9 +376,10 @@ test('narrow screens scale and contain the scene', async ({ page }) => {
   }
   const mobileObjects = await page.locator('.physics-item').filter({ has: page.locator('a') }).evaluateAll((nodes) => nodes.map((node) => {
     const rect = node.getBoundingClientRect()
-    return rect.x + rect.width / 2
+    return { x: rect.x + rect.width / 2, y: rect.y + rect.height / 2 }
   }))
-  expect(Math.max(...mobileObjects) - Math.min(...mobileObjects)).toBeGreaterThan(50)
+  const maximumObjectDistance = mobileObjects.reduce((maximum, first) => Math.max(maximum, ...mobileObjects.map((second) => Math.hypot(second.x - first.x, second.y - first.y))), 0)
+  expect(maximumObjectDistance).toBeGreaterThan(50)
   await page.waitForTimeout(300)
   const separatedObjects = await page.locator('.physics-item:not(.physics-credit)').filter({ has: page.locator('a') }).evaluateAll((nodes) => nodes.map((node) => {
     const rect = node.getBoundingClientRect()

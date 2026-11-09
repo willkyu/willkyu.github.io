@@ -25,6 +25,7 @@ interface SceneItem {
   categoryId?: string
   spawned: boolean
   queued: boolean
+  exiting?: boolean
   fixed: boolean
   hovered: boolean
   touchExpanded: boolean
@@ -608,7 +609,13 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
       : [360, 500, 640, 820]
     const introItems = itemsRef.current.filter((item) => item.kind === 'link' || item.kind === 'credit')
     const timers = introItems.map((item, index) => window.setTimeout(() => {
-      updateItems((current) => current.map((entry) => entry.id === item.id ? { ...entry, spawned: true } : entry))
+      updateItems((current) => {
+        const profileIsCompact = current.find((entry) => entry.kind === 'profile')?.mobileCompact
+        const suppressMobileCredit = item.kind === 'credit'
+          && usesMobileNavigation(viewportRef.current)
+          && (mobileDockingRef.current || profileIsCompact)
+        return current.map((entry) => entry.id === item.id && !suppressMobileCredit ? { ...entry, spawned: true, exiting: false } : entry)
+      })
     }, delays[index] ?? delays.at(-1) ?? 0))
     return () => timers.forEach((timer) => window.clearTimeout(timer))
   }, [updateItems])
@@ -644,7 +651,9 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
           const item = { ...currentItem, mobileCompact }
           if (item.kind === 'profile') return { ...item, ...profilePosition(item, nextViewport) }
           if (item.kind === 'link' || !item.spawned) return item
-          if (item.kind === 'credit') return { ...item, ...creditPosition(item, nextViewport) }
+          if (item.kind === 'credit') return mobileCompact
+            ? { ...item, spawned: false, exiting: false }
+            : { ...item, spawned: true, exiting: false, ...creditPosition(item, nextViewport) }
           return {
             ...item,
             ...clampPosition(item, nextViewport, {
@@ -761,13 +770,21 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
         mobileDockingRef.current = false
         setMobileDockPhase('idle')
       }, 520)
-      mobileDockTimers.current.push(revealTimer, finishTimer)
+      const hideCreditTimer = window.setTimeout(() => {
+        updateItems((current) => current.map((item) => item.kind === 'credit' ? { ...item, spawned: false, exiting: false } : item))
+      }, 260)
+      mobileDockTimers.current.push(revealTimer, hideCreditTimer, finishTimer)
     }
     updateItems((current) => {
       const compactNow = compactMobile && !mobileDockingRef.current
       return current.map((currentItem) => {
         let item = compactNow ? { ...currentItem, mobileCompact: true } : currentItem
         if (item.kind === 'profile' && compactNow) item = { ...item, ...profilePosition(item, viewportRef.current) }
+        if (item.kind === 'credit' && firstMobileDock) {
+          item = animateMobileDock
+            ? { ...item, exiting: item.spawned }
+            : { ...item, spawned: false, exiting: false }
+        }
         return candidateIds.has(item.id) ? { ...item, queued: true } : item
       })
     })
@@ -987,6 +1004,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
               <div
                 className="physics-item popup-item"
                 data-pressed={item.pressed || undefined}
+                data-exiting={item.exiting || undefined}
                 style={itemStyle}
                 key={item.id}
                 onPointerEnter={() => setHover(item.id, true)}
@@ -1006,6 +1024,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
               <div
                 className="physics-item physics-credit popup-item"
                 data-pressed={item.pressed || undefined}
+                data-exiting={item.exiting || undefined}
                 style={itemStyle}
                 key={item.id}
                 onPointerEnter={() => setHover(item.id, true)}
@@ -1029,6 +1048,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
               <div
                 className="physics-item physics-content popup-item"
                 data-pressed={item.pressed || undefined}
+                data-exiting={item.exiting || undefined}
                 data-touch-expanded={item.touchExpanded || undefined}
                 data-appearance={item.content.appearance}
                 data-content-id={item.content.id}

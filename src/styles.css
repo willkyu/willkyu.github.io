@@ -51,16 +51,21 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .slot-position { position: absolute; left: var(--desktop-x); top: var(--desktop-y); width: min(var(--card-width), var(--desktop-width), calc(100vw - 24px)); height: min(var(--card-height), var(--desktop-height)); z-index: var(--slot-z); transform: translate(var(--desktop-anchor-x), var(--desktop-anchor-y)); pointer-events: auto; }
 .slot-position[data-active="true"] { z-index: 45; }
 .window-angle { width: 100%; height: 100%; transform: rotate(var(--slot-angle)); transform-origin: center; transition: transform var(--motion-duration) var(--motion-easing); }
-.portal-window { position: relative; width: 100%; height: 100%; animation: window-enter var(--motion-duration) var(--motion-easing) both; transition: transform var(--motion-fast) ease; }
+.portal-window { position: relative; width: 100%; height: 100%; animation: window-enter 560ms ease-in-out both; transition: transform var(--motion-fast) ease; }
 .slot-position[data-enter="left"] .portal-window { --entry-x: calc(-1 * var(--enter-distance)); --entry-y: 0px; }
 .slot-position[data-enter="right"] .portal-window { --entry-x: var(--enter-distance); --entry-y: 0px; }
 .slot-position[data-enter="top"] .portal-window { --entry-x: 0px; --entry-y: calc(-1 * var(--enter-distance)); }
 .slot-position[data-enter="bottom"] .portal-window { --entry-x: 0px; --entry-y: var(--enter-distance); }
 .slot-position[data-enter="scale"] .portal-window { --entry-x: 0px; --entry-y: 0px; }
 .portal-window:hover { transform: scale(var(--hover-scale)); }
-.slot-position[data-closing="true"] .portal-window { animation: window-exit var(--motion-fast) ease-in both; pointer-events: none; }
-@keyframes window-enter { from { opacity: 0; transform: translate(var(--entry-x, 0), var(--entry-y, 0)) scale(.85); } to { opacity: 1; transform: translate(0, 0) scale(1); } }
-@keyframes window-exit { to { opacity: 0; transform: scale(.82); } }
+.slot-position[data-closing="true"] .portal-window { animation: item-shrink-out 240ms ease-in both; pointer-events: none; }
+@keyframes window-enter {
+  0% { opacity: 0; transform: translate(var(--entry-x, 0), var(--entry-y, 0)) scale(.2); }
+  52% { opacity: 1; transform: translate(0, 0) scale(1.1); }
+  72% { transform: translate(0, 0) scale(.95); }
+  88% { transform: translate(0, 0) scale(1.025); }
+  100% { opacity: 1; transform: translate(0, 0) scale(1); }
+}
 .window-content { width: 100%; height: 100%; overflow: visible; }
 .window-close { position: absolute; z-index: 12; top: -14px; right: -14px; display: grid; place-items: center; width: 28px; height: 28px; padding: 0 0 2px; color: #fff; border: 4px solid #000; background: #000; font: 700 20px/1 var(--font-display); cursor: pointer; transition: color .2s, background .2s, transform .2s; }
 .window-close:hover { color: #000; background: #fff; transform: scale(1.1); }
@@ -175,17 +180,23 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .reference-viewport { position: relative; width: 100vw; height: 100dvh; min-height: min(480px, 100dvh); overflow: hidden; isolation: isolate; touch-action: manipulation; user-select: none; -webkit-user-select: none; }
 .reference-world { position: absolute; z-index: 1; left: 50%; top: 50%; width: 0; height: 0; }
 .physics-item { position: absolute; transform: scale(var(--item-hover-scale, 1)); transform-origin: center; transition: left 80ms linear, top 80ms linear, transform 90ms linear, filter var(--motion-fast) ease; }
-.popup-item { animation: item-popup var(--motion-duration) var(--motion-easing) backwards; }
-.profile-popup { animation: item-popup var(--motion-duration) var(--motion-easing) backwards; }
+.popup-item { animation: item-popup 560ms ease-in-out backwards; }
+.profile-popup { animation: item-popup 560ms ease-in-out backwards; }
+.physics-item[data-exiting="true"] { animation: item-shrink-out 240ms ease-in both !important; pointer-events: none; }
 .popup-item:hover,
 .popup-item[data-touch-expanded="true"] { z-index: 30 !important; }
 .reference-portal[data-input="touch"] .physics-content::after { content: '轻触'; position: absolute; z-index: 40; right: 0; top: -18px; padding: 2px 5px; color: #fff; border: 2px solid #111; background: #111; font: 800 9px/1 var(--font-body); letter-spacing: .06em; pointer-events: none; }
 .reference-portal[data-input="touch"] .physics-content[data-touch-expanded="true"]::after { content: '再点打开 ↗'; }
 @keyframes item-popup {
-  0% { opacity: 0; filter: blur(8px); transform: scale(0); }
-  68% { opacity: 1; filter: blur(0); transform: scale(var(--popup-overshoot-scale, 1.08)); }
-  84% { transform: scale(var(--popup-settle-scale, .96)); }
+  0% { opacity: 0; filter: blur(7px); transform: translateY(14px) scale(.16); }
+  48% { opacity: 1; filter: blur(0); transform: translateY(-3px) scale(1.12); }
+  68% { transform: translateY(2px) scale(.94); }
+  84% { transform: translateY(-1px) scale(1.035); }
   100% { opacity: 1; filter: blur(0); transform: scale(var(--item-hover-scale, 1)); }
+}
+@keyframes item-shrink-out {
+  0% { opacity: 1; filter: blur(0); transform: scale(var(--item-hover-scale, 1)); }
+  100% { opacity: 0; filter: blur(5px); transform: scale(.12); }
 }
 .reference-world .identity-panel { top: auto; left: auto; opacity: 1; transform: var(--profile-transform, scale(var(--responsive-scale, 1))); transform-style: flat; transition: opacity 180ms ease, transform 180ms ease; }
 .reference-world .identity-panel .identity-black { transform: translate(var(--centre-far-x, 0), var(--centre-far-y, 0)); transition: transform 100ms ease-out, opacity 180ms ease, visibility 0s linear; }
@@ -193,7 +204,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .reference-world .identity-panel .speech-bubble { transform: translate(var(--centre-mid-x, 0), var(--centre-mid-y, 0)); transition: transform 100ms ease-out, opacity 180ms ease, visibility 0s linear; }
 .reference-world .identity-panel .character-frame { transform: translate(var(--centre-near-x, 0), var(--centre-near-y, 0)); transition: transform 100ms ease-out, opacity 180ms ease, visibility 0s linear; }
 .reference-world .identity-panel .identity-copy { transform: translate(var(--centre-option-x, 0), var(--centre-option-y, 0)); transition: transform 100ms ease-out; }
-.reference-portal[data-mobile-dock-phase="fade"] .reference-world .identity-panel { opacity: 0; transform: scale(.96); }
+.reference-portal[data-mobile-dock-phase="fade"] .reference-world .identity-panel { transition: none; animation: item-shrink-out 180ms ease-in forwards; }
 .reference-portal[data-mobile-dock-phase="reveal"] .reference-world .identity-panel { transition: none; animation: mobile-nav-drop 340ms cubic-bezier(.16, 1, .3, 1) both; }
 .physics-item:has(a[href]) { cursor: pointer; }
 .physics-link-card { position: relative; display: block; width: 100%; height: 100%; color: #111; text-decoration: none; cursor: pointer; touch-action: manipulation; transition: transform 80ms linear, filter 80ms linear; container-type: inline-size; }
@@ -207,7 +218,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .credit-copy { position: absolute; z-index: 2; inset: 0 42px 0 23%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transform: translate(var(--layer-mid-x, 0), var(--layer-mid-y, 0)); transition: transform 80ms linear; }
 .credit-copy small { font: 700 clamp(7px, 2.2cqw, 9px)/1 var(--font-body); letter-spacing: .08em; white-space: nowrap; }
 .credit-copy strong { margin-top: 4px; font: 800 clamp(15px, 5.3cqw, 20px)/.95 var(--font-display); white-space: nowrap; }
-.physics-credit-card > i { position: absolute; z-index: 3; right: 10px; top: 50%; font: normal 900 28px/1 system-ui, sans-serif; transform: translate(var(--layer-near-x, 0), calc(-50% + var(--layer-near-y, 0))); transition: transform 80ms linear; }
+.physics-credit-card > i { position: absolute; z-index: 3; right: 6px; top: 0; bottom: 0; display: grid; place-items: center; width: 34px; height: 100%; font: normal 900 28px/1 system-ui, sans-serif; transform: translate(var(--layer-near-x, 0), var(--layer-near-y, 0)); transition: transform 80ms linear; }
 .physics-content .card { transition: transform 80ms linear, filter 80ms linear; }
 .physics-content .card:active,
 .physics-link-card:active,
