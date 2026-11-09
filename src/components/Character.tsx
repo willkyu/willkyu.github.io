@@ -8,9 +8,10 @@ interface CharacterProps {
   motion: MotionSubset
   externalGaze?: { x: number; y: number }
   preloadSources?: string[]
+  onReady?: () => void
 }
 
-export function Character({ config, motion, externalGaze, preloadSources = [] }: CharacterProps) {
+export function Character({ config, motion, externalGaze, preloadSources = [], onReady }: CharacterProps) {
   const [gaze, setGaze] = useState({ x: 0, y: 0 })
   const [failed, setFailed] = useState<Set<string>>(new Set())
   const [resolved, setResolved] = useState<Set<string>>(new Set())
@@ -68,6 +69,10 @@ export function Character({ config, motion, externalGaze, preloadSources = [] }:
     }, 0)
     return () => window.clearTimeout(timer)
   }, [preloadSignature, ready]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (ready) onReady?.()
+  }, [onReady, ready])
 
   return (
     <div className="character-stage" data-ready={ready || undefined} aria-busy={!ready} style={baseStyle} onPointerMove={handlePointer} onPointerLeave={() => setGaze({ x: 0, y: 0 })}>

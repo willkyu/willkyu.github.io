@@ -184,7 +184,8 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--ink, #111); out
 .reference-world { position: absolute; z-index: 1; left: 50%; top: 50%; width: 0; height: 0; }
 .physics-item { position: absolute; transform: scale(var(--item-hover-scale, 1)); transform-origin: center; transition: left 80ms linear, top 80ms linear, transform 90ms linear, filter var(--motion-fast) ease; }
 .popup-item { animation: item-popup 560ms ease-in-out backwards; }
-.profile-popup { animation: item-popup 560ms ease-in-out backwards; }
+.profile-popup { visibility: hidden; animation: none; }
+.profile-popup[data-character-ready="true"] { visibility: visible; animation: item-popup 560ms ease-in-out backwards; }
 .physics-item[data-exiting="true"] { animation: item-shrink-out 240ms ease-in both !important; pointer-events: none; }
 .popup-item:hover,
 .popup-item[data-touch-expanded="true"] { z-index: 30 !important; }

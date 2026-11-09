@@ -536,6 +536,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const renderedItemsRef = useRef<SceneItem[]>(initialItems)
   const viewportRef = useRef<ViewportSize>(initialViewport)
   const spawnTimers = useRef<number[]>([])
+  const introStartedRef = useRef(false)
   const activeCategoryRef = useRef<string | null>(null)
   const mobileDockTimers = useRef<number[]>([])
   const mobileDockingRef = useRef(false)
@@ -555,6 +556,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   const [orientationPointer, setOrientationPointer] = useState({ x: 0, y: 0 })
   const [mobileDockPhase, setMobileDockPhase] = useState<MobileDockPhase>('idle')
   const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null)
+  const [characterReady, setCharacterReady] = useState(false)
 
   const updateItems = useCallback((updater: (current: SceneItem[]) => SceneItem[]) => {
     const next = updater(itemsRef.current)
@@ -562,6 +564,8 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
     renderedItemsRef.current = next
     setItems(next)
   }, [])
+
+  const markCharacterReady = useCallback(() => setCharacterReady(true), [])
 
   useEffect(() => {
     const media = window.matchMedia('(hover: none), (pointer: coarse)')
@@ -635,6 +639,8 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
   }, [handleOrientation, startOrientation, touchMode])
 
   useEffect(() => {
+    if (!characterReady || introStartedRef.current) return
+    introStartedRef.current = true
     const delays = window.matchMedia('(prefers-reduced-motion: reduce)').matches
       ? [0, 20, 40, 60]
       : [360, 500, 640, 820]
@@ -649,7 +655,7 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
       })
     }, delays[index] ?? delays.at(-1) ?? 0))
     return () => timers.forEach((timer) => window.clearTimeout(timer))
-  }, [updateItems])
+  }, [characterReady, updateItems])
 
   useEffect(() => {
     updateItems((current) => {
@@ -1165,11 +1171,11 @@ export function ReferencePortal({ config, style }: ReferencePortalProps) {
                 '--profile-transform': 'none',
               } as CSSProperties
               return (
-              <section className="identity-panel physics-item profile-popup" data-mobile-compact={item.mobileCompact || undefined} style={profileStyle} aria-label="个人身份与分类导航" key={item.id}>
+              <section className="identity-panel physics-item profile-popup" data-character-ready={characterReady} data-mobile-compact={item.mobileCompact || undefined} style={profileStyle} aria-label="个人身份与分类导航" key={item.id}>
                 <div className="identity-black" aria-hidden="true" />
                 <h1 className="identity-name">{config.site.name}</h1>
                 <div className="speech-bubble">{config.site.bubble}</div>
-                <div className="character-frame"><Character config={config.character} motion={config.motion} externalGaze={config.motion.eyeFollow && config.character.eyeFollow.enabled ? gaze : { x: 0, y: 0 }} preloadSources={config.content.map((content) => content.cover).filter((cover): cover is string => Boolean(cover))} /></div>
+                <div className="character-frame"><Character config={config.character} motion={config.motion} externalGaze={config.motion.eyeFollow && config.character.eyeFollow.enabled ? gaze : { x: 0, y: 0 }} preloadSources={config.content.map((content) => content.cover).filter((cover): cover is string => Boolean(cover))} onReady={markCharacterReady} /></div>
                 <div className="identity-copy">
                   <p className="sr-only">{config.site.description}</p>
                   {item.mobileCompact && (
