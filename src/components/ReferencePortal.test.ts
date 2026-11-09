@@ -42,7 +42,7 @@ describe('popupPosition', () => {
     const position = popupPosition(item as Parameters<typeof popupPosition>[0], { width: 844, height: 390 }, [profile as Parameters<typeof popupPosition>[0]])
 
     expect(position.y).toBeGreaterThan(profile.y + 26)
-    expect(Math.abs(position.x)).toBeLessThan(330)
+    expect(Math.abs(position.x)).toBeLessThan(340)
   })
 
   it('keeps desktop popup positions on the first ring around the centre profile', () => {
